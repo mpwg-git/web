@@ -1,12 +1,12 @@
 <?
 class fe_cookie
 {
-	const cookiename			= 'wsf_login';
-	const cookietable			= 'wizard_auto_861';
-	const cookie_lifetime_days 	= 1800;
-	const cookiename_fragen		= 'wsf_fragen';
-	const cookiename_cookiewarn = 'wsf_cookie_warning_seen';
-	const cookie_longterm_life_days = 1800;
+	const cookiename						= 'wsf_login';
+	const cookietable						= 'wizard_auto_861';
+	const cookie_lifetime_days 		= 1800;
+	const cookiename_fragen				= 'wsf_fragen';
+	const cookiename_cookiewarn 		= 'wsf_cookie_warning_seen';
+	const cookie_longterm_life_days 	= 1800;
 
 
 	public static function createLoginCookieForUserId($userId)
@@ -25,6 +25,7 @@ class fe_cookie
 		self::setCookieByUserIdAndHash($userId, $hash);
 	}
 
+
 	public static function deleteLoginCookie()
 	{
 		$hash = $_COOKIE[self::cookiename];
@@ -40,10 +41,12 @@ class fe_cookie
 		return true;
 	}
 
+
 	public static function genCookiehash()
 	{
 		return md5( rand(0, 999999) . microtime(1) . 'WSF' . rand(0,99999) );
 	}
+
 
 	public static function getUserIdByHash($hash)
 	{
@@ -53,6 +56,7 @@ class fe_cookie
 		if ($usercookie == false) return false;
 		return intval($usercookie['wz_USERID']);
 	}
+
 
 	public static function setCookieByUserIdAndHash($userId, $hash)
 	{
@@ -69,7 +73,7 @@ class fe_cookie
 		setcookie(self::cookiename, $hash, time() + (86400 * self::cookie_lifetime_days), '/');
 	}
 
-	
+
 	public static function sc_checkCookie()
 	{
 		if ($_REQUEST['cms'] == 1) return true; // xGo Workaround
@@ -94,6 +98,7 @@ class fe_cookie
 		return true;
 	}
 
+
 	public static function sc_checkFragencookie()
 	{
 		if (!$_COOKIE[self::cookiename_fragen])
@@ -105,6 +110,7 @@ class fe_cookie
 
 		return false;
 	}
+
 
 	public static function checkFragenSession()
 	{
@@ -119,6 +125,7 @@ class fe_cookie
 		return false;
 	}
 
+
 	public static function sc_showCookieUsageWarning()
 	{
 		if (!$_COOKIE[self::cookiename_cookiewarn])
@@ -128,6 +135,7 @@ class fe_cookie
 
 		return false;
 	}
+
 
 	public static function ajax_setCookieWarningSeen()
 	{
