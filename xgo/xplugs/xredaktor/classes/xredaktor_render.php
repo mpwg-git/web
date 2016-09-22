@@ -25,15 +25,10 @@ class xredaktor_render
 				$detect 	= new Mobile_Detect();
 				$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 				
-				// Fix for V2 - START
-				if (isset($_SESSION['layoutV2']) && $_SESSION['layoutV2'] == 1)
-				{					
-					if($deviceType == 'tablet')
-					{
-						$deviceType = 'phone';
-					}
+				if($deviceType == 'tablet')
+				{
+					$deviceType = 'phone';
 				}
-				// Fix for V2 - END
 								
 				switch ($deviceType)
 				{

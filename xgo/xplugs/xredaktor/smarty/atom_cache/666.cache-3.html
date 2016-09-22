@@ -7,11 +7,9 @@
     <p class="line-1"><%$smarty.session['xredaktor_feUser_wsf']['wz_VORNAME']%></p>
     
     <ol>
-        <li <%if $P_ID == 7 || $P_ID == 8%>class="active"<%/if%>>
+        <li <%if $P_ID == 7 || $P_ID == 8 || $P_ID == 30%>class="active"<%/if%>>
             <a href="<%xr_genlink p_id=8%>">
-                <%xr_translate tag="Fülle dein Profil aus.
-                Lorem ipsum dolor sit sed,
-                etiam in nonullum."%>
+                <%xr_translate tag="Profil & Suchkriterien definieren."%>
             </a>
         </li>
        
@@ -47,5 +45,4 @@
     <p class="line-3">
         <%xr_translate tag="Und schon kannst du lorem ipsum dolor sit. Sed etiam in nonulli."%>
     </p>
-    
 </div>
