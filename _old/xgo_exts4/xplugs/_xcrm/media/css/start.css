@@ -1,0 +1,86 @@
+
+.start_screen_holder {
+	overflow: hidden;
+}
+
+.start_screen_holder div {
+
+	float:left;
+	width: 200px;
+	height: 200px;
+	margin: 30px;
+	cursor: pointer;
+	
+}
+
+.float_end {
+	clear:both !important;
+}
+
+.start_screen_personen {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/Ansprechpersonen.gif");
+}
+.start_screen_personen:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/personen_n.gif");
+}
+
+.start_screen_betriebe {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/Betriebe.gif");
+}
+.start_screen_betriebe:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/betriebe_n.gif");
+}
+
+.start_screen_angebote {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/Angeobte.gif");
+}
+.start_screen_angebote:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/angebote_n.gif");
+}
+
+.start_screen_events {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/events.gif");
+}
+.start_screen_events:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/events_n.gif");
+}
+
+.start_screen_notizen {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/notizen.gif");
+}
+.start_screen_notizen:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/notizen_n.gif");
+}
+
+.start_screen_bilder {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/Bilddatenbank.gif");
+}
+.start_screen_bilder:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/bilder_n.gif");
+}
+
+.start_screen_reports {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/Reports.gif");
+}
+.start_screen_reports:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/reports_n.gif");
+}
+
+.start_screen_mailings {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/mailings.gif");
+}
+.start_screen_mailings:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/mailings_n.gif");
+}
+
+.start_screen_setup {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/Einstellungen.gif");
+}
+
+.icon_betriebe {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/small_betriebe.png") !important;
+}
+.icon_betriebe:hover {
+	background-image: url("/xgo/xplugs/xcrm/media/img/start/betriebe_n.gif") !important;
+}
+

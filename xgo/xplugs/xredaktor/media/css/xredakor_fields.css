@@ -1,0 +1,324 @@
+
+
+.xr_field_timemachine {
+	background-image: url("../../../../xframe/icons/fugue/clock-frame.png") !important;
+}
+
+.xr_field_json {
+	background-image: url("../../../../xframe/icons/json/1392751635_json.png") !important;
+}
+
+.xr_field_not_installed {
+	background-image: url("../../../../xframe/icons/fugue/cross-button.png") !important;
+}
+
+.xr_json_null  {
+	background-image: url("../../../../xframe/icons/json/traffic-cone.png") !important;
+}
+
+.xr_json_string {
+	background-image: url("../../../../xframe/icons/json/blue.gif") !important;
+}
+
+.xr_json_number {
+	background-image: url("../../../../xframe/icons/json/green.gif") !important;
+}
+
+.xr_json_boolean {
+	background-image: url("../../../../xframe/icons/json/yellow.gif") !important;
+}
+
+.xr_json_array {
+	background-image: url("../../../../xframe/icons/json/array.gif") !important;
+}
+
+.xr_json_object {
+	background-image: url("../../../../xframe/icons/json/object.gif") !important;
+}
+
+.xr_json_function {
+	background-image: url("../../../../xframe/icons/fugue/function.png") !important;
+}
+
+.mce-i-xr_link:before {
+	content:"\e011"!important;
+}
+.mce-i-xr_img:before {
+	content: "\e014"!important;
+}
+.mce-i-xr_video:before {
+	content:"\e015"!important;
+}
+
+.mce-btn button {
+	height: 27px!important;
+}
+
+.rendererIconCls {
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	display: block;
+	position: absolute;
+	top: -1px;
+}
+
+.rendererIconLabel {
+	padding-left: 22px;
+}
+
+.xr_file_details {
+	font-size: 11px;
+}
+
+.HIGHLIGHT_YESS {
+	font-weight:bold;
+}
+
+.x-check-group-alt2 {
+	border-bottom: 1px dotted #DFDFDF;
+	margin-top: 5px;
+}
+
+.xr_multilang {
+
+}
+
+.xr_multilang label{
+	background-color: orange;
+}
+
+.xr_field_split_h {
+	background-image: url("../../../../xframe/icons/fugue/ui-splitter-horizontal.png") !important;
+}
+
+.xr_field_split_v {
+	background-image: url("../../../../xframe/icons/fugue/ui-splitter.png") !important;
+}
+
+.xr_field_comment {
+	background-image: url("../../../../xframe/icons/fugue/question-button.png") !important;
+}
+
+.xr_field_stamper {
+	background-image: url("../../../../xframe/icons/fugue/postage-stamp.png") !important;
+}
+
+.color-box {
+	width:30px;
+	height:30px;
+	margin:5px;
+	border: 1px solid black;
+}
+
+.x-form-item-label {
+	/* font-weight: bold; */
+}
+
+.x-fieldset-header-text {
+	font-weight: bold;
+}
+.xr_form_grid {
+	background-image: url("../../../../xframe/icons/fugue/grid.png") !important;
+}
+
+.xr_field_not_set {
+	background-image: url("../../../../xframe/icons/fugue/plus.png") !important;
+}
+
+.xr_field_remote_field {
+	background-image: url("../../../../xframe/icons/fugue/node-delete-child.png") !important;
+}
+.xr_field_remote_record {
+	background-image: url("../../../../xframe/icons/fugue/ui-toolbar--arrow.png") !important;
+}
+
+.xr_field_img {
+	background-image: url("../../../../xframe/icons/fugue/image.png") !important;
+}
+
+.xr_field_gui_collector {
+	background-image: url("../../../../xframe/icons/fugue/ui-group-box.png") !important;
+}
+
+.xr_field_infopool_record {
+	background-image: url("../../../../xframe/icons/fugue/database--arrow.png") !important;
+}
+
+.xr_field_gui_folder {
+	background-image: url("../../../../xframe/icons/fugue/ui-button-navigation.png") !important;
+}
+
+.xr_field_yn {
+	background-image: url("../../../../xframe/icons/fugue/ui-check-box.png") !important;
+}
+
+.xr_field_checkbox {
+	background-image: url("../../../../xframe/icons/fugue/ui-check-boxes-series.png") !important;
+}
+
+.xr_field_combo {
+	background-image: url("../../../../xframe/icons/fugue/ui-combo-box.png") !important;
+}
+
+.xr_field_radio {
+	background-image: url("../../../../xframe/icons/fugue/ui-radio-buttons.png") !important;
+}
+
+.xr_field_md5password {
+	background-image: url("../../../../xframe/icons/fugue/ui-text-field-password.png") !important;
+}
+
+.xr_field_link {
+	background-image: url("../../../../xframe/icons/fugue/ui-label-link.png") !important;
+}
+
+.xr_field_text {
+	background-image: url("../../../../xframe/icons/fugue/ui-text-field.png") !important;
+}
+
+.xr_field_textarea {
+	background-image: url("../../../../xframe/icons/fugue/ui-text-area.png") !important;
+}
+
+.xr_field_int {
+	background-image: url("../../../../xframe/icons/fugue/ui-spin.png") !important;
+}
+
+.xr_field_float {
+	background-image: url("../../../../xframe/icons/fugue/ui-spin.png") !important;
+}
+
+.xr_field_date {
+	background-image: url("../../../../xframe/icons/fugue/ui-combo-box-calendar.png") !important;
+}
+
+.xr_field_time {
+	background-image: url("../../../../xframe/icons/fugue/ui-combo-box-blue.png") !important;
+}
+
+.xr_field_html {
+	background-image: url("../../../../xframe/icons/fugue/ui-panel.png") !important;
+}
+
+.xr_field_timestamp {
+	background-image: url("../../../../xframe/icons/fugue/ui-combo-boxes.png") !important;
+}
+
+.xr_field_container {
+	background-image: url("../../../../xframe/icons/fugue/wall-break.png") !important;
+}
+
+.xr_field_gui_root {
+	background-image: url("../../../../xframe/icons/fugue/ui-accordion.png") !important;
+}
+
+.xr_field_atomlist {
+	background-image: url("../../../../xframe/icons/fugue/ui-scroll-pane-text-image.png") !important;
+}
+
+.xr_field_wizard {
+	background-image: url("../../../../xframe/icons/fugue/task-select-last.png") !important;
+}
+
+.xr_field_simple_w2w {
+	background-image: url("../../../../xframe/icons/fugue/task-select.png") !important;
+}
+
+.xr_field_unique_w2w {
+	background-image: url("../../../../xframe/icons/fugue/task.png") !important;
+}
+
+.xr_field_unique_w2w {
+	background-image: url("../../../../xframe/icons/fugue/task.png") !important;
+}
+
+.xr_field_wizardlist {
+	background-image: url("../../../../xframe/icons/fugue/task-select-first.png") !important;
+}
+
+.xr_field_wizard2wizard {
+	background-image: url("../../../../xframe/icons/fugue/task--exclamation.png") !important;
+}
+
+
+
+.xr_field_wattribute {
+	background-image: url("../../../../xframe/icons/fugue/databases-relation.png") !important;
+}
+
+.xr_field_atom {
+	background-image: url("../../../../xframe/icons/fugue/document-code.png") !important;
+}
+.xr_field_wid {
+	background-image: url("../../../../xframe/icons/fugue/database-medium.png") !important;
+}
+.xr_field_page {
+	background-image: url("../../../../xframe/icons/fugue/document-node.png") !important;
+}
+.xr_field_frame{
+	background-image: url("../../../../xframe/icons/fugue/document-hf.png") !important;
+}
+.xr_field_action{
+	background-image: url("../../../../xframe/icons/fugue/paper-plane.png") !important;
+}
+
+.xf_search {
+	background-image: url("../../../../xframe/icons/fugue/document-search-result.png") !important;
+}
+
+.xr_field_file {
+	background-image: url("../../../../xframe/icons/fugue/document-horizontal.png") !important;
+}
+.xr_field_dir {
+	background-image: url("../../../../xframe/icons/fugue/folder-tree.png") !important;
+}
+.xr_field_container-files {
+	background-image: url("../../../../xframe/icons/fugue/folder-open-document-text.png") !important;
+}
+.xr_field_container-images {
+	background-image: url("../../../../xframe/icons/fugue/folder-open-image.png") !important;
+}
+
+.xr_field_geo-point {
+	background-image: url("../../../../xframe/icons/fugue/layer-select-point.png") !important;
+}
+.xr_field_geo-box {
+	background-image: url("../../../../xframe/icons/fugue/layer-select.png") !important;
+}
+.xr_field_geo-poly {
+	background-image: url("../../../../xframe/icons/fugue/layer-shape-polygon.png") !important;
+}
+
+.xr_field_img_gallery {
+	background-image: url("../../../../xframe/icons/fugue/images-stack.png") !important;
+}
+
+.xr_field_color {
+	background-image: url("../../../../xframe/icons/fugue/color.png") !important;
+}
+.xr_field_video {
+	background-image: url("../../../../xframe/icons/fugue/television-test.png") !important;
+}
+
+.xr_gui_tabpanel {
+	background-image: url("../../../../xframe/icons/fugue/ui-tab-content.png") !important;
+}
+.xr_gui_tabpanel_tab {
+	background-image: url("../../../../xframe/icons/fugue/ui-tab.png") !important;
+}
+.xr_gui_step{
+	background-image: url("../../../../xframe/icons/fugue/application-export.png") !important;
+}
+.xr_gui_fieldcontainer{
+	background-image: url("../../../../xframe/icons/fugue/ui-group-box.png") !important;
+}
+.xr_gui_grid{
+	background-image: url("../../../../xframe/icons/fugue/layout-header-3.png") !important;
+}
+.xr_gui_grid_column{
+	background-image: url("../../../../xframe/icons/fugue/layout-select-content.png") !important;
+}
+.xr_gui_row{
+	background-image: url("../../../../xframe/icons/fugue/layout-join-vertical.png") !important;
+}

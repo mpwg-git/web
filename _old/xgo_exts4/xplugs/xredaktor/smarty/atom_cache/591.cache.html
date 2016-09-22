@@ -1,0 +1,22 @@
+
+ <%foreach $data['ITEMS'] as $k => $v name=count%>
+                
+                <%if ($smarty.foreach.count.index is div by 3)%>
+                    <%if ($smarty.foreach.count.index != 0)%>
+                        </div>
+                    <%/if%>
+                    <div class="row">
+                <%/if%>
+                
+                <div class="col-sm-4">
+					<div class="lw-item"> 
+						<h3 class="nowra"> <%$v['TITLE']%></h3>
+						<span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+						<p class="labelpic"><a href="<%$v['LINK']%>"><%xr_img s_id=$v['IMG'] w=698 h=416 rmode="cco" q=85 var="thumb"%><img class="img-responsive" with="698" height="416" src2="<%$prethumb.src%>" src="<%$thumb.src%>"></a></p>
+					
+						<p> <%$v['TEXT']%></p>
+						<p>&nbsp;</p>
+						<div class="clearer"></div>
+					</div>
+				</div>
+            <%/foreach%>

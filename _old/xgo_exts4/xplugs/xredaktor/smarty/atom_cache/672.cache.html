@@ -1,0 +1,18 @@
+<%xr_siteCall fn='oa_validation::showAds' var='showAds'%>
+<%if $showAds || $smarty.request.showads == 1%>
+
+<div class="row visible-mobile">
+	<div class="col-sm-12 ad_placement_mobile">
+		<%*ADVERTISEMENT: 320x50*%>
+		<%xr_atom a_id=669 return=1%>
+	</div>
+</div>
+
+<div class="row visible-tablet">
+	<div class="col-sm-12 ad_placement_tablet">
+		<%*ADVERTISEMENT: 728x90*%>
+		<%xr_atom a_id=671 return=1%>
+	</div>
+</div>
+
+<%/if%>

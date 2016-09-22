@@ -1,0 +1,223 @@
+<%xr_siteCall fn='be_voting::get_overview' var='data'%>
+<%if count($data['step1']) > 0%>
+<div class="row" style="padding-bottom: 40px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">
+            <b>Voting - Step 1</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Submitted work</b>
+            </div>
+            <div class="col-sm-8">
+            <b>To vote</b>
+            </div>
+        </div>
+    </div>
+    <%foreach $data['step1'] as $k => $v%>
+    <%if $v['TODO'] > 0%>
+    
+    <div class="col-sm-12">
+        <hr />
+        <div class="row">
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <%if $v['TYPE'] == 4%>
+            <a href="<%xr_genlink p_id=149 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['ev_name']%></a>
+            <%else%>
+            <a href="<%xr_genlink p_id=135 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['ev_name']%></a>
+            <%/if%>
+            <%else%>
+            <%$v['ev_name']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <%if $v['TYPE'] == 4%>
+            <a href="<%xr_genlink p_id=149 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['SUM']%></a>
+            <%else%>
+            <a href="<%xr_genlink p_id=135 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['SUM']%></a>
+            <%/if%>
+            <%else%>
+            <%$v['SUM']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <%if $v['TYPE'] == 4%>
+            <a href="<%xr_genlink p_id=149 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['TODO']%></a>
+            <%else%>
+            <a href="<%xr_genlink p_id=135 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['TODO']%></a>
+            <%/if%>
+            <%else%>
+            <%$v['TODO']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-6">
+            <%if $v['TYPE'] == 4%>
+            <a href="<%xr_genlink p_id=150 r_id=$v['ev_id'] m_suffix=$v['ev_name']%>" target="_self">Overview - Todo</a>
+            <%else%>
+            <a href="<%xr_genlink p_id=137 r_id=$v['ev_id'] m_suffix=$v['ev_name']%>" target="_self">Overview - Todo</a>
+            <%/if%>
+            </div>
+        </div>
+    </div>
+    <%/if%>
+    <%/foreach%>
+</div>
+<%/if%>
+<%if count($data['step2']) > 0%>
+<div class="row" style="padding-bottom: 40px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">
+            <b>Voting - Step 2</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Submitted work</b>
+            </div>
+            <div class="col-sm-8">
+            <b>To vote</b>
+            </div>
+        </div>
+    </div>
+    
+    <%foreach $data['step2'] as $k => $v%>
+    <%if $v['TODO'] > 0%>
+    
+    <div class="col-sm-12">
+        <hr />
+        <div class="row">
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=147 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['ev_name']%></a>
+            <%else%>
+            <%$v['ev_name']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=147 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['SUM']%></a>
+            <%else%>
+            <%$v['SUM']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=147 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['TODO']%></a>
+            <%else%>
+            <%$v['TODO']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-6">
+            <a href="<%xr_genlink p_id=148 r_id=$v['ev_id'] m_suffix=$v['ev_name']%>" target="_self">Overview - Todo</a>
+            </div>
+        </div>
+    </div>
+    <%/if%>
+    <%/foreach%>
+</div>
+<%/if%>
+<%if count($data['x1']) > 0%>
+<div class="row" style="padding-bottom: 40px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">
+            <b>Move to main voting</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Submitted work</b>
+            </div>
+            <div class="col-sm-8">
+            <b>To vote</b>
+            </div>
+        </div>
+    </div>
+    <%foreach $data['x1'] as $k => $v%>
+    <%if $v['TODO'] > 0%>
+    
+    <div class="col-sm-12">
+        <hr />
+        <div class="row">
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=153 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['ev_name']%></a>
+            <%else%>
+            <%$v['ev_name']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=153 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['SUM']%></a>
+            <%else%>
+            <%$v['SUM']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=153 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['TODO']%></a>
+            <%else%>
+            <%$v['TODO']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-6">
+            <!--<a href="<%xr_genlink p_id=148 r_id=$v['ev_id'] m_suffix=$v['ev_name']%>" target="_self">Overview - Todo</a>-->
+            </div>
+        </div>
+    </div>
+    <%/if%>
+    <%/foreach%>
+</div>
+<%/if%>
+
+<%if count($data['x2']) > 0%>
+<div class="row" style="padding-bottom: 40px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">
+            <b>Override to preselected</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Submitted work</b>
+            </div>
+            <div class="col-sm-8">
+            <b>To vote</b>
+            </div>
+        </div>
+    </div>
+    <%foreach $data['x2'] as $k => $v%>
+    <%if $v['TODO'] > 0%>
+    
+    <div class="col-sm-12">
+        <hr />
+        <div class="row">
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=154 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['ev_name']%></a>
+            <%else%>
+            <%$v['ev_name']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=154 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['SUM']%></a>
+            <%else%>
+            <%$v['SUM']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-2">
+            <%if $v['FIRSTTOVOTE'] > 0%>
+            <a href="<%xr_genlink p_id=154 es_id=$v['FIRSTTOVOTE'] ev_id=$v['ev_id'] m_suffix="<%$v['ev_id']%>/<%$v['FIRSTTOVOTE']%>"%>" target="_self"><%$v['TODO']%></a>
+            <%else%>
+            <%$v['TODO']%>
+            <%/if%>
+            </div>
+            <div class="col-sm-6">
+            <!--<a href="<%xr_genlink p_id=148 r_id=$v['ev_id'] m_suffix=$v['ev_name']%>" target="_self">Overview - Todo</a>-->
+            </div>
+        </div>
+    </div>
+    <%/if%>
+    <%/foreach%>
+</div>
+<%/if%>

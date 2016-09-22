@@ -1,0 +1,132 @@
+<%xr_siteCall fn='fe_submissions::sc_confirm' SUBMISSIONTYPE='PRINT' var='data'%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+		    <div class="line-top"></div>
+		    <h1>Confirm - Print</h1>
+		    
+		    <ul class="nav nav-pills p-woche">
+    			<li><a href="#">Step 1 - Contact Data</a></li>
+    			<li class=""><a href="#">Step 2- Input Your Work</a></li>
+    			<li class="active"><a href="#">Step 3- Confirm</a></li>
+    		</ul>
+		
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	<div class="row">
+		<div id="uploaded-images" class="col-sm-12">
+		
+			
+		<div id="uploaded-imagess" class="col-sm-12">
+			
+		<!-- image BEGIN -->
+
+	    
+		
+<%foreach $data as $k => $v%>
+            <div class="row uploadedImg-1 submission-wrapper" style="margin-top: 40px; position:relative;" id="submission-wrapper-247">
+				<div class="col-sm-4 static-uploaded-images">
+				
+					<%if $v['estd_highres_thumbnail'] != ''%>
+            		<img src="<%$v['estd_highres_thumbnail']%>" class="img-responsive" alt="">
+            		<%else%>
+            		<img src="<%$v['estd_lowres_thumbnail']%>" class="img-responsive" alt="">
+            		<%/if%>
+					
+					<div class="image-info-plus upload-area">
+						highres status:  <%if $v['estd_highres'] != ''%><span style="color: green;">PRESENT</span><%else%><span style="color: red;">MISSING</span><%/if%>
+					</div>
+					
+					
+				</div>
+				
+				<div class="col-sm-6 static-credits uploadedImg-1">
+				<form class="submit-submission" id="submit-submission-247">	
+		
+					<div class="form-group">
+								<label for="exampleInputKEY">Campaign</label>
+								<br />
+								<%$v['RAW']['Campaign']%>
+					</div>
+					
+					<div class="form-group">
+								<label for="exampleInputAT">Ad Title</label>
+								<br />
+								<%$v['RAW']['ADTitle']%>
+					</div>
+					
+					<div class="form-group">
+								<label for="exampleInputADDescription">Explanation</label>
+								<br />
+								<%$v['RAW']['Explanation']%>
+					</div>
+					
+					<div class="form-group">
+								<label for="datepicker">Release Date</label>
+								<br />
+								<%$v['RAW']['Release']%>
+					</div>
+		
+					<div class="form-group">
+							<label for="exampleInputKEY">Keywords</label>
+							<br />
+							<%$v['RAW']['Keywords']%>
+					</div>
+		
+		
+					<div class="form-group">
+						<h3 class="linieBottom">Credits</h3>
+						<ul class="listCD">
+						    <%foreach $v['CREDITS'] as $c => $credit%>
+							<li class="I<%$c%>ND linieBottom">
+                                <a href="#"><strong><%$credit['TYPE']%>:</strong> <%$credit['CREDITLIST']%></a>
+                            </li>
+                            <%/foreach%>
+						</ul>
+					</div>
+						
+				</form>	
+				</div>
+			
+          
+            
+			</div>
+            <%if count($data) > ($k+1)%>
+            <hr>
+            <%/if%>
+<%/foreach%>
+        </div>
+<!-- image END --><!-- image BEGIN -->
+										
+		
+		</div>										
+	</div>
+
+</div>
+
+<div class="checkbox">
+  <label>
+    <input type="checkbox" value="" id="checkbox_agree_toc">
+    <p id="text_agree_toc">I agree to the <a data-remote="<%xr_genlink p_id=86%>" data-target="#myModal" data-toggle="modal" href="#" id="text_agree_toc_link">terms and conditions</a></p>
+  </label>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 marginTop20 marginBottom20">
+    <a class="but button-large" href="<%xr_genlink p_id=51%>">Back</a> <a id="submit-confirm" class="but button-large" href="<%xr_genlink p_id=93%>">Confirm</a>
+    </div>
+</div>
+
+<br />

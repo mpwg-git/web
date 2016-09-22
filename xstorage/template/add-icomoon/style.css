@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'add-icomoon';
+	src:url('fonts/add-icomoon.eot?-nf4i7v');
+	src:url('fonts/add-icomoon.eot?#iefix-nf4i7v') format('embedded-opentype'),
+		url('fonts/add-icomoon.ttf?-nf4i7v') format('truetype'),
+		url('fonts/add-icomoon.woff?-nf4i7v') format('woff'),
+		url('fonts/add-icomoon.svg?-nf4i7v#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

@@ -1,0 +1,133 @@
+@import "mixinsAndVars.less"; 
+
+@hovertrans: background 300ms ease;
+
+html, body{
+  height:100%;
+}
+
+body{
+  font-family:@japoki;
+} 
+
+header{
+  background:#000;
+  nav{
+    .main-nav{
+      .navlinks{
+        color:@blue;
+        font-family:@helvetica;
+        display:inline-block;
+        .font-size(15);
+        .padding-top(10);
+        .padding-bottom(10);
+      }
+    }
+  }
+}
+
+
+input{
+  
+  .font-size(14);
+}
+.form-control {
+  display: block;
+  width: 100%;
+  .height(38);
+  .font-size(14);
+  line-height: 1.42857143;
+  color: #555;
+  background-color: rgba(105,121,135,0.05);
+  background-image: none;
+  border: 0px;
+  .border-radius(0);
+  .box-shadow(initial)
+
+}
+
+
+
+
+
+.left-row, .middle-row, .right-row{
+  float:left;
+  height:100%;
+  position: relative;
+}
+.left-row{
+  width:41.6666666%;
+  .padding-top(20);
+  .padding-bottom(20);
+  .padding-left(20);
+  .padding-right(20);
+}
+.middle-row{
+  width:58.3333333%;
+  background:#eee;
+}
+.right-row{
+  
+}
+.search-start{
+  h2{
+    letter-spacing: -0.5vw;
+    font-family:@japoki;
+    .font-size(42);
+    color:@blue;
+  }
+  .search-input{
+    .margin-bottom(38);
+  }
+  .einleitungstext{
+    span{
+      text-transform: uppercase;
+      background: @blue;
+      color: #fff;
+      .font-size(51);
+      .line-height(61);
+      .height(60);
+      .padding-left(7);
+      .padding-right(7);
+      display: inline-block;
+      position: relative;
+      &.find{
+        font-family:'HelveticaNeueW01-ThinCn_673383';
+        background:transparent;
+        color:#000;
+        .font-size(25);
+      }
+      &.icons{
+        background:#fff;
+        .font-size(55);
+        span{
+          background:#fff;
+          color:#000;
+          .font-size(25);
+          padding:0px;
+        }
+      }
+      .drduck{
+        color:#000;
+        position:absolute;
+        left:calc(100% + 10px);
+        background:transparent;
+        top: 0;
+      }
+      .clickme-wrapper{
+        width: 22vw;
+        position: absolute;
+        left: 96%;
+        bottom: 19%;
+        visibility:hidden;
+        cursor:pointer;
+        &.active{
+          visibility:visible;
+        }
+      }
+    }
+  }
+}
+
+
+

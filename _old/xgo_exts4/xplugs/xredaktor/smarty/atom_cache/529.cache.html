@@ -1,0 +1,125 @@
+	<%*xr_print_r val=$result*%>
+	
+	<div class="row">
+			<div class="col-sm-12" id="filter-section-result">
+				<ul class="nav nav-pills p-woche">
+				
+				<%foreach $result as $k => $v%>
+				
+					<li class='searchTab'><a data-toggle="tab" class="searchtabslinks" href="#tab-<%$k%>"><%$v['LABEL']%> <b>(<%$v['COUNT']%>)</b></a></li>
+					
+				<%/foreach%>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="tab-content tab-content-search">
+
+				<%foreach $result as $k => $v%>
+					
+					<div id="tab-<%$k%>" class="tab-pane active">
+					
+					
+					<div id='<%$v.pager.div_id%>'>
+					
+					<div class="col-sm-12">
+					<div class='row'>
+					
+					        <%if ($k == 'PRINT' || $k == 'VIDEOS' || $k == 'DIGITAL') && ($v['COUNT'] > 0)%>
+					
+				            <ul class="sort-order">
+				                <li<%if $v['ORDERBY'] == 'published'%> class="active<%if $v['ORDERBYDIR'] == 'desc'%> asc<%else%> desc<%/if%>"<%/if%>><a href="#" data-sort="published" data-sortdir="<%if $v['ORDERBYDIR'] == 'desc'%>asc<%else%>desc<%/if%>">published</a></li>
+    					        <li<%if $v['ORDERBY'] == 'alphabetical'%> class="active<%if $v['ORDERBYDIR'] == 'desc'%> asc<%else%> desc<%/if%>"<%/if%>><a href="#" data-sort="alphabetical" data-sortdir="<%if $v['ORDERBYDIR'] == 'desc'%>asc<%else%>desc<%/if%>">alphabetical</a></li>
+    					        <li<%if $v['ORDERBY'] == 'viewed'%> class="active<%if $v['ORDERBYDIR'] == 'desc'%> asc<%else%> desc<%/if%>"<%/if%>><a href="#" data-sort="viewed" data-sortdir="<%if $v['ORDERBYDIR'] == 'desc'%>asc<%else%>desc<%/if%>">viewed</a></li>
+    					        <li<%if $v['ORDERBY'] == 'liked'%> class="active<%if $v['ORDERBYDIR'] == 'desc'%> asc<%else%> desc<%/if%>"<%/if%>><a href="#" data-sort="liked" data-sortdir="<%if $v['ORDERBYDIR'] == 'desc'%>asc<%else%>desc<%/if%>">liked</a></li>
+    					    </ul>
+					        <hr />
+					        <%/if%>
+					    
+        					<div id="tab-<%$k%>_data_block">
+        					
+        						<div class="row">
+        						<%foreach $v['ITEMS'] as $ik => $record%>
+        					        <%xr_atom a_id=530 type=$v['TYPE'] label=$v['LABEL'] record=$record return=1%>
+                                <%/foreach%>
+                                 </div>
+                            </div>
+                    
+                    
+
+                            <!--                        
+                        	<div class="row">
+            		            <div class="col-sm-12">
+            			            <br>
+            			            <p><a class="but searchButtonLoadMore" href="#" data-pos='0' data-type='<%$v['TYPE']%>' data-query='<%$query%>' data-div='tab-<%$k%>_data_block'>More</a></p>
+            		            </div>
+            	            </div>
+                            -->
+                    </div>
+                    </div>
+                    
+                    <div class='row'>
+                    
+                           
+                    
+                            <%if ($v.pager.show)%>
+                            
+                            <!--- pagination start --->
+		
+			                    <div class="norow">
+    			                    <div class="col-sm-12">
+                                        <div class="pagination-wrapper">
+                                            <ul class="pagination pagination-box fe_pager">
+                            
+                                                <li><a href="#" data-pager='<%$v.pager.pager%>' data-pager-pos='<%$v.pager.prev%>' data-pager-div='<%$v.pager.div_id%>' data-pager-cnt='<%$v.pager.cnt%>' data-pager-params='<%$v.pager.params%>'>&laquo;</a></li>
+                                                
+                            
+                                                
+                                                
+                                                <%foreach $v['pager']['buttons'] as $b%>
+                                                <li class="<%if $b==$v.pager.pos%>active<%/if%>"><a href="#" data-pager='<%$v.pager.pager%>' data-pager-pos='<%$b%>' data-pager-div='<%$v.pager.div_id%>' data-pager-cnt='<%$v.pager.cnt%>' data-pager-params='<%$v.pager.params%>'><%$b+1%></a></li>
+                                                <%/foreach%>
+                                                
+                                                
+                                                
+                                                
+                                                <li><a href="#" data-pager='<%$v.pager.pager%>' data-pager-pos='<%$v.pager.next%>' data-pager-div='<%$v.pager.div_id%>' data-pager-cnt='<%$v.pager.cnt%>' data-pager-params='<%$v.pager.params%>'>&raquo;</a></li>
+                                                
+                                                
+                                                
+                                                
+                                            </ul>
+                                            
+                                            <div class="pagernumberswrapper">
+                                            <div class="btn-group number-items-dropdown fe_pager_cnt">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%$v['pager']['cnt']%> <span class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    
+                                                    <%foreach $v['pager']['limits'] as $l%>
+                                                    <li><a href="#" data-cnt='<%$l%>' data-pager='<%$v.pager.pager%>' data-div='<%$v.pager.div_id%>' data-pager-params='<%$v.pager.params%>'><%$l%></a></li>
+                                                    <%/foreach%>
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="number-per-page">Items per page:</div>
+                                            </div>
+                                            
+                                    </div>
+                                </div>    
+                            </div>                      
+                            <!--- pagination end --->
+                            
+                         <%/if%>
+                    </div>
+                    </div> <!-- PAGER DIV END -->        
+                        
+					</div>
+					
+				<%/foreach%>
+					
+				</div>
+			</div>
+		</div>

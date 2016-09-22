@@ -1,0 +1,212 @@
+.x-grid-checkheader {
+    height: 14px;
+    background-image: url('/xgo/xframe/libs/extjs/resources/themes/images/gray/grid/unchecked.gif');
+    background-position: 50% -2px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.x-grid-checkheader-checked {
+    background-image: url('/xgo/xframe/libs/extjs/resources/themes/images/gray/grid/checked.gif');
+}
+
+.x-grid-checkheader-editor .x-form-cb-wrap {
+    text-align: center;
+}
+
+
+#loginSplashImageInline {
+	width:451px;
+	height:176px;
+	background: url(/xsplash/media/images/xgo_slpash.png) no-repeat;
+}
+
+.loginSplashImageInlineTxt {
+	padding:20px;
+}
+
+.xf_crop_image 
+{
+	width: 16px;
+	height: 16px;
+	background: url("../../../../xframe/icons/fugue/image-select.png") no-repeat !important;
+}
+
+.xr_use_full_image 
+{
+	width: 16px;
+	height: 16px;
+	background: url("../../../../xframe/icons/fugue/image-resize.png") no-repeat !important;
+}
+
+/* ************* */
+
+.xr_tm_grid {
+	width: 16px;
+	height: 16px;
+	background: url("../../../../xframe/icons/fugue/clock-frame.png") no-repeat !important;
+}
+
+.xr_timemachine_node {
+	background-image: url("../../../../xframe/icons/fugue/clock-frame.png") !important;
+}
+
+.xr_timemachine_add {
+	background-image: url("../../../../xframe/icons/fugue/clock--plus.png") !important;
+}
+
+.xr_timemachine_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/clock--plus.png") !important;
+}
+
+.xr_timemachine_del {
+	background-image: url("../../../../xframe/icons/fugue/clock--minus.png") !important;
+}
+
+/* ************* */
+
+.xr_roles_node {
+	background-image: url("../../../../xframe/icons/fugue/magnet.png") !important;
+}
+
+.xr_roles_add {
+	background-image: url("../../../../xframe/icons/fugue/magnet--plus.png") !important;
+}
+
+.xr_roles_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/magnet--plus.png") !important;
+}
+
+.xr_roles_del {
+	background-image: url("../../../../xframe/icons/fugue/magnet--minus.png") !important;
+}
+
+
+/* ************* */
+
+.xr_users_node {
+	background-image: url("../../../../xframe/icons/fugue/user-silhouette.png") !important;
+}
+
+.xr_users_add {
+	background-image: url("../../../../xframe/icons/fugue/user-silhouette.png") !important;
+}
+
+.xr_users_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/user-silhouette.png") !important;
+}
+
+.xr_users_del {
+	background-image: url("../../../../xframe/icons/fugue/user-silhouette.png") !important;
+}
+
+/* ************* */
+
+.xr_pages_node {
+	background-image: url("../../../../xframe/icons/fugue/document-node.png") !important;
+}
+
+.xr_pages_add {
+	background-image: url("../../../../xframe/icons/fugue/document--plus.png") !important;
+}
+
+.xr_pages_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/document--plus.png") !important;
+}
+
+.xr_pages_del {
+	background-image: url("../../../../xframe/icons/fugue/document--minus.png") !important;
+}
+
+/* ************* */
+
+.xr_frames_node {
+	background-image: url("../../../../xframe/icons/fugue/document-hf.png") !important;
+}
+
+.xr_frames_add {
+	background-image: url("../../../../xframe/icons/fugue/document--plus.png") !important;
+}
+
+.xr_frames_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/document--plus.png") !important;
+}
+
+.xr_frames_del {
+	background-image: url("../../../../xframe/icons/fugue/document--minus.png") !important;
+}
+
+
+/* ************* */
+
+.xr_atoms_node {
+	background-image: url("../../../../xframe/icons/fugue/document-code.png") !important;
+}
+
+.xr_atoms_add {
+	background-image: url("../../../../xframe/icons/fugue/document--plus.png") !important;
+}
+
+.xr_atoms_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/document--plus.png") !important;
+}
+
+.xr_atoms_del {
+	background-image: url("../../../../xframe/icons/fugue/document--minus.png") !important;
+}
+
+/* ************* */
+
+.xr_wizards_node {
+	background-image: url("../../../../xframe/icons/fugue/database-medium.png") !important;
+}
+
+.xr_wizards_add {
+	background-image: url("../../../../xframe/icons/fugue/database--plus.png") !important;
+}
+
+.xr_wizards_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/database--plus.png") !important;
+}
+
+.xr_wizards_del {
+	background-image: url("../../../../xframe/icons/fugue/database-delete.png") !important;
+}
+
+
+/* ************* */
+
+.xr_wizards_attributes_node {
+	background-image: url("../../../../xframe/icons/fugue/database-medium.png") !important;
+}
+
+.xr_wizards_attributes_add {
+	background-image: url("../../../../xframe/icons/fugue/database--plus.png") !important;
+}
+
+.xr_wizards_attributes_add_inside {
+	background-image: url("../../../../xframe/icons/fugue/database--plus.png") !important;
+}
+
+.xr_wizards_attributes_del {
+	background-image: url("../../../../xframe/icons/fugue/database-delete.png") !important;
+}
+
+
+
+
+.xr_fly_up {
+	background-image: url("../../../../xframe/icons/fugue/arrow-090.png") !important;
+}
+
+.xr_fly_down {
+	background-image: url("../../../../xframe/icons/fugue/arrow-270.png") !important;
+}
+
+.xr_fly_insert_before {
+	background-image: url("../../../../xframe/icons/fugue/blue-document-hf-insert.png") !important;
+}
+
+
+
+

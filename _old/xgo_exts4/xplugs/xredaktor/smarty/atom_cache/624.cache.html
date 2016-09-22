@@ -1,0 +1,129 @@
+<%if $GA['oeedit']==1%>
+<%xr_siteCall fn='oe_preview::sc_get_other' var='data'%>
+<%else%>
+<%xr_siteCall fn='fe_otherarticle::sc_detailpage_get_id' var='data'%>
+<%/if%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<%if $GA['oeedit']==1%>
+	<div class="row">
+	    <div class="col-sm-6">
+			<h2><a href=""><%$data['TITLE']%></a> <a class="more" href="">More</a></h2>
+			<div class="row">
+				<div class="col-md-7">
+					<p><%xr_imgWrapper s_id=$data['IMG'] rmode='cco' w=250 h=210 class="img-responsive"%></p>
+				</div>
+				<div class="col-md-5">
+				        <p><%$data['SHORTDESC']%></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%/if%>
+	
+	<div class="row">
+		<div class="col-sm-9">
+		    <div class="line-top"></div>
+    		<h1>Article</h1>
+    		<div class="clearer"></div>
+		</div>
+		<div class="col-sm-9"></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">   
+          <p class="looklikeH1 linieBottom"><%$data['TITLE']%></p>
+          <p><%xr_imgWrapper s_id=$data['IMG'] class="img-responsive"%></p>
+		</div>
+	</div>
+	<div class="row imagefixresponsive">
+	
+	 <%if $data['COLRIGHT'] != ''%>
+		<div class="col-sm-6 prevent-overflow">
+			<%$data['COLLEFT']%>
+		</div>
+		<div class="col-sm-6 prevent-overflow">
+			<%$data['COLRIGHT']%>
+			<br />
+    	    <%*xr_print_r val=$data['GALLERY']*%>
+    		<%if count($data['GALLERY']) > 0%>
+    		<div id="gallery-images" class="royalSlider rsDefault">
+    		    <%foreach $data['GALLERY'] as $k => $v%>
+    		    <%xr_img s_id=$v['IMG'] var='gimage'%>
+    		    <%if $gimage['rw'] > $gimage['rh']%><!--LANDSCAPE-->
+    		    <%if $gimage['rw'] > 1024%>
+    		    <%xr_img s_id=$v['IMG'] w=1024 var='gimage'%>
+    		    <%/if%>
+    		    <%else%>
+    		    <%if $gimage['rh'] > 1024%>
+    		    <%xr_img s_id=$v['IMG'] h=1024 var='gimage'%>
+    		    <%/if%>
+    		    <%/if%>
+                <span>
+    		    <a data-lightbox="image-<%$k%>" data-title="<h4><%$v['TITLE']%></h4><%$v['DESC']%>" href="<%$gimage['url']%>">
+    		    <img src="<%$gimage['src']%>" alt="<%$bild1.alt%>" class="img-responsive rsImg rsMainSlideImage">
+    		    </a>
+    		    <img width="96" height="72" class="rsTmb" src="<%$gimage['src']%>" />
+    		    </span>
+    		    <%/foreach%>
+    		</div>
+    		<br />
+    		<%/if%>
+		</div>
+	<%else%>
+	    <div class="col-sm-12 prevent-overflow">
+			<%$data['COLLEFT']%>
+			<br />
+    	    <%*xr_print_r val=$data['GALLERY']*%>
+    		<%if count($data['GALLERY']) > 0%>
+    		<div id="gallery-images" class="royalSlider rsDefault">
+    		    <%foreach $data['GALLERY'] as $k => $v%>
+    		    <%xr_img s_id=$v['IMG'] var='gimage'%>
+    		    <%if $gimage['rw'] > $gimage['rh']%><!--LANDSCAPE-->
+    		    <%if $gimage['rw'] > 1024%>
+    		    <%xr_img s_id=$v['IMG'] w=1024 var='gimage'%>
+    		    <%/if%>
+    		    <%else%>
+    		    <%if $gimage['rh'] > 1024%>
+    		    <%xr_img s_id=$v['IMG'] h=1024 var='gimage'%>
+    		    <%/if%>
+    		    <%/if%>
+                <span>
+    		    <a data-lightbox="image-<%$k%>" data-title="<h4><%$v['TITLE']%></h4><%$v['DESC']%>" href="<%$gimage['url']%>">
+    		    <img src="<%$gimage['src']%>" alt="<%$bild1.alt%>" class="img-responsive rsImg rsMainSlideImage">
+    		    </a>
+    		    <img width="96" height="72" class="rsTmb" src="<%$gimage['src']%>" />
+    		    </span>
+    		    <%/foreach%>
+    		</div>
+    		<br />
+    		<%/if%>
+		</div>
+	<%/if%>
+		
+	</div>
+
+    <div class="row">
+		<div class="col-sm-12">
+			<hr>
+			<div class="share">
+                <!-- share buttons -->
+                <%xr_atom a_id=461 return=1%>
+			</div>
+			<div class="clearer"></div>
+			
+			<div class="comments-disqus">
+                <!-- disquus -->
+                <%xr_atom a_id=462 return=1%>
+			</div>
+
+		</div>
+	</div>

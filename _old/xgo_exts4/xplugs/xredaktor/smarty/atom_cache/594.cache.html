@@ -1,0 +1,19 @@
+	<div class="row">
+	<%foreach $am['ITEMS'] as $k => $v name=count%>
+                   
+                    <div class="col-sm-4<%if $k > 29%> loadMore<%/if%>"<%if $k > 29%> style="display:none;"<%/if%>>
+                        
+                        <h3 class="nowra<%if $v['TYPECAT'] !=''%> marginBottom0<%/if%>"><%$v['TITLE']%>&nbsp;</h3>
+                        <span class="quick-archiv-nr"><%$v['TYPECAT']%></span>
+    					<div class="lw-item"> 
+    						<p><a href="<%$v['LINK']%>"><%if $v['IMG'] == 0%><%xr_imgWrapper s_id=270410 w=349 h=208 rmode="cco" ext='jpg' class="img-responsive"%><%else%><%xr_img s_id=$v['IMG'] w=698 h=416 rmode="cco" q=85 var="thumb"%><img class="lazy img-responsive" with="698" height="416" src="<%$thumb.src%>"><%/if%></a></p>
+    						<!--<p><a title="Gefällt mir" class="like ilikeit" data-id="<%$v['ID']%>" data-type="MEDIA" href="#">Gefällt mir</a><span class="likeCount"><%$v['LIKES']%></span></p>-->
+    					<div class="share">
+    						
+    					</div>
+    					<div class="clearer"></div>
+    					</div>
+    			    </div>
+                    
+            <%/foreach%>
+            </div>

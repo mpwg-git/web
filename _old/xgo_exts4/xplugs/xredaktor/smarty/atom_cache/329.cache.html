@@ -1,0 +1,25 @@
+<%if $smarty.request.bustyp != ''%>
+    <%xr_siteCall fn='fe_custom::getSubmenu' bustyp=$smarty.request.bustyp var='submenu'%>
+<%elseif $smarty.request.r_id != ''%>
+    <%xr_siteCall fn='fe_custom::getSubmenu' id=$smarty.request.r_id var='submenu'%>
+<%/if%>
+
+<%if $submenu|@count > 1%>
+    <hr class="visible-lg"/>
+    <div class="container menus visible-lg">
+        <div class="submenuDesk">
+            <ul class="nav navbar-nav nav-main jquerydyn secondMenu ">
+                <%xr_menuGrid p_id=$f_id P_ID=$P_ID online=1 depth=2 var='menu'%>
+                <%foreach $submenu as $m => $p%>
+                    <li class="dropdown<%if $m eq 0%> first <%/if%> number<%$m+1%>">
+                        <a href="<%xr_genlink p_id=216 r_id=$p['id'] m_suffix="`$p['id']`/`$p['name']`"%>" title="<%$p['name']%>" target="_self" class="dropdown-toggle hauptmenuepunkt <%if $p['active'] == true%>aktiv<%/if%>">
+                            <span><%$p['name']%></span>
+                            <span class="borderRight"></span>
+                            <%if $p@iteration == 1%><span class="borderLeft"></span><%/if%>
+                        </a>
+                    </li>
+                <%/foreach%>
+           </ul> 
+        </div>
+    </div>
+<%/if%>

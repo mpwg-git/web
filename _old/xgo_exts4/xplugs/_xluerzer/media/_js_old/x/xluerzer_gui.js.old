@@ -1,0 +1,576 @@
+var xluerzer_gui = (function() {
+	var instance = null;
+	return new function() {
+
+		this.getPath = function(){
+			return "/xgo/xplugs/xluerzer_gui";
+		}
+
+		this.getInstance = function(config) {
+			if (instance == null) {
+				instance = new xluerzer_gui_(config);
+			}
+			return instance;
+		}
+	}
+})();
+
+var xluerzer_gui_ = function(config) {
+	this.config = config || {};
+};
+
+xluerzer_gui_.prototype = {
+
+	searchCombo: function(cfg)
+	{
+
+		var model 	= Ext.id();
+		var url 	= this.getAjaxPath('s_e_submissionSearchComboFor/'+cfg.searchScope);
+
+		Ext.define(model, {
+			extend: 'Ext.data.Model',
+			proxy: {
+				type: 'ajax',
+				url : url,
+				reader: {
+					type: 'json',
+					root: 'root',
+					totalProperty: 'totalCount'
+				}
+			},
+
+			fields: [
+			{name: '_value', 	type: 'string'},
+			{name: '_display',	type: 'string'}
+			]
+
+		});
+
+		var pageSize = 10;
+
+		var ds = Ext.create('Ext.data.Store', {
+			pageSize: pageSize,
+			model: model
+		});
+
+		return {
+			minChars: cfg.minChars,
+			fieldLabel: cfg.fieldLabel,
+			name: cfg.name,
+			emptyText: cfg.emptyText,
+			xtype: 'combo',
+			store: ds,
+			cls: cfg.cls,
+			flex: cfg.flex,
+
+			displayField: '_display',
+			valueField: '_value',
+
+			typeAhead: true,
+			hideTrigger: true,
+
+			displayMsg: '{0} - {1} of {2}',
+			//selectOnFocus: true,
+
+			listConfig: {
+				loadingText: 'searching...',
+				emptyText: 'no matching records found.',
+				getInnerTpl2: function() {
+					return '<div class="search-item">' +
+					'<h3><span>{[Ext.Date.format(values.lastPost, "M j, Y")]}<br />by {author}</span>{title}</h3>' +
+					'{excerpt}' +
+					'</div>';
+				}
+			},
+			pageSize: pageSize,
+			listeners: {
+				select: function(combo, selection) {
+					var post = selection[0];
+					if (post) {
+
+					}
+				}
+			}
+		};
+
+	},
+
+
+	searchComboCrm: function(cfg)
+	{
+
+		var model 	= Ext.id();
+		var url 	= this.getAjaxPath('e_crmSearchComboFor/'+cfg.searchScope);
+
+		Ext.define(model, {
+			extend: 'Ext.data.Model',
+			proxy: {
+				type: 'ajax',
+				url : url,
+				reader: {
+					type: 'json',
+					root: 'root',
+					totalProperty: 'totalCount'
+				}
+			},
+
+			fields: [
+			{name: '_value', 	type: 'string'},
+			{name: '_display',	type: 'string'}
+			]
+
+		});
+
+		var pageSize = 10;
+
+		var ds = Ext.create('Ext.data.Store', {
+			pageSize: pageSize,
+			model: model
+		});
+
+		return {
+			minChars: cfg.minChars,
+			fieldLabel: cfg.fieldLabel,
+			name: cfg.name,
+			emptyText: cfg.emptyText,
+			xtype: 'combo',
+			store: ds,
+
+			displayField: '_display',
+			valueField: '_value',
+
+			typeAhead: true,
+			hideTrigger: true,
+
+			displayMsg: '{0} - {1} of {2}',
+			//selectOnFocus: true,
+
+			listConfig: {
+				loadingText: 'searching...',
+				emptyText: 'no matching records found.',
+				getInnerTpl2: function() {
+					return '<div class="search-item">' +
+					'<h3><span>{[Ext.Date.format(values.lastPost, "M j, Y")]}<br />by {author}</span>{title}</h3>' +
+					'{excerpt}' +
+					'</div>';
+				}
+			},
+			pageSize: pageSize,
+			listeners: {
+				select: function(combo, selection) {
+					var post = selection[0];
+					if (post) {
+
+					}
+				}
+			}
+		};
+
+	},
+
+
+	simplyCombo: function(cfg) {
+
+		var ds = Ext.create('Ext.data.Store', {
+			fields: ['k', 'v'],
+			data : cfg.data
+		});
+
+		return {
+			value: cfg.value,
+			xtype: 'combo',
+			width: cfg.width,
+			fieldLabel: cfg.fieldLabel,
+			name: cfg.name,
+			store: ds,
+			queryMode: 'local',
+			displayField: 'v',
+			valueField: 'k',
+			listeners: cfg.listeners,
+			multiSelect: cfg.multiSelect
+			//selectOnFocus: true
+		};
+
+	},
+
+
+	simplyComboAjax: function(cfg) {
+
+		var ds = Ext.create('Ext.data.Store', {
+			fields: ['k', 'v'],
+			data : cfg.data
+		});
+
+		return {
+			value: cfg.value,
+			xtype: 'combo',
+			width: cfg.width,
+			fieldLabel: cfg.fieldLabel,
+			name: cfg.name,
+			store: ds,
+			queryMode: 'local',
+			displayField: 'v',
+			valueField: 'k',
+			listeners: cfg.listeners,
+			multiSelect: cfg.multiSelect
+			//selectOnFocus: true
+		};
+
+	},
+
+	buildCreditForm: function(aux) {
+
+		// direktes bearbeiten von credit doch nicht gewuenscht
+		/* var aux2 = {
+		xtype: 'button',
+		name: 'credit-person',
+		tooltip: 'Edit details',
+		cls: 'xf_person',
+		margin: '0, 0, 0, 1',
+		width: 16,
+		listeners: {
+		scope: this,
+		click: function() {
+		this.showDialog('person');
+		}
+		}
+		};
+
+		var fieldContainer = new Ext.form.FieldContainer({layout:'hbox'});
+		fieldContainer.add(aux, aux2); */
+
+		return aux;
+	},
+
+	showDialog : function(which){
+
+		var whichItems;
+
+		switch(which)
+		{
+
+			case 'issue':
+			whichItems = [
+
+			{
+				minHeight: 200,
+				layout:'anchor',
+				bodyStyle:'padding:10px',
+				items: [
+
+				this.simplyCombo({
+					fieldLabel: 'Year',
+					name: 'year',
+					value: '',
+					data: [{k:'2014',v:'2014'},{k:'2015',v:'2015'},{k:'2016',v:'2016'},{k:'2017',v:'2017'},{k:'2018',v:'2018'},{k:'2019',v:'2019'},{k:'2020',v:'2020'}]
+				}),
+
+				this.simplyCombo({
+					fieldLabel: 'Issue',
+					name: 'issue',
+					value: '',
+
+					data: [{k:'1',v:'1'},{k:'2',v:'2'},{k:'3',v:'3'},{k:'4',v:'4'},{k:'5',v:'5'},{k:'6',v:'6'}]
+				}),
+
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Notes',
+					name: 'notes'
+				},
+
+				]
+
+			}
+
+			];
+			break;
+
+			case 'submission':
+			whichItems = [
+
+			{
+				minHeight: 200,
+				layout:'anchor',
+				bodyStyle:'padding:10px',
+				items: [
+
+				this.simplyCombo({
+					fieldLabel: 'Year',
+					name: 'year',
+					value: '',
+					data: [{k:'2014',v:'2014'},{k:'2015',v:'2015'},{k:'2016',v:'2016'},{k:'2017',v:'2017'},{k:'2018',v:'2018'},{k:'2019',v:'2019'},{k:'2020',v:'2020'}]
+				}),
+
+				{
+					xtype: 'textfield',
+					fieldLabel: 'Name',
+					name: 'name',
+
+				},
+
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Notes',
+					name: 'notes',
+				},
+
+				]
+
+			}
+
+			];
+			break;
+
+			default:
+
+		}
+
+		var win = new Ext.Window({
+			title: 'New',
+			layout:'form',
+			width:500,
+			height:300,
+			border: false,
+			closeAction:'hide',
+			defaults: {
+				minHeight: 20,
+				padding: 10
+			},
+
+			items: whichItems,
+
+			buttons: [{
+				text:'Submit',
+				disabled:true
+			},{
+				text: 'Close',
+				handler: function(){
+					win.hide();
+				}
+			}]
+		});
+
+		win.show(this);
+
+	},
+
+
+	getTbarSub: function () {
+
+		var tbarSub = [
+
+		{
+			text: 'Save',
+			iconCls: 'xf_save',
+			handler: function() {
+				console.info("save..");
+			},
+		},
+
+		{
+			text: 'Close',
+			iconCls: 'xf_abort',
+			handler: function() {
+				console.info("close..");
+			},
+		}
+		];
+
+		return tbarSub;
+
+	},
+
+	
+	showDefault: function() {
+
+		var me = this;
+
+		var gui = Ext.create('Ext.form.Panel', {
+			border: false,
+			title: 'Edit Day Issue .....',
+			bodyStyle:'padding:5px 5px 0',
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, panel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side'
+			},
+
+			listeners: {
+				scope: this,
+				buffer: 1,
+				afterrender: function() {
+
+					console.info(arguments);
+					console.info(gui.getForm().getValues());
+
+					gui.getForm().setValues({
+
+					});
+
+				}
+			},
+
+			items: [
+			{
+				xtype: 'container',
+				anchor: '100%',
+				layout:'column',
+				items:[{
+					xtype: 'container',
+					columnWidth:.5,
+					layout: 'anchor',
+					items: [
+					this.titleField(),
+					{
+						xtype: 'textfield',
+						emptyText: 'Choose Image ...',
+						fieldLabel: 'Image',
+						anchor: '96%'
+					},{
+						xtype:'htmleditor',
+						fieldLabel: 'Left',
+						name: 'first',
+						anchor:'96%'
+					}]
+				},{
+					xtype: 'container',
+					columnWidth:.5,
+					layout: 'anchor',
+					items: [{
+						xtype: 'textfield',
+						emptyText: 'State',
+						fieldLabel: 'State',
+						anchor: '100%'
+					},{
+						xtype: 'datefield',
+						fieldLabel: 'Issue for Day',
+						anchor: '96%'
+					},{
+						xtype:'htmleditor',
+						fieldLabel: 'Right',
+						name: 'company',
+						anchor:'96%'
+					}]
+				}]
+			}]
+
+		});
+
+
+		this.showContent(gui);
+	},
+
+	defaultSearcher: function(cfg) {
+
+		var fields = [
+		{name: cfg.pid,	text:'ID',	type:'int', width: 50}
+		];
+
+
+		Ext.each(cfg.fields,function(item){
+
+			if (Ext.isObject(item)) {
+
+				switch(item.type)
+				{
+					case 'image':
+					item.type = "string";
+					break;
+					default:
+					item.type = "string";
+				}
+
+				if (typeof item.flex == 'undefined')
+				{
+					item.flex = 1;
+				}
+
+				fields.push(item);
+			} else {
+				//fields.push({name: item, text: item,	type: 'string'});
+			}
+
+		},this);
+
+		var scopex 	= cfg.scopex;
+		var gui 	= xframe_pattern.getInstance().genGrid({
+			region:'center',
+			forceFit:true,
+			border:false,
+			title: 'Overview '+ cfg.text,
+			split: true,
+			collapseMode: 'mini',
+			button_del:true,
+			button_add:true,
+			search: true,
+			editor: true,
+			pager: true,
+			xstore: {
+
+				load: 	this.getAjaxPath(scopex+'/load'),
+				update: this.getAjaxPath(scopex+'/update'),
+				insert: this.getAjaxPath(scopex+'/insert'),
+				move: 	this.getAjaxPath(scopex+'/move'),
+				remove:	this.getAjaxPath(scopex+'/remove'),
+				pid: 	cfg.pid,
+
+				fields: fields
+			},
+			listeners: {
+				scope: this,
+				buffer: 1,
+				itemdblclick: function(g,record) {
+					this.openDefault_oeRecord(record, scopex);
+				},
+
+			}
+		});
+
+
+		gui.on('afterrender',function(){
+			scope: this,
+			gui.getStore().load({
+				callback: function(records, operation, success) {
+					// color change depending on status (jquery)
+					$$('.pending').closest('tr').find('td').each (function() {
+						$$(this).addClass('pendingClass');
+					});
+
+					$$('.draft').closest('tr').find('td').each (function() {
+						$$(this).addClass('draftClass');
+					});
+
+				}
+			});
+
+		},this);
+
+		return gui;
+	},
+
+	defaultAction: function(cfg) {
+		var ret = {
+			iconCls: '',
+			text: cfg.text,
+			handler: function() {
+				this.showContent(this.defaultSearcher(cfg));
+			},
+			scope: this
+		}
+
+		return ret;
+	}
+
+}

@@ -1,0 +1,94 @@
+.bilddatenbank_main {
+	padding-top: 10px;
+	background-color: white;
+	border: 1px solid #efefef;
+}
+
+
+#search_image_database {
+	margin: 0;
+}
+
+.bilddatenbank_menu_left {
+	float:left;
+	width: 220px;
+}
+
+.bilddatenbank_menu_right {
+	float:left;
+}
+
+.bilddatenbank_links {
+	background-color: blue;
+	width: 220px;
+}
+
+.bilddatenbank_menu_filter {
+	width: 220px;
+	overflow: hidden;
+}
+
+.bilddatenbank_upload {
+	width: 200px;
+	background-color: #FFFFFF;
+	padding-top: 20px;
+}
+
+.bilddatenbank_suche
+{
+	padding-top: 20px !important;
+}
+
+.bilddatenbank_result {
+	width: 100%;
+	padding: 30px;
+}
+
+.lupi {
+	background-image: 		url(../img/lupe.png);
+	background-repeat: 		no-repeat;
+	cursor: 				pointer;
+	width: 					21px;
+	height: 				22px;
+}
+
+.real_images {
+}
+
+.luppi_wrapper {
+	width: 31px;
+	height: 31px;
+	border-right: 1px solid #DDDDDD;
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	float:	left;
+	padding-top: 4px	!important;
+	padding-right: 4px	!important;
+	padding-left: 4px	!important;
+}
+
+
+.bd_seach_text {
+	float:left;
+	font-family: 	'AkagiBold';
+	font-size: 		18px !important;
+	color:			#000000;
+	padding-left:	0px !important;
+	padding-right:	20px !important;
+	padding-top:	4px !important;
+}
+
+#search_image_database {
+	float: left;
+	border: 1px solid #DDDDDD;
+}
+
+.bd_image {
+	padding: 10px;
+	float: left;
+	cursor: pointer;
+}
+
+.real_images{
+	
+}

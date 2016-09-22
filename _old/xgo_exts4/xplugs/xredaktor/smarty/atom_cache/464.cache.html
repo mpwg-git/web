@@ -1,0 +1,172 @@
+<%xr_siteCall fn='fe_inspiration::sc_get_latest'        var='data'%>
+<%xr_siteCall fn='fe_inspiration::sc_get_most_viewed'   var='data2'%>
+
+<%xr_siteCall fn='fe_profiles::sc_get_latest_start' type='DIGITAL' var='profile'%>
+<%xr_siteCall fn='fe_adsoftheweek::sc_get_this_week' onlytwocredits=1 var='adsoftheweek'%>
+<%xr_siteCall fn='fe_archive_media::sc_your_pick' var='yourpick'%>
+<%xr_siteCall fn='fe_ads::sc_get_ad' var='ad'%>
+
+ <%xr_siteCall fn='fe_thisweek::sc_get_dropdowns_insp' var='dropdowns'%>
+
+
+
+<%if $GA['oeedit']==1%>
+<%xr_siteCall fn='oe_preview::sc_get_inspiration' var='data'%>
+<%/if%>
+
+<%if $smarty.request.debug == 1%>
+<%xr_print_r val=$dropdowns%>
+<%/if%>
+
+
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+	
+	    <div class="col-sm-9">
+		    <div class="line-top"></div>
+		    <form class="issue-suche">
+			<h1>Inspiration</h1>
+			<div class="form-group floatLeft" style="">
+				<select class="form-control sel" id="features-year-filter">
+				    <%foreach $dropdowns['years'] as $k => $v%>
+				    <option value="<%$v['esotw_year']%>"<%if $v['esotw__year'] == $dropdowns['feature_year']%> selected="selected"<%/if%>><%$v['esotw_year']%></option>
+				    <%/foreach%>
+				</select>
+				<select class="form-control sel" id="features-week-filter">
+				    <%foreach $dropdowns['weeks'] as $k => $v%>
+				    <option value="<%$v%>"<%if (count($dropdowns['weeks'])-$k) == $dropdowns['feature_week']%> selected="selected"<%/if%>>Week <%count($dropdowns['weeks'])-$k%></option>
+				    <%/foreach%>
+				</select>
+				<div id="fe_core_loader" style="display: none;"> </div>
+				<div class="clearer"></div>
+			</div>
+			<div class="clearer"></div>
+		</form>
+		</div>
+		
+			
+		<%* werbeset *%>
+    <%xr_atom a_id=677 return=1%>
+		
+		<div class="col-sm-9">
+		    <h2>Ads of the week</h2>
+		</div>
+	
+		<div class="col-sm-10">
+			
+			<div class="row" >
+		    
+			    <div class="col-sm-4">
+					<div class="lw-item adsoftheweekcredits">
+						<h3><%$adsoftheweek['PRINT']['TITLE']%></h3>
+						<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKPRINT']%>"><%xr_imgWrapper s_id=$adsoftheweek['PRINT']['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p class="smallTxt"><%$adsoftheweek['PRINT']['CREDITSHTML']%></p>
+						<div class="clearer"></div>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="lw-item adsoftheweekcredits">
+						<h3><%$adsoftheweek['TV']['TITLE']%></h3>
+						<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKTV']%>"><%xr_imgWrapper s_id=$adsoftheweek['TV']['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p class="smallTxt"><%$adsoftheweek['TV']['CREDITSHTML']%></p>
+						<div class="clearer"></div>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="lw-item adsoftheweekcredits">
+						<h3><%$adsoftheweek['CLASSIC']['TITLE']%></h3>
+						<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKCLASSIC']%>"><%xr_imgWrapper s_id=$adsoftheweek['CLASSIC']['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p class="smallTxt"><%$adsoftheweek['CLASSIC']['CREDITSHTML']%></p>
+						<div class="clearer"></div>
+					</div>
+				</div>
+            	
+			    
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+				    <h2><a href="<%$profile['LINK_MORE']%>">Profile</a> <a class="more" href="<%$profile['LINK_MORE']%>">More</a></h2>
+				    <div class="row same-height">
+        				<div class="col-md-7">
+        					<p class="labelpic"><a href="<%$profile['LINK_DETAIL']%>"><%xr_imgWrapper s_id=$profile['IMG'] rmode='cco' w=286 h=350 class="img-responsive"%></a><span class="titel"><span class="tx"><%$profile['TITLE']%></span></span></a></p>
+        					<div class="clearer"></div>
+        				</div>
+        				<div class="col-md-5 profile">
+        					<h3><%$profile['TITLE']%></h3>
+        			        <p><%$profile['TEXT']%></p>
+        				</div>
+        				<div class="clearer"></div>
+        			</div>
+				</div>
+				<div class="col-sm-6">
+				    <h2><a href="<%$yourpick['LINK_OVERVIEW']%>">Your Picks</a> <a class="more" href="<%$yourpick['LINK_OVERVIEW']%>">More</a></h2>
+    				<div class="row">
+    					<div class="col-md-12">
+    						<a href="<%$yourpick['LINK']%>"><%xr_imgWrapper s_id=$yourpick['IMG'] rmode='cco' w=500 h=350 class="img-responsive"%></a>
+    					</div>
+    				</div>
+    				<div class="row workdetailscreditbottom">
+    					<div class="col-md-12">
+    					<%$yourpick['CREDITSHTML']%>
+    					</div>
+    				</div>
+			    </div>
+			</div>
+		</div>
+		<div class="col-sm-2" style="padding-top: 28px;">
+			<p class="banner"><a href="<%$ad['URL']%>"><%xr_imgWrapper s_id=$ad['IMGSKY'] class="img-responsive"%></a></p>
+		</div>
+	</div>
+	
+	
+	
+	<div class="row">
+		<div class="col-sm-10">
+		<h2>More Inspiration</h2>
+		
+		<ul class="nav nav-pills p-woche">
+			<li class="active"><a id="inspiration-latest" data-toggle="tab" href="#tab-latest">Latest</a></li>
+			<li class=""><a id="inspiration-most" data-toggle="tab" href="#tab-viewed">Most Viewed</a></li>
+			<li class="tabloaderli"><div id="fe_core_loader" style="display: none;"> </div></li>
+		</ul>
+	
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	
+	<div class="row">
+		
+		<div class="col-sm-10">
+		
+			<div class="tab-content">
+    			
+    			<div id="tab-latest" class="tab-pane active">
+    		        <%$data%>
+                </div>
+        
+                <div id="tab-viewed" class="tab-pane">
+        			<%$data2%>
+                </div>
+                
+                
+            </div>   
+    	</div>
+    
+
+	<div class="col-sm-2">
+		
+	</div>
+	

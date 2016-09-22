@@ -1,0 +1,145 @@
+<%xr_siteCall fn='fe_my_profile::sc_get_my_details' var='data'%>
+<%xr_siteCall fn='fe_submissions::sc_get_backend_countries' var='countries'%>
+<div class="modal fade" id="createContactModalForm">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Create contact</h4>
+			</div>
+			<div class="modal-body">
+				
+							<div class="row">
+								<div class="col-sm-12">
+								    <div class="form-group">
+								        <label for="exampleInputLAND">Contact Type</label>
+										<select class="form-control" id="create-submission-type">
+            								<option value="0" selected="selected">Company</option>
+            								<option value="1">Person</option>
+										</select>
+										<input type="hidden" name="la_input_id" id="la_input_id" value="0" />
+									</div>
+									<div id="create-submission-company">
+									    <form id="create-submission-company-form">
+									    <input type="hidden" name="TYPE" value="0" />
+									    <input type="hidden" name="CONTACTTYPE" id="submission-company-contacttype" value="0" />
+    									<div class="form-group">
+												<label for="submission-company-company">Company Name</label>
+												<input name="COMPANY" type="text" class="form-control required" id="submission-company-company" placeholder="Enter Company Name" />
+    									</div>
+    									<div class="form-group">
+												<label for="submission-company-city">City</label>
+												<input name="CITY" type="text" class="form-control" id="submission-company-city" placeholder="Enter City" />
+    									</div>
+    									<div class="form-group">
+    									    <label for="submission-company-country">Country</label>
+    										<select class="form-control required-country" name="COUNTRY">
+    										    <option value="-1">Choose Country</option>
+    											<%foreach $countries as $k => $v%>
+                								<option value="<%$v['ac_id']%>"><%$v['ac_name']%></option>
+                								<%/foreach%>
+    										</select>
+    									</div>
+    									<div class="row">
+                        					<div class="col-sm-6">
+            									<div class="form-group">
+        												<label for="submission-company-firstname">Firstname</label>
+        												<input name="FIRST" type="text" class="form-control" id="submission-company-firstname" placeholder="Firstname" />
+            									</div>
+            								</div>
+            								<div class="col-sm-6">
+            									<div class="form-group">
+        												<label for="submission-company-lastname">Lastname</label>
+        												<input name="LAST" type="text" class="form-control" id="submission-company-lastname" placeholder="Lastname" />
+            									</div>
+        									</div>
+        								</div>
+    									<div class="form-group">
+                							<label for="submission-company-email">Email</label>
+                							<input type="text" name="EMAIL" value="" placeholder="Enter Email" id="submission-company-email" class="form-control">
+                						</div>
+    									<div class="row">
+                        					<div class="col-sm-3">
+                        						<div class="form-group">
+                        							<label for="submission-company-telcode">Code</label>
+                        							<input type="text" name="TELCODE" value="" placeholder="Enter Code" id="submission-company-telcode" class="form-control">
+                        						</div>
+                        					</div>
+                        					<div class="col-sm-9">
+                        						<div class="form-group">
+                        							<label for="submission-company-tel">Tel</label>
+                        							<input type="text" name="TEL" value="" placeholder="Enter Tel" id="submission-company-tel" class="form-control">
+                        						</div>
+                        					</div>
+                        				</div> 
+                        				</form>
+                    				</div>
+                    				
+                    				<div id="create-submission-person">
+                    				    <form id="create-submission-person-form">
+                    				    <input type="hidden" name="TYPE" value="1" />
+                    				    <input type="hidden" name="CONTACTTYPE" id="submission-person-contacttype" value="0" />
+                    				    <div class="row">
+                        					<div class="col-sm-6">
+            									<div class="form-group">
+        												<label for="submission-person-firstname">Firstname</label>
+        												<input name="FIRST" type="text" class="form-control required" id="submission-person-firstname" placeholder="Firstname" />
+            									</div>
+            								</div>
+            								<div class="col-sm-6">
+            									<div class="form-group">
+        												<label for="submission-contact-lastname">Lastname</label>
+        												<input name="LAST" type="text" class="form-control required" id="submission-person-lastname" placeholder="Lastname" />
+            									</div>
+        									</div>
+        								</div>
+                    				    <div class="form-group">
+												<label for="submission-person-company">Company Name</label>
+												<input name="COMPANY" type="text" class="form-control" id="submission-person-company" placeholder="Enter Company Name" />
+    									</div>
+    									<div class="form-group">
+												<label for="submission-contact-city">City</label>
+												<input name="CITY" type="text" class="form-control" id="submission-person-city" placeholder="Enter City" />
+    									</div>
+    									<div class="form-group">
+    									    <label for="submission-person-country">Country</label>
+    										<select class="form-control required-country" name="COUNTRY">
+    										    <option value="-1">Choose Country</option>
+    											<%foreach $countries as $k => $v%>
+                								<option value="<%$v['ac_id']%>"<%if $v['ac_id'] == $data['COUNTRY']%> selected="selected"<%/if%>><%$v['ac_name']%></option>
+                								<%/foreach%>
+    										</select>
+    									</div>
+    									
+    									<div class="form-group">
+                							<label for="submission-person-email">Email</label>
+                							<input type="text" name="EMAIL" value="" placeholder="Enter Email" id="submission-person-email" class="form-control">
+                						</div>
+    									<div class="row">
+                        					<div class="col-sm-3">
+                        						<div class="form-group">
+                        							<label for="submission-person-telcode">Code</label>
+                        							<input type="text" name="TELCODE" value="" placeholder="Enter Code" id="submission-person-telcode" class="form-control">
+                        						</div>
+                        					</div>
+                        					<div class="col-sm-9">
+                        						<div class="form-group">
+                        							<label for="submission-contact-tel">Tel</label>
+                        							<input type="text" name="TEL" value="" placeholder="Enter Tel" id="submission-person-tel" class="form-control">
+                        						</div>
+                        					</div>
+                        				</div> 
+                        				</form>
+                    				</div>
+								</div>
+							</div>	
+				
+			
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="create-submission-close">Close</button>
+				<button type="button" class="btn btn-primary" id="create-submission-save">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

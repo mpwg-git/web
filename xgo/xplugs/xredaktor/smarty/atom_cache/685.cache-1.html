@@ -1,0 +1,48 @@
+<div class="picture-col">
+    <div class="img-wrapper searchresult-wrapper-js">
+        <div class="inner-wrapper">
+            
+            <%xr_img s_id=$data['IMG'] colorspace="gray" w=768 var='img'%>
+            <div class="img-responsive mobile-shower-img" style="background-image: url(<%$img['src']%>);">
+                
+            </div>
+            
+            <div class="matchinginfos">
+                <span class="prozent"><%$data['MATCHPERCENT']%><%if $data['MATCHPERCENT'] == ""%>?<%/if%></span>
+                <span class="match">match</span>
+            </div>
+            
+            <div class="overlay-bg">
+                <div class="overlay">
+                    <p class="upper">
+                        <span class="drduck icon-duck"></span>
+                        <span class="">
+                            <span class="prozent"><%$data['MATCHPERCENT']%><%if $data['MATCHPERCENT'] == ""%>?<%/if%></span>
+                            <span class="match">match</span>
+                        </span>
+                    </p>
+                    <div class="clearfix"></div>
+                    
+                    <div class="item-search-geschlecht">
+                        <%if $data['GESCHLECHT'] == 'M'%>
+                            <span class="icon-mann_black"></span>
+                        <%else%>
+                            <span class="icon-frau_black"></span>
+                        <%/if%>    
+                    </div>
+                
+                    <div class="infos">
+                        <p class="name"><%$data['NAME']%></p>
+                        <%if $data['PREIS'] > 0%>
+                            <p class="zimmer"><%$data['PREIS']%> € / Zimmer</p>
+                       <%/if%>
+                       
+                       <p class="button-search-profil-container">
+                            <a href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>" class="btn button-search-profil"><%xr_translate tag="Profil"%></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

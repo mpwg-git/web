@@ -1,0 +1,62 @@
+<%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+<%$matching = $data['MATCHING']%>
+
+<div class="profil profil-suche">
+    
+     
+    <%xr_atom a_id=789 user=$data['USER'] return=1 desc="profil main image"%>
+        
+    <%xr_atom a_id=790 matchGesamt=$matching['RESULT']['matchGesamt'] return=1 desc="matching infos"%>
+    
+    <div class="clearfix"></div>
+    
+    
+    <%if count($data['IMAGES']) > 0%>
+        <div class="wg-img-wrapper">
+            <%** Warum ist das im PROFIL drin? gehört nur zu room? *****%>
+            <%***<h3 class="headline">Die WG</h3>****%>
+            <%xr_atom a_id=750 images=$data['IMAGES'] return=1%>
+        </div>
+    <%/if%>
+    
+    
+    
+    <div class="maininfo">
+        <div class="pull-right" style="padding-top:2px;padding-right:10px;color:#04e0d7;">
+            <a href="<%xr_genlink p_id=7%>">
+                <span class="icon-Close"></span>
+            </a>
+        </div> 
+        <h3 class="name"><%$data['USER']['wz_VORNAME']%></h3>
+        <p class="subinfo"><%$data['USER']['wz_NACHNAME']%><%if $data['USER']['ALTER'] > 0%> | <%$data['USER']['ALTER']%> Jahre<%/if%></p>
+        <span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%></span>
+
+    </div>
+    
+    <div class="fakten clearfix">
+        <%if $data.PROFILE.wz_GEBURTSDATUM != '0000-00-00' && $data.PROFILE.wz_GEBURTSDATUM != ''%>
+        <div class="fakt clearfix">
+            <span class="aufzaehlung"><%xr_translate tag="Geburtstag"%></span><span class="info"><%$data.PROFILE.wz_GEBURTSDATUM|date_format:"%d.%m.%Y"%></span>
+        </div>
+        <%/if%>
+        
+        <%if $data.PROFILE.wz_TELEFON != ''%>
+        <div class="fakt clearfix">
+            <span class="aufzaehlung"><%xr_translate tag="Telefonnummer"%></span><span class="info"><%$data.PROFILE.wz_TELEFON%></span>
+        </div>
+        <%/if%>
+    </div>
+    
+    
+    <%xr_atom a_id=808 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%>
+    
+    <!-- Button Container -->
+    <%xr_atom a_id=702 user=$data['USER'] return=1%>
+    
+    <%if $data['PROFILE']['wz_TYPE'] == 'suche'%>
+    <div class="fakten clearfix">
+        <h3 class="headline"><%xr_translate tag="Die Wunschliste"%></h3>
+        <%xr_atom a_id=760 return=1 desc='wunschliste'%>
+    </div>
+    <%/if%>
+</div>

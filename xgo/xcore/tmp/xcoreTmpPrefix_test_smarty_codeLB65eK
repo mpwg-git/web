@@ -1,0 +1,29 @@
+<%xr_print_r val=$searchSession%>
+
+<div class="input-icon search-input search-input-map <%if $inForm == 1%>small v-center<%/if%>">
+    <input class="form-control autocomplete-location <%if $inForm == 1%>in-form<%/if%>" <%if $inForm == 1%>id="ADRESSE" rel="required"<%/if%> name="ADRESSE" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE']%>"<%elseif%>value="<%$searchSession['adresse']%>"<%else%>value="<%$value%><%/if%>" name="address" placeholder="Stadt, Ort, PLZ?" />
+    
+    <span class="icon-Map">
+	    <span class="path1"></span><span class="path2"></span>
+	</span>
+	
+	<div class="location-hidden-container">
+	    
+	    <input type="hidden" name="ADRESSE_STRASSE" class="location-strasse route" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STRASSE']%>"<%/if%> />
+    	<input type="hidden" name="ADRESSE_STRASSE_NR" class="location-strasse-nr street_number" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STRASSE_NR']%>"<%/if%> />
+    	<input type="hidden" name="ADRESSE_PLZ" class="location-plz postal_code" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_PLZ']%>"<%/if%> />
+    	<input type="hidden" name="ADRESSE_STADT" class="location-stadt locality" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STADT']%>"<%/if%> />
+    	<input type="hidden" name="ADRESSE_LAND" class="location-land country" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_LAND']%>"<%/if%> />
+    	<input type="hidden" name="ADRESSE_LAT" class="location-lat" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_LAT']%>"<%/if%> />
+    	<input type="hidden" name="ADRESSE_LNG" class="location-lng" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_LNG']%>"<%/if%> />
+    	
+    	<input type="hidden" class="administrative_area_level_1" />
+    	
+	</div>
+	
+	<%if $inForm == 1%>
+        <div class="error-div" id="ADRESSE_error">
+            <%xr_translate tag="Bitte Adresse angeben"%>
+        </div>
+    <%/if%>
+</div>

@@ -1,0 +1,25 @@
+/*
+	TEXT
+*/
+
+.xcrm_f_text {
+}
+
+.xcrm_f_text input {
+	width: 100%;
+	font-family: 	'AkagiBook';
+	font-size: 		14px !important;
+}
+
+.xcrm_f_headline {
+	color: #004176;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	
+	font-family: 	'AkagiBook';
+	font-size: 		14px !important;
+	border-bottom: 	1px solid #d2d2d2;
+}
+
+

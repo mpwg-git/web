@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Example 1 - Smooth Zoom </title>
+
+<style>	
+	.smooth_zoom_preloader {
+		background-image: url(zoom_assets/preloader.gif);
+	}	
+	.smooth_zoom_icons {
+		background-image: url(zoom_assets/icons.png);
+	}
+</style>
+<script src="zoom_assets/jquery-1.11.1.min.js"></script>
+<script src="zoom_assets/jquery.smoothZoom.min.js"></script>
+<script>
+	jQuery(function($){
+	    
+	    var $image = $('#yourImageID');
+	    
+	    var selectionWidth 	= 600;
+	    var selectionHeight = 600;
+	    
+		$image.smoothZoom({
+			width					 : selectionWidth,
+			height					 : selectionHeight,
+			zoom_OUT_TO_FIT			 : false,
+			responsive				 : true,
+			pan_BUTTONS_SHOW		 : false,
+			responsive_maintain_ratio: true,
+			max_WIDTH				 : '',
+			max_HEIGHT				 : '',
+			on_ZOOM_PAN_UPDATE		 : function(obj, e)
+			{
+			},
+			on_ZOOM_PAN_COMPLETE	 : function(obj, e)
+			{
+                  var formdata = obj;
+                  formdata.selectionWidth = selectionWidth;
+                  formdata.selectionHeight = selectionHeight;
+			      console.log(formdata); 
+            }
+		});
+		
+	});
+</script>
+ 
+</head>
+<body>
+	<img id="yourImageID" src="/xstorage/_cache/_17527_5_9e26f94886d48113da4bfdb8241c8153.jpg" />
+</body>
+
+</html>

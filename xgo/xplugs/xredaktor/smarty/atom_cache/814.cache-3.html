@@ -1,0 +1,84 @@
+<%$user = $data['USER']%>
+<%$matching = $data['MATCHING']%>
+<%$room = $data['ROOM']%>
+<%xr_siteCall fn="fe_user::sc_getUser2RoomState" fUserId=$room.wz_id var="roomState"%>
+
+<div class="profil suche">
+
+    <div class="profil-inner">
+        
+        <%*
+        
+        <%if $user['wz_PROFILBILD'] == 0%>
+            <%xr_imgWrapper s_id=540 w=197 h=197 rmode="cco" class="profileimage"%>
+        <%else%>
+            <%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=197 h=197 rmode="cco" class="profileimage"%>
+        <%/if%>
+        
+        *%>
+        
+        <div class="profil-inner-padding profile-inner-padding-room">
+            <div class="matchinginfos">
+                <span class="drducksays"><span class="icon-duck"></span> <%xr_translate tag="Dr. Duck Says:"%></span>
+            
+                <p class="match-text">
+                <%$matching['TEXT']['GESAMT']%>
+                </p>
+                
+                
+                <span class="prozent"><%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%></span>
+                <span class="match">match</span>
+                
+                <%******* 3 sätze... bei räumen nicht anzeigen
+                <span><%xr_atom a_id=833 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%></span>
+                *********%>
+                <div class="clearfix"></div>
+            </div>
+
+            
+            <p>
+                <div class="icons">
+                    <%xr_atom a_id=769 theType="room" userId=$room['wz_id'] state=$roomState['FAV'] description="Favourite" return=1%>
+                </div>
+            </p>
+            
+            <p>
+                <div class="icons">
+                    <!-- 814 desktop -->
+                    <%xr_atom a_id=770 theType="room" userId=$room['wz_id'] state=$roomState['BLOCK'] description="Block" return=1%>
+                </div>
+            </p>
+            
+            
+            
+            
+            
+            
+            <p>
+                <a href="<%xr_genlink p_id=12 id=$room['wz_ADMIN'] m_suffix="room/`$room['wz_id']`"%>">
+                    <div class="icons">
+                        <span class="icon-Chat_Profil">
+        				<span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span>
+        				</span> <span class="icon-description"><%xr_translate tag="Nachricht"%></span>
+                    </div>
+                </a>
+            </p>
+            
+            <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+            
+            <%if $isV2 == 1%>
+            
+            <%xr_siteCall fn="fe_vanityurls::getFacebookShare" var="fbShareUrl"%>
+            <%if $fbShareUrl != ''%>
+            <p style="padding-top: 8px;">
+                <a href="<%$fbShareUrl%>?utm_source=FB&utm_medium=usershare&utm_campaign=other " target="_blank">
+                <%xr_imgWrapper s_id=18489 w=150 ext='png'%>
+                </a>
+            </p>
+            <%/if%>
+            <%/if%>
+           
+        </div>
+        
+    </div>    
+</div>

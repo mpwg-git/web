@@ -1,0 +1,154 @@
+<%xr_siteCall fn='fe_adsoftheweek::sc_get_dropdowns' type='print' var='dropdowns'%>
+<%xr_siteCall fn='fe_adsoftheweek::sc_get_this_week' type='print' var='data'%>
+<%xr_siteCall fn='oa_validation::check_oa' aotw_id=$data['ALL']['ID'] aotw_login=$data['ALL']['LOGGEDIN'] var='check'%>
+<%xr_siteCall fn='fe_likes::sc_do_i_like_it' record_type=$data['PRINT']['TYPE'] record_id=$data['PRINT']['SID'] var='likeit'%>
+<%*xr_siteCall fn='fe_favs::sc_do_i_fav_it' record_type="MEDIA" record_id=$data['PRINT']['SID'] var='favit'*%>
+
+<%if $smarty.request.debug == 1%><%xr_print_r val=$dropdowns%><%/if%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-8">
+		    <div class="line-top"></div>
+    		<form class="issue-suche">
+    			<h1>Print Ad of the Week</h1>
+    			<div class="form-group">
+    				<select class="form-control sel" id="ads-of-week-year-filter-print">
+    					<%foreach $dropdowns['years'] as $k => $v%>
+    				    <option value="<%$v['esotw_year']%>"<%if $v['esotw_year'] == $dropdowns['feature_year']%> selected="selected"<%/if%>><%$v['esotw_year']%></option>
+    				    <%/foreach%>
+    				</select>
+    				<select class="form-control sel" id="ads-of-week-week-filter">
+    					<%foreach $dropdowns['weeks'] as $k => $v%>
+    				    <option value="<%$v%>"<%if (count($dropdowns['weeks'])-$k) == $dropdowns['feature_week']%> selected="selected"<%/if%>>Week <%count($dropdowns['weeks'])-$k%></option>
+    				    <%/foreach%>
+    				</select>
+    				<div id="fe_core_loader" style="display: none;"> </div>
+    				<div class="clearer"></div>
+    			</div>
+    		</form>
+    		
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	
+
+	<div class="looklikeH1"><div class="adsoftheweek-titlecontainer">Week <%$data['ALL']['KW']%>/<%$data['ALL']['YEAR']%></div> <div class="adsoftheweek-buttoncontainer"><a href="<%$data['ALL']['LINKPRINT']%>" class="adsoftheweekbutton active">Print</a> <a href="<%$data['ALL']['LINKTV']%>" class="adsoftheweekbutton">Spot</a> <a href="<%$data['ALL']['LINKCLASSIC']%>" class="adsoftheweekbutton">Classic Spot</a></div></div> 
+			<div class="adsoftheweekcontainer">
+				
+				<!-- slide BEGIN -->
+				<div>
+				
+				    <div class="row visible-mobile">
+                		<div class="col-sm-12 ad_placement_mobile">
+                			<%*ADVERTISEMENT: 320x50*%>
+                			<%xr_atom a_id=669 return=1%>
+                		</div>
+                	</div>
+                	
+                	<div class="row visible-tablet">
+                		<div class="col-sm-12 ad_placement_tablet">
+                			<%*ADVERTISEMENT: 728x90*%>
+                			<%xr_atom a_id=671 return=1%>
+                		</div>
+                	</div>
+				
+    			    <div class="row">
+                        	<div class="col-sm-8 workdetailpic">
+            					<p class="labelpic"><%xr_imgWrapper s_id=$data['PRINT']['IMG'] w=1200 class="img-responsive rsImg rsMainSlideImage"%></p>
+            					<!--
+            					<div class="picbottommetalinks"><p class="lw-item workdetailpicbottom"><a href="#" class="like<%if $likeit == 1%> active<%/if%> ilikeit" title="Gefällt mir" data-id=<%$data['PRINT']['SID']%> data-type="MEDIA"></a></span> <span class="likeCount"><%$data['PRINT']['LIKES']%></span> <a class="but favorites ifavit<%if $favit == 1%> active<%/if%>" href="#" data-id=<%$data['PRINT']['SID']%> data-type="MEDIA">Add to favorites</a> <a class="workdetailsizebutton but" href="">Enlarge</a> <a class="workdetailsizebutton but" href="" style="display: none">Shrink</a></p></div>
+            				    -->
+            				    <div class="picbottommetalinks"><p class="lw-item workdetailpicbottom"><a href="#" class="like<%if $likeit == 1%> active<%/if%> ilikeit" title="Gefällt mir" data-id=<%$data['PRINT']['SID']%> data-type="<%$data['PRINT']['TYPE']%>"></a></span> <span class="likeCount"><%$data['PRINT']['LIKES']%></span>  <a class="workdetailsizebutton but" href="">Enlarge</a> <a class="workdetailsizebutton but" href="" style="display: none">Shrink</a></p></div>
+            				  <div class="clearer"></div>
+            				    
+            				</div>
+                    		
+                    		<div class="col-sm-4 workdetailright">
+                    			<h2><%$data['PRINT']['TITLE']%></h2>
+                    			<p><%$data['PRINT']['TEXT']%></p>
+                    			<%$data['PRINT']['CREDITSHTML']%>
+                    			<br />
+                    			
+                    			<div class="hidden-1400 hidden-1400-on-mobile">
+                                
+                					<%*ADVERTISEMENT: 300x250*%>
+                			    	<%xr_atom a_id=668 return=1%>
+                				</div>
+                    		
+                    		</div>
+                    		
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="row workdetailscreditbottom" style="display: none">
+            	    <div class="col-sm-12">
+            	        <%$data['PRINT']['CREDITSHTML']%><br />
+            	    </div>
+            	</div>	
+            
+                </div> 
+                <!-- slide END -->
+                    
+               			
+			</div>
+			
+			
+			
+			<div class="row">
+			
+			     <div class="col-xs-12">
+        	        <div class="adimagecontainer visible-992 hidden-1400-on-mobile">
+        				<%*ADVERTISEMENT: 300x250*%>
+        				<%xr_atom a_id=668 return=1%>
+        			</div>
+        	    
+        	    </div>
+			
+			
+			    <div class="col-sm-12 adsoftheweeklinks">
+	                <a class="but but-prev" href="<%$data['URLS']['PREV']%>">Previous Week</a>
+	                <%if $data['URLS']['NEXT'] != ''%><a class="but but-next" href="<%$data['URLS']['NEXT']%>">Next Week</a><%/if%>
+			    </div>
+			    
+			</div>
+		     
+	    	<div class="row">
+    		    <div class="col-sm-12">
+    			<hr>
+    			<div class="share">
+    				<%xr_atom a_id=461 return=1%>
+    			</div>
+			<div class="clearer"></div>
+		</div>
+	
+	
+	
+
+	
+	
+	<div class="row">
+		<div class="col-sm-12">
+	
+			<div class="comments-disqus">
+	               <!-- disqus -->
+    	            <%xr_atom a_id=462 return=1%>
+			</div>
+    	</div>
+	</div>
+	</div>
+	
+   
+    

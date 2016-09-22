@@ -1,0 +1,327 @@
+
+.xr_icon {
+	background-image: url("../images/xgo_small_icon.png") !important;
+}
+
+
+#loading-mask {
+  position: absolute;
+  left:     0;
+  top:      0;
+  width:    100%;
+  height:   100%;
+  z-index:  20000;
+  background-color: white;
+}
+
+#loading {
+  position: absolute;
+  left:     50%;
+  top:      50%;
+  z-index:  20001;
+  height:   auto;
+}
+
+#loading .loading-indicator {
+  	background: url(../images/loading.gif) no-repeat;
+  	color:      #555;
+  	margin:     0;
+  	text-align: center;
+  	margin-left: -120px;
+  	margin-top: 0;
+  	width: 220px;
+ 	height: 73px;
+}
+
+#wrapper, #container {
+  	height: 500px;
+  	width: 452px;
+}
+
+#wrapper {
+  	bottom: 50%;
+  	right: 50%;
+  	position:absolute;
+  	text-align: center;
+}
+
+#container {
+  	left: 50%;
+  	position: relative;
+  	top: 50%;
+}
+
+#loginSplashImage {
+	width: 277px;
+	height: 400px;
+	background: url(../images/splash.png) no-repeat;
+	margin-left: -21px;
+}
+
+#infoSplashImage {
+	width:452px;
+	height:176px;
+	background: url(../images/xgo_slpash.png) no-repeat;
+}
+
+
+#loginx {
+	padding-top: 30px;
+}
+
+
+@font-face{
+  font-family:'FontEntype';
+  src: url('/xgo/xframe/fonts/entypo/@font-face/entypo.eot');
+  src: url('/xgo/xframe/fonts/entypo/@font-face/entypo.eot?#iefix') format('embedded-opentype'),
+  url('/xgo/xframe/fonts/entypo/@font-face/entypo.woff') format('woff'),
+  url('/xgo/xframe/fonts/entypo/@font-face/entypo.ttf') format('truetype'),
+  url('/xgo/xframe/fonts/entypo/@font-face/entypo.svg#entypo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('/xgo/xframe/fonts/icomoon/icomoon.eot?-93ovrd');
+	src:url('/xgo/xframe/fonts/icomoon/icomoon.eot?#iefix-93ovrd') format('embedded-opentype'),
+		url('/xgo/xframe/fonts/icomoon/icomoon.woff?-93ovrd') format('woff'),
+		url('/xgo/xframe/fonts/icomoon/icomoon.ttf?-93ovrd') format('truetype'),
+		url('/xgo/xframe/fonts/icomoon/icomoon.svg?-93ovrd#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-info:before {
+	content: "\e60b";
+	font-size: 2em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+
+.icon-user:before {
+	content: "\e600";
+	font-size: 2em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-users:before {
+	content: "\e601";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-export:before {
+	content: "\e602";
+	font-size: 2em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-book:before {
+	content: "\e603";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-clock:before {
+	content: "\e604";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-light-bulb:before {
+	content: "\e605";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-shuffle:before {
+	content: "\e606";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-list:before {
+	content: "\e607";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-docs:before {
+	content: "\e608";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-docs-small:before {
+	content: "\e608";
+	font-size: 1em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-folder:before {
+	content: "\e609";
+	font-size: 3em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+.icon-arrow-right:before {
+	content: "\e60a";
+	font-size: 2em;
+	color: #000000 !important;
+  	opacity: 1 !important;
+}
+
+.titleGlyph {
+  font-size: 2.5em !important;
+  margin-right: -15px;
+  margin-top: -8px !important;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+.entypoBtnBarTop {
+  font-size: 4.5em !important;
+  margin-right: -15px;
+  margin-top: -8px!important;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #000000 !important;
+  opacity: 1 !important;
+  
+}
+
+.entypoBtnBarTopIE {
+  font-size: 4.5em !important;
+  margin-right: -15px;
+  margin-top: +3px!important;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #000000 !important;
+  opacity: 1 !important;
+  
+}
+
+
+.fixButtonIE .x-btn-icon-el {
+   margin-top: -7px!important; 
+}
+
+
+.entypoSmall {
+  font-size: 31px !important;
+  /*top: -4px !important;*/
+  margin-top: -7px;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #00000 !important;
+  opacity: 1 !important;
+}
+
+.entypoSmallGroup {
+  font-size: 21px !important;
+  top: -4px;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #00000 !important;
+  opacity: 1 !important;
+}
+
+.entypoSmallGroupIE {
+  font-size: 21px !important;
+  top: +4px !important;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #00000 !important;
+  opacity: 1 !important;
+}
+
+
+.entypoBtnBar {
+	
+  font-size: 6em !important;
+  margin-right: -20px;
+  margin-top: -16px;
+  text-shadow: 1px 1px 1px #ffffff;
+  color: #00000 !important;
+  opacity: 1 !important;
+}
+
+.icon_fa
+{
+	background-image: url(/xgo/xplugs/xredaktor/media/img/icon_filearchiv.png);
+	background-position: center top;
+	height: 35px !important;
+	margin-top: 2px;
+	margin-left: -2px;
+}
+
+.icon_ip
+{
+	background-image: url(/xgo/xplugs/xredaktor/media/img/icon_infopool.png);
+	background-position: center top;
+	height: 35px !important;
+}
+
+.icon_r
+{
+	background-image: url(/xgo/xplugs/xredaktor/media/img/icon_rollen.png);
+	background-position: center top;
+	height: 35px !important;
+	margin-top: 1px;
+	margin-left: 2px;
+}
+
+.icon_b
+{
+	background-image: url(/xgo/xplugs/xredaktor/media/img/icon_benutzer.png);
+	background-position: center top;
+	height: 35px !important;
+	margin-top: 1px;
+}
+
+.icon_lf
+{
+	background-image: url(/xgo/xplugs/xredaktor/media/img/icon_logfiles.png);
+	background-position: center top;
+	height: 35px !important;
+	margin-top: 2px;
+}
+
+.xGoUserPix {
+	background: url(../images/user_pix.png) no-repeat;
+	width: 40px !important;
+	height: 40px !important;
+	background-size: 40px 40px;
+	
+	border-color:#000000 !important;
+	border-width:3px !important;
+	padding:5px !important;
+}
+
+#dynamicButtons {
+	background-color: black;
+	width: 500px;
+	height: 60px;
+	margin-left: 20px;
+	margin-top: -2px;
+}
+
+#workbenchStartTopBarLogo 
+{
+    background-image:url(../images/xgo_header_top.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    height:	72px;
+    width:	66px;
+}

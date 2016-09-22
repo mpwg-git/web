@@ -1,0 +1,33 @@
+.cellButton {
+	text-align: center;
+	cursor: default;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.cellButtonUp {
+	background-color: darkgray;
+	color:white;
+}
+
+.cellNotUseable {
+	text-decoration:line-through;
+	color:lightgray;
+}
+
+
+.FA_BE_SELECT {
+	width: 300px;!important;
+}
+
+.FA_BE_SELECT .download a {
+	text-decoration:none;
+	color: black;
+}
+
+.FA_SELECTOR_imgHolder {
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgray;
+	text-align:center;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="<%$P_LANG%>">
+    <head>
+        <meta charset="utf-8"><%$CMS%>
+        <!--[if lt IE 11]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="shortcut icon" href="ico/favicon.ico">
+		
+        <%if $WTITLETAG !=''%>
+            <title><%$WTITLETAG%> - <%xr_papsch postfix=' - '%><%xr_translate tag='###SITE_TITLE###'%></title>
+        <%else%>
+            <%if $TITLETAG !=''%>
+                <title><%$TITLETAG%><%if $P_ID != '184'%> - <%xr_papsch postfix=' - '%><%xr_translate tag='###SITE_TITLE###'%><%/if%></title>
+            <%elseif $AHEADLINE!=''%>
+                <title><%$AHEADLINE%> - <%xr_papsch postfix=' - '%><%xr_translate tag='###SITE_TITLE###'%></title>
+            <%else%>
+                <title><%xr_translate tag='###SITE_TITLE###'%></title>
+            <%/if%>
+        <%/if%>
+
+        <meta name="description" content="<%$DESCRIPTION%>" />
+        <meta name="keywords" content="<%$KEYWORDS%>" />
+        <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
+        
+        <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        
+		<%xr_cssWrapperV2 s_ids='89,15,50,178,76,39,26' var="packedcss"%>
+	
+		
+		<%xr_lessWrapper ids='6,7'%>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+        <div id="fb-root"></div>
+        <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.4&appId=242558162535234";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- HEADER ATOM --->
+        <%xr_atom a_id=642 return=1%>
+
+        <%$CONTENT%>
+        
+        <!-- TEST ATOM --->
+        <%xr_atom a_id=644 return=1%>
+        
+        <!-- FOOTER ATOM --->
+        <%xr_atom a_id=643 return=1%>
+        
+        <script src="//maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+		<!-- Bootstrap core JavaScript -->
+        <%xr_jsWrapperV2 s_ids='97,93,77,177,51,48, 181' var="packedjs"%>
+        
+        
+	</body>
+</html>

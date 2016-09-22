@@ -1,0 +1,27 @@
+<%xr_siteCall fn="fe_util::isNewLayout" var="newlayout"%>
+	
+<%if $newlayout == 1%>
+     <%xr_atom a_id=889 return=1%>
+<%else%>
+
+<div class="left-row">
+    <%if $P_ID==36%>
+        <%xr_atom a_id=883 return=1%>
+    <%elseif $P_ID==46%>
+        <%xr_atom a_id=885 return=1%>
+    <%/if%>
+    
+    <div class="icon-navigation-blogpage">
+        <!-- Icon Navigation -->
+        <%xr_atom a_id=886 return=1 showFace=0 desc="IconNavigation"%>
+    </div>
+</div>
+<div class="middle-row big darkgrey">
+    <%if $P_ID==36%>
+        <%xr_atom a_id=835 return=1%>
+    <%elseif $P_ID==46%>
+        <%xr_atom a_id=881 return=1%>
+    <%/if%>
+</div>
+
+<%/if%>

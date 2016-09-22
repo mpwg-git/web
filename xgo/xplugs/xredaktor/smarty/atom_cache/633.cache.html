@@ -1,0 +1,9 @@
+<div class="productdetail-price-container">
+    <%if $data['IS_ON_SALE']%>
+        currently on sale!
+        <del><%$data['wz_PRICE_REG_EUR']%></del>
+        <span><%$data['wz_PRICE_SALE_EUR']%></span>
+    <%else%>
+        <span><%$data['wz_PRICE_REG_EUR']%></span>
+    <%/if%>
+</div>

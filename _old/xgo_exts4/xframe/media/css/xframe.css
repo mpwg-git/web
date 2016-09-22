@@ -1,0 +1,443 @@
+.xf_grid_export 
+{ 
+	background-image: url("../../icons/fugue/document-export.png") !important;
+}
+
+.xf_grid_import
+{
+	background-image: url("../../icons/fugue/document-import.png") !important;
+}
+
+.found_search_node span {
+	background-color: black !important;
+	color: white !important;
+	padding-right: 5px;
+}
+
+.xf_copy {
+	background-image: url("../../icons/fugue/document-copy.png") !important;
+}
+
+.xf_change {
+	background-image: url("../../icons/fugue/arrow-join.png") !important;
+}
+
+.xf_bulk {
+	background-image: url("../../icons/fugue/applications-stack.png") !important;
+}
+
+.xf_contact {
+	background-image: url("../../icons/fugue/user-silhouette.png") !important;
+}
+
+.xf_next {
+	background-image: url("../../icons/fugue/arrow.png") !important;
+}
+
+.xf_back {
+	background-image: url("../../icons/fugue/arrow-180.png") !important;
+}
+
+.xf_next_stop {
+	background-image: url("../../icons/fugue/arrow-stop.png") !important;
+}
+
+.xf_back_stop {
+	background-image: url("../../icons/fugue/arrow-stop-180.png") !important;
+}
+
+.xf_export {
+	background-image: url("../../icons/fugue/document-export.png ") !important;
+}
+
+.xf_error_plain {
+	background-color: #FF0000;
+}
+
+.xf_error {
+	background-image: url("../../icons/fugue/minus-button.png") !important;
+}
+.xf_ok {
+	background-image: url("../../icons/fugue/tick-button.png") !important;
+}
+
+.xf_import {
+	background-image: url("../../icons/fugue/document-import.png ") !important;
+}
+
+.xf_clipboard_paste {
+	background-image: url("../../icons/fugue/clipboard--plus.png") !important;
+}
+
+.xf_crop {
+	background-image: url("../../icons/fugue/image-crop.png") !important;
+}
+
+.xf_clipboard_copy {
+	background-image: url("../../icons/fugue/clipboard-sign.png") !important;
+}
+
+.xf_lang {
+	background-image: url("../../icons/fugue/edit-language.png") !important;
+}
+
+.xf_edit {
+	background-image: url("../../icons/fugue/edit-code.png") !important;
+}
+
+.xf_magnet
+{
+	background-image: url("../../icons/fugue/magnet.png") !important;
+}
+
+.xf_publish
+{
+	background-image: url("../../icons/fugue/control-double-090.png") !important;
+}
+
+.xf_unpublish
+{
+	background-image: url("../../icons/fugue/control-double-270.png") !important;
+}
+
+
+.xf_unlink {
+ 	background-image: url("../../icons/fugue/cross.png") !important;
+}
+
+.xf_link {
+ 	background-image: url("../../icons/fugue/ui-label-link.png") !important;
+}
+
+.xf_expand {
+	background-image: url("../../icons/fugue/arrow-out.png") !important;
+}
+
+.xf_collapse {
+	background-image: url("../../icons/fugue/arrow-in.png") !important;
+}
+
+.xf_dummy {
+	background-image: url("../../icons/fugue/dummy.png") !important;
+}
+
+.xf_resize {
+	background-image: url("../../icons/fugue/document-resize.png") !important;
+}
+
+.xf_sort_asc {
+	background-image: url("../../icons/fugue/sort-alphabet.png") !important;
+}
+
+.xf_sort_desc{
+	background-image: url("../../icons/fugue/sort-alphabet-descending.png") !important;
+}
+
+.xf_welcome {
+	background-image: url("../img/xgo_wb.png") !important;
+}
+
+.xf_openNewWindow {
+	background-image: url("../../icons/fugue/application-run.png") !important;
+}
+
+.xf_open  {
+	background-image: url("../../icons/fugue/arrow-step-over.png") !important;
+}
+
+.xf_info {
+	background-image: url("../../icons/fugue/information.png") !important;
+}
+
+.xf_logoff {
+	background-image: url("../../icons/fugue/switch.png") !important;
+}
+
+.xf_settings {
+	background-image: url("../../icons/fugue/gear.png") !important;
+}
+
+.xf_db {
+	background-image: url("../../icons/fugue/database.png") !important;
+}
+.xf_db_warn {
+	background-image: url("../../icons/fugue/database--exclamation.png") !important;
+}
+.xf_db_add {
+	background-image: url("../../icons/fugue/database--plus.png") !important;
+}
+.xf_db_del {
+	background-image: url("../../icons/fugue/database--minus.png") !important;
+}
+
+
+.xf_control_panel {
+	background-image: url("../../icons/fugue/document-list.png") !important;
+}
+
+.xf_settings{
+	background-image: url("../../icons/fugue/gear.png") !important;
+}
+
+.xm_emi{
+	background-image: url("../../icons/fugue/newspaper.png") !important;
+}
+
+.xm_list{
+	background-image: url("../../icons/fugue/book-open.png") !important;
+}
+.xm_rec{
+	background-image: url("../../icons/fugue/paper-plane.png") !important;
+}
+
+.xf_settings_copy {
+	background-image: url("../../icons/fugue/gear--arrow.png") !important;
+}
+
+.xf_search {
+	background-image: url("../../icons/fugue/ui-search-field.png") !important;
+}
+
+.xf_search_deep {
+	background-image: url("../../icons/fugue/node-magnifier.png") !important;
+}
+
+.xf_settings_insert {
+	background-image: url("../../icons/fugue/gear--plus.png") !important;
+}
+
+.xf_save {
+	background-image: url("../../icons/fugue/tick-circle-frame.png") !important;
+}
+.xf_download {
+	background-image: url("../../icons/fugue/disk-return.png") !important;
+}
+
+.xf_update {
+	background-image: url("../../icons/fugue/arrow-continue-000-top.png") !important;
+}
+
+.xf_csv {
+	background-image: url("../../icons/fugue/document-excel-csv.png") !important;
+}
+
+.xf_mail_send {
+	background-image: url("../../icons/fugue/mail-send.png") !important;
+}
+
+.xf_mail_test {
+	background-image: url("../../icons/fugue/television-test.png") !important;
+}
+
+.xf_info {
+	background-image: url("../../icons/fugue/information-frame.png") !important;
+}
+
+.xf_view_detail {
+	background-image: url("../../icons/fugue/ui-scroll-pane-detail.png") !important;
+}
+
+.xf_view_images {
+	background-image: url("../../icons/fugue/ui-scroll-pane-image.png") !important;
+}
+
+.xf_abort {
+	background-image: url("../../icons/fugue/cross-circle-frame.png") !important;
+}
+.xf_reload {
+	background-image: url("../../icons/fugue/arrow-repeat.png") !important;
+}
+.xf_add {
+	background-image: url("../../icons/fugue/plus-circle-frame.png") !important;
+	/*background-image: url("../../icons/fugue/document--plus.png") !important;*/
+}
+
+.xf_html
+{
+	background-image: url("../../icons/html5/HTML_Semantics.png") !important;
+}
+
+.xf_code_valid
+{
+	background-image: url("../../icons/fugue/validation-label-html.png") !important;
+}
+
+.xf_code_format
+{
+	background-image: url("../../icons/fugue/microformats.png") !important;
+}
+
+.xf_pilcrow
+{
+	background-image: url("../../icons/fugue/edit-pilcrow.png") !important;
+}
+
+.xf_duplicate {
+	background-image: url("../../icons/fugue/document-copy.png") !important;
+}
+
+.xf_upload {
+	background-image: url("../../icons/fugue/arrow-turn-090.png") !important;
+	/*background-image: url("../../icons/fugue/document--plus.png") !important;*/
+}
+
+.xf_del {
+	background-image: url("../../icons/fugue/minus-circle-frame.png") !important;
+}
+
+.xf_zip_dir {
+	background-image: url("../../icons/fugue/folder-zipper.png") !important;
+}
+
+.xf_zip_file {
+	background-image: url("../../icons/fugue/document-zipper.png") !important;
+}
+
+.xf_play {
+	background-image: url("../../icons/fugue/clapperboard.png") !important;
+}
+
+.xf_dir_create {
+	background-image: url("../../icons/fugue/drive--plus.png") !important;
+}
+
+.xf_dir_sync {
+	background-image: url("../../icons/fugue/drive--exclamation.png") !important;
+}
+
+.xf_dir_delete {
+	background-image: url("../../icons/fugue/drive--minus.png") !important;
+}
+
+.xf_scan {
+	background-image: url("../../icons/fugue/document-view-thumbnail.png") !important;
+}
+
+.xf_tree_node {
+	background-image: url("../../icons/fugue/ui-radio-button-uncheck.png") !important;
+}
+
+.xf_tree_add {
+	background-image: url("../../icons/fugue/node-insert-next.png") !important;
+}
+
+.xf_tree_add_inside {
+	background-image: url("../../icons/fugue/node-insert-child.png") !important;
+}
+
+.xf_databasesync {
+	background-image: url("../../icons/fugue/databases-relation.png") !important;
+}
+
+.xf_links {
+	background-image: url("../../icons/fugue/ui-label-link.png") !important;
+}
+
+.xf_tree_del {
+	background-image: url("../../icons/fugue/node-delete-child.png") !important;
+}
+
+.xf_filter {
+	background-image: url("../../icons/fugue/funnel.png") !important;
+}
+
+.xf_filter_columns {
+	background-image: url("../../icons/fugue/ui-check-box.png") !important;
+}
+
+
+.xf_grid_add {
+	background-image: url("../../icons/fugue/plus-circle-frame.png") !important;
+}
+.xf_grid_del {
+	background-image: url("../../icons/fugue/minus-circle-frame.png") !important;
+}
+
+
+.xf_select {
+	background-image: url("../../icons/fugue/navigation-000-frame.png") !important;
+}
+
+.xf_select_del {
+	background-image: url("../../icons/fugue/cross-white.png") !important;
+}
+
+.xr_textfield_tool {
+	margin-right:20px;
+}
+
+.x-html-editor-tb .x-edit-xr_link, .x-menu-item img.x-edit-xr_link {
+    background-image: url("../../icons/fugue/document--arrow.png");
+}
+
+.x-html-editor-tb .x-edit-xr_farchiv, .x-menu-item img.x-edit-xr_farchiv {
+    background-image: url("../../icons/fugue/image.png");
+}
+
+.x-html-editor-tb .x-edit-indent, .x-menu-item img.x-edit-indent {
+    background-image: url("../../icons/fugue/edit-indent.png");
+}
+
+.x-html-editor-tb .x-edit-outdent, .x-menu-item img.x-edit-outdent {
+    background-image: url("../../icons/fugue/edit-outdent.png");
+}
+
+.x-html-editor-tb .x-edit-undo, .x-menu-item img.x-edit-undo {
+	background-position: 0 0;
+    background-image: url("../../icons/fugue/arrow-curve-180.png")!Important;
+}
+
+.x-html-editor-tb .x-edit-redo, .x-menu-item img.x-edit-redo {
+	background-position: 0 0;
+	background-image: url("../../icons/fugue/arrow-curve.png")!Important;
+}
+
+
+
+.x-html-editor-tb .x-edit-specialchars, .x-menu-item img.x-edit-specialchars {
+	background-position: 0 0;
+	background-image: url("../../icons/fugue/edit-symbol.png")!Important;
+}
+
+.x-html-editor-tb .x-edit-striptags, .x-menu-item img.x-edit-striptags {
+	background-position: 0 0;
+    background-image: url("../../icons/fugue/edit-drop-cap.png")!Important;
+}
+
+
+/* Charmap */
+#charmapgroup {
+	margin-top: 10px;
+}
+table.charmap {border:1px solid #AAA; text-align:center}
+td.charmap {width:18px; height:18px; color:#000; border:1px solid #AAA; text-align:center; font-size:12px; vertical-align:middle; line-height: 18px;}
+
+td.charmap a{
+	text-decoration:none!important;
+	color: black;
+	width: 20px;
+	heigth: 20px;
+	display: block;
+}
+
+td.charmap a:hover{
+	text-decoration:none!important;
+	color: white;
+}
+
+td.charmap:hover{
+	text-decoration:none!important;
+	color: white;
+	background-color:black;
+}
+
+/*
+.x-html-editor-tb .x-edit-italic, .x-menu-item img.x-edit-italic {
+	background-position: 0 0;
+	background-image: url("../../icons/fugue/edit-outdent.png")!Important;
+}
+.x-html-editor-tb .x-edit-underline, .x-menu-item img.x-edit-underline {
+	background-position: 0 0;
+	background-image: url("../../icons/fugue/edit-outdent.png")!Important;
+}
+*/

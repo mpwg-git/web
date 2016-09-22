@@ -1,0 +1,10 @@
+<%xr_siteCall fn="fe_user::checkLoggedIn" var="loggedin"%>
+<%xr_siteCall fn='fe_user::sc_refreshSessionData' var='xxx'%>
+
+<div class="searchlist">
+    <div class="row picture-row js-replacer-search">
+        
+        <%$results['HTML']%>
+        
+    </div>
+</div>

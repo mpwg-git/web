@@ -1,0 +1,94 @@
+
+.xcrm_tabs_records_title {
+	float:				left;
+	font-family:		'AkagiBook';
+	font-size: 			18px !important;
+	height:				29px;
+	cursor:				pointer;
+	padding-left:		10px;
+	padding-right:		2px;
+	padding-top:		3px;
+}
+
+.xcrm_tabs_records_close_old {
+	display:				block;
+	position:				absolute;
+	z-index:				100;
+	background-image: 		url(../img/close_tab.png);
+	background-position: 	right top;
+	background-repeat: 		no-repeat;
+	cursor: 				pointer;
+	width: 					79px;
+	height: 				30px;
+	float:					right;
+	right:					-80px;
+}
+
+
+#xcrm_tabs_records_nav_wrapper {
+	overflow:hidden;
+}
+
+.xcrm_tabs_records_close {
+	display:				block;
+	z-index:				100;
+	background-image: 		url(../img/close_record.png);
+	background-position: 	right top;
+	background-repeat: 		no-repeat;
+	cursor: 				pointer;
+	width: 					17px;
+	height: 				20px;
+	float:					left;
+	margin-top:				4px;
+	margin-left:			10px;
+}
+
+.xcrm_tabs_records_close_old {
+	display:				block;
+	z-index:				100;
+	background-image: 		url(../img/1355155715_x.png);
+	background-position: 	right top;
+	background-repeat: 		no-repeat;
+	cursor: 				pointer;
+	width: 					15px;
+	height: 				15px;
+	float:					left;
+	margin-top:				5px;
+}
+
+.xcrm_tabs_records_active {
+	background-color:		#00B0EC !important;
+	color:					#FFFFFF;
+}
+
+.xcrm_tabs_records_nav li {
+	list-style: 	none;
+	float: 			left;
+	position: 		relative;
+	top: 			0;
+	margin: 		1px .2em 0 0;
+	border-bottom: 	0;
+	padding: 		0;
+	white-space: 	nowrap;
+}
+
+.xcrm_tabs_records_content {
+	background-color: #eeeeee;
+	overflow-x : hidden;
+	overflow-y : hidden;
+	height: 200px;
+}
+
+.xcrm_tabs_records_content_box {
+}
+
+.xcrm_tabs_scroller {
+	overflow-x : hidden;
+	overflow-y : auto;
+}
+
+.xcrm_tabs_records_tab{
+	float:left;
+	padding-right:10px;
+
+}

@@ -1,0 +1,116 @@
+<%xr_siteCall fn='fe_distributors::sc_get_latest' var='items'%>
+<%xr_siteCall fn='fe_distributors::sc_get_dropdown' var='dropdown'%>
+
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+		    <div class="line-top"></div>
+		    <h1>Distributors</h1>
+		    
+		    <ul class="nav nav-pills p-woche">
+				<li class="active"><a href="<%xr_genlink p_id=16%>">Distributors</a></li>
+				<li><a href="<%xr_genlink p_id=17%>">Ratecard</a></li>
+        		<li><a href="<%xr_genlink p_id=24%>">Contact Us</a></li>
+				<li><a href="<%xr_genlink p_id=14%>">Partners</a></li>
+			</ul>
+		    
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+		
+		<%* werbeset *%>
+    <%xr_atom a_id=677 return=1%>
+	
+	<div class="row">
+		<div class="col-sm-3">
+			<form class="distributors-suche">
+				<div class="form-group">
+					<select class="form-control sel" id="distributors-countries">
+					    <option value="<%xr_genlink p_id=16%>">All Countries</option>
+    				    <%foreach $dropdown as $k => $v%>
+    				    <option value="<%$v['url']%>"<%if $REQUEST['r_id'] == $v['id']%> selected="selected"<%/if%>><%$v['name']%></option>
+    				    <%/foreach%>
+					</select>
+					<div id="fe_core_loader" style="display: none;"> </div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<br />
+	
+	<div class="row distributors">
+		<div class="col-sm-12">
+		    <%foreach $items['ITEMS'] as $k => $v name=count%>
+			<table>
+				<tbody>
+				<tr>
+					<th>Company
+					</th><td><%$v['COMPANY']%></td>
+				</tr>
+				
+				<%if $v['ADRESS'] != ''%>
+				<tr>
+					<th>Street
+					</th><td><%$v['ADRESS']%></td>
+				</tr>
+				<%/if%>
+				<tr>
+					<th>ZIP/City
+					</th><td><%$v['ZIP']%> <%$v['CITY']%></td>
+				</tr>
+				
+				<%if $v['COUNTRY'] != ''%>
+				<tr>
+					<th>Country
+					</th><td><%$v['COUNTRY']%></td>
+				</tr>
+				<%/if%>
+				
+				<%if $v['PHONE'] != ''%>
+				<tr>
+					<th>Phone
+					</th><td><%$v['PHONE']%></td>
+				</tr>
+				<%/if%>
+				
+				<%if $v['FAX'] != ''%>
+				<tr>
+					<th>Fax
+					</th><td><%$v['FAX']%></td>
+				</tr>
+				<%/if%>
+				
+				<%if $v['EMAIL'] != ''%>
+				<tr>
+					<th>Email
+					</th><td><a href="mailto:<%$v['EMAIL']%>"><%$v['EMAIL']%></a></td>
+				</tr>
+				<%/if%>
+				
+				<%if $v['URL'] != ''%>
+				<tr>
+					<th>Website
+					</th><td><a href="http://<%$v['URL']%>" target="_blank"><%$v['URL']%></a></td>
+				</tr>
+				<%/if%>
+			</tbody></table>
+			<hr>
+			</table>
+			<%/foreach%>
+		</div>
+	</div>
+
+	
+	

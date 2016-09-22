@@ -1,0 +1,44 @@
+	<%foreach $work as $k => $v name=count%>
+    		<div class="col-sm-6 marginBottom40">
+    			<div class="row">
+    				<div class="col-sm-6">
+    					<div class="lw-item"> 
+    						<h3 class="nowra"><%$v['ess_campaign']%> <%$v['ess_ad_title']%></h3>
+    						<p>
+    						    
+    						    <%if $v['ess_mediaType_id'] == 2%>
+    						    <%if $v['ess_video_poster_s_id'] > 0%>
+    						    <%xr_img s_id=$v['ess_video_poster_s_id'] w=604 h=604 rmode="cco" var="thumb"%>
+    						    <%else%>
+    						    <%xr_img s_id=270338 w=604 h=604 rmode="cco" var='thumb'%>
+    						    <%/if%>
+    						    <%else%>
+    						    <%if $v['ess_image_highRes_s_id'] == 0 && $v['ess_image_s_id'] == 0%>
+                        		<%xr_img s_id=270338 w=604 h=604 rmode="cco" var='thumb'%>
+                        		<%elseif $v['ess_image_highRes_s_id'] > 0%>
+                        		<%xr_img s_id=$v['ess_image_highRes_s_id'] w=604 h=604 rmode="cco" var='thumb'%>
+                        		<%else%>
+                        		<%xr_img s_id=$v['ess_image_s_id'] w=604 h=604 rmode="cco" var='thumb'%>
+                        		<%/if%>
+    						    <%/if%>
+    						    <img class="img-responsive" with="604" height="604" src="<%$thumb.src%>">
+    						 
+    						</p>
+    						<p><strong>Submitted on:</strong> <%$v['DATUM']%></p>
+    						<p><strong>Status:</strong> <span class="<%if $v['ess_state'] == 5%>em-green<%elseif $v['ess_state'] == 1%>em-red<%else%>em-orange<%/if%>"><%$v['ess_description']%></span></p>
+    					    <p><strong>HighRes:</strong> <span class="<%if $v['ess_image_highRes_s_id'] != 0%>em-green<%else%>em-red<%/if%>"><%if $v['ess_image_highRes_s_id'] != 0%>PRESENT<%else%>MISSING<%/if%></span></p>
+    					    
+    					</div>
+    				</div>
+    				<div class="col-sm-6">
+    					<%$v['HTML']%>
+    					<%if isset($v['URL']) && $v['URL'] != ''%>
+    					<p><a class="but floatRight" href="<%$v['URL']%>">Edit</a></p>
+    					<%/if%>
+    				</div>
+    			</div>
+    		</div>
+    		<%if $k > 0 && ($k+1)%2 == 0%>
+    		<div class="clearer"></div>
+    		<%/if%>
+	<%/foreach%>

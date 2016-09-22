@@ -1,0 +1,85 @@
+<%xr_siteCall fn='fe_thisweek::sc_detailpage_get_id' var='data'%>
+<%xr_siteCall fn='fe_thisweek::sc_get_this_week' var='thisweek'%>
+
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<a class="navbar-brandCont" href="<%xr_genlink p_id=2%>">Lürzer's Archiv</a>
+	</div>
+</div>
+    <!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<%*xr_siteCall fn='fe_thisweek::sc_get_detail_dropdowns' var='dropdowns'*%>
+	
+<div class="row">
+	<div class="col-sm-9">
+        <div class="line-top"></div>
+		<form class="issue-suche">
+			<h1>Features</h1>
+			<div class="form-group floatLeft">
+			    <input type="hidden" name="page_id" id="page_id" value="<%$P_ID%>" />
+				<select class="form-control sel" id="features-detail-year-filter">
+				    <%foreach $data['dropdowns']['years'] as $k => $v%>
+				    <option value="<%$v['oetw_year']%>"<%if $v['oetw_year'] == $data['dropdowns']['feature_year']%> selected="selected"<%/if%>><%$v['oetw_year']%></option>
+				    <%/foreach%>
+				</select>
+				<select class="form-control sel" id="features-detail-week-filter">
+				    <%foreach $data['dropdowns']['weeks'] as $k => $v%>
+				    <option value="<%$v%>"<%if (count($data['dropdowns']['weeks'])-$k) == $data['dropdowns']['feature_week']%> selected="selected"<%/if%>>Week <%count($data['dropdowns']['weeks'])-$k%></option>
+				    <%/foreach%>
+				</select>
+				<div id="fe_core_loader" style="display: none;"> </div>
+				<div class="clearer"></div>
+			</div>
+			<div class="clearer"></div>
+		</form>
+		<ul class="nav nav-pills p-woche">
+			<li class="tit"><h1>WEEK <%$data['data']['KW']%> / <%$data['data']['YEAR']%></h1></li>
+			<li class="fix-tabs1<%if $P_ID == 60%> active<%/if%>"><a href="<%$thisweek[0]['LINK']%>">Audiovisual</a></li>
+			<li class="fix-tabs2<%if $P_ID == 61%> active<%/if%>"><a href="<%$thisweek[1]['LINK']%>">Campaigns</a></li>
+			<li class="fix-tabs3<%if $P_ID == 62%> active<%/if%>"><a href="<%$thisweek[2]['LINK']%>">Who's Who</a></li>
+			<li class="fix-tabs4<%if $P_ID == 63%> active<%/if%>"><a href="<%$thisweek[3]['LINK']%>">Digital</a></li>
+			<li class="fix-tabs5<%if $P_ID == 64%> active<%/if%>"><a href="<%$thisweek[4]['LINK']%>">Editor's Blog</a></li>
+		</ul>
+	</div>
+	<div class="col-sm-3"></div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<p><%xr_imgWrapper s_id=$data['data']['IMG'] ext='jpg' alt="Banner" class="img-responsive"%></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<h2><%$data['data']['TITLE']%></h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<%$data['data']['COLLEFTPRE']%>
+	</div>
+	<div class="col-sm-6">
+		<%$data['data']['COLRIGHTPRE']%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<hr />
+		<div class="share">
+		    <%xr_atom a_id=461 return=1%>
+		</div>
+		<div class="clearer"></div>
+	</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        fe_count.view('THISWEEK',<%$data['data']['ID']%>);
+    });
+</script>

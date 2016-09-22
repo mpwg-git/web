@@ -1,0 +1,68 @@
+<%xr_siteCall fn='fe_partners::sc_get_latest' var='data'%>
+
+<%if $GA['oeedit']==1%>
+<%xr_siteCall fn='oe_preview::sc_get_partners' var='data'%>
+<%/if%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+            <div class="line-top"></div>
+	    	<h1>Partners</h1>
+	    	
+	    	<ul class="nav nav-pills p-woche">
+				
+				<li><a href="<%xr_genlink p_id=16%>">Distributors</a></li>
+				<li><a href="<%xr_genlink p_id=17%>">Ratecard</a></li>
+				<li><a href="<%xr_genlink p_id=24%>">Contact Us</a></li>
+				<li class="active"><a href="<%xr_genlink p_id=14%>">Partners</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+		
+		<%* werbeset *%>
+    <%xr_atom a_id=677 return=1%>
+	
+	<%foreach $data['ITEMS'] as $k => $v name=count%>
+	
+	<%if ($v['URL'] != 'URL') AND ($v['URL'] != '')%>
+	    <%$url = $v['URL']%>
+	<%else%>
+	    <%$url = ''%>
+	<%/if%>
+	
+    <div class="row">
+	    <div class="col-sm-3">
+		    <p><%xr_imgWrapper s_id=$v['IMG'] w=510 class="img-responsive"%></p>
+	    </div>
+	    <div class="col-sm-9">
+		    <div class="list-item">
+				<h3><%$v['TITLE']%></h3>
+				<p><%$v['TEXT']%></p>
+				
+				<%if ($url != '')%><p><a href="<%$url%>" target="_blank" class="openexternal">Open Website</a></p><%/if%>
+		    </div>
+	    </div>
+    </div>
+	
+	<div class="row">
+		<div class="col-sm-12">
+		<hr>
+		</div>
+	</div>
+	
+	<%/foreach%>
+
+	<p><a class="but" href="<%$data['LINK_OVERVIEW']%>">back</a></p>
+

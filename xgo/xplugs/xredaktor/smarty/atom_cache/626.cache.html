@@ -1,0 +1,64 @@
+<%xs_getProducts var='data'%>
+
+<div class="row">
+
+    <%* LEFT Filter*%>
+    <div class="col-sm-4 col-lg-2">
+        
+        [FILTER]
+        
+        <%foreach $data['FILTER'] as $k => $v%>
+            <div class="panel-group">
+        		<div class="panel panel-default">
+        			
+        			<div class="panel-heading">
+        				<h4 class="panel-title"><a data-toggle="collapse" data-parent="#shopFilter_<%$k%>" href=""><%$v['NAME']%> <span class="icon icon-pfeil-down pull-right"></span></a></h4>
+        			</div>
+        			
+        			<div id="#shopFilter_<%$k%>" class="panel-collapse collapse in">
+        				<div class="panel-body">
+        					<ul>
+        					
+        					    <%foreach $v['OPTIONS'] as $k2 => $v2%>
+								    <li><a href="<%$v2['URL']%>"><span class="icon icon-pfeil"></span><%$v2['NAME']%></a> <small><%$v2['COUNT']%></small></li>
+								<%/foreach%>
+								
+        					</ul>
+        				</div>
+        			</div>
+        			
+        		</div>
+        	</div>
+        <%/foreach%>
+        
+    </div>
+    
+    <%* RIGHT Produkte*%>
+    <div class="col-sm-8 col-lg-10 productlist-item-container">
+        
+        <%foreach $data['ITEMS'] as $k => $v%>
+        
+            <%*xr_print_r val=$v*%>
+        
+            <div class="row productlist-item">
+                
+                <div class="col-sm-4">
+                     <%xr_cimg s_id=$v['s_id'] p_id=1 w=700 h=400%>
+                </div>
+                
+                <div class="col-sm-8">
+                    
+                    <p class="productlist-productdetail-name"><%$v['wz_NAME']%></p>
+                    <p class="productlist-productdetail-desc-short"><%$v['wz_SHORT_DESC']%></p>
+                    <p class="productlist-productdetail-desc-long"><%$v['wz_LONG_DESC']%></p>
+                    
+                    <a href="<%$v['URL']%>" class="btn btn-default productlist-productdetail-button"><%xr_translate tag='Details'%></a>
+                    
+                </div>
+
+            </div>
+        <%/foreach%>
+        
+    </div>
+    
+</div>

@@ -1,0 +1,9 @@
+<%xr_siteCall fn='fe_users::is_logged_in' var='loggedin'%>
+<div class="form-group links" id="logged_in_box">
+    <%if $loggedin == true%>
+    <%xr_siteCall fn='fe_users::get_login_box_data' var='user'%>
+    <p>HI, <%$user['NAME']%> - <a href="<%$user['LINK_SIGNOUT']%>"><strong>Sign Out</strong></a> <span>&nbsp;|&nbsp;</span> <a href="<%$user['LINK_MYARCHIVE']%>">My Archive</a> <span>&nbsp;|&nbsp;</span> <a href="<%$user['LINK_MYPROFILE']%>">My Profile</a></p>
+    <%else%>
+	<a href="<%xr_genlink p_id=34%>"><strong>Sign In</strong> <span>&nbsp;|&nbsp;</span> <strong>Sign Up</strong></a>
+	<%/if%>
+</div>

@@ -1,0 +1,37 @@
+<%xr_siteCall fn="fe_user::checkLoggedIn" var="loggedin"%>
+<%xr_siteCall fn="fe_user::getInvitations" var="invitations"%>
+
+
+
+<div class="meinprofil-container meinraum-container">
+    <div class="col-xs-12 default-container-paddingtop">
+
+        <h2>Einem Raum beitreten</h2>
+        
+        <%if count($invitations) == 0%>
+            <%xr_translate tag="Keine Einladungen vorhanden."%>
+            <p>
+                <a href="<%xr_genlink p_id=7%>"><%xr_translate tag="Zurück zu meinem Profil"%></a>
+            </p>
+        <%else%>
+            
+            <%foreach $invitations as $k => $v%>
+            
+                <div class="button-joinroom-container row">
+                    <div class="col-xs-12" style="padding-bottom: 20px;">
+                        <%$v['wz_ADRESSE']%>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="js-accept-join" data-room="<%$v['wz_ROOMID']%>"><%xr_translate tag="Beitreten"%></button>    
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="js-reject-join" data-room="<%$v['wz_ROOMID']%>"><%xr_translate tag="Ablehnen"%></button>    
+                    </div>
+                </div>
+            
+            <%/foreach%>
+        
+        <%/if%>
+        
+    </div>
+</div>

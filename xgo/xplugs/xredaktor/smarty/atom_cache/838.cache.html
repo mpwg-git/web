@@ -1,0 +1,30 @@
+ <div class="worumgehts agb default-container-padding">
+  
+    <span class="looklikeh1">
+            <h1><%xr_translate tag="AGB"%></h1>
+    </span>
+    <br>
+    <br>
+    <div class="impressum-container">
+        <div class="impressum">
+            
+                 
+            <%xr_wz_fetch id=840 wz_online='Y' var='data'%>
+            
+            <%foreach $data as $k => $v%>
+            
+            <b class="faq-question">
+                <p><%$v['wz_HEADLINE']%></p>
+            </b>
+            
+            <div class="faq-text" style="">
+                <p><%$v['wz_TEXT']%></p>
+            </div>
+            
+            <%/foreach%>
+           
+        
+        </div>
+     </div>    
+     
+</div>

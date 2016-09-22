@@ -1,0 +1,2305 @@
+var xluerzer_oe = (function() {
+	var instance = null;
+	return new function() {
+
+		this.getPath = function(){
+			return "/xgo/xplugs/xluerzer_oe";
+		}
+
+		this.getInstance = function(config) {
+			if (instance == null) {
+				instance = new xluerzer_oe_(config);
+			}
+			return instance;
+		}
+	}
+})();
+
+var xluerzer_oe_ = function(config) {
+	this.config = config || {};
+};
+
+xluerzer_oe_.prototype = {
+
+	imgRendererOe_120x40: function(value) {
+		if ((value !== 'undefined') && (value != 0)) {
+			return "<img width=120 src='/xgo/xplugs/xluerzer/ajax/media/oe_120x40/"+value+"'>";
+		}
+		else {
+			return "";
+			return "<img width=120 src='/xgo/xplugs/xluerzer/ajax/media/oe_120x40/default.png'>";
+		}
+	},
+
+	openDefault_oeRecord: function(record, scopex)
+	{
+
+		switch (scopex) {
+
+			case 'oe_blogposts':
+			this.showBlogpost(record.data.oebp_id);
+			return;
+			break;
+
+			case 'oe_inspiration':
+			this.showInspiration(record.data.oei_id);
+			return;
+			break;
+
+			case 'oe_events':
+			this.showEvents(record.data.oee_id);
+			return;
+			break;
+
+			case 'oe_partners':
+			this.showPartners(record.data.oep_id);
+			return;
+			break;
+
+			case 'oe_designerprofiles':
+			this.showDesignerprofiles(record.data.oedp_id);
+			return;
+			break;
+
+			case 'oe_thisweek':
+			this.showThisweek(record.data.oetw_id);
+			return;
+			break;
+
+			case 'oe_interviews':
+			this.showInterview(record.data.oein_id);
+			return;
+			break;
+
+			case 'oe_otherarticle':
+			this.showOtherarticle(record.data.oeoa_id);
+			return;
+			break;
+
+			case 'oe_magazines':
+			this.newMagazine(record.data.oeoa_id);
+			return;
+			break;
+
+			default:
+			return false;
+		}
+
+	},
+
+	openFrontpageConfig: function() {
+
+		// TODO
+
+		var tbar = Ext.create('Ext.toolbar.Toolbar', {
+			items  : [
+
+			{
+				text: 'Save',
+				iconCls: 'xf_save'
+			},
+
+			{
+				text: 'Close',
+				iconCls: 'xf_close'
+			},
+			]
+		});
+
+		console.info("front page");
+
+	},
+
+
+	getAjaxPath : function(suffix)
+	{
+		return '/xgo/xplugs/xluerzer_oe/ajax/'+suffix;
+	},
+
+	getMama: function()
+	{
+		return xluerzer.getInstance();
+	},
+
+	defaultAction: function(cfg) {
+
+		var ret = {
+			iconCls: '',
+			text: cfg.text,
+			handler: function() {
+				this.getMama().showContent(this.getMama().defaultSearcher(cfg));
+			},
+			scope: this
+		}
+
+		return ret;
+	},
+
+	getMenu: function()
+	{
+		var menuItems = [
+
+		this.defaultAction({
+			text:'This Week',
+			pid: 'oetw_id',
+			fields: [{name:'oetw_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oetw_title',text:'Title'},{name:'oetw_desc_short',text:'Short Description'},{name:'oetw_day',text:'Day', width: 80},{name:'oetw_created',text:'Created on', width: 80},{name:'oetw_keywords',text:'Keywords'},{name:'oetw_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_thisweek',
+		}),
+
+		this.defaultAction({
+			text:'Inspiration',
+			pid: 'oei_id',
+			fields: [{name:'oei_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oei_title',text:'Title'},{name:'oei_desc_short',text:'Short Description'},{name:'oei_created',text:'Created On', width: 80},{name:'oei_date_start',text:'Publish start', width: 80},{name:'oei_date_end',text:'Publish end', width: 80},{name:'oei_keywords',text:'Keywords'},{name:'oei_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_inspiration'
+		}),
+
+		this.defaultAction({
+			text:'Partners',
+			pid: 'oep_id',
+			fields: [{name:'oep_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oep_title',text:'Title'},{name:'oep_desc_short',text:'Short Description'},{name:'oep_created',text:'Created On', width: 80},{name:'oep_date_start',text:'Publish start', width: 80},{name:'oep_date_end',text:'Publish end', width: 80},{name:'oep_keywords',text:'Keywords'},{name:'oep_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_partners'
+		}),
+
+		this.defaultAction({
+			text:'Designer Profiles',
+			pid: 'oedp_id',
+			fields: [{name:'oedp_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oedp_title',text:'Title'},{name:'oedp_desc_short',text:'Short Description'},{name:'oedp_created',text:'Created On', width: 80},{name:'oedp_date_start',text:'Publish start', width: 80},{name:'oedp_date_end',text:'Publish end', width: 80},{name:'oedp_keywords',text:'Keywords'},{name:'oedp_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_designerprofiles'
+		}),
+
+		this.defaultAction({
+			text:'Editor\'s Blog',
+			pid: 'oebp_id',
+			fields: [{name:'oebp_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oebp_title',text:'Title'},{name:'oebp_desc_short',text:'Short Description'},{name:'oebp_created',text:'Created On', width: 80},{name:'oebp_date_start',text:'Publish start', width: 80},{name:'oebp_date_end',text:'Publish end', width: 80},{name:'oebp_keywords',text:'Keywords'},{name:'oebp_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40},{name:'oebp_featured',text:'Featured', width: 80,renderer: this.featuredRender, scope: this}],
+			scopex: 'oe_blogposts'
+		}),
+
+		this.defaultAction({
+			text:'Events',
+			pid: 'oee_id',
+			fields: [{name:'oee_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oee_title',text:'Title'},{name:'oee_desc_short',text:'Short Description'},{name:'oee_created',text:'Created On', width: 80},{name:'oee_date_start',text:'Publish start', width: 80},{name:'oee_date_end',text:'Publish end', width: 80},{name:'oee_keywords',text:'Keywords'},{name:'oee_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_events'
+		}),
+
+		this.defaultAction({
+			text:'Interviews',
+			pid: 'oein_id',
+			fields: [{name:'s_id',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'title',text:'Title'},{name:'created',text:'Created On', width: 80},{name:'published',text:'Published on', width: 80},{name:'keywords',text:'Keywords'},{name:'media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_interviews'
+		}),
+
+		this.defaultAction({
+			text:'Other Article',
+			pid: 'oeoa_id',
+			fields: [{name:'oeoa_state',text:'Status', width: 80,renderer: this.getMama().stateRender},{name:'oeoa_title',text:'Title'},{name:'oeoa_desc_short',text:'Short Description'},{name:'oeoa_created',text:'Created On', width: 80},{name:'oeoa_date_start',text:'Publish start', width: 80},{name:'oeoa_date_end',text:'Publish end', width: 80},{name:'oeoa_keywords',text:'Keywords'},{name:'oeoa_media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_otherarticle'
+		}),
+
+		{
+			xtype:'text',
+			text: '',
+			cls: 'spacer'
+		},
+
+		{
+			text:'Frontpage Configuration',
+			handler: this.openFrontPageConfig,
+			disabled: true,
+			scope: this
+		},
+
+		{
+			xtype:'text',
+			text: '',
+			cls: 'spacer'
+		},
+
+		this.defaultAction({
+			text:'File Manager',
+			disabled: true,
+			pid: 'id',
+			fields: [{name:'s_id',text:'Status', width: 80,renderer: this.getMama().stateRender, scope: this},{name:'title',text:'Title'},{name:'created',text:'Created On', width: 80},{name:'keywords',text:'Keywords'},{name:'media_id',text:'Image',renderer: this.getMama().imgRendererOe_120x40}],
+			scopex: 'oe_gallery'
+		})
+
+		];
+
+		return menuItems;
+	},
+
+
+	showInspiration: function(id) {
+
+		var me = this;
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 200,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oei_state'
+			}),
+
+			this.publishStartField({
+				name: 'oei_date_start'
+			}),
+
+			this.publishEndField({
+				name: 'oei_date_end'
+			}),
+
+			this.chooseImageField({
+				name: 'oei_media_id'
+			})
+
+			]
+		});
+
+
+		var panel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Content',
+			border: false,
+			region: 'center',
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			{
+
+				xtype: 'fieldcontainer',
+				layout: 'hbox',
+				width: '100%',
+				forceFit: true,
+				defaultType: 'textfield',
+
+				items: [
+
+				{
+					xtype: 'container',
+					flex: 3,
+					items: [
+					{
+						xtype: 'textfield',
+						name: 'oei_title',
+						fieldLabel: 'Title',
+						width: '100%',
+						height: 40
+					},
+
+					{
+						xtype: 'textareafield',
+						fieldLabel: 'Short description',
+						name: 'oei_desc_short',
+						height: 175,
+						width: '100%'
+					},
+					]
+				},
+
+				{
+					xtype: 'splitter',
+					width: 20,
+				},
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Keywords',
+					name: 'oei_keywords',
+					flex: 1,
+					height: 220
+				}
+
+				]
+			},
+
+
+			this.setLinkField({
+				name: 'oei_url'
+			})
+
+			]
+		});
+
+
+		var gui = Ext.create('Ext.form.Panel', {
+			border: false,
+			title: 'Edit Inspiration - ID: '+id,
+			tbar: this.getTbarSub(),
+			layout: 'border',
+			tbar: [
+			{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, panel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings, panel_content]
+		});
+
+
+		loadData = function()
+		{
+			console.info("id", id)
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_inspiration_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		}
+
+		saveData = function(values)
+		{
+			console.info(values);
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_inspiration_details/save/'+id),
+				params : {
+
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		}
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+	},
+
+
+	showBlogpost: function(id) {
+
+		var me 		= this;
+		var columns = [
+		{ text: 'Image',  		dataIndex: 'thumb'},
+		{ text: 'Filename',  	dataIndex: 'name' },
+		{ text: 'Title',  		dataIndex: 'title'},
+		{ text: 'Description',  dataIndex: 'description'},
+		{ text: 'Uploaded', 	dataIndex: 'uploaded' },
+		{ text: 'Size', 		dataIndex: 'size' },
+		{ text: 'Size', 		dataIndex: 'del' }
+		];
+
+		var tpanel_gallery = xframe_pattern.getInstance().genGrid({
+			title: 'Media Manager',
+			forceFit: true,
+			border: false,
+			split: true,
+			collapseMode: 'mini',
+			button_del: true,
+			button_add: true,
+			search: true,
+			pager: true,
+			xstore: {
+
+				pid: 	'as_id',
+
+				load: 	this.getAjaxPath('oe_mediamanager/load'),
+				remove: this.getAjaxPath('oe_mediamanager/remove'),
+				update: this.getAjaxPath('oe_mediamanager/update'),
+				insert: this.getAjaxPath('oe_mediamanager/insert'),
+				move: 	this.getAjaxPath('oe_mediamanager/move'),
+
+				params: {
+				},
+
+				fields: [
+				{name:'image',			text:'Image', 			type: 'string'},
+				{name:'title',			text:'Title', 			type: 'string'},
+				{name:'description',	text:'Description', 	type: 'string'},
+				{name:'alt',			text:'Alt', 			type: 'string'},
+				{name:'uploaded',		text:'Uploaded', 		type: 'date'},
+				{name:'size',			text:'Size', 			type: 'float'}
+				],
+
+			},
+			listeners: {
+				scope: this,
+				buffer: 1,
+				itemdblclick: function(g,record) {
+
+				}
+			}
+		});
+
+		tpanel_gallery.on('afterrender',function(){
+		},this);
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 200,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oebp_state'
+			}),
+			this.simplyCombo({
+				fieldLabel: 'Featured Post',
+				name: 'oebp_featured',
+				data: [{k:'0',v:'No'},{k:'1',v:'Yes'}]
+			}),
+			this.publishStartField({
+				name: 'oebp_date_start'
+			}),
+			this.publishEndField({
+				name: 'oebp_date_end'
+			}),
+			this.chooseImageField({
+				name: 'oebp_media_id'
+			}),
+
+			this.chooseImageField({
+				fieldLabel: 'Blog Overview',
+				name: 'oebp_img_promo_id'
+			}),
+
+			this.chooseImageField({
+				fieldLabel: 'Blog Featured',
+				name: 'oebp_img_promo_single_id'
+			})
+			]
+		});
+
+		var tpanel_seo = {
+			title: 'SEO',
+			html: 'seo'
+		};
+
+		var tpanel_log = {
+			title: 'Log',
+			html: 'log'
+		};
+
+		var tpanel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Post',
+			border: false,
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			{
+
+				xtype: 'fieldcontainer',
+				layout: 'hbox',
+				width: '100%',
+				forceFit: true,
+				defaultType: 'textfield',
+
+				items: [
+
+				{
+					xtype: 'container',
+					flex: 3,
+					items: [
+					{
+						xtype: 'textfield',
+						name: 'oebp_title',
+						fieldLabel: 'Title',
+						width: '100%',
+						height: 40
+					},
+
+					{
+						xtype: 'textareafield',
+						fieldLabel: 'Short description',
+						name: 'oebp_desc_short',
+						height: 175,
+						width: '100%'
+					},
+					]
+				},
+
+				{
+					xtype: 'splitter',
+					width: 20,
+				},
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Keywords',
+					name: 'oebp_keywords',
+					flex: 1,
+					height: 220
+				}
+
+				]
+			},
+
+			{
+				xtype: 'fieldcontainer',
+				layout: 'column',
+				width: '100%',
+				items: [{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Left',
+					name: 'oebp_col_left',
+				},{
+					xtype: 'splitter',
+					width:20
+				},{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Right',
+					name: 'oebp_col_right'
+				}]
+			}]
+		});
+
+
+		var tpanel_preview = {
+			title: 'Preview',
+			html: 'preview'
+		};
+
+		var panel_content = {
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, tpanel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+			xtype: 'tabpanel',
+			region: 'center',
+			border: false,
+			cls: 'content',
+			items: [tpanel_content,tpanel_gallery,tpanel_preview,tpanel_seo,tpanel_log]
+		};
+
+		var gui = Ext.create('Ext.panel.Panel', {
+			border: false,
+			title: 'Edit Editor\'s Blog - ID: '+id,
+			//tbar: this.getTbarSub(),
+			layout: 'border',
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings,panel_content]
+		});
+
+
+		loadData = function()
+		{
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_blogposts_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		saveData = function(values)
+		{
+			console.info(values);
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_blogposts_details/save/'+id),
+				params : {
+
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+	},
+
+
+	showEvents: function(id) {
+
+		var me 		= this;
+		var columns = [
+		{ text: 'Image',  		dataIndex: 'thumb'},
+		{ text: 'Filename',  	dataIndex: 'name' },
+		{ text: 'Title',  		dataIndex: 'title'},
+		{ text: 'Description',  dataIndex: 'description'},
+		{ text: 'Uploaded', 	dataIndex: 'uploaded' },
+		{ text: 'Size', 		dataIndex: 'size' },
+		{ text: 'Size', 		dataIndex: 'del' }
+		];
+
+		var tpanel_gallery = xframe_pattern.getInstance().genGrid({
+			title: 'Media Manager',
+			forceFit: true,
+			border: false,
+			split: true,
+			collapseMode: 'mini',
+			button_del: true,
+			button_add: true,
+			search: true,
+			pager: true,
+			xstore: {
+
+				pid: 	'as_id',
+
+				load: 	this.getAjaxPath('oe_mediamanager/load'),
+				remove: this.getAjaxPath('oe_mediamanager/remove'),
+				update: this.getAjaxPath('oe_mediamanager/update'),
+				insert: this.getAjaxPath('oe_mediamanager/insert'),
+				move: 	this.getAjaxPath('oe_mediamanager/move'),
+
+				params: {
+				},
+
+				fields: [
+				{name:'image',			text:'Image', 			type: 'string'},
+				{name:'title',			text:'Title', 			type: 'string'},
+				{name:'description',	text:'Description', 	type: 'string'},
+				{name:'alt',			text:'Alt', 			type: 'string'},
+				{name:'uploaded',		text:'Uploaded', 		type: 'date'},
+				{name:'size',			text:'Size', 			type: 'float'}
+				],
+
+			},
+			listeners: {
+				scope: this,
+				buffer: 1,
+				itemdblclick: function(g,record) {
+
+				}
+			}
+		});
+
+		tpanel_gallery.on('afterrender',function(){
+		},this);
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 200,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oebp_state'
+			}),
+			this.simplyCombo({
+				fieldLabel: 'Featured Post',
+				name: 'oebp_featured',
+				data: [{k:'0',v:'No'},{k:'1',v:'Yes'}]
+			}),
+			this.publishStartField({
+				name: 'oebp_date_start'
+			}),
+			this.publishEndField({
+				name: 'oebp_date_end'
+			}),
+			this.chooseImageField({
+				name: 'oebp_media_id'
+			}),
+
+			this.chooseImageField({
+				fieldLabel: 'Blog Overview',
+				name: 'oebp_img_promo_id'
+			}),
+
+			this.chooseImageField({
+				fieldLabel: 'Blog Featured',
+				name: 'oebp_img_promo_single_id'
+			})
+			]
+		});
+
+		var tpanel_seo = {
+			title: 'SEO',
+			html: 'seo'
+		};
+
+		var tpanel_log = {
+			title: 'Log',
+			html: 'log'
+		};
+
+		var tpanel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Post',
+			border: false,
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			{
+
+				xtype: 'fieldcontainer',
+				layout: 'hbox',
+				width: '100%',
+				forceFit: true,
+				defaultType: 'textfield',
+
+				items: [
+
+				{
+					xtype: 'container',
+					flex: 3,
+					items: [
+					{
+						xtype: 'textfield',
+						name: 'oebp_title',
+						fieldLabel: 'Title',
+						width: '100%',
+						height: 40
+					},
+
+					{
+						xtype: 'textareafield',
+						fieldLabel: 'Short description',
+						name: 'oebp_desc_short',
+						height: 175,
+						width: '100%'
+					},
+					]
+				},
+
+				{
+					xtype: 'splitter',
+					width: 20,
+				},
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Keywords',
+					name: 'oebp_keywords',
+					flex: 1,
+					height: 220
+				}
+
+				]
+			},
+
+			{
+				xtype: 'fieldcontainer',
+				layout: 'column',
+				width: '100%',
+				items: [{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Left',
+					name: 'oebp_col_left',
+				},{
+					xtype: 'splitter',
+					width:20
+				},{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Right',
+					name: 'oebp_col_right'
+				}]
+			}]
+		});
+
+
+		var tpanel_preview = {
+			title: 'Preview',
+			html: 'preview'
+		};
+
+		var panel_content = {
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, tpanel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+			xtype: 'tabpanel',
+			region: 'center',
+			border: false,
+			cls: 'content',
+			items: [tpanel_content,tpanel_gallery,tpanel_preview,tpanel_seo,tpanel_log]
+		};
+
+		var gui = Ext.create('Ext.panel.Panel', {
+			border: false,
+			title: 'Edit Editor\'s Blog - ID: '+id,
+			//tbar: this.getTbarSub(),
+			layout: 'border',
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings,panel_content]
+		});
+
+
+		loadData = function()
+		{
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_blogposts_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		saveData = function(values)
+		{
+			console.info(values);
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_blogposts_details/save/'+id),
+				params : {
+
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+
+		/*
+		var me = this;
+
+		var panel_settings = Ext.widget({
+		xtype: 'form',
+		border: false,
+		region: 'west',
+		title: 'Settings',
+		width: 200,
+		collapsible: true,
+		collapseDirection : 'left',
+		margin: '0',
+		split: true,
+		cls: 'settings',
+		autoScroll: true,
+		fieldDefaults: {
+		labelAlign: 'top',
+		msgTarget: 'side',
+		padding: 0
+		},
+		items: [
+
+		this.setStateField({
+		name: 'oee_state'
+		}),
+
+		{
+		xtype: 'datefield',
+		emptyText: 'Pick date ...',
+		fieldLabel: 'From date',
+		name: 'oee_date_from',
+		},
+
+		{
+		xtype: 'datefield',
+		emptyText: 'Pick date ...',
+		fieldLabel: 'To date',
+		name: 'oee_date_to',
+		},
+
+		this.chooseImageField({
+		name: 'oee_media_id'
+		})
+
+
+		]
+		});
+
+
+		var panel_content 	= Ext.create('Ext.form.Panel', {
+		title: 'Content',
+		border: false,
+		region: 'center',
+		cls: 'innen-content',
+		xtype: 'form',
+		autoScroll: true,
+
+		fieldDefaults: {
+		labelAlign: 'top',
+		msgTarget: 'side',
+		padding: 0
+		},
+
+		items: [
+
+		{
+
+		xtype: 'fieldcontainer',
+		layout: 'hbox',
+		width: '100%',
+		forceFit: true,
+		defaultType: 'textfield',
+
+		items: [
+
+		{
+		xtype: 'container',
+		flex: 3,
+		items: [
+		{
+		xtype: 'textfield',
+		name: 'oee_title',
+		fieldLabel: 'Title',
+		width: '100%',
+		height: 40
+		},
+
+		{
+		xtype: 'textareafield',
+		fieldLabel: 'Short description',
+		name: 'oee_desc_short',
+		height: 175,
+		width: '100%'
+		},
+		]
+		},
+
+		{
+		xtype: 'splitter',
+		width: 20,
+		},
+		{
+		xtype: 'textareafield',
+		fieldLabel: 'Keywords',
+		name: 'oee_keywords',
+		flex: 1,
+		height: 220
+		}
+
+		]
+		},
+
+
+		this.longDescriptionField({
+		name: 'oee_desc_long'
+		}),
+
+		this.setLinkField({
+		name: 'oee_url'
+		}),
+
+		]
+		});
+
+
+		var gui = Ext.create('Ext.form.Panel', {
+		border: false,
+		title: 'Edit Event - ID: '+id,
+		layout: 'border',
+		tbar: [{
+		text: 'Save',
+		iconCls: 'xf_save',
+		scope: this,
+		handler: function() {
+		var values = panel_settings.getForm().getValues();
+		Ext.apply(values, panel_content.getForm().getValues());
+		saveData(values);
+		}
+		}],
+
+		fieldDefaults: {
+		labelAlign: 'top',
+		msgTarget: 'side',
+		autoScroll: true,
+		},
+
+		items: [panel_settings, panel_content]
+		});
+
+
+		loadData = function()
+		{
+		console.info("id", id)
+		gui.mask('Loading Data ...');
+		xframe.ajax({
+		scope: me,
+		url: me.getAjaxPath('oe_events_details/load/'+id),
+		params : {
+		},
+		stateless: function(success, json)
+		{
+		gui.unmask();
+		if (!success) return;
+
+		panel_settings.getForm().setValues(json);
+		panel_content.getForm().setValues(json);
+		}
+		});
+		}
+
+		saveData = function(values)
+		{
+		gui.mask('Saving Data ...');
+		xframe.ajax({
+		scope: me,
+		type: 'post',
+		jsonData: values,
+		url: me.getAjaxPath('oe_events_details/save/'+id),
+		params : {
+		},
+		stateless: function(success, json)
+		{
+		gui.unmask();
+		if (!success);
+
+		panel_settings.getForm().setValues(json);
+		panel_content.getForm().setValues(json);
+		}
+		});
+		},
+
+		gui.on('afterrender',function(){
+		loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+		*/
+	},
+
+
+	showPartners: function(id) {
+
+		var me = this;
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 200,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			this.setStateField({
+				name: 'oep_state'
+			}),
+
+			this.publishStartField({
+				name: 'oep_date_start'
+			}),
+
+			this.publishEndField({
+				name: 'oep_date_end'
+			}),
+
+			this.chooseImageField({
+				name: 'oep_media_id'
+			})
+
+			]
+		});
+
+
+		var panel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Content',
+			border: false,
+			region: 'center',
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			{
+
+				xtype: 'fieldcontainer',
+				layout: 'hbox',
+				width: '100%',
+				forceFit: true,
+				defaultType: 'textfield',
+
+				items: [
+
+				{
+					xtype: 'container',
+					flex: 3,
+					items: [
+					{
+						xtype: 'textfield',
+						name: 'oep_title',
+						fieldLabel: 'Title',
+						width: '100%',
+						height: 40
+					},
+
+					{
+						xtype: 'textareafield',
+						fieldLabel: 'Short description',
+						name: 'oep_desc_short',
+						height: 175,
+						width: '100%'
+					},
+					]
+				},
+
+				{
+					xtype: 'splitter',
+					width: 20,
+				},
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Keywords',
+					name: 'oep_keywords',
+					flex: 1,
+					height: 220
+				}
+
+				]
+			},
+
+			this.longDescriptionField({
+				name: 'oep_desc_long'
+			}),
+
+			this.setLinkField({
+				name: 'oep_url'
+			})
+
+
+			]
+		});
+
+
+		var gui = Ext.create('Ext.form.Panel', {
+			border: false,
+			title: 'Edit Partner - ID: '+id,
+			layout: 'border',
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, panel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings, panel_content]
+		});
+
+
+		loadData = function()
+		{
+			console.info("id", id)
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_partners_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		saveData = function(values)
+		{
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_partners_details/save/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success);
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+
+	},
+
+
+	showThisweek: function(id) {
+
+		var me = this;
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 200,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oetw_state'
+			}),
+
+			{
+				xtype: 'datefield',
+				fieldLabel: 'Day',
+				name: 'oetw_day',
+			},
+
+			this.chooseImageField({
+				name: 'oetw_media_id'
+			})
+
+			]
+		});
+
+		var panel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Content',
+			border: false,
+			region: 'center',
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			this.titleField({
+				name: 'oetw_title',
+				name_keywords: 'oetw_keywords'
+			}),
+
+			{
+				xtype:'xr_field_html',
+				fieldLabel: 'Short description',
+				name: 'oetw_desc_short',
+				height: 160,
+			},
+
+			this.html2Field({
+				name_left: 'oetw_col_left',
+				name_right: 'oetw_col_right'
+			}),
+
+			]
+		});
+
+		var gui = Ext.create('Ext.form.Panel', {
+			border: false,
+			title: 'Edit this Week - ID: '+id,
+
+			tbar: [
+			{
+				text: 'Save',
+				iconCls: 'xf_save',
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, panel_content.getForm().getValues());
+					saveData(values);
+				},
+			}/*,
+
+			{
+			text: 'Close',
+			iconCls: 'xf_abort',
+			handler: function() {
+			console.info("close: ");
+			},
+			}*/
+			],
+
+			layout: 'border',
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings, panel_content]
+		});
+
+
+		loadData = function()
+		{
+			console.info("id", id)
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_thisweek_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+
+		saveData = function(values)
+		{
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_thisweek_details/save/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success);
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+
+		this.showContent(gui);
+	},
+
+
+	showDesignerprofiles: function(id) {
+
+		var me = this;
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 200,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oedp_state'
+			}),
+
+			this.publishStartField({
+				name: 'oedp_date_start'
+			}),
+
+			this.publishEndField({
+				name: 'oedp_date_end'
+			}),
+
+			this.chooseImageField({
+				name: 'oedp_media_id'
+			}),
+
+			]
+		});
+
+		var panel_content = Ext.create('Ext.form.Panel', {
+			title: 'Content',
+			border: false,
+			region: 'center',
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			{
+
+				xtype: 'fieldcontainer',
+				layout: 'hbox',
+				width: '100%',
+				forceFit: true,
+				defaultType: 'textfield',
+
+				items: [
+
+				{
+					xtype: 'container',
+					flex: 1,
+					items: [
+
+					{
+						xtype: 'textfield',
+						fieldLabel: 'First Name:',
+						name: 'oedp_name_first',
+						width: '100%'
+					},
+
+					{
+						xtype: 'textfield',
+						fieldLabel: 'Last Name:',
+						name: 'oedp_name_last',
+						width: '100%'
+					},
+
+
+					{
+						xtype: 'textareafield',
+						fieldLabel: 'Keywords',
+						name: 'oedp_keywords',
+						width: '100%',
+						height: 120
+					},
+
+					]
+				},
+
+				{
+					xtype: 'splitter',
+					width: 20,
+				},
+				{
+					xtype:'xr_field_html',
+					fieldLabel: 'Bio',
+					name: 'oedp_bio',
+					height: 220,
+					flex: 3
+				}
+
+				]
+			},
+
+
+			this.setLinkField({
+				name: 'oedp_url'
+			})
+
+			]
+		});
+
+
+		var gui = Ext.create('Ext.form.Panel', {
+			border: false,
+			title: 'Edit Designerprofile - ID: '+id,
+
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, panel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+
+			layout: 'border',
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings, panel_content]
+		});
+
+
+		loadData = function()
+		{
+			console.info("id", id)
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_designerprofiles_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		}
+
+
+		saveData = function(values)
+		{
+			console.info(values);
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_designerprofiles_details/save/'+id),
+				params : {
+
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					panel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+	},
+
+	showInterview: function(id) {
+
+		var me 		= this;
+		var columns = [
+		{ text: 'Image',  		dataIndex: 'thumb'},
+		{ text: 'Filename',  	dataIndex: 'name' },
+		{ text: 'Title',  		dataIndex: 'title'},
+		{ text: 'Description',  dataIndex: 'description'},
+		{ text: 'Uploaded', 	dataIndex: 'uploaded' },
+		{ text: 'Size', 		dataIndex: 'size' },
+		{ text: 'Size', 		dataIndex: 'del' }
+		];
+
+		var imageGrid = xframe_pattern.getInstance().genGrid({
+			title: 'Media Manager',
+			forceFit: true,
+			border: false,
+			split: true,
+			collapseMode: 'mini',
+			button_del: true,
+			button_add: true,
+			search: true,
+			pager: true,
+			xstore: {
+
+				pid: 	'as_id',
+
+				load: 	this.getAjaxPath('oe_mediamanager/load'),
+				remove: this.getAjaxPath('oe_mediamanager/remove'),
+				update: this.getAjaxPath('oe_mediamanager/update'),
+				insert: this.getAjaxPath('oe_mediamanager/insert'),
+				move: 	this.getAjaxPath('oe_mediamanager/move'),
+
+				params: {
+				},
+
+				fields: [
+				{name:'image',			text:'Image', 			type: 'string'},
+				{name:'title',			text:'Title', 			type: 'string'},
+				{name:'description',	text:'Description', 	type: 'string'},
+				{name:'alt',			text:'Alt', 			type: 'string'},
+				{name:'uploaded',		text:'Uploaded', 		type: 'date'},
+				{name:'size',			text:'Size', 			type: 'float'}
+				],
+
+			},
+			listeners: {
+				scope: this,
+				buffer: 1,
+				itemdblclick: function(g,record) {
+
+				}
+			}
+		});
+
+		imageGrid.on('afterrender',function(){
+		},this);
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 180,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oebp_state'
+			}),
+			this.simplyCombo({
+				fieldLabel: 'Featured Post',
+				name: 'oebp_featured',
+				data: [{k:'0',v:'No'},{k:'1',v:'Yes'}]
+			}),
+			this.publishStartField({
+				name: 'oebp_date_start'
+			}),
+			this.publishEndField({
+				name: 'oebp_date_end'
+			}),
+			this.chooseImageField({
+				name: 'oebp_media_id'
+			}),
+			]
+		});
+
+
+		var tpanel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Post',
+			border: false,
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			this.titleField({
+				name: 'oebp_title',
+				name_keywords: 'oebp_keywords'
+			}),
+
+			{
+				xtype:'xr_field_html',
+				fieldLabel: 'Short description',
+				name: 'oebp_desc_short',
+				height: 160,
+			},{
+				xtype: 'fieldcontainer',
+				layout: 'column',
+				width: '100%',
+				items: [{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Left',
+					name: 'oebp_col_left',
+				},{
+					xtype: 'splitter',
+					width:20
+				},{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Right',
+					name: 'oebp_col_right'
+				}]
+			},{
+				xtype: 'fieldcontainer',
+				layout: 'column',
+				forceFit: true,
+				defaultType: 'textfield',
+				items: [
+				{
+					xtype: 'container',
+					columnWidth: 0.5,
+					items: [
+					this.chooseImageField({
+						fieldLabel: 'Blog Featured',
+						name: 'oebp_img_promo_single_id'
+					})
+					]
+				},
+				{
+					xtype: 'container',
+					columnWidth: 0.5,
+					items: [
+					this.chooseImageField({
+						fieldLabel: 'Blog Overview',
+						name: 'oebp_img_promo_id'
+					})
+					]
+				}]
+			}]
+		});
+
+
+		var tpanel_preview = {
+			title: 'Preview',
+			html: 'preview'
+		};
+
+		var panel_content = {
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, tpanel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+			xtype: 'tabpanel',
+			region: 'center',
+			border: false,
+			cls: 'content',
+			items: [tpanel_content,imageGrid,tpanel_preview]
+		};
+
+		var gui = Ext.create('Ext.panel.Panel', {
+			border: false,
+			title: 'Edit Blog Post',
+			//tbar: this.getTbarSub(),
+			layout: 'border',
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings,panel_content]
+		});
+
+
+		loadData = function()
+		{
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_blogposts_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		saveData = function(values)
+		{
+			console.info(values);
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_blogposts_details/save/'+id),
+				params : {
+
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+	},
+
+
+	showOtherarticle: function(id) {
+
+
+		var me 		= this;
+		var columns = [
+		{ text: 'Image',  		dataIndex: 'thumb'},
+		{ text: 'Filename',  	dataIndex: 'name' },
+		{ text: 'Title',  		dataIndex: 'title'},
+		{ text: 'Description',  dataIndex: 'description'},
+		{ text: 'Uploaded', 	dataIndex: 'uploaded' },
+		{ text: 'Size', 		dataIndex: 'size' },
+		{ text: 'Size', 		dataIndex: 'del' }
+		];
+
+		var tpanel_gallery = xframe_pattern.getInstance().genGrid({
+			title: 'Gallery',
+			forceFit: true,
+			border: false,
+			split: true,
+			collapseMode: 'mini',
+			button_del: true,
+			button_add: true,
+			search: true,
+			pager: true,
+			xstore: {
+
+				pid: 	'as_id',
+
+				load: 	this.getAjaxPath('oe_mediamanager/load'),
+				remove: this.getAjaxPath('oe_mediamanager/remove'),
+				update: this.getAjaxPath('oe_mediamanager/update'),
+				insert: this.getAjaxPath('oe_mediamanager/insert'),
+				move: 	this.getAjaxPath('oe_mediamanager/move'),
+
+				params: {
+				},
+
+				fields: [
+				{name:'image',			text:'Image', 			type: 'string'},
+				{name:'title',			text:'Title', 			type: 'string'},
+				{name:'description',	text:'Description', 	type: 'string'},
+				{name:'alt',			text:'Alt', 			type: 'string'},
+				{name:'uploaded',		text:'Uploaded', 		type: 'date'},
+				{name:'size',			text:'Size', 			type: 'float'}
+				],
+
+			},
+			listeners: {
+				scope: this,
+				buffer: 1,
+				itemdblclick: function(g,record) {
+
+				}
+			}
+		});
+
+		tpanel_gallery.on('afterrender',function(){
+		},this);
+
+		var panel_settings = Ext.widget({
+			xtype: 'form',
+			border: false,
+			region: 'west',
+			title: 'Settings',
+			width: 180,
+			collapsible: true,
+			collapseDirection : 'left',
+			margin: '0',
+			split: true,
+			cls: 'settings',
+			autoScroll: true,
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+			items: [
+
+			this.setStateField({
+				name: 'oeoa_state'
+			}),
+
+			this.publishStartField({
+				name: 'oeoa_date_start'
+			}),
+			this.publishEndField({
+				name: 'oeoa_date_end'
+			}),
+			this.chooseImageField({
+				name: 'oeoa_media_id'
+			}),
+			]
+		});
+
+
+		var tpanel_content 	= Ext.create('Ext.form.Panel', {
+			title: 'Post',
+			border: false,
+			cls: 'innen-content',
+			xtype: 'form',
+			autoScroll: true,
+
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				padding: 0
+			},
+
+			items: [
+
+			{
+				xtype: 'fieldcontainer',
+				layout: 'hbox',
+				width: '100%',
+				forceFit: true,
+				defaultType: 'textfield',
+
+				items: [
+
+				{
+					xtype: 'container',
+					flex: 3,
+					items: [
+					{
+						xtype: 'textfield',
+						name: 'oeoa_title',
+						fieldLabel: 'Title',
+						width: '100%',
+						height: 40
+					},
+
+					{
+						xtype: 'textareafield',
+						fieldLabel: 'Short description',
+						name: 'oeoa_desc_short',
+						height: 175,
+						width: '100%'
+					},
+					]
+				},
+
+				{
+					xtype: 'splitter',
+					width: 20,
+				},
+				{
+					xtype: 'textareafield',
+					fieldLabel: 'Keywords',
+					name: 'oeoa_keywords',
+					flex: 1,
+					height: 220
+				}
+
+				]
+			},
+
+
+			{
+				xtype: 'fieldcontainer',
+				layout: 'column',
+				width: '100%',
+				items: [{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Left',
+					name: 'oeoa_col_left',
+				},{
+					xtype: 'splitter',
+					width:20
+				},{
+					xtype:'xr_field_html',
+					columnWidth: 0.5,
+					fieldLabel: 'Right',
+					name: 'oeoa_col_right'
+				}]
+			},
+
+
+			this.setLinkField({
+				name: 'oeoa_url'
+			})
+
+			]
+		});
+
+
+		var tpanel_preview = {
+			title: 'Preview',
+			html: 'preview'
+		};
+
+		var tpanel_seo = {
+			title: 'SEO',
+			html: 'seo'
+		};
+
+		var tpanel_log = {
+			title: 'Log',
+			html: 'log'
+		};
+
+		var panel_content = {
+			tbar: [{
+				text: 'Save',
+				iconCls: 'xf_save',
+				scope: this,
+				handler: function() {
+					var values = panel_settings.getForm().getValues();
+					Ext.apply(values, tpanel_content.getForm().getValues());
+					saveData(values);
+				}
+			}],
+			xtype: 'tabpanel',
+			region: 'center',
+			border: false,
+			cls: 'content',
+			items: [tpanel_content, tpanel_gallery, tpanel_preview, tpanel_seo, tpanel_log]
+		};
+
+		var gui = Ext.create('Ext.panel.Panel', {
+			border: false,
+			title: 'Edit Other Article',
+			//tbar: this.getTbarSub(),
+			layout: 'border',
+			fieldDefaults: {
+				labelAlign: 'top',
+				msgTarget: 'side',
+				autoScroll: true,
+			},
+
+			items: [panel_settings,panel_content]
+		});
+
+
+		loadData = function()
+		{
+			gui.mask('Loading Data ...');
+			xframe.ajax({
+				scope: me,
+				url: me.getAjaxPath('oe_otherarticle_details/load/'+id),
+				params : {
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		saveData = function(values)
+		{
+			console.info(values);
+			gui.mask('Saving Data ...');
+			xframe.ajax({
+				scope: me,
+				type: 'post',
+				jsonData: values,
+				url: me.getAjaxPath('oe_otherarticle_details/save/'+id),
+				params : {
+
+				},
+				stateless: function(success, json)
+				{
+					gui.unmask();
+					if (!success) return;
+
+					panel_settings.getForm().setValues(json);
+					tpanel_content.getForm().setValues(json);
+				}
+			});
+		},
+
+		gui.on('afterrender',function(){
+			loadData();
+		},this,{buffer:1});
+
+		this.showContent(gui);
+	}
+
+
+}

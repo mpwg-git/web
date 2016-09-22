@@ -1,0 +1,132 @@
+.xcrm_images_sortable
+{
+	list-style-type: none;
+	padding: 0px;
+}
+
+.xcrm_f_images {
+
+}
+
+.xcrm_f_images_container {
+
+}
+
+.xcrm_f_img {
+	float:			left;
+	
+	margin-bottom: 	5px;
+	margin-right: 	5px;
+	
+	width:			156px;
+	height:			121px;
+	
+	cursor:			move;
+	position:		relative;
+}
+
+.xcrm_f_img img
+{
+	width:			156px;
+	height:			121px;
+	background-color: #000000;
+}
+
+.non_black_background {
+	background-color: #FFFFFF !important;
+}
+
+.xcrm_f_img_new {
+
+	float:		left;
+	/*padding: 	10px;*/
+	
+	width: 		156px;
+	height: 	121px;
+	
+	background-color: #CECECE;
+	
+	background-image: 		url(../img/1354798828_plus.png);
+	background-position: 	center center;
+	background-repeat: 		no-repeat;	
+	
+	cursor: pointer;
+}
+
+
+.lazy {
+  display: none;
+}
+
+
+.xcrm_f_img_new input {
+	position: 	relative;
+	top: 		0;
+	right: 		0;
+	margin: 	0;
+	opacity: 	0;
+	filter: 	alpha(opacity=0);
+	/*transform: 	translate(-300px, 0) scale(4);*/
+	font-size: 	23px;
+	direction: 	ltr;
+	cursor: 	pointer;
+	width: 		156px;
+	height: 	121px;
+}
+
+.xcrm_image_uploading {
+
+	border: 1px #CECECE solid;
+
+	float:			left;
+	padding: 		10px !important;
+	margin-right: 	5px;
+	
+	width: 			156px;
+	height: 		121px;
+	
+	background-image: url(../img/294.gif);
+	background-repeat: no-repeat;	
+	background-position: center center;
+	
+	font-family: 	'AkagiBold';
+	font-size: 		18px !important;
+	color:			#00b0ec;
+}
+
+.xcrm_f_img_del {
+	cursor:				pointer;
+	position: 			absolute;
+	top:				104px !important;
+	width: 				63px;
+	height: 			17px;
+	background-image: 	url(../img/del_small.png);
+	background-repeat: 	no-repeat;
+}
+
+.xcrm_f_img_open {
+	cursor:				pointer;
+	position: 			absolute;
+	top:				104px !important;
+	right: 				0px;
+	width: 				63px;
+	height: 			17px;
+	background-image: 	url(../img/open_small.png);
+	background-repeat: 	no-repeat;
+}
+
+.xcrm_f_img_title {
+	position: 			absolute;
+	top:				0px;
+	min-width: 			156px;
+	height: 			17px;
+	overflow:			hidden;
+	background:			#00b0ec;
+	padding-left:		5px;
+	padding-right:		5px;
+	
+	font-family: 	'AkagiBook';
+	font-size: 		14px !important;
+	color:			#FFFFFF;
+	
+}

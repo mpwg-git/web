@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-4">
+		<h3>Sign in for voting</h3>
+		<form id="BE_VOTING_LOGIN_FORM">
+			<div class="form-group">
+				<label for="exampleInputEMAIL">Email</label>
+				<input type="email" placeholder="Enter Email" id="LOGIN_EMAIL" name="LOGIN_EMAIL" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPWD">Password</label>
+				<input type="password" placeholder="Enter Password" id="LOGIN_PASSWORD" name="LOGIN_PASSWORD" class="form-control">
+			</div>
+			<button class="but" id="BE_VOTING_LOGIN_BUTTON">Sign In</button>
+			<div class="form-group">
+				<p id="LOGIN_ERROR" class="FORM_ERROR"><br/>User or Password wrong!</p>
+			</div>
+		</form>
+	</div>
+	<div class="col-sm-8"> </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        be_voting_users.init_login_register();
+    });
+</script>

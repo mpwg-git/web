@@ -1,0 +1,30 @@
+<?php /* Smarty version Smarty-3.0.7, created on 2015-07-28 10:23:46
+         compiled from "/srv/gitgo_daten/www/wsf.xgodev.com/web/xgo/xcore/tmp/xcoreTmpPrefix_test_smarty_codecA8AbZ" */ ?>
+<?php /*%%SmartyHeaderCode:42130861755b73c12e12b18-79509733%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'f2fb39af27101df0a97161faa46bcd4571d912b5' => 
+    array (
+      0 => '/srv/gitgo_daten/www/wsf.xgodev.com/web/xgo/xcore/tmp/xcoreTmpPrefix_test_smarty_codecA8AbZ',
+      1 => 1438071826,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '42130861755b73c12e12b18-79509733',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
+<?php if (!is_callable('smarty_function_xr_imgWrapper')) include '/srv/gitgo_daten/www/wsf.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_imgWrapper.php';
+?><div class="item">
+    <div class="image-wrapper">
+        <?php echo smarty_function_xr_imgWrapper(array('s_id'=>163,'w'=>70,'h'=>80,'rmode'=>"cco",'class'=>"chatimage-sender"),$_smarty_tpl);?>
+    
+    </div>
+    <div class="text-wrapper">
+        <p class="name">Ann-Marie <span class="timestamp">01.05.2015 15:35</span></p>
+        <p class="text">Lorem Ipsum dolor se Lorem Ipsum dolor se Lorem Ipsum dolor se</p>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<%xr_siteCall fn='fe_my_profile::sc_get_my_details' var='data'%>
+<%xr_siteCall fn='fe_my_profile::sc_get_my_work_detailed' var='work'%>
+
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+		    <div class="line-top"></div>
+		    <h1>My Archive</h1>
+		    
+		    <ul class="nav nav-pills p-woche">
+				<li class="active"><a href="<%xr_genlink p_id=38%>">My Campaigns</a></li>
+				<%if $data['BEYONDARCHIVE'] > 0%><li><a href="<%xr_genlink p_id=40%>">Beyond Archive</a></li><%/if%>
+				<li><a href="<%xr_genlink p_id=41%>">My Submissions</a></li>
+				<li><a href="<%xr_genlink p_id=42%>">My Favorites</a></li>
+			</ul>
+		
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-12">
+		    <div class="submnavcontainer">
+			    <p><a class="but" href="<%xr_genlink p_id=4%>">Submit New</a></p>
+			</div>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+	<%foreach $work['ITEMS'] as $k => $v name=count%>
+	
+	
+    		<div class="col-sm-6">
+    			<div class="row">
+    				<div class="col-sm-7">
+    					<div class="lw-item"> 
+    						<h3><%$v['TITLE']%></h3>
+    						<p><a href="<%$v['LINK']%>"><%if $v['IMG'] == 0%><%xr_imgWrapper s_id=270410 w=302 h=302 rmode="cco" ext='jpg' class="img-responsive"%><%else%><%xr_img s_id=$v['IMG'] w=605 h=605 rmode="cco" var="thumb"%><img class="lazy img-responsive" with="604" height="604" data-original="<%$thumb.src%>"><%/if%></a></p>
+    						<br>
+    						<p><strong>Published in:</strong> <%$v['MAGAZINNAME']%></p>
+    					</div>
+    				</div>
+    				<div class="col-sm-5">
+    					<ul class="credits">
+    					
+    					    <%foreach $v['CREDITS'] as $k2 => $v2%>
+    					    <%if !empty($v2['CREDITS'])%>
+    					    <li class="<%$v2['act_class']%>"><%foreach $v2['CREDITS'] as $k3 => $v3%><%if $k3 > 0%>,
+    						        <%/if%>
+    						        <a href="<%$v3['PROFILELINK']%>"><%if ($v3['NAME'] != '')%><%$v3['NAME']%><%else%><%$v3['BACKUPNAME']%><%/if%></a>
+    						    <%/foreach%>
+    						    </li>
+    						  <%/if%>
+    						<%/foreach%>
+    					</ul>
+    				</div>
+    			</div>
+    		</div>
+    		<%if $k > 0 && ($k+1)%2 == 0%>
+    		<div class="clearer"></div>
+    		<hr />
+    		<%/if%>
+    <%/foreach%>
+	</div>
+
+
+	<%if count($work['ITEMS'])==0%>
+	<div class="row">
+		<div class="col-sm-12">
+			<p class="bigger">Sorry, nothing published of your work...</p>
+		</div>
+	</div>
+	<%/if%>
+
+	
+
+	
+	

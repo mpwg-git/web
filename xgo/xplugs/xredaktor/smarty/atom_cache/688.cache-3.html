@@ -1,0 +1,29 @@
+<%xr_siteCall fn="fe_user::getMyData" var="data"%>
+
+<div class="col-xs-4 meinprofil-links">
+    <%xr_atom a_id=678 user=$data['USER'] return=1%>
+</div>
+
+<div class="col-xs-8 default-container-paddingtop meinprofil-meinedaten meinprofil-suche">
+    
+    <div class="pull-right" style="padding-right:20px;color:#04e0d7;">
+            <a href="<%xr_genlink p_id=7%>">
+                <span class="icon-Close"></span>
+            </a>
+    </div> 
+    
+    <span class="looklikeh1">
+    <%xr_translate tag="Profil"%>
+        
+    </span>
+    
+ 
+    <%******
+        <%xr_atom a_id=748 images=$data['IMAGES'] return=1%>
+    ******%>
+    
+    <div class="clearfix"></div>
+        
+    <%xr_atom a_id=698 profile=$data['PROFILE'] return=1%>
+    
+</div>

@@ -1,0 +1,52 @@
+<%xr_siteCall fn='fe_beyond_archive::sc_get_all' var='data'%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+		    <div class="line-top"></div>
+		    <h1>Beyond Archive</h1>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	<%foreach $data['ITEMS'] as $k => $v name=count%>
+	
+    	<div class="row">
+    		<div class="col-sm-6">
+    			<div class="row">
+    				<div class="col-sm-7">
+    					<div class="lw-item"> 
+    						<h3><%$v['TITLE']%></h3>
+    						<p><a href="<%$v['LINK']%>"><%if $v['IMG'] == 0%><%xr_imgWrapper s_id=270410 w=302 h=302 rmode="cco" ext='jpg' class="img-responsive"%><%else%><%xr_img s_id=$v['IMG'] w=604 h=604 rmode="cco" var="thumb"%><img class="lazy img-responsive" with="604" height="604" data-original="<%$thumb.src%>"><%/if%></a></p>
+    						<br>
+    						<p><strong>Published in:</strong> </p>
+    					</div>
+    				</div>
+    				<div class="col-sm-5">
+    					<p></p><p><%$v['TEXT']%></p>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-sm-6">
+    			
+    		</div>
+    	</div>
+    	
+    	<hr />
+    	
+    <%/foreach%>
+	
+	<div class="row">
+		<div class="col-sm-12">
+			<p><a class="but" href="#">More</a></p>
+		</div>
+	</div>

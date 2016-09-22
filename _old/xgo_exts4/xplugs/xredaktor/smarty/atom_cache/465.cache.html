@@ -1,0 +1,102 @@
+<%xr_siteCall fn='fe_blog::sc_get_latest' category='all' var='data2'%>
+<%xr_siteCall fn='fe_blog::sc_get_latestOld' category='all' var='data'%>
+<%xr_siteCall fn='fe_blog::sc_get_dropdown' var='dropdown'%>
+<%xr_siteCall fn='fe_blog::sc_get_current_category' var='category'%>
+<%xr_siteCall fn='fe_ads::sc_get_ad' var='ad'%>
+
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%> 
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-9">
+		<div class="line-top"></div>
+		<form class="issue-suche">
+			<h1>Archive Blog</h1>
+			<div class="form-group floatLeft">
+				<select class="form-control sel" id="blog-category">
+				    <option value="<%xr_genlink p_id=8%>">Latest</option>
+				    <%foreach $dropdown as $k => $v%>
+				    <option value="<%$v['url']%>"<%if $REQUEST['r_id'] == $v['id']%> selected="selected"<%/if%>><%$v['name']%></option>
+				    <%/foreach%>
+				</select>
+				<div id="fe_core_loader" style="display: none;"> </div>
+				<div class="clearer"></div>
+			</div>
+			<div class="clearer"></div>
+		</form>
+		
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	<div class="row" id="blog-banner">
+		<div class="col-sm-12">
+			<div id="content-slider-1" class="royalSlider contentSlider rsDefault">
+				<div>
+					<p class="labelpic"><a href="<%$data['ITEMS'][0]['LINK']%>"><%xr_imgWrapper w=1800 h=600 rmode='cco' s_id=$data['ITEMS'][0]['IMG'] class="img-responsive rsImg rsMainSlideImage"%></a></p>
+					<span class="blog-title"><%$data['ITEMS'][0]['TITLE']%></span>
+					<span class="rsTmb">1</span>
+				</div>
+				<div>
+					<p class="labelpic"><a href="<%$data['ITEMS'][1]['LINK']%>"><%xr_imgWrapper w=1800 h=600 rmode='cco' s_id=$data['ITEMS'][1]['IMG'] class="img-responsive rsImg rsMainSlideImage"%></a></p>
+					<span class="blog-title"><%$data['ITEMS'][1]['TITLE']%></span>
+					<span class="rsTmb">2</span>
+				</div>
+				<div>
+					<p class="labelpic"><a href="<%$data['ITEMS'][2]['LINK']%>"><%xr_imgWrapper w=1800 h=600 rmode='cco' s_id=$data['ITEMS'][2]['IMG'] class="img-responsive rsImg rsMainSlideImage"%></a></p>
+					<span class="blog-title"><%$data['ITEMS'][2]['TITLE']%></span>
+					#<span class="rsTmb">3</span>
+				</div>
+					<div>
+					<p class="labelpic"><a href="<%$data['ITEMS'][3]['LINK']%>"><%xr_imgWrapper w=1800 h=600 rmode='cco' s_id=$data['ITEMS'][3]['IMG'] class="img-responsive rsImg rsMainSlideImage"%></a></p>
+					<span class="blog-title"><%$data['ITEMS'][3]['TITLE']%></span>
+					<span class="rsTmb">4</span>
+				</div>
+				<%if $data['ITEMS'][4]['LINK'] != ''%>
+					<div>
+					<p class="labelpic"><a href="<%$data['ITEMS'][4]['LINK']%>"><%xr_imgWrapper w=1800 h=600 rmode='cco' s_id=$data['ITEMS'][4]['IMG'] class="img-responsive rsImg rsMainSlideImage"%></a></p>
+					<span class="blog-title"><%$data['ITEMS'][4]['TITLE']%></span>
+					<span class="rsTmb">5</span>
+				</div>
+				<%/if%>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<!---<h2 id="blog-category">Latest Posts</h2>--->
+			<p id="blog-category" class="looklikeH1 linieBottom"><%$category%></p>
+		</div>
+	</div>
+	
+		
+		<%* werbeset *%>
+    <%xr_atom a_id=677 return=1%>
+	
+	
+	<div class="row">
+		<div class="col-sm-10">
+			
+			<%$data2%>
+            
+			</div>
+		</div>
+		<div class="col-sm-2">
+			<p class="banner"><a href="<%$ad['URL']%>"><%xr_imgWrapper s_id=$ad['IMGSKY'] class="img-responsive"%></a></p>
+		</div>
+    </div>
+    </div>
+	
+<div>
+	
+
+	

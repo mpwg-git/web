@@ -1,0 +1,17 @@
+<%$alsopurchased = $data['ALSO_PURCHASED']%>
+
+<%if !empty($alsopurchased)%>
+
+    <div class="produktdetail-alsopurchased">
+     
+        <ul>
+        
+        <%foreach $alsopurchased as $k => $v%>
+            <li><%$v%></li>
+        <%/foreach%>
+        
+        </ul>
+    
+    </div>
+
+<%/if%>

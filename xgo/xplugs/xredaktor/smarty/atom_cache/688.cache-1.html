@@ -1,0 +1,14 @@
+<%xr_siteCall fn="fe_user::getMyData" var="data"%>
+
+<div class="profilerstellen">
+    
+    <%******
+    <%xr_atom a_id=783 return=1 desc='oben'%>
+    ******%>
+    
+    <div class="mainform">
+        
+        <%xr_atom a_id=698 user=$data['USER'] profile=$data['PROFILE'] return=1%>
+        
+    </div>
+</div>

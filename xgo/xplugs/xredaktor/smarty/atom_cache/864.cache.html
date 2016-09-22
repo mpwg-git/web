@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="<%$P_LANG%>">
+    
+    <head>
+    <meta charset="utf-8"><%$CMS%>
+    <!--[if lt IE 11]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		
+	<link rel="icon" href="/xstorage/template/img/favicon/favicon.ico">
+	<link rel="icon" sizes="196x196" href="/xstorage/template/img/favicon/favicon-196x196.png">
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="/xstorage/template/img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/xstorage/template/img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/xstorage/template/img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/xstorage/template/img/favicon/apple-touch-icon-144x144.png" />
+    
+    <!-- ATOMS IN USE -->
+    <%xr_atom a_id=683 return=1%>
+	
+    <%if $WTITLETAG !=''%>
+        <title><%$WTITLETAG%> - <%xr_papsch postfix=' - '%><%xr_translate tag='###SITE_TITLE###'%></title>
+    <%else%>
+        <%if $TITLETAG !=''%>
+            <title><%$TITLETAG%><%if $P_ID != '184'%> - <%xr_papsch postfix=' - '%><%xr_translate tag='###SITE_TITLE###'%><%/if%></title>
+        <%elseif $AHEADLINE!=''%>
+            <title><%$AHEADLINE%> - <%xr_papsch postfix=' - '%><%xr_translate tag='###SITE_TITLE###'%></title>
+        <%else%>
+            <title><%xr_translate tag='###SITE_TITLE###'%></title>
+        <%/if%>
+    <%/if%>
+
+    <meta name="description" content="<%$DESCRIPTION%>" />
+    <meta name="keywords" content="<%$KEYWORDS%>" />
+    <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
+    
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+	<%xr_cssWrapperV2 s_ids='89,15,178,11998,76,39,26,17209,402,408,321,422,13331,426,461,76' var="packedcss"%>
+	<%xr_lessWrapper ids='6,7'%>
+	
+	<script type="text/javascript">
+    top.P_LANG='<%$P_LANG%>';
+    top.P_ID=<%$P_ID%>;
+    top.str_yes = '<%xr_translate tag="Ja"%>';
+    top.str_no = '<%xr_translate tag="Nein"%>';
+    top.delete_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+    top.delete_word2 = '<%xr_translate tag="###loeschen_wort2###"%>';
+    </script>
+    <style>
+		#cropContainerHeader {
+			width: 600px;
+			height:400px;
+			position:relative; /* or fixed or absolute */}
+</style>
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+    
+  
+	
+	<body>
+	    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P99D63"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P99D63');</script>
+        <!-- End Google Tag Manager -->
+	    
+        <div id="fb-root"></div>
+        <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.4&appId=242558162535234";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!-- HEADER ATOM -->
+        <%xr_atom a_id=642 return=1%>
+
+        <%$CONTENT%>
+        <%xr_atom a_id=761 return=1 desc="img upload modal"%>
+        
+        <%* <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
+        
+        <script src=" http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+        <link rel="stylesheet" href="/xstorage/template/Croppic/assets/css/croppic.css" />
+        <script src="/xstorage/template/Croppic/croppic.js" type="text/javascript"></script>
+        <%xr_atom a_id=794 return=1 desc='face in use'%>
+        <!-- FOOTER ATOM -->
+        <%*xr_atom a_id=643 return=1*%>
+        
+		<%xr_atom a_id=704 return=1 desc='js files'%>
+        <%xr_atom a_id=757 return=1 desc='ajax loader'%>
+        
+        <%xr_jsWrapper s_id=17236%>
+        
+        
+	</body>
+</html>

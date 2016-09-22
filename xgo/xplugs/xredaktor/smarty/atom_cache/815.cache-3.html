@@ -1,0 +1,30 @@
+<h2>Meine Daten</h2>
+    
+<form class="form-mein-profil" id="form-mein-profil">
+    
+    <%xr_atom a_id=734 return=1 desc='zeitraum'%>
+    <%xr_atom a_id=735 return=1 desc='miete'%>
+    
+     <div class="form-group">
+        <label><%xr_translate tag="Neue Mitbewohner?"%></label>
+        <div class="column-input v-center">
+            <input class="form-control" name="NEUE_MITBEWOHNER_VON" placeholder="<%xr_translate tag='von Personen'%>?" value="<%$profile['wz_NEUE_MITBEWOHNER_VON']%>" />
+        </div><!--
+        --><div class="devider v-center">-</div><!--
+        --><div class="column-input v-center">
+            <input class="form-control" name="NEUE_MITBEWOHNER_BIS" placeholder="<%xr_translate tag='bis Personen'%>?" value="<%$profile['wz_NEUE_MITBEWOHNER_BIS']%>" />
+        </div>
+    </div>
+    
+    <%xr_atom a_id=701 return=1 desc='mitbewohner'%>
+    
+    <%xr_atom a_id=738 return=1 desc='zimmergroesse'%>
+    
+    <%xr_atom a_id=739 return=1 desc='abloese'%>
+    <%xr_atom a_id=740 return=1 desc='raucher'%>
+    
+    <%xr_atom a_id=699 return=1 desc='sprachen'%>
+    <%xr_atom a_id=700 return=1 desc='adresse'%>
+    <%xr_atom a_id=741 return=1 desc='submit'%>
+    
+</form>

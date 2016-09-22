@@ -1,0 +1,52 @@
+.xrm_status {
+	font-size:30px;
+}
+
+.xrm_overview {
+	font-size:15px;
+}
+
+.error_config_emission {
+	color: red;
+}
+
+.xrm_template {
+	width: 128px;
+	height: 128px;
+	background-image:url(../img/1351515580_templates.png); 
+
+}
+
+.thumb-wrap {
+	float:left;
+	text-align: center;
+	font-weight: bold;
+	padding: 20px;
+}
+
+.x-item-selected {
+	background-color: #D3E1F1 !important;
+}
+
+.xmReport_perc {
+	font-size:20px;
+}
+
+.xmReport_total {
+	font-size:40px;
+}
+
+.xmReport_mid {
+	font-size:15px;
+}
+
+
+.errorTableImport table, .errorTableImport th, .errorTableImport td
+{
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.dygraph-legend {
+	padding-right: 20px; 
+}

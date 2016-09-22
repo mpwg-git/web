@@ -1,0 +1,47 @@
+<%xr_siteCall fn='fe_my_profile::sc_get_my_beyond_archive_detailed' var='beyond'%>
+
+<%xr_img s_id=270410 w=698 h=416 rmode="cco" q=85 var="prethumb"%>
+<div class="col-sm-12">
+	<div class="row">
+    <br />
+	<%foreach $beyond['ITEMS'] as $k => $v name=count%>
+	
+    	
+        	<div class="col-sm-6 marginBottom40">
+        		<div class="row">
+        			<div class="col-sm-7">
+        				<div class="lw-item"> 
+        					<p><a href="<%$v['LINK']%>"><%if $v['IMG'] == 0%><%xr_imgWrapper s_id=270410 w=302 h=302 rmode="cco" ext='jpg' class="img-responsive"%><%else%><%xr_img s_id=$v['IMG'] w=604 h=604 rmode="cco" var="thumb"%><img class="lazy img-responsive" with="604" height="604" src="<%$prethumb.src%>" data-original="<%$thumb.src%>"><%/if%></a></p>
+        					<br>
+                			<p><a class="but beyond-archive-edit-button" href="#" data-id="<%$v['ID']%>">Edit</a> <a class="but beyond-archive-delete-button" href="#" data-id="<%$v['ID']%>">Delete</a></p>
+        				</div>
+        			</div>
+        			<div class="col-sm-5">
+        			    <h3><%$v['TITLE']%></h3>
+        				<p><%$v['TEXT']%></p>
+        			</div>
+        		</div>
+        	</div>
+        	<%if $k > 0 && ($k+1)%2 == 0%>
+    		<div class="clearer"></div>
+    		<%/if%>
+    
+    <%/foreach%>
+	</div>
+
+	<%if count($beyond['ITEMS']) > 0%>
+    <hr />
+	<div class="row">
+		<div class="col-sm-12">
+			<!--<p><a class="but" href="#">More</a></p>-->
+		</div>
+	</div>
+	<%else%>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<p class="bigger">You have nothing uploaded yet...</p>
+		</div>
+	</div>
+	<%/if%>
+</div>

@@ -1,0 +1,63 @@
+<%*xr_siteCall fn="fe_produkte::getProdukte" var=$data*%>
+
+<%xs_getProducts var='data'%>
+
+<%*****
+<%xr_print_r val=$data%>
+
+
+
+<div class="row">
+
+    <%* LEFT Filter*%>
+    <div class="col-sm-4">
+        
+        <%foreach $data['FILTER'] as $k => $v%>
+            <div class="panel-group">
+        		<div class="panel panel-default">
+        			
+        			<div class="panel-heading">
+        				<h4 class="panel-title"><a data-toggle="collapse" data-parent="#shopFilter_<%$k%>" href=""><%$v['NAME']%> <span class="icon icon-pfeil-down pull-right"></span></a></h4>
+        			</div>
+        			
+        			<div id="#shopFilter_<%$k%>" class="panel-collapse collapse in">
+        				<div class="panel-body">
+        					<ul>
+        					
+        					    <%foreach $v['OPTIONS'] as $k2 => $v2%>
+								    <li><a href="<%$v2['URL']%>"><span class="icon icon-pfeil"></span><%$v2['NAME']%></a> <small><%$v2['COUNT']%></small></li>
+								<%/foreach%>
+								
+        					</ul>
+        				</div>
+        			</div>
+        			
+        		</div>
+        	</div>
+        <%/foreach%>
+        
+    </div>
+    
+    <%* RIGHT Produkte*%>
+    <div class="col-sm-8">
+        
+        <%foreach $data['ITEMS'] as $k => $v%>
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <%$v['BILD']%>
+                </div>
+                
+                
+            *%>
+                
+                <div class="col-sm-8">
+                    <a href="<%$v['URL']%>"><%$v['wz_NAME']%></a>
+                </div>
+
+            </div>
+        <%/foreach%>
+        
+    </div>
+    
+</div>

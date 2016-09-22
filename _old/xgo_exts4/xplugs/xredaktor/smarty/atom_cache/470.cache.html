@@ -1,0 +1,86 @@
+<%xr_siteCall fn='fe_events::sc_get_latest_one' var='event'%>
+
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+		    <div class="line-top"></div>
+		    <h1>Services</h1>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	<%* werberows mobile + tablet *%>
+    <%xr_atom a_id=672 return=1%>
+	
+	<div class="row">
+		<div class="col-sm-12">
+	    <h2>Events
+	    <a href="<%$event['LINK_OVERVIEW']%>" class="more">More</a></h2>
+	    </div>
+	</div>
+	
+    <div class="row">
+		<div class="col-sm-4">
+			<p><a href="<%$event['LINK_OVERVIEW']%>"><%xr_imgWrapper s_id=$event['IMG'] w=349 class="img-responsive leichterrahmen"%></a></p>
+		</div>
+		<div class="col-sm-8">
+			<p><strong>
+			<%$event['DATEFROM']%>
+				<%if ($event['DATETO'] != "0000-00-00")%>
+                    to <%$event['DATETO']%>        
+                <%/if%>
+            </strong></p>
+			<span class="looklikeH1noBorder"><%$event['TITLE']%></span>
+			<p><%$event['TEXT']%></p>
+			
+			<%*ADVERTISEMENT mit DIVS: 300x250*%>
+	    	<%xr_atom a_id=673 return=1%>
+	    	
+	    	
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="linieBottom">Others</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="lw-item"> 
+				<h3>Partners</h3>
+				<p class="labelpic"><a href="<%xr_genlink p_id=14%>"><%xr_imgWrapper s_id=$IMGPARTNERS w=349 ext='jpg' class="img-responsive"%></a></p>
+				<p><%$TEXTPARTNERS%></p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="lw-item">
+				<h3>Distributors</h3>
+				<p class="labelpic"><a href="<%xr_genlink p_id=16%>"><%xr_imgWrapper s_id=$IMGDISTRIBUTORS w=349 ext='jpg' class="img-responsive"%></a></p>
+				<p><%$TEXTDISTRIBUTORS%></p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="lw-item">
+				<h3>Ratecard</h3>
+				<p class="labelpic"><a href="<%xr_genlink p_id=17%>"><%xr_imgWrapper s_id=$IMGRATECARD w=349 ext='jpg' class="img-responsive"%></a></p>
+				<p><%$TEXTRATECARD%></p>
+			</div>
+		</div>
+	</div>
+	
+	<%* werberows mobile + tablet 2 *%>
+    <%*xr_atom a_id=676 return=1*%>
+	
+	

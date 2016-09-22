@@ -1,0 +1,458 @@
+<%xr_siteCall fn='fe_partners::sc_get_latest_start' var='partner'%>
+<%xr_siteCall fn='fe_profiles::sc_get_latest_start_or' var='profile'%>
+<%xr_siteCall fn='fe_inspiration::sc_get_latest_start' var='inspiration'%>
+<%xr_siteCall fn='fe_adsoftheweek::sc_get_this_week' onlytwocredits=1 var='adsoftheweek'%>
+<%xr_siteCall fn='fe_archive_media::sc_your_pick_or' var='yourpick'%>
+<%xr_siteCall fn='fe_thisweek::sc_get_most_read' var='mostread'%>
+<%xr_siteCall fn='fe_magazine::sc_get_frontpage' var='frontpagemagazines'%>
+
+<%if isset($smarty.request.debug)%><%xr_print_r val=$adsoftheweek%><%/if%>
+
+<!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+<!-- this week front -->	
+    <%xr_atom a_id=507 return=1%>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h2><a href="<%$adsoftheweek['ALL']['LINKPRINT']%>">Ads of the Week</a><a class="more" href="<%$adsoftheweek['ALL']['LINKPRINT']%>">MORE</a></h2>
+		
+			<%if $adsoftheweek['PRINT']['IMG'] > 0%>
+			<%$img_id1 = $adsoftheweek['PRINT']['IMG']%>
+			<%else%>
+			<%$img_id1 = 270410%>
+			<%/if%>
+			<%if $adsoftheweek['TV']['IMG'] > 0%>
+			<%$img_id2 = $adsoftheweek['TV']['IMG']%>
+			<%else%>
+			<%$img_id2 = 270410%>
+			<%/if%>
+			<%if $adsoftheweek['CLASSIC']['IMG'] > 0%>
+			<%$img_id3 = $adsoftheweek['CLASSIC']['IMG']%>
+			<%else%>
+			<%$img_id3 = 270410%>
+			<%/if%>
+			
+			<%xr_imgCompose var='bild1' jcfg="	    
+            {
+                'imgs' : [{
+            	's_id':$img_id1, 'x': 6, 'y': 0, 'w': 533, 'h': 321, 'rmode':'cco', 'ext':'jpg'
+                },{
+            	's_id':270328, 'x': 0, 'y': 275, 'w': 142, 'h': 31, 'ext':'png'
+                }],
+                'ext': 'png', 'fname':'bild1'
+            }"%>
+            
+            <%xr_imgCompose var='bild2' jcfg="	    
+            {
+                'imgs' : [{
+            	's_id':$img_id2, 'x': 6, 'y': 0, 'w': 533, 'h': 321, 'rmode':'cco', 'ext':'jpg'
+                },{
+            	's_id':270347, 'x': 0, 'y': 275, 'w': 165, 'h': 31, 'ext':'png'
+                }],
+                'ext': 'png', 'fname':'bild2'
+            }"%>
+            
+            <%xr_imgCompose var='bild3' jcfg="	    
+            {
+                'imgs' : [{
+            	's_id':$img_id3, 'x': 6, 'y': 0, 'w': 533, 'h': 321, 'rmode':'cco', 'ext':'jpg'
+                },{
+            	's_id':270343, 'x': 0, 'y': 275, 'w': 165, 'h': 31, 'ext':'png'
+                }],
+                'ext': 'png', 'fname':'bild3'
+            }"%>
+			
+			<div id="content-slider-1" class="royalSlider contentSlider rsDefault ads-slider">
+				<%if $bild1.src neq ""%><div class="adsoftheweekcredits">
+					<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKPRINT']%>"><img src="<%$bild1.src%>" alt="<%$bild1.alt%>" class="img-responsive rsImg rsMainSlideImage"></a></p>
+			        <div class="minHeight28 ads-credits"><%$adsoftheweek['PRINT']['CREDITSHTML']%></div>
+			        <span class="rsTmb">1</span>
+				</div><%/if%>
+				<%if $bild2.src neq ""%><div class="adsoftheweekcredits">
+					<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKTV']%>"><img src="<%$bild2.src%>" alt="<%$bild2.alt%>" class="img-responsive rsImg rsMainSlideImage"></a></p>
+			       <div class="minHeight28 ads-credits"><%$adsoftheweek['TV']['CREDITSHTML']%></div>
+			        <span class="rsTmb">2</span>
+				</div><%/if%>
+				<%if $bild3.src neq ""%><div class="adsoftheweekcredits">
+					<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKCLASSIC']%>"><img src="<%$bild3.src%>" alt="<%$bild3.alt%>" class="img-responsive rsImg rsMainSlideImage"></a></p>
+			        <div class="minHeight28 ads-credits"><%$adsoftheweek['CLASSIC']['CREDITSHTML']%></div>
+			        <span class="rsTmb">3</span>
+				</div><%/if%>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div id="content-slider-2" class="royalSlider contentSlider rsDefault rsTleft frontpagemagazineslider">
+			
+			 <%foreach $frontpagemagazines as $i => $j%>
+			 
+			    <div class="rsContent>">
+    				<div class="row">
+    					<div class="col-sm-12">
+    						<h2 class="nowra"><a href="<%$j['LINK']%>"><%$j['TITLE']%></a>&nbsp;</h2>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="col-sm-6">
+    						<p><a href="<%$j['LINK']%>"><%xr_imgWrapper s_id=$j['IMG'] alt="Banner" w=510 class="img-responsive"%></a></p>
+    					</div>
+    					<div class="col-sm-6">
+    						<%$j['TEXT']%>
+    						<span class="rsTmb"><%$i+1%></span>
+    					</div>
+    					
+    				</div>
+    			</div>
+    		
+			    <%$countsave=<%$i+2%>%>
+			<%/foreach%>
+			
+			
+			<%xr_wz_fetch id=515 var='products'%>
+		    <%foreach $products as $i => $obj%>
+    		    <div class="rsContent slide<%$i+1%>">
+    				<div class="row">
+    					<div class="col-sm-12">
+    						<h2 class="nowra"><a href="<%$obj['wz_LINK']%>" target="_blank"><%$obj['wz_TITLE']%></a></h2>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="col-sm-6">
+    						<p><a href="<%$obj['wz_LINK']%>" target="_blank"><%xr_imgWrapper s_id=$obj['wz_IMAGE'] w=510 alt="Banner" class="img-responsive"%></a></p>
+    					</div>
+    					<div class="col-sm-6">
+    						<%$obj['wz_TEXT']%>
+    						<span class="rsTmb"><%$i+1%></span>
+    					</div>
+    				</div>
+    			</div>
+            <%/foreach%>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-12">
+			<h2><a href="<%$inspiration['LINK_OVERVIEW']%>">Inspiration</a> <a class="more" href="<%$inspiration['LINK_OVERVIEW']%>">More</a></h2>
+		</div>
+	</div>
+	<div class="row">
+	
+		<%foreach $inspiration['ITEMS'] as $k => $v name=count%>
+            
+                <div class="col-sm-3">
+					<div class="lw-item"> 
+						<p class="labelpic"><a <%if $v['URLEXT'] eq 1%>target="_blank"<%/if%> href="<%$v['URL']%>"><%xr_imgWrapper s_id=$v['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p><%$v['TEXT']%></p>
+					</div>
+			    </div>    
+            
+        <%/foreach%>
+	
+	</div>
+
+
+
+	
+	<div class="row">
+		
+		<%if $profile['OVERRULE'] == 1%>
+		 <!-- profile or BEGIN -->
+		 
+		 <div class="col-sm-6">
+			<h2><a href="<%$profile['LINK_OVERVIEW']%>"><%$profile['TITLE']%></a></h2>
+			<div class="row">
+				<div class="col-md-7">
+					<p><a href="<%$profile['LINK_OVERVIEW']%>"><%xr_imgWrapper s_id=$profile['IMG'] rmode='cco' w=250 h=210 class="img-responsive"%></a></p>
+				</div>
+				<div class="col-md-5">
+				        <p><%$profile['TEXT']%></p>
+				</div>
+			</div>
+		</div>
+		 
+		 <!-- profile or END -->
+		 <%else%>
+		 
+		<!-- profile box BEGIN -->
+		<div class="col-sm-6">
+			<h2><a href="<%$profile['LINK_MORE']%>" id="link-profiles">Profile</a> <a class="more" href="<%$profile['LINK_MORE']%>">More Profiles</a></h2>
+			<div class="row same-height">
+				<div class="col-md-5">
+					<p><a href="<%$profile['LINK_DETAIL']%>"><%xr_imgWrapper s_id=$profile['IMG'] rmode='cco' w=300 h=350 class="img-responsive"%></a></p>
+					<div class="clearer"></div>
+				</div>
+				<div class="col-md-7 profile">
+					<h3><%$profile['TITLE']%></h3>
+			        <p><%$profile['TEXT']%></p>
+				</div>
+				<div class="clearer"></div>
+			</div>
+		</div>
+		<!-- profile box END -->
+
+        <%/if%>
+
+        <%if $yourpick['OVERRULE'] == 1%>
+		 <!-- yourpicks or BEGIN -->
+		 
+		 <div class="col-sm-6">
+			<h2><a href="<%$yourpick['LINK_OVERVIEW']%>"><%$yourpick['TITLE']%></a></h2>
+			<div class="row">
+				<div class="col-md-7">
+					<p><a href="<%$yourpick['LINK_OVERVIEW']%>"><%xr_imgWrapper s_id=$yourpick['IMG'] rmode='cco' w=500 h=350 class="img-responsive"%></a></p>
+				</div>
+				<div class="col-md-5">
+				        <p><%$yourpick['TEXT']%></p>
+				</div>
+			</div>
+		</div>
+		 
+		 <!-- yourpicks or END -->
+		 <%else%>
+		 
+        <!-- yourpicks box BEGIN -->		
+		<div class="col-sm-6">
+			<h2><a href="<%$yourpick['LINK_OVERVIEW']%>" id="link-your-picks">Your Picks</a> <a class="more" href="<%$yourpick['LINK_OVERVIEW']%>">More Picks</a></h2>
+			<div class="row">
+				<div class="col-md-8">
+					<p><a href="<%$yourpick['LINK']%>"><%xr_imgWrapper s_id=$yourpick['IMG'] rmode='cco' w=500 h=350 class="img-responsive"%></a></p>
+				</div>
+				<div class="col-md-4">
+				    <h3 class="yourpick-h3"><%$yourpick['TITLE']%></h3>
+				    <span class="quick-archiv-nr"><%$yourpick['ARCHIV_NR']%></span>
+				    <%$yourpick['CREDITSHTML']%>
+				</div>
+			</div>
+		</div>
+		<!-- yourpicks box END -->
+		<%/if%>
+		
+	</div>
+	<div class="row">
+	    
+	   
+	    <div class="col-sm-6">
+	        <%if $profile['OVERRULE'] != 1%>
+	        <div class="row">
+	            <div class="col-md-5"></div>
+				<div class="col-md-7 profile"><a class="more see-more" href="<%$profile['LINK_DETAIL']%>">see more</a></div>
+	        </div>
+	        <%/if%>
+	    </div>
+	    
+	    
+	    <div class="col-sm-6">
+	    <%if $yourpick['OVERRULE'] != 1%>
+	        <div class="row">
+	            <div class="col-md-8"></div>
+				<div class="col-md-4"><a class="more see-more" href="<%$yourpick['LINK']%>">see more</a></div>
+	        </div>
+	    <%/if%>
+	    </div>
+
+	</div>
+	
+	
+	<div class="row">
+		
+		<%if $partner['OVERRULE'] == 1%>
+		 <!-- partners or BEGIN -->
+		<div class="col-sm-6">
+			<h2><a href="<%$partner['LINK_OVERVIEW']%>"><%$partner['TITLE']%></a> </h2>
+			<div class="row">
+				<div class="col-md-7">
+					<p><a href="<%$partner['LINK_OVERVIEW']%>"><%xr_imgWrapper s_id=$partner['IMG'] w=250 h=210 rmode='cco' class="img-responsive"%></a></p>
+				</div>
+				<div class="col-md-5">
+				        <p><%$partner['TEXT']%></p>
+				</div>
+			</div>
+		</div>
+		<!-- partners or END -->
+		
+		<%else%>
+		<!-- partners box BEGIN -->
+		<div class="col-sm-6">
+			<h2><a href="<%$partner['LINK_OVERVIEW']%>">Partners</a> <a class="more" href="<%$partner['LINK_OVERVIEW']%>">More Partners</a></h2>
+			<div class="row">
+				<div class="col-md-7">
+					<p><a href="<%$partner['LINK_OVERVIEW']%>"><%xr_imgWrapper s_id=$partner['IMG'] class="img-responsive"%></a></p>
+				</div>
+				<div class="col-md-5">
+						<h3 class="nomargintop"><%$partner['TITLE']%></h3>
+				        <p><%$partner['TEXT']%></p>
+				</div>
+			</div>
+		</div>
+		<!-- partners box END -->
+		
+		<%/if%>
+		
+		<%*xr_print_r val=$mostread*%>
+		
+		<%if $mostread['OVERRULE'] == 1%>
+		 <!-- mostread or BEGIN -->
+		<div class="col-sm-6">
+			<h2><a href="<%$mostread['LINK_OVERVIEW']%>"><%$mostread['TITLE']%></a></h2>
+			<div class="row">
+				<div class="col-md-7">
+					<p><a href="<%$mostread['LINK_OVERVIEW']%>"><%xr_imgWrapper s_id=$mostread['IMG'] w=250 h=210 rmode='cco' class="img-responsive"%></a></p>
+				</div>
+				<div class="col-md-5">
+				        <p><%$mostread['TEXT']%></p>
+				</div>
+			</div>
+		</div>
+		<!-- mostread or END -->
+		
+		<%else%>
+		
+		
+		<!-- most read box BEGIN -->
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="linieMoreS" id="link-most-read">Most Read
+					 <span class="more"><%$mostread['CONF']%></a>
+					</h2>
+				</div>
+			</div>
+			<hr>
+			<!--
+			<div class="row">
+				<div class="col-sm-10">
+					 <ul class="nav nav-tabs inTabs">
+						
+						<li class="fix-tabs6"><a data-toggle="tab" href="#today">Today</a></li>
+						<li class="fix-tabs7"><a data-toggle="tab" href="#thisweek">This Week</a></li>
+						<li class="active fix-tabs8"><a data-toggle="tab" href="#thismonth">This Month</a></li>
+						<li class="fix-tabs7"><a data-toggle="tab" href="#thisyear">This Year</a></li>
+						<li class="fix-tabs7"><a data-toggle="tab" href="#overall">Overall</a></li>
+					    
+					</ul>
+				
+				</div>									
+			</div>
+			-->
+			
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div id="today" class="tab-pane active">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="b1-liste nopicB1 marginTop0">
+							<%foreach $mostread['TODAY']['ITEMS'] as $k => $v%>
+								<div class="row most-read-row">
+								
+								    <%if $smarty.request.mr == 'new'%>
+								    
+								     <div class="col-sm-6">
+							            <a href="<%$v['LINK']%>"><%xr_imgWrapper s_id=$v['IMG'] w=516 h=158 rmode='cco' class="img-responsive"%></a>
+							        </div>
+							        <div class="col-sm-6 most-read-col">
+							            <a href="<%$v['LINK']%>"><h3 class="marginTop0 marginBottom0"><%$v['TITLE']%></h3></a>
+							            <span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+							        </div>
+								    
+								    
+								    <%else%>
+								
+							        <div class="col-sm-3">
+							            <a href="<%$v['LINK']%>"><%xr_imgWrapper s_id=$v['IMG'] w=400 h=281 rmode='cco' class="img-responsive"%></a>
+							        </div>
+							        <div class="col-sm-9 most-read-col">
+							            <a href="<%$v['LINK']%>"><h3 class="nowra marginTop0 marginBottom0"><%$v['TITLE']%></h3></a>
+							            <span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+							        </div>
+							        
+							        <%/if%>
+							        
+							    </div>
+							<%/foreach%>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="thisweek" class="tab-pane">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="b1-liste nopicB1 marginTop0">
+							<%foreach $mostread['THISWEEK']['ITEMS'] as $k => $v%>
+								<div class="row most-read-row">
+							        <div class="col-sm-2">
+							            <a href="<%$v['LINK']%>"><%xr_imgWrapper s_id=$v['IMG'] w=400 h=250 rmode='cco' class="img-responsive"%></a>
+							        </div>
+							        <div class="col-sm-10 most-read-col">
+							            <a href="<%$v['LINK']%>"><h3 class="nowra marginTop0 marginBottom0"><%$v['TITLE']%></h3></a>
+							            <span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+							        </div>
+							    </div>
+							<%/foreach%>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="thismonth" class="tab-pane">
+					<div class="row">
+						<div class="col-md-12">
+							<%foreach $mostread['THISMONTH']['ITEMS'] as $k => $v%>
+							    <div class="row most-read-row">
+							        <div class="col-sm-2">
+							            <a href="<%$v['LINK']%>"><%xr_imgWrapper s_id=$v['IMG'] w=400 h=250 rmode='cco' class="img-responsive"%></a>
+							        </div>
+							        <div class="col-sm-10 most-read-col">
+							            <a href="<%$v['LINK']%>"><h3 class="nowra marginTop0 marginBottom0"><%$v['TITLE']%></h3></a>
+							            <span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+							        </div>
+							    </div>
+							<%/foreach%>
+						</div>
+					</div>
+				</div>
+				<div id="thisyear" class="tab-pane">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="b1-liste nopicB1 marginTop0">
+							<%foreach $mostread['THISYEAR']['ITEMS'] as $k => $v%>
+								<div class="row most-read-row">
+							        <div class="col-sm-2">
+							            <a href="<%$v['LINK']%>"><%xr_imgWrapper s_id=$v['IMG'] w=400 h=250 rmode='cco' class="img-responsive"%></a>
+							        </div>
+							        <div class="col-sm-10 most-read-col">
+							            <a href="<%$v['LINK']%>"><h3 class="nowra marginTop0 marginBottom0"><%$v['TITLE']%></h3></a>
+							            <span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+							        </div>
+							    </div>
+							<%/foreach%>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="overall" class="tab-pane">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="b1-liste nopicB1 marginTop0">
+							<%foreach $mostread['OVERALL']['ITEMS'] as $k => $v%>
+								<div class="row most-read-row">
+							        <div class="col-sm-2">
+							            <a href="<%$v['LINK']%>"><%xr_imgWrapper s_id=$v['IMG'] w=400 h=250 rmode='cco' class="img-responsive"%></a>
+							        </div>
+							        <div class="col-sm-10 most-read-col">
+							            <a href="<%$v['LINK']%>"><h3 class="nowra marginTop0 marginBottom0"><%$v['TITLE']%></h3></a>
+							            <span class="quick-archiv-nr"><%$v['CATEGORY']%></span>
+							        </div>
+							    </div>
+							<%/foreach%>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- mostread box END -->
+			<%/if%>
+			
+		</div>
+	</div>

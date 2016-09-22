@@ -1,0 +1,19 @@
+<%$bilder = $data['wz_PRODUCTIMAGES']%>
+
+<div class="productdetail-images-container">
+    
+    <%if empty($bilder)%>
+        <%xr_cimg s_id=0 p_id=1 w=700 h=400%>
+    <%else%>
+    
+        <%foreach $bilder as $k => $v%>
+        
+            <div class="productdetail-image">
+                 <%xr_cimg s_id=$v['s_id'] p_id=1 w=700 h=400%>
+            </div>
+        
+        <%/foreach%>
+    
+    <%/if%>
+    
+</div>

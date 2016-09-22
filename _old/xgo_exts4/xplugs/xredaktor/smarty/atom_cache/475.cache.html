@@ -1,0 +1,113 @@
+<%if $GA['oeedit']==1%>
+<%xr_siteCall fn='oe_preview::sc_get_magazine' var='data'%>
+<%else%>
+<%xr_siteCall fn='fe_magazine::sc_get_detail_page' var='data'%>
+<%/if%>
+
+<%xr_siteCall fn='fe_magazine::sc_get_media_all' var='archive_media'%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+            <div class="line-top"></div>
+            <!-- Magazine - Filter -->
+		    <%*xr_atom a_id=524 return=1*%>
+		    
+		    <form class="issue-suche">
+            	<div class="form-group">
+                    <div class="back-issues"><a href="<%xr_genlink p_id=10%>" id="current_issue" style="font-weight: bold;">Current Issue</a></div>
+            	    <div class="back-issues"><a href="<%xr_genlink p_id=55%>" id="back_issue">Back Issues</a></div>
+                    <div class="back-issues"><a href="<%xr_genlink p_id=117%>" id="back_issue">Specials</a></div>
+            		<div class="clearer"></div>
+            	</div>
+            </form>
+		    
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+	<div id="magazine_content_container">
+    	<div class="row">
+    	    <div class="col-sm-9">
+    	        <h1><%$data['NAME']%></h1>
+    			
+    			<ul class="nav nav-pills p-woche">
+    				<li class="active"><a href="<%$magazin['LINK_MAGAZINE']%>">Featured Work</a></li>
+    				<%if $data['LINK_INTERVIEW'] != false%>
+    				<li><a href="<%$data['LINK_INTERVIEW']%>">Interview</a></li>
+    				<%/if%>
+    				<%if $data['LINK_INTERVIEW_DIGITAL'] != false%>
+    				<li><a href="<%$data['LINK_INTERVIEW_DIGITAL']%>">Digital Interview</a></li>
+    				<%/if%>
+    			</ul>
+    		
+    	    </div>
+    		<div class="col-sm-3"></div>
+    	</div>
+    	
+    	<%* werberows mobile + tablet *%>
+        <%xr_atom a_id=672 return=1%>
+        
+         <div class="hidden-1400 visible-992 hidden-1400-on-mobile">
+    	<%*ADVERTISEMENT: 728x90*%>
+    	<%xr_atom a_id=671 return=1%>
+        </div>
+    	
+        <div class="row">
+    		<div class="col-sm-12 col-md-4">
+    			<p><%xr_imgWrapper s_id=$data['IMG'] w=698 class="img-responsive"%></p>								
+    		</div>
+    		<div class="col-sm-12 col-md-8">
+    			<h2><%$data['NAME']%></h2>
+    			<div class="magazine-description">
+    			<%$data['DESCRIPTION']%>
+    			</div>
+    			<br>
+    			<%if (count($data['TRANSLATIONS']) > 0)%>
+    			<p><strong>Translations</strong></p>
+    			<form class="translation">
+    				<div class="form-group">
+    					<select class="form-control sel" id="select-translations">
+        				     <%foreach $data['TRANSLATIONS'] as $k => $v%>
+        				       <%if ($v != '' & $v != 0)%>
+                                <option value="<%xr_download s_id=$v%>"><%if $k == 'sp'%>spanish<%elseif $k== 'jp'%>japanese<%elseif $k== 'en'%>english<%elseif $k== 'it'%>italian<%elseif $k== 'fr'%>french<%elseif $k== 'ru'%>russian<%/if%></option>
+                              <%/if%>
+                             <%/foreach%>
+    					</select>
+    				</div>
+    				<button class="btn btn-default" type="button" id="select-translations-button">Download</button>
+    			</form>
+    			<br />
+    			<%/if%>
+    			
+    		
+    			
+    		</div>
+    	</div>
+    	
+    <%* werberows mobile + tablet 2 *%>
+<%*xr_atom a_id=676 return=1*%>
+        	
+    	
+    	<%xr_atom a_id=525 am=$archive_media cacheId=$data['ID'] cacheName='magazineDetail' cache=1 return=1%>
+		
+		<%* ad *%>
+        <%xr_atom a_id=669 return=1%>
+
+	</div>
+	
+
+<script>
+    $(document).ready(function(){
+        fe_magazines.init();
+    });
+</script>

@@ -1,0 +1,59 @@
+<%xr_siteCall fn='fe_events::sc_get_latest' var='data'%>
+
+<%if $GA['oeedit']==1%>
+<%xr_siteCall fn='oe_preview::sc_get_events' var='data'%>
+<%/if%>
+
+    <!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+	
+	<!-- quicksearch -->
+	<div class="row">
+		<div class="col-sm-12">
+	        <%xr_atom a_id=456 return=1%>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-9">
+            <div class="line-top"></div>
+	    	<h1>Future Events</h1>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+	
+		
+		<%* werbeset *%>
+    <%xr_atom a_id=677 return=1%>
+	
+	<%foreach $data['ITEMS'] as $k => $v name=count%>
+        
+    <div class="row">
+	    <div class="col-sm-3">
+		    <p><a target="_blank" href="<%$v['URL']%>" class="openexternal"><%xr_imgWrapper s_id=$v['IMG'] w=510 class="img-responsive leichterrahmen"%></a></p>
+	    </div>
+	    <div class="col-sm-9">
+		    <div class="list-item">
+		        <a target="_blank" href="<%$v['URL']%>">
+    			<p><strong>
+    			<%$v['DATEFROM']%>
+    				<%if ($v['DATETO'] != "0000-00-00")%>
+                        to <%$v['DATETO']%>        
+                    <%/if%>
+                </strong></p>
+				<span class="looklikeH1noBorder"><%$v['TITLE']%></span>
+				<p><%$v['TEXT']%></p>
+				</a>
+		    </div>
+	    </div>
+    </div>
+	
+	<div class="row">
+		<div class="col-sm-12">
+		<hr>
+		</div>
+	</div>
+	
+	<%/foreach%>
+
+	<p><a class="but" href="<%$data['LINK_OVERVIEW']%>">back</a></p>

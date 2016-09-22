@@ -1,0 +1,16 @@
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+
+<%* FIX FOR ROOM SHARING *%>
+<%if $isLoggedIn%>
+
+<%xr_siteCall fn="fe_user::sc_getMyUserType" var="type"%>
+<%xr_siteCall fn='fe_search::sc_getStoredSearchData' var='storedSearchQuery'%>
+<%if $storedSearchQuery.type != ""%><%$type=$storedSearchQuery.type%><%/if%>
+
+<%xr_atom a_id=759 userType=$type return=1%>
+
+<%else%>
+
+<%xr_atom a_id=892 return=1%>
+
+<%/if%>

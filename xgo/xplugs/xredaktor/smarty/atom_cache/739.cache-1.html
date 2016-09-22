@@ -1,0 +1,20 @@
+ <div class="form-group">
+    <label><%xr_translate tag="Ablöse?"%></label>
+    <label for="abloeseja" class="radio special-label">
+        <input id="abloeseja" type="radio" name="ABLOESE" value="Y" <%if $profile['wz_ABLOESE'] == 'Y'%>checked="checked"<%/if%>/>
+        <span class="checked circle circle-filled"><%xr_translate tag='ja'%></span>
+        <span class="unchecked circle circle-plain"><%xr_translate tag='ja'%></span>
+    </label>
+    <label for="abloesenein" class="radio special-label">
+        <input id="abloesenein" type="radio" name="ABLOESE" value="N" <%if $profile['wz_ABLOESE'] == 'N'%>checked="checked"<%/if%>/>
+        <span class="checked circle circle-filled"><%xr_translate tag='nein'%></span>
+        <span class="unchecked circle circle-plain"><%xr_translate tag='nein'%></span>
+    </label>
+    <%if !isset($noEgal)%>
+    <label for="abloeseegal" class="radio special-label">
+        <input id="abloeseegal" type="radio" name="ABLOESE" value="X" <%if $profile['wz_ABLOESE'] == 'X'%>checked="checked"<%/if%>/>
+        <span class="checked circle circle-filled"><%xr_translate tag='egal'%></span>
+        <span class="unchecked circle circle-plain"><%xr_translate tag='egal'%></span>
+    </label>
+    <%/if%>
+</div>

@@ -1,0 +1,1065 @@
+xmr_id;xmr_type;xmr_lang;xmr_canceled;xmr_canceled_date;xmr_email;xmr_name_first;xmr_name_last;xmr_title_pre;xmr_title_post;xmr_full_salutation
+129979;M;DE;N;0000-00-00 00:00:00;buergermeisterbuero@eisenstadt.at;;Steiner;;;Sehr geehrter Herr Steiner
+129980;X;DE;N;0000-00-00 00:00:00;post@jennersdorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129981;X;DE;N;0000-00-00 00:00:00;post@lutzmannsburg.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129982;X;DE;N;0000-00-00 00:00:00;post@moenchhof.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129983;X;DE;N;0000-00-00 00:00:00;post@moerbisch.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129984;X;DE;N;0000-00-00 00:00:00;post@pamhagen.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129985;X;DE;N;0000-00-00 00:00:00;post@podersdorf-see.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129986;X;DE;N;0000-00-00 00:00:00;post@purbach-neusiedler-see.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129987;X;DE;N;0000-00-00 00:00:00;post@rust.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129988;X;DE;N;0000-00-00 00:00:00;post@st-andrae-zicksee.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129989;X;DE;N;0000-00-00 00:00:00;post@stegersbach.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129990;X;DE;N;0000-00-00 00:00:00;post@weiden-see.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+129991;W;DE;N;0000-00-00 00:00:00;info@rosalia.at;Bettina;Bandat;;;Sehr geehrte Frau Bandat
+129992;M;DE;N;0000-00-00 00:00:00;jennersdorf@suedburgenland.info;Gerald;Feuchtl;;;Sehr geehrter Herr Feuchtl
+129993;M;DE;N;0000-00-00 00:00:00;gross@suedburgenland.info;Andreas;Gross;Mag.;;Sehr geehrter Herr Mag. Gross
+129994;M;DE;N;0000-00-00 00:00:00;kappel@kohlstaetterhof.at;Josef;Kappel;;;Sehr geehrter Herr Kappel
+129995;M;DE;N;0000-00-00 00:00:00;keller.ntg@aon.at;Dietmar;Keller;;;Sehr geehrter Herr Keller
+129996;M;DE;N;0000-00-00 00:00:00;gilbert.lang@suedburgenland.com;Gilbert;Lang;;;Sehr geehrter Herr Lang
+129997;M;DE;N;0000-00-00 00:00:00;service@stadtapotheke-jennersdorf.at;Siegmund;Mihellyes;Mag. Dr.;;Sehr geehrter Herr Mag. Dr. Mihellyes
+129998;M;DE;N;0000-00-00 00:00:00;neun@suedburgenland.info;Hans Peter;Neun;;;Sehr geehrter Herr Neun
+129999;M;DE;N;0000-00-00 00:00:00;popofsits@suedburgenland.info;Harald;Popofsits;;;Sehr geehrter Herr Popofsits
+130000;M;DE;N;0000-00-00 00:00:00;apotheke@apotheke-oberpullendorf.at;Alfred;Szczepanski;Mag.;;Sehr geehrter Herr Mag. Szczepanski
+130001;W;DE;N;0000-00-00 00:00:00;weingut@seppkracher.at;Sabine;Kracher;;;Sehr geehrte Frau Kracher
+130002;M;DE;N;0000-00-00 00:00:00;melitta.wetschka@bnet.at;Wilfried;Wetschka;;;Sehr geehrter Herr Wetschka
+130003;W;DE;N;0000-00-00 00:00:00;silvia.tschida64@gmx.at;Silvia;Tschida;;;Sehr geehrte Frau Tschida
+130004;M;DE;N;0000-00-00 00:00:00;office@strandhoteldamarco.at;Mansoor;Fazeli;;;Sehr geehrter Herr Fazeli
+130005;W;DE;N;0000-00-00 00:00:00;alexandra.langeder@chello.at;Alexandra;Langeder;Mag.;;Sehr geehrte Frau Mag. Langeder
+130006;X;DE;N;0000-00-00 00:00:00;post@hotelbetriebe-herlinde.at;;;;;Sehr geehrte Damen und Herren
+130007;M;DE;N;0000-00-00 00:00:00;varga.emmerich@aon.at;Emmerich;Varga;;;Sehr geehrter Herr Varga
+130008;W;DE;N;0000-00-00 00:00:00;susanna.elis@chello.at;Susanna;Elis;;;Sehr geehrte Frau Elis
+130009;M;DE;N;0000-00-00 00:00:00;info@salzlwein.at;Rudolf;Salzl;;;Sehr geehrter Herr Salzl
+130010;W;DE;N;0000-00-00 00:00:00;renate.tongisch@bnet.at;Erna;Klinger;;;Sehr geehrte Frau Klinger
+130011;W;DE;N;0000-00-00 00:00:00;angelika.wurth@burgenland.org;Angelika;Wurth-Leeb;;;Sehr geehrte Frau Wurth-Leeb
+130012;W;DE;N;0000-00-00 00:00:00;hauskoenigshofer@bnet.at;Renate;Königshofer;;;Sehr geehrte Frau Königshofer
+130013;W;DE;N;0000-00-00 00:00:00;hausambruckertor@bnet.at;Doris;Leidl;;;Sehr geehrte Frau Leidl
+130014;W;DE;N;0000-00-00 00:00:00;rustihof@aon.at;Viktoria;Scheck;;;Sehr geehrte Frau Scheck
+130015;F;DE;N;0000-00-00 00:00:00;pension.haus-martin@bnet.at;;Schneeberger;;;Sehr geehrte Familie Schneeberger
+130016;M;DE;N;0000-00-00 00:00:00;sattler@bnet.at;Walter;Sattler;;;Sehr geehrter Herr Sattler
+130017;W;DE;N;0000-00-00 00:00:00;office@munzenrieder.at;Emilie;Munzenrieder;;;Sehr geehrte Frau Munzenrieder
+130018;W;DE;N;0000-00-00 00:00:00;gaestehaus.seewinkel@aon.at;Irmgard;Steiner;;;Sehr geehrte Frau Steiner
+130019;F;DE;N;0000-00-00 00:00:00;andreashof@bnet.at;;Lang;;;Sehr geehrte Familie Lang
+130020;M;DE;N;0000-00-00 00:00:00;strandcafe@gmx.at;Ewald;Karner;;;Sehr geehrter Herr Karner
+130021;X;DE;N;0000-00-00 00:00:00;anfrage@pensionamanger.at;;;;;Sehr geehrte Damen und Herren
+130022;F;DE;N;0000-00-00 00:00:00;preiner@die-herberge.at;Karl und Gerlinde;Preiner;;;Sehr geehrte Familie Preiner
+130023;W;DE;N;0000-00-00 00:00:00;mcs@wellcom.at;Manuela;Pilles-Schmid;;;Sehr geehrte Frau Pilles-Schmid
+130024;M;DE;N;0000-00-00 00:00:00;fam.kroissap25@gmx.at;Christoph;Kroiss;;;Sehr geehrter Herr Kroiss
+130025;F;DE;N;0000-00-00 00:00:00;info@weingut-lang.at;Ernst & Renate;Lang;;;Sehr geehrte Familie Lang
+130026;X;DE;N;0000-00-00 00:00:00;hotel.drescher@drescher.at;;;;;Sehr geehrte Damen und Herren
+130027;M;DE;N;0000-00-00 00:00:00;huber.rust@aon.at;Herbert;Huber;;;Sehr geehrter Herr Huber
+130028;M;DE;N;0000-00-00 00:00:00;hauer.karl@gmail.com;Karl;Hauer;;;Sehr geehrter Herr Hauer
+130029;M;DE;N;0000-00-00 00:00:00;haus@pannonsee.at;Demir;Lushtaku;;;Sehr geehrter Herr Lushtaku
+130030;W;DE;N;0000-00-00 00:00:00;info@privatvermietung.at;Anna Maria;Rammesmayer;;;Sehr geehrte Frau Rammesmayer
+130031;W;DE;N;0000-00-00 00:00:00;pension@steinergg.at;Gabriele;Steiner;;;Sehr geehrte Frau Steiner
+130032;M;DE;N;0000-00-00 00:00:00;dietrich.hauer@aon.at;Dietrich;Hauer;;;Sehr geehrter Herr Hauer
+130033;M;DE;N;0000-00-00 00:00:00;info@sattler-seeblick.at;Karl;Sattler;;;Sehr geehrter Herr Sattler
+130034;F;DE;N;0000-00-00 00:00:00;apartment_annemarie@gmx.at;Annemarie und Wolfgang;Poglitsch;;;Sehr geehrte Familie Poglitsch
+130035;M;DE;N;0000-00-00 00:00:00;nikolaushof@aon.at;Nikolaus;Steiner;;;Sehr geehrter Herr Steiner
+130036;F;DE;N;0000-00-00 00:00:00;wg.lindenhof@aon.at;;Strommer;;;Sehr geehrte Familie Strommer
+130037;W;DE;N;0000-00-00 00:00:00;mollner.heidi@aon.at;Heidi;Mollner;;;Sehr geehrte Frau Mollner
+130038;W;DE;N;0000-00-00 00:00:00;gaestehaus.tschida@bnet.at;Maria;Tschida;;;Sehr geehrte Frau Tschida
+130039;F;DE;N;0000-00-00 00:00:00;christian.freismuth@bnet.at;Christian und Elfriede;Freismuth;;;Sehr geehrte Familie Freismuth
+130040;W;DE;N;0000-00-00 00:00:00;winzerhof.treiber@gmx.at;Elfriede;Treiber;;;Sehr geehrte Frau Treiber
+130041;W;DE;N;0000-00-00 00:00:00;karin_mueller_schock_@hotmail.com;Karin;Müller;;;Sehr geehrte Frau Müller
+130042;W;DE;N;0000-00-00 00:00:00;daskalakis-sauerzapf@a1.net;Anna;Daskalakis-Sauerzapf;;;Sehr geehrte Frau Daskalakis-Sauerzapf
+130043;F;DE;N;0000-00-00 00:00:00;office@pannonia-hotel.at;;Wein;;;Sehr geehrte Familie Wein
+130044;X;DE;N;0000-00-00 00:00:00;petra.fizimayer@gmx.at;;;;;Sehr geehrte Damen und Herren
+130045;W;DE;N;0000-00-00 00:00:00;info@winzerhof-schindler.at;Alexandra;Schindler;Mag.;;Sehr geehrte Frau Mag. Schindler
+130046;M;DE;N;0000-00-00 00:00:00;office@ganglwines.at;Helmut;Gangl;;;Sehr geehrter Herr Gangl
+130047;F;DE;N;0000-00-00 00:00:00;office@hotel-friedrichshof.at;Christoph u. Karin;Wieser;;;Sehr geehrte Familie Wieser
+130048;M;DE;N;0000-00-00 00:00:00;arkadenhaus@aon.at;Siegfried;Steiner;;;Sehr geehrter Herr Steiner
+130049;F;DE;N;0000-00-00 00:00:00;franz.dinhof@bnet.at;Franz und Maria;Dinhof;;;Sehr geehrte Familie Dinhof
+130050;M;DE;N;0000-00-00 00:00:00;winkler@weingutwinkler.at;Ewald;Winkler;;;Sehr geehrter Herr Winkler
+130051;F;DE;N;0000-00-00 00:00:00;office@sebastiankeller.at;Sonja und Oswald;Landauer;;;Sehr geehrte Familie Landauer
+130052;W;DE;N;0000-00-00 00:00:00;info@stieglerhof.com;Edeltraud;Eitner-Ott;;;Sehr geehrte Frau Eitner-Ott
+130053;M;DE;N;0000-00-00 00:00:00;info@gasthof-wimmer.at;Reinhard;Wimmer;;;Sehr geehrter Herr Wimmer
+130054;F;DE;N;0000-00-00 00:00:00;office@appartements-freiler.at;Franz und Gertrude;Freiler;;;Sehr geehrte Familie Freiler
+130055;M;DE;N;0000-00-00 00:00:00;kurt@mauth-windholz.at;Kurt;Windholz;;;Sehr geehrter Herr Windholz
+130056;M;DE;N;0000-00-00 00:00:00;info@pension-lang.at;Josef;Lang;;;Sehr geehrter Herr Lang
+130057;M;DE;N;0000-00-00 00:00:00;info@neusiedlersee.com;Dietmar;Keller;;;Sehr geehrter Herr Keller
+130058;F;DE;N;0000-00-00 00:00:00;familie.tschida@bnet.at;;Tschida;;;Sehr geehrte Familie Tschida
+130059;M;DE;N;0000-00-00 00:00:00;office@moerbisch-appartment.at;Hans-Peter;Fiedler;DI;;Sehr geehrter Herr DI Fiedler
+130060;W;DE;N;0000-00-00 00:00:00;appartmenthaus.martina@bnet.at;Martina;Schneeberger;;;Sehr geehrte Frau Schneeberger
+130061;X;DE;N;0000-00-00 00:00:00;rebhof-sommer@a1.net;Elfe;Sommer;;;Sehr geehrte Damen und Herren
+130062;W;DE;N;0000-00-00 00:00:00;s.wenzl@moerbisch.bgld.gv.at;Sylvia;Wenzl;;;Sehr geehrte Frau Wenzl
+130063;M;DE;N;0000-00-00 00:00:00;kutsenits.ludwig@aon.at;Ludwig;Kutsenits;;;Sehr geehrter Herr Kutsenits
+130064;W;DE;N;0000-00-00 00:00:00;gaestehaus.fischbach@aon.at;Ingrid;Fischbach;;;Sehr geehrte Frau Fischbach
+130065;F;DE;N;0000-00-00 00:00:00;office@casapeiso.at;;Sommer;;;Sehr geehrte Familie Sommer
+130066;W;DE;N;0000-00-00 00:00:00;reitpens-frankl@aon.at;Linda;Frankl;;;Sehr geehrte Frau Frankl
+130067;M;DE;N;0000-00-00 00:00:00;office@vicedom.at;Ewald;Toth;;;Sehr geehrter Herr Toth
+130068;X;DE;N;0000-00-00 00:00:00;andrea.heiling@aon.at;Ferienwohnung;Heiling;;;Sehr geehrte Damen und Herren
+130069;W;DE;N;0000-00-00 00:00:00;ingeborg.janisch@bnet.at;Ingeborg;Janisch;;;Sehr geehrte Frau Janisch
+130070;W;DE;N;0000-00-00 00:00:00;egermann@egermann.info;Emaritta;Egermann;;;Sehr geehrte Frau Egermann
+130071;M;DE;N;0000-00-00 00:00:00;hugru@a1.net;Hubert;Gruber;;;Sehr geehrter Herr Gruber
+130072;M;DE;N;0000-00-00 00:00:00;franz.steiner@aon.at;Franz;Steiner;;;Sehr geehrter Herr Steiner
+130073;M;DE;N;0000-00-00 00:00:00;kabinger@ferienwohnungen-rust.at;Ernst;Kabinger;;;Sehr geehrter Herr Kabinger
+130074;X;DE;N;0000-00-00 00:00:00;contact@seewirtkarner.at;;;;;Sehr geehrte Damen und Herren
+130075;W;DE;N;0000-00-00 00:00:00;privatzimmer.ernst@gmail.com;Maria;Ernst;;;Sehr geehrte Frau Ernst
+130076;W;DE;N;0000-00-00 00:00:00;pension.arkadenhof@bnet.at;Eleonore;Steiner;;;Sehr geehrte Frau Steiner
+130077;W;DE;N;0000-00-00 00:00:00;stefaniewenzl@gmail.com;Stefanie;Wenzl;;;Sehr geehrte Frau Wenzl
+130078;W;DE;N;0000-00-00 00:00:00;goldene.traube@netway.at;Christine;Wurzinger;;;Sehr geehrte Frau Wurzinger
+130079;W;DE;N;0000-00-00 00:00:00;prieler.rust@aon.at;Doris;Prieler;;;Sehr geehrte Frau Prieler
+130080;M;DE;N;0000-00-00 00:00:00;info@georgshof.eu;Andreas;Lang;;;Sehr geehrter Herr Lang
+130081;W;DE;N;0000-00-00 00:00:00;elisabeth.deutsch@aon.at;Elisabeth;Deutsch;;;Sehr geehrte Frau Deutsch
+130082;M;DE;N;0000-00-00 00:00:00;ferienwohnung-eberle@gmx.at;Johann;Eberle;;;Sehr geehrter Herr Eberle
+130083;M;DE;N;0000-00-00 00:00:00;gaestehaus-tomschitz@aon.at;Siegfried;Tomschitz;Ing.;;Sehr geehrter Herr Ing. Tomschitz
+130084;F;DE;N;0000-00-00 00:00:00;wohnen@oleanderhof-kroyer.at;;Kroyer;;;Sehr geehrte Familie Kroyer
+130085;W;DE;N;0000-00-00 00:00:00;doro.bauer@bkf.at;Dorothea;Bauer-Lendl;;;Sehr geehrte Frau Bauer-Lendl
+130086;W;DE;N;0000-00-00 00:00:00;kriklerherbert@gmx.at;Helga;Krikler;;;Sehr geehrte Frau Krikler
+130087;M;DE;N;0000-00-00 00:00:00;j.ritter@aon.at;Josef;Ritter;;;Sehr geehrter Herr Ritter
+130088;W;DE;N;0000-00-00 00:00:00;martenhofgasse15@gmx.at;Maria;Haider;;;Sehr geehrte Frau Haider
+130089;F;DE;N;0000-00-00 00:00:00;engl-martin@bnet.at;Martin und Elisabeth;Engl;;;Sehr geehrte Familie Engl
+130090;X;DE;N;0000-00-00 00:00:00;herzoghof-gols@utanet.at;Edith;Stampfel;;;Sehr geehrte Damen und Herren
+130091;M;DE;N;0000-00-00 00:00:00;office@das-sonnenleben.at;Walter;Berg;;;Sehr geehrter Herr Berg
+130092;F;DE;N;0000-00-00 00:00:00;kontakt@ferienhauskoch.at;Henriette u. Stefan;Koch;;;Sehr geehrte Familie Koch
+130093;W;DE;N;0000-00-00 00:00:00;info@gaestehaus-seeufer.at;Anita;Gisch;;;Sehr geehrte Frau Gisch
+130094;M;DE;N;0000-00-00 00:00:00;karoly.walter@bnet.at;Walter;Karoly;;;Sehr geehrter Herr Karoly
+130095;M;DE;N;0000-00-00 00:00:00;office@pizzeria-weinhandl.at;Johann;Weinhandl;;;Sehr geehrter Herr Weinhandl
+130096;W;DE;N;0000-00-00 00:00:00;fiedler.pensionanna@gmail.com;Sylvia;Fiedler;;;Sehr geehrte Frau Fiedler
+130097;W;DE;N;0000-00-00 00:00:00;maria.wimmer@bnet.at;Maria;Wimmer;;;Sehr geehrte Frau Wimmer
+130098;F;DE;N;0000-00-00 00:00:00;weingutgangl@aon.at;;Gangl;;;Sehr geehrte Familie Gangl
+130099;X;DE;N;0000-00-00 00:00:00;h.j.gradt@gmx.at;Maria und Johann;Gradt;;;Sehr geehrte Damen und Herren
+130100;W;DE;N;0000-00-00 00:00:00;oedenburg.miklos@gmail.com;Piroska;Miklos;;;Sehr geehrte Frau Miklos
+130101;W;DE;N;0000-00-00 00:00:00;salzl@salzl.at;Gabriele;Salzl;;;Sehr geehrte Frau Salzl
+130102;M;DE;N;0000-00-00 00:00:00;office@weingut-schindler.at;Franz;Schindler;;;Sehr geehrter Herr Schindler
+130103;X;DE;N;0000-00-00 00:00:00;info@vilavitapannonia.at;;;;;Sehr geehrte Damen und Herren
+130104;M;DE;N;0000-00-00 00:00:00;didi@surf-schule.at;Dieter;Raditsch;;;Sehr geehrter Herr Raditsch
+130105;W;DE;N;0000-00-00 00:00:00;pension.herta@bkf.at;Elisabeth;Horvath;;;Sehr geehrte Frau Horvath
+130106;W;DE;N;0000-00-00 00:00:00;gaestehaus@arkadenhof-graf.at;Daniela;Graf;;;Sehr geehrte Frau Graf
+130107;M;DE;N;0000-00-00 00:00:00;weingut@fr-heiss.at;Franz;Heiss;;;Sehr geehrter Herr Heiss
+130108;M;DE;N;0000-00-00 00:00:00;wolfgang.grosstessner@gmail.com;Wolfgang;Großteßner-Hain;;;Sehr geehrter Herr Großteßner-Hain
+130109;W;DE;N;0000-00-00 00:00:00;office@hotel-rumpler.at;Haus;Rumpler;;;Sehr geehrte Frau Rumpler
+130110;F;DE;N;0000-00-00 00:00:00;bettdorf@bkf.at;Maria und Josef;Bettendorf;;;Sehr geehrte Familie Bettendorf
+130111;M;DE;N;0000-00-00 00:00:00;casaelhungaro@yahoo.com;Arpad;Tussai;;;Sehr geehrter Herr Tussai
+130112;M;DE;N;0000-00-00 00:00:00;info@wandler.at;Christian;Wandler;;;Sehr geehrter Herr Wandler
+130113;F;DE;N;0000-00-00 00:00:00;strudler.agu@a1.net;Lydia und Michael;Strudler;;;Sehr geehrte Familie Strudler
+130114;M;DE;N;0000-00-00 00:00:00;office@hotelpostillmitz.at;Otto;Egermann;;;Sehr geehrter Herr Egermann
+130115;F;DE;N;0000-00-00 00:00:00;peterhof@aon.at;;Glavanovits;;;Sehr geehrte Familie Glavanovits
+130116;W;DE;N;0000-00-00 00:00:00;ulikarner@tmo.at;Ulrike;Karner;;;Sehr geehrte Frau Karner
+130117;W;DE;N;0000-00-00 00:00:00;zimmerei.gruber@aon.at;Marianne;Gruber;;;Sehr geehrte Frau Gruber
+130118;W;DE;N;0000-00-00 00:00:00;pension@burgenlandhaus.at;Christine;Lamprecht;;;Sehr geehrte Frau Lamprecht
+130119;F;DE;N;0000-00-00 00:00:00;info@weingutwendelin.at;Paul und Andrea;Wendelin;;;Sehr geehrte Familie Wendelin
+130120;W;DE;N;0000-00-00 00:00:00;fewo-elisabeth@gmx.at;Elisabeth;Gabris;;;Sehr geehrte Frau Gabris
+130121;M;DE;N;0000-00-00 00:00:00;reiterweingut@aon.at;Alois;Frank;;;Sehr geehrter Herr Frank
+130122;W;DE;N;0000-00-00 00:00:00;weinbau-pension-hareter@aon.at;Ilse Renate;Hareter;;;Sehr geehrte Frau Hareter
+130123;W;DE;N;0000-00-00 00:00:00;ferienbeihofmeister@gmx.at;Michaela;Hofmeister;;;Sehr geehrte Frau Hofmeister
+130124;F;DE;N;0000-00-00 00:00:00;zeisz@aon.at;;Zeisz;;;Sehr geehrte Familie Zeisz
+130125;W;DE;N;0000-00-00 00:00:00;fewoanita@hotmail.com;Anita;Teichmeister;;;Sehr geehrte Frau Teichmeister
+130126;W;DE;N;0000-00-00 00:00:00;thalhammer.christine@utanet.at;Christine;Thalhammer;;;Sehr geehrte Frau Thalhammer
+130127;W;DE;N;0000-00-00 00:00:00;info@seebadrust.at;Michaela;Heeger;Mag.;;Sehr geehrte Frau Mag. Heeger
+130128;W;DE;N;0000-00-00 00:00:00;ehmann@tele2.at;Elisabeth;Ehmann;;;Sehr geehrte Frau Ehmann
+130129;W;DE;N;0000-00-00 00:00:00;office@weingut-tinhof.com;Rosa Maria;Tinhof;;;Sehr geehrte Frau Tinhof
+130130;M;DE;N;0000-00-00 00:00:00;f-friedrich@gmx.at;Franz Josef;Friedrich;;;Sehr geehrter Herr Friedrich
+130131;M;DE;N;0000-00-00 00:00:00;office@gangl-weine.at;Hans;Gangl;Ing.;;Sehr geehrter Herr Ing. Gangl
+130132;F;DE;N;0000-00-00 00:00:00;anton.steiner@podersdorf-see.bgld.gv.at;;Steiner;;;Sehr geehrte Familie Steiner
+130133;F;DE;N;0000-00-00 00:00:00;info@pension-julia.at;;Lang & Wallner;;;Sehr geehrte Familie Lang & Wallner
+130134;M;DE;N;0000-00-00 00:00:00;zeiss.erich@gmx.at;Erich;Zeiss;;;Sehr geehrter Herr Zeiss
+130135;W;DE;N;0000-00-00 00:00:00;toscamode@gmx.at;Margarethe;Prückler;;;Sehr geehrte Frau Prückler
+130136;X;DE;N;0000-00-00 00:00:00;wohnen@zentgraf.at;Ralph und Bettina;Zentgraf;;;Sehr geehrte Damen und Herren
+130137;W;DE;N;0000-00-00 00:00:00;gaestehaus.unger@bnet.at;Heidi;Unger;;;Sehr geehrte Frau Unger
+130138;F;DE;N;0000-00-00 00:00:00;kellerschenke@aon.at;;Strommer;;;Sehr geehrte Familie Strommer
+130139;W;DE;N;0000-00-00 00:00:00;gaestezimmer.sailer@gmail.com;Gerda;Sailer;;;Sehr geehrte Frau Sailer
+130140;W;DE;N;0000-00-00 00:00:00;kieslinghof@purbach.at;Elvira;Kiesling;;;Sehr geehrte Frau Kiesling
+130141;W;DE;N;0000-00-00 00:00:00;urlaub@pensiongartner.at;Irene;Bauer-Gartner;;;Sehr geehrte Frau Bauer-Gartner
+130142;F;DE;N;0000-00-00 00:00:00;neko@gmx.eu;Maria & Franz;Nekowitsch;;;Sehr geehrte Familie Nekowitsch
+130143;M;DE;N;0000-00-00 00:00:00;kirchenwirtgols@aon.at;Oswald;Daniel;;;Sehr geehrter Herr Daniel
+130144;W;DE;N;0000-00-00 00:00:00;urlaub@winzerhof-achs.at;Cornelia;Achs;;;Sehr geehrte Frau Achs
+130145;F;DE;N;0000-00-00 00:00:00;ewald.striok@gmx.at;Maria Theresia u. Ewald;Striok;;;Sehr geehrte Familie Striok
+130146;W;DE;N;0000-00-00 00:00:00;reservierung@marienkron.at;Gabi;Lechner;;;Sehr geehrte Frau Lechner
+130147;W;DE;N;0000-00-00 00:00:00;maria.tschida@bnet.at;Maria;Tschida;;;Sehr geehrte Frau Tschida
+130148;F;DE;N;0000-00-00 00:00:00;wholzi@a1.net;Ingrid u. Josef;Holzapfel;;;Sehr geehrte Familie Holzapfel
+130149;W;DE;N;0000-00-00 00:00:00;gaestehaus.andrea@purbach.at;Andrea;Biehlo;;;Sehr geehrte Frau Biehlo
+130150;F;DE;N;0000-00-00 00:00:00;schmidlhof@aon.at;Karl und Roswitha;Rainprecht;;;Sehr geehrte Familie Rainprecht
+130151;M;DE;N;0000-00-00 00:00:00;seeblick.moerbisch@gmail.com;Michael;Zarits KG;;;Sehr geehrter Herr Zarits KG
+130152;W;DE;N;0000-00-00 00:00:00;office@alfaro.at;Melitta;Tauber;;;Sehr geehrte Frau Tauber
+130153;W;DE;N;0000-00-00 00:00:00;maria.filbert@tele2.at;Maria;Filbert;;;Sehr geehrte Frau Filbert
+130154;W;DE;N;0000-00-00 00:00:00;sonja@reiterhof-sonja.at;Sonja;Kögl;;;Sehr geehrte Frau Kögl
+130155;M;DE;N;0000-00-00 00:00:00;info@hammerwein.at;Hermann;Hammer;;;Sehr geehrter Herr Hammer
+130156;W;DE;N;0000-00-00 00:00:00;brigitte.fergadis@gmail.com;Brigitte;Fergadis;;;Sehr geehrte Frau Fergadis
+130157;W;DE;N;0000-00-00 00:00:00;haas@bnet.at;Doris;Vertes;;;Sehr geehrte Frau Vertes
+130158;F;DE;N;0000-00-00 00:00:00;kerstinhaider@gmx.net;Ernst & Julianna;Haider;;;Sehr geehrte Familie Haider
+130159;W;DE;N;0000-00-00 00:00:00;gaestezimmer@fischbachwein.at;Katharina;Fischbach;;;Sehr geehrte Frau Fischbach
+130160;W;DE;N;0000-00-00 00:00:00;ferienwohnung.koeck@gmx.at;Johanna;Köck;;;Sehr geehrte Frau Köck
+130161;W;DE;N;0000-00-00 00:00:00;pension.ulrike@bnet.at;Ulrike;Schwaighofer;;;Sehr geehrte Frau Schwaighofer
+130162;F;DE;N;0000-00-00 00:00:00;illmitz@erich-wegleitner.at;Erich und Michaela;Wegleitner;;;Sehr geehrte Familie Wegleitner
+130163;W;DE;N;0000-00-00 00:00:00;gaestehaus-leiner@gmx.at;Helga;Leiner;;;Sehr geehrte Frau Leiner
+130164;M;DE;N;0000-00-00 00:00:00;stifter@hutterstifter.at;Gerhard;Stifter;;;Sehr geehrter Herr Stifter
+130165;W;DE;N;0000-00-00 00:00:00;kleinrobert.1949@gmail.com;Monika;Klein;;;Sehr geehrte Frau Klein
+130166;M;DE;N;0000-00-00 00:00:00;bernd.ganser@a1.net;Josef;Ganser;;;Sehr geehrter Herr Ganser
+130167;F;DE;N;0000-00-00 00:00:00;info@karnerhof-rust.at;Beatrix und Manfred;Karner;;;Sehr geehrte Familie Karner
+130168;M;DE;N;0000-00-00 00:00:00;zethner@bnet.at;Michael;Zethner;;;Sehr geehrter Herr Zethner
+130169;W;DE;N;0000-00-00 00:00:00;fam.a.nemeth@aon.at;Elfriede;Nemeth;;;Sehr geehrte Frau Nemeth
+130170;M;DE;N;0000-00-00 00:00:00;knoebl@bfv.at;Simon;Knöbl;;;Sehr geehrter Herr Knöbl
+130171;W;DE;N;0000-00-00 00:00:00;brigitte.muellner@kapsi.at;Brigitte;Müllner;;;Sehr geehrte Frau Müllner
+130172;M;DE;N;0000-00-00 00:00:00;office@gartner-illmitz.at;Michael;Gartner;;;Sehr geehrter Herr Gartner
+130173;W;DE;N;0000-00-00 00:00:00;pension.binder@gmx.at;Lucia;Binder;;;Sehr geehrte Frau Binder
+130174;M;DE;N;0000-00-00 00:00:00;office@storchenblick.at;Georg;Fleischhacker;;;Sehr geehrter Herr Fleischhacker
+130175;W;DE;N;0000-00-00 00:00:00;ineswagner@hotmail.com;Ines;Wagner;;;Sehr geehrte Frau Wagner
+130176;M;DE;N;0000-00-00 00:00:00;weingut@bayer-erbhof.at;Ing. Josef;Bayer;;;Sehr geehrter Herr Bayer
+130177;M;DE;N;0000-00-00 00:00:00;office@pensionsteiner.at;Christian;Steiner;;;Sehr geehrter Herr Steiner
+130178;W;DE;N;0000-00-00 00:00:00;karin-m-k@aon.at;Karin;Michlits-Karlo;;;Sehr geehrte Frau Michlits-Karlo
+130179;M;DE;N;0000-00-00 00:00:00;office@martinihof.com;Walter;Horvath;;;Sehr geehrter Herr Horvath
+130180;W;DE;N;0000-00-00 00:00:00;angelika.holzhammer@bnet.at;Angelika;Holzhammer;;;Sehr geehrte Frau Holzhammer
+130181;W;DE;N;0000-00-00 00:00:00;ghzurlok@aon.at;Silvia;Etl;;;Sehr geehrte Frau Etl
+130182;M;DE;N;0000-00-00 00:00:00;walter.heiss@speed.at;Walter;Heiss;;;Sehr geehrter Herr Heiss
+130183;W;DE;N;0000-00-00 00:00:00;ferienhaus-koppi@aon.at;Gerda;Koppi;;;Sehr geehrte Frau Koppi
+130184;F;DE;N;0000-00-00 00:00:00;moerbischerhof@moerbisch.com;;Rainer;;;Sehr geehrte Familie Rainer
+130185;M;DE;N;0000-00-00 00:00:00;hotel@sifkovits.at;Erwin;Tomschitz;;;Sehr geehrter Herr Tomschitz
+130186;W;DE;N;0000-00-00 00:00:00;arch.gb@aon.at;Liselotte;Brunner;Dr.;;Sehr geehrte Frau Dr. Brunner
+130187;W;DE;N;0000-00-00 00:00:00;office@weinlaubenhof-weiden.at;Bettina;Fridrich;;;Sehr geehrte Frau Fridrich
+130188;M;DE;N;0000-00-00 00:00:00;info@dersonnberghof.at;Bernhard;Schuster;;;Sehr geehrter Herr Schuster
+130189;W;DE;N;0000-00-00 00:00:00;irmgard.achs@utanet.at;Irmgard;Achs;;;Sehr geehrte Frau Achs
+130190;X;DE;N;0000-00-00 00:00:00;hubacek@bkf.at;Margarethe u. Stefan;Hubacek;;;Sehr geehrte Damen und Herren
+130191;X;DE;N;0000-00-00 00:00:00;gerlinde.billes@hotmail.com;Gerlinde;Billes;;;Sehr geehrte Damen und Herren
+130192;M;DE;N;0000-00-00 00:00:00;weingut@jagdhof-fleischhacker.at;Thomas;Fleischhacker;;;Sehr geehrter Herr Fleischhacker
+130193;W;DE;N;0000-00-00 00:00:00;hausmarina@bnet.at;Marina;Fuchs;;;Sehr geehrte Frau Fuchs
+130194;M;DE;N;0000-00-00 00:00:00;welcome@seepark.at;Bernhard;Göschl;Mag.;;Sehr geehrter Herr Mag. Göschl
+130195;W;DE;N;0000-00-00 00:00:00;office@domizil-gols.at;Ria;Korpan-Wenzl;;;Sehr geehrte Frau Korpan-Wenzl
+130196;X;DE;N;0000-00-00 00:00:00;info@boote-lang.com;;;;;Sehr geehrte Damen und Herren
+130197;F;DE;N;0000-00-00 00:00:00;winery@willi-opitz.at;;Opitz;;;Sehr geehrte Familie Opitz
+130198;F;DE;N;0000-00-00 00:00:00;alfred.janisch@aon.at;Alfred und Anita;Janisch;;;Sehr geehrte Familie Janisch
+130199;W;DE;N;0000-00-00 00:00:00;ksg28@gmx.at;Maria;Egermann;;;Sehr geehrte Frau Egermann
+130200;W;DE;N;0000-00-00 00:00:00;familie.balazs@bnet.at;Anna;Balazs;;;Sehr geehrte Frau Balazs
+130201;W;DE;N;0000-00-00 00:00:00;sommerhilde@aon.at;Hilde;Sommer;;;Sehr geehrte Frau Sommer
+130202;M;DE;N;0000-00-00 00:00:00;touristik@drescher.at;Hermann;Drescher;;;Sehr geehrter Herr Drescher
+130203;W;DE;N;0000-00-00 00:00:00;arkadenhof.kroiss@gmx.at;Maria;Kroiss;;;Sehr geehrte Frau Kroiss
+130204;W;DE;N;0000-00-00 00:00:00;gaestehaus-finklacke@aon.at;Marion;Kögl;;;Sehr geehrte Frau Kögl
+130205;W;DE;N;0000-00-00 00:00:00;gaestehaus.ruth@bnet.at;Ruth;Windhager;;;Sehr geehrte Frau Windhager
+130206;F;DE;N;0000-00-00 00:00:00;info@strudler.at;;Strudler;;;Sehr geehrte Familie Strudler
+130207;M;DE;N;0000-00-00 00:00:00;malleschitz@gmx.at;Alexander;Malleschitz;;;Sehr geehrter Herr Malleschitz
+130208;W;DE;N;0000-00-00 00:00:00;weingut@sonnenmulde.at;Renate;Schreiner;;;Sehr geehrte Frau Schreiner
+130209;W;DE;N;0000-00-00 00:00:00;g.reichow@gaestehaus-gerlinde.at;Gerlinde;Reichow;;;Sehr geehrte Frau Reichow
+130210;W;DE;N;0000-00-00 00:00:00;office@landhaus-klambauer.at;Eva Maria;Klambauer;;;Sehr geehrte Frau Klambauer
+130211;M;DE;N;0000-00-00 00:00:00;gutpurbach@aon.at;Max;Stiegl;;;Sehr geehrter Herr Stiegl
+130212;M;DE;N;0000-00-00 00:00:00;hans.neumayer@aon.at;Hans;Neumayer;;;Sehr geehrter Herr Neumayer
+130213;W;DE;N;0000-00-00 00:00:00;gaestehaus.samira@gmx.at;Samira;Osmanovic;;;Sehr geehrte Frau Osmanovic
+130214;M;DE;N;0000-00-00 00:00:00;herberge@nikolauszeche.at;Michael;Tscheitschonig;Mag.;;Sehr geehrter Herr Mag. Tscheitschonig
+130215;M;DE;N;0000-00-00 00:00:00;ungar.krone@aon.at;Ferdinand;Krakhofer;;;Sehr geehrter Herr Krakhofer
+130216;W;DE;N;0000-00-00 00:00:00;jutta.peisser@schule.at;Elfriede;Peisser;;;Sehr geehrte Frau Peisser
+130217;M;DE;N;0000-00-00 00:00:00;office@tschida-wein.at;Gerald;Tschida;;;Sehr geehrter Herr Tschida
+130218;W;DE;N;0000-00-00 00:00:00;karin.janovsky@gmx.at;Doris;Janovsky;;;Sehr geehrte Frau Janovsky
+130219;W;DE;N;0000-00-00 00:00:00;elfriede_ka@hotmail.com;Elfriede;Kazda;;;Sehr geehrte Frau Kazda
+130220;W;DE;N;0000-00-00 00:00:00;andrea.schindler@bnet.at;Andrea;Schindler;;;Sehr geehrte Frau Schindler
+130221;W;DE;N;0000-00-00 00:00:00;lisi.janisch@gmx.at;Gabi;Janisch;;;Sehr geehrte Frau Janisch
+130222;W;DE;N;0000-00-00 00:00:00;stefan.gartner@gmx.at;Annemarie;Gartner;;;Sehr geehrte Frau Gartner
+130223;M;DE;N;0000-00-00 00:00:00;kurtartner@live.at;Kurt;Artner;;;Sehr geehrter Herr Artner
+130224;W;DE;N;0000-00-00 00:00:00;office@althof-frauenkirchen.at;Elisabeth;Wetschka;;;Sehr geehrte Frau Wetschka
+130225;W;DE;N;0000-00-00 00:00:00;anfrage@haus-gerlinde.com;Gerlinde;Schneider;;;Sehr geehrte Frau Schneider
+130226;F;DE;N;0000-00-00 00:00:00;kontakt@ferien-bei-haubis.at;Marianne und Johann;Haubenwallner;;;Sehr geehrte Familie Haubenwallner
+130227;W;DE;N;0000-00-00 00:00:00;office@weinbau-pension-ettl.com;Elisabeth;Ettl;;;Sehr geehrte Frau Ettl
+130228;W;DE;N;0000-00-00 00:00:00;office@pasler-baeck.at;Maria;Pasler;;;Sehr geehrte Frau Pasler
+130229;W;DE;N;0000-00-00 00:00:00;erich.schwarzbauer@aon.at;Aloisia;Schwarzbauer;;;Sehr geehrte Frau Schwarzbauer
+130230;F;DE;N;0000-00-00 00:00:00;ferienhof@weingut-lunzer.at;Erwin und Ingrid;Lunzer;;;Sehr geehrte Familie Lunzer
+130231;F;DE;N;0000-00-00 00:00:00;fw.maks.und.kris@gmx.at;Ivica und Zeljena;Grgic;;;Sehr geehrte Familie Grgic
+130232;M;DE;N;0000-00-00 00:00:00;gaestehauszumsee@aon.at;Franz;Fleischhacker;;;Sehr geehrter Herr Fleischhacker
+130233;W;DE;N;0000-00-00 00:00:00;domus-auriga@reclay.net;Cornelia;Fuhrmann;;;Sehr geehrte Frau Fuhrmann
+130234;W;DE;N;0000-00-00 00:00:00;otto.salzl@aon.at;Maria;Salzl;;;Sehr geehrte Frau Salzl
+130235;M;DE;N;0000-00-00 00:00:00;info@sonnenhof-hotel.at;Johann;Bierbaum;;;Sehr geehrter Herr Bierbaum
+130236;M;DE;N;0000-00-00 00:00:00;h.k.fritz@bnet.at;Friedrich;Haider-Kroiss;;;Sehr geehrter Herr Haider-Kroiss
+130237;W;DE;N;0000-00-00 00:00:00;erich.gangl@bnet.at;Karin;Gangl;;;Sehr geehrte Frau Gangl
+130238;M;DE;N;0000-00-00 00:00:00;wein-steurer@aon.at;Johann;Steurer;;;Sehr geehrter Herr Steurer
+130239;M;DE;N;0000-00-00 00:00:00;f.leeb@t-online.de;Friedrich;Leeb;;;Sehr geehrter Herr Leeb
+130240;M;DE;N;0000-00-00 00:00:00;fam.neuwirth@gmail.com;Franz;Neuwirth;;;Sehr geehrter Herr Neuwirth
+130241;X;DE;N;0000-00-00 00:00:00;post@andau.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130242;F;DE;N;0000-00-00 00:00:00;strudler.anna@aon.at;;Strudler;;;Sehr geehrte Familie Strudler
+130243;W;DE;N;0000-00-00 00:00:00;ingrid.artner@networld.at;Ingrid;Artner;;;Sehr geehrte Frau Artner
+130244;W;DE;N;0000-00-00 00:00:00;christine.wieger@aon.at;Christine;Wieger;;;Sehr geehrte Frau Wieger
+130245;W;DE;N;0000-00-00 00:00:00;hausandrea@tele2.at;Andrea;Kielbasa;;;Sehr geehrte Frau Kielbasa
+130246;F;DE;N;0000-00-00 00:00:00;inge@helmchen.de;;Grünfelder-Helmchen;;;Sehr geehrte Familie Grünfelder-Helmchen
+130247;W;DE;N;0000-00-00 00:00:00;romana.sifkovits@bildungsserver.com;Romana;Sifkovits;;;Sehr geehrte Frau Sifkovits
+130248;F;DE;N;0000-00-00 00:00:00;wohnreich@bliems.com;Josef u. Gisela;Bliem;;;Sehr geehrte Familie Bliem
+130249;M;DE;N;0000-00-00 00:00:00;klein@sektundwein.at;Walter;Klein;;;Sehr geehrter Herr Klein
+130250;M;DE;N;0000-00-00 00:00:00;info@ferienhaus-burgenland.at;Rupert;Oster;Mag.;;Sehr geehrter Herr Mag. Oster
+130251;M;DE;N;0000-00-00 00:00:00;info@johannes-strudler.at;Johannes;Strudler;;;Sehr geehrter Herr Strudler
+130252;M;DE;N;0000-00-00 00:00:00;office@zum-zimmermann.at;Markus;Tschida;;;Sehr geehrter Herr Tschida
+130253;F;DE;N;0000-00-00 00:00:00;weingut.schueller@utanet.at;Ludwig u. Franziska;Schüller;;;Sehr geehrte Familie Schüller
+130254;W;DE;N;0000-00-00 00:00:00;g.fuhrmann@direkt.at;Ingeborg;Fuhrmann;;;Sehr geehrte Frau Fuhrmann
+130255;X;DE;N;0000-00-00 00:00:00;moosbauer.maria@gmail.com;;;;;Sehr geehrte Damen und Herren
+130256;M;DE;N;0000-00-00 00:00:00;camping@st-andrae-am-zicksee.at;Erich;Goldenitsch;Bgm.;;Sehr geehrter Herr Bgm. Goldenitsch
+130257;W;DE;N;0000-00-00 00:00:00;info@heurigerpensionboehm.at;Elisabeth;Böhm;;;Sehr geehrte Frau Böhm
+130258;W;DE;N;0000-00-00 00:00:00;gaestezimmer.weinhandl@aon.at;Katharina;Weinhandl;;;Sehr geehrte Frau Weinhandl
+130259;W;DE;N;0000-00-00 00:00:00;doris.bendl@chello.at;Doris;Bendl;;;Sehr geehrte Frau Bendl
+130260;W;DE;N;0000-00-00 00:00:00;f.wahrmann@gmx.at;Franziska;Wahrmann;;;Sehr geehrte Frau Wahrmann
+130261;W;DE;N;0000-00-00 00:00:00;traubenmuehle@aon.at;Karin;Haider;;;Sehr geehrte Frau Haider
+130262;W;DE;N;0000-00-00 00:00:00;ferienhaus@finiki.at;Michelle;Höllisch;;;Sehr geehrte Frau Höllisch
+130263;W;DE;N;0000-00-00 00:00:00;gaestehaus@thueringer.co.at;Annemarie;Thüringer;;;Sehr geehrte Frau Thüringer
+130264;M;DE;N;0000-00-00 00:00:00;evelyn-lehner@gmx.at;Peter;Selinski;;;Sehr geehrter Herr Selinski
+130265;W;DE;N;0000-00-00 00:00:00;rodolfo@aon.at;Andrea;Gruber;;;Sehr geehrte Frau Gruber
+130266;M;DE;N;0000-00-00 00:00:00;martin.wegleitner@aon.at;Martin;Wegleitner;;;Sehr geehrter Herr Wegleitner
+130267;W;DE;N;0000-00-00 00:00:00;markus.tschida@ams.at;Elfriede;Tschida;;;Sehr geehrte Frau Tschida
+130268;F;DE;N;0000-00-00 00:00:00;herbert@weinstube-heschl.at;;Heschl;;;Sehr geehrte Familie Heschl
+130269;W;DE;N;0000-00-00 00:00:00;fam.schiefer@tele2.at;Irene;Schiefer;;;Sehr geehrte Frau Schiefer
+130270;F;DE;N;0000-00-00 00:00:00;j.wegleitner@bnet.at;Johann & Maria;Wegleitner;;;Sehr geehrte Familie Wegleitner
+130271;W;DE;N;0000-00-00 00:00:00;alois.kracher@gmx.at;Karoline;Kracher;;;Sehr geehrte Frau Kracher
+130272;M;DE;N;0000-00-00 00:00:00;urlaub@pension-rechberger.at;Alois;Rechberger;;;Sehr geehrter Herr Rechberger
+130273;W;DE;N;0000-00-00 00:00:00;office@ferienwohnungen-am-segelhafen.at;Helga;Cavuoto;;;Sehr geehrte Frau Cavuoto
+130274;W;DE;N;0000-00-00 00:00:00;wein@stoelzerhof.net;Maria;Tschida;;;Sehr geehrte Frau Tschida
+130275;F;DE;N;0000-00-00 00:00:00;heike.fischl@bnet.at;;Fischl;;;Sehr geehrte Familie Fischl
+130276;M;DE;N;0000-00-00 00:00:00;irmgard.jany@gmx.at;Manfred;Janovsky;;;Sehr geehrter Herr Janovsky
+130277;W;DE;N;0000-00-00 00:00:00;pension-susanne@aon.at;Irmgard;Kropf;;;Sehr geehrte Frau Kropf
+130278;W;DE;N;0000-00-00 00:00:00;a.snoggy@gmx.at;Andrea;Gontarczyk;;;Sehr geehrte Frau Gontarczyk
+130279;M;DE;N;0000-00-00 00:00:00;landgasthaus@nyikospark.at;Fritz;Tösch;;;Sehr geehrter Herr Tösch
+130280;M;DE;N;0000-00-00 00:00:00;g.tauber@wellcom.at;Hans;Tauber;;;Sehr geehrter Herr Tauber
+130281;M;DE;N;0000-00-00 00:00:00;info@hotelohr.at;Johannes;Ohr;;;Sehr geehrter Herr Ohr
+130282;M;DE;N;0000-00-00 00:00:00;ronald.kiss@aon.at;Willi;Kiss;;;Sehr geehrter Herr Kiss
+130283;W;DE;N;0000-00-00 00:00:00;marianne.reinprecht@bnet.at;Marianne;Reinprecht;;;Sehr geehrte Frau Reinprecht
+130284;W;DE;N;0000-00-00 00:00:00;landhaus.luka@aon.at;Eva;Luka;;;Sehr geehrte Frau Luka
+130285;M;DE;N;0000-00-00 00:00:00;info@knappenstoeckl.at;Christoph und Karin;Wieser;;;Sehr geehrter Herr Wieser
+130286;W;DE;N;0000-00-00 00:00:00;braunanni@yahoo.de;Anna;Braun;;;Sehr geehrte Frau Braun
+130287;W;DE;N;0000-00-00 00:00:00;elisabeth.sattler@bnet.at;Elisabeth;Sattler;;;Sehr geehrte Frau Sattler
+130288;F;DE;N;0000-00-00 00:00:00;weingut-fabian@aon.at;Peter Paul und Ulrike;Fabian;;;Sehr geehrte Familie Fabian
+130289;W;DE;N;0000-00-00 00:00:00;frischmann@romantikchalet.at;Angela;Frischmann;;;Sehr geehrte Frau Frischmann
+130290;W;DE;N;0000-00-00 00:00:00;office@rathausstueberl.at;Monika;Vollath;;;Sehr geehrte Frau Vollath
+130291;F;DE;N;0000-00-00 00:00:00;helmut.brunaecker@bkf.at;;Brunäcker;;;Sehr geehrte Familie Brunäcker
+130292;W;DE;N;0000-00-00 00:00:00;reinhard.panzenbock@tele2.at;Maria;Panzenböck;;;Sehr geehrte Frau Panzenböck
+130293;W;DE;N;0000-00-00 00:00:00;eckerk@utanet.at;Gerlinde;Szakats;;;Sehr geehrte Frau Szakats
+130294;M;DE;N;0000-00-00 00:00:00;klein.illmitz@hotmail.com;Rudolf;Klein;;;Sehr geehrter Herr Klein
+130295;W;DE;N;0000-00-00 00:00:00;zimmer@haus-kugler.at;Gertrude;Kugler;;;Sehr geehrte Frau Kugler
+130296;F;DE;N;0000-00-00 00:00:00;gangl@beimgangl.at;Erich u. Ilse;Gangl;;;Sehr geehrte Familie Gangl
+130297;X;DE;N;0000-00-00 00:00:00;office@schnepfenhof.at;Ludwig;Steinwandtner;;;Sehr geehrte Damen und Herren
+130298;M;DE;N;0000-00-00 00:00:00;martin.sandhofer@gmx.at;Martin;Sandhofer Jun.;;;Sehr geehrter Herr Sandhofer Jun.
+130299;M;DE;N;0000-00-00 00:00:00;residenz@velich.at;Heinz;Velich;;;Sehr geehrter Herr Velich
+130300;F;DE;N;0000-00-00 00:00:00;weinbauseppgrassl@aon.at;;Graßl;;;Sehr geehrte Familie Graßl
+130301;W;DE;N;0000-00-00 00:00:00;office@biopreisegger.at;Daniela;Preisegger;;;Sehr geehrte Frau Preisegger
+130302;W;DE;N;0000-00-00 00:00:00;frank.andrea@bnet.at;Andrea;Frank;;;Sehr geehrte Frau Frank
+130303;W;DE;N;0000-00-00 00:00:00;vogelparadies@direkt.at;Edith;Bauer-Paar;Dr.;;Sehr geehrte Frau Dr. Bauer-Paar
+130304;W;DE;N;0000-00-00 00:00:00;schneider.maria59@gmx.at;Maria;Schneider;;;Sehr geehrte Frau Schneider
+130305;W;DE;N;0000-00-00 00:00:00;sonnenhof-51@aon.at;Maria;Kummer;;;Sehr geehrte Frau Kummer
+130306;W;DE;N;0000-00-00 00:00:00;office@weingutsommer.at;Herta;Sommer;;;Sehr geehrte Frau Sommer
+130307;W;DE;N;0000-00-00 00:00:00;ferienwohnungen@rathmann.at;Edith;Rathmann;;;Sehr geehrte Frau Rathmann
+130308;W;DE;N;0000-00-00 00:00:00;stefanwegleitner@gmx.at;Helene;Wegleitner;;;Sehr geehrte Frau Wegleitner
+130309;W;DE;N;0000-00-00 00:00:00;hofmaner@hotmail.com;Verena;Horvath;;;Sehr geehrte Frau Horvath
+130310;W;DE;N;0000-00-00 00:00:00;gross.claudia@ymail.com;Claudia;Gross;;;Sehr geehrte Frau Gross
+130311;W;DE;N;0000-00-00 00:00:00;weingut-palkowitsch@aon.at;Elke;Palkowitsch;;;Sehr geehrte Frau Palkowitsch
+130312;W;DE;N;0000-00-00 00:00:00;info@leiner-stiegelmar.at;Marina;Stiegelmar;;;Sehr geehrte Frau Stiegelmar
+130313;F;DE;N;0000-00-00 00:00:00;ca.gmeiner@gmx.at;Alexander;Gmeiner;;;Sehr geehrte Familie Gmeiner
+130314;M;DE;N;0000-00-00 00:00:00;angelika.freiler@bkf.at;Werner;Freiler;Ing.;;Sehr geehrter Herr Ing. Freiler
+130315;W;DE;N;0000-00-00 00:00:00;margit.lackner@bnet.at;Margit;Lackner;;;Sehr geehrte Frau Lackner
+130316;W;DE;N;0000-00-00 00:00:00;gertrude.linder@aon.at;Gertrude;Linder;;;Sehr geehrte Frau Linder
+130317;F;DE;N;0000-00-00 00:00:00;office@hotelburgenlaenderhof.at;;Weiss;;;Sehr geehrte Familie Weiss
+130318;F;DE;N;0000-00-00 00:00:00;info@weinbau-beck.at;Rosemarie und Jürgen;Beck;;;Sehr geehrte Familie Beck
+130319;M;DE;N;0000-00-00 00:00:00;reservierung@seehotelrust.at;Ludwig;Staller;;;Sehr geehrter Herr Staller
+130320;X;DE;N;0000-00-00 00:00:00;info@donnerskirchen.at;;;;;Sehr geehrte Damen und Herren
+130321;W;DE;N;0000-00-00 00:00:00;boecskei@aon.at;Birgit;Böcskei;;;Sehr geehrte Frau Böcskei
+130322;X;DE;N;0000-00-00 00:00:00;info@weinkulturhaus.at;;;;;Sehr geehrte Damen und Herren
+130323;W;DE;N;0000-00-00 00:00:00;zeiszele@aon.at;Eleonora;Zeisz;;;Sehr geehrte Frau Zeisz
+130324;W;DE;N;0000-00-00 00:00:00;evaschrauf@bnet.at;Eva;Schrauf;;;Sehr geehrte Frau Schrauf
+130325;W;DE;N;0000-00-00 00:00:00;hermine.schwanzer@aon.at;Hermine;Stefaner-Schwanzer;;;Sehr geehrte Frau Stefaner-Schwanzer
+130326;W;DE;N;0000-00-00 00:00:00;office@weinbau-haselbauer.at;Elisabeth;Haselbauer;;;Sehr geehrte Frau Haselbauer
+130327;W;DE;N;0000-00-00 00:00:00;fw.lackner@gmail.com;Martina;Lackner;;;Sehr geehrte Frau Lackner
+130328;M;DE;N;0000-00-00 00:00:00;weghofer.s@aon.at;Johann;Weghofer;;;Sehr geehrter Herr Weghofer
+130329;W;DE;N;0000-00-00 00:00:00;office@gasthof-weisz.at;Gertraude;Artner;;;Sehr geehrte Frau Artner
+130330;F;DE;N;0000-00-00 00:00:00;lawc@aon.at;Walter und Christa;Lang;;;Sehr geehrte Familie Lang
+130331;W;DE;N;0000-00-00 00:00:00;klothilde.fleischhacker@bnet.at;Klothilde;Fleischhacker;;;Sehr geehrte Frau Fleischhacker
+130332;M;DE;N;0000-00-00 00:00:00;kreuzweingaerten@bnet.at;Ewald;Mezgolits;;;Sehr geehrter Herr Mezgolits
+130333;W;DE;N;0000-00-00 00:00:00;sepp.haider@illmitz.bgld.gv.at;Hilda;Haider;;;Sehr geehrte Frau Haider
+130334;W;DE;N;0000-00-00 00:00:00;office@forchtensteinerhof.at;Maria;Strohmaier;;;Sehr geehrte Frau Strohmaier
+130335;W;DE;N;0000-00-00 00:00:00;office@das-mittelpunkt.com;Renate;Strnad;;;Sehr geehrte Frau Strnad
+130336;F;DE;N;0000-00-00 00:00:00;martin.regner@bnet.at;Martin u. Elfriede;Regner;;;Sehr geehrte Familie Regner
+130337;M;DE;N;0000-00-00 00:00:00;sommer@aon.at;Walter;Sommer;;;Sehr geehrter Herr Sommer
+130338;F;DE;N;0000-00-00 00:00:00;hans.bauer@a1.net;;Bauer;;;Sehr geehrte Familie Bauer
+130339;F;DE;N;0000-00-00 00:00:00;gerhard.hanifl@gmx.at;Gerhard und Carla-Maria;Hanifl;;;Sehr geehrte Familie Hanifl
+130340;F;DE;N;0000-00-00 00:00:00;restaurant@braunstein.at;;Braunstein;;;Sehr geehrte Familie Braunstein
+130341;M;DE;N;0000-00-00 00:00:00;office@hotel-nationalpark.com;Herbert;Salzl;;;Sehr geehrter Herr Salzl
+130342;W;DE;N;0000-00-00 00:00:00;tschida.alois@utanet.at;Monika;Tschida;;;Sehr geehrte Frau Tschida
+130343;W;DE;N;0000-00-00 00:00:00;josef.fleischhacker@bnet.at;Christa;Fleischhacker;;;Sehr geehrte Frau Fleischhacker
+130344;W;DE;N;0000-00-00 00:00:00;weingut.haider@aon.at;Theresia;Haider;;;Sehr geehrte Frau Haider
+130345;W;DE;N;0000-00-00 00:00:00;ursula.waigand@gmx.at;Ursula;Waigand;Dr.;;Sehr geehrte Frau Dr. Waigand
+130346;M;DE;N;0000-00-00 00:00:00;office@bernhardt-wiesen.at;Thomas;Richter;;;Sehr geehrter Herr Richter
+130347;M;DE;N;0000-00-00 00:00:00;office@campingoggau.at;Anton;Unterweger;;;Sehr geehrter Herr Unterweger
+130348;M;DE;N;0000-00-00 00:00:00;info@gasthof-weinzettl.at;Albert;Weinzettl;;;Sehr geehrter Herr Weinzettl
+130349;W;DE;N;0000-00-00 00:00:00;ferienhausaura@tele2.at;Scarlet;Binder;;;Sehr geehrte Frau Binder
+130350;M;DE;N;0000-00-00 00:00:00;hotel.angelika@iten.at;Leopold;Jordan;;;Sehr geehrter Herr Jordan
+130351;M;DE;N;0000-00-00 00:00:00;info@csarda-moerbisch.at;Wolfgang;Pfeiffer;;;Sehr geehrter Herr Pfeiffer
+130352;W;DE;N;0000-00-00 00:00:00;linde.steiner@gmx.at;Linde;Steiner;;;Sehr geehrte Frau Steiner
+130353;M;DE;N;0000-00-00 00:00:00;office@wein-vom-steurer.at;Robert;Steurer;;;Sehr geehrter Herr Steurer
+130354;W;DE;N;0000-00-00 00:00:00;pension1@surf-bike.at;Christine;Speta;;;Sehr geehrte Frau Speta
+130355;W;DE;N;0000-00-00 00:00:00;michaela_wallner@hotmail.com;Michaela;Wallner;;;Sehr geehrte Frau Wallner
+130356;F;DE;N;0000-00-00 00:00:00;office@seehof-gisch.at;Otto und Patricia;Gisch;;;Sehr geehrte Familie Gisch
+130357;W;DE;N;0000-00-00 00:00:00;haus_margarethe@gmx.at;Marion;Barilich;;;Sehr geehrte Frau Barilich
+130358;X;DE;N;0000-00-00 00:00:00;sommerhaus@aon.at;Helga & Hans;Sommer;;;Sehr geehrte Damen und Herren
+130359;M;DE;Y;2013-11-07 14:52:54;friedgard.may@t-online.de;Helmut;May;;;Sehr geehrter Herr May
+130360;W;DE;N;0000-00-00 00:00:00;kontakt@burgenlaenderhof.com;Maria;Loos-Salzl;;;Sehr geehrte Frau Loos-Salzl
+130361;M;DE;N;0000-00-00 00:00:00;info@birkenhof-gols.at;Roland;Beck;;;Sehr geehrter Herr Beck
+130362;W;DE;N;0000-00-00 00:00:00;kranixfeld-fischl@aon.at;Monika & Andreas;Fischl;;;Sehr geehrte Frau Fischl
+130363;M;DE;N;0000-00-00 00:00:00;zimmer.pauzenberger@gmx.at;Stefan;Pauzenberger;;;Sehr geehrter Herr Pauzenberger
+130364;F;DE;N;0000-00-00 00:00:00;sonnenhof-moerbisch@aon.at;;Enzenhofer;;;Sehr geehrte Familie Enzenhofer
+130365;X;DE;N;0000-00-00 00:00:00;info@podersdorf-gisch.at;Michael und Gertrude;Gisch;;;Sehr geehrte Damen und Herren
+130366;W;DE;N;0000-00-00 00:00:00;katharina_rosenauer@gmx.at;Katharina;Rosenauer;;;Sehr geehrte Frau Rosenauer
+130367;W;DE;N;0000-00-00 00:00:00;andrea.seidl@weinkulturhaus.at;Andrea;Seidl;;;Sehr geehrte Frau Seidl
+130368;M;DE;N;0000-00-00 00:00:00;office@zentgraf.at;Ralph;Zentgraf;;;Sehr geehrter Herr Zentgraf
+130369;W;DE;N;0000-00-00 00:00:00;info@neusiedler-csarda.at;Michaela;Mag. Rehnke-Fussi;;;Sehr geehrte Frau Mag. Rehnke-Fussi
+130370;M;DE;N;0000-00-00 00:00:00;info@weingut-sommer.at;Leopold;Sommer;;;Sehr geehrter Herr Sommer
+130371;M;DE;N;0000-00-00 00:00:00;bildungshaus@hdb-eisenstadt.at;Engelbert;Marakovits;;;Sehr geehrter Herr Marakovits
+130372;F;DE;N;0000-00-00 00:00:00;trimmel5@bnet.at;;Trimmel;;;Sehr geehrte Familie Trimmel
+130373;F;DE;N;0000-00-00 00:00:00;harald.lang@bnet.at;Harald und Maria;Lang;;;Sehr geehrte Familie Lang
+130374;M;DE;N;0000-00-00 00:00:00;hannes.achs@gmx.at;Hannes;Achs;;;Sehr geehrter Herr Achs
+130375;M;DE;N;0000-00-00 00:00:00;aigspandl@aon.at;Alfred;Gspandl;;;Sehr geehrter Herr Gspandl
+130376;M;DE;N;0000-00-00 00:00:00;office@auer.or.at;Edwin;Auer;;;Sehr geehrter Herr Auer
+130377;W;DE;N;0000-00-00 00:00:00;evawagner@eisendorf.at;Eva-Maria;Wagner;;;Sehr geehrte Frau Wagner
+130378;F;DE;N;0000-00-00 00:00:00;haus-elsa@direkt.at;Elsa und Hans;Steiner;;;Sehr geehrte Familie Steiner
+130379;M;DE;N;0000-00-00 00:00:00;k.hoefer@bkf.at;Karl;Höfer;;;Sehr geehrter Herr Höfer
+130380;W;DE;N;0000-00-00 00:00:00;pension.may@gmx.at;Ottilie;May;;;Sehr geehrte Frau May
+130381;W;DE;N;0000-00-00 00:00:00;waltraud.gruber@panorama-seeblick.at;Waltraud;Gruber;;;Sehr geehrte Frau Gruber
+130382;W;DE;N;0000-00-00 00:00:00;eleonore.putzlager@gmx.at;Eleonore;Putzlager;;;Sehr geehrte Frau Putzlager
+130383;M;DE;N;0000-00-00 00:00:00;heli.wendelin@gmx.at;Helmut;Wendelin;;;Sehr geehrter Herr Wendelin
+130384;F;DE;N;0000-00-00 00:00:00;pannoniahof@hotmail.com;;Weinhandl;;;Sehr geehrte Familie Weinhandl
+130385;W;DE;N;0000-00-00 00:00:00;office@gaestehaus-gisch.at;Edith;Gisch;;;Sehr geehrte Frau Gisch
+130386;W;DE;N;0000-00-00 00:00:00;weinbau@ringbauer.at;Sandra;Ringbauer;;;Sehr geehrte Frau Ringbauer
+130387;W;DE;N;0000-00-00 00:00:00;office@illmitzerhof.at;Burgi;Hinterlechner;;;Sehr geehrte Frau Hinterlechner
+130388;W;DE;N;0000-00-00 00:00:00;weingut@h-gangl.at;Hildegard;Gangl;;;Sehr geehrte Frau Gangl
+130389;M;DE;N;0000-00-00 00:00:00;jugendherberge@bkf.at;Josef;Berger;;;Sehr geehrter Herr Berger
+130390;W;DE;N;0000-00-00 00:00:00;weingut.lang@gmx.at;Karin;Lang;;;Sehr geehrte Frau Lang
+130391;W;DE;N;0000-00-00 00:00:00;gerhard.salzl@bnet.at;Emilie;Salzl;;;Sehr geehrte Frau Salzl
+130392;M;DE;N;0000-00-00 00:00:00;office@1-kraft.at;Rainer Maria;Kraft;Dr.;;Sehr geehrter Herr Dr. Kraft
+130393;W;DE;N;0000-00-00 00:00:00;appartement@das-doppelhaus.at;Nicola;Kaar;;;Sehr geehrte Frau Kaar
+130394;W;DE;N;0000-00-00 00:00:00;info@hausakina.at;Wendy;Maschek;;;Sehr geehrte Frau Maschek
+130395;W;DE;N;0000-00-00 00:00:00;eva.horvath1@gmx.at;Eva;Horvath;Mag.;;Sehr geehrte Frau Mag. Horvath
+130396;W;DE;N;0000-00-00 00:00:00;p.altenburger@bnet.at;Gertrude;Altenburger;;;Sehr geehrte Frau Altenburger
+130397;F;DE;N;0000-00-00 00:00:00;appartement.lang@aon.at;Erwin & Günter;Lang;;;Sehr geehrte Familie Lang
+130398;M;DE;N;0000-00-00 00:00:00;wein@scheiber.cc;Martin;Scheiber;;;Sehr geehrter Herr Scheiber
+130399;M;DE;N;0000-00-00 00:00:00;info@winzerhof-lentsch.at;Christian;Lentsch;;;Sehr geehrter Herr Lentsch
+130400;F;DE;N;0000-00-00 00:00:00;info@ballitos.at;Tajana und Oliver;Mair;;;Sehr geehrte Familie Mair
+130401;W;DE;N;0000-00-00 00:00:00;birka@pohoralek.com;Birka;Pohoralek;;;Sehr geehrte Frau Pohoralek
+130402;F;DE;N;0000-00-00 00:00:00;familie.poeck@gmx.at;;Pöck;;;Sehr geehrte Familie Pöck
+130403;W;DE;N;0000-00-00 00:00:00;zimmer@urlaub-moerbisch.at;Margarethe;Rezsni;;;Sehr geehrte Frau Rezsni
+130404;W;DE;N;0000-00-00 00:00:00;office@tennistreff.at;;Habeler-Ban;;;Sehr geehrte Frau Habeler-Ban
+130405;M;DE;N;0000-00-00 00:00:00;illmitz@rosenhof.cc;Reinhard;Haider;;;Sehr geehrter Herr Haider
+130406;W;DE;N;0000-00-00 00:00:00;franz.klein@seewinkelwein.at;Jana;Klein;;;Sehr geehrte Frau Klein
+130407;M;DE;N;0000-00-00 00:00:00;office@ferienhauswerner.at;Werner;Horvath;;;Sehr geehrter Herr Horvath
+130408;F;DE;N;0000-00-00 00:00:00;ferienwohnung-halwax@aon.at;Luise & Erich;Halwax;;;Sehr geehrte Familie Halwax
+130409;W;DE;N;0000-00-00 00:00:00;haus-am-tabor@aon.at;Eva;Brunner;;;Sehr geehrte Frau Brunner
+130410;W;DE;N;0000-00-00 00:00:00;info@ferienhaus-kellergasse.at;Monika;Faymann;;;Sehr geehrte Frau Faymann
+130411;M;DE;N;0000-00-00 00:00:00;weingut@agerlhof.at;Rudolf;Wetschka;;;Sehr geehrter Herr Wetschka
+130412;M;DE;N;0000-00-00 00:00:00;josefkaintz@hotmail.com;Josef;Kaintz;;;Sehr geehrter Herr Kaintz
+130413;F;DE;N;0000-00-00 00:00:00;haus.hebaus@aon.at;Johann;Hebaus;;;Sehr geehrte Familie Hebaus
+130414;W;DE;N;0000-00-00 00:00:00;info@weinbauernhaus.at;Karin;Gabriel;;;Sehr geehrte Frau Gabriel
+130415;F;DE;N;0000-00-00 00:00:00;office@johannes-zeche.at;;Tauber;;;Sehr geehrte Familie Tauber
+130416;W;DE;N;0000-00-00 00:00:00;landgasthaus-karlo@gmx.net;Maria;Karlo;;;Sehr geehrte Frau Karlo
+130417;W;DE;N;0000-00-00 00:00:00;office@dombi-weiss.com;Sylvia;Dombi-Weiss;;;Sehr geehrte Frau Dombi-Weiss
+130418;W;DE;N;0000-00-00 00:00:00;joga@bnet.at;Johanna;Gangl;;;Sehr geehrte Frau Gangl
+130419;W;DE;N;0000-00-00 00:00:00;info@podersdorf-steiner.at;Ingrid;Steiner;;;Sehr geehrte Frau Steiner
+130420;M;DE;N;0000-00-00 00:00:00;auer.werner@bnet.at;Werner;Auer;;;Sehr geehrter Herr Auer
+130421;M;DE;N;0000-00-00 00:00:00;robert.koppitsch@aon.at;Ing. Robert;Koppitsch;;;Sehr geehrter Herr Koppitsch
+130422;M;DE;N;0000-00-00 00:00:00;erich.klinger@bionysos.at;Erich;Klinger;;;Sehr geehrter Herr Klinger
+130423;M;DE;N;0000-00-00 00:00:00;tyroller@bnet.at;Hans;Tyroller;;;Sehr geehrter Herr Tyroller
+130424;W;DE;N;0000-00-00 00:00:00;info@der-michlhof.at;Rosemarie;Berg;;;Sehr geehrte Frau Berg
+130425;F;DE;N;0000-00-00 00:00:00;info@julius-steiner.at;Mariella und Julius;Steiner;;;Sehr geehrte Familie Steiner
+130426;M;DE;N;0000-00-00 00:00:00;office@gaestehaus-storchenblick.at;Lorenz;Haider;;;Sehr geehrter Herr Haider
+130427;W;DE;N;0000-00-00 00:00:00;privat-pension@aon.at;Wilhelmine Christine;Tschirk;;;Sehr geehrte Frau Tschirk
+130428;W;DE;N;0000-00-00 00:00:00;info@vinzenzhof-gangl.at;Regina;Gangl;;;Sehr geehrte Frau Gangl
+130429;M;DE;N;0000-00-00 00:00:00;rezeption@parkhotel-eisenstadt.at;Josef;Nöhrer;;;Sehr geehrter Herr Nöhrer
+130430;W;DE;N;0000-00-00 00:00:00;office@gmeiner.co.at;Michaela;Heeger;Mag.;;Sehr geehrte Frau Mag. Heeger
+130431;M;DE;N;0000-00-00 00:00:00;gasthofwein@hotmail.com;Johann;Wein;;;Sehr geehrter Herr Wein
+130432;F;DE;N;0000-00-00 00:00:00;pension.wachtler@gmail.com;Anita und Walter;Wachtler;;;Sehr geehrte Familie Wachtler
+130433;W;DE;N;0000-00-00 00:00:00;poelzl.csok@aon.at;Andrea;Pölzl;;;Sehr geehrte Frau Pölzl
+130434;W;DE;N;0000-00-00 00:00:00;renateplank@a1.net;Renate;Plank;;;Sehr geehrte Frau Plank
+130435;M;DE;N;0000-00-00 00:00:00;rudolf.kiss-sen@aon.at;Rudolf;Kiss;;;Sehr geehrter Herr Kiss
+130436;W;DE;N;0000-00-00 00:00:00;e.fuhrmann@gmx.at;Elisabeth;Fuhrmann;;;Sehr geehrte Frau Fuhrmann
+130437;W;DE;N;0000-00-00 00:00:00;gaestehaus.magdalena@aon.at;Verena;Gartner;;;Sehr geehrte Frau Gartner
+130438;M;DE;N;0000-00-00 00:00:00;schwalbennest.wueger@gmx.at;Franz;Wüger;;;Sehr geehrter Herr Wüger
+130439;W;DE;N;0000-00-00 00:00:00;roswitha.fiedler@aon.at;Roswitha;Fiedler;;;Sehr geehrte Frau Fiedler
+130440;W;DE;N;0000-00-00 00:00:00;storchenschmiede@oenj.at;Andrea;Hebaus;;;Sehr geehrte Frau Hebaus
+130441;W;DE;N;0000-00-00 00:00:00;irmgard.hirschmann@aon.at;Irmgard;Hirschmann;;;Sehr geehrte Frau Hirschmann
+130442;W;DE;N;0000-00-00 00:00:00;halwax.monika@aon.at;Theresia;Dravits;;;Sehr geehrte Frau Dravits
+130443;M;DE;N;0000-00-00 00:00:00;gaestezimmer.thyringer@wellcom.at;Wolfgang;Thyringer;;;Sehr geehrter Herr Thyringer
+130444;W;DE;N;0000-00-00 00:00:00;pens.elisabeth@aon.at;Monika;Gmasz;;;Sehr geehrte Frau Gmasz
+130445;W;DE;N;0000-00-00 00:00:00;weingut.kroiss@gmx.at;Bernadette;Kroiss;;;Sehr geehrte Frau Kroiss
+130446;M;DE;N;0000-00-00 00:00:00;office@hotel-muellner.at;Florian;Müllner;;;Sehr geehrter Herr Müllner
+130447;M;DE;N;0000-00-00 00:00:00;winzerhofrichter@airwire.at;Manfred;Richter;;;Sehr geehrter Herr Richter
+130448;M;DE;N;0000-00-00 00:00:00;info@wein-ferien-karner.at;Karl;Karner;;;Sehr geehrter Herr Karner
+130449;W;DE;N;0000-00-00 00:00:00;ferien@lindeholzapfel.at;Sieglinde;Holzapfel;;;Sehr geehrte Frau Holzapfel
+130450;W;DE;N;0000-00-00 00:00:00;gaestehaus.pilles@hotmail.com;Maria;Pilles;;;Sehr geehrte Frau Pilles
+130451;W;DE;N;0000-00-00 00:00:00;gerald.trummer@uniqa.at;Maria;Trummer;;;Sehr geehrte Frau Trummer
+130452;W;DE;N;0000-00-00 00:00:00;info@sonnenvilla.at;Elfriede Eva;Lammel;;;Sehr geehrte Frau Lammel
+130453;W;DE;N;0000-00-00 00:00:00;winzer-haider@aon.at;Danijela;Haider;;;Sehr geehrte Frau Haider
+130454;M;DE;N;0000-00-00 00:00:00;jothe@tele2.at;Josef;Thenner;;;Sehr geehrter Herr Thenner
+130455;W;DE;N;0000-00-00 00:00:00;helga.peisser@aon.at;Helga;Peisser;;;Sehr geehrte Frau Peisser
+130456;W;DE;N;0000-00-00 00:00:00;seepanorama@aon.at;Edith;Kummer;;;Sehr geehrte Frau Kummer
+130457;M;DE;N;0000-00-00 00:00:00;potz@aon.at;Rudolf;Potz;;;Sehr geehrter Herr Potz
+130458;W;DE;N;0000-00-00 00:00:00;urlaub@gaestehausmoser.at;Franziska;Moser;;;Sehr geehrte Frau Moser
+130459;W;DE;N;0000-00-00 00:00:00;pension@lentsch.org;Anna;Lentsch;;;Sehr geehrte Frau Lentsch
+130460;W;DE;N;0000-00-00 00:00:00;guenther.steiger@gmx.at;Anita;Steiger;;;Sehr geehrte Frau Steiger
+130461;M;DE;N;0000-00-00 00:00:00;weingut@liegenfeld.at;Andreas;Liegenfeld;;;Sehr geehrter Herr Liegenfeld
+130462;W;DE;N;0000-00-00 00:00:00;weingut.kroiss@bnet.at;Katharina;Kroiss;;;Sehr geehrte Frau Kroiss
+130463;X;DE;N;0000-00-00 00:00:00;info@stmartins.at;;;;;Sehr geehrte Damen und Herren
+130464;W;DE;N;0000-00-00 00:00:00;maria1.reinprecht@aon.at;Maria;Reinprecht;;;Sehr geehrte Frau Reinprecht
+130465;W;DE;N;0000-00-00 00:00:00;hotelleiner@aon.at;Andrea;Leiner;;;Sehr geehrte Frau Leiner
+130466;W;DE;N;0000-00-00 00:00:00;gh.koppi-kremser@aon.at;Gerlinde;Koppi;;;Sehr geehrte Frau Koppi
+130467;W;DE;N;0000-00-00 00:00:00;office@dorfzeit-fleischhacker.at;Hermine;Fleischhacker;;;Sehr geehrte Frau Fleischhacker
+130468;M;DE;N;0000-00-00 00:00:00;office@wein-opitz.at;Michael;Opitz;;;Sehr geehrter Herr Opitz
+130469;W;DE;N;0000-00-00 00:00:00;robert.zwickl@bnet.at;Christa;Zwickl;;;Sehr geehrte Frau Zwickl
+130470;M;DE;N;0000-00-00 00:00:00;rust@pensionstrohmer.at;Alexander;Strohmer;;;Sehr geehrter Herr Strohmer
+130471;F;DE;N;0000-00-00 00:00:00;kassarathmann@aon.at;;Rathmann;;;Sehr geehrte Familie Rathmann
+130472;F;DE;N;0000-00-00 00:00:00;theresiatschida@yahoo.de;;Tschida;;;Sehr geehrte Familie Tschida
+130473;M;DE;N;0000-00-00 00:00:00;winzerhof-schuber@gmx.at;Franz;Schuber;;;Sehr geehrter Herr Schuber
+130474;F;DE;N;0000-00-00 00:00:00;ferienwohnungen.schmidt@purbach.at;;Schmidt;;;Sehr geehrte Familie Schmidt
+130475;F;DE;N;0000-00-00 00:00:00;info@appartements-roiss.at;;Roiss;;;Sehr geehrte Familie Roiss
+130476;W;DE;N;0000-00-00 00:00:00;schraendlhof@utanet.at;Pauline;Haider;;;Sehr geehrte Frau Haider
+130477;W;DE;N;0000-00-00 00:00:00;pensionkoelbl@gmx.at;Judith;Kölbl;;;Sehr geehrte Frau Kölbl
+130478;W;DE;N;0000-00-00 00:00:00;fam.kracher@gmx.at;Elisabeth;Kracher;;;Sehr geehrte Frau Kracher
+130479;W;DE;N;0000-00-00 00:00:00;info@haus-rosemarie.net;Renee;Fuhrmann;;;Sehr geehrte Frau Fuhrmann
+130480;M;DE;N;0000-00-00 00:00:00;haus-am-anger@bnet.at;Günter;Mezgolits;;;Sehr geehrter Herr Mezgolits
+130481;W;DE;N;0000-00-00 00:00:00;fam_fechter@bnet.at;Maria;Fechter;;;Sehr geehrte Frau Fechter
+130482;W;DE;N;0000-00-00 00:00:00;pension.amtmann@bnet.at;Hermine;Amtmann;;;Sehr geehrte Frau Amtmann
+130483;F;DE;N;0000-00-00 00:00:00;weinbau.lang@bnet.at;Eva & Manfred;Lang;;;Sehr geehrte Familie Lang
+130484;W;DE;N;0000-00-00 00:00:00;struck.d@bnet.at;Heide;Struck;;;Sehr geehrte Frau Struck
+130485;M;DE;N;0000-00-00 00:00:00;josef.mohl@aon.at;Josef;Mohl;;;Sehr geehrter Herr Mohl
+130486;F;DE;N;0000-00-00 00:00:00;anfrage@hotel-wende.at;;Wende;;;Sehr geehrte Familie Wende
+130487;F;DE;N;0000-00-00 00:00:00;haus-franz@gmx.at;Anna und Josef;Franz;;;Sehr geehrte Familie Franz
+130488;M;DE;N;0000-00-00 00:00:00;appartementhaus_waba@hotmail.com;Thomas;Waba;;;Sehr geehrter Herr Waba
+130489;W;DE;N;0000-00-00 00:00:00;winzerhof.lichtenberger@bkf.at;Gertrude;Lichtenberger;;;Sehr geehrte Frau Lichtenberger
+130490;W;DE;N;0000-00-00 00:00:00;gaestehaus@pitzl-rabi.at;Petra;Rabi;;;Sehr geehrte Frau Rabi
+130491;F;DE;N;0000-00-00 00:00:00;heider@gmx.at;Hubert;Konstanze;;;Sehr geehrte Familie Konstanze
+130492;X;DE;N;0000-00-00 00:00:00;tourismus@moerbisch.com;;Mörbisch Tourismus;;;Sehr geehrte Damen und Herren
+130493;W;DE;N;0000-00-00 00:00:00;mail@gaestehaus-loni.at;Elisabeth;Brettl;;;Sehr geehrte Frau Brettl
+130494;W;DE;N;0000-00-00 00:00:00;weingut@wegleitner.at;Elisabeth;Wegleitner;;;Sehr geehrte Frau Wegleitner
+130495;W;DE;N;0000-00-00 00:00:00;gaestehaus.haider@bnet.at;Birgit;Haider;;;Sehr geehrte Frau Haider
+130496;W;DE;N;0000-00-00 00:00:00;melitta.rauchwarter@kwp.at;Melitta;Rauchwarter;;;Sehr geehrte Frau Rauchwarter
+130497;M;DE;N;0000-00-00 00:00:00;weinbau.nekowitsch@bnet.at;Michael;Nekowitsch;Ing.;;Sehr geehrter Herr Ing. Nekowitsch
+130498;W;DE;N;0000-00-00 00:00:00;christine@weingut-riepl.at;Christine;Riepl;;;Sehr geehrte Frau Riepl
+130499;F;DE;N;0000-00-00 00:00:00;hauskapellmeister@aon.at;;Leier;;;Sehr geehrte Familie Leier
+130500;W;DE;N;0000-00-00 00:00:00;info@villakatharina.at;Katalin;Jozsa;;;Sehr geehrte Frau Jozsa
+130501;W;DE;N;0000-00-00 00:00:00;sonnenterrasse@bnet.at;Klara;Hitzinger;;;Sehr geehrte Frau Hitzinger
+130502;X;DE;N;0000-00-00 00:00:00;hansjaeger@gmx.at;Hans und Gertrude;Jäger;;;Sehr geehrte Damen und Herren
+130503;W;DE;N;0000-00-00 00:00:00;rebhof-rust@msn.com;Melinda;Papp;;;Sehr geehrte Frau Papp
+130504;M;DE;N;0000-00-00 00:00:00;harald_haider@web.de;Harald;Haider;;;Sehr geehrter Herr Haider
+130505;M;DE;N;0000-00-00 00:00:00;gast@foltin.at;Franz J.;Foltin;Mag.;;Sehr geehrter Herr Mag. Foltin
+130506;W;DE;N;0000-00-00 00:00:00;ferienhaus@sonnengarten.or.at;Christine;Hafner;;;Sehr geehrte Frau Hafner
+130507;W;DE;N;0000-00-00 00:00:00;martina.zethner@gmail.com;Martina;Zethner;;;Sehr geehrte Frau Zethner
+130508;M;DE;N;0000-00-00 00:00:00;weinlaubenhof_kroiss@gmx.at;Bernd;Kroiss;;;Sehr geehrter Herr Kroiss
+130509;F;DE;N;0000-00-00 00:00:00;hedi@bnet.at;J. & H.;Preiss;;;Sehr geehrte Familie Preiss
+130510;X;DE;N;0000-00-00 00:00:00;h.dolezal@beuaty-vital-residenz.at;;;;;Sehr geehrte Damen und Herren
+130511;M;DE;N;0000-00-00 00:00:00;weingut@nhaberhauer.at;Norbert;Haberhauer;;;Sehr geehrter Herr Haberhauer
+130512;X;DE;N;0000-00-00 00:00:00;pension.muellner@aon.at;Alfred und Maria;Müllner;;;Sehr geehrte Damen und Herren
+130513;W;DE;N;0000-00-00 00:00:00;allacher@andrelhof.at;Inge;Allacher;;;Sehr geehrte Frau Allacher
+130514;F;DE;N;0000-00-00 00:00:00;richard.haider@bnet.at;Richard & Resi;Haider;;;Sehr geehrte Familie Haider
+130515;W;DE;N;0000-00-00 00:00:00;weingut_thell@bnet.at;Elisabeth;Thell;Mag.;;Sehr geehrte Frau Mag. Thell
+130516;M;DE;N;0000-00-00 00:00:00;weingut-pasler@aon.at;Franz;Pasler;;;Sehr geehrter Herr Pasler
+130517;W;DE;N;0000-00-00 00:00:00;pension@weinguthaider.com;Anna Maria;Haider;;;Sehr geehrte Frau Haider
+130518;F;DE;N;0000-00-00 00:00:00;karin.lang@bnet.at;;Lang;;;Sehr geehrte Familie Lang
+130519;W;DE;N;0000-00-00 00:00:00;nationalparkhof-gartner@aon.at;Marieluise;Gartner;;;Sehr geehrte Frau Gartner
+130520;F;DE;N;0000-00-00 00:00:00;gaestehaus.schneeberger@bnet.at;W. und G.;Schneeberger;;;Sehr geehrte Familie Schneeberger
+130521;F;DE;N;0000-00-00 00:00:00;office@hotelbuergerhaus-rust.at;Michael u. Tina;Mooslechner;;;Sehr geehrte Familie Mooslechner
+130522;F;DE;N;0000-00-00 00:00:00;gaestehaus.hans.moser@bkf.at;;Moser;;;Sehr geehrte Familie Moser
+130523;M;DE;N;0000-00-00 00:00:00;thomas.moser@reflex.at;Thomas;Moser;;;Sehr geehrter Herr Moser
+130524;W;DE;N;0000-00-00 00:00:00;hausesisi@gmail.com;Susanna;Elis;;;Sehr geehrte Frau Elis
+130525;F;DE;N;0000-00-00 00:00:00;a.g.schmidt@direkt.at;Alois und Gertrude;Schmidt;;;Sehr geehrte Familie Schmidt
+130526;M;DE;N;0000-00-00 00:00:00;kroiss@schraendlsee.at;Michael;Kroiss;;;Sehr geehrter Herr Kroiss
+130527;M;DE;N;0000-00-00 00:00:00;info@gartenpension-fischl.at;Erwin;Fischl;;;Sehr geehrter Herr Fischl
+130528;W;DE;N;0000-00-00 00:00:00;office@weingut-gabriel.at;Sylvia;Gabriel;;;Sehr geehrte Frau Gabriel
+130529;W;DE;N;0000-00-00 00:00:00;info@wendelin-weine.at;Elisabeth;Wendelin;;;Sehr geehrte Frau Wendelin
+130530;W;DE;N;0000-00-00 00:00:00;urbarialhof@aon.at;Renate;Michlits;;;Sehr geehrte Frau Michlits
+130531;F;DE;N;0000-00-00 00:00:00;storchenschenke@aon.at;E. u. G.;Karassowitsch;;;Sehr geehrte Familie Karassowitsch
+130532;F;DE;N;0000-00-00 00:00:00;gaestehaus.rosina@gmx.at;;Fuhrmann;;;Sehr geehrte Familie Fuhrmann
+130533;W;DE;N;0000-00-00 00:00:00;sonne@bnet.at;Juliana;Tschida;;;Sehr geehrte Frau Tschida
+130534;W;DE;N;0000-00-00 00:00:00;gaestehaus@schreier.cc;Ingrid;Schreier;;;Sehr geehrte Frau Schreier
+130535;X;DE;N;0000-00-00 00:00:00;strandcamping@podersdorfamsee.at;;;;;Sehr geehrte Damen und Herren
+130536;X;DE;N;0000-00-00 00:00:00;reservierung@stmartins.at;;;;;Sehr geehrte Damen und Herren
+130537;W;DE;N;0000-00-00 00:00:00;office@weingut-wegleitner.com;Gertrude;Wegleitner;;;Sehr geehrte Frau Wegleitner
+130538;X;DE;N;0000-00-00 00:00:00;seebad@breitenbrunn.at;;Campingplatz;;;Sehr geehrte Damen und Herren
+130539;W;DE;N;0000-00-00 00:00:00;sandweinpension@aon.at;Hildegard;Strudler;;;Sehr geehrte Frau Strudler
+130540;F;DE;N;0000-00-00 00:00:00;privathotel@das-schmidt.at;;Schmidt;;;Sehr geehrte Familie Schmidt
+130541;W;DE;N;0000-00-00 00:00:00;husz-gelbmann@aon.at;Simone;Husz-Gelbmann;;;Sehr geehrte Frau Husz-Gelbmann
+130542;W;DE;N;0000-00-00 00:00:00;gaestehaus-wenzl@aon.at;Doris;Wenzl;;;Sehr geehrte Frau Wenzl
+130543;W;DE;N;0000-00-00 00:00:00;haider-fleischhacker@bnet.at;Theresia;Fleischhacker;;;Sehr geehrte Frau Fleischhacker
+130544;W;DE;N;0000-00-00 00:00:00;klausner.markus@aon.at;Regina;Klausner;;;Sehr geehrte Frau Klausner
+130545;W;DE;N;0000-00-00 00:00:00;urbanihofhareter@aon.at;Renate;Hareter;;;Sehr geehrte Frau Hareter
+130546;W;DE;N;0000-00-00 00:00:00;office@turmhof.com;Isabella;Schiwampl;;;Sehr geehrte Frau Schiwampl
+130547;W;DE;N;0000-00-00 00:00:00;pensionrose@aon.at;Isabella;Rehder;;;Sehr geehrte Frau Rehder
+130548;M;DE;N;0000-00-00 00:00:00;florianihof@burgenland.org;Alfred;Bandat;;;Sehr geehrter Herr Bandat
+130549;F;DE;N;0000-00-00 00:00:00;haider.waltraud@aon.at;Waltraud & Günter;Haider;;;Sehr geehrte Familie Haider
+130551;F;DE;N;0000-00-00 00:00:00;heinz.neuberger@bnet.at;Heinz und Petra;Neuberger;;;Sehr geehrte Familie Neuberger
+130552;M;DE;N;0000-00-00 00:00:00;gaestehaus@karassowitsch.at;Swen;Karassowitsch;;;Sehr geehrter Herr Karassowitsch
+130553;F;DE;N;0000-00-00 00:00:00;gaestehaus.lackner@gmx.at;Gertrud und Niki;Lackner;;;Sehr geehrte Familie Lackner
+130554;W;DE;N;0000-00-00 00:00:00;elviraegger@ymail.com;Mag. Elvira;Egger;;;Sehr geehrte Frau Egger
+130555;F;DE;N;0000-00-00 00:00:00;office@erbhof-wegleitner.at;Anna u. Konrad;Wegleitner;;;Sehr geehrte Familie Wegleitner
+130556;W;DE;N;0000-00-00 00:00:00;post@ferienhaus-hofgasse.de;Claudia;Van Tholen;;;Sehr geehrte Frau Van Tholen
+130557;M;DE;N;0000-00-00 00:00:00;gasthof@zur-traube.at;Franz;Rittsteuer;;;Sehr geehrter Herr Rittsteuer
+130558;W;DE;N;0000-00-00 00:00:00;rezeption@haydnhotel.at;Claudia;Mayr;Mag.;;Sehr geehrte Frau Mag. Mayr
+130559;M;DE;N;0000-00-00 00:00:00;pension@drahteselboeck.com;Walter;Eselböck;;;Sehr geehrter Herr Eselböck
+130560;X;DE;N;0000-00-00 00:00:00;info@pannoniatower.at;;;;;Sehr geehrte Damen und Herren
+130561;M;DE;N;0000-00-00 00:00:00;hotel@klosteramspitz.at;Wolfgang;Schwarz;;;Sehr geehrter Herr Schwarz
+130562;W;DE;N;0000-00-00 00:00:00;haidehof@aon.at;Elisabeth;Tschida;;;Sehr geehrte Frau Tschida
+130563;F;DE;N;0000-00-00 00:00:00;bianca.lang@wellcom.at;Bianca und Markus;Lang;;;Sehr geehrte Familie Lang
+130564;W;DE;N;0000-00-00 00:00:00;sabin.hartmann@bnet.at;Sabine;Hartmann;;;Sehr geehrte Frau Hartmann
+130565;M;DE;N;0000-00-00 00:00:00;anton.fleischhacker@bnet.at;Anton;Fleischhacker;;;Sehr geehrter Herr Fleischhacker
+130566;M;DE;N;0000-00-00 00:00:00;info@parkhotel-neubauer.at;Günther;Neubauer;;;Sehr geehrter Herr Neubauer
+130567;W;DE;N;0000-00-00 00:00:00;office@pension-reeh.at;Susi;Reeh;;;Sehr geehrte Frau Reeh
+130568;W;DE;N;0000-00-00 00:00:00;info@pensionkarner.at;Anita;Karner;;;Sehr geehrte Frau Karner
+130569;W;DE;N;0000-00-00 00:00:00;gabi.schindler@moerbisch.com;Gabi;Schindler;;;Sehr geehrte Frau Schindler
+130570;W;DE;N;0000-00-00 00:00:00;office@weinhaus-schueller.at;Roswitha;Schüller;;;Sehr geehrte Frau Schüller
+130571;W;DE;N;0000-00-00 00:00:00;info@strommer-illmitz.at;Erna;Strommer;;;Sehr geehrte Frau Strommer
+130572;W;DE;N;0000-00-00 00:00:00;office@gischerni.at;Ernestine;Gisch;;;Sehr geehrte Frau Gisch
+130573;F;DE;N;0000-00-00 00:00:00;reiterhof.mann@ausreiten.at;;Mann;;;Sehr geehrte Familie Mann
+130574;F;DE;N;0000-00-00 00:00:00;urlaub@pension-schmidt.at;Maria und Johann;Schmidt;;;Sehr geehrte Familie Schmidt
+130575;M;DE;N;0000-00-00 00:00:00;appartements.leiner@aon.at;Michael;Leiner;;;Sehr geehrter Herr Leiner
+130576;W;DE;N;0000-00-00 00:00:00;e.g.achs@aon.at;Brigitta;Weinbau u. Ferienwohnungen Achs;;;Sehr geehrte Frau Weinbau u. Ferienwohnungen Achs
+130577;F;DE;N;0000-00-00 00:00:00;schraendlweingut@aon.at;;Wegleitner;;;Sehr geehrte Familie Wegleitner
+130578;W;DE;N;0000-00-00 00:00:00;seb.wiatr@bnet.at;Antonia;Entner;;;Sehr geehrte Frau Entner
+130579;M;DE;N;0000-00-00 00:00:00;weingut.hackl@gmx.at;Michael;Hackl;;;Sehr geehrter Herr Hackl
+130580;M;DE;N;0000-00-00 00:00:00;office@checkin-hotel.at;Florian;Müllner;;;Sehr geehrter Herr Müllner
+130581;F;DE;N;0000-00-00 00:00:00;office@landhaus-pannonia.at;Robert und Michaela;Weiss;;;Sehr geehrte Familie Weiss
+130582;W;DE;N;0000-00-00 00:00:00;weingut_hareter@gmx.info;Michaela;Hareter;;;Sehr geehrte Frau Hareter
+130583;M;DE;N;0000-00-00 00:00:00;info@weingut-sommerhof.at;Hermann;Sommer;;;Sehr geehrter Herr Sommer
+130584;W;DE;N;0000-00-00 00:00:00;pension-weinbau@aon.at;Luzia;Vollath;;;Sehr geehrte Frau Vollath
+130585;F;DE;N;0000-00-00 00:00:00;haus.haider@aon.at;Gerhard und Alexandra;Haider;;;Sehr geehrte Familie Haider
+130586;W;DE;N;0000-00-00 00:00:00;eva.toth@bnet.at;Elfriede;Toth;;;Sehr geehrte Frau Toth
+130587;W;DE;N;0000-00-00 00:00:00;tobler.h@aon.at;Elke;Tobler;;;Sehr geehrte Frau Tobler
+130588;X;DE;N;0000-00-00 00:00:00;burgenland@austria-hotels.at;;;;;Sehr geehrte Damen und Herren
+130589;M;DE;N;0000-00-00 00:00:00;lutzrene@bluewin.ch;Rene;Lutz;;;Sehr geehrter Herr Lutz
+130590;M;DE;N;0000-00-00 00:00:00;info@hotel-schreiner.at;;Schreiner;;;Sehr geehrter Herr Schreiner
+130591;X;DE;N;0000-00-00 00:00:00;info@kirchenwirt-heinrich.at;;;;;Sehr geehrte Damen und Herren
+130592;X;DE;N;0000-00-00 00:00:00;info@huszar.at;;;;;Sehr geehrte Damen und Herren
+130593;X;DE;N;0000-00-00 00:00:00;office@weinherberge.at;;;;;Sehr geehrte Damen und Herren
+130594;F;DE;N;0000-00-00 00:00:00;info@weingut-gager.at;Horst;Gager;;;Sehr geehrte Familie Gager
+130595;X;DE;N;0000-00-00 00:00:00;office@zistler-rot.com;;;;;Sehr geehrte Damen und Herren
+130596;W;DE;N;0000-00-00 00:00:00;office@weingut-heinrich.at;Silvia;Heinrich;;;Sehr geehrte Frau Heinrich
+130597;X;DE;N;0000-00-00 00:00:00;office@strehn.at;;Strehn;;;Sehr geehrte Damen und Herren
+130598;X;DE;N;0000-00-00 00:00:00;gaestehaus-gager@gmx.at;;;;;Sehr geehrte Damen und Herren
+130599;X;DE;N;0000-00-00 00:00:00;office@kuenstlerklause.at;;;;;Sehr geehrte Damen und Herren
+130600;X;DE;N;0000-00-00 00:00:00;anfrage@sonnenoase-deutschkreutz.at;;;;;Sehr geehrte Damen und Herren
+130601;F;DE;N;0000-00-00 00:00:00;pension.winter@gmx.at;;Winter;;;Sehr geehrte Familie Winter
+130602;X;DE;N;0000-00-00 00:00:00;office@hotel-angerer.at;;;;;Sehr geehrte Damen und Herren
+130603;X;DE;N;0000-00-00 00:00:00;office@gasthof-trummer.com;;;;;Sehr geehrte Damen und Herren
+130604;X;DE;N;0000-00-00 00:00:00;pension.k-k@gmx.at;;;;;Sehr geehrte Damen und Herren
+130605;W;DE;N;0000-00-00 00:00:00;urlaub@urlaubs-oase.com;Elisabeth;Heißenberger;;;Sehr geehrte Frau Heißenberger
+130606;X;DE;N;0000-00-00 00:00:00;altes-zollhaus@uab-krizmanich.at;;;;;Sehr geehrte Damen und Herren
+130607;X;DE;N;0000-00-00 00:00:00;burg.lockenhaus@wellcom.at;;;;;Sehr geehrte Damen und Herren
+130608;X;DE;N;0000-00-00 00:00:00;gasthof.schloegl@aon.at;;;;;Sehr geehrte Damen und Herren
+130609;X;DE;N;0000-00-00 00:00:00;hotel@allinred.at;;;;;Sehr geehrte Damen und Herren
+130610;X;DE;N;0000-00-00 00:00:00;kontakt@semi.at;;;;;Sehr geehrte Damen und Herren
+130611;X;DE;N;0000-00-00 00:00:00;lutz@kurz.cc;;;;;Sehr geehrte Damen und Herren
+130612;X;DE;N;0000-00-00 00:00:00;info@thermenhotel.com;;;;;Sehr geehrte Damen und Herren
+130613;X;DE;N;0000-00-00 00:00:00;info@sonnenpark.at;;;;;Sehr geehrte Damen und Herren
+130614;X;DE;N;0000-00-00 00:00:00;office@thermenhofderdak.at;;;;;Sehr geehrte Damen und Herren
+130615;X;DE;N;0000-00-00 00:00:00;pension@apfelhof.at;;;;;Sehr geehrte Damen und Herren
+130616;X;DE;N;0000-00-00 00:00:00;hotel@sonnenhof-lutzmannsburg.at;;;;;Sehr geehrte Damen und Herren
+130617;X;DE;N;0000-00-00 00:00:00;office@bungalow-paradies.com;;;;;Sehr geehrte Damen und Herren
+130618;X;DE;N;0000-00-00 00:00:00;gasthofpacher@aon.at;;;;;Sehr geehrte Damen und Herren
+130619;X;DE;N;0000-00-00 00:00:00;ferienwohnungen.magedler@aon.at;;;;;Sehr geehrte Damen und Herren
+130620;X;DE;N;0000-00-00 00:00:00;rms-63@hotmail.com;;;;;Sehr geehrte Damen und Herren
+130621;X;DE;N;0000-00-00 00:00:00;h.ploechl@gmx.at;;;;;Sehr geehrte Damen und Herren
+130622;X;DE;N;0000-00-00 00:00:00;weingut@pension-schloegl.at;;;;;Sehr geehrte Damen und Herren
+130623;M;DE;N;0000-00-00 00:00:00;reini.magedler@gmx.at;Reini;Magedler;;;Sehr geehrter Herr Magedler
+130624;X;DE;N;0000-00-00 00:00:00;app-sonnenschein@aon.at;;;;;Sehr geehrte Damen und Herren
+130625;X;DE;N;0000-00-00 00:00:00;appartement-huber@tele2.at;;;;;Sehr geehrte Damen und Herren
+130626;F;DE;N;0000-00-00 00:00:00;fam.weber@tele2.at;;Weber;;;Sehr geehrte Familie Weber
+130627;X;DE;N;0000-00-00 00:00:00;thermen-pension@a1.net;;;;;Sehr geehrte Damen und Herren
+130628;M;DE;N;0000-00-00 00:00:00;karl.stegh@floresa.at;Karl;Stegh;;;Sehr geehrter Herr Stegh
+130629;X;DE;N;0000-00-00 00:00:00;adlerbraun@gmail.com;;;;;Sehr geehrte Damen und Herren
+130630;X;DE;N;0000-00-00 00:00:00;b.moerk@aon.at;;;;;Sehr geehrte Damen und Herren
+130631;F;DE;N;0000-00-00 00:00:00;fam.sterr@tele2.at;;Sterr;;;Sehr geehrte Familie Sterr
+130632;X;DE;N;0000-00-00 00:00:00;info@sonnenland.at;;;;;Sehr geehrte Damen und Herren
+130633;X;DE;N;0000-00-00 00:00:00;post@markt-st-martin.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130634;X;DE;N;0000-00-00 00:00:00;sgmuahaus@gmx.at;;;;;Sehr geehrte Damen und Herren
+130635;X;DE;N;0000-00-00 00:00:00;pension.schlossblick@aon.at;;;;;Sehr geehrte Damen und Herren
+130636;X;DE;N;0000-00-00 00:00:00;office@schloss-nebersdorf.at;;;;;Sehr geehrte Damen und Herren
+130637;X;DE;N;0000-00-00 00:00:00;info@gasthof-zur-traube.at;;;;;Sehr geehrte Damen und Herren
+130638;X;DE;N;0000-00-00 00:00:00;info@probszt.at;;;;;Sehr geehrte Damen und Herren
+130639;X;DE;N;0000-00-00 00:00:00;herta@pension-sunnseitn.at;;;;;Sehr geehrte Damen und Herren
+130640;X;DE;N;0000-00-00 00:00:00;pension@feymann.at;;;;;Sehr geehrte Damen und Herren
+130641;X;DE;N;0000-00-00 00:00:00;riki.sramek@aon.at;;;;;Sehr geehrte Damen und Herren
+130642;X;DE;N;0000-00-00 00:00:00;ober@kurz.cc;;;;;Sehr geehrte Damen und Herren
+130643;F;DE;N;0000-00-00 00:00:00;krail.gasthof@burgenland.org;;Krail;;;Sehr geehrte Familie Krail
+130644;M;DE;N;0000-00-00 00:00:00;norbert.pazmann@aon.at;Norbert;Pazmann;;;Sehr geehrter Herr Pazmann
+130645;X;DE;N;0000-00-00 00:00:00;info@ferienwohnung-hofer.at;;;;;Sehr geehrte Damen und Herren
+130646;X;DE;N;0000-00-00 00:00:00;helgaindien@aon.at;;;;;Sehr geehrte Damen und Herren
+130647;X;DE;N;0000-00-00 00:00:00;gasthof.hutter@aon.at;;;;;Sehr geehrte Damen und Herren
+130648;X;DE;N;0000-00-00 00:00:00;appsonnenland@hotmail.com;;;;;Sehr geehrte Damen und Herren
+130649;F;DE;N;0000-00-00 00:00:00;landgasthof.faymann@aon.at;;Faymann;;;Sehr geehrte Familie Faymann
+130650;X;DE;N;0000-00-00 00:00:00;sbeigelbeck@schalottenhof.at;;;;;Sehr geehrte Damen und Herren
+130651;X;DE;N;0000-00-00 00:00:00;stooberhof@gmx.at;;;;;Sehr geehrte Damen und Herren
+130652;X;DE;N;0000-00-00 00:00:00;thumberger.keramik@aon.at;;;;;Sehr geehrte Damen und Herren
+130653;X;DE;N;0000-00-00 00:00:00;info@urlaub-am-bauernhof.co.at;;;;;Sehr geehrte Damen und Herren
+130654;X;DE;N;0000-00-00 00:00:00;renetauber@msn.com;;;;;Sehr geehrte Damen und Herren
+130655;W;DE;N;0000-00-00 00:00:00;elisabeth_thell@bnet.at;Elisabeth;Thell;;;Sehr geehrte Frau Thell
+130656;X;DE;N;0000-00-00 00:00:00;post@bad-sauerbrunn.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130657;X;DE;N;0000-00-00 00:00:00;post@bad-tatzmannsdorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130658;X;DE;N;0000-00-00 00:00:00;pannonia-roth@aon.at;;;;;Sehr geehrte Damen und Herren
+130659;X;DE;N;0000-00-00 00:00:00;lendls@gmx.at;;;;;Sehr geehrte Damen und Herren
+130660;X;DE;N;0000-00-00 00:00:00;elektro.frisch@burgenland.org;;;;;Sehr geehrte Damen und Herren
+130661;X;DE;N;0000-00-00 00:00:00;katz@breitenbrunn.at;;;;;Sehr geehrte Damen und Herren
+130662;X;DE;N;0000-00-00 00:00:00;post@bruckneudorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130663;X;DE;N;0000-00-00 00:00:00;tourismus@burgauberg-neudauberg.at;;;;;Sehr geehrte Damen und Herren
+130664;X;DE;N;0000-00-00 00:00:00;aon.913615002@aon.at;;;;;Sehr geehrte Damen und Herren
+130665;X;DE;N;0000-00-00 00:00:00;c.gradwohl@wellcom.at;;;;;Sehr geehrte Damen und Herren
+130666;X;DE;N;0000-00-00 00:00:00;kirchenwirt-heinrich@aon.at;;;;;Sehr geehrte Damen und Herren
+130667;M;DE;N;0000-00-00 00:00:00;johannes-mezgolits@aon.at;Johannes;Mezgolits;;;Sehr geehrter Herr Mezgolits
+130668;M;DE;N;0000-00-00 00:00:00;bernie-das-wirtshaus@bernie.at;Bernhard;Köllerer;;;Sehr geehrter Herr Köllerer
+130669;X;DE;N;0000-00-00 00:00:00;weber@eisenberg.at;;;;;Sehr geehrte Damen und Herren
+130670;X;DE;N;0000-00-00 00:00:00;post@eberau.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130671;X;DE;N;0000-00-00 00:00:00;gasthaus.buch@gmx.at;;;;;Sehr geehrte Damen und Herren
+130672;X;DE;N;0000-00-00 00:00:00;wein.glock@gmx.at;;;;;Sehr geehrte Damen und Herren
+130673;X;DE;N;0000-00-00 00:00:00;info@eisenstadt-tourismus.at;;;;;Sehr geehrte Damen und Herren
+130674;X;DE;N;0000-00-00 00:00:00;kirchenwirtmirth@aon.at;;;;;Sehr geehrte Damen und Herren
+130675;X;DE;N;0000-00-00 00:00:00;fleischerei.schreiner@aon.at;;;;;Sehr geehrte Damen und Herren
+130676;M;DE;N;0000-00-00 00:00:00;toni.winter@gmx.at;Toni;Winter;;;Sehr geehrter Herr Winter
+130677;X;DE;N;0000-00-00 00:00:00;tourismus.frauenkirchen@bnet.at;;;;;Sehr geehrte Damen und Herren
+130678;X;DE;N;0000-00-00 00:00:00;thueringer.roman@aon.at;;;;;Sehr geehrte Damen und Herren
+130679;X;DE;N;0000-00-00 00:00:00;thueringer@aon.at;;;;;Sehr geehrte Damen und Herren
+130680;X;DE;N;0000-00-00 00:00:00;haus@eveline.niederbacher.at;;;;;Sehr geehrte Damen und Herren
+130681;X;DE;N;0000-00-00 00:00:00;pannonia-getraenke@aon.at;;;;;Sehr geehrte Damen und Herren
+130682;M;DE;N;0000-00-00 00:00:00;martin.krutzler@aon.at;Martin;Krutzler;;;Sehr geehrter Herr Krutzler
+130683;X;DE;N;0000-00-00 00:00:00;landauer@utanet.at;;;;;Sehr geehrte Damen und Herren
+130684;X;DE;N;0000-00-00 00:00:00;tourismus.guessing@aon.at;;;;;Sehr geehrte Damen und Herren
+130685;X;DE;N;0000-00-00 00:00:00;ludwig.radakovits@utanet.at;;;;;Sehr geehrte Damen und Herren
+130686;X;DE;N;0000-00-00 00:00:00;post@hackerberg.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130687;X;DE;N;0000-00-00 00:00:00;tourismus@halbturn.at;;;;;Sehr geehrte Damen und Herren
+130688;X;DE;N;0000-00-00 00:00:00;post@hannersdorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130689;X;DE;N;0000-00-00 00:00:00;post@hotel-krutzler.at;;;;;Sehr geehrte Damen und Herren
+130690;X;DE;N;0000-00-00 00:00:00;petra.poten@gmail.com;;;;;Sehr geehrte Damen und Herren
+130691;M;DE;N;0000-00-00 00:00:00;mariotrummer@gmx.at;Mario;Trummer;;;Sehr geehrter Herr Trummer
+130692;X;DE;N;0000-00-00 00:00:00;install.kopinits@aon.at;;;;;Sehr geehrte Damen und Herren
+130693;X;DE;N;0000-00-00 00:00:00;d.egermann@gmx.at;;;;;Sehr geehrte Damen und Herren
+130694;X;DE;N;0000-00-00 00:00:00;maria@theresienhof.net;;;;;Sehr geehrte Damen und Herren
+130695;X;DE;N;0000-00-00 00:00:00;office@gsc-werbung.at;;;;;Sehr geehrte Damen und Herren
+130696;W;DE;N;0000-00-00 00:00:00;post@kittsee.bgld.gv.at;Gabriele;Nabinger;Dr. ;;Sehr geehrte Frau Dr. Nabinger
+130697;X;DE;N;0000-00-00 00:00:00;m.skerlan@aon.at;;;;;Sehr geehrte Damen und Herren
+130698;X;DE;N;0000-00-00 00:00:00;ilse@boehm.org;;;;;Sehr geehrte Damen und Herren
+130699;M;DE;N;0000-00-00 00:00:00;norbert.sulyok@kohfidisch.bgld.gv.at;Norbert;Sulyok;;;Sehr geehrter Herr Sulyok
+130700;X;DE;N;0000-00-00 00:00:00;info@gasthof-jaindl.at;;;;;Sehr geehrte Damen und Herren
+130701;X;DE;N;0000-00-00 00:00:00;info@ghz.at;;;;;Sehr geehrte Damen und Herren
+130702;M;DE;N;0000-00-00 00:00:00;werner.stranz@aon.at;Werner;Stranz;;;Sehr geehrter Herr Stranz
+130703;M;DE;N;0000-00-00 00:00:00;menitzgeorg@aon.at;Georg;Menitz;;;Sehr geehrter Herr Menitz
+130704;M;DE;N;0000-00-00 00:00:00;emil.zankl@aon.at;Emil;Zankl;;;Sehr geehrter Herr Zankl
+130705;X;DE;N;0000-00-00 00:00:00;info@gasthofgraf.at;;;;;Sehr geehrte Damen und Herren
+130706;W;DE;N;0000-00-00 00:00:00;manuela.koller@utanet.at;Manuela;Koller;;;Sehr geehrte Frau Koller
+130707;W;DE;N;0000-00-00 00:00:00;edith.szalay@gmx.at;Editz;Szalay;;;Sehr geehrte Frau Szalay
+130708;X;DE;N;0000-00-00 00:00:00;post@markt-neuhodis.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130709;X;DE;N;0000-00-00 00:00:00;office@gh-muschitz.at;;;;;Sehr geehrte Damen und Herren
+130710;M;DE;N;0000-00-00 00:00:00;august.haiden@bnet.at;August;Haiden;;;Sehr geehrter Herr Haiden
+130711;F;DE;N;0000-00-00 00:00:00;familie.holzmann@utanet.at;;Holzmann;;;Sehr geehrte Familie Holzmann
+130712;X;DE;N;0000-00-00 00:00:00;sonja.poglitsch@aon.at;;Poglitsch;;;Sehr geehrte Damen und Herren
+130713;F;DE;N;0000-00-00 00:00:00;weinguthandler@aon.at;;Handler;;;Sehr geehrte Familie Handler
+130714;X;DE;N;0000-00-00 00:00:00;post@moschendorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130715;X;DE;N;0000-00-00 00:00:00;post@muehlgraben.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130716;X;DE;N;0000-00-00 00:00:00;post@neudorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130717;X;DE;N;0000-00-00 00:00:00;goldenes.lamm@bnet.at;;;;;Sehr geehrte Damen und Herren
+130718;X;DE;N;0000-00-00 00:00:00;office@huegellandhof.at;;;;;Sehr geehrte Damen und Herren
+130719;F;DE;N;0000-00-00 00:00:00;info@zur-traube.at;;Glatz-Wieder;;;Sehr geehrte Familie Glatz-Wieder
+130720;X;DE;N;0000-00-00 00:00:00;schmidts-rabenbraeu@aon.at;;;;;Sehr geehrte Damen und Herren
+130721;X;DE;N;0000-00-00 00:00:00;office@payer-reinfeld.at;;;;;Sehr geehrte Damen und Herren
+130722;X;DE;N;0000-00-00 00:00:00;hschreck.9004@netz.agip.at;;;;;Sehr geehrte Damen und Herren
+130723;X;DE;N;0000-00-00 00:00:00;ivan@uab-krizmanich.at;;;;;Sehr geehrte Damen und Herren
+130724;M;DE;N;0000-00-00 00:00:00;manfred.pranger@aon.at;Manfred;Pranger;;;Sehr geehrter Herr Pranger
+130725;X;DE;N;0000-00-00 00:00:00;sternschnuppe@utanet.at;;;;;Sehr geehrte Damen und Herren
+130726;X;DE;N;0000-00-00 00:00:00;pepi.sturm@aon.at;;;;;Sehr geehrte Damen und Herren
+130727;M;DE;N;0000-00-00 00:00:00;florian.ohrenhofer@bewag.at;Florian;Ohrenhofer;Ing.;;Sehr geehrter Herr Ing. Ohrenhofer
+130728;X;DE;N;0000-00-00 00:00:00;gasthaus.potz@aon.at;;;;;Sehr geehrte Damen und Herren
+130729;M;DE;N;0000-00-00 00:00:00;bert.jandl@vilavitapannonia.at;Bert;Jandl;Komm.R;;Sehr geehrter Herr Komm.R Jandl
+130730;X;DE;N;0000-00-00 00:00:00;gerhild.umathum@aon.at;;;;;Sehr geehrte Damen und Herren
+130731;F;DE;N;0000-00-00 00:00:00;ulreich@konditorei-ulreich.at;;Ulreich;;;Sehr geehrte Familie Ulreich
+130732;X;DE;N;0000-00-00 00:00:00;office@textilmandl.at;;;;;Sehr geehrte Damen und Herren
+130733;X;DE;N;0000-00-00 00:00:00;stegschandl@aon.at;;;;;Sehr geehrte Damen und Herren
+130734;X;DE;N;0000-00-00 00:00:00;elektro@schluenken.at;;;;;Sehr geehrte Damen und Herren
+130735;X;DE;N;0000-00-00 00:00:00;office@tischlerei-hermann.at;;;;;Sehr geehrte Damen und Herren
+130736;W;DE;N;0000-00-00 00:00:00;ruth.garger@a1.net;Ruth;Garger;;;Sehr geehrte Frau Garger
+130737;M;DE;N;0000-00-00 00:00:00;bgm.kenyeri@rechnitz.bgld.gv.at;;Kenyeri;Bgm.;;Sehr geehrter Herr Bgm. Kenyeri
+130738;M;DE;N;0000-00-00 00:00:00;heinz.gmeiner@gmx.at;Heinz;Gmeiner;;;Sehr geehrter Herr Gmeiner
+130739;M;DE;N;0000-00-00 00:00:00;thomas.supper@a1.net;Thomas;Supper;;;Sehr geehrter Herr Supper
+130740;X;DE;N;0000-00-00 00:00:00;gasthof@zumaltenweinstock.at;;;;;Sehr geehrte Damen und Herren
+130741;M;DE;N;0000-00-00 00:00:00;erwin.zehetner@begas.at;Erwin;Zehetner;;;Sehr geehrter Herr Zehetner
+130742;X;DE;N;0000-00-00 00:00:00;emmelschuh@gmx.at;;;;;Sehr geehrte Damen und Herren
+130743;X;DE;N;0000-00-00 00:00:00;office@macer.at;;;;;Sehr geehrte Damen und Herren
+130744;X;DE;N;0000-00-00 00:00:00;office@weingut-lassl.at;;;;;Sehr geehrte Damen und Herren
+130745;X;DE;N;0000-00-00 00:00:00;rais@aon.at;;;;;Sehr geehrte Damen und Herren
+130746;X;DE;N;0000-00-00 00:00:00;k.ertler@aon.at;;;;;Sehr geehrte Damen und Herren
+130747;W;DE;N;0000-00-00 00:00:00;krchnavy.elisabeth@st-margarethen.at;Elisabeth;Krchnavy;;;Sehr geehrte Frau Krchnavy
+130748;M;DE;N;0000-00-00 00:00:00;werner.gloesl@stadtschlaining.bgld.gv.at;Werner;Glösl;;;Sehr geehrter Herr Glösl
+130749;M;DE;N;0000-00-00 00:00:00;richard.g.senninger@burgenlandresort.at;Richard;Senninger;;;Sehr geehrter Herr Senninger
+130750;M;DE;N;0000-00-00 00:00:00;richard.g.senninger@stegersbach.at;Richard;Senninger;;;Sehr geehrter Herr Senninger
+130751;M;DE;N;0000-00-00 00:00:00;gerald.troindl@wellcom.at;Gerald;Troindl;;;Sehr geehrter Herr Troindl
+130752;M;DE;N;0000-00-00 00:00:00;bruno.stutzenstein@alusommer.at;Bruno;Stutzenstein;;;Sehr geehrter Herr Stutzenstein
+130753;X;DE;N;0000-00-00 00:00:00;bernhard.deutsch@strem.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130754;X;DE;N;0000-00-00 00:00:00;info@gasthof-walits-guttmann.com;;;;;Sehr geehrte Damen und Herren
+130755;X;DE;N;0000-00-00 00:00:00;milan@kornfeind.at;;;;;Sehr geehrte Damen und Herren
+130756;X;DE;N;0000-00-00 00:00:00;post@unterwart.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130757;X;DE;N;0000-00-00 00:00:00;post@weichselbaum.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130758;X;DE;N;0000-00-00 00:00:00;post@wiesen.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130759;X;DE;N;0000-00-00 00:00:00;schmiedn-stubn@aon.at;;;;;Sehr geehrte Damen und Herren
+130760;X;DE;N;0000-00-00 00:00:00;geri.wahl@gmx.at;;;;;Sehr geehrte Damen und Herren
+130761;X;DE;N;0000-00-00 00:00:00;tourismus.winden@bnet.at;;;;;Sehr geehrte Damen und Herren
+130762;X;DE;N;0000-00-00 00:00:00;baeckerei.bayer@utanet.at;;;;;Sehr geehrte Damen und Herren
+130763;F;DE;N;0000-00-00 00:00:00;info@arkadenhof-flasch.at;;Flasch;;;Sehr geehrte Familie Flasch
+130764;X;DE;N;0000-00-00 00:00:00;post@zillingtal.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130765;X;DE;N;0000-00-00 00:00:00;post@zurndorf.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130766;X;DE;N;0000-00-00 00:00:00;wirt@kautz-janits.at;;;;;Sehr geehrte Damen und Herren
+130767;X;DE;N;0000-00-00 00:00:00;info@wirtshaus-zum-roznyak.at;;;;;Sehr geehrte Damen und Herren
+130768;M;DE;N;0000-00-00 00:00:00;office@habedere.at;Klaus;Schnabl;;;Sehr geehrter Herr Schnabl
+130769;X;DE;N;0000-00-00 00:00:00;info@schnitzelheuriger.at;;;;;Sehr geehrte Damen und Herren
+130770;F;DE;N;0000-00-00 00:00:00;office@restaurant-horvath.at;;Horvath;;;Sehr geehrte Familie Horvath
+130771;F;DE;N;0000-00-00 00:00:00;weingasthof@krail.at;;Krail;;;Sehr geehrte Familie Krail
+130772;X;DE;N;0000-00-00 00:00:00;info@podersdorfamsee.at;;;;;Sehr geehrte Damen und Herren
+130773;X;DE;N;0000-00-00 00:00:00;uab@lk-bgld.at;;;;;Sehr geehrte Damen und Herren
+130774;M;DE;N;0000-00-00 00:00:00;wolfgang.kuzmits@kulturservice-burgenland.at;Wolfgang;Kuzmits;;;Sehr geehrter Herr Kuzmits
+130775;M;DE;N;0000-00-00 00:00:00;a.lang@nationalpark-neusiedlersee-seewinkel.at;Alois;Lang;;;Sehr geehrter Herr Lang
+130776;M;DE;N;0000-00-00 00:00:00;lindau@bad.tatzmannsdorf.at;Dietmar;Lindau;;;Sehr geehrter Herr Lindau
+130777;X;DE;N;0000-00-00 00:00:00;office@schlossgrundhof.at;;;;;Sehr geehrte Damen und Herren
+130778;X;DE;N;0000-00-00 00:00:00;gerhard@mauth-windholz.at;;;;;Sehr geehrte Damen und Herren
+130779;M;DE;N;0000-00-00 00:00:00;zechmeister@weinburgenland.at;Christian;Zechmeister;;;Sehr geehrter Herr Zechmeister
+130780;X;DE;N;0000-00-00 00:00:00;weinburgenland@lk-bgld.at;;;;;Sehr geehrte Damen und Herren
+130781;M;DE;N;0000-00-00 00:00:00;paul.mayerhofer@bgld.gv.at;Paul;Mayerhofer;;;Sehr geehrter Herr Mayerhofer
+130782;M;DE;N;0000-00-00 00:00:00;andreas.zeman@rmb.co.at;Andreas;Zeman;;;Sehr geehrter Herr Zeman
+130783;X;DE;N;0000-00-00 00:00:00;office@mittelburgenlandplus.at;;;;;Sehr geehrte Damen und Herren
+130784;M;DE;N;0000-00-00 00:00:00;maringer@suedburgenlandplus.at;;;;;Sehr geehrter Herr
+130785;M;DE;N;0000-00-00 00:00:00;franz.kast@wibag.at;Franz;Kast;;;Sehr geehrter Herr Kast
+130786;M;DE;N;0000-00-00 00:00:00;guenter.perner@wibag.at;Günter;Perner;;;Sehr geehrter Herr Perner
+130787;M;DE;N;0000-00-00 00:00:00;franz.kain@wibag.at;Franz;Kain;;;Sehr geehrter Herr Kain
+130788;M;DE;N;0000-00-00 00:00:00;franz.perner@wkbgld.at;Franz;Perner;;;Sehr geehrter Herr Perner
+130789;M;DE;N;0000-00-00 00:00:00;rainer.porics@akbgld.at;Rainer;Porics;;;Sehr geehrter Herr Porics
+130790;X;DE;N;0000-00-00 00:00:00;fs.hautzinger@lk-bgld.at;;;;;Sehr geehrte Damen und Herren
+130791;X;DE;N;0000-00-00 00:00:00;info@gaestehaus-gamauf.at;;;;;Sehr geehrte Damen und Herren
+130792;X;DE;N;0000-00-00 00:00:00;urlaub@arkadenhofkurtz.com;;;;;Sehr geehrte Damen und Herren
+130793;X;DE;N;0000-00-00 00:00:00;back.ringhofer@aon.at;;;;;Sehr geehrte Damen und Herren
+130794;X;DE;N;0000-00-00 00:00:00;office@traeger.at;;;;;Sehr geehrte Damen und Herren
+130795;X;DE;N;0000-00-00 00:00:00;office@obstverwertung.at;;;;;Sehr geehrte Damen und Herren
+130796;X;DE;N;0000-00-00 00:00:00;stadthotel-pinkafeld@aon.at;;;;;Sehr geehrte Damen und Herren
+130797;X;DE;N;0000-00-00 00:00:00;info@avita.at;;;;;Sehr geehrte Damen und Herren
+130798;W;DE;N;0000-00-00 00:00:00;kurz@avita.at;Silke;Kurz;;;Sehr geehrte Frau Kurz
+130799;X;DE;N;0000-00-00 00:00:00;info.waldfriede@aon.at;;;;;Sehr geehrte Damen und Herren
+130800;X;DE;N;0000-00-00 00:00:00;spiegel@burgenland.org;;;;;Sehr geehrte Damen und Herren
+130801;X;DE;N;0000-00-00 00:00:00;office@hotel-weiss.at;;;;;Sehr geehrte Damen und Herren
+130802;X;DE;N;0000-00-00 00:00:00;hotel-kastell@aon.at;;;;;Sehr geehrte Damen und Herren
+130803;X;DE;N;0000-00-00 00:00:00;hotel-fruehwirth@wellcom.at;;;;;Sehr geehrte Damen und Herren
+130804;X;DE;N;0000-00-00 00:00:00;info@kaplanamkurpark.at;;;;;Sehr geehrte Damen und Herren
+130805;X;DE;N;0000-00-00 00:00:00;info@kur-undthermenhotel.at;;;;;Sehr geehrte Damen und Herren
+130806;X;DE;N;0000-00-00 00:00:00;office@pension-anna-bt.at;;;;;Sehr geehrte Damen und Herren
+130807;X;DE;N;0000-00-00 00:00:00;pension-maria@aon.at;;;;;Sehr geehrte Damen und Herren
+130808;X;DE;N;0000-00-00 00:00:00;info@thermen-undvitalhotel.at;;;;;Sehr geehrte Damen und Herren
+130809;X;DE;N;0000-00-00 00:00:00;info@parkhotel.co.at;;;;;Sehr geehrte Damen und Herren
+130810;X;DE;N;0000-00-00 00:00:00;info@burgenlandurlaub.at;;;;;Sehr geehrte Damen und Herren
+130811;X;DE;N;0000-00-00 00:00:00;office@gaestehaus-adelmann.at;;;;;Sehr geehrte Damen und Herren
+130812;X;DE;N;0000-00-00 00:00:00;office@thermencamping.co.at;;;;;Sehr geehrte Damen und Herren
+130813;X;DE;N;0000-00-00 00:00:00;gasthof.koller@gmail.com;;;;;Sehr geehrte Damen und Herren
+130814;X;DE;N;0000-00-00 00:00:00;office@heanznhof.at;;;;;Sehr geehrte Damen und Herren
+130815;X;DE;N;0000-00-00 00:00:00;urlaub@burgbernstein.at;;;;;Sehr geehrte Damen und Herren
+130816;X;DE;N;0000-00-00 00:00:00;gasthof-holzschuster@direkt.at;;;;;Sehr geehrte Damen und Herren
+130817;X;DE;N;0000-00-00 00:00:00;atelier.lindenbauer@a1.net;;;;;Sehr geehrte Damen und Herren
+130818;X;DE;N;0000-00-00 00:00:00;gloesl@me.com;;;;;Sehr geehrte Damen und Herren
+130819;X;DE;N;0000-00-00 00:00:00;naturpark@marktneuhodis.at;;;;;Sehr geehrte Damen und Herren
+130820;X;DE;N;0000-00-00 00:00:00;ev.pfarr-u.gaestehaus-rechnitz@aon.at;;;;;Sehr geehrte Damen und Herren
+130821;X;DE;N;0000-00-00 00:00:00;bradl.weine@gmail.at;;;;;Sehr geehrte Damen und Herren
+130822;X;DE;N;0000-00-00 00:00:00;office@koch-weine.at;;;;;Sehr geehrte Damen und Herren
+130823;X;DE;N;0000-00-00 00:00:00;post@rechnitz.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130824;X;DE;N;0000-00-00 00:00:00;ronni@hannersberg.at;;;;;Sehr geehrte Damen und Herren
+130825;X;DE;N;0000-00-00 00:00:00;franz.stoisits@aon.at;;;;;Sehr geehrte Damen und Herren
+130826;X;DE;N;0000-00-00 00:00:00;huber-haeusl@aon.at;;;;;Sehr geehrte Damen und Herren
+130827;X;DE;N;0000-00-00 00:00:00;josef.wiesler@aon.at;;;;;Sehr geehrte Damen und Herren
+130828;X;DE;N;0000-00-00 00:00:00;office@ratschen.at;;;;;Sehr geehrte Damen und Herren
+130829;X;DE;N;0000-00-00 00:00:00;office@wohnothek.at;;;;;Sehr geehrte Damen und Herren
+130830;X;DE;N;0000-00-00 00:00:00;aurelia.rosner@gmail.com;;;;;Sehr geehrte Damen und Herren
+130831;X;DE;N;0000-00-00 00:00:00;residenz@koasa.at;;;;;Sehr geehrte Damen und Herren
+130832;X;DE;N;0000-00-00 00:00:00;weingut@vinum-ferreum.at;;;;;Sehr geehrte Damen und Herren
+130833;X;DE;N;0000-00-00 00:00:00;genuss@koi-kulinarik.at;;;;;Sehr geehrte Damen und Herren
+130834;X;DE;N;0000-00-00 00:00:00;wolfgang@werderits.at;;;;;Sehr geehrte Damen und Herren
+130835;X;DE;N;0000-00-00 00:00:00;wurglits@lucky-town.at;;;;;Sehr geehrte Damen und Herren
+130836;X;DE;N;0000-00-00 00:00:00;aloisia.bischof@a1.net;;;;;Sehr geehrte Damen und Herren
+130837;X;DE;N;0000-00-00 00:00:00;gasthaus@csencsits.at;;;;;Sehr geehrte Damen und Herren
+130838;X;DE;N;0000-00-00 00:00:00;gasthof-zum-weinberg@aon.at;;;;;Sehr geehrte Damen und Herren
+130839;X;DE;N;0000-00-00 00:00:00;f.jelosits@gmx.at;;;;;Sehr geehrte Damen und Herren
+130840;X;DE;N;0000-00-00 00:00:00;csaterberg@a1.net;;;;;Sehr geehrte Damen und Herren
+130841;X;DE;N;0000-00-00 00:00:00;di.schuch@gmx.at;;;;;Sehr geehrte Damen und Herren
+130842;X;DE;N;0000-00-00 00:00:00;gombots@gmx.net;;;;;Sehr geehrte Damen und Herren
+130843;X;DE;N;0000-00-00 00:00:00;info@kellerstoeckl-schrammel.at;;;;;Sehr geehrte Damen und Herren
+130844;X;DE;N;0000-00-00 00:00:00;kurz.eberau@direkt.at;;;;;Sehr geehrte Damen und Herren
+130845;X;DE;N;0000-00-00 00:00:00;office@weinherczeg.com;;;;;Sehr geehrte Damen und Herren
+130846;X;DE;N;0000-00-00 00:00:00;kellerstoeckl.oswald@gmx.at;;;;;Sehr geehrte Damen und Herren
+130847;X;DE;N;0000-00-00 00:00:00;pensionbuch@aon.at;;;;;Sehr geehrte Damen und Herren
+130848;X;DE;N;0000-00-00 00:00:00;philipp.marakovits@aon.at;;;;;Sehr geehrte Damen und Herren
+130849;X;DE;N;0000-00-00 00:00:00;mail@susis-kellerstoeckl.at;;;;;Sehr geehrte Damen und Herren
+130850;X;DE;N;0000-00-00 00:00:00;hotel.schwabenhof@aon.at;;;;;Sehr geehrte Damen und Herren
+130851;X;DE;N;0000-00-00 00:00:00;weinek-wein@aon.at;;;;;Sehr geehrte Damen und Herren
+130852;X;DE;N;0000-00-00 00:00:00;office@gasthof-legath.at;;;;;Sehr geehrte Damen und Herren
+130853;X;DE;N;0000-00-00 00:00:00;krutzler@strem.co.at;;;;;Sehr geehrte Damen und Herren
+130854;X;DE;N;0000-00-00 00:00:00;cafe-gumhalter@direkt.at;;;;;Sehr geehrte Damen und Herren
+130855;X;DE;N;0000-00-00 00:00:00;office@cafe-bambini.at;;;;;Sehr geehrte Damen und Herren
+130856;X;DE;N;0000-00-00 00:00:00;info@vitalhotel-strobl.at;;;;;Sehr geehrte Damen und Herren
+130857;X;DE;N;0000-00-00 00:00:00;biobauernhof.hamedl@aon.at;;;;;Sehr geehrte Damen und Herren
+130858;X;DE;N;0000-00-00 00:00:00;madeilene@gmx.at;;;;;Sehr geehrte Damen und Herren
+130859;X;DE;N;0000-00-00 00:00:00;ferien-frey@aon.at;;;;;Sehr geehrte Damen und Herren
+130860;X;DE;N;0000-00-00 00:00:00;gerhard.ploy@aon.at;;;;;Sehr geehrte Damen und Herren
+130861;X;DE;N;0000-00-00 00:00:00;post@rauchwart.bgld.gv.at;;;;;Sehr geehrte Damen und Herren
+130862;X;DE;N;0000-00-00 00:00:00;frisch-herbert@aon.at;;;;;Sehr geehrte Damen und Herren
+130863;X;DE;N;0000-00-00 00:00:00;gasthof@wukos.at;;;;;Sehr geehrte Damen und Herren
+130864;X;DE;N;0000-00-00 00:00:00;fabian-office@aon.at;;;;;Sehr geehrte Damen und Herren
+130865;X;DE;N;0000-00-00 00:00:00;burgrestaurant@a1.net;;;;;Sehr geehrte Damen und Herren
+130866;X;DE;N;0000-00-00 00:00:00;hotel.guessing@cominn.com;;;;;Sehr geehrte Damen und Herren
+130867;X;DE;N;0000-00-00 00:00:00;klement.unger@bnet.at;;;;;Sehr geehrte Damen und Herren
+130868;X;DE;N;0000-00-00 00:00:00;aktivpark@wellcom.at;;;;;Sehr geehrte Damen und Herren
+130869;X;DE;N;0000-00-00 00:00:00;office@gasthof-marth.at;;;;;Sehr geehrte Damen und Herren
+130870;X;DE;N;0000-00-00 00:00:00;office@weinidylle.at;;;;;Sehr geehrte Damen und Herren
+130871;X;DE;N;0000-00-00 00:00:00;h.foerster-dreier@aon.at;;;;;Sehr geehrte Damen und Herren
+130872;X;DE;N;0000-00-00 00:00:00;office@pferde-paradies.at;;;;;Sehr geehrte Damen und Herren
+130873;X;DE;N;0000-00-00 00:00:00;eveline.niederbacher@aon.at;;;;;Sehr geehrte Damen und Herren
+130874;X;DE;N;0000-00-00 00:00:00;brucknerhof@gmx.at;;;;;Sehr geehrte Damen und Herren
+130875;X;DE;N;0000-00-00 00:00:00;rudolf.kranz@aon.at;;;;;Sehr geehrte Damen und Herren
+130876;X;DE;N;0000-00-00 00:00:00;gast.gerersdorf@aon.at;;;;;Sehr geehrte Damen und Herren
+130877;X;DE;N;0000-00-00 00:00:00;info@bergschenke.at;;;;;Sehr geehrte Damen und Herren
+130878;X;DE;N;0000-00-00 00:00:00;apfelhof.flieder@aon.at;;;;;Sehr geehrte Damen und Herren
+130879;X;DE;N;0000-00-00 00:00:00;info@lagler.cc;;;;;Sehr geehrte Damen und Herren
+130880;X;DE;N;0000-00-00 00:00:00;appartement.schober@aon.at;;;;;Sehr geehrte Damen und Herren
+130881;X;DE;N;0000-00-00 00:00:00;destillerie@obsthof-zotter.at;;;;;Sehr geehrte Damen und Herren
+130882;X;DE;N;0000-00-00 00:00:00;hotel@limbacherhof.at;;;;;Sehr geehrte Damen und Herren
+130883;X;DE;N;0000-00-00 00:00:00;office@gasthof-vollmann.at;;;;;Sehr geehrte Damen und Herren
+130884;X;DE;N;0000-00-00 00:00:00;info@leitenwaldhof.at;;;;;Sehr geehrte Damen und Herren
+130885;X;DE;N;0000-00-00 00:00:00;wiazhaus@balance-resort.at;;;;;Sehr geehrte Damen und Herren
+130886;X;DE;N;0000-00-00 00:00:00;balanceresort@falkensteiner.com;;;;;Sehr geehrte Damen und Herren
+130887;W;DE;N;0000-00-00 00:00:00;beatrix.stalzer@aon.at;Beatrix;Stalzer;;;Sehr geehrte Frau Stalzer
+130888;X;DE;N;0000-00-00 00:00:00;galerie@kunstcafe-silvia.at;;;;;Sehr geehrte Damen und Herren
+130889;X;DE;N;0000-00-00 00:00:00;info@hotel-novosel-wagner.at;;;;;Sehr geehrte Damen und Herren
+130890;X;DE;N;0000-00-00 00:00:00;urlaub@larimarhotel.at;;;;;Sehr geehrte Damen und Herren
+130891;X;DE;N;0000-00-00 00:00:00;rezeption@pension-pirnbacher.at;;;;;Sehr geehrte Damen und Herren
+130892;X;DE;N;0000-00-00 00:00:00;office@rechtsanwalt-bgld.at;;;;;Sehr geehrte Damen und Herren
+130893;X;DE;N;0000-00-00 00:00:00;urlaub@puchasplus.at;;;;;Sehr geehrte Damen und Herren
+130894;X;DE;N;0000-00-00 00:00:00;office@stinatzerhof.at;;;;;Sehr geehrte Damen und Herren
+130895;X;DE;N;0000-00-00 00:00:00;g.gibiser@aon.at;;;;;Sehr geehrte Damen und Herren
+130896;X;DE;N;0000-00-00 00:00:00;hacienda.delpiero@gmail.com;;;;;Sehr geehrte Damen und Herren
+130897;M;DE;N;0000-00-00 00:00:00;erich.hirmann@utanet.at;Erich;Hirmann;;;Sehr geehrter Herr Hirmann
+130898;X;DE;N;0000-00-00 00:00:00;info@zieserl.com;;;;;Sehr geehrte Damen und Herren
+130899;X;DE;N;0000-00-00 00:00:00;resort@krainz-loipersdorf.at;;;;;Sehr geehrte Damen und Herren
+130900;X;DE;N;0000-00-00 00:00:00;office@gasthof-zumhirschen.at;;;;;Sehr geehrte Damen und Herren
+130901;W;DE;N;0000-00-00 00:00:00;sonja.mantsch@aon.at;Sonja;Mantsch;;;Sehr geehrte Frau Mantsch
+130902;X;DE;N;0000-00-00 00:00:00;info@kleinschuster.com;;;;;Sehr geehrte Damen und Herren
+130903;W;DE;N;0000-00-00 00:00:00;michaela.schwarz@tele2.at;Michaela;Schwarz;;;Sehr geehrte Frau Schwarz
+130904;F;DE;N;0000-00-00 00:00:00;familie.englstorfer@gmx.at;;Englstorfer;;;Sehr geehrte Familie Englstorfer
+130905;X;DE;N;0000-00-00 00:00:00;info@hotel-golfblick.at;;;;;Sehr geehrte Damen und Herren
+130906;X;DE;N;0000-00-00 00:00:00;office@dasgogers.at;;;;;Sehr geehrte Damen und Herren
+130907;X;DE;N;0000-00-00 00:00:00;ferien@uhudler-arkaden.com;;;;;Sehr geehrte Damen und Herren
+130908;X;DE;N;0000-00-00 00:00:00;info@landhaus-eder.at;;;;;Sehr geehrte Damen und Herren
+130909;X;DE;N;0000-00-00 00:00:00;privatzimmer@gaar.in;;;;;Sehr geehrte Damen und Herren
+130910;X;DE;N;0000-00-00 00:00:00;ferienwohnungen.reiter@aon.at;;;;;Sehr geehrte Damen und Herren
+130911;X;DE;N;0000-00-00 00:00:00;pension.maitz@gmx.at;;;;;Sehr geehrte Damen und Herren
+130912;X;DE;N;0000-00-00 00:00:00;f.thomas@aon.at;;;;;Sehr geehrte Damen und Herren
+130913;X;DE;N;0000-00-00 00:00:00;info@hotel-oasis.at;;;;;Sehr geehrte Damen und Herren
+130914;X;DE;N;0000-00-00 00:00:00;landhauszurtherme@a1.net;;;;;Sehr geehrte Damen und Herren
+130915;X;DE;N;0000-00-00 00:00:00;haus@panoramahof.com;;;;;Sehr geehrte Damen und Herren
+130916;X;DE;N;0000-00-00 00:00:00;pension@thermensonne.com;;;;;Sehr geehrte Damen und Herren
+130917;X;DE;N;0000-00-00 00:00:00;pension.weber@gmx.at;;;;;Sehr geehrte Damen und Herren
+130918;X;DE;N;0000-00-00 00:00:00;janosch@pensionrosenberg.at;;;;;Sehr geehrte Damen und Herren
+130919;X;DE;N;0000-00-00 00:00:00;wohn.hofer@utanet.at;;;;;Sehr geehrte Damen und Herren
+130920;X;DE;N;0000-00-00 00:00:00;urlaub@thermenhof.info;;;;;Sehr geehrte Damen und Herren
+130921;X;DE;N;0000-00-00 00:00:00;art@neumarkt-raab.at;;;;;Sehr geehrte Damen und Herren
+130922;X;DE;N;0000-00-00 00:00:00;hotel@daseisenberg.at;;;;;Sehr geehrte Damen und Herren
+130923;X;DE;N;0000-00-00 00:00:00;landurlaub.schilcherhof@gmx.at;;;;;Sehr geehrte Damen und Herren
+130924;X;DE;N;0000-00-00 00:00:00;gombotz@weinbergstoeckl.at;;;;;Sehr geehrte Damen und Herren
+130925;X;DE;N;0000-00-00 00:00:00;urlaub@buchgrabenhof.at;;;;;Sehr geehrte Damen und Herren
+130926;X;DE;N;0000-00-00 00:00:00;fartek@sonnengartl.at;;;;;Sehr geehrte Damen und Herren
+130927;X;DE;N;0000-00-00 00:00:00;landhofmuehle@aon.at;;;;;Sehr geehrte Damen und Herren
+130928;X;DE;N;0000-00-00 00:00:00;naturparkhof@aon.at;;;;;Sehr geehrte Damen und Herren
+130929;X;DE;N;0000-00-00 00:00:00;ferienwohnungen_prem@gmx.at;;;;;Sehr geehrte Damen und Herren
+130930;X;DE;N;0000-00-00 00:00:00;gasthaus.sampl@aon.at;;;;;Sehr geehrte Damen und Herren
+130931;X;DE;N;0000-00-00 00:00:00;sengl-franz@aon.at;;;;;Sehr geehrte Damen und Herren
+130932;X;DE;N;0000-00-00 00:00:00;fewo.ludwig@aon.at;;;;;Sehr geehrte Damen und Herren
+130933;X;DE;N;0000-00-00 00:00:00;spezialitaetenhof@aon.at;;;;;Sehr geehrte Damen und Herren
+130934;X;DE;N;0000-00-00 00:00:00;gasthaus-scheck@aon.at;;;;;Sehr geehrte Damen und Herren
+130935;X;DE;N;0000-00-00 00:00:00;office@cafegt.at;;;;;Sehr geehrte Damen und Herren
+130936;X;DE;N;0000-00-00 00:00:00;nationalparkstueberl@gmx.at;;;;;Sehr geehrte Damen und Herren
+130937;X;DE;N;0000-00-00 00:00:00;office@rosengarten-badsauerbrunn.at;;;;;Sehr geehrte Damen und Herren
+130938;X;DE;N;0000-00-00 00:00:00;g.klampfer@dersonnberghof.at;;;;;Sehr geehrte Damen und Herren
+130939;X;DE;N;0000-00-00 00:00:00;zumkirchberg@aon.at;;;;;Sehr geehrte Damen und Herren
+130940;M;DE;N;0000-00-00 00:00:00;johann.koppitsch@gmx.at;Johann;Koppitsch;;;Sehr geehrter Herr Koppitsch
+130941;X;DE;N;0000-00-00 00:00:00;altes@landgut-werdenich.at;;;;;Sehr geehrte Damen und Herren
+130942;X;DE;N;0000-00-00 00:00:00;info@striok.at;;;;;Sehr geehrte Damen und Herren
+130943;X;DE;N;0000-00-00 00:00:00;gasthaus.kiss@bkf.at;;;;;Sehr geehrte Damen und Herren
+130944;X;DE;N;0000-00-00 00:00:00;mangoo@bnet.at;;;;;Sehr geehrte Damen und Herren
+130945;X;DE;N;0000-00-00 00:00:00;gloriette@stainer.net;;;;;Sehr geehrte Damen und Herren
+130946;X;DE;N;0000-00-00 00:00:00;restaurant@henrici.at;;;;;Sehr geehrte Damen und Herren
+130947;X;DE;N;0000-00-00 00:00:00;ruckendorfer@ruckendorfer.com;;;;;Sehr geehrte Damen und Herren
+130948;X;DE;N;0000-00-00 00:00:00;info@aspirincafe.at;;;;;Sehr geehrte Damen und Herren
+130949;X;DE;N;0000-00-00 00:00:00;post@kredenz.at;;;;;Sehr geehrte Damen und Herren
+130950;X;DE;N;0000-00-00 00:00:00;office@haydnbraeu.at;;;;;Sehr geehrte Damen und Herren
+130951;X;DE;N;0000-00-00 00:00:00;info@biergarten-eisenstadt.at;;;;;Sehr geehrte Damen und Herren
+130952;X;DE;N;0000-00-00 00:00:00;alboberisha@hotmail.com;;;;;Sehr geehrte Damen und Herren
+130953;X;DE;N;0000-00-00 00:00:00;office@naglreiter.com;;;;;Sehr geehrte Damen und Herren
+130954;X;DE;N;0000-00-00 00:00:00;stefans.bistro@gmx.at;;;;;Sehr geehrte Damen und Herren
+130955;X;DE;N;0000-00-00 00:00:00;gasthofzuraltenmuehle@gmx.at;;;;;Sehr geehrte Damen und Herren
+130956;X;DE;N;0000-00-00 00:00:00;office@kukuruzstubn.at;;;;;Sehr geehrte Damen und Herren
+130957;W;DE;N;0000-00-00 00:00:00;paprikawirtin@altesbrauhaus.at;Ilona;Püspök;;;Sehr geehrte Frau Püspök
+130958;X;DE;N;0000-00-00 00:00:00;landgasthaus@sittinger.at;;;;;Sehr geehrte Damen und Herren
+130959;X;DE;N;0000-00-00 00:00:00;gasthaus-zum-kreuz@aon.at;;;;;Sehr geehrte Damen und Herren
+130960;X;DE;N;0000-00-00 00:00:00;pizzapablo@gmx.at;;;;;Sehr geehrte Damen und Herren
+130961;W;DE;N;0000-00-00 00:00:00;karin.reiner@gmx.net;Karin;Reiner;;;Sehr geehrte Frau Reiner
+130962;X;DE;N;0000-00-00 00:00:00;m.achs@gmx.at;;;;;Sehr geehrte Damen und Herren
+130963;X;DE;N;0000-00-00 00:00:00;gh-knoebl@halbturn.at;;;;;Sehr geehrte Damen und Herren
+130964;X;DE;N;0000-00-00 00:00:00;presshaus.haider@aon.at;;;;;Sehr geehrte Damen und Herren
+130965;X;DE;N;0000-00-00 00:00:00;sodla-wirt@bnet.at;;;;;Sehr geehrte Damen und Herren
+130966;X;DE;N;0000-00-00 00:00:00;office@pusztahof.at;;;;;Sehr geehrte Damen und Herren
+130967;X;DE;N;0000-00-00 00:00:00;haider@illmitzer.com;;;;;Sehr geehrte Damen und Herren
+130968;X;DE;N;0000-00-00 00:00:00;nils@edils.at;;;;;Sehr geehrte Damen und Herren
+130969;X;DE;N;0000-00-00 00:00:00;vopwines@chello.at;;;;;Sehr geehrte Damen und Herren
+130970;X;DE;N;0000-00-00 00:00:00;bartholomaeusstueberl@gmx.at;;;;;Sehr geehrte Damen und Herren
+130971;X;DE;N;0000-00-00 00:00:00;info@seejungfrau.at;;;;;Sehr geehrte Damen und Herren
+130972;X;DE;N;0000-00-00 00:00:00;restaurant.fischer@aon.at;;;;;Sehr geehrte Damen und Herren
+130973;X;DE;N;0000-00-00 00:00:00;saliterhof@waldbott.at;;;;;Sehr geehrte Damen und Herren
+130974;X;DE;N;0000-00-00 00:00:00;info@gasthaus-leban.at;;;;;Sehr geehrte Damen und Herren
+130975;X;DE;N;0000-00-00 00:00:00;gasthof-scheiber@aon.at;;;;;Sehr geehrte Damen und Herren
+130976;X;DE;N;0000-00-00 00:00:00;tennis-knoebl@utanet.at;;;;;Sehr geehrte Damen und Herren
+130977;X;DE;N;0000-00-00 00:00:00;schenke@aon.at;;;;;Sehr geehrte Damen und Herren
+130978;X;DE;N;0000-00-00 00:00:00;alteschule@aon.at;;;;;Sehr geehrte Damen und Herren
+130979;X;DE;N;0000-00-00 00:00:00;jesus.picallo@gmx.at;;;;;Sehr geehrte Damen und Herren
+130980;X;DE;N;0000-00-00 00:00:00;cafe.rest.sommer@bnet.at;;;;;Sehr geehrte Damen und Herren
+130981;X;DE;N;0000-00-00 00:00:00;office@mole-west.at;;;;;Sehr geehrte Damen und Herren
+130982;X;DE;N;0000-00-00 00:00:00;info@fintschi.at;;;;;Sehr geehrte Damen und Herren
+130983;X;DE;N;0000-00-00 00:00:00;cafebistro@bnet.at;;;;;Sehr geehrte Damen und Herren
+130984;X;DE;N;0000-00-00 00:00:00;gerhard.gahler@aon.at;;;;;Sehr geehrte Damen und Herren
+130985;X;DE;N;0000-00-00 00:00:00;restaurant@joergs.at;;;;;Sehr geehrte Damen und Herren
+130986;X;DE;N;0000-00-00 00:00:00;office@biber-pub.at;;;;;Sehr geehrte Damen und Herren
+130987;X;DE;N;0000-00-00 00:00:00;restaurant.dorfstube@gmail.com;;;;;Sehr geehrte Damen und Herren
+130988;F;DE;N;0000-00-00 00:00:00;office@herztroepferl.at;;Siess;;;Sehr geehrte Familie Siess
+130989;X;DE;N;0000-00-00 00:00:00;office@das-winzerstueberl.at;;;;;Sehr geehrte Damen und Herren
+130990;X;DE;N;0000-00-00 00:00:00;radlwirt@aon.at;;;;;Sehr geehrte Damen und Herren
+130991;W;DE;N;0000-00-00 00:00:00;maria.leyrer@aon.at;Maria;Leyrer;;;Sehr geehrte Frau Leyrer
+130992;X;DE;N;0000-00-00 00:00:00;steakhouse.ladich@aon.at;;;;;Sehr geehrte Damen und Herren
+130993;X;DE;N;0000-00-00 00:00:00;office@dankbarkeit.at;;;;;Sehr geehrte Damen und Herren
+130994;X;DE;N;0000-00-00 00:00:00;haider20@gmx.at;;;;;Sehr geehrte Damen und Herren
+130995;X;DE;N;0000-00-00 00:00:00;tuerkenkeller@purbach.at;;;;;Sehr geehrte Damen und Herren
+130996;X;DE;N;0000-00-00 00:00:00;restaurant@klosteramspitz.at;;;;;Sehr geehrte Damen und Herren
+130997;X;DE;N;0000-00-00 00:00:00;office@vinum-purbach.at;;;;;Sehr geehrte Damen und Herren
+130998;X;DE;N;0000-00-00 00:00:00;roemerzeche.amon@aon.at;;;;;Sehr geehrte Damen und Herren
+130999;X;DE;N;0000-00-00 00:00:00;info@gasthauszumaltenhaus.at;;;;;Sehr geehrte Damen und Herren
+131000;X;DE;N;0000-00-00 00:00:00;haydnkeller@gmail.com;;;;;Sehr geehrte Damen und Herren
+131001;X;DE;N;0000-00-00 00:00:00;ceel.cc@gmail.com;;;;;Sehr geehrte Damen und Herren
+131002;X;DE;N;0000-00-00 00:00:00;ecker@bnet.at;;;;;Sehr geehrte Damen und Herren
+131003;X;DE;N;0000-00-00 00:00:00;restaurant-katamaran@aon.at;;;;;Sehr geehrte Damen und Herren
+131004;X;DE;N;0000-00-00 00:00:00;rathauskeller.rust@gmail.com;;;;;Sehr geehrte Damen und Herren
+131005;X;DE;N;0000-00-00 00:00:00;info@elfenhofschenke.com;;;;;Sehr geehrte Damen und Herren
+131006;X;DE;N;0000-00-00 00:00:00;landgasthof@grafl.com;;;;;Sehr geehrte Damen und Herren
+131007;X;DE;N;0000-00-00 00:00:00;office@restaurant-reichl.at;;;;;Sehr geehrte Damen und Herren
+131008;X;DE;N;0000-00-00 00:00:00;luzia.zicksee@aon.at;;;;;Sehr geehrte Damen und Herren
+131009;X;DE;N;0000-00-00 00:00:00;office@luntzerwirt.at;;;;;Sehr geehrte Damen und Herren
+131010;X;DE;N;0000-00-00 00:00:00;gasthof-ernst@aon.at;;;;;Sehr geehrte Damen und Herren
+131011;M;DE;N;0000-00-00 00:00:00;wilhelm.jandl@steckerlfisch.at;Wilhelm;Jandl;;;Sehr geehrter Herr Jandl
+131012;X;DE;N;0000-00-00 00:00:00;cafe.pension.rechberger@gmx.at;;;;;Sehr geehrte Damen und Herren
+131013;W;DE;N;0000-00-00 00:00:00;beatrix.schuetz@aon.at;Beatrix;Schütz;;;Sehr geehrte Frau Schütz
+131014;X;DE;N;0000-00-00 00:00:00;reservierung@zurblauengans.at;;;;;Sehr geehrte Damen und Herren
+131015;X;DE;N;0000-00-00 00:00:00;gasthaus-klawatsch@aon.at;;;;;Sehr geehrte Damen und Herren
+131016;X;DE;N;0000-00-00 00:00:00;office@gasthaus-schweiger.at;;;;;Sehr geehrte Damen und Herren
+131017;X;DE;N;0000-00-00 00:00:00;i.huditsch@esterhazy.at;;;;;Sehr geehrte Damen und Herren
+131018;X;DE;N;0000-00-00 00:00:00;info@hotelschandl.at;;;;;Sehr geehrte Damen und Herren
+131019;X;DE;N;0000-00-00 00:00:00;infopoint@stegersbach.at;;;;;Sehr geehrte Damen und Herren
+131023;X;;Y;2013-11-06 10:02:21;jk@gitgo.at;;;;;
+131024;M;DE;N;0000-00-00 00:00:00;baier@burgenland.info;Mario;Baier;Dir.;;Sehr geehrter Herr Dir. Baier
+131025;W;DE;N;0000-00-00 00:00:00;ambrusch@burgenland.info;Angelika;Ambrusch;Mag.;;Sehr geehrte Frau Mag. Ambrusch
+131026;W;DE;N;0000-00-00 00:00:00;amring@burgenland.info;Luzia;Amring;;;
+131027;M;DE;N;0000-00-00 00:00:00;andert@burgenland.info;Patrick;Andert;;;Sehr geehrter Herr Andert
+131028;W;DE;N;0000-00-00 00:00:00;dihanich@burgenland.info;Julia;Dihanich;;;Sehr geehrte Frau Dihanich
+131029;W;DE;N;0000-00-00 00:00:00;fischbach@burgenland.info;Michaela;Fischbach;Mag. (FH);;Sehr geehrte Frau Mag. (FH) Fischbach
+131030;W;DE;N;0000-00-00 00:00:00;grosinger@burgenland.info;Cornelia;Grosinger;Mag.;;Sehr geehrte Frau Mag. Grosinger
+131031;M;DE;N;0000-00-00 00:00:00;gross@burgenland.info;Andreas;Gross;Mag.;;Sehr geehrter Herr Mag. Gross
+131032;W;DE;N;0000-00-00 00:00:00;haidwagner@burgenland.info;Gabi;Haidwagner;;;Sehr geehrte Frau Haidwagner
+131033;W;DE;N;0000-00-00 00:00:00;kmatkovits@burgenland.info;Kathrin;Matkovits;Mag.;;Sehr geehrte Frau Mag. Matkovits
+131034;W;DE;N;0000-00-00 00:00:00;matkovits@burgenland.info;Silvia;Matkovits;;;Sehr geehrte Frau Matkovits
+131035;W;DE;N;0000-00-00 00:00:00;muenzenrieder@burgenland.info;Verena;Münzenrieder;;;Sehr geehrte Frau Münzenrieder
+131036;W;DE;N;0000-00-00 00:00:00;pfeiffer@burgenland.info;Elisabeth;Pfeiffer;Mag. (FH);;Sehr geehrte Frau Mag. (FH) Pfeiffer
+131037;W;DE;N;0000-00-00 00:00:00;ploderer@burgenland.info;Maria;Ploderer;;;Sehr geehrte Frau Ploderer
+131038;W;DE;N;0000-00-00 00:00:00;predl@burgenland.info;Carina;Predl;Mag. (FH);;Sehr geehrte Frau Mag. (FH) Predl
+131039;W;DE;N;0000-00-00 00:00:00;schmalvogl@burgenland.info;Ulli;Schmalvogl;;;Sehr geehrte Frau Schmalvogl
+131040;W;DE;N;0000-00-00 00:00:00;schwartz@burgenland.info;Daniela;Schwartz;;;Sehr geehrte Frau Schwartz
+131041;W;DE;N;0000-00-00 00:00:00;sauerzopf@burgenland.info;Ulrike;Tschach-Sauerzopf;Mag.;;Sehr geehrte Frau Mag. Tschach-Sauerzopf
+131042;W;DE;N;0000-00-00 00:00:00;waba@burgenland.info;Ursula;Waba;DI;;Sehr geehrte Frau Dipl. Ing. Waba
+131044;W;DE;N;0000-00-00 00:00:00;weber@burgenland.info;Michaela;Weber;Mag. (FH);;Sehr geehrte Frau Mag. (FH) Weber
+131045;M;DE;N;0000-00-00 00:00:00;wittmann@burgenland.info;Ernst;Wittmann;;;Sehr geehrter Herr Wittmann
+131046;M;DE;N;0000-00-00 00:00:00;woehl@burgenland.info;Christian;Wöhl;;;Sehr geehrter Herr Wöhl
+131060;M;DE;N;0000-00-00 00:00:00;sovis.unternehmensberatung@wvnet.at;Wolfgang;Sovis;Dr.;;Sehr geehrter Herr Dr. Sovis

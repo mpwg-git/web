@@ -1,0 +1,66 @@
+<table>
+<%foreach $submissions as $k => $v%>
+<tr>
+    <td>
+        
+        <%xr_siteCall fn='fe_submissions::sc_get_student_credits_email' submission=$v var='credits'%>
+        
+        <%if $v['ess_mediaType_id'] == 2%>
+        <%if $v['ess_video_poster_s_id'] > 0%>
+            
+            <%xr_img s_id=$v['ess_video_poster_s_id'] w=120 var=submissionimage cloud=0%>
+        <%else%>
+        
+            <%xr_img s_id=270344 w=120 var=submissionimage cloud=0%>
+        
+        <%/if%>
+        <%else%>
+        <%if $v['ess_image_highRes_s_id'] > 0%>
+            <%xr_img s_id=$v['ess_image_highRes_s_id'] w=120 var=submissionimage cloud=0%>
+        <%else%>
+             <%xr_img s_id=$v['ess_image_s_id'] w=120 var=submissionimage cloud=0%>
+        <%/if%>
+        <%/if%>
+        
+         <a href="http://luerzersarchive.net/en/my-submissions.html">        
+            <img src="http:<%$submissionimage['url']%>" width="120" border="0" />
+        </a>
+        
+    </td>
+    <td valign="top">
+        <table>
+            <tr>
+                <td style="font-size: 14px; font-weight: bold;" align="left">&nbsp;<%$v['ess_campaign']%> (#<%$v['ess_id']%>)</td>
+            </tr>
+            <tr>
+                <td valign="top" align="left">
+                    <table>
+                        <tr>
+                            <td valign="top" align="left">
+                            
+                            <%xr_img s_id=270400 h=14 ext='png' var=creditclient cloud=0%>
+                                
+                            <img src="http:<%$creditclient['url']%>" height=14 />
+                            
+                                
+                            </td>
+                            <td valign="top" style="font-size: 14px;" align="left"><%$credits['clients']%></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="left">
+                            
+                            <%xr_img s_id=270362 h=14 ext='png' var=creditagency cloud=0%>
+                            
+                            <img src="http:<%$creditagency['url']%>" height=14 />
+                            
+                            <td valign="top" style="font-size: 14px;" align="left"><%$credits['schools']%></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+        </table>
+    </td>
+</tr>
+<%/foreach%>
+</table>

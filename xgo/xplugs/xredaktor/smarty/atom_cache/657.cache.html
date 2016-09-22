@@ -1,0 +1,60 @@
+<%xr_siteCall fn="fe_room::sc_getRoomData" var="data"%>
+
+<!-- 657 def -->
+<%$matching = $data['MATCHING']%>
+
+
+<div class="profil">
+    
+    <%xr_atom a_id=789 user=$data['USER'] return=1 desc="profil main image"%>
+        
+    <%xr_atom a_id=790 return=1 matchGesamt=$matching['RESULT']['MATCHROOM']['matchGesamt'] desc="matching infos" matchType='room'%>
+    
+    
+    <div class="pull-right" style="padding-top:20px;padding-right:10px;color:#04e0d7;">
+        <%** nur Search Refresh feuern, nix navigieren oder andere page...*%>
+        <a href="#" onclick="fe_map.refreshSearch()">
+            <span class="icon-Close"></span>
+        </a>
+    </div>
+    
+    <div class="clearfix"></div>
+    
+    <div class="maininfo">
+        <h3 class="name"><%$data['USER']['wz_VORNAME']%></h3>
+        <p class="subinfo"><%$data['USER']['wz_NACHNAME']%><%if $data['USER']['ALTER'] > 0%> | <%$data['USER']['ALTER']%> Jahre<%/if%></p>
+    </div>
+    
+    <%xr_atom a_id=808 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%>
+    
+    
+    <%if count($data['IMAGES']) > 0%>
+        <div class="wg-img-wrapper">
+            <h3 class="headline">Die WG</h3>
+                <%xr_atom a_id=750 images=$data['IMAGES'] return=1%>
+        </div>
+    <%/if%>
+    
+    
+    <div class="mitbewohner clearfix">
+        <h3 class="headline"><%xr_translate tag="Die Mitbewohner"%></h3>
+        <%xr_atom a_id=812 mitbewohner=$data['ROOMIES'] ageSpan=$data['ROOMIES_AGE'] roomData=$data['ROOM'] return=1%>
+    </div>
+    
+    <%if ($data['PROFILE']['MITBEWOHNER']['F'] > 0 || $data['PROFILE']['MITBEWOHNER']['M'] > 0)%>
+        <div class="mitbewohner">
+            <h3 class="headline"><%xr_translate tag="Die Mitbewohner"%></h3>
+            <%xr_atom a_id=752 mitbewohner=$data['PROFILE']['MITBEWOHNER'] roomData=$data['ROOM'] ageSpan=$data['ROOMIES_AGE'] return=1%>
+        </div>
+    <%/if%>
+    
+   <%xr_atom a_id=706 return=1 ageSpan=$data['ROOMIES_AGE'] desc='fakten_container'%>
+    
+   <%xr_atom a_id=702 return=1 isRoom=1 user=$data['ROOM'] desc='button container'%>
+    
+</div>
+
+
+<%if $data['PROFILE']['wz_ADRESSE_LAT'] != 0 && $data['PROFILE']['wz_ADRESSE_LNG'] != 0%>
+    <%xr_atom a_id=777 lat=$data['PROFILE']['wz_ADRESSE_LAT'] lng=$data['PROFILE']['wz_ADRESSE_LNG'] return=1%>
+<%/if%>

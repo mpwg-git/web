@@ -1,0 +1,14 @@
+<form class="add-image-final-form" data-type="<%$type%> method="post">
+    <%xr_img s_id=$image['new_s_id'] var='croppedImg'%>
+    
+    <img class="img-height-responsive" src="<%$croppedImg['src']%>" alt="" border="0">
+    
+    <input type="hidden" name="s_id" value="<%$image['new_s_id']%>" />
+     <input type="hidden" name="type" value="<%$type%>" />
+     <input type="hidden" name="refid" value="<%$refid%>" />
+    
+</form>
+
+<button type="button" class="btn btn-primary modal-image-button close-image-cropper pull-left"><%xr_translate tag='Abbrechen'%></button>
+<button type="button" class="add-image-final-submit modal-image-button btn btn-primary">Speichern</button>
+<div class="clearfix"></div>

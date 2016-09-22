@@ -1,0 +1,76 @@
+<%xr_siteCall fn='be_voting::get_overview_detail_step2' var='data'%>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">
+            <b>Image</b>
+            </div>
+            <div class="col-sm-1">
+            <b>ID</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Submitted on</b>
+            </div>
+            <div class="col-sm-1">
+            <b>Status</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Submitted By</b>
+            </div>
+            <div class="col-sm-2">
+            <b>Email</b>
+            </div>
+            <div class="col-sm-2">
+            <b>&nbsp;</b>
+            </div>
+        </div>
+    </div>
+</div>
+<%foreach $data['data'] as $k => $v%>
+<hr />
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-2">
+            <a href="<%xr_genlink p_id=147 es_id=$v['es_id'] ev_id=$data['ev_id'] m_suffix="<%$data['ev_id']%>/<%$v['es_id']%>"%>" target="_self">
+            <%if $v['es_mediaType_id'] == 2%>
+            <%if $v['es_video_poster_s_id']  > 0%>
+            <%xr_imgWrapper s_id=$v['es_video_poster_s_id'] w=444 class="img-responsive"%>
+            <%else%>
+            <%xr_imgWrapper s_id=270344 w=150%>
+            <%/if%>
+            <%else%>
+            <%xr_imgWrapper s_id=$v['es_image_s_id'] w=444 class="img-responsive"%>
+            <%/if%>
+            </a>
+            </div>
+            <div class="col-sm-1">
+            <a href="<%xr_genlink p_id=147 es_id=$v['es_id'] ev_id=$data['ev_id'] m_suffix="<%$data['ev_id']%>/<%$v['es_id']%>"%>" target="_self">
+            <%$v['es_id']%>
+            </a>
+            </div>
+            <div class="col-sm-2">
+            <a href="<%xr_genlink p_id=147 es_id=$v['es_id'] ev_id=$data['ev_id'] m_suffix="<%$data['ev_id']%>/<%$v['es_id']%>"%>" target="_self">
+            <%$v['es_created_ts']%>
+            </a>
+            </div>
+            <div class="col-sm-1">
+            <a href="<%xr_genlink p_id=147 es_id=$v['es_id'] ev_id=$data['ev_id'] m_suffix="<%$data['ev_id']%>/<%$v['es_id']%>"%>" target="_self">
+            <%$v['es_state']%>
+            </a>
+            </div>
+            <div class="col-sm-2">
+            <a href="<%xr_genlink p_id=147 es_id=$v['es_id'] ev_id=$data['ev_id'] m_suffix="<%$data['ev_id']%>/<%$v['es_id']%>"%>" target="_self">
+            <%$v['NAME']%>
+            </a>
+            </div>
+            <div class="col-sm-4">
+            <a href="<%xr_genlink p_id=147 es_id=$v['es_id'] ev_id=$data['ev_id'] m_suffix="<%$data['ev_id']%>/<%$v['es_id']%>"%>" target="_self">
+            <%$v['es_email']%>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+<%/foreach%>

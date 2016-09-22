@@ -1,0 +1,252 @@
+#main_menue_left {
+	font-family: 'AkagiBold';
+	font-size: 30px !important;
+}
+
+
+
+.xcrm_top_header {
+	background-image: url(../img/background_header_up.png);
+}
+
+
+#xcrm_logo_customer {
+	background-image: url(../img/burgenland_logo.png);
+	width: 180px;
+	height: 49px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	cursor:pointer;
+}
+
+#zapf {
+	background-image: url(../img/zapf.png);
+	width: 26px;
+	height: 20px;
+	position: absolute;
+	top: 109px;
+	left: 40px;
+	z-index: 1000;
+}
+
+.accordion .content {
+	margin-top: 10px;
+	padding-top: 10px;
+	display: none;
+	background-image: url(../img/box_back.png);
+	width: 269px;
+}
+
+.inputvalue {
+	margin-top: 10px;
+}
+
+.inputvalue .title {
+	margin-left: 	12px;
+	color:			#7b7b7b;
+	font-family: 	'AkagiBook';
+	font-size: 		14px !important;
+	padding-top: 4px;
+	height: 25px;
+}
+
+.cb_white_back {
+	background-color: white;
+	margin: 10px;
+	padding: 10px;
+}
+
+.inputtrennung {
+	background-image: url(../img/searcher_trenner.png);
+	background-repeat: no-repeat;
+	width: 269px;
+	height: 1px;
+}
+
+.inputvalue .inputtrennung {
+	height: 10px !important;
+}
+
+.content .inputtrennung {
+}
+
+
+.inputfield_search {
+	background-image: url(../img/input_search_box.png);
+	background-repeat: no-repeat;
+	width: 247px;
+	height: 30px;
+}
+
+.accordion .inputvalue .inputfield_search {
+	margin-left: 	12px;
+	
+	padding-top: 	7px;
+	padding-left: 	10px;
+	font-family: 	'AkagiBook';
+	font-size: 		16px !important;
+	font-weight: 	bold;
+}
+
+.accordion .inputvalue .inputfield_combo {
+	margin-left: 12px;
+	
+	padding-top: 	7px;
+	padding-left: 	10px;
+	font-family: 	'AkagiBook';
+	font-size: 		16px !important;
+	font-weight: 	bold;
+}
+
+.inputfield_combo {
+	background-image: url(../img/input_combo_box.png);
+	background-repeat: no-repeat;
+	width: 247px;
+	height: 30px;
+}
+
+.btn_create_new {
+	background-image: url(../img/btn_create_new_gen.png);
+	background-repeat: no-repeat;
+	width: 247px;
+	height: 30px;
+}
+
+.btn_search {
+	background-image: url(../img/btn_search.png);
+	background-repeat: no-repeat;
+	width: 247px;
+	height: 36px;
+}
+
+.inputabschluss {
+	background-image: url(../img/searcher_footer.png);
+	background-repeat: no-repeat;
+	width: 269px;
+	height: 121px;
+}
+
+.inputabschluss .box1 {
+	position: relative;
+	left: 12px;
+	top: 17px;
+}
+
+.inputabschluss .box2 {
+	position: relative;
+	left: 12px;
+	top: 40px;
+}
+
+
+.inputabschluss_create_no {
+	background-image: url(../img/searcher_footer.png);
+	background-repeat: no-repeat;
+	width: 269px;
+	height: 65px;
+}
+
+.inputabschluss_create_no .box1 {
+	position: relative;
+	left: 12px;
+	top: 17px;
+}
+
+
+#main_menue {
+	padding-left: 30px;
+	padding-top:  30px;
+	width: 270px;
+}
+
+
+.dummy {
+}
+
+.clearboth {
+	clear:both;
+}
+
+#bt_abmelden {
+	background-image: 		url(../img/abmelden.png);
+	background-repeat: 		no-repeat;
+	height: 				29px;
+	width:					79px;
+	position: 				absolute;
+	cursor: 				pointer;
+}
+
+.accordion .headline {
+	font-family: 	'AkagiBook';
+	font-size: 		18px !important;
+	border-bottom: 	1px solid #d2d2d2;
+	padding-top: 	5px;
+	padding-bottom: 5px;
+	width:			270px;
+}
+
+.accordion .headline .toolbar {
+	position: relative;
+	margin-top: -20px;
+	width: 270px;
+	float: right;
+	cursor: pointer;
+}
+
+.tool_btn_arrow {
+	background-image: url(../img/up_down.png);
+	background-position: right top;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	height: 20px;
+	width: 33px;
+	float: right;
+}
+
+.active_arrow {
+	background-position: right bottom !important;
+}
+
+.accordion .headline a{
+	text-decoration: none;
+	color: #000000;
+}
+
+.def_trans_input {
+	background-color: transparent; 
+	border-style: none; 
+	width: 200px;
+}
+
+.btn_create_new .title {
+	font-family: 	'AkagiBook';
+	font-size: 		14px !important;
+	color:			#000000;
+	padding-top: 	8px;
+	padding-left: 	10px;
+	
+}
+
+.dummyhref {
+	text-decoration: none !important;
+}
+
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; }
+.ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+
+.scrollMenuLeft {
+	overflow-x: hidden !important; 
+	overflow-y: auto !important;
+}

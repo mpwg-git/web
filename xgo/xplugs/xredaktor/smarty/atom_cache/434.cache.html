@@ -1,0 +1,26 @@
+<%if $bufferd_forms%>
+
+    <%$html%>
+
+<%else%>
+
+<form class='xr_form <%$class%>' id="<%$form_uid%>" data-wz_id='<%$form_wz_id%>' data-wz_r_id='<%$form_wz_r_id%>' data-form_id='<%$form_id%>' data-hash='<%$hash%>' data-pre-action='<%$pre_action%>' data-action="<%$action%>" data-js="<%$js%>" data-url="<%$url%>">
+
+<input type='hidden' name='rel_fas_id' value='<%$rel_fas_id%>'>
+<input type='hidden' name='rel_f_id' value='<%$rel_f_id%>'>
+
+<input type='hidden' name='form_wz_id'   value='<%$form_wz_id%>'>
+<input type='hidden' name='form_wz_r_id' value='<%$form_wz_r_id%>'>
+
+    <fieldset>
+
+        <%$html%>
+
+        <%xr_atom a_id=461 submit_txt=$btn.submit_txt return=1%>
+        
+    </fieldset>
+</form>
+
+
+<%/if%>
+

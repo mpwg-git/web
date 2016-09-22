@@ -1,0 +1,67 @@
+xmr_id;xmr_type;xmr_lang;xmr_canceled;xmr_canceled_date;xmr_email;xmr_name_first;xmr_name_last;xmr_title_pre;xmr_title_post;xmr_full_salutation;;
+;M;DE;;;mucha@mucha.at;Christian W.;Mucha;;;Sehr geehrter Herr Mucha;Mucha Verlag;
+;M;DE;;;bentz@mucha.at;Ulrich;Bentz;Mag.;;Sehr geehrter Herr Mag. Bentz;Mucha Verlag;Extradienst
+;M;DE;;;lukacs@mucha.at;Alexander;Lukacs;;;Sehr geehrter Herr Lukacs;Mucha Verlag;
+;W;DE;;;scheidl@mucha.at;Verena;Scheidl;Mag.;;Sehr geehrte Frau Mag. Scheidl;Mucha Verlag;Faktum,FM
+;X;DE;;;fm@mucha.at;;Redaktion;;;Sehr geehrte Damen und Herren;Mucha Verlag;Fm
+;X;DE;;;faktum@mucha.at;;Redaktion;;;Sehr geehrte Damen und Herren;Mucha Verlag;Faktum, FM
+;M;DE;;;pohl@mucha.at;Walter;Pohl;;;Sehr geehrter Herr Pohl;Mucha Verlag;Extradienst
+;M;DE;;;h.lanzerstorfer@hgvpraxis.at;Harald;Lanzerstorfer;;;Sehr geehrter Herr Lanzerstorfer;Manstein Verlag;HGV Praxis
+;M;DE;;;a.schimmel@hgvpraxis.at;Axel;Schimmel;Mag. (FH);;Sehr geehrter Herr Mag. Schimmel;Manstein Verlag;HGV Praxis
+;W;DE;;;b.charwat@manstein.at;Brigitte;Charwat;;;Sehr geehrte Frau Charwat;Manstein Verlag;Traveller
+;X;DE;;;redaktion@traveller-online.at;;Redaktion;;;Sehr geehrte Damen und Herren;Manstein Verlag;Traveller
+;M;DE;;;s.loudon@manstein.at;Sebastian;Loudon;;;Sehr geehrter Herr Loudon;Manstein Verlag;Horizont
+;M;DE;;;r.seebacher@manstein.at;Rainer;Seebacher;;;Sehr geehrter Herr Seebacher;Manstein Verlag;Horizont
+;W;DE;;;b.schaller@manstein.at;Birgit;Schaller;Mag.;;Sehr geehrte Frau Mag. Schaller;Manstein Verlag;Horizont
+;W;DE;;;l.gricenko@manstein.at;Lana;Gricenko;;;Sehr geehrte Frau Gricenko;Manstein Verlag;Horizont Online
+;W;DE;;;d.rasshofer@manstein.at;Doris;Ra·hofer;Dipl.-BW;;Sehr geehrte Frau Dipl. Ra·hofer;Manstein Verlag;Bestseller
+;W;DE;;;s.lesjak-rasch@manstein.at;Sonja;Lesjak-Rasch;Dr.;;Sehr geehrte Frau Dr. Lesjak-Rasch;Manstein Verlag;Hotel&Touristik
+;M;DE;;;t.schweighofer@manstein.at;Thomas;Schweighofer;Mag.;;Sehr geehrter Herr Mag. Schweighofer;Manstein Verlag;Hotel&Touristik
+;M;DE;;;j.stuhlpfarrer@manstein.at;Johannes;Stuhlpfarrer;;;Sehr geehrter Herr Stuhlpfarrer;Manstein Verlag;Hotel&Touristik
+;M;DE;;;norden@tai.at;Christopher;Norden;Mag.;;Sehr geehrter Herr Mag. Norden;;Tourist Austria
+;W;DE;;;reichkendler@tai.at;Gabriela;Raichkendler;ppa.;;Sehr geehrte Frau Raichkendler;;Tourist Austria
+;W;DE;;;m.kohlhuber@tai.at;Melanie;Kohlhuber;;;Sehr geehrter Herr Kohlhuber;;Tourist Austria
+;M;DE;;;t.vierich@wirtschaftsverlag.at;Thomas Askan;Vierich;;;Sehr geehrter Herr Vierich;Wirtschaftsverlag;ôGZ
+;W;DE;;;b.pesendorfer@wirtschaftsverlag.at ˇ;Bernadette;Pesendorfer;Mag.;;Sehr geehrte Frau Mag. Pesendorfer;Wirtschaftsverlag;ôGZ
+;M;DE;;;p.leitenmueller@medianet.at;Paul;LeitenmÅller;Ing.;;Sehr geehrter Herr Ing. LeitenmÅller;;Medianet
+;W;DE;;;s.bretschneider@medianet.at;Sabine;Bretschneider;MBA;;Sehr geehrte Frau Bretschneider;;Medianet
+;M;DE;;;p.mosser@medianet.at;Peter;Mosser;;;Sehr geehrter Herr Mosser;;Medianet
+;M;DE;;;d.fejzuli@medianet.at;Dinko;Fejzuli;;;Sehr geehrter Herr Fejzuli;;Medianet
+;W;DE;;;bs@cbverlag.at, ;Birgit;Schilcher;Mag.;;Sehr geehrte Frau Mag. Schilcher;CB Verlag;Reise aktuell
+;W;DE;;;bus@cbverlag.at;Birgit;Schilcher;Mag.;;Sehr geehrte Frau Mag. Schilcher;CB Verlag;Bus & Hotelreport
+;W;DE;;;apb@reiseaktuell.at;Angela;Pengl-Bîhm;;;Sehr geehrte Frau Pengl-Bîhm;CB Verlag;Reise aktuell
+;M;DE;;;cb@autoaktuell.at;Christian;Bîhm;;;Sehr geehrter Herr Bîhm;CB Verlag;
+;W;DE;;;christina.dany@bohmann.at;Christina;Dany;;;Sehr geehrte Frau Dany;Bohmann Verlag;Onrail
+;X;DE;;;redaktion@travelexpress.at;;Redaktion;;;Sehr geehrte Damen und Herren;O.K. Verlag;Travelexpress
+;M;DE;;;gastro@gastroverlag.at;Otto;Hartmann;Dr.;;Sehr geehrter Herr Dr. Hartmann;F&H Gastroverlag;Gastro
+;W;DE;;;office@profireisen.at, news@profireisen.at;Elo;Resch-Pilcik;;;Sehr geehrte Frau Resch-Pilcik;Profi Reisen Verlag;T.I.P.
+;W;DE;;;katharina.wolschner@rollingpin.eu;Katharina;Wolschner;;;Sehr geehrte Frau Wolschner;M. V. Medienconsulting und VerlagsgmbH;Rolling Pin
+;M;DE;;;gast@a3verlag.com;Gerald;Zemann;;;Sehr geehrter Herr Zemann;a3 Wirtschaftsverlag GmbH;a3Gast
+;X;DE;;;redaktion@alacarte.at;;Redaktion;;;Sehr geehrte Damen und Herren;D+R Verlagsgesellschat m.b.H. Nfg. KG;A la carte
+;M;DE;;; c.gruenwald@alacarte.at;Christian;GrÅnwald;;;Sehr geehrter Herr GrÅnwald;D+R Verlagsgesellschat m.b.H. Nfg. KG;A la carte
+;X;DE;;;touristik@apa.at;;Redaktion;;;Sehr geehrte Damen und Herren;;APA Journal Touristik
+;M;DE;;;k.guggenbichler@amedien.at;Kurt;Guggenbichler;;;Sehr geehrter Herr Guggenbichler;amedien werbe- u. verlags GmbH;Prost
+;W;DE;;;s.wasner@amedien.at;Sonja;Wasner;;;Sehr geehrte Frau Wasner;amedien werbe- u. verlags GmbH;Prost
+;X;DE;;;fachmedien@sciam.at;;Redaktion;;;Sehr geehrte Damen und Herren;SCIAM Fachmedien GmbH & Co KG;Gastwirt-Hotelier-Cafetier
+;M;DE;;;michael.klimesch@ehrenberg-verlag.at;Michael;Klimesch;;;Sehr geehrter Herr Klimesch;;Well Hotel
+;M;DE;;;p.decillia@hotel-und-design.at;Peter A;de Cillia;;;Sehr geehrter Herr de Cillia;;Hotel & Design
+;W;DE;;;a.kraft@agrarverlag.at, office@agrarverlag.at;Angelika;Kraft;;;Sehr geehrte Frau Kraft;ôsterreichischer Agrarverlag;Genuss Magazin
+;W;DE;;;katharina.gruendl@grazetta.at;Katharina;GrÅndl;Mag.;;Sehr geehrte Frau Mag. GrÅndl;ETTA Werbe GmbH;Grazetta
+;W;DE;;;mareike.steger@styria-multi-media.com;Mareike;Steger;;;Sehr geehrte Frau Steger;Styria Multi Media Ladies GmbH & Co KG;Wienerin
+;W;DE;;;daniela.schuster@wienerin.at;Daniela;Schuster;;;Sehr geehrte Frau Schuster;Styria Multi Media Ladies GmbH & Co KG;Wienerin
+;M;DE;;;wolfgang.schober@diesteirerin.at;Wolfgang;Schober;;;Sehr geehrter Herr Schober;Styria Multi Media Ladies GmbH & Co KG;Die Steirerin
+;W;DE;;;karen.mueller@styria-multi-media.com;Karen;MÅller;;;Sehr geehrte Frau MÅller;Styria Multi Media Ladies GmbH & Co KG;DIVA
+;W;DE;;;monika.affenzeller@miss.at;Monika;Affenzeller;;;Sehr geehrte Frau Affenzeller;Styria Multi Media Ladies GmbH & Co KG;Miss
+;M;DE;;;wolfgang.wieser@wiener-online.at;Wolfgang;Wieser;Dr.;;Sehr geehrter Herr Wieser;Styria Multi Media Ladies GmbH & Co KG;Wiener
+;W;DE;;;a.laubner@bezirkszeitung.at;Alexandra;Laubner;Mag.;;Sehr geehrte Frau Mag. Laubner;Styria Multi Media Ladies GmbH & Co KG;Wiener Bezirkszeitung
+;M;DE;;;rudolf.mitloehner@furche.at;Rudolf;Mitlîhner;;;Sehr geehrter Herr Mitlîhner;Styria Multi Media Ladies GmbH & Co KG;Die Furche
+;M;DE;;;oliver.tanzer@furche.at;Oliver;Tanzer;;;Sehr geehrter Herr Tanzer;Styria Multi Media Ladies GmbH & Co KG;Die Furche
+;W;DE;;;c.brosche@gewinn.com;Claudia;Jîrg-Brosche;Dr.;;Sehr geehrte Frau Dr. Jîrg-Brosche;;
+;W;DE;;;brigitte.suchan@wienerzeitung.at;Brigitte;Suchan;;;Sehr geehrte Frau Suchan;;Wiener Zeitung
+;W;DE;;;ingrid.fellner@kurier.at;Ingrid;Bahrer-Fellner;;;Sehr geehrte Frau Bahrer-Fellner;;Kurier
+;M;DE;;;karl.jeller@kurier.at;Karl-Heinz;Jeller;Dr.;;Sehr geehrter Herr Jeller;;Kurier
+;M;DE;;;claudius.rajchl@kurier.at;Claudius;Rajchl;;;Sehr geehrter Herr Rajchl;;Kurier
+;W;DE;;;madeleine.napetschnig@diepresse.com;Madeleine;Napetschnig;Mag.;;Sehr geehrte Frau Mag. Napetschnig;Styria Multi Media Ladies GmbH & Co KG;Die Presse
+;M;DE;;;sascha.aumueller@derStandard.at;Sascha;AumÅller;;;Sehr geehrter Herr AumÅller;;Der Standard
+;W;DE;;;andrea.thomas@kronenzeitung.at;Andrea;Thomas;;;Sehr geehrte Frau Thomas;;Kronen Zeitung
+;W;DE;;;melanie.wachter@newbusiness.at;Melanie;Wachter;Bakk.;;Sehr geehrte Frau Wachter;;New Business

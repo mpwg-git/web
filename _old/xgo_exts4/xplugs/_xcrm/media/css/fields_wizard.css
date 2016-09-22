@@ -1,0 +1,69 @@
+.xcrm_f_wizard_content {
+	width: 				247px;
+	height: 			30px;
+	background-image: 	url(../img/input_combo_box.png);
+	background-repeat: 	no-repeat;
+	cursor: 			pointer;
+	
+	
+	font-family: 	'AkagiBook';
+	font-size: 		16px !important;
+	color: 			#000000;
+	padding-left:	10px;
+	padding-top:	6px;
+}
+
+
+
+.xcrm_f_wizard_content_alternate_options {
+	padding: 10px;
+	font-family: 	'AkagiBook';
+	font-size: 		14px !important;
+	color: 			#000000;
+	
+}
+
+.xcrm_f_wizard_option {
+	height: 			25px;
+	margin-bottom: 		2px;
+	padding-top:		5px;
+	padding-left:		5px;
+	
+	cursor: 			pointer;
+}
+
+.xcrm_f_wizard_option_sel {
+	background-color: 	#00B0EC !important;
+	color:				white;
+}
+
+.xcrm_f_wizard_option_hoover {
+	background-color: 	#EEEEEE;
+}
+
+.xcrm_f_wizard_content_alternate {
+	z-index:			1000;
+	position: 			absolute;
+	width: 				247px;
+	background-color: 	white;
+
+	
+	border-bottom: 	1px solid #d2d2d2;
+	border-left: 	1px solid #d2d2d2;
+	border-right: 	1px solid #d2d2d2;
+
+	height: 			200px;
+	overflow: 			auto;
+	
+	
+}
+
+.xcrm_f_wizard_content_alternate_loading {
+	position: relative;
+	margin-top: 100px;
+	margin-left: 50px;
+	width: 110px;
+	height: 10px;
+	background-image: url(../img/294.gif);
+	background-repeat: no-repeat;
+}

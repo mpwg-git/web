@@ -1,0 +1,167 @@
+<?php /* Smarty version Smarty-3.0.7, created on 2014-08-10 15:56:28
+         compiled from "/srv/www/www.luerzersarchive.net/web/xgo/xcore/tmp/xcoreTmpPrefix_test_smarty_codeNJPTxg" */ ?>
+<?php /*%%SmartyHeaderCode:189440658353e77a0ca419d3-51077880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '45dbbb05acc41294ab72036f2becf37b71c79062' => 
+    array (
+      0 => '/srv/www/www.luerzersarchive.net/web/xgo/xcore/tmp/xcoreTmpPrefix_test_smarty_codeNJPTxg',
+      1 => 1407678988,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '189440658353e77a0ca419d3-51077880',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
+<?php if (!is_callable('smarty_function_xr_siteCall')) include '/srv/www/www.luerzersarchive.net/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_siteCall.php';
+if (!is_callable('smarty_function_xr_img')) include '/srv/www/www.luerzersarchive.net/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_img.php';
+if (!is_callable('smarty_function_xr_file')) include '/srv/www/www.luerzersarchive.net/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_file.php';
+?><?php echo smarty_function_xr_siteCall(array('fn'=>'be_voting::get_voting_detail_x2','var'=>'data'),$_smarty_tpl);?>
+
+
+<div class="row" style="margin-bottom: 20px">
+	<div class="col-sm-6 voting-button">
+		<a href="#" class="btn reject-button full-width-button" id="reject-button-x2" data-id="<?php echo $_smarty_tpl->getVariable('data')->value['submission']['es_id'];?>
+">No</a>
+	</div>
+	
+	<div class="col-sm-6 voting-button">
+		<a href="#" class="btn accept-button full-width-button" id="accept-button-x2" data-id="<?php echo $_smarty_tpl->getVariable('data')->value['submission']['es_id'];?>
+">Yes</a>
+	</div>
+</div>
+
+<div class="row" style="margin-bottom: 20px">
+    <div class="col-sm-6">
+        <h4>Step 1</h4>
+	    <table>
+		<?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('data')->value['votes_step1']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+		<tr>
+		    <td style="padding-right: 15px;">
+		        <?php if ($_smarty_tpl->tpl_vars['v']->value['evu_name']==''){?><?php echo $_smarty_tpl->tpl_vars['v']->value['evu_email'];?>
+<?php }else{ ?><?php echo $_smarty_tpl->tpl_vars['v']->value['evu_name'];?>
+<?php }?>
+		    </td>
+		    <td>
+		        <?php if ($_smarty_tpl->tpl_vars['v']->value['evr_vote']==1){?><span style="color: green;">selected</span><?php }else{ ?><span style="color: red;">discarded</span><?php }?>
+		    </td>
+		</tr>
+		<?php }} ?>
+		</table>
+	</div>
+	<div class="col-sm-6">
+	    <h4>Step 2</h4>
+	    <table>
+		<?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('data')->value['votes']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+		<tr>
+		    <td style="padding-right: 15px;">
+		        <?php if ($_smarty_tpl->tpl_vars['v']->value['evu_name']==''){?><?php echo $_smarty_tpl->tpl_vars['v']->value['evu_email'];?>
+<?php }else{ ?><?php echo $_smarty_tpl->tpl_vars['v']->value['evu_name'];?>
+<?php }?>
+		    </td>
+		    <td>
+		        <?php if ($_smarty_tpl->tpl_vars['v']->value['evr_vote']==1){?><span style="color: green;">selected</span><?php }else{ ?><span style="color: red;">discarded</span><?php }?>
+		    </td>
+		</tr>
+		<?php }} ?>
+		</table>
+	</div>
+</div>
+
+<div class="row" style="margin-bottom: 20px">
+    <div class="col-sm-12">
+        <?php if ($_smarty_tpl->getVariable('data')->value['submission']['es_mediaType_id']==2){?>
+        <?php if ($_smarty_tpl->getVariable('data')->value['submission']['es_video_480_mp4_s_id']>0){?>
+        <?php if ($_smarty_tpl->getVariable('data')->value['submission']['es_video_poster_s_id']>0){?>
+        <?php echo smarty_function_xr_img(array('s_id'=>$_smarty_tpl->getVariable('data')->value['submission']['es_video_poster_s_id'],'w'=>900,'var'=>'image'),$_smarty_tpl);?>
+
+        <?php }else{ ?>
+        <?php echo smarty_function_xr_img(array('s_id'=>270344,'w'=>900,'var'=>'image'),$_smarty_tpl);?>
+
+        <?php }?>
+        <?php echo smarty_function_xr_file(array('s_id'=>$_smarty_tpl->getVariable('data')->value['submission']['es_video_480_mp4_s_id'],'var'=>'mp4'),$_smarty_tpl);?>
+
+	  
+	    <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
+          controls preload="auto" width="100%"
+          poster="<?php echo $_smarty_tpl->getVariable('image')->value['src'];?>
+"
+          data-setup='{}'>
+           <source src="<?php echo $_smarty_tpl->getVariable('mp4')->value['url'];?>
+" type='video/mp4' />
+        </video>
+            
+        <?php }else{ ?>
+        <?php if ($_smarty_tpl->getVariable('data')->value['es_video_poster_s_id']>0){?>
+        <?php echo smarty_function_xr_img(array('s_id'=>$_smarty_tpl->getVariable('data')->value['submission']['es_video_poster_s_id'],'w'=>900,'var'=>'image'),$_smarty_tpl);?>
+
+        <?php }else{ ?>
+        <?php echo smarty_function_xr_img(array('s_id'=>270344,'w'=>900,'var'=>'image'),$_smarty_tpl);?>
+
+        <?php }?>
+        <?php }?>
+        
+        
+        
+        
+        <?php }else{ ?>
+        <?php echo smarty_function_xr_img(array('s_id'=>$_smarty_tpl->getVariable('data')->value['submission']['es_image_s_id'],'w'=>900,'var'=>'image'),$_smarty_tpl);?>
+
+        <img src="<?php echo $_smarty_tpl->getVariable('image')->value['src'];?>
+" class="img-responsive" alt="">
+        <?php }?>
+        
+    </div>
+</div>
+<?php if ($_smarty_tpl->getVariable('data')->value['showDetails']==1){?>
+<div class="row" style="padding-bottom: 10px">
+    <div class="col-sm-12">
+        <h3 class="panel-title searchAdvanced">
+        <a data-toggle="collapse" data-parent="#accordion" href="#submission-details" class="collapsed">Submission Details</a>
+        </h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div id="submission-details" class="panel-collapse collapsed collapse" style="height: auto;">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="" style="font-size 16px; font-weight: bold;">Submitted by: <?php echo $_smarty_tpl->getVariable('data')->value['submission']['es_firstname'];?>
+ <?php echo $_smarty_tpl->getVariable('data')->value['submission']['es_lastname'];?>
+</p>
+            </div>
+        </div>
+        <?php if ($_smarty_tpl->getVariable('data')->value['submission']['es_notes']){?>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class=""><?php echo $_smarty_tpl->getVariable('data')->value['submission']['es_notes'];?>
+</p>
+            </div>
+        </div>
+        <?php }?>
+        
+        <div class="row workdetailscreditbottom">
+            <div class="col-sm-12">
+                <?php echo $_smarty_tpl->getVariable('data')->value['submission']['CREDITSHTML'];?>
+<br />
+            </div>
+        </div>
+    </div>
+</div>
+<?php }?>

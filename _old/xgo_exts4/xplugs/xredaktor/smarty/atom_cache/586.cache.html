@@ -1,0 +1,33 @@
+<%xr_img s_id=614973 w=698 h=970 rmode="cco" q=85 var="prethumb"%>
+<div class="row">
+<%foreach $am['ITEMS'] as $k => $v name=count%>
+<div class="col-sm-4<%if $k > 8%> loadMore<%/if%>"<%if $k > 8%> style="display:none;"<%/if%>>
+	<div class="lw-item"> 
+		<p><a href="<%$v['LINK']%>">
+		<%xr_img s_id=$v['IMG'] w=698 h=970 rmode="cco" q=85 var='thumb'%>
+		<img class="lazy img-responsive" with="698" height="970" src="<%$prethumb.src%>" data-original="<%$thumb.src%>" />
+	    </p>
+		<h3 class="fixzweizeilen"><%$v['NAME']%></h3>
+		<%*$v['DESCRIPTION']*%>
+		<!--
+		<p><a title="Gefällt mir" class="like" href="#">Gefällt mir</a><span class="likeCount">5</span> <a title="comments" class="comment nr" href="work-detail.html#disqus_thread">0</a></p>
+		-->
+		<div class="clearer"><br /></div>
+	    <div class="" style="overflow: hidden;">
+			<form>
+			    <a href="/shop/catalog/best-series" class="but pull-right fixzweizeilenbutton">Buy</a>
+			</form>
+		</div>
+        <!-- 	
+		<div class="price">
+			<form>
+				<button class="btn btn-default" type="submit">Buy</button>
+			
+			    <a href="<%xr_genlink r_id=$v['ID'] m_suffix=$v['NAME'] p_id=10%>" class="but pull-right">Explore work</a>
+			</form>
+		</div>
+	    -->
+	</div>
+</div>
+<%/foreach%>
+</div>

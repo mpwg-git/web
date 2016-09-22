@@ -1,0 +1,106 @@
+<%xr_siteCall fn='fe_features::sc_get_latest' category='all' var='data2'%>
+
+<%xr_siteCall fn='fe_ads::sc_get_ad' var='ad'%>
+
+
+<!-- logo row -->
+	<%xr_atom a_id=459 return=1%>
+
+	
+<!-- this week front NEW -->	
+    <%xr_atom a_id=659 return=1%>
+
+
+
+	<div class="row" style='display:none;'>
+		<div class="col-sm-10">
+		    <div class="row">
+				<div class="col-sm-12">
+					<h2 class="linieBottom">Ads of the week<a class="more" href="<%$adsoftheweek['ALL']['LINKPRINT']%>">MORE</a></h2>
+				</div>
+			</div>
+			
+			<div class="row" >
+		    
+			    <div class="col-sm-4">
+					<div class="lw-item adsoftheweekcredits">
+						<h3><%$adsoftheweek['PRINT']['TITLE']%></h3>
+						<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKPRINT']%>"><%xr_imgWrapper s_id=$adsoftheweek['PRINT']['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p class="smallTxt"><%$adsoftheweek['PRINT']['CREDITSHTML']%></p>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="lw-item adsoftheweekcredits">
+						<h3><%$adsoftheweek['TV']['TITLE']%></h3>
+						<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKTV']%>"><%xr_imgWrapper s_id=$adsoftheweek['TV']['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p class="smallTxt"><%$adsoftheweek['TV']['CREDITSHTML']%></p>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="lw-item adsoftheweekcredits">
+						<h3><%$adsoftheweek['CLASSIC']['TITLE']%></h3>
+						<p class="labelpic"><a href="<%$adsoftheweek['ALL']['LINKCLASSIC']%>"><%xr_imgWrapper s_id=$adsoftheweek['CLASSIC']['IMG'] w=500 h=350 rmode='cco' class="img-responsive"%></a></p>
+						<p class="smallTxt"><%$adsoftheweek['CLASSIC']['CREDITSHTML']%></p>
+					</div>
+				</div>
+            	
+			    
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+				    <h2><a href="<%$profile['LINK_MORE']%>">Profile</a> <a class="more" href="<%$profile['LINK_MORE']%>">More</a></h2>
+				    <div class="row same-height">
+        				<div class="col-md-5">
+        					<p class="labelpic"><a href="<%$profile['LINK_DETAIL']%>"><%xr_imgWrapper s_id=$profile['IMG'] rmode='cco' w=286 h=350 class="img-responsive"%></a><span class="titel"><span class="tx"><%$profile['TITLE']%></span></span></a></p>
+        					<div class="clearer"></div>
+        				</div>
+        				<div class="col-md-7 profile">
+        					<h3><%$profile['TITLE']%></h3>
+        			        <p><%$profile['TEXT']%></p>
+        				</div>
+        				<div class="clearer"></div>
+        			</div>
+				</div>
+				<div class="col-sm-6">
+				    <h2><a href="<%$yourpick['LINK_OVERVIEW']%>">Your Picks</a> <a class="more" href="<%$yourpick['LINK_OVERVIEW']%>">More</a></h2>
+    				<div class="row">
+    					<div class="col-md-12">
+    						<a href="<%$yourpick['LINK']%>"><%xr_imgWrapper s_id=$yourpick['IMG'] w=444 class="img-responsive"%></a>
+    					</div>
+    				</div>
+    				<div class="row workdetailscreditbottom">
+    					<div class="col-md-12">
+    					<%$yourpick['CREDITSHTML']%>
+    					</div>
+    				</div>
+			    </div>
+			</div>
+		</div>
+		<div class="col-sm-2">
+			<p class="banner"><a href="<%$ad['URL']%>"><%xr_imgWrapper s_id=$ad['IMGSKY'] class="img-responsive"%></a></p>
+		</div>
+	</div>
+	
+	
+	  <div class="row" style='display:none;'>
+	    <div class="col-sm-12">
+            <h3 class='loadingmenow'>LATEST</h3>
+        </div>
+    </div>
+	
+	
+	<div id='FULL_REPLACE_FEATURES_TYPE'>
+    	<div class="row">
+    		<div class="col-sm-10">
+    			
+    			<%$data2%>
+                
+    			</div>
+    		</div>
+    		<div class="col-sm-2">
+    			<p class="banner"><a href="<%$ad['URL']%>"><%xr_imgWrapper s_id=$ad['IMGSKY'] class="img-responsive"%></a></p>
+    		</div>
+    	</div>
+	</div>

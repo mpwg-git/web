@@ -1,0 +1,30 @@
+<%xr_siteCall fn="fe_merkliste::getProdukte" var=$data%>
+
+<%foreach $data['ITEMS'] as $k => $v%>
+
+<div class="row">
+    
+    <div class="col-sm-4">
+        <%$v['BILD']%>
+    </div>
+    
+    <div class="col-sm-8">
+    
+        <div class="row">
+            <div class="col-sm-12">
+                <%$v['DETAILS']%>                
+            </div>
+        </div>
+        
+        <div class="row">
+			<div class="col-sm-12">
+				<a class="btn btn-primary btn-rfml" href="" data-ml-id="<%$v['ID']%>"><%xr_translate tag='Aus der Merkliste entfernen'%> <span class="glyphicon glyphicon-shopping-cart-remove"></span></a>               
+			</div>
+        </div>
+        
+    </div>
+
+</div>
+
+
+<%/foreach%>

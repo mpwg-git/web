@@ -1,0 +1,20 @@
+<%xr_siteCall fn='oa_validation::showAds' var='showAds'%>
+<%if $showAds || $smarty.request.showads == 1%>
+<div class="adimagecontainer">
+    
+    <!-- google 320x50 -->
+    <div class="google">
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:320px;height:50px"
+             data-ad-client="ca-pub-8088043234061812"
+             data-ad-slot="7708197080"></ins>
+        <script>
+        setTimeout(function(){
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        },200);
+        </script>
+    </div>
+    
+   
+</div>
+<%/if%>

@@ -1,0 +1,26 @@
+
+    <%foreach $data['ITEMS'] as $k => $v name=count%>
+        
+        
+        <%if (($k)%3) == 0%>
+            </div>
+            <div class="row">
+        <%/if%>
+                        
+
+        <div class="col-sm-4 minHeight290">
+			<div class="lw-item"> 
+				<p class="labelpic">
+				<%if (<%$v['URLEXT']%>==1)%>
+				<a target="_blank" href="<%$v['URL']%>"><%xr_imgWrapper w=500 h=350 rmode='cco' s_id=$v['IMG'] class="img-responsive"%></a>
+				<%else%>
+				<a href="/goto/inspiration/<%$v['ID']%><%$v['URL']|replace:'http://www.luerzersarchive.com':''%>"><%xr_imgWrapper w=500 h=350 rmode='cco' s_id=$v['IMG'] class="img-responsive"%></a>
+				<%/if%>
+				    
+				</p>
+				<p><%$v['TEXT']%></p>
+			</div>
+	    </div>
+        
+    <%/foreach%>
+                    

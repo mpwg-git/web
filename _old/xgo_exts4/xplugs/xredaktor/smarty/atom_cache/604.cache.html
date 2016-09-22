@@ -1,0 +1,15 @@
+<h3>Newsletter</h3>
+<p>Please sign up to get our monthly newsletter.</p>
+<br />
+
+<form id="wz_form" name="wz_form" class="wzForm newslb" action="<%xr_genlink p_id=120%>" method="post">
+	<%xr_wzActionInvisibleCaptcha%>
+	<input name="IPADRESSE" id="IPADRESSE" type="hidden" value="<%$smarty.server.REMOTE_ADDR%>" />
+	<div id="newsletter-signup">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Email Address" name="EMAIL" id="EMAIL" rel="required_email">
+			<div class="error" id="EMAIL_error"><%xr_translate tag='E-Mail address is required'%></div>
+			<button type="submit" class="btn btn-default" onclick="submitWithValidation('wz_form');">Subscribe</button>
+		</div>
+	</div>
+</form>

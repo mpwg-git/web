@@ -1,0 +1,28 @@
+<footer class="clearfix footer black footer-suche container">
+   
+    <div class="row">
+        <div class="col-xs-3 footer-menu-item item-suche <%if $P_ID == 11%>active<%/if%>">
+            <a href="<%xr_genlink p_id=11%>">
+                <span class="icon-Lupe"></span>
+            </a>
+        </div>
+        <div class="col-xs-3 footer-menu-item item-suchergebnis <%if $P_ID == 17%>active<%/if%>">
+            <a href="<%xr_genlink p_id=17%>">
+                <span class="icon-treffer footer-search-results"></span>
+            </a>
+        </div>
+        <div class="col-xs-3 footer-menu-item item-chat <%if $P_ID == 16%>active<%/if%>">
+            <a href="<%xr_genlink p_id=16%>">
+                <span class="icon-Chat">
+    			    <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+    		    </span>
+		    </a>
+        </div>
+        <div class="col-xs-3 footer-menu-item item-hilfe <%if $P_ID == 29%>active<%/if%>">
+            <a href="<%xr_genlink p_id=29%>">
+                <span class="icon-Hilfe">?</span>
+            </a>
+        </div>
+    </div>
+    
+</footer>

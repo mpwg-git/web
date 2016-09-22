@@ -1,0 +1,57 @@
+<div id='<%$div_id%>'>
+
+<!-- Pager-Baustein: <%$record_atom_view%> -->
+
+<div class="pagerdatacontent">
+
+    <%foreach $records as $r%>
+    
+        <%xr_atom a_id=$record_atom_view data=$r return=1%>
+        
+        
+    <%/foreach%>
+
+</div>
+
+<div class="row">
+   
+    <div class="col-sm-12">
+
+    <!--- pagination start --->
+		
+        <div class="pagination-wrapper">
+            <ul class="pagination pagination-box fe_pager">
+
+                <li><a href="#" data-pager='<%$pager%>' data-pager-pos='<%$prev%>' data-pager-div='<%$div_id%>' data-pager-cnt='<%$cnt%>' data-pager-params='<%$params%>'>&laquo;</a></li>
+                
+                <%foreach $buttons as $b%>
+                <li class="<%if $b==$pos%>active<%/if%>"><a href="#" data-pager='<%$pager%>' data-pager-pos='<%$b%>' data-pager-div='<%$div_id%>' data-pager-cnt='<%$cnt%>' data-pager-params='<%$params%>'><%$b+1%></a></li>
+                <%/foreach%>
+                
+                <li><a href="#" data-pager='<%$pager%>' data-pager-pos='<%$next%>' data-pager-div='<%$div_id%>' data-pager-cnt='<%$cnt%>' data-pager-params='<%$params%>'>&raquo;</a></li>
+
+            </ul>
+            
+            <div class="pagernumberswrapper">
+            <div class="btn-group number-items-dropdown fe_pager_cnt">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><%$cnt%> <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    
+                    <%foreach $limits as $l%>
+                    <li><a href="#" data-cnt='<%$l%>' data-pager='<%$pager%>' data-div='<%$div_id%>' data-pager-params='<%$params%>'><%$l%></a></li>
+                    <%/foreach%>
+                    
+                </ul>
+            </div>
+            <div class="number-per-page">Items per page:</div>
+            </div>
+            
+    </div>
+            
+    <!--- pagination end --->
+</div>
+
+
+</div>
+
+</div>

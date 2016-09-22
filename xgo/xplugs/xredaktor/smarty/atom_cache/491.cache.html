@@ -1,0 +1,22 @@
+<%xr_pager settings=$settings rel_id=$as_id rel_f_id=1 rel_fas_id=$fas_id var='pager_html'%>
+<%xr_form form_id=$settings.RAW.wz_RECORD_EDIT_F_ID submit_txt='Speichern' var='form_record_new' rel_f_id=1 rel_fas_id=$fas_id%>
+
+<div id='PAGER_REPLACE'>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			
+			<%$pager_html%>
+			
+			
+			<div class='pager_add_record_form' id="pager_add_record_form_<%$fas_id%>" style='background-color:lightgreen;display:none;' data-close_after_save="1">
+                <%$form_record_new%>
+			</div>
+			
+          
+            <button type="button" data-add_record_div='pager_add_record_form_<%$fas_id%>' class="pager_add_record btn btn-primary">add record</button>
+            
+			</div>
+		</div>
+	</div>
+</div>

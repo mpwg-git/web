@@ -1,0 +1,17 @@
+<%$alsoviewed = $data['ALSO_VIEWED']%>
+
+<%if !empty($alsoviewed)%>
+
+    <div class="productdetail-alsoviewed">
+    
+        <ul>
+        
+        <%foreach $alsoviewed as $k => $v%>
+            <li><%$v%></li>
+        <%/foreach%>
+        
+        </ul>
+    
+    </div>
+
+<%/if%>

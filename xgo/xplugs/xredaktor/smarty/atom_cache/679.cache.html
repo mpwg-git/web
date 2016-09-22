@@ -1,0 +1,23 @@
+<%* <a href="<%xr_genlink p_id=12 id=$data['USER']['wz_id'] m_suffix=$data['USER']['wz_id']%>" class="chat-conversation-container" data-userid="<%$data['USER']['wz_id']%>"> *%>
+    
+<a href="<%xr_genlink p_id=12 id=$data['USER']['wz_id'] m_suffix=$data['USER']['wz_id']%>" class="chat-conversation-container" data-userid="<%$data['USER']['wz_id']%>">    
+    <div class="contact"> 
+        <%if $data['NOTSEEN'] > 0%>
+        <div class="new-message-counter"><%$data['NOTSEEN']%></div>
+        <%/if%>
+        <div class="image-wrapper">
+            <%xr_imgWrapper s_id=$data['USER']['PROFILEIMAGE'] h=56 w=53 rmode="cco" colorspace="gray" class="image blackandwhite"%>
+        </div>
+        <div class="teaser-wrapper">
+            <p class="name"><%$data['USER']['wz_VORNAME']%> <%$data['USER']['wz_NACHNAME']%></p>
+            <p class="teaser-text"><%$data['MESSAGE']['wz_MESSAGE']%></p>
+        </div>
+        <div class="controls-wrapper">
+            <p class="timestamp"><%$data['MESSAGE']['wz_TIME']|date_format:'%d.%m.%Y'%></p>
+            <div class="close">
+                <span class="icon-Close js-hide-conversation" data-messageid="<%$data['MESSAGE']['wz_id']%>" data-userid="<%$data['USER']['wz_id']%>"></span>
+            </div>
+        </div>
+    </div>
+</a>
+<div class="clearfix"></div>

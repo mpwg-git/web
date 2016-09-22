@@ -1,0 +1,46 @@
+<?php /* Smarty version Smarty-3.0.7, created on 2015-11-17 11:50:08
+         compiled from "/srv/gitgo_daten/www/wsf.xgodev.com/web/xgo/xcore/tmp/xcoreTmpPrefix_test_smarty_codeUa0Znm" */ ?>
+<?php /*%%SmartyHeaderCode:22304932564b0660462372-34945629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'd8c16b2f5c156e6ee2c5767a068327e206af02f7' => 
+    array (
+      0 => '/srv/gitgo_daten/www/wsf.xgodev.com/web/xgo/xcore/tmp/xcoreTmpPrefix_test_smarty_codeUa0Znm',
+      1 => 1447757408,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '22304932564b0660462372-34945629',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
+<div class="chat default-container-paddingtop js-chat-data" data-userid="<?php echo $_REQUEST['id'];?>
+">
+    <div class="js-chatheader header clearfix">
+        
+        <div class="name"><?php echo $_smarty_tpl->getVariable('data')->value['USER']['wz_VORNAME'];?>
+ <br/> <?php echo $_smarty_tpl->getVariable('data')->value['USER']['wz_NACHNAME'];?>
+</div>
+            <div class="pull-right" style="padding-top:20px;color:#04e0d7;">
+                <a href="javascript:history.back();">
+                  <span class="icon-Close"></span>
+                </a>
+            </div>
+        
+        
+    </div>
+    
+    <div class="">
+        
+        
+        
+    </div>
+    
+    <div class="js-chattext textwindow">
+        <textarea placeholder="dein text"></textarea>
+    </div>
+    
+</div>

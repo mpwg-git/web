@@ -1,0 +1,115 @@
+<%xr_siteCall fn='be_voting::get_voting_detail_x2' var='data'%>
+
+<div class="row" style="margin-bottom: 20px">
+	<div class="col-sm-6 voting-button">
+		<a href="#" class="btn reject-button full-width-button" id="reject-button-x2" data-id="<%$data['submission']['es_id']%>" data-ev="<%$data['ev_id']%>">No</a>
+	</div>
+	
+	<div class="col-sm-6 voting-button">
+		<a href="#" class="btn accept-button full-width-button" id="accept-button-x2" data-id="<%$data['submission']['es_id']%>" data-ev="<%$data['ev_id']%>">Yes</a>
+	</div>
+</div>
+<h3>Submission: <%$data['submission']['es_id']%></h3>
+<div class="row" style="margin-bottom: 20px">
+    <div class="col-sm-6">
+        <h4>Step 1</h4>
+	    <table>
+		<%foreach $data['votes_step1'] as $k => $v%>
+		<tr>
+		    <td style="padding-right: 15px;">
+		        <%if $v['evu_name'] == ''%><%$v['evu_email']%><%else%><%$v['evu_name']%><%/if%>
+		    </td>
+		    <td>
+		        <%if $v['evr_vote'] == 1%><span style="color: green;">selected</span><%else%><span style="color: red;">discarded</span><%/if%>
+		    </td>
+		</tr>
+		<%/foreach%>
+		</table>
+	</div>
+	<div class="col-sm-6">
+	    <h4>Step 2</h4>
+	    <table>
+		<%foreach $data['votes'] as $k => $v%>
+		<tr>
+		    <td style="padding-right: 15px;">
+		        <%if $v['evu_name'] == ''%><%$v['evu_email']%><%else%><%$v['evu_name']%><%/if%>
+		    </td>
+		    <td>
+		        <%if $v['evr_vote'] == 1%><span style="color: green;">selected</span><%else%><span style="color: red;">discarded</span><%/if%>
+		    </td>
+		</tr>
+		<%/foreach%>
+		</table>
+	</div>
+</div>
+
+<div class="row" style="margin-bottom: 20px">
+     <div class="col-sm-8" style="margin-left: auto; margin-right: auto; float: none;">
+        <%if $data['submission']['es_mediaType_id'] == 2%>
+        <%if $data['submission']['es_video_480_mp4_s_id']  > 0%>
+        <%if $data['submission']['es_video_poster_s_id']  > 0%>
+        <%xr_img s_id=$data['submission']['es_video_poster_s_id'] w=900 var='image'%>
+        <%else%>
+        <%xr_img s_id=270344 w=900 var='image'%>
+        <%/if%>
+        <%xr_file s_id=$data['submission']['es_video_480_mp4_s_id'] var='mp4'%>
+	  
+	    <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
+          controls preload="auto" width="100%"
+          poster="<%$image['src']%>"
+          data-setup='{}'>
+           <source src="<%$mp4['url']%>" type='video/mp4' />
+        </video>
+            
+        <%else%>
+        <%if $data['es_video_poster_s_id']  > 0%>
+        <%xr_img s_id=$data['submission']['es_video_poster_s_id'] w=900 var='image'%>
+        <%else%>
+        <%xr_img s_id=270344 w=900 var='image'%>
+        <%/if%>
+        <%/if%>
+        
+        
+        
+        
+        <%else%>
+        <%xr_img s_id=$data['submission']['es_image_s_id'] w=1600 var='image'%>
+        <a data-lightbox="gallery" data-title="" href="<%$image['src']%>">
+        <img src="<%$image['src']%>" class="img-responsive" alt="">
+        </a>
+        <%/if%>
+        
+    </div>
+</div>
+<%if $data['showDetails'] == 1%>
+<div class="row" style="padding-bottom: 10px">
+    <div class="col-sm-12">
+        <h3 class="panel-title searchAdvanced">
+        <a data-toggle="collapse" data-parent="#accordion" href="#submission-details" class="collapsed">Submission Details</a>
+        </h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div id="submission-details" class="panel-collapse collapsed collapse" style="height: auto;">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="" style="font-size 16px; font-weight: bold;">Submitted by: <%$data['submission']['es_firstname']%> <%$data['submission']['es_lastname']%></p>
+            </div>
+        </div>
+        <%if $data['submission']['es_notes']%>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class=""><%$data['submission']['es_notes']%></p>
+            </div>
+        </div>
+        <%/if%>
+        
+        <div class="row workdetailscreditbottom">
+            <div class="col-sm-12">
+                <%$data['submission']['CREDITSHTML']%><br />
+            </div>
+        </div>
+    </div>
+</div>
+<%/if%>

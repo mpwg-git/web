@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label><%xr_translate tag="Miete?"%>*</label>
+    <div class="column-input v-center">
+        <input class="form-control" name="MIETE_VON" value="<%$profile['wz_MIETE_VON']%>" id="MIETE_VON" placeholder="<%xr_translate tag='von'%> €?" rel="required"  />
+    </div><!--
+    --><div class="devider v-center">-</div><!--
+    --><div class="column-input v-center">
+        <input class="form-control" name="MIETE_BIS" value="<%$profile['wz_MIETE_BIS']%>" id="MIETE_BIS" placeholder="<%xr_translate tag='bis'%> €?" />
+    </div>
+    
+    <div class="error-div" id="MIETE_VON_error">
+        <%xr_translate tag="Bitte Miete(von) angeben"%>
+    </div>
+    
+</div>

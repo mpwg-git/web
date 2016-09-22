@@ -1,0 +1,88 @@
+<header class="clearfix black header-suche <%$addClass%>">
+	<nav class="left-row">
+		<a href="<%xr_genlink p_id=7%>">
+
+			<%xr_siteCall fn="fe_user::getMyProfileImage" var='profImg'%>
+			<%if $profImg != false%>
+				<%xr_img s_id=$profImg w=25 h=25 colorspace="gray" var="profileImg"%>
+			<%else%>
+				<%xr_img s_id=161 w=25 h=25 colorspace="gray" var="profileImg"%>
+			<%/if%>
+
+			<a href="<%xr_genlink p_id=7%>">
+                <img src="<%$profileImg['src']%>" class="main-item profile-image" style="vertical-align:middle">
+                <span class="text"><%xr_translate tag="Profil"%></span>
+            </a>
+
+		</a>
+	</nav>
+
+	<nav class="middle-row">
+		<div class="logo-legend-section pull-right" style="vertical-align:top;font-size: 3.5vw">
+
+
+			<%xr_atom a_id=782 showFace=0 mobile=1 return=1 desc='icons block / fav'%>
+
+				<div class="clearfix"></div>
+		</div>
+	</nav>
+	<%if $P_ID==17%>
+		<%xr_siteCall fn='fe_matching::sc_checkIfUserHasAnyQuestionAnswered' var='hasQuestionsAnswered'%>
+			
+			<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
+			<%xr_siteCall fn='fe_cookie::checkFragenSession' var='hasQuestionsAnsweredInSession'%>
+
+				<%if $smarty.request.dev==1 || $stillToDo===true%>
+					<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+                	  <div class="modal-dialog" role="document">
+                	    <div class="modal-content">
+                	      <div class="modal-header">
+                					<span class="icon-duck"></span>
+                					<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+                					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                	      </div>
+                	      <div class="modal-body">
+                					<p>
+                						<%xr_translate tag='Du hast noch nicht alle Fragen vom WG-Test beantwortet. Nimm dir kurz Zeit, damit dich Dr. Duck noch besser matchen kann!'%>
+                					</p>
+                	      </div>
+                	      <div class="modal-footer">
+                	          <button type="button" class="btn btn-default">
+                	              <a href="/de/mein-profil/wg-test">Zu den Fragen</a>
+                            </button>
+                	       </div>
+                	    </div><!-- /.modal-content -->
+                	  </div><!-- /.modal-dialog -->
+                	</div><!-- /.modal -->
+                	<%elseif $smarty.request.dev==2 || ($hasQuestionsAnswered === false && $hasQuestionsAnsweredInSession)%>
+                	<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+                	  <div class="modal-dialog" role="document">
+                	    <div class="modal-content">
+                	      <div class="modal-header">
+                					<span class="icon-duck"></span>
+                					<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+                					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                	      </div>
+                	      <div class="modal-body">
+                			<p>
+						    	<%xr_translate tag='Du hast noch keine Fragen vom WG-Test beantwortet!'%>
+							    <br>
+							    <%xr_translate tag='Dr. Duck kann dir deswegen nicht sagen, wer am besten zu dir passt!'%>
+							</p>
+                	      </div>
+                	      <div class="modal-footer">
+                	        <button type="button" class="btn btn-default">
+                	            <%if $P_LANG == 'de'%>
+                	                <a href="/de/mein-profil/wg-test"><%xr_translate tag='Zu den Fragen'%></a>
+                	            <%elseif $P_LANG == 'en'%>
+                	                <a href="/en/mein-profil/wg-test"><%xr_translate tag='Zu den Fragen'%></a>
+                	            <%/if%>    
+                                </button>
+                	       </div>
+                	    </div><!-- /.modal-content -->
+                	  </div><!-- /.modal-dialog -->
+                	</div><!-- /.modal -->
+		<%/if%>
+    <%/if%>
+
+</header>

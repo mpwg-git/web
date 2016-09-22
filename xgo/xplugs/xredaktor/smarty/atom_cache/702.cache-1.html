@@ -1,0 +1,31 @@
+<!-- 702 mobile -->
+<div class="button-container-favblock clearfix">
+    <div class="inner clearfix">
+        <div class="item">
+            
+            <%xr_atom a_id=769 userId=$user['wz_id'] state=$roomstate['FAV'] return=1%>
+        </div>
+        <div class="item">
+            <%xr_atom a_id=770 userId=$user['wz_id'] state=$roomstate['BLOCK'] return=1%>
+        </div>
+        
+        <%if $favblockonly != 1%>
+            <div class="item" data-x>
+                <a href="<%xr_genlink p_id=12 id=$user['wz_id'] m_suffix="room/`$user['wz_id']`"%>">
+                    <span class="icon icon-Chat_Profil">
+        			    <span class="path1"></span><span class="path2"></span><span class="path3"><span class="path4"></span>
+        		    </span>
+        		 </a>
+            </div>
+            
+            <%if $data['PROFILE']['wz_ADRESSE_LAT'] != 0 && $data['PROFILE']['wz_ADRESSE_LNG'] != 0%>
+                <div class="item">
+                    <a href="<%xr_genlink p_id=19 id=$user['wz_id']%>" m_suffix=$user['wz_id']%>
+                        <span class="icon icon-Map_Profil"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+                    </a>
+                </div>
+            <%/if%>
+        <%/if%>
+        
+    </div>
+</div>

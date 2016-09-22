@@ -1,0 +1,155 @@
+
+.XR_PAGE_OFFLINE {
+	z-index:1000000000;
+	top: 20;
+	left: 0;
+	position: fixed;
+	background-color: red;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10;
+}
+
+.xc_atom_start {
+	display:none; 
+}
+
+.xc_atom_end {
+	display:none; 
+}
+
+
+.xc_container_start {
+	visibility:hidden;
+	width:1px;
+	height:0px;
+	border:none;
+}
+
+.xc_container_end {
+	visibility:hidden;
+	width:1px;
+	height:0px;
+	border:none;
+}
+
+
+.xc_container_cfg_wrapper {
+	margin-top:-20px;
+	z-index:1000;
+}
+.xc_container_cfg {
+	margin:-20px 0px 0px 16px;
+}
+
+
+.xc_atom_cfg {
+	position: absolute;
+	border:1px dotted blue;
+	z-index:1000;
+}
+
+.xc_atom_cfg_over {
+/*	margin: -5px; */
+	border: 5px solid green;
+	width:200px;
+}
+
+.xc_atom_cfg_click {
+/*	margin: -5px; */
+	border: 5px dotted white;
+	border-style:double;
+}
+
+.xc_atom_cfg_selected {
+/*	margin: -5px!important; */
+	border: 5px dotted red!important;
+	border-style:double!important;
+}
+
+.xc_dock_fixed {
+	position:fixed !important;
+	box-shadow: 0 0 4px 0 #FF0000;
+	
+	/*-moz-box-shadow: 3px 3px 4px #FF0000;
+	-webkit-box-shadow: 3px 3px 4px #FF0000;
+	box-shadow: 3px 3px 4px #FF0000;
+	/* For IE 8 * /
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#FF0000')";
+	/* For IE 5.5 - 7 * /
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#FF0000');*/
+}
+
+.xc_dock {
+	position:fixed;
+	z-index:10000;
+	top: 0px;
+ 	left: 0px;
+ 	border:0px dotted #bbbbbb;
+ 	height:100%;
+
+ 	
+	-moz-box-shadow: 3px 3px 4px #eeeeee;
+	-webkit-box-shadow: 3px 3px 4px #eeeeee;
+	box-shadow: 3px 3px 4px #eeeeee;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#eeeeee')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#eeeeee');
+}
+ 	
+ 	
+ 	
+}
+
+/*
+.xc_layout_window {
+ 	position: absolute;
+ 	top: 0px;
+ 	left: 500px;
+	border:1px solid blue;
+	z-index:10000;
+}
+
+vom Reini
+
+.xc_layout_window {
+	position:fixed;
+	left:50%;
+	margin-left:-150px;
+	top:0px;
+	z-index:10000;
+}
+
+.xc_layout_window_button {
+	position:fixed;
+	left:50%;
+	margin-left:-150px;
+	top:30px;
+	z-index:10000;
+}
+
+*/
+.xc_layout_window {
+	position:fixed;
+	left: 20px;
+	top:10px;
+	z-index:10000;
+}
+
+.xc_layout_window_button_atom {
+	position:fixed;
+	left:50%;
+	left: 20px;
+	top:40px;
+	z-index:10000;
+}
+
+.xc_layout_window_button_container {
+	position:fixed;
+	left:50%;
+	left: 20px;
+	top:70px;
+	z-index:10000;
+}

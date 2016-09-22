@@ -1,0 +1,29 @@
+<%xr_form form_id=5 var='form' fill_values=$data submit_txt='Datensatz speichern'%>
+
+<div class='row' id='pager_view_record_container_<%$form_uid%>_<%$data.wz_id%>'>
+    <div class='col-xs-12' style='padding:20px;'>
+    
+        <div class='pager_edit_record_container_view'>
+
+            WZ_ID: <%$data.wz_id%></br>
+            U_TYPE: <%$data.wz_FIRSTNAME%><br>
+            Firstname: <%$data.wz_FIRSTNAME%><br>
+            Lastname: <%$data.wz_LASTNAME%><br>
+            Street: <%$data.wz_STREET%><br>
+            Street Nr:<%$data.wz_STREET_NR%><br>
+            ZIP: <%$data.wz_ZIP%><br>
+            CITY: <%$data.wz_CITY%><br>
+            
+            <br>
+        </div>
+
+        <div class='pager_edit_record_container_edit' id='pager_edit_record_container_edit_<%$form_uid%>'>
+            <%$form%>
+        </div>
+        
+        <button type="button" class="pager_edit_record btn btn-primary" data-div-id="pager_edit_record_container_edit_<%$form_uid%>">edit</button>
+        <button type="button" class="pager_delete_record btn btn-primary" data-wz_id='<%$data['_wizard_id']%>' data-wz_r_id="<%$data['wz_id']%>" data-form_id='<%$form_uid%>' data-kick_me="pager_view_record_container_<%$form_uid%>_<%$data.wz_id%>">delete</button>
+        
+        
+    </div>
+</div>

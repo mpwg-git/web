@@ -1,0 +1,6 @@
+<div class="form-group <%$class%>">
+    <label for=""><%$fas.fas_name%><%if $fas.fas_required!='N'%>*<%/if%></label>
+    <textarea data-form-id='<%$form_uid%>' data-as-id='<%$fas.fas_as_id%>' name='<%$field_name%>' class="form-control" data-required="<%$fas.fas_required%>"><%$value%></textarea>
+    <%xr_atom a_id=538 return=1%>
+    <div class="clearer"></div>
+</div>

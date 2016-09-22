@@ -1,0 +1,16 @@
+<%xr_siteCall fn="fe_user::sc_getLanguagesDropdown" var="langs"%>
+
+
+
+<div class="form-group">
+    <label><%xr_translate tag="Sprachen?"%></label>
+     <div class="v-center multiple-select-container">
+        <select class="form-control multiple-select" name="SPRACHEN[]" multiple="multiple">
+			
+			<%foreach $langs as $k => $v%>
+			    <option value='<%$v['value']%>' <%if in_array($v['value'], $data['PROFILE']['SPRACHEN_IDS'])%>selected="selected"<%/if%>><%$v['label']%></option>
+			<%/foreach%>
+			
+		</select>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<!-- Header BEGIN -->
+<header>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<a class="navbar-brand" href="<%xr_genlink p_id=2%>"><h2>Lürzer's Archiv</h2></a>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse noMaxHeight">
+				<ul class="nav navbar-nav dunkelmain">
+					<li class="homeB"><a href="<%xr_genlink p_id=2%>" title="Home">Home</a></li>
+					<li class="dropdown">
+						<a href="<%xr_genlink p_id=37%>" id="link-search">Search</a>
+					</li>
+					<li><a href="<%xr_genlink p_id=4%>" id="link-submission">Submission</a></li>
+				</ul>
+				    <%xr_menu p_id=2 P_ID=$P_ID var='menu'%>
+				<ul class="nav navbar-nav dunkelsub">
+				    <%foreach from=$menu item=p name="navitem"%>
+				        <%if $p.p_id == 53%>
+				        <li <%if $p.iAmAParent =='Y'%> class="active"<%/if%>><a href="https://shop.luerzersarchive.com/shop/" title="<%$p.p_name%>" target="_self"><%$p.p_name%></a></li>
+				        <%else%>
+				        <li <%if $p.iAmAParent =='Y'%> class="active"<%/if%>><a href="<%xr_genlink p_id=$p.p_id%>" title="<%$p.p_name%>" target="_self"<%if $p.p_id == 10%> id="link-magazin"<%/if%>><%$p.p_name%></a></li>
+				        <%/if%>
+				    <%/foreach%>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<!-- Header END -->

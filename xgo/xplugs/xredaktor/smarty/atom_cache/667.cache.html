@@ -1,0 +1,195 @@
+<%xr_siteCall fn="fe_user::getMyData" var="data"%>
+<%xr_siteCall fn="fe_user::getMyRoomData" var="roomdata"%>
+<%xr_siteCall fn="fe_user::getMyRooms" var="roomdataNew"%>
+<%xr_siteCall fn="fe_wgtest::sc_getAllQuestionsAndState" var="wgtestdata"%>
+
+
+<div class="meinprofil-container grey-bg clearfix">
+    
+    
+    <div class="col-xs-12 default-container-paddingtop">
+        
+        <span class="looklikeh1">
+            <%xr_translate tag="Profil"%>
+            <div style="clear:both"></div>
+            <span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%> - ID <%$data.USER.wz_id%></span>
+        </span>
+        
+        <%***Error Messages (kann raum nicht löschen weil, ...) ***%>
+        <%xr_atom a_id=851 return=1 showFace=0%>
+        
+        
+        <ul class="meinprofil-options">
+            
+            <%xr_siteCall fn="fe_wgtest::sc_getWgTestState" userId=$smarty.session['xredaktor_feUser_wsf']['wz_id'] var=wgteststate%>
+            <%if $wgteststate != 1 && $wgteststate != 2%>
+            <br>
+            <div style="color:white;" class="col-xs-8">
+              <span><span class="icon-duck" ></span>
+              <span class="hallo-headline"><%xr_translate tag="Hallo!"%></span><br><%xr_translate tag="Du hast deinen WG-Test noch nicht ausgeflüllt!"%></span><br>
+              <span><%xr_translate tag="Bitte investiere 5 Minuten in die Beantwortung deiner Erwartungen an deine Mitbewohner(innen)."%><br></span>
+              <span><%xr_translate tag="Erst dann kann Dr.Duck Dir Deinen optimalen Mitbewohner finden."%></span><br>
+              <span><%xr_translate tag="Du erkennst Sie an der hohen % Zahl im Profil."%></span>
+              
+              
+              <br><br>
+             
+            </div> 
+            
+            <div class="col-xs-4">
+                 <a href="<%xr_genlink p_id=10 frageid=1%>"> 
+                 <div class="stoerer" >
+                    <span><%xr_translate tag="Zu den Fragen"%></span> 
+                 </div> 
+                 </a>
+            </div>
+            
+            
+            
+            <div class="clearfix">
+               
+               </a><br><br><br>
+               
+            </div>
+             
+            <%/if%>
+            
+            <li>
+                <a href="<%xr_genlink p_id=42%>"><%xr_translate tag="Über mich"%></a>  
+            </li>
+            
+            <%if $data['USER']['wz_TYPE'] == 'suche'%> 
+                <li>
+                    <a href="<%xr_genlink p_id=8%>"><%xr_translate tag="Meine Daten"%></a>
+                </li>
+            <%/if%>
+            
+            
+            <!-- 
+            <li>
+                <a href="frageid"><%xr_translate tag="Mein WG Test"%></a> 
+                <div class="meinprofil-meinkonto-collapse collapse" id="collapseProfileWgtest">
+                    <%if empty($wgtestdata)%>
+                        <%xr_translate tag="Du hast noch keine Fragen beantwortet"%>. <a href="<%xr_genlink p_id=10%>"><%xr_translate tag="WG Test jetzt starten"%>!</a>
+                    <%else%>
+                        <p><strong>Bereits beantwortete Fragen:</strong></p>
+                        <p>Meinung geändert? Einfach die Frage anklicken!</p>
+                        <ul class="wgtest-ul">
+                            
+                        <%if count($wgtestdata) < 15%>
+                            <a href="<%xr_genlink p_id=10%>"><%xr_translate tag="Fortsetzen"%></a>
+                        <%/if%>
+                            
+                        <%foreach $wgtestdata as $k => $v%>
+                            <li><span><%$k + 1%>.</span><a class="matching-fragen-ue" href="<%xr_genlink p_id=10 frageid=$v['FRAGE']['wz_id'] m_suffix=$v['FRAGE']['wz_id']%>"><%$v['FRAGE']['wz_FRAGE']%></a></li>
+                        <%/foreach%>
+                        </ul>
+                    <%/if%>
+                    
+                </div>
+            </li>
+            -->
+            
+            
+            
+            <li>
+                <a data-toggle="collapse" href="#collapseProfileWgtest"><%xr_translate tag="Mein WG Test"%></a>        
+                <div class="meinprofil-meinkonto-collapse collapse wg-test-collapse" id="collapseProfileWgtest">
+                    <br/>
+                    <%if empty($wgtestdata)%>
+                        <p><%xr_translate tag="Du hast noch keine Fragen beantwortet"%>. 
+                            <br><a href="<%xr_genlink p_id=10%>"><%xr_translate tag="WG Test jetzt starten"%>!</a>
+                        </p>
+                    <%else%>
+                        
+                        <%xr_siteCall fn='fe_wgtest::sc_get_fragen_count' var='fragenGesamt'%>
+                        <div class="headline">
+                            <%xr_translate tag="Du hast bereits"%> <%count($wgtestdata)%> / <%$fragenGesamt%> <%xr_translate tag="Fragen beantwortet"%>.
+                        </div>
+                    
+                        <%if count($wgtestdata) < $fragenGesamt%>
+                            <a class="button link-zu-wgtest" href="<%xr_genlink p_id=10%>"><%xr_translate tag="Fortsetzen bei nächster unbeantworteten Frage"%></a>
+                        <%/if%>
+                        
+                        <a class="button link-zu-wgtest" href="<%xr_genlink p_id=10%>?restart=1"><%xr_translate tag="Alle Fragen noch einmal durchgehen"%></a>
+                        
+                        <%*********
+                            <ul class="wgtest-ul">
+                                <%foreach $wgtestdata as $k => $v%>
+                                    <li><span><%$k + 1%>.</span><a class="matching-fragen-ue" href="<%xr_genlink p_id=10 frageid=$v['FRAGE']['wz_id'] m_suffix=$v['FRAGE']['wz_id']%>"><%$v['FRAGE']['wz_FRAGE']%></a></li>
+                                <%/foreach%>
+                            </ul>
+                        ************%>
+                    <%/if%>
+                    <br/><br/>
+                </div>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            <%if $data['USER']['wz_TYPE'] != 'suche'%> 
+                <li>
+                    <a data-toggle="collapse" href="#collapseProfileRoom"><%xr_translate tag="Meine Räume"%></a>  
+                    <ul class="meinprofil-submenu collapse" id="collapseProfileRoom">
+                        
+                        <%**Raumverwaltung**%>
+                        <%xr_atom a_id=850 roomdataNew=$roomdataNew return=1 showFace=0%>
+                        
+                        <%**Neuen Raum anlegen**%>
+                        <%xr_atom a_id=852 return=1 showFace=0%>
+                    </ul>
+                </li>
+            <%/if%>
+            
+            <!--            
+            <li>
+                <a href="<%xr_genlink p_id=15%>"><%xr_translate tag="Mein Konto"%></a>
+                 <div class="meinprofil-meinkonto-collapse collapse" id="collapseProfileKonto">
+                    <p><b><%xr_translate tag="Kostenlos"%></b><%xr_translate tag="bis 1.2.2016"%> <br />(<%xr_translate tag="Danach entstehende Kosten: nur nach expliziter Zustimmung"%>).</p> 
+            		<p><%xr_translate tag="Mitgliedschaft seit:"%> <%$data['USER']['wz_created']|date_format:"%d.%m.%Y"%></p>
+            		<div class="submitbutton-container">
+                        <button id="form-del-account" class="button button-default button-small"><%xr_translate tag="Account löschen"%></button>
+                    </div>
+                </div>
+            </li>
+            -->
+             <li>
+                <a data-toggle="collapse" href="#collapseProfileKonto"><%xr_translate tag="Mein Konto"%></a>        
+                <div class="meinprofil-meinkonto-collapse collapse wg-test-collapse" id="collapseProfileKonto">
+                    <%***************
+                    <p><b><%xr_translate tag="Kostenlos"%></b> <%xr_translate tag="bis 1.2.2016"%><br />(<%xr_translate tag="Danach entstehende Kosten: nur nach expliziter Zustimmung"%>).</p> 
+            		<p><%xr_translate tag="Mitgliedschaft seit"%>: <%$data['USER']['wz_created']|date_format:"%d.%m.%Y"%></p>
+            		**************%>
+                    <br/>
+            		<div class="submitbutton-container">
+                        <button id="form-del-account" class="button link-zu-wgtest"><%xr_translate tag="Account löschen"%></button>
+                    </div>
+                    <div class="submitbutton-container">
+                        <button id="<%if $data.USER.wz_ACTIVE == 'Y'%>form-deactivate-account<%else%>form-reactivate-account<%/if%>" class="button link-zu-wgtest">
+                            <%if $data.USER.wz_ACTIVE == 'Y'%>
+                                <%xr_translate tag="Account deaktivieren"%>
+                            <%else%>
+                                <%xr_translate tag="Account wieder aktivieren"%>
+                            <%/if%>
+                        </button>
+                    </div>
+                    <br/>
+                </div>
+            </li>
+            
+            <li>
+                <a href="<%xr_genlink p_id=28%>"><%xr_translate tag="Abmelden"%></a>
+            </li>
+            
+            
+           
+            
+            
+        </ul>
+        
+    </div>
+</div>

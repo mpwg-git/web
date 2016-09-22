@@ -1,0 +1,48 @@
+<%xr_feUser action='resendRegistration' triggerByVar='doResend' triggerByVal='1' var='result'%>
+
+
+<div class="register default-container-padding">
+    
+    <div class="register-inner">
+        <div class="row">
+            <div class="small-forms-spacer"></div>
+            <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-4">
+                <%if $result.status == 'NOT_ACTIVATED'%>
+                	<%xr_translate tag='Ihr Konto wurde noch nicht bestätigt! Erst nach der Bestätigung können Sie sich einloggen.'%>
+                    <form id="resend-form" name="wz_form"  class="js-resend-form" action="" method="post" style="margin-top:25px;">
+                    	<%xr_wzActionInvisibleCaptcha%>
+                    	<input type='hidden' name='doResend' value='1'>
+                    	<div class="form-group">
+                    	    <label><%xr_translate tag='E-Mail'%>:*</label>
+                    	    <input name="feuser_email" id="resend-form_EMAIL" class="form-control" type="text" value="<%if $smarty.request.m%><%$smarty.request.m%><%/if%>" rel="required_email" />
+                    	    <div class="error" id="resend-form_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
+                    	    <button class="pull-right" style="margin-top:25px;" type="submit" title="<%xr_translate tag='Absenden'%>"><%xr_translate tag='Absenden'%></button>
+                    	    <a href="<%xr_genlink m_suffix='from_logout' from_logout=1 p_id=6%>" class="button pull-left" style="margin-top:25px;" target="_self" title="<%xr_translate tag='zum Login'%>"><%xr_translate tag='zum Login'%></a>
+                    	    <div class="clear"></div>
+                    	    <span class="error" id="EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></span>
+                    	</div>
+                    	<div class="clear"></div>
+                    </form>	
+                <%/if%>
+                
+                <%if $result.status == 'IS_ALREADY_CONFIRMED'%>
+                    <h1><%xr_translate tag='Konto bestätigt'%></h1>
+                	<p><%xr_translate tag='Ihr Konto wurde bereits bestätigt.'%></p>
+                	<a href="<%xr_genlink p_id=35%>" class="backLink" target="_self" title="<%xr_translate tag='zum Login'%>">&laquo; <%xr_translate tag='zum Login'%></a>	
+                <%/if%>
+                
+                <%if $result.status == 'RESEND'%>
+                    <h1><%xr_translate tag='Konto bestätigen'%></h1>
+                	<p><%xr_translate tag='An Ihre E-Mail-Adresse wurde der Bestätigungslink gesendet.'%> <%xr_translate tag='Erst nach der Bestätigung können Sie sich einloggen.'%></p>
+                    <a href="<%xr_genlink p_id=35%>" class="backLink" target="_self" title="<%xr_translate tag='zum Login'%>">&laquo; <%xr_translate tag='zum Login'%></a>
+                <%/if%>
+                
+                <%if $result.status == 'USER_NOT_FOUND'%>
+                    <h1><%xr_translate tag='E-Mail-Adresse nicht registriert'%></h1>
+                	<p><%xr_translate tag='Die angebene E-Mail-Adresse ist im System nicht registriert.'%></p>
+                	<a href="<%xr_genlink p_id=35%>" class="button" target="_self" title="<%xr_translate tag='zurück'%>">&laquo; <%xr_translate tag='zurück'%></a>
+                <%/if%>
+            </div>
+        </div>
+    </div>
+</div>
