@@ -12,12 +12,12 @@
             <div class="radio">
                 <label for="typ-suche" class="no-padding-left">
                     <!--<input id="typ-suche" type="radio" name="search-type" value="suche" <%if $searchSession['type']=="suche" || ($searchSession['type'] == '' && $userType=="suche")%> class="active" <%/if%>>-->
-                    <input id="typ-suche" type="radio" name="search-type" value="suche" <%if ($smarty.request['type']="suche")%> class="active" <%/if%>>
+                    <input id="typ-suche" type="radio" name="search-type" value="suche" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%> class="active" <%/if%>>
                     <span class="suche-cat"><%xr_translate tag="Room"%></span>
                 </label>
                 <label for="typ-biete" >
                     <!--<input id="typ-biete" type="radio" name="search-type" value="biete" <%if $searchSession['type']=="biete"  || ($searchSession['type'] == '' && $userType=="biete")%> class="active" <%/if%>>-->
-                    <input id="typ-biete" type="radio" name="search-type" value="biete" <%if ($smarty.request['type']=="biete")%> class="active" <%/if%>>
+                    <input id="typ-biete" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'biete'%> class="active" <%/if%>>
                     <span class="suche-cat"><%xr_translate tag="Roomie"%></span>
                 </label>
             </div>
