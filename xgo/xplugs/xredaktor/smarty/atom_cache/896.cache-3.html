@@ -94,6 +94,10 @@
                 <input id="VORNAME" name="VORNAME" class="form-control" rel="required2" />
                 <div class="error-div" id="VORNAME_error"><%xr_translate tag='Bitte Vorname angeben'%></div>
             </div>
+            <%if isset($smarty.request.h)%>
+                <input type='hidden' name='h' value='<%$smarty.request.h%>' />
+                <input type='hidden' name='activate' value='1' />
+            <%/if%>
             <div class="form-group">
                 <label for="nachname"><%xr_translate tag="Nachname?"%>*</label>
                 <input id="NACHNAME" name="NACHNAME" class="form-control" rel="required2" />
@@ -141,8 +145,8 @@
             <button class="button start-button js-fb-login"><%xr_translate tag='Weiter mit Facebook Login'%></button>
         </div>
         <div class="col-xs-5 pull-right" style="text-align: right; padding-right: 0px;">
-            <button style="display:none;" class="button start-button js-simple-login"><%xr_translate tag='Ich habe bereits ein Profil'%></button>
-            <button class="button start-button js-show-simple-login"><%xr_translate tag='Ich habe bereits ein Profil'%></button>
+            <button style="display:none;" class="button start-button js-simple-login"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
+            <button class="button start-button js-show-simple-login"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
             
         </div>
     </div>

@@ -26,8 +26,8 @@ foreach ($copyRooms as $room)
 	$strGesucht = implode(" ", $strGesucht);
 	
 	$arrGesucht = getNumerics($strGesucht);
-	$mateVon = $arrGesucht[0];
-	$mateBis = $arrGesucht[1];
+	$mateVon 	= $arrGesucht[0];
+	$mateBis 	= $arrGesucht[1];
 
 	
 	$db = array(
@@ -151,5 +151,5 @@ function getNumerics ($str) {
 
 
 
-
+echo "\nENDE IMPORT COPYROOMS\n\n";
 
