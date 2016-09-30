@@ -345,7 +345,7 @@ a {
     .bigicon{
         /*font-size:7vw;*/
         .font-size(82);
-
+        margin: 0 2rem;
         @media @md{
 
         }
@@ -362,6 +362,7 @@ a {
             font-size:7vw;
         }
     }
+    
 }
 
 .blog-kategorie-form, .presse-kategorie-form{
@@ -4045,8 +4046,6 @@ small.small{
 		.height(180);
         background-color: #04e0d7;
 
-        
-        
         .modal-header{
             height: 33.33333333333333%;
             border: none;
@@ -4145,3 +4144,45 @@ small.small{
         }
 	 }
 }
+
+div#EmailConfirmModal{
+    
+    button#sendEmailConfirmationAgain {
+        margin-top: 20px;
+	    color: #fff;
+	    background-color: #697984;
+	    border: #fff;
+	    font-size: 14px;
+	    border-radius: 5px;
+	    
+	    &:hover {
+	        background-color: white;
+            color: #333;
+	    }
+    }
+    
+    .modal-header{
+        .padding-bottom(0);
+    }
+    .modal-body {
+        padding-top: 0;
+    }
+    
+    .modal-header .close {
+        margin-top: -5px;
+        opacity: .4;
+        font-size: 25px;
+    }
+    
+    .modal-footer {
+        display: none;
+	    border: none;
+    }
+}
+
+
+
+
+
+
+
