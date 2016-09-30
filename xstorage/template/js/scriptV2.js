@@ -76,6 +76,11 @@ var facebook = {
 			e.preventDefault();
 			facebook.doLoginSimple();
 		});
+		
+		$(document).on('click', '.fb-login-submit', function(e) {
+			e.preventDefault();
+			facebook.doLoginSimple();
+		});
 	},
 	
 	doLoginSimple : function() {
@@ -113,10 +118,13 @@ var facebook = {
 	},
 	
 	doLoginSimpleCallback : function(state, cfg, data) {
-		console.info(state, cfg, data);
 
 		if (data.status == 'OK') {
 			window.location = data.redirect;
+		}
+		else
+		{
+			// TODO show warning
 		}
 	},
 	
