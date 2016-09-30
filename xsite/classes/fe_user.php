@@ -9,7 +9,7 @@ class fe_user
 	const table_room_fav 	= 'wizard_auto_846';
 	const table_room_block 	= 'wizard_auto_847';
 
-	const table_user_fav	= 'wizard_auto_767';
+	const table_user_fav		= 'wizard_auto_767';
 	const table_user_block	= 'wizard_auto_768';
 
 	const errorMessage_cant_deactivate_room_roomies_inside 	= '###cannot_deactivate_room_roomies_still_inside###';
@@ -22,27 +22,26 @@ class fe_user
 
 	// defaults bei reg
 	public static $regDefaults = array(
-		'wz_LAND'			=> 1,	// österreich
+		'wz_LAND'		=> 1,	// österreich
 
-		'wz_HAUSTIERE' 		=> 'X',
+		'wz_HAUSTIERE' 	=> 'X',
 		'wz_VEGGIE' 		=> 'X',
 		'wz_ABLOESE' 		=> 'X',
 		'wz_MITBEWOHNER'	=> 'X',
 		'wz_RAUCHER'		=> 'X',
-		'wz_BARRIEREFREI' 	=> 'X',
+		'wz_BARRIEREFREI' => 'X',
 
 		'wz_ADRESSE'		=> 'Wien, Österreich',
 		'wz_ADRESSE_LAT' 	=> 48.2081743,
-		'wz_ADRESSE_LNG' 	=> 16.3738189,
+		'wz_ADRESSE_LNG'	=> 16.3738189,
 
-		'wz_MIETE_VON' 		=> 50,
-		'wz_MIETE_BIS' 		=> 400,
+		'wz_MIETE_VON' 	=> 50,
+		'wz_MIETE_BIS' 	=> 400,
 		'wz_UMKREIS'		=> 5,
 
-		'wz_WGGROESSE_VON' 	=> 1,
-		'wz_WGGROESSE_BIS' 	=> 10,
+		'wz_WGGROESSE_VON' => 1,
+		'wz_WGGROESSE_BIS' => 10,
 	);
-	
 
 	public static function doIBlockUser($otherUserId)
 	{
@@ -57,7 +56,6 @@ class fe_user
 		return false;
 	}
 
-	
 	public static function amIBlockedFromUser($otherUserId)
 	{
 
@@ -82,7 +80,9 @@ class fe_user
 
 		$exists = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_EMAIL = '$email' AND wz_del = 'N' ");
 
-		$pass = 'drduck' . rand(1000, 9999);
+
+		//TODO wenn user aus xkalt passwort selbst eingeben lassen
+		//$pass = 'drduck' . rand(1000, 9999);
 
 		$db = array(
 			'wz_del' 			=> 'N',
@@ -92,7 +92,7 @@ class fe_user
 			'wz_GESCHLECHT'		=> 'F',
 			'wz_IS_TMP_USER'	=> 'Y',
 			'wz_EMAIL'			=> $email,
-			'wz_PASSWORT'		=> md5($pass),
+			//'wz_PASSWORT'		=> md5($pass),
 		);
 
 		$db = array_merge($db, self::$regDefaults);
@@ -112,13 +112,12 @@ class fe_user
 		}
 
 		return array(
-			'PASS' 		=> $pass,
+			//'PASS' 		=> $pass,
 			'USER_ID'	=> $userId,
 			'EXISTING'	=> $existing
 		);
 	}
 
-	
 	public static function deactivate_user_account($userId)
 	{
 		$userId = intval($userId);
@@ -138,7 +137,7 @@ class fe_user
 			'wz_USERDEL_TS' => 'NOW()',
 			'wz_ACTIVE' 	=> 'N',
 			'wz_online' 	=> 'N',
-			'wz_del' 		=> 'Y'), 
+			'wz_del' 		=> 'Y'),
 		array(
 			'wz_id' => $userId
 			));
@@ -182,13 +181,11 @@ class fe_user
 		return true;
 	}
 
-	
 	public static function sc_is_active($params)
 	{
 		return self::is_active(intval($params['userId']));
 	}
 
-	
 	public static function is_active($userId)
 	{
 		$userId = intval($userId);
@@ -199,7 +196,6 @@ class fe_user
 		return true;
 	}
 
-	
 	###############
 	public static function ajax_reset_password()
 	{
@@ -264,9 +260,9 @@ class fe_user
 	{
 		// NO PROFILE TABLE ANYMORE
 
-		$type 			= dbx::escape($_REQUEST['TYPE']);
-		$geschlecht 	= $_REQUEST['GESCHLECHT']; // nix escapen, wird eh gleich im switch sauber gesetzt
-		$email			= dbx::escape($_REQUEST['EMAIL']);
+		$type 				= dbx::escape($_REQUEST['TYPE']);
+		$geschlecht 		= $_REQUEST['GESCHLECHT']; // nix escapen, wird eh gleich im switch sauber gesetzt
+		$email				= dbx::escape($_REQUEST['EMAIL']);
 
 		fe_cookie::deleteLoginCookie();
 
@@ -308,13 +304,13 @@ class fe_user
 
 		unset($update['wz_SPRACHEN']);
 
+
 		// neue default werte | WEB-172
 		$update = array_merge($update, self::$regDefaults);
 
 		dbx::update("wizard_auto_707", $update, array('wz_id' => $user_id));
 	}
 
-	
 	public static function ajax_resetEmailConfirmationAgain()
 	{
 		@session_start();
@@ -322,21 +318,18 @@ class fe_user
 		frontcontrollerx::json_success();
 	}
 
-	
 	public static function setEmailConfirmMsg()
 	{
 		@session_start();
 		$_SESSION['EmailConfirmMsg'] = true;
 	}
 
-	
 	public static function getEmailConfirmMsg()
 	{
 		@session_start();
 		return ($_SESSION['EmailConfirmMsg']) ? true : false;
 	}
 
-	
 	public static function afterLogin()
 	{
 		@session_start();
@@ -350,12 +343,12 @@ class fe_user
 			return "/";
 		}
 
+
 		$userId		= intval($user['wz_id']);
 
 		// CHECK IF ACTIVATE NEEDED
 		if ($user['wz_IS_TMP_USER'] == 'Y')
 		{
-
 			if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 			{
 				$hash = trim(dbx::escape($_REQUEST['h']));
@@ -367,6 +360,7 @@ class fe_user
 				}
 			}
 		}
+
 
 		// cookie ablegen
 		$feUserSessionKey = xredaktor_feUser::getPrivateStatic('sessionName_FEUSER');
@@ -443,6 +437,7 @@ class fe_user
 		return $invitations;
 	}
 
+
 	/*
 	public static function createProfile($type, $user_id, $request=false)
 	{
@@ -517,7 +512,9 @@ class fe_user
 
 			}
 		}
+
 		return fe_room::getRoomData($myRoomId);
+
 	}
 
 
@@ -592,8 +589,7 @@ class fe_user
 	{
 		self::checkLoggedIn();
 
-		$userId	= xredaktor_feUser::getUserId();
-
+		$userId			= xredaktor_feUser::getUserId();
 	}
 
 
@@ -636,6 +632,7 @@ class fe_user
 		$user['STATE_FAV'] 		 = self::getUser2UserState($myUserId, $userId, "fav");
 		$user['STATE_BLOCK']	 = self::getUser2UserState($myUserId, $userId, "block");
 
+
 		$user['PROFILE_URL']			= fe_vanityurls::genUrl_profil($userId, "suche");
 
 		$lng 				= xredaktor_pages::getFrontEndLang();
@@ -663,6 +660,7 @@ class fe_user
 
 		$user['LAND_COMBO'] = $countriesState;
 
+
 		$ret 			= array(
 			'USER' 		=> $user,
 			'PROFILE'	=> $profile,
@@ -680,9 +678,10 @@ class fe_user
 			$ret['MATCHING'] 	= $matching;
 			$ret['x'] = 'Y';
 		}
+
+
 		return $ret;
 	}
-
 
 	public static function sc_getUser2UserState($params)
 	{
@@ -696,7 +695,6 @@ class fe_user
 
 	}
 
-
 	public static function sc_getUser2RoomState($params)
 	{
 		$userId 	= intval(xredaktor_feUser::getUserId());
@@ -709,7 +707,6 @@ class fe_user
 
 	}
 
-
 	public static function redirectIfLoggedIn()
 	{
 
@@ -720,7 +717,6 @@ class fe_user
 
 	}
 
-
 	public static function sc_redirectIfNotLoggedIn()
 	{
 
@@ -728,6 +724,7 @@ class fe_user
 		{
 			return self::redirectToLogin();
 		}
+
 	}
 
 
@@ -760,7 +757,6 @@ class fe_user
 			return true;
 		}
 	}
-
 
 	public static function getUser2RoomState($userId, $fUserId, $type)
 	{
@@ -801,7 +797,6 @@ class fe_user
 		return $age;
 	}
 
-
 	public static function getUserImages($user)
 	{
 		$userId			= intval($user['wz_id']);
@@ -831,9 +826,11 @@ class fe_user
 
 		$type			= self::getUserType($userId);
 
+
 		//$profile 		= dbx::query("select * from $profileTable where wz_USERID = $userId");
 		// TODO clean
 		$profile 		= $user;
+
 
 		//if ($profile === false) return array();
 
@@ -879,7 +876,7 @@ class fe_user
 		}
 		*/
 
-		
+
 		// get mitbewohner
 
 		$profile['ZEITRAUM']		= self::formatVonBis($profile['wz_ZEITRAUM_VON'], $profile['wz_ZEITRAUM_BIS'], "###ab###", "bis", "date");
@@ -921,7 +918,6 @@ class fe_user
 		}
 	}
 
-
 	public static function formatVonBis($von, $bis, $vonStr = 'von', $bisStr = 'bis', $type = 'default')
 	{
 		$lng 		= xredaktor_pages::getFrontEndLang();
@@ -950,13 +946,11 @@ class fe_user
 		}
 	}
 
-
 	public static function sc_getMyUserType()
 	{
 		$userId = intval(xredaktor_feUser::getUserId());
 		return self::getUserType($userId);
 	}
-
 
 	public static function ajax_delFoto()
 	{
@@ -983,7 +977,6 @@ class fe_user
 		frontcontrollerx::json_success(array('fotoId' => $fotoId));
 	}
 
-
 	public static function getUserType($userId)
 	{
 		$userId = intval($userId);
@@ -996,7 +989,6 @@ class fe_user
 		return $type;
 	}
 
-
 	public static function sc_getUserData()
 	{
 		$userId = intval($_REQUEST['id']);
@@ -1005,7 +997,6 @@ class fe_user
 
 		return self::getUserData($userId);
 	}
-
 
 	public static function getUserDataOnly($userId)
 	{
@@ -1018,7 +1009,6 @@ class fe_user
 		return $user;
 
 	}
-
 
 	public static function sc_getLanguagesDropdown()
 	{
@@ -1035,7 +1025,6 @@ class fe_user
 
 		return $ret;
 	}
-
 
 	public static function checkLoggedIn()
 	{
@@ -1055,7 +1044,6 @@ class fe_user
 		}
 	}
 
-
 	public static function getLoginStatus()
 	{
 		return xredaktor_feUser::isLoggedIn();
@@ -1064,6 +1052,7 @@ class fe_user
 
 	public static function getInvitations()
 	{
+
 		$userId		= intval(xredaktor_feUser::getUserId());
 		if ($userId == 0) return false;
 
@@ -1109,7 +1098,6 @@ class fe_user
 
 		header("Location: ".xredaktor_niceurl::genUrl($cfg));
 	}
-
 
 	public static function redirectToSearch()
 	{
@@ -1270,7 +1258,6 @@ class fe_user
 		xredaktor_feUser::refreshUserdata($userId);
 	}
 
-
 	public static function getProfileImage($userId)
 	{
 		$userId = intval($userId);
@@ -1321,7 +1308,6 @@ class fe_user
 		echo $_REQUEST['callback'].'('.$json.');';
 	}
 
-
 	public static function getMyProfileImage()
 	{
 		$userId = intval(xredaktor_feUser::getUserId());
@@ -1330,7 +1316,6 @@ class fe_user
 
 		return self::getProfileImage($userId);
 	}
-
 
 	public static function getDefaultImage($user)
 	{
@@ -1346,7 +1331,6 @@ class fe_user
 		}
 	}
 
-	
 	public static function getDefaultImageByUserId($userId)
 	{
 		$userId = intval($userId);
@@ -1358,6 +1342,8 @@ class fe_user
 
 
 	################ Image processing
+
+
 	public static function ajax_uploadImage($params)
 	{
 
@@ -1427,7 +1413,13 @@ class fe_user
 
 		// jetzt sollte man noch die filesize updaten...
 
+
+
+
+
 		// jetzt in xr_img2 werfen - sollte dann korrekte s_media_w und _h setzen
+
+
 
 		// rotate if neccessary
 		//xredaktor_storage::rotate_if_necessary($image_s_id);
@@ -1463,6 +1455,16 @@ class fe_user
 		$_SESSION['image']['trueH'] = $imageData['trueH'];
 
 		$a_id = 746;
+
+
+
+
+
+
+
+
+
+
 
 		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
 
@@ -1508,7 +1510,6 @@ class fe_user
 		}
 	}
 
-
 	public static function handleFinalSubmitRoom($roomId, $s_id, $type)
 	{
 		//print_r(compact('roomId', 's_id', 'type'));die('ML');
@@ -1531,7 +1532,6 @@ class fe_user
 
 		frontcontrollerx::json_success();
 	}
-
 
 	public static function ajax_get_dkrm_image()
 	{
@@ -1565,7 +1565,6 @@ class fe_user
 		frontcontrollerx::json_success();
 	}
 
-
 	public static function handleFinalSubmit($userId, $s_id, $type)
 	{
 		$userId 	= intval($userId);
@@ -1589,11 +1588,13 @@ class fe_user
 	}
 
 
+
 	public static function ajax_cropImageAndSaveNew()
 	{
 		$crop = array();
 		$crop = $_REQUEST;
 		unset($crop['url']);
+
 
 		/*
 		if (!isset($_REQUEST['type']))
@@ -1630,6 +1631,7 @@ class fe_user
 			$crop['selectionHeight'] = floatval($crop['selectionHeight']);
 			$crop['ratio'] 			 = floatval($crop['ratio']);
 			$crop['s_id']			 = intval($crop['s_id']);
+
 
 			$crop['devicepixelratio'] = floatval($crop['devicepixelratio']);
 
@@ -1724,6 +1726,7 @@ class fe_user
 
 		$maybeCroppedImg = xredaktor_storage::xr_img3($params);
 
+
 		// jetzt originalfilenamen mit _auto_cropped_x0_y0_w300_h300 angehängt
 		$srcFile	= xredaktor_storage::getFileDstById($s_id);
 		$dir 		= dirname($srcFile);
@@ -1765,6 +1768,7 @@ class fe_user
 		frontcontrollerx::json_success(array('data' => array('html' => $html)));
 
 	}
+
 
 
 	public static function ajax_toggleFav()
@@ -1899,7 +1903,6 @@ class fe_user
 		frontcontrollerx::json_success(array('state' => $state));
 	}
 
-	
 	public static function getMatchPercent($userId, $fUserId, $returnArray = false)
 	{
 		$result		= fe_matching::matchUsers($userId,$fUserId, true); // mark
@@ -1913,7 +1916,6 @@ class fe_user
 			return $result['matchGesamt'];
 		}
 	}
-
 
 	public static function getUsersByRoomId($roomId, $genderCountOnly = false)
 	{
@@ -1976,7 +1978,6 @@ class fe_user
 
 	}
 
-
 	public static function getUserAgespanByRoomId($roomId)
 	{
 		$ret = array(
@@ -2010,7 +2011,6 @@ class fe_user
 
 		return $ret;
 	}
-
 
 	public static function getUsersByRoomIdWithDetails($roomId)
 	{
@@ -2062,8 +2062,6 @@ class fe_user
 
 		return true;
 	}
-
-
 	public static function setUserActive($userId)
 	{
 		$userId = intval($userId);
@@ -2072,7 +2070,6 @@ class fe_user
 		return true;
 	}
 
-	
 	public static function ajax_delContent()
 	{
 
@@ -2174,6 +2171,9 @@ class fe_user
 
 		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId($pageId);
 
+
+
+
 		if (count($send2)>0)
 		{
 			$html = xredaktor_render::renderPage($pageId,true);
@@ -2213,6 +2213,9 @@ class fe_user
 					$replyTo['name'] = $replyToName;
 				}
 
+
+
+
 				$mailCfg = array(
 				'to'						=> array('email' => $to, 'name'=>$to),
 				'from'						=> array('email' => xredaktor_feUser::getFromMail_EMAIL($mailSettings),	'name' => xredaktor_feUser::getFromMail_NAME($mailSettings)),
@@ -2232,6 +2235,10 @@ class fe_user
 				'smtp_pwd'		=> $s_mail_smtp_pwd,
 				)
 				);
+
+
+
+
 
 				if (!mailx::sendMail($mailCfg))
 				{
@@ -2254,7 +2261,6 @@ class fe_user
 
 	}
 
-
 	public static function setErrorMessage($translateStr)
 	{
 		session_start();
@@ -2262,12 +2268,10 @@ class fe_user
 		return $_SESSION['error_message'];
 	}
 
-
 	public static function sc_clearSessionErrorMessage($params)
 	{
 		return self::clearSessionErrorMessage();
 	}
-
 
 	public static function clearSessionErrorMessage()
 	{
@@ -2278,7 +2282,6 @@ class fe_user
 		unset($_SESSION['error_messages']);
 		return true;
 	}
-
 
 	public static function handleImageDownload($imageurl,$fbId)
 	{
@@ -2323,7 +2326,6 @@ class fe_user
 
 		return $image_sid;
 	}
-
 
 	public static function ajax_doFacebookLoginSimple()
 	{
@@ -2667,10 +2669,11 @@ class fe_user
 	}
 
 	public static function ajax_doSimpleLogin()
-	{		
-		
-		$EMAIL			= dbx::escape(trim($_REQUEST['v2_EMAIL']));
-		
+	{
+
+		$EMAIL					= dbx::escape(trim($_REQUEST['v2_EMAIL']));
+		$PASSWORT				= dbx::escape($_REQUEST['v2_PASSWORT']);
+
 /////// USER LOGIN AUS KALT
 		$user		= dbx::query("select * from wizard_auto_707 where wz_EMAIL = '$EMAIL' AND wz_del = 'N' ");
 		$tmpUserId	= intval($user['wz_id']);
@@ -2678,7 +2681,8 @@ class fe_user
 /////// CHECK IF ACTIVATE NEEDED
 		if ($user['wz_IS_TMP_USER'] == 'Y')
 		{
-			
+			dbx::query("UPDATE wizard_auto_707 SET wz_PASSWORT = MD5('$PASSWORT') WHERE wz_id = $tmpUserId");
+
 			if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 			{
 				$hash = trim(dbx::escape($_REQUEST['h']));
@@ -2690,34 +2694,36 @@ class fe_user
 				}
 			}
 		}
+////////
 
-		$PASSWORT			= dbx::escape($_REQUEST['v2_PASSWORT']);
+		//$PASSWORT				= dbx::escape($_REQUEST['v2_PASSWORT']);
+		$VORNAME				= trim($_REQUEST['VORNAME']);
+		$NACHNAME				= trim($_REQUEST['NACHNAME']);
 
-		$VORNAME			= trim($_REQUEST['VORNAME']);
-		$NACHNAME			= trim($_REQUEST['NACHNAME']);
+		$ADRESSE				= trim($_REQUEST['ADRESSE']);
+		$ADRESSE_STRASSE		= trim($_REQUEST['ADRESSE_STRASSE']);
+		$ADRESSE_STRASSE_NR		= trim($_REQUEST['ADRESSE_STRASSE_NR']);
+		$ADRESSE_PLZ			= trim($_REQUEST['ADRESSE_PLZ']);
+		$ADRESSE_STADT			= trim($_REQUEST['ADRESSE_STADT']);
+		$ADRESSE_LAT			= trim($_REQUEST['ADRESSE_LAT']);
+		$ADRESSE_LNG			= trim($_REQUEST['ADRESSE_LNG']);
+		$AGB					= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
 
-		$ADRESSE			= trim($_REQUEST['ADRESSE']);
-		$ADRESSE_STRASSE	= trim($_REQUEST['ADRESSE_STRASSE']);
-		$ADRESSE_STRASSE_NR	= trim($_REQUEST['ADRESSE_STRASSE_NR']);
-		$ADRESSE_PLZ		= trim($_REQUEST['ADRESSE_PLZ']);
-		$ADRESSE_STADT		= trim($_REQUEST['ADRESSE_STADT']);
-		$ADRESSE_LAT		= trim($_REQUEST['ADRESSE_LAT']);
-		$ADRESSE_LNG		= trim($_REQUEST['ADRESSE_LNG']);
-		$AGB				= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
 
 		if($AGB == 'off')
 		{
 			frontcontrollerx::json_success(array('status'=>'NOK','msg'=>'AGB'));
 			die();
 		}
-		
-		
+
+
 		$landShort	= dbx::escape(trim($_REQUEST['ADRESSE_LAND']));
 
 		$MIETE_BIS 	= intval($_REQUEST['MIETEMAX']);
 
 		$GESCHLECHT = trim($_REQUEST['GESCHLECHT']);
-		
+		$SEX		= (trim($_REQUEST['GESCHLECHT']) == 'male') ? 'M' : 'F';
+
 		$checkUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_EMAIL = '$EMAIL' AND wz_online = 'Y' AND wz_del = 'N'");
 
 
@@ -2738,7 +2744,7 @@ class fe_user
 				'price_to'					=> $MIETE_BIS,
 				'range'						=> 5,
 				'type'						=> 'suche',
-				'filter'					=> ''
+				'filter'						=> ''
 			);
 
 			$land		= dbx::queryAttribute("select * from wizard_auto_716 where wz_ISO2 = '$landShort'", "wz_id");
@@ -2764,8 +2770,7 @@ class fe_user
 			$db_user['wz_MAIL_CHECKED']			= 'N';
 			$db_user['wz_ACTIVE']				= 'N';
 			$db_user['wz_AGB_1']				= $AGB;
-
-			$db_user['wz_TYPE'] = 'suche';
+			$db_user['wz_TYPE'] 				= 'suche';
 
 			if(intval($_REQUEST['p_id']) == 48)
 			{
@@ -2790,13 +2795,14 @@ class fe_user
 
 
 
+
 		$present_SEARCHDATA = json_decode($presentUser['wz_SEARCHDATA'],true);
 
 		$searchData = array(
 			'date'						=> '',
 			'location'	=> array(
 				'ADRESSE_STRASSE' 		=> $_REQUEST['ADRESSE_STRASSE'],
-				'ADRESSE_STRASSE_NR' 	=> $_REQUEST['ADRESSE_STRASSE_NR'],
+				'ADRESSE_STRASSE_NR'	=> $_REQUEST['ADRESSE_STRASSE_NR'],
 				'ADRESSE_PLZ' 			=> $_REQUEST['ADRESSE_PLZ'],
 				'ADRESSE_STADT' 		=> $_REQUEST['ADRESSE_STADT'],
 				'ADRESSE_LAT' 			=> $_REQUEST['ADRESSE_LAT'],
@@ -2814,7 +2820,8 @@ class fe_user
 
 		$searchData = json_encode($searchData);
 
-		dbx::update('wizard_auto_707',array('wz_SEARCHDATA'=>$searchData,'wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
+		dbx::update('wizard_auto_707',array('wz_SEARCHDATA'=>$searchData,'wz_LASTLOGIN'=>'NOW()','wz_VORNAME'=>$VORNAME,'wz_NACHNAME'=>$NACHNAME,'wz_GESCHLECHT'=>$SEX,'wz_AGB_1'=>$AGB),array('wz_id'=>$feu_id));
+		//dbx::update('wizard_auto_707',array('wz_SEARCHDATA'=>$searchData,'wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
 
 		xredaktor_feUser::refreshUserdata($feu_id);
 
@@ -2845,9 +2852,9 @@ class fe_user
 
 			}
 		}
-		
-		
-		
+
+
+
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
