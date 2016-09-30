@@ -22,26 +22,27 @@ class fe_user
 
 	// defaults bei reg
 	public static $regDefaults = array(
-		'wz_LAND'		=> 1,	// österreich
+		'wz_LAND'			=> 1,	// österreich
 
-		'wz_HAUSTIERE' 	=> 'X',
-		'wz_VEGGIE' 	=> 'X',
-		'wz_ABLOESE' 	=> 'X',
-		'wz_MITBEWOHNER'=> 'X',
-		'wz_RAUCHER'	=> 'X',
-		'wz_BARRIEREFREI' => 'X',
+		'wz_HAUSTIERE' 		=> 'X',
+		'wz_VEGGIE' 		=> 'X',
+		'wz_ABLOESE' 		=> 'X',
+		'wz_MITBEWOHNER'	=> 'X',
+		'wz_RAUCHER'		=> 'X',
+		'wz_BARRIEREFREI' 	=> 'X',
 
-		'wz_ADRESSE'	=> 'Wien, Österreich',
-		'wz_ADRESSE_LAT' => 48.2081743,
-		'wz_ADRESSE_LNG' => 16.3738189,
+		'wz_ADRESSE'		=> 'Wien, Österreich',
+		'wz_ADRESSE_LAT' 	=> 48.2081743,
+		'wz_ADRESSE_LNG' 	=> 16.3738189,
 
-		'wz_MIETE_VON' 	=> 50,
-		'wz_MIETE_BIS' 	=> 400,
-		'wz_UMKREIS'	=> 5,
+		'wz_MIETE_VON' 		=> 50,
+		'wz_MIETE_BIS' 		=> 400,
+		'wz_UMKREIS'		=> 5,
 
-		'wz_WGGROESSE_VON' => 1,
-		'wz_WGGROESSE_BIS' => 10,
+		'wz_WGGROESSE_VON' 	=> 1,
+		'wz_WGGROESSE_BIS' 	=> 10,
 	);
+	
 
 	public static function doIBlockUser($otherUserId)
 	{
@@ -56,6 +57,7 @@ class fe_user
 		return false;
 	}
 
+	
 	public static function amIBlockedFromUser($otherUserId)
 	{
 
@@ -116,6 +118,7 @@ class fe_user
 		);
 	}
 
+	
 	public static function deactivate_user_account($userId)
 	{
 		$userId = intval($userId);
@@ -179,11 +182,13 @@ class fe_user
 		return true;
 	}
 
+	
 	public static function sc_is_active($params)
 	{
 		return self::is_active(intval($params['userId']));
 	}
 
+	
 	public static function is_active($userId)
 	{
 		$userId = intval($userId);
@@ -194,6 +199,7 @@ class fe_user
 		return true;
 	}
 
+	
 	###############
 	public static function ajax_reset_password()
 	{
@@ -275,9 +281,6 @@ class fe_user
 		file_put_contents(Ixcore::htdocsRoot . '/register_out.txt', print_r($saveToFile, 1), FILE_APPEND);
 		*/
 
-
-
-
 		switch ($geschlecht) {
 			case 'male':
 				$geschlecht = 'M';
@@ -305,13 +308,13 @@ class fe_user
 
 		unset($update['wz_SPRACHEN']);
 
-
 		// neue default werte | WEB-172
 		$update = array_merge($update, self::$regDefaults);
 
 		dbx::update("wizard_auto_707", $update, array('wz_id' => $user_id));
 	}
 
+	
 	public static function ajax_resetEmailConfirmationAgain()
 	{
 		@session_start();
@@ -319,18 +322,21 @@ class fe_user
 		frontcontrollerx::json_success();
 	}
 
+	
 	public static function setEmailConfirmMsg()
 	{
 		@session_start();
 		$_SESSION['EmailConfirmMsg'] = true;
 	}
 
+	
 	public static function getEmailConfirmMsg()
 	{
 		@session_start();
 		return ($_SESSION['EmailConfirmMsg']) ? true : false;
 	}
 
+	
 	public static function afterLogin()
 	{
 		@session_start();
@@ -361,8 +367,6 @@ class fe_user
 				}
 			}
 		}
-
-
 
 		// cookie ablegen
 		$feUserSessionKey = xredaktor_feUser::getPrivateStatic('sessionName_FEUSER');
@@ -424,8 +428,6 @@ class fe_user
 					break;
 			}
 		}
-
-
 	}
 
 
@@ -440,7 +442,6 @@ class fe_user
 
 		return $invitations;
 	}
-
 
 	/*
 	public static function createProfile($type, $user_id, $request=false)
@@ -516,9 +517,7 @@ class fe_user
 
 			}
 		}
-
 		return fe_room::getRoomData($myRoomId);
-
 	}
 
 
@@ -593,9 +592,7 @@ class fe_user
 	{
 		self::checkLoggedIn();
 
-		$userId			= xredaktor_feUser::getUserId();
-
-
+		$userId	= xredaktor_feUser::getUserId();
 
 	}
 
@@ -639,7 +636,6 @@ class fe_user
 		$user['STATE_FAV'] 		 = self::getUser2UserState($myUserId, $userId, "fav");
 		$user['STATE_BLOCK']	 = self::getUser2UserState($myUserId, $userId, "block");
 
-
 		$user['PROFILE_URL']			= fe_vanityurls::genUrl_profil($userId, "suche");
 
 		$lng 				= xredaktor_pages::getFrontEndLang();
@@ -667,7 +663,6 @@ class fe_user
 
 		$user['LAND_COMBO'] = $countriesState;
 
-
 		$ret 			= array(
 			'USER' 		=> $user,
 			'PROFILE'	=> $profile,
@@ -685,10 +680,9 @@ class fe_user
 			$ret['MATCHING'] 	= $matching;
 			$ret['x'] = 'Y';
 		}
-
-
 		return $ret;
 	}
+
 
 	public static function sc_getUser2UserState($params)
 	{
@@ -702,6 +696,7 @@ class fe_user
 
 	}
 
+
 	public static function sc_getUser2RoomState($params)
 	{
 		$userId 	= intval(xredaktor_feUser::getUserId());
@@ -714,6 +709,7 @@ class fe_user
 
 	}
 
+
 	public static function redirectIfLoggedIn()
 	{
 
@@ -724,6 +720,7 @@ class fe_user
 
 	}
 
+
 	public static function sc_redirectIfNotLoggedIn()
 	{
 
@@ -731,7 +728,6 @@ class fe_user
 		{
 			return self::redirectToLogin();
 		}
-
 	}
 
 
@@ -764,6 +760,7 @@ class fe_user
 			return true;
 		}
 	}
+
 
 	public static function getUser2RoomState($userId, $fUserId, $type)
 	{
@@ -804,6 +801,7 @@ class fe_user
 		return $age;
 	}
 
+
 	public static function getUserImages($user)
 	{
 		$userId			= intval($user['wz_id']);
@@ -833,11 +831,9 @@ class fe_user
 
 		$type			= self::getUserType($userId);
 
-
 		//$profile 		= dbx::query("select * from $profileTable where wz_USERID = $userId");
 		// TODO clean
 		$profile 		= $user;
-
 
 		//if ($profile === false) return array();
 
@@ -883,7 +879,7 @@ class fe_user
 		}
 		*/
 
-
+		
 		// get mitbewohner
 
 		$profile['ZEITRAUM']		= self::formatVonBis($profile['wz_ZEITRAUM_VON'], $profile['wz_ZEITRAUM_BIS'], "###ab###", "bis", "date");
@@ -925,6 +921,7 @@ class fe_user
 		}
 	}
 
+
 	public static function formatVonBis($von, $bis, $vonStr = 'von', $bisStr = 'bis', $type = 'default')
 	{
 		$lng 		= xredaktor_pages::getFrontEndLang();
@@ -953,11 +950,13 @@ class fe_user
 		}
 	}
 
+
 	public static function sc_getMyUserType()
 	{
 		$userId = intval(xredaktor_feUser::getUserId());
 		return self::getUserType($userId);
 	}
+
 
 	public static function ajax_delFoto()
 	{
@@ -984,6 +983,7 @@ class fe_user
 		frontcontrollerx::json_success(array('fotoId' => $fotoId));
 	}
 
+
 	public static function getUserType($userId)
 	{
 		$userId = intval($userId);
@@ -996,6 +996,7 @@ class fe_user
 		return $type;
 	}
 
+
 	public static function sc_getUserData()
 	{
 		$userId = intval($_REQUEST['id']);
@@ -1004,6 +1005,7 @@ class fe_user
 
 		return self::getUserData($userId);
 	}
+
 
 	public static function getUserDataOnly($userId)
 	{
@@ -1016,6 +1018,7 @@ class fe_user
 		return $user;
 
 	}
+
 
 	public static function sc_getLanguagesDropdown()
 	{
@@ -1032,6 +1035,7 @@ class fe_user
 
 		return $ret;
 	}
+
 
 	public static function checkLoggedIn()
 	{
@@ -1051,6 +1055,7 @@ class fe_user
 		}
 	}
 
+
 	public static function getLoginStatus()
 	{
 		return xredaktor_feUser::isLoggedIn();
@@ -1059,7 +1064,6 @@ class fe_user
 
 	public static function getInvitations()
 	{
-
 		$userId		= intval(xredaktor_feUser::getUserId());
 		if ($userId == 0) return false;
 
@@ -1105,6 +1109,7 @@ class fe_user
 
 		header("Location: ".xredaktor_niceurl::genUrl($cfg));
 	}
+
 
 	public static function redirectToSearch()
 	{
@@ -1265,6 +1270,7 @@ class fe_user
 		xredaktor_feUser::refreshUserdata($userId);
 	}
 
+
 	public static function getProfileImage($userId)
 	{
 		$userId = intval($userId);
@@ -1315,6 +1321,7 @@ class fe_user
 		echo $_REQUEST['callback'].'('.$json.');';
 	}
 
+
 	public static function getMyProfileImage()
 	{
 		$userId = intval(xredaktor_feUser::getUserId());
@@ -1323,6 +1330,7 @@ class fe_user
 
 		return self::getProfileImage($userId);
 	}
+
 
 	public static function getDefaultImage($user)
 	{
@@ -1338,6 +1346,7 @@ class fe_user
 		}
 	}
 
+	
 	public static function getDefaultImageByUserId($userId)
 	{
 		$userId = intval($userId);
@@ -1349,8 +1358,6 @@ class fe_user
 
 
 	################ Image processing
-
-
 	public static function ajax_uploadImage($params)
 	{
 
@@ -1420,13 +1427,7 @@ class fe_user
 
 		// jetzt sollte man noch die filesize updaten...
 
-
-
-
-
 		// jetzt in xr_img2 werfen - sollte dann korrekte s_media_w und _h setzen
-
-
 
 		// rotate if neccessary
 		//xredaktor_storage::rotate_if_necessary($image_s_id);
@@ -1462,16 +1463,6 @@ class fe_user
 		$_SESSION['image']['trueH'] = $imageData['trueH'];
 
 		$a_id = 746;
-
-
-
-
-
-
-
-
-
-
 
 		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
 
