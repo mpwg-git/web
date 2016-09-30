@@ -2,12 +2,13 @@
 
 <%xr_siteCall fn="fe_wgtest::sc_getInitFragen" var="fragen"%>
 
-<%xr_siteCall fn="fe_user::sc_getUserData" var="userdata"%>
+<%xr_siteCall fn="fe_room::sc_getRoomData" var="data"%>
+
 
 <form method="post" id="wg-zimmer-finden">
 
 <div class="register-fragen">
-    
+
     <div class="row">
         <div class="col-xs-12">
             <br />
@@ -26,7 +27,7 @@
             </form>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-xs-3" style="max-width: 150px; padding-top: 8px;">
             <%xr_translate tag='Miete'%>:
@@ -36,25 +37,25 @@
             <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='Bitte Miete angeben'%></div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-xs-12">
             <br /><br /><br />
             <h2><%xr_translate tag='Mein perfekter Mitbewohner'%>:</h2>
         </div>
     </div>
-    
+
     <%foreach $fragen as $k => $v%>
-        
+
         <div class="row">
             <div class="col-xs-12">
                 <h4><%$v['FRAGE']['wz_FRAGE']%></h4>
                 <input type="hidden" value="<%$v['FRAGE']['wz_id']%>" class="hidden-fragen" />
             </div>
         </div>
-        
+
         <%foreach $v['OPTIONS'] as $i => $o%>
-    
+
         <div class="row">
             <div class="col-xs-1" style="max-width: 20px;">
                 <input type="checkbox" class="checkboxV2" name="frage[<%$v['FRAGE']['wz_id']%>]" value="<%$o['wz_id']%>" data-frage="<%$v['FRAGE']['wz_id']%>">
@@ -63,20 +64,20 @@
                 <label for="antwort_<%$o['wz_id']%>" style="text-transform: none;"><%$o['wz_TEXT']%></label>
             </div>
         </div>
-    
+
         <%/foreach%>
-        
+
         <div class="row">
             <div class="col-xs-1" style="max-width: 20px;"></div>
             <div class="col-xs-9">
                 <div class="error-div checkbox-error" id="FRAGE_<%$v['FRAGE']['wz_id']%>_error"><%xr_translate tag='Bitte Auswahl treffen'%></div>
             </div>
         </div>
-    
+
     <%/foreach%>
-    
+
     <br /><br />
-    
+
     <div class="row">
         <div class="col-xs-1" style="max-width: 20px;">
             <input type="checkbox" name="AGB" id="agb-accept" rel="required_check">
@@ -86,11 +87,11 @@
             <div class="error-div" id="agb-accept_error"><%xr_translate tag='Bitte akzeptieren Sie die AGB'%></div>
         </div>
     </div>
-    
+
     <div class="row" style="padding-top: 18px; display:none;" id="show-simple-login-form">
         <div class="col-xs-5"></div>
         <div class="col-xs-5 pull-right register-inner" style="max-width: 360px;">
-            
+
             <div class="form-group">
                 <label for="vorname"><%xr_translate tag="Vorname?"%>*</label>
                 <input id="VORNAME" name="VORNAME" class="form-control" rel="required2" />
@@ -105,26 +106,31 @@
                 <input id="NACHNAME" name="NACHNAME" class="form-control" rel="required2" />
                 <div class="error-div" id="NACHNAME_error"><%xr_translate tag='Bitte Nachname angeben'%></div>
             </div>
-            
+
             <div class="form-group">
                 <input type='hidden' name='doLogin' value='1' />
                 <label for="v2_EMAIL"><span class="small">e</span>Mail</label>
-                <%if isset($smarty.request.v2_EMAIL)%>
-                    <input type="email" name="v2_EMAIL" value='<%$smarty.request.v2_EMAIL%>' />
-                <%else%>
-                    <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
-                    <div class="error-div" id="v2_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
-                <%/if%>    
+                <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
+                <div class="error-div" id="v2_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
             </div>
+            
             <div class="form-group">
                 <label for="v2_PASSWORT"><%xr_translate tag="Passwort?"%></label>
                 <input id="v2_PASSWORT" name="v2_PASSWORT" type="password" class="form-control" rel="required2_minlength" data-minlength="6" />
                 <div class="error-div" id="v2_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
                 <div class="error-div" id="v2_PASSWORT_minlength_error"><%xr_translate tag='Mindestlänge: 6 Zeichen'%></div>
-                <div class="error-div" id="v2_PASSWORT_wrong_error"><%xr_translate tag='Email oder Passwort falsch'%></div>
+                <!--<div class="error-div" id="v2_PASSWORT_wrong_error"><%xr_translate tag='Email oder Passwort falsch'%></div>-->
                 <!--<a href="<%xr_genlink p_id=25%>" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>-->
             </div>
-            
+            <!--<div class="form-group">-->
+            <!--    <label for="v2_PASSWORT2"><%xr_translate tag="Passwort?"%></label>-->
+            <!--    <input id="v2_PASSWORT2" name="v2_PASSWORT2" type="password" class="form-control" rel="required2_minlength" data-minlength="6" />-->
+            <!--    <div class="error-div" id="v2_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>-->
+            <!--    <div class="error-div" id="v2_PASSWORT_minlength_error"><%xr_translate tag='Mindestlänge: 6 Zeichen'%></div>-->
+            <!--    <div class="error-div" id="v2_PASSWORT_wrong_error"><%xr_translate tag='Email oder Passwort falsch'%></div>-->
+                <!--<a href="<%xr_genlink p_id=25%>" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>-->
+            <!--</div>-->
+
             <div class="geschlecht-chooser geschlecht">
             <div class="form-group">
                 <div class="radio">
@@ -141,24 +147,24 @@
                 </div>
                  <div class="error-div" id="GESCHLECHT_error"><%xr_translate tag='Bitte Geschlecht auswählen'%></div>
             </div>
-           
+
             </div>
-        </div>    
+        </div>
     </div>
-    
+
     <div class="row" style="padding-top: 18px;">
         <div class="col-xs-5">
-            <button class="button start-button js-fb-login"><%xr_translate tag='Weiter mit Facebook Login'%></button>
+            <button class="button start-button <%if $smarty.request.h%>fb-login-submit<%else%>js-fb-login<%/if%>"><%xr_translate tag='Weiter mit Facebook Login'%></button>
         </div>
         <div class="col-xs-5 pull-right" style="text-align: right; padding-right: 0px;">
             <button style="display:none;" class="button start-button js-simple-login"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
             <button class="button start-button js-show-simple-login"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
-            
+
         </div>
     </div>
-    
+
     <br /><br /><br />
-    
+
 </div>
 
 </form>
