@@ -1508,6 +1508,7 @@ class fe_user
 		}
 	}
 
+
 	public static function handleFinalSubmitRoom($roomId, $s_id, $type)
 	{
 		//print_r(compact('roomId', 's_id', 'type'));die('ML');
@@ -1530,6 +1531,7 @@ class fe_user
 
 		frontcontrollerx::json_success();
 	}
+
 
 	public static function ajax_get_dkrm_image()
 	{
@@ -1563,6 +1565,7 @@ class fe_user
 		frontcontrollerx::json_success();
 	}
 
+
 	public static function handleFinalSubmit($userId, $s_id, $type)
 	{
 		$userId 	= intval($userId);
@@ -1586,13 +1589,11 @@ class fe_user
 	}
 
 
-
 	public static function ajax_cropImageAndSaveNew()
 	{
 		$crop = array();
 		$crop = $_REQUEST;
 		unset($crop['url']);
-
 
 		/*
 		if (!isset($_REQUEST['type']))
@@ -1629,7 +1630,6 @@ class fe_user
 			$crop['selectionHeight'] = floatval($crop['selectionHeight']);
 			$crop['ratio'] 			 = floatval($crop['ratio']);
 			$crop['s_id']			 = intval($crop['s_id']);
-
 
 			$crop['devicepixelratio'] = floatval($crop['devicepixelratio']);
 
@@ -1724,7 +1724,6 @@ class fe_user
 
 		$maybeCroppedImg = xredaktor_storage::xr_img3($params);
 
-
 		// jetzt originalfilenamen mit _auto_cropped_x0_y0_w300_h300 angehängt
 		$srcFile	= xredaktor_storage::getFileDstById($s_id);
 		$dir 		= dirname($srcFile);
@@ -1766,7 +1765,6 @@ class fe_user
 		frontcontrollerx::json_success(array('data' => array('html' => $html)));
 
 	}
-
 
 
 	public static function ajax_toggleFav()
@@ -1901,6 +1899,7 @@ class fe_user
 		frontcontrollerx::json_success(array('state' => $state));
 	}
 
+	
 	public static function getMatchPercent($userId, $fUserId, $returnArray = false)
 	{
 		$result		= fe_matching::matchUsers($userId,$fUserId, true); // mark
@@ -1914,6 +1913,7 @@ class fe_user
 			return $result['matchGesamt'];
 		}
 	}
+
 
 	public static function getUsersByRoomId($roomId, $genderCountOnly = false)
 	{
@@ -1976,6 +1976,7 @@ class fe_user
 
 	}
 
+
 	public static function getUserAgespanByRoomId($roomId)
 	{
 		$ret = array(
@@ -2009,6 +2010,7 @@ class fe_user
 
 		return $ret;
 	}
+
 
 	public static function getUsersByRoomIdWithDetails($roomId)
 	{
@@ -2060,6 +2062,8 @@ class fe_user
 
 		return true;
 	}
+
+
 	public static function setUserActive($userId)
 	{
 		$userId = intval($userId);
@@ -2068,6 +2072,7 @@ class fe_user
 		return true;
 	}
 
+	
 	public static function ajax_delContent()
 	{
 
@@ -2169,9 +2174,6 @@ class fe_user
 
 		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId($pageId);
 
-
-
-
 		if (count($send2)>0)
 		{
 			$html = xredaktor_render::renderPage($pageId,true);
@@ -2211,9 +2213,6 @@ class fe_user
 					$replyTo['name'] = $replyToName;
 				}
 
-
-
-
 				$mailCfg = array(
 				'to'						=> array('email' => $to, 'name'=>$to),
 				'from'						=> array('email' => xredaktor_feUser::getFromMail_EMAIL($mailSettings),	'name' => xredaktor_feUser::getFromMail_NAME($mailSettings)),
@@ -2233,10 +2232,6 @@ class fe_user
 				'smtp_pwd'		=> $s_mail_smtp_pwd,
 				)
 				);
-
-
-
-
 
 				if (!mailx::sendMail($mailCfg))
 				{
@@ -2259,6 +2254,7 @@ class fe_user
 
 	}
 
+
 	public static function setErrorMessage($translateStr)
 	{
 		session_start();
@@ -2266,10 +2262,12 @@ class fe_user
 		return $_SESSION['error_message'];
 	}
 
+
 	public static function sc_clearSessionErrorMessage($params)
 	{
 		return self::clearSessionErrorMessage();
 	}
+
 
 	public static function clearSessionErrorMessage()
 	{
@@ -2280,6 +2278,7 @@ class fe_user
 		unset($_SESSION['error_messages']);
 		return true;
 	}
+
 
 	public static function handleImageDownload($imageurl,$fbId)
 	{
@@ -2324,6 +2323,7 @@ class fe_user
 
 		return $image_sid;
 	}
+
 
 	public static function ajax_doFacebookLoginSimple()
 	{
