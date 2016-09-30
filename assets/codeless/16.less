@@ -3035,6 +3035,7 @@ h3.popover-title {
 	}
 	.start-button {
 		width: 100%;
+
 	}
 	.blog-header {
 		font-family: @helvetica65;
@@ -3153,9 +3154,113 @@ small.small {
     }
 }
 
-
-
-
 div.row {
 	margin-bottom: 5px;
 }
+
+
+div.fakeline {
+    display: none;
+}
+
+// TABLET STYLING
+
+@media (min-width: 589px) and (max-width: 1024px) {
+//FONT
+    .mobile-row, .mobileV2, div > p, .text, .blog-start h3.headline {
+        font-size: 2rem !important;
+        
+    }
+    a.navlinks {
+        font-size: 1.6rem !important;
+    }
+    .faq-question p {
+        font-size: 2.2rem;
+    }
+    
+//NAV
+    .search-start.default-container-padding.mobileV2 {
+        padding-top: 8rem;
+    }
+    
+// HEADER
+    header, header.clearfix {
+        height: 5rem;
+        padding-bottom: 5.6rem;
+        .left-row, .middle-row, .right-row {
+            width: 33.33333333333333% !important;
+            padding: 10px 0;
+            height: inherit !important;
+        }
+        .right-row {
+            text-align: right !important;
+            margin-top: 0 !important;
+            padding: 2rem;
+        }
+        .middle-row .right-logo img {
+            width: 18rem;
+        }
+    }
+    header.header-suche .text {
+        font-size: 1.6rem !important;
+    }
+    header.header-suche .logo-legend-section .item span[class*="icon-"], header.header-suche .logo-legend-section .item span[class^="icon-"] {
+        vertical-align: text-bottom;
+    }
+    header.clearfix.black.header-suche nav.middle-row {
+        padding: 5px;
+    }
+    header.clearfix.black.header-suche {
+        & > nav{
+            width: 50% !important;  
+            & > span.text {
+                font-size: 1.6rem !important;
+            }
+        }
+    }
+    .scrollbarfix {
+        & > div {
+            margin-top: 5rem;
+        }
+        & > div.searchlist {
+                margin-top: 0;
+            }
+    }
+    
+// LOGO & INTRO TEXT
+    .col-xs-8.text-center.mpwg-teaser-wrapper {
+        font-size: 2rem;
+    }
+    img.img-responsive {
+       max-width: 15rem !important;
+    }
+    
+//BUTTONS
+    a.button.start-button, .button, button {
+        margin-bottom: 1.5rem;
+        font-size: 2.25rem;
+        height: 6rem;
+    }
+    .search-start .bigicon {
+        font-size: 18rem;
+    }
+    
+    #slider-range {
+        width: 100%;
+        right: 6rem;
+    }
+    p.legend.clearfix {
+        margin-top: -1.5rem;
+        margin-left: 2.2rem;
+        margin-right: 2.8rem;
+        margin-bottom: -1.5rem;
+    }
+    div.fakeline {
+        display: none;
+    }
+    #slider-range span:nth-child(2) {
+        margin-left: 0;
+    }
+}
+
+

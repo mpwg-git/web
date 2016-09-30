@@ -5,7 +5,7 @@ require_once(dirname(__FILE__).'/../_includes.php');
 
 $links = array();
 
-for ($i=0;$i<=35;$i++)
+for ($i=0;$i<=5;$i++)
 {
 	$links[] = 	"http://www.wg-gesucht.de/wg-zimmer-in-Wien.163.0.0.$i.html";
 }
@@ -110,7 +110,7 @@ function downloadImages($images)
 	$imgs = array();
 	foreach ($images as $i)
 	{
-		$i = str_replace("https","http",$i);
+		$i 		= str_replace("https","http",$i);
 		$ext 	= array_pop(explode('.',$i));
 		$md5 	= "_v3-".md5($i).'.'.$ext;
 
@@ -349,9 +349,7 @@ function processRoom($l)
 	{
 		$wz_id = intval($present['wz_id']);
 		dbx::update('wizard_auto_858',$db,array('wz_id'=>$wz_id));
-	}
-	
-	
+	}	
 }
 
 
@@ -379,4 +377,5 @@ foreach ($zimmer as $l)
 
 
 
+echo "\nENDE DOWNLOAD WG-GESUCHT\n\n";
 
