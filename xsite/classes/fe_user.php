@@ -2338,7 +2338,10 @@ class fe_user
 			frontcontrollerx::json_success(array('status'=>'NOK','msg'=>'Invalid User'));
 			die();
 		}
-
+		
+		
+		
+		
 		$FACEBOOK_ID 	= dbx::escape($FACEBOOK_ID);
 		$EMAIL			= trim($_REQUEST['email']);
 
@@ -2350,12 +2353,84 @@ class fe_user
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
 		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
+		
+		
+		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
+		{
+			$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE (wz_FACEBOOK_ID = '$FACEBOOK_ID' || wz_EMAIL = '$EMAIL') AND wz_del = 'N' AND wz_online = 'Y'");
+	////// CHECK IF ACTIVATE NEEDED
+			if ($presentUser['wz_IS_TMP_USER'] == 'Y')
+			{
+				$tmpUserId = intval($presentUser['wz_id']);
+				dbx::query("UPDATE wizard_auto_707 SET wz_FACEBOOK_ID = '$FACEBOOK_ID' WHERE wz_id = $tmpUserId");
+	
+	
+				if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
+				{
+					$hash = trim(dbx::escape($_REQUEST['h']));
+					$ok = dbx::query("select * from wizard_auto_809 where wz_del= 'N' and wz_HASH = '$hash' and wz_ADMIN = $tmpUserId");
+					if ($ok !== false)
+					{
+						fe_room::activateRoomWithHash($ok['wz_id'], $hash);
+						
+					}
+				}
+			}
+	////////
+			
+			
+			if($presentUser === false)
+			{
+				
+				// register mit facebook daten
+					$FACEBOOK_ID 	= dbx::escape($FACEBOOK_ID);
+					$EMAIL			= trim($_REQUEST['email']);
+					$VORNAME		= trim($_REQUEST['first_name']);
+					$NACHNAME		= trim($_REQUEST['last_name']);
+					$AGB			= 'on';
+					
+					$db_user = self::$regDefaults;
+	
+					$db_user['wz_FACEBOOK_ID'] 			= $FACEBOOK_ID;
+					$db_user['wz_EMAIL']				= $EMAIL;
+					$db_user['wz_VORNAME']				= $VORNAME;
+					$db_user['wz_NACHNAME']				= $NACHNAME;
+					$db_user['wz_online']				= 'Y';
+					$db_user['wz_created']				= 'NOW()';
+					$db_user['wz_MAIL_CHECKED']			= 'Y';
+					$db_user['wz_ACTIVE']				= 'Y';
+					$db_user['wz_AGB_1']				= $AGB;
+					$db_user['wz_TYPE'] 				= 'biete';
+					
+					dbx::insert('wizard_auto_707',$db_user);
+					$feu_id = intval(dbx::getLastInsertId());
+					xredaktor_feUser::refreshUserdata($feu_id);
+					
+					// als admin beim raum setzen
+					if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
+					{
+						$hash = dbx::escape($_REQUEST['h']);
+						$room = dbx::query("select * from wizard_auto_809 where wz_HASH = '$hash' && wz_HASH != ''");
+						if ($room !== false)
+						{
+							$roomId = intval($room['wz_id']);
+							dbx::update("wizard_auto_809", array('wz_ADMIN' => $feu_id), array('wz_id' => $roomId));
+							
+							// raum aktivieren
+							fe_room::activateRoomWithHash($roomId, $hash);
+						}
+					}
+					
+					frontcontrollerx::json_success(array('status'=>'NOK','msg'=>'','redirect' => ''));
+					die();
+			}
+		}
 
-		if($presentUser === false)
+		if ($presentUser === false)
 		{
 			frontcontrollerx::json_success(array('status'=>'NOK','msg'=>'','redirect' => ''));
-			die();
 		}
+
 
 		$feu_id = intval($presentUser['wz_id']);
 
