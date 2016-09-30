@@ -2,6 +2,8 @@
 
 <%xr_siteCall fn="fe_wgtest::sc_getInitFragen" var="fragen"%>
 
+<%xr_siteCall fn="fe_user::sc_getUserData" var="userdata"%>
+
 <form method="post" id="wg-zimmer-finden">
 
 <div class="register-fragen">
@@ -107,8 +109,12 @@
             <div class="form-group">
                 <input type='hidden' name='doLogin' value='1' />
                 <label for="v2_EMAIL"><span class="small">e</span>Mail</label>
-                <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
-                <div class="error-div" id="v2_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
+                <%if isset($smarty.request.v2_EMAIL)%>
+                    <input type="email" name="v2_EMAIL" value='<%$smarty.request.v2_EMAIL%>' />
+                <%else%>
+                    <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
+                    <div class="error-div" id="v2_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
+                <%/if%>    
             </div>
             <div class="form-group">
                 <label for="v2_PASSWORT"><%xr_translate tag="Passwort?"%></label>
