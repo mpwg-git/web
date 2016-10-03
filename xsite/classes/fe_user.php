@@ -81,7 +81,7 @@ class fe_user
 		$exists = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_EMAIL = '$email' AND wz_del = 'N' ");
 
 
-		//TODO wenn user aus xkalt passwort selbst eingeben lassen
+		//user aus xkalt passwort selbst eingeben lassen
 		//$pass = 'drduck' . rand(1000, 9999);
 
 		$db = array(
@@ -2932,6 +2932,26 @@ class fe_user
 
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
+
+	
+	public static function sc_getUserMailByRoomHash(){
+		
+		$hash 		= dbx::escape(trim($_REQUEST['h']));
+		
+		$userId		= intval(dbx::queryAttribute("select * FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_ADMIN"));
+		
+		$email		= dbx::queryAttribute("select wz_EMAIL FROM wizard_auto_707 WHERE wz_id = $userId","wz_EMAIL");
+		
+		if ($email == '')
+		{
+			return false;
+			
+		} else 
+		{
+			return $email;
+		}
+	}
+
 
 	public static function ajax_sendEmailConfirmationAgain()
 	{

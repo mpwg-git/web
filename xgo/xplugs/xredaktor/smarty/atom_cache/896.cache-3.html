@@ -1,8 +1,11 @@
+
 <%xr_siteCall fn="fe_user::redirectIfLoggedIn"%>
 
 <%xr_siteCall fn="fe_wgtest::sc_getInitFragen" var="fragen"%>
 
 <%xr_siteCall fn="fe_room::sc_getRoomData" var="data"%>
+
+<%xr_siteCall fn="fe_user::sc_getUserMailByRoomHash" var="mailaddr"%>
 
 
 <form method="post" id="wg-zimmer-finden">
@@ -110,7 +113,12 @@
             <div class="form-group">
                 <input type='hidden' name='doLogin' value='1' />
                 <label for="v2_EMAIL"><span class="small">e</span>Mail</label>
-                <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
+                <%if (isset($smarty.request.h) && $mailaddr != '')%>
+                    <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" value='<%$mailaddr%>'/>
+                <%else%>
+                    <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
+                <%/if%>
+
                 <div class="error-div" id="v2_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
             </div>
             
