@@ -2340,8 +2340,6 @@ class fe_user
 		}
 		
 		
-		
-		
 		$FACEBOOK_ID 	= dbx::escape($FACEBOOK_ID);
 		$EMAIL			= trim($_REQUEST['email']);
 
