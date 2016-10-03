@@ -41,6 +41,12 @@ $header = array(
 'LAST SAVED',
 'AKTIV',
 'xKALT',
+'xKALT_LOG',
+'xKALT_TELNR',
+'xKALT_STATUS',
+'USERDELETE',
+'HIDE',
+'ANSCHREIBEN',
 );
 
 
@@ -67,9 +73,16 @@ foreach ($rooms as $key => $value)
 	$BILDER = intval($BILDER);
 	
 	$admin = $value['wz_ADMIN'];
-
 	
 	$USER = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $admin");
+	
+	$ANSCHREIBEN = 'N';
+	
+	if($value['wz_ACTIVE'] == 'Y' && $value['wz_USERDEL'] == 'N' && $value['wz_HIDE'] == 'N' && $value['wz_HASH'] == '')
+	{
+		$ANSCHREIBEN = 'Y';
+	}
+	
 	
 	$tmp = array(
 	"".$ID,
@@ -107,6 +120,12 @@ foreach ($rooms as $key => $value)
 	"".$value['wz_lastChanged'],
 	"".$value['wz_ACTIVE'],
 	"".$value['wz_SOURCE'],
+	"".$value['wz_kalt_log'],
+	"".$value['wz_kalt_phone'],
+	"".$value['wz_kalt_status'],
+	"".$value['wz_USERDEL'],
+	"".$value['wz_HIDE'],
+	"".$ANSCHREIBEN,
 	);
 
 	$roomData[] = $tmp;

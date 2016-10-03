@@ -3,54 +3,45 @@
 require_once(dirname(__FILE__).'/../../xgo/xplugs/xredaktor/_includes.php');
 require_once(dirname(__FILE__).'/../PHPReport.php');
 
-$rooms = dbx::queryAll("SELECT * FROM wizard_auto_809 WHERE wz_id >= 10000 AND wz_online = 'Y' AND wz_del = 'N' and wz_ADMIN > 0 ORDER BY wz_id ASC");
+$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_online = 'Y' AND wz_del = 'N' ORDER BY wz_id ASC");
 
 $header = array(
 'ID',
-'ERSTELLT',
-'ADMIN',
+'TYP',
 'VORNAME',
 'NACHNAME',
+'GESCHLECT',
+'GEBURTSDATUM',
 'EMAIL',
-'BESCHRIFTUNG INTERN',
-'PROFILBILD',
-'GESUCHT',
-'FRAUEN IN WG',
-'MÄNNER IN WG',
-'ALTER VON',
-'ALTER BIS',
-'ZEITRAUM VON',
-'ZEITRAUM BIS',
-'MIETE',
-'ZIMMERGRÖSSE',
-'RAUCHEN ERLAUBT',
-'KAUTION',
-'ZUSATZKOSTEN',
-'HAUSTIERE ERLAUBT',
-'NUR VEGETARIER / VEGANER',
-'BARRIEREFREI',
-'STRASSE',
-'NUMMER',
-'PLZ',
-'ORT',
-'LAND',
-'LAGE',
-'AUSSTATTUNG',
+'TELEFON',
+'WOHNSITZLAND',
 'BESCHREIBUNG',
-'BILDER',
-'LAST SAVED',
+'REGISTRIERT',
+'PROFILBILD',
+'ZIMMER',
+'FRAGEN BEANTWORTET',
+'BLOCKIERT VON',
+'NACHRICHTEN GESENDET',
+'NACHRICHTEN ERHALTEN',
+'NACHRICHTEN UNGELESEN',
+'FAVORIT MARKIERT VON',
+'LASTLOGIN',
+'EMAIL CONFIRMED',
 'AKTIV',
-'xKALT',
+'xKalt',
+'EMAILBENACHRICHTIGUNGEN',
+'USERDELETE',
+'TEMP USER',
+'ANSCHREIBEN',
 );
 
+$userData = array();
 
-$roomData = array();
-
-foreach ($rooms as $key => $value)
+foreach ($users as $key => $value)
 {
 	$ID = intval($value['wz_id']);
 	$land = '';
-	$LandID = intval($value['ADRESSE_LAND']);
+	$LandID = intval($value['wz_LAND']);
 
 	$l = dbx::query("SELECT * FROM wizard_auto_716 WHERE wz_id = $LandID");
 
@@ -60,66 +51,81 @@ foreach ($rooms as $key => $value)
 	{
 		$land = trim($l['wz_label']);
 	}
-	
+
 	$PROFILBILD = (intval($value['wz_PROFILBILD']) == 0) ? 'Nein' : 'Ja';
 
-	$BILDER = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_810 WHERE wz_ROOMID = $ID AND wz_del = 'N'","cntx");
-	$BILDER = intval($BILDER);
+	$ZIMMER = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_809 WHERE wz_ADMIN = $ID","cntx");
+	$ZIMMER = intval($ZIMMER);
+
+	$FRAGEN = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_765 WHERE wz_USERID = $ID","cntx");
+	$FRAGEN = intval($FRAGEN);
+
+	$BLOCKED = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_768 WHERE wz_F_USERID = $ID","cntx");
+	$BLOCKED = intval($BLOCKED);
+
+	$GESENDET = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM chatitems WHERE wz_USERID = $ID","cntx");
+	$GESENDET = intval($GESENDET);
+
+	$ERHALTEN = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM chatitems WHERE wz_F_USERID = $ID","cntx");
+	$ERHALTEN = intval($ERHALTEN);
+
+	$UNGELESEN = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM chatitems WHERE wz_F_USERID = $ID AND wz_SEEN = 'N'","cntx");
+	$UNGELESEN = intval($UNGELESEN);
+
+	$FAVORIT = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_767 WHERE wz_F_USERID = $ID","cntx");
+	$FAVORIT = intval($FAVORIT);
 	
-	$admin = $value['wz_ADMIN'];
+	$xKALT = dbx::query("SELECT * FROM wizard_auto_809 WHERE wz_ADMIN = $ID and wz_SOURCE = 'wg-gesucht'");
+	
+	$ANSCHREIBEN = 'N';
+	
+	if($value['wz_MAIL_CHECKED'] == 'Y' && $value['wz_ACTIVE'] == 'Y' && $value['wz_USERDEL'] == 'N' && $value['wz_EMAILBENACHRICHTIGUNG'] != 'KEINE' && $value['wz_IS_TMP_USER'] != 'Y')
+	{
+		$ANSCHREIBEN = 'Y';
+	}
 
 	
-	$USER = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $admin");
 	
 	$tmp = array(
 	"".$ID,
-	"".$value['wz_created'],
-	"".$value['wz_ADMIN'],
-	"".$USER['wz_VORNAME'],
-	"".$USER['wz_NACHNAME'],
-	"".$USER['wz_EMAIL'],
-	"".$value['wz_BESCHRIFTUNG_INTERN'],
-	"".$PROFILBILD,
-	"".$value['wz_GESCHLECHT_MITBEWOHNER'],
-	"".$value['wz_UNREG_F'],
-	"".$value['wz_UNREG_M'],
-	"".$value['wz_MITBEWOHNER_ALTER_VON'],
-	"".$value['wz_MITBEWOHNER_ALTER_BIS'],
-	"".$value['wz_ZEITRAUM_VON'],
-	"".$value['wz_ZEITRAUM_BIS'],
-	"".$value['wz_MIETE'],
-	"".$value['wz_GROESSE'],
-	"".$value['wz_RAUCHER'],
-	"".$value['wz_ABLOESE'],
-	"".$value['wz_ZUSATZKOSTEN'],
-	"".$value['wz_HAUSTIERE'],
-	"".$value['wz_VEGGIE'],
-	"".$value['wz_BARRIEREFREI'],
-	"".$value['wz_ADRESSE_STRASSE'],
-	"".$value['wz_ADRESSE_STRASSE_NR'],
-	"".$value['wz_ADRESSE_PLZ'],
-	"".$value['wz_ADRESSE_STADT'],
+	"".$value['wz_TYPE'],
+	"".$value['wz_VORNAME'],
+	"".$value['wz_NACHNAME'],
+	"".$value['wz_GESCHLECHT'],
+	"".$value['wz_GEBURTSDATUM'],
+	"".$value['wz_EMAIL'],
+	"".$value['wz_TELEFON'],
 	"".$land,
-	"".$value['wz_LAGE'],
-	"".$value['wz_AUSSTATTUNG'],
 	"".$value['wz_BESCHREIBUNG'],
-	"".$BILDER,
-	"".$value['wz_lastChanged'],
+	"".$value['wz_created'],
+	"".$PROFILBILD,
+	"".$ZIMMER,
+	"".$FRAGEN,
+	"".$BLOCKED,
+	"".$GESENDET,
+	"".$ERHALTEN,
+	"".$UNGELESEN,
+	"".$FAVORIT,
+	"".$value['wz_LASTLOGIN'],
+	"".$value['wz_MAIL_CHECKED'],
 	"".$value['wz_ACTIVE'],
-	"".$value['wz_SOURCE'],
+	"".$xKALT['wz_SOURCE'],
+	"".$value['wz_EMAILBENACHRICHTIGUNG'],
+	"".$value['wz_USERDEL'],
+	"".$value['wz_IS_TMP_USER'],
+	"".$ANSCHREIBEN,
 	);
 
-	$roomData[] = $tmp;
-
+	$userData[] = $tmp;
 }
 
-$filename = 'Rooms';
+$filename = 'User';
 
 $R=new PHPReport();
 $R->load(array(
-            'id'=>'Rooms',
+            'id'=>'User',
             'header' => $header,
-            'data'=>$roomData,
+            'data'=>$userData,
             'format' => array()
         ));
 
