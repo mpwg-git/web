@@ -43,12 +43,18 @@
                 <label for="geburtsdatum"><%xr_translate tag="Geburtsdatum"%></label>
                 <input id="geburtsdatum" name="geburtsdatum" class="form-control" />
             </div>
-            <div class="form-group" style="margin-bottom: 0;">
+            <div class="form-group">
                 <label for="email"><%xr_translate tag="Email"%></label>
                 <input id="email" name="EMAIL" disabled="true" value="<%$user['wz_EMAIL']%>" class="form-control" />
-                <select id="emailbenachrichtigung" name="EMAILBENACHRICHTIGUNG" class="form-control select-helvetica">
-                    <option value="DE" <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE')%>selected="selected"<%/if%>> <%$user['wz_EMAILBENACHRICHTIGUNG']%></option>
-                   </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="emailbenachrichtigung" style="font-size: 1.4rem;"><%xr_translate tag="Benachrichtigungen erlauben"%></label>
+                <select id="emailbenachrichtigung" name="EMAILBENACHRICHTIGUNG" class="form-control select-helvetica" style="font-size: 1.6rem;">
+                    <option value="DE" <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE')%>selected="selected"<%/if%>>DE</option>
+                    <option value="EN" <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'EN')%>selected="selected"<%/if%>>EN</option>
+                    <option value="KEINE" <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'KEINE')%>selected="selected"<%/if%>><%xr_translate tag="KEINE"%></option>
+                </select>
             </div>
             
             <div class="form-group">
