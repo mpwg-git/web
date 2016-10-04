@@ -2210,6 +2210,17 @@ label {
 		overflow-y: scroll;
 		overflow-x: hidden;
 		-webkit-overflow-scrolling: touch;
+		bottom: 81px;
+
+		@media (device-height: 480px) and (device-width: 320px) {
+		    height: calc(~"98% - 54vw");
+		    bottom: 84px;
+		}
+		@media (device-height: 568px) and (device-width: 320px) {
+		    height: calc(~"98% - 54vw");
+		    bottom: 84px;
+		}
+		
 		.item {
 			position: relative;
 			display: block;
