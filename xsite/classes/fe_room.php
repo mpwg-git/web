@@ -180,7 +180,10 @@ class fe_room
 
 		// insert into matching cron
 		dbx::insert("wizard_auto_845", array('wz_USERID' => intval($room['wz_ADMIN']), 'wz_STATUS' => 'TODO'));
-
+		
+		
+		self::assignUser2Room($room['wz_ADMIN'], $roomId);
+		
 		// redirect to startpage
 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 1)));
 		die();
