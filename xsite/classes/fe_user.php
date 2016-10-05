@@ -2171,9 +2171,6 @@ class fe_user
 
 		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId($pageId);
 
-
-
-
 		if (count($send2)>0)
 		{
 			$html = xredaktor_render::renderPage($pageId,true);

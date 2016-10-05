@@ -44,12 +44,6 @@ class fe_chat
 		}
 		
 		
-		
-		
-		
-		
-		
-		
 		$myAtomId			= 680;
 		$yourAtomId			= 697;
 		
@@ -144,17 +138,14 @@ class fe_chat
 		
 		if ($count === false) return 0;
 		
-		
-		
-		
 		return $count;
 	}
 	
 
 	public static function getLastMessageFromConversation($userId, $fUserId)
 	{
-		$fUserId 	= intval($fUserId);
-		$userId 	= intval(xredaktor_feUser::getUserId());		
+		$fUserId 	= intval($fUserId);	
+		$userId 	= intval(xredaktor_feUser::getUserId());
 		if ($userId == 0 || $fUserId == 0) return $html;
 		
 		$lastMessage	= dbx::query("select * from chatitems where (wz_USERID = $userId and wz_F_USERID = $fUserId) OR (wz_USERID = $fUserId and wz_F_USERID = $userId) ORDER BY wz_id DESC LIMIT 1");
@@ -163,8 +154,41 @@ class fe_chat
 		
 		return $lastMessage;
 	}
-	
 
+	
+	public static function getLastMessageId($userId, $fUserId)
+	{
+		$fUserId 	= intval($fUserId);
+		$userId		= intval($userId);
+		if ($userId == 0 || $fUserId == 0) return 0;
+		
+		$lastMessage = dbx::query("select * from chatitems where (wz_USERID = $userId and wz_F_USERID = $fUserId) OR (wz_USERID = $fUserId and wz_F_USERID = $userId) ORDER BY wz_id DESC LIMIT 1");
+		
+		$lastMessageId	= intval($lastMessage['wz_id']);
+		
+		if ($lastMessageId == 0) return 0;
+		
+		return $lastMessageId;
+	}
+	
+	
+	public static function get_mail_replacers_for_fuser($fUserId)
+	{
+		$fUserId = intval($fUserId);
+		if ($fUserId == 0) return array();
+
+		$user = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $fUserId ");		
+		$lng = xredaktor_pages::getFrontEndLang();
+
+		$replacers = array();
+
+		$replacers['###VORNAME###'] = $user['wz_VORNAME'];
+		 		
+		$replacers['###LINK###']	= 'http://' . $_SERVER["SERVER_NAME"] . '/' . $lng . '/anmelden';
+
+		return $replacers;
+	}
+	
 	public static function getInvolvedUsers($userId)
 	{
 		$userId 		= intval($userId);
