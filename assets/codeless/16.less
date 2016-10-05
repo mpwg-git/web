@@ -3178,6 +3178,7 @@ div.fakeline {
 // TABLET STYLING
 
 @media (min-width: 589px) and (max-width: 1024px) {
+
 //FONT
     .mobile-row, .mobileV2, div > p, .text, .blog-start h3.headline {
         font-size: 2rem !important;
@@ -3252,6 +3253,10 @@ div.fakeline {
     }
     .modal-dialog {
         margin: 46px auto;
+        
+        // @media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        //     margin: 72px auto;
+        // }
     }
     
     
@@ -3298,11 +3303,20 @@ div.fakeline {
         font-size: 3vw;
         top: 3.6vw;
         margin-right: 2vw;
+        
+        // @media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        //     top: 2.4vw;
+        //     margin-right: 1vw;
+        // }
     }
     
     .controls-wrapper {
         width: 22vw !important;
         margin: 6px 0;
+        
+        // @media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        //     margin: 6px 0px 6px 36px;
+        // }
         
         .timestamp {
             margin-bottom: 20px;
@@ -3319,6 +3333,11 @@ div.fakeline {
     .js-chatwindow.chatwindow.fromsearch {
         height: calc(~"100% - 41vw");
         bottom: 150px;
+        
+        // @media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        //     height: calc(~"100% - 28vw");
+        //     bottom: 87px;
+        // }
     }
     
     .chat {
@@ -3344,3 +3363,30 @@ div.fakeline {
         font-size: 3.64vw !important;
     }
 }
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    p.match-text {
+        margin-bottom: 65px !important;
+    }
+    .cookie-warning-top {
+        top: 5.5vw;
+    }
+    .js-chatwindow.chatwindow.fromsearch {
+        height: calc(~"100% - 28vw");
+        bottom: 87px;
+    }
+    .controls-wrapper {
+        margin: 6px 0px 6px 36px;
+    }
+    .chatcontacts .icon-Lupe {
+        top: 2.4vw;
+        margin-right: 1vw;
+    }
+    .modal-dialog {
+        margin: 72px auto;    
+    }
+}
+
+
+
+
