@@ -1,9 +1,8 @@
-
 <%xr_siteCall fn="fe_user::redirectIfLoggedIn"%>
 
 <%xr_siteCall fn="fe_wgtest::sc_getInitFragen" var="fragen"%>
 
-<%xr_siteCall fn="fe_room::sc_getRoomData" var="data"%>
+<%xr_siteCall fn="fe_room::sc_getMieteByRoomHash" var="miete"%>
 
 <%xr_siteCall fn="fe_user::sc_getUserMailByRoomHash" var="mailaddr"%>
 
@@ -36,7 +35,11 @@
             <%xr_translate tag='Miete'%>:
         </div>
         <div class="col-xs-7 col-lg-6 col-xl-5">
-            <input type="text" name="MIETEMAX" id="MIETEMAX" value="" class="form-control" rel="required" />
+            <%if (isset($smarty.request.h) && ($miete != '' || $miete != 0))%>
+                <input type="text" name="MIETEMAX" id="MIETEMAX" value='<%$miete%>' class="form-control" rel="required" />
+            <%else%>
+                <input type="text" name="MIETEMAX" id="MIETEMAX" value="" class="form-control" rel="required" />
+            <%/if%>
             <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='Bitte Miete angeben'%></div>
         </div>
     </div>

@@ -71,6 +71,10 @@ class xredaktor_storage
 
 	public static function registerExistingFile($storageId,$file)
 	{
+
+		$debug = (basename($file)=='11896145_1120233301333023_7879741639459553501_n - Copy.jpg');
+
+
 		$storageId = intval($storageId);
 		if ($storageId == 0) die("\nStorage Scope Id : 0 ? \n");
 		if (!is_file($file)) return false;
@@ -86,11 +90,11 @@ class xredaktor_storage
 
 		foreach ($test as $i => $t)
 		{
-			
-			
-			
+
+
+
 			$check .= '/' .$t;
-			
+
 			usleep(rand(0,300));
 			$s = dbx::query("select * from storage where s_onDisk = '$check' and s_dir='Y' and s_del='N'");
 			if ($s === false)
@@ -140,17 +144,24 @@ class xredaktor_storage
 			//	echo "$check -> $s_dir \n";
 		}
 
+
+
 		// TODO proper fix
 		$file = dbx::escape($file);
 
 		$s = dbx::query("select * from storage where s_onDisk = '$file' and s_dir='N' and s_del='N' and s_storage_scope = $storageId  ");
-		
+
 		if ($s === false)
 		{
 
 			$file_size = filesize($file);
-			
+
 			list($width, $height, $type, $attr) = @getimagesize($file);
+
+			if ($debug)
+			{
+				die('TTTTTTTT');
+			}
 
 			$db = array(
 			's_fid' 			=> $last_s_dir_id,
@@ -176,8 +187,11 @@ class xredaktor_storage
 			return $s_id;
 		} else {
 
+
+
 			$file_size = filesize($file);
 			list($width, $height, $type, $attr) = @getimagesize($file);
+
 			$db = array(
 			's_name' 				=> basename($file),
 			's_lastmod'				=> 'NOW()',
@@ -189,7 +203,11 @@ class xredaktor_storage
 			);
 			$s_id = $s['s_id'];
 			dbx::update('storage',$db,array('s_id'=>$s_id));
+
+		
+
 			self::handleCMYK($s_id);
+			
 			return $s_id;
 		}
 	}
@@ -513,9 +531,7 @@ class xredaktor_storage
 
 	public static function handleCMYK($s_id)
 	{
-		
-		
-		
+		return false;
 		$file = self::getFileDstById($s_id);
 		clearstatcache();
 		if (imagesx::isValidImage($file) && file_exists($file))
@@ -527,30 +543,30 @@ class xredaktor_storage
 				$targetProfile 	=  dirname(__FILE__).'/sRGB.icc';
 				$inputProfile =  dirname(__FILE__).'/USWebCoatedSWOP.icc';
 				$cmd = "$convert '$file' -profile '$targetProfile' '$file' 2>&1";
-				
+
 				// check for no profile
 				$cmdDev = "identify -verbose $file | grep -A 2 'Profile-icc'";
 				exec($cmdDev,$outDev);
-				
+
 				// no profile
 				if (empty($outDev))
 				{
 					$cmd = "$convert '$file' -strip -profile '$inputProfile' -profile '$targetProfile' '$file' 2>&1";
 				}
-				
+
 				// hat profile, aber vl incorrect?
-				else 
+				else
 				{
 					$searchword = 'sRGB';
 					$matches = array_filter($outDev, function($var) use ($searchword) { return preg_match("/\b$searchword\b/i", $var); });
-					
+
 					// incorrect profile => strip
 					if (!empty($matches))
 					{
-						$cmd = "$convert '$file' -strip -profile '$inputProfile' -profile '$targetProfile' '$file' 2>&1";	
-					}	
+						$cmd = "$convert '$file' -strip -profile '$inputProfile' -profile '$targetProfile' '$file' 2>&1";
+					}
 				}
-				
+
 				exec($cmd,$out);
 			}
 		}
@@ -2075,7 +2091,7 @@ class xredaktor_storage
 		'files_unused' 	=> $files_unused,
 		'files_used' 	=> $files_used,
 		);
-		
+
 		if ($return != false)
 		{
 			return $ret;
@@ -2457,19 +2473,19 @@ class xredaktor_storage
 
 		if (($cloud !== false) && (trim($fullpath)!='Y') && ($useCloud))
 		{
-			if (Icloud::CDN_NO_AUTH_ENABLED)
-			{
+		if (Icloud::CDN_NO_AUTH_ENABLED)
+		{
 
-				$file 	= $cloud['file'];
-				$ret 	= $cloud['ret'];
+		$file 	= $cloud['file'];
+		$ret 	= $cloud['ret'];
 
-				$url = Icloud::CDN_NO_AUTH . $file;
+		$url = Icloud::CDN_NO_AUTH . $file;
 
-				$ret['src'] = $url;
-				$ret['url'] = $url;
+		$ret['src'] = $url;
+		$ret['url'] = $url;
 
-				return $ret;
-			}
+		return $ret;
+		}
 		}
 
 		*/
@@ -2482,7 +2498,7 @@ class xredaktor_storage
 
 		$rmode 		= $params['rmode'];
 		$crop		= $params['crop'];
-		
+
 		if ($q == 0) $q = 95;
 
 
@@ -2514,9 +2530,9 @@ class xredaktor_storage
 
 
 		// fix show gifs, even if no ext set
-		
+
 		$isAnimatedGif = false;
-		
+
 		if ($params['showgififgif'] == 1)
 		{
 			$ext = pathinfo($file_name, PATHINFO_EXTENSION);
@@ -2524,19 +2540,19 @@ class xredaktor_storage
 			if ($ext == "gif")
 			{
 				$type = "gif";
-			
+
 				// check if gif is animated
 				exec("identify -format \"%n\" $fileOnDisk 2>&1",$out);
-				
+
 				if (intval($out[0]) > 1)
 				{
 					$isAnimatedGif = true;
 				}
-				
+
 			}
-			
+
 			unset($params['showgififgif']);
-			
+
 		}
 
 
@@ -2593,44 +2609,44 @@ class xredaktor_storage
 		$ret['rh'] = $height;
 
 		// CLOUD - REGISTER
-		
+
 		/*
-		
+
 		xredaktor_assets::cachedImages_setKeyFile($s_id,$memCacheKey,$onDisk,$ret);
 
 
 		$cloud = xredaktor_assets::cachedImages_getByKey($memCacheKey);
 		if (($cloud !== false) && (trim($fullpath)!='Y') && ($useCloud))
 		{
-			if (Icloud::CDN_NO_AUTH_ENABLED)
-			{
+		if (Icloud::CDN_NO_AUTH_ENABLED)
+		{
 
-				$file 	= $cloud['file'];
-				$ret 	= $cloud['ret'];
+		$file 	= $cloud['file'];
+		$ret 	= $cloud['ret'];
 
-				$url = Icloud::CDN_NO_AUTH . $file;
+		$url = Icloud::CDN_NO_AUTH . $file;
 
-				$ret['src'] = $url;
-				$ret['url'] = $url;
+		$ret['src'] = $url;
+		$ret['url'] = $url;
 
-				return $ret;
-			}
+		return $ret;
+		}
 		}
 
 		if ($useReverseCloud)
 		{
 
-			if (Icloud::REVERSE_ORIGIN_ENABLED)
-			{
-				$url = $ret['src'];
-				$url = Icloud::REVERSE_ORIGIN . $url;
+		if (Icloud::REVERSE_ORIGIN_ENABLED)
+		{
+		$url = $ret['src'];
+		$url = Icloud::REVERSE_ORIGIN . $url;
 
-				$ret['src'] = $url;
-				$ret['url'] = $url;
-				return $ret;
-			}
+		$ret['src'] = $url;
+		$ret['url'] = $url;
+		return $ret;
 		}
-		
+		}
+
 		*/
 
 
@@ -3035,16 +3051,16 @@ class xredaktor_storage
 		//return $img_s_id;
 		$img_s_id = intval($img_s_id);
 		if ($img_s_id == 0) return false;
-		
+
 		$fileOnSrv = self::getFilePathById($img_s_id);
-		
+
 		// todo: check if this is an image
 		//if ($isNotAnImage) return false;
-		
-		
+
+
 		$image = new Imagick($fileOnSrv);
 		// todo: check returnval if img is dirty / unreadable etc
-		
+
 		$hasExif = false;
 		$profilesArray = $image->getImageProfiles("*",false);
 		foreach ($profilesArray as $k => $v)
@@ -3054,106 +3070,106 @@ class xredaktor_storage
 				break;
 			}
 		}
-		
+
 		$rotation 	 = false;
 		$orientation = $image->getImageOrientation();
 		// todo: try/catch for getImageOrientation
-		 
-		 
+
+
 		$width  = $image->getImageWidth();
 		$height = $image->getImageHeight();
-		 
-		 
+
+
 		switch($orientation) {
-			/* 
+			/*
 			case imagick::ORIENTATION_BOTTOMRIGHT:
-				$rotation = 180; 
-				break; 
+			$rotation = 180;
+			break;
 
 			case imagick::ORIENTATION_RIGHTTOP:
-				$rotation = 90; 
-				break; 
+			$rotation = 90;
+			break;
 
-			case imagick::ORIENTATION_LEFTBOTTOM: 
-				$rotation = -90;
+			case imagick::ORIENTATION_LEFTBOTTOM:
+			$rotation = -90;
+			break;
+			*
+			*/
+			case Imagick::ORIENTATION_TOPLEFT:
 				break;
-			 * 
-			 */
-			 case Imagick::ORIENTATION_TOPLEFT:
-		        break;
-		    case Imagick::ORIENTATION_TOPRIGHT:
-		        $image->flopImage();
-		        break;
-		    case Imagick::ORIENTATION_BOTTOMRIGHT:
-		        $image->rotateImage("#000", 180);
-		        break;
-		    case Imagick::ORIENTATION_BOTTOMLEFT:
-		        $image->flopImage();
-		        $image->rotateImage("#000", 180);
-		        break;
-		    case Imagick::ORIENTATION_LEFTTOP:
-		        $image->flopImage();
-		        $image->rotateImage("#000", -90);
-		        break;
-		    case Imagick::ORIENTATION_RIGHTTOP:
-		        $image->rotateImage("#000", 90);
-		        break;
-		    case Imagick::ORIENTATION_RIGHTBOTTOM:
-		        $image->flopImage();
-		        $image->rotateImage("#000", 90);
-		        break;
-		    case Imagick::ORIENTATION_LEFTBOTTOM:
-		        $image->rotateImage("#000", -90);
-		        break;
-		    default: // Invalid orientation
-		        break;
+			case Imagick::ORIENTATION_TOPRIGHT:
+				$image->flopImage();
+				break;
+			case Imagick::ORIENTATION_BOTTOMRIGHT:
+				$image->rotateImage("#000", 180);
+				break;
+			case Imagick::ORIENTATION_BOTTOMLEFT:
+				$image->flopImage();
+				$image->rotateImage("#000", 180);
+				break;
+			case Imagick::ORIENTATION_LEFTTOP:
+				$image->flopImage();
+				$image->rotateImage("#000", -90);
+				break;
+			case Imagick::ORIENTATION_RIGHTTOP:
+				$image->rotateImage("#000", 90);
+				break;
+			case Imagick::ORIENTATION_RIGHTBOTTOM:
+				$image->flopImage();
+				$image->rotateImage("#000", 90);
+				break;
+			case Imagick::ORIENTATION_LEFTBOTTOM:
+				$image->rotateImage("#000", -90);
+				break;
+			default: // Invalid orientation
+			break;
 		}
-		
+
 		if ($rotation === false) {
 			// either already properly rotated or errorneous
 			// -> nothing to do, return
 			return $img_s_id;
 		}
-		
+
 		$image->rotateimage("#000", $rotation);
-		
+
 		if ($hasExif)
 		{
 			$image->removeImageProfile('exif');
 		}
-		
-		// todo: try / catch for rotateImage 
-		
+
+		// todo: try / catch for rotateImage
+
 		// update width / height / filesize
-		
+
 		//$width  = $image->getImageWidth();
 		//$height = $image->getImageHeight();
 		$filesize = $image->getImageLength();
-		
+
 		dbx::update('storage', array(
-			's_fileSizeBytes' 		=> $filesize,
-			's_fileSizeBytesHuman'	=> hdx::bytes2HumanReadAble($filesize),
-			//'s_media_w'				=> $width,
-			//'s_media_h'				=> $height,
+		's_fileSizeBytes' 		=> $filesize,
+		's_fileSizeBytesHuman'	=> hdx::bytes2HumanReadAble($filesize),
+		//'s_media_w'				=> $width,
+		//'s_media_h'				=> $height,
 		), array(
-			's_id' => $img_s_id
+		's_id' => $img_s_id
 		));
-		
-		// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image! 
+
+		// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
 		$image->setImageOrientation(imagick::ORIENTATION_TOPLEFT);
 		// todo: try / catch for setImageOrientation
-		
-		
-		 
-		
-		
-		
+
+
+
+
+
+
 		$image->writeImage($fileOnSrv);
-		// todo: try / catch for writeImage 
-		
+		// todo: try / catch for writeImage
+
 		return true;
 	}
-	
+
 
 
 
