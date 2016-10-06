@@ -111,7 +111,7 @@ class fe_room
 
 		return $replacers;
 	}
-	
+
 
 	public static function send_kaltaquise_mail_by_roomId_and_email($roomId, $email)
 	{
@@ -166,15 +166,15 @@ class fe_room
 			header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 1)));
 			die();
 		}
-		
-		
+
+
 		// remove hash from room + activate, now can be seen by everyone
 		dbx::update('wizard_auto_809', array('wz_HASH' 	=> '','wz_ACTIVE' => 'Y'), array('wz_id' => $roomId));
 
-	
+
 		// update user so he can be found in chat
-		dbx::update('wizard_auto_707', array('wz_IS_TMP_USER'=>'C','wz_USERDEL'=>'N'), array('wz_id'=>intval($room['wz_ADMIN'])));		
-		
+		dbx::update('wizard_auto_707', array('wz_IS_TMP_USER'=>'C','wz_USERDEL'=>'N'), array('wz_id'=>intval($room['wz_ADMIN'])));
+
 		// insert into room cron
 		dbx::insert('wizard_auto_853', array('wz_ROOMID' => $roomId, 'wz_STATUS' => 'TODO'));
 
@@ -337,6 +337,17 @@ class fe_room
 		return $ret;
 	}
 
+
+	public static function sc_getMieteByRoomHash(){
+
+		$hash 		= dbx::escape(trim($_REQUEST['h']));
+
+		$miete		= dbx::queryAttribute("select wz_MIETE_TOTAL FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_MIETE_TOTAL");
+
+		return $miete;
+	}
+
+
 	public static function sc_getPublicRoomData()
 	{
 		$roomId   = intval($_REQUEST['id']);
@@ -356,6 +367,7 @@ class fe_room
 
 		$admin			= intval($room['wz_ADMIN']);
 		//$user			= fe_user::getUserData($admin);
+
 
 		$images					 = array();
 
