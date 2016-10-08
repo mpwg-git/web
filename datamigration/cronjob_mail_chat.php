@@ -3,48 +3,36 @@
 require_once(dirname(__FILE__).'/_includes.php');
 require_once(dirname(__FILE__).'/../xgo/xplugs/_includes.php');
 
-////////////////////// TODO wz_f_userid in $items nach test entfernen
-//////////////////////
-$items = dbx::queryAll("select c.wz_f_userid, c.wz_userid, max(c.wz_id) as 'wz_id' from chatitems c where wz_seen = 'N' and wz_deleted = 'N' and wz_f_userid = '10000' group by c.wz_f_userid ORDER BY `c`.`wz_f_userid`  ASC");
-//////////////////////
 
-$ids_done	= array();
+$items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' AND wz_F_USERID = '10593' GROUP BY wz_F_USERID");
 
-echo "\n\n Start sending mails New Chat Message(53) \n\n";
+$log_file = 'cronlog.log';
 
+//$ids_done	= array();
 
-foreach ($items as $i) {
+echo "\n\n Start sending mails New Chat Message \n\n";
 
-	$fUserId			= intval($i['wz_f_userid']);
-	$userId			= intval($i['wz_userid']);
+foreach ($items as $k => $i) {
+
+	$fUserId		= intval($i['wz_F_USERID']);
+
+	$userId			= intval($i['wz_USERID']);
 
 	$countNotSeen	= fe_chat::getNotSeenCount($fUserId);
-	echo "\n";
 
-	$lastWzId		= intval($i['wz_id']);
+	$lastWzId		= intval($i['msgID']);
 
-	$checkId	= dbx::queryAttribute("select wz_lastMailedMessageId from chatitems where wz_id = $lastWzId","wz_lastMailedMessageId");
+	$checkId	= intval(dbx::queryAttribute("SELECT wz_lastMailedMessageId FROM chatitems WHERE wz_id = " . $i['msgID'], 'wz_lastMailedMessageId'));
 
-
-	if((!in_array($fUserId, $ids_done)) && ($checkId != $lastWzId))
+	// if((!in_array($fUserId, $ids_done)) && ($checkId != $i['wz_id']))
+	if ($checkId != $lastWzId)
 	{
 
-		$user = dbx::query("select * from wizard_auto_707 where wz_id = $fUserId and wz_del = 'N' and wz_online = 'Y' and wz_emailbenachrichtigung != 'KEINE'");
+		$user = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $fUserId and wz_del = 'N' and wz_online = 'Y' and wz_EMAILBENACHRICHTIGUNG != 'KEINE'");
 
-		$email   = $user['wz_EMAIL'];
-		//$lng		= strtolower($user['wz_EMAILBENACHRICHTIGUNG']);
-
-		/*
-		if($lng == 'en')
-		{
-			$subject_1 = "You have ";
-			$subject_2 = " new messages at MeinePerfekteWG";
-		}
-		*/
+		$email   = trim($user['wz_EMAIL']);
 
 		$replacers = fe_chat::get_mail_replacers_for_fuser($fUserId);
-
-		echo "mail an " . $fUserId . " " . $email ."<br>";
 
 		fe_user::burnMail(
 			$email,
@@ -56,17 +44,19 @@ foreach ($items as $i) {
 			'office@meineperfektewg.com'
 		);
 
+		dbx::query("UPDATE chatitems SET wz_lastMailedMessageId = $lastWzId, wz_lastChanged = NOW() WHERE wz_id = $lastWzId");
+		//dbx::update("chatitems", array('wz_lastMailedMessageId' =>  $lastWzId, 'wz_lastChanged' => 'NOW()'), array('wz_id' => $lastWzId));
 
-		dbx::update("chatitems", array('wz_lastMailedMessageId' =>  $lastWzId, 'wz_lastChanged' => 'NOW()'), array('wz_id' => $lastWzId));
-
-		$ids_done[] = $fUserId;
-
-		echo "DB updated: " . "fUser: $fUserId " . "wz_id: $lastWzId " ."<br>";
+		$data = "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
+		file_put_contents($log_file, $data, FILE_APPEND);
 
 	}
 	else
 	{
-		echo "$fUserId already done";
+		$data = "fUser: $fUserId " . "already done\n";
+
+		file_put_contents($log_file, $data, FILE_APPEND);
+
 		continue;
 	}
 }
