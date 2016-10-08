@@ -342,7 +342,7 @@ class fe_room
 
 		$hash 		= dbx::escape(trim($_REQUEST['h']));
 
-		$miete		= dbx::queryAttribute("select wz_MIETE_TOTAL FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_MIETE_TOTAL");
+		$miete		= dbx::queryAttribute("select wz_MIETE FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_MIETE");
 
 		return $miete;
 	}

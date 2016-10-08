@@ -35,12 +35,12 @@ class fe_user
 		'wz_ADRESSE_LAT' 	=> 48.2081743,
 		'wz_ADRESSE_LNG'	=> 16.3738189,
 
-		'wz_MIETE_VON' 	=> 50,
-		'wz_MIETE_BIS' 	=> 400,
+		'wz_MIETE_VON' 	=> 0,
+		'wz_MIETE_BIS' 	=> 1000,
 		'wz_UMKREIS'		=> 5,
 
-		'wz_WGGROESSE_VON' => 1,
-		'wz_WGGROESSE_BIS' => 10,
+		//'wz_WGGROESSE_VON' => 1,
+		//'wz_WGGROESSE_BIS' => 10,
 	);
 
 	public static function doIBlockUser($otherUserId)
@@ -2170,6 +2170,9 @@ class fe_user
 		}
 
 		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId($pageId);
+
+
+
 
 		if (count($send2)>0)
 		{
