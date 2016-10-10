@@ -141,7 +141,7 @@ var fe_chat = (function() {
 			
 			this.checkInterval = setInterval(function () {
 	            me.checkForNewMessages();
-	        },3000);
+	        },1500);
 		}
 		
 		
@@ -151,7 +151,7 @@ var fe_chat = (function() {
 			
 			this.checkIntervalConversations = setInterval(function () {
 	            me.checkForNewConversations();
-	        },10000);
+	        },5000);
 		}
 		
 		
