@@ -19,7 +19,7 @@
             <link rel="canonical" href="http://www.wg-gesucht.de/wg-zimmer-in-Wien-Floridsdorf.5732870.html"/>
     
             <meta name="Keywords" content="WG Zimmer Wohnungsmarkt Wohnungssuche Mietwohnung Suche Biete anbieten Angebot Zwischenmiete Wohnung Zimmersuche Wohnung Wohnungen Mietwohnungen Mietgesuche Mietangebote Wohnungsangebote Wohnungsanzeigen Schweiz Österreich Berlin Stuttgart Hamburg München Köln">
-<meta name="Description" content="Es werden 2 Zimmer (beide ca. 13m² groß) frei und können mit 01/10/2016 bezogen werden! Die Zimmer sind befristet bis 14. März 20...">
+<meta name="Description" content="Es wird 1 ca. 13m² großes unmöbliertes Zimmer vermietet und kann ab sofort bezogen werden! Das Zimmer ist befristet bis 14. März ...">
     
             <link rel="image_src" href="https://img.wg-gesucht.de/media/up/2016/35/d028d5ad57328700_img_3091.sized.jpg"/>
         <meta property="og:image" content="https://img.wg-gesucht.de/media/up/2016/35/d028d5ad57328700_img_3091.sized.jpg"/>
@@ -29,7 +29,7 @@
             <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="">
         <meta name="twitter:title" content="WG-Gesucht.de - WG-Zimmer zu vermieten - WGZimmer Wien-Floridsdorf">
-        <meta name="twitter:description" content="Es werden 2 Zimmer (beide ca. 13m² groß) frei und können mit 01/10/2016 bezogen werden! Die Zimmer sind befristet bis 14. März 2019 zu mi...">
+        <meta name="twitter:description" content="Es wird 1 ca. 13m² großes unmöbliertes Zimmer vermietet und kann ab sofort bezogen werden! Das Zimmer ist befristet bis 14. März 2019 zu ...">
         <meta name="twitter:image" content="http://www.wg-gesucht.de/media/up/2016/35/d028d5ad57328700_img_3091.sized.jpg">
     
             <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
@@ -134,7 +134,7 @@
 
                     googletag.pubads().setTargeting("wgg_city", "wien");
                             googletag.pubads().setTargeting("cityname", "Wien");
-                            googletag.pubads().setTargeting("wgg_pic", "68");
+                            googletag.pubads().setTargeting("wgg_pic", "22");
                             googletag.pubads().setTargeting("wgg_rubrik", "0");
                             googletag.pubads().setTargeting("wgg_pos", "angebot_detail");
                             googletag.pubads().setTargeting("wgg_bula", "Ausland");
@@ -192,9 +192,6 @@
                 el.parentNode.insertBefore(s, el);
             })();
         </script>
-    
-    
-    
     </head>
 
 <body  >
@@ -253,62 +250,63 @@
     
     
     
-    
-    
-    <div id="iframe_wrapper" class="noprint" style="width:100%; height:100px;">
-        <iframe id="leaderboard_frame" src="http://www.wg-gesucht.de/advertisements.php?ad_type=leaderboard&amp;template_name=clients/wg-gesucht/urban_ad_wrapper.html&amp;urbanBillboardID=&amp;urbanleaderboardIDAdspirit=2896&amp;urbanTagsTimestamp=1474290707&amp;urbanskyscraperIDAdspirit=2899&amp;CANONICAL_URL=http://www.wg-gesucht.de/wg-zimmer-in-Wien-Floridsdorf.5732870.html" style="width:100%; height:100px; z-index:-1; border:none; visibility:hidden;"></iframe>
-    </div>
 
-    <script>
-        // As soon as the iframe is loaded manipulate the height of both the iframe
-        // and its internal divs to match the total height of the loaded advertisement
-        $('#leaderboard_frame').on('load', function() {
-            var leaderboard_height  = $(this).contents().find("#div_leaderboard").height();
-            var skyscrapper_height  = $(this).contents().find("#div_skyscraper").height();
-            var leaderboard_content = $(this).contents().find('#div_leaderboard').html();
+            
+        
+        <div id="iframe_wrapper" class="noprint" style="width:100%; height:100px;">
+            <iframe id="leaderboard_frame" src="http://www.wg-gesucht.de/advertisements.php?ad_type=leaderboard&amp;template_name=clients/wg-gesucht/urban_ad_wrapper.html&amp;urbanBillboardID=&amp;urbanleaderboardIDAdspirit=2896&amp;urbanTagsTimestamp=1476111290&amp;urbanskyscraperIDAdspirit=2899&amp;CANONICAL_URL=http://www.wg-gesucht.de/wg-zimmer-in-Wien-Floridsdorf.5732870.html" style="width:100%; height:100px; z-index:-1; border:none; visibility:hidden;"></iframe>
+        </div>
 
-            if (contentMinimumLengthCheck(1100, leaderboard_content) !== true || leaderboard_height == 0) {
-                $('#site_wrapper').css('margin-top', '-90px');
-            } else {
-                var total_height = leaderboard_height + skyscrapper_height;
+        <script>
+            // As soon as the iframe is loaded manipulate the height of both the iframe
+            // and its internal divs to match the total height of the loaded advertisement
+            $('#leaderboard_frame').on('load', function() {
+                var leaderboard_height  = $(this).contents().find("#div_leaderboard").height();
+                var skyscrapper_height  = $(this).contents().find("#div_skyscraper").height();
+                var leaderboard_content = $(this).contents().find('#div_leaderboard').html();
 
-                $('#iframe_wrapper, #leaderboard_frame').css('height', total_height);
-                $('#site_wrapper').css('margin-top', '-' + (total_height - 100) + 'px');
-                $('#leaderboard_frame').contents().find('#div_leaderboard').css('height', leaderboard_height);
-                $('#leaderboard_frame').contents().find('#div_skyscraper_wrapper').css('height', skyscrapper_height);
-                $('#leaderboard_frame').css('visibility', 'visible');
-            }
-        });
-
-        // If adblock active the above "on load" event won't be triggered, thus
-        // 'leaderboard_content' won't be defined, move site up 90px
-        window.onload = function(){
-            if (typeof leaderboard_content == "undefined") {
-                var leaderboard_content = $('#leaderboard_frame').contents().find('#div_leaderboard').html();
-                if (contentMinimumLengthCheck(1100, leaderboard_content) !== true) {
+                if (contentMinimumLengthCheck(1100, leaderboard_content) !== true || leaderboard_height == 0) {
                     $('#site_wrapper').css('margin-top', '-90px');
+                } else {
+                    var total_height = leaderboard_height + skyscrapper_height;
+
+                    $('#iframe_wrapper, #leaderboard_frame').css('height', total_height);
+                    $('#site_wrapper').css('margin-top', '-' + (total_height - 100) + 'px');
+                    $('#leaderboard_frame').contents().find('#div_leaderboard').css('height', leaderboard_height);
+                    $('#leaderboard_frame').contents().find('#div_skyscraper_wrapper').css('height', skyscrapper_height);
+                    $('#leaderboard_frame').css('visibility', 'visible');
                 }
-            }
-        };
-    </script>
+            });
 
-<div id="master_wrapper" class="position-relative">
-    <div id="site_wrapper" class="container">
-
+            // If adblock active the above "on load" event won't be triggered, thus
+            // 'leaderboard_content' won't be defined, move site up 90px
+            window.onload = function(){
+                if (typeof leaderboard_content == "undefined") {
+                    var leaderboard_content = $('#leaderboard_frame').contents().find('#div_leaderboard').html();
+                    if (contentMinimumLengthCheck(1100, leaderboard_content) !== true) {
+                        $('#site_wrapper').css('margin-top', '-90px');
+                    }
+                }
+            };
+        </script>
     
-    <script>
+    <div id="master_wrapper" class="position-relative">
+        <div id="site_wrapper" class="container">
+
         
-        var empty_error               = "Diese Angabe ist ein Pflichtfeld, bitte geben Sie etwas ein.";
-        var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
-        var not_enough_error_required = "Diese Angabe ist ein Pflichtfeld, bitte wählen Sie eine Einstellung aus.";
-        var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
-        var not_valid_email           = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
-        var too_short_error           = "Ihre Eingabe ist zu kurz, bitte geben Sie mindestens XXX Zeichen ein.";
-        var too_long_error            = "Ihre Eingabe ist zu lang, bitte geben Sie maximal XXX Zeichen ein.";
-        var no_match_error            = "Ihre eingetragenen Passwörter stimmen nicht überein.";
-        var too_small_error           = "Dieses Feld muss einen Wert von mindestens XXX haben.";
-        
-    </script>
+        <script>
+            
+            var empty_error               = "Diese Angabe ist ein Pflichtfeld, bitte geben Sie etwas ein.";
+            var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
+            var not_enough_error_required = "Diese Angabe ist ein Pflichtfeld, bitte wählen Sie eine Einstellung aus.";
+            var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
+            var not_valid_email           = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
+            var too_short_error           = "Ihre Eingabe ist zu kurz, bitte geben Sie mindestens XXX Zeichen ein.";
+            var too_long_error            = "Ihre Eingabe ist zu lang, bitte geben Sie maximal XXX Zeichen ein.";
+            var no_match_error            = "Ihre eingetragenen Passwörter stimmen nicht überein.";
+            var too_small_error           = "Dieses Feld muss einen Wert von mindestens XXX haben.";
+            
+        </script>
         <a href="#main_content" class="sr-only sr-only-focusable noprint">
             Zum Hauptinhalt springen
         </a>
@@ -714,18 +712,18 @@
 <nav>
     <div class="row pagination-ads noprint">
         <div class="col-xs-4 text-left">
-                            <a class="previous" href="wg-zimmer-in-Wien-Alsergrund.5787984.html" rel="nofollow">
+                            <a class="previous" href="wg-zimmer-in-Wien-Penzing.5628225.html" rel="nofollow">
                     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <span class="hidden-xs">Vorheriges Angebot</span><span class="visible-xs-inline">&nbsp;</span>
                 </a>
                     </div>
 
         <div class="col-xs-4 text-center">
-                            <a href="wg-zimmer-in-Wien.163.0.0.6.html#back_to_ad_5732870">
-                    Treffer: 16816                </a>
+                            <a href="wg-zimmer-in-Wien.163.0.0.0.html#back_to_ad_5732870">
+                    Treffer: 17011                </a>
                     </div>
 
         <div class="col-xs-4">
-                            <a class="next pull-right" href="wg-zimmer-in-Wien-Landstrasse.5786677.html" rel="nofollow">
+                            <a class="next pull-right" href="wg-zimmer-in-Wien-Leopoldstadt.5815870.html" rel="nofollow">
                     <span class="hidden-xs">Nächstes Angebot</span><span class="visible-xs-inline">&nbsp;</span> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
                 </a>
                     </div>
@@ -742,8 +740,8 @@
 
 
 <h1 id="sliderTopTitle" class="headline headline-detailed-view-title" style="padding-left: 10px; margin-bottom: 10px;">
-                        <span title="3er WG (0w,1m)" style="margin: 0 6px;">
-                <img class="vis" src="img/wgm.gif" width="10" height="17" style="margin-left:  px; margin-bottom: 5px;" alt="männlich"><img class="vis" src="img/wgeg.gif" width="10" height="17" alt="Mitbewohnerin oder Mitbwohner gesucht" style="margin-left:  px; margin-bottom: 5px;"><img class="vis" src="img/wgeg.gif" width="10" height="17" alt="Mitbewohnerin oder Mitbwohner gesucht" style="margin-left:  px; margin-bottom: 5px;">            </span>
+                        <span title="3er WG (0w,2m)" style="margin: 0 6px;">
+                <img class="vis" src="img/wgm.gif" width="10" height="17" style="margin-left:  px; margin-bottom: 5px;" alt="männlich"><img class="vis" src="img/wgm.gif" width="10" height="17" style="margin-left:  px; margin-bottom: 5px;" alt="männlich"><img class="vis" src="img/wgeg.gif" width="10" height="17" alt="Mitbewohnerin oder Mitbwohner gesucht" style="margin-left:  px; margin-bottom: 5px;">            </span>
                 WG-Zimmer zu vermieten
 </h1>
 
@@ -1368,7 +1366,7 @@
                 </h3>
                  <p style="line-height: 2em;">
                                             frei ab:
-                        <b>01.10.2016</b>
+                        <b>10.10.2016</b>
                         <br/>
                     
                                             frei bis:
@@ -1378,7 +1376,7 @@
                     
                     
                     <b style="color: #218700">
-                        Online: 3 Tage
+                        Online: 7 Stunden
                     </b>
                 </p>
             </div>
@@ -1417,8 +1415,8 @@
                             3er WG
                                                             (0
                                                                     Frauen
-                                                                und 1
-                                                                    Mann)
+                                                                und 2
+                                                                    Männer)
                                                                                     </li>
                         <li>
                                                             Bewohneralter: ab 20 Jahre
@@ -1566,7 +1564,7 @@
                                             </div>
 
                                             <div class="wordWrap">
-                            Es werden 2 Zimmer (beide ca. 13m² groß) frei und können mit 01/10/2016 bezogen werden! Die Zimmer sind befristet bis 14. März 2019 zu mieten. Beide Zimmer sind (so wie die gesamte Wohnung) in absolut neuwertigem Zustand, da das Wohnhaus erst im Dezember 2015 fertiggestellt wurde. Die Zimmer werden unmöbliert vermietet! <br />
+                            Es wird 1 ca. 13m² großes unmöbliertes Zimmer vermietet und kann ab sofort bezogen werden! Das Zimmer ist befristet bis 14. März 2019 zu mieten. Zimmer &amp; Wohnung sind in absolut neuwertigem Zustand, da das Wohnhaus erst im Dezember 2015 fertiggestellt wurde!<br />
 <br />
 
                         </div>
@@ -1580,9 +1578,9 @@
                                 <b>Lage</b>
                             </div>
                             <br/>
-                            Die Lage der Wohnung ist sehr ruhig; es sind nur ein paar Schritte zur wunderschönen alten Donau! <br />
+                            Die Lage der Wohnung ist sehr ruhig und es sind nur wenige Schritte zum Natur- und Badeparadies der alten Donau! <br />
 <br />
-Die Wohnung ist wunderbar mit öffentlichen Verkehrsmitteln erreichbar. In nur 4 Gehminuten hält der Bus 33A (Station Mühlschüttel). In 10 Gehminuten erreicht man die Straßenbahn-Stationen 25/26. Mit diesen Linien erreicht man wiederum binnen 10 Minuten die U-Bahn Linie U1 (Station<div class="noprint pull-left" style="margin:11px 11px 11px 0;"><div id="537144669_mr_freitext_01"></div></div> Kagran mit Linie 25/Kagraner Platz mit Linie 26) oder die U-Bahn Linie U6 (Station Floridsdorf). 
+Die Wohnung ist wunderbar mit öffentlichen Verkehrsmitteln erreichbar. In nur 4 Gehminuten hält der Bus 33A (Station Mühlschüttel). In 10 Gehminuten erreicht man die Straßenbahn-Stationen 25/26. Mit diesen Linien erreicht man wiederum binnen 10 Minuten<div class="noprint pull-left" style="margin:11px 11px 11px 0;"><div id="537144669_mr_freitext_01"></div></div> die U-Bahn Linie U1 (Station Kagran mit Linie 25/Kagraner Platz mit Linie 26) oder die U-Bahn Linie U6 (Station Floridsdorf). 
                                             </div>
 
                     <div class="freitext wordWrap" style="margin:6px 0 6px 1px;">
@@ -1593,7 +1591,7 @@ Die Wohnung ist wunderbar mit öffentlichen Verkehrsmitteln erreichbar. In nur 4
                                 <b>WG-Leben</b>
                             </div>
                             <br/>
-                            Ich bin bereits aus der WG ausgezogen und suche jetzt einen Nachmieter. Ein anderes Mädchen zieht ebenfalls mit Ende des Monats aus, deshalb werden gleich 2 Zimmer frei.
+                            Ich bin bereits aus der WG ausgezogen und suche jetzt einen Nachmieter. Derzeit wohnt Maximilian dort und seit 01/10 Stefan! Maximilian arbeitet Vollzeit, Stefan studiert!  
                                              </div>
 
                     <div class="freitext wordWrap" style="margin:6px 0 6px 1px;">
@@ -1611,7 +1609,7 @@ Die Küche ist ausgestattet mit den modernsten Miele-Geräten in bester Energiek
 <br />
 Da die Wohnung im 2ten Stock liegt, hat man eine wunderschöne Aussicht auf die alte Donau im 21. Bezirk von Wien. Es sind nur 5 Gehminuten zum Wasser. <br />
 <br />
-Bei Interesse bitte einfach eine Nachricht an mich senden. Ich bewohne derzeit eines der zwei Zimmer, ziehe jedoch bald aus und suche quasi einen Nachmieter. Es ist eine Privat-Vermietung, deshalb fallen keinerlei Makler-Provisionen an. 
+Bei Interesse bitte einfach eine Nachricht an mich senden. Es ist eine Privat-Vermietung, deshalb fallen keinerlei Makler-Provisionen an. 
                         
                         
                                                     <script>
@@ -1713,18 +1711,18 @@ Bei Interesse bitte einfach eine Nachricht an mich senden. Ich bewohne derzeit e
 <nav>
     <div class="row pagination-ads noprint">
         <div class="col-xs-4 text-left">
-                            <a class="previous" href="wg-zimmer-in-Wien-Alsergrund.5787984.html" rel="nofollow">
+                            <a class="previous" href="wg-zimmer-in-Wien-Penzing.5628225.html" rel="nofollow">
                     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <span class="hidden-xs">Vorheriges Angebot</span><span class="visible-xs-inline">&nbsp;</span>
                 </a>
                     </div>
 
         <div class="col-xs-4 text-center">
-                            <a href="wg-zimmer-in-Wien.163.0.0.6.html#back_to_ad_5732870">
-                    Treffer: 16816                </a>
+                            <a href="wg-zimmer-in-Wien.163.0.0.0.html#back_to_ad_5732870">
+                    Treffer: 17011                </a>
                     </div>
 
         <div class="col-xs-4">
-                            <a class="next pull-right" href="wg-zimmer-in-Wien-Landstrasse.5786677.html" rel="nofollow">
+                            <a class="next pull-right" href="wg-zimmer-in-Wien-Leopoldstadt.5815870.html" rel="nofollow">
                     <span class="hidden-xs">Nächstes Angebot</span><span class="visible-xs-inline">&nbsp;</span> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
                 </a>
                     </div>
@@ -1792,7 +1790,7 @@ Bei Interesse bitte einfach eine Nachricht an mich senden. Ich bewohne derzeit e
                                     <ol class="breadcrumb noprint hidden-xs">
                                         <li><a href="http://www.wg-gesucht.de/">Start</a></li>
                                                                                     <li><a href="wohnraumangebote.html">Wohnungsmarkt</a></li>
-                                                                                <li><a href="wg-zimmer-in-Wien.163.0.0.6.html">WG Zimmer in Wien</a></li>
+                                                                                <li><a href="wg-zimmer-in-Wien.163.0.0.0.html">WG Zimmer in Wien</a></li>
                                     </ol>
                                 </div>
                                                     
@@ -1940,9 +1938,10 @@ Bei Interesse bitte einfach eine Nachricht an mich senden. Ich bewohne derzeit e
             <span class="note_date">
             Neue Notiz:
         </span>
-        <textarea  class="form-control  note_textarea" rows="6" cols="8" style="resize: none;"></textarea>
-
-                    <div class="text-center row" style="margin-top: 12px; font-size: 14px;">
+    
+            <textarea  rows="4" class="form-control  note_textarea"></textarea>
+    
+                    <div class="text-center row noprint" style="margin-top: 12px; font-size: 14px;">
             <div class="col-xs-12">
                 <a class="notes_login_save btn btn-info btn-block" href="#" onclick='fireLoginOrRegisterModalRequest("sign_in");'>
                     Speichern
@@ -1976,7 +1975,8 @@ $(function() {
         saveNote('Notiz hinzufügen', 'Notiz bearbeiten');
     });
 })
-</script></div>
+</script>
+</div>
         </div>
     </div>
 
@@ -2323,7 +2323,7 @@ $(function() {
     <ol class="breadcrumb noprint">
         <li><a href="http://www.wg-gesucht.de/">Start</a></li>
         <li><a href="wohnraumangebote.html">Wohnungsmarkt</a></li>
-        <li><a href="wg-zimmer-in-Wien.163.0.0.6.html">WG Zimmer in Wien</a></li>
+        <li><a href="wg-zimmer-in-Wien.163.0.0.0.html">WG Zimmer in Wien</a></li>
     </ol>
 </div>
                     </div>
@@ -2406,7 +2406,7 @@ $(function() {
             <li class="li-bottom-link"><a href="http://www.wg-gesucht.de/mietwohnungen.html" class="a-bottom-link">Mietwohnungen</a></li>
             <li class="li-bottom-link"><a href="http://www.wg-gesucht.de/ic/wohnungsmarkt.html" class="a-bottom-link">Wohnungsmarkt</a></li>
             <li class="li-bottom-link"><a href="http://www.wg-gesucht.de/wohnungssuche.html" class="a-bottom-link">Wohnungssuche</a></li>
-                    </ul>
+        </ul>
     </div>
 </div>
                                         <br class="CLR" />
@@ -2436,7 +2436,7 @@ $(function() {
         
                     
 <div id="div_layer">
-    <script src="//urban.adspirit.de/adscript.php?pid=2898&amp;ord=1474290707"></script>
+    <script src="//urban.adspirit.de/adscript.php?pid=2898&amp;ord=1476111290"></script>
 </div>
             
             
@@ -2513,7 +2513,6 @@ $(function() {
             
 
 
-
     <script>
         (function() {
             var s   = document.createElement('script');
@@ -2540,7 +2539,7 @@ $(function() {
             var mapText_zurAnzeige = "zur Anzeige hier klicken";
             var infobox_border_colour = 'E58D3B';
             var GMAP_MIN_ZOOM = 16;
-                            function getMarkers() {var markers = new Array();markers[markers.length] = {  lat:48.248622, lng:16.414723, infoHTML:'<div class="well well-sm" style="max-width: 320px;">    <div class="row">        <div class="col-xs-12">            <h3 class="headline headline-default">                <a href="" target="_blank">                    WG-Zimmer zu vermieten                </a>            </h3>        </div>        <div class="col-xs-6">            <a href="" target="_blank">                <img src="https://img.wg-gesucht.de/././media/up/2016/35/d028d5ad57328700_img_3091.thumb.jpg" class="img-responsive img-rounded" alt="">            </a>        </div>        <div class="col-xs-6">            <img class="s_wgm" src="img/d.gif" width="10" height="17"><img class="s_wgeg" src="img/d.gif" width="10" height="17"><img class="s_wgeg" src="img/d.gif" width="10" height="17">                        Miete:                            520&euro;                        <br/>            Größe:                            13m&sup2;                        <br/>            frei ab: 01.10.2016            <br/>                                                frei bis: 14.03.2018                <br/>                                    </div>    </div></div>', id:5732870, options: createMarkerIcon(5), clusterImg: 10};return markers;}
+                            function getMarkers() {var markers = new Array();markers[markers.length] = {  lat:48.248622, lng:16.414723, infoHTML:'<div class="well well-sm" style="max-width: 320px;">    <div class="row">        <div class="col-xs-12">            <h3 class="headline headline-default">                <a href="" target="_blank">                    WG-Zimmer zu vermieten                </a>            </h3>        </div>        <div class="col-xs-6">            <a href="" target="_blank">                <img src="https://img.wg-gesucht.de/././media/up/2016/35/d028d5ad57328700_img_3091.thumb.jpg" class="img-responsive img-rounded" alt="">            </a>        </div>        <div class="col-xs-6">            <img class="s_wgm" src="img/d.gif" width="10" height="17"><img class="s_wgm" src="img/d.gif" width="10" height="17"><img class="s_wgeg" src="img/d.gif" width="10" height="17">                        Miete:                            520&euro;                        <br/>            Größe:                            13m&sup2;                        <br/>            frei ab: 10.10.2016            <br/>                                                frei bis: 14.03.2018                <br/>                                    </div>    </div></div>', id:5732870, options: createMarkerIcon(5), clusterImg: 10};return markers;}
             
             $(function() {
                                         loadGMap(
@@ -2560,7 +2559,7 @@ $(function() {
         window.onbeforeunload = null;
     </script>
 
-        
+    
     
     <div class="ajax_loader_gif position-absolute display-none" style="z-index: 999; top: 40%; left: 45%;">
         <img src="http://www.wg-gesucht.de/img/ajax-loader-orange.gif">

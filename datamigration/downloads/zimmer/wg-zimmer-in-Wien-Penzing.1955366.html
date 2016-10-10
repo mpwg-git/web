@@ -137,7 +137,7 @@ S...">
 
                     googletag.pubads().setTargeting("wgg_city", "wien");
                             googletag.pubads().setTargeting("cityname", "Wien");
-                            googletag.pubads().setTargeting("wgg_pic", "31");
+                            googletag.pubads().setTargeting("wgg_pic", "38");
                             googletag.pubads().setTargeting("wgg_rubrik", "0");
                             googletag.pubads().setTargeting("wgg_pos", "angebot_detail");
                             googletag.pubads().setTargeting("wgg_bula", "Ausland");
@@ -194,20 +194,6 @@ S...">
                 s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
                 el.parentNode.insertBefore(s, el);
             })();
-        </script>
-    
-    
-    
-            <script>
-          window._taboola = window._taboola || [];
-          _taboola.push({ category:'auto' });
-          !function (e, f, u) {
-            e.async = 1;
-            e.src = u;
-            f.parentNode.insertBefore(e, f);
-          } (document.createElement('script'),
-          document.getElementsByTagName('script')[0],
-          '//cdn.taboola.com/libtrc/wggesucht/loader.js');
         </script>
     </head>
 
@@ -267,62 +253,63 @@ S...">
     
     
     
-    
-    
-    <div id="iframe_wrapper" class="noprint" style="width:100%; height:100px;">
-        <iframe id="leaderboard_frame" src="http://www.wg-gesucht.de/advertisements.php?ad_type=leaderboard&amp;template_name=clients/wg-gesucht/urban_ad_wrapper.html&amp;urbanBillboardID=&amp;urbanleaderboardIDAdspirit=2896&amp;urbanTagsTimestamp=1474290648&amp;urbanskyscraperIDAdspirit=2899&amp;CANONICAL_URL=http://www.wg-gesucht.de/wg-zimmer-in-Wien-Penzing.1955366.html" style="width:100%; height:100px; z-index:-1; border:none; visibility:hidden;"></iframe>
-    </div>
 
-    <script>
-        // As soon as the iframe is loaded manipulate the height of both the iframe
-        // and its internal divs to match the total height of the loaded advertisement
-        $('#leaderboard_frame').on('load', function() {
-            var leaderboard_height  = $(this).contents().find("#div_leaderboard").height();
-            var skyscrapper_height  = $(this).contents().find("#div_skyscraper").height();
-            var leaderboard_content = $(this).contents().find('#div_leaderboard').html();
+            
+        
+        <div id="iframe_wrapper" class="noprint" style="width:100%; height:100px;">
+            <iframe id="leaderboard_frame" src="http://www.wg-gesucht.de/advertisements.php?ad_type=leaderboard&amp;template_name=clients/wg-gesucht/urban_ad_wrapper.html&amp;urbanBillboardID=&amp;urbanleaderboardIDAdspirit=2896&amp;urbanTagsTimestamp=1476111304&amp;urbanskyscraperIDAdspirit=2899&amp;CANONICAL_URL=http://www.wg-gesucht.de/wg-zimmer-in-Wien-Penzing.1955366.html" style="width:100%; height:100px; z-index:-1; border:none; visibility:hidden;"></iframe>
+        </div>
 
-            if (contentMinimumLengthCheck(1100, leaderboard_content) !== true || leaderboard_height == 0) {
-                $('#site_wrapper').css('margin-top', '-90px');
-            } else {
-                var total_height = leaderboard_height + skyscrapper_height;
+        <script>
+            // As soon as the iframe is loaded manipulate the height of both the iframe
+            // and its internal divs to match the total height of the loaded advertisement
+            $('#leaderboard_frame').on('load', function() {
+                var leaderboard_height  = $(this).contents().find("#div_leaderboard").height();
+                var skyscrapper_height  = $(this).contents().find("#div_skyscraper").height();
+                var leaderboard_content = $(this).contents().find('#div_leaderboard').html();
 
-                $('#iframe_wrapper, #leaderboard_frame').css('height', total_height);
-                $('#site_wrapper').css('margin-top', '-' + (total_height - 100) + 'px');
-                $('#leaderboard_frame').contents().find('#div_leaderboard').css('height', leaderboard_height);
-                $('#leaderboard_frame').contents().find('#div_skyscraper_wrapper').css('height', skyscrapper_height);
-                $('#leaderboard_frame').css('visibility', 'visible');
-            }
-        });
-
-        // If adblock active the above "on load" event won't be triggered, thus
-        // 'leaderboard_content' won't be defined, move site up 90px
-        window.onload = function(){
-            if (typeof leaderboard_content == "undefined") {
-                var leaderboard_content = $('#leaderboard_frame').contents().find('#div_leaderboard').html();
-                if (contentMinimumLengthCheck(1100, leaderboard_content) !== true) {
+                if (contentMinimumLengthCheck(1100, leaderboard_content) !== true || leaderboard_height == 0) {
                     $('#site_wrapper').css('margin-top', '-90px');
+                } else {
+                    var total_height = leaderboard_height + skyscrapper_height;
+
+                    $('#iframe_wrapper, #leaderboard_frame').css('height', total_height);
+                    $('#site_wrapper').css('margin-top', '-' + (total_height - 100) + 'px');
+                    $('#leaderboard_frame').contents().find('#div_leaderboard').css('height', leaderboard_height);
+                    $('#leaderboard_frame').contents().find('#div_skyscraper_wrapper').css('height', skyscrapper_height);
+                    $('#leaderboard_frame').css('visibility', 'visible');
                 }
-            }
-        };
-    </script>
+            });
 
-<div id="master_wrapper" class="position-relative">
-    <div id="site_wrapper" class="container">
-
+            // If adblock active the above "on load" event won't be triggered, thus
+            // 'leaderboard_content' won't be defined, move site up 90px
+            window.onload = function(){
+                if (typeof leaderboard_content == "undefined") {
+                    var leaderboard_content = $('#leaderboard_frame').contents().find('#div_leaderboard').html();
+                    if (contentMinimumLengthCheck(1100, leaderboard_content) !== true) {
+                        $('#site_wrapper').css('margin-top', '-90px');
+                    }
+                }
+            };
+        </script>
     
-    <script>
+    <div id="master_wrapper" class="position-relative">
+        <div id="site_wrapper" class="container">
+
         
-        var empty_error               = "Diese Angabe ist ein Pflichtfeld, bitte geben Sie etwas ein.";
-        var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
-        var not_enough_error_required = "Diese Angabe ist ein Pflichtfeld, bitte wählen Sie eine Einstellung aus.";
-        var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
-        var not_valid_email           = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
-        var too_short_error           = "Ihre Eingabe ist zu kurz, bitte geben Sie mindestens XXX Zeichen ein.";
-        var too_long_error            = "Ihre Eingabe ist zu lang, bitte geben Sie maximal XXX Zeichen ein.";
-        var no_match_error            = "Ihre eingetragenen Passwörter stimmen nicht überein.";
-        var too_small_error           = "Dieses Feld muss einen Wert von mindestens XXX haben.";
-        
-    </script>
+        <script>
+            
+            var empty_error               = "Diese Angabe ist ein Pflichtfeld, bitte geben Sie etwas ein.";
+            var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
+            var not_enough_error_required = "Diese Angabe ist ein Pflichtfeld, bitte wählen Sie eine Einstellung aus.";
+            var invalid_error             = "Ihre Eingabe ist ungültig, bitte versuchen Sie es erneut.";
+            var not_valid_email           = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
+            var too_short_error           = "Ihre Eingabe ist zu kurz, bitte geben Sie mindestens XXX Zeichen ein.";
+            var too_long_error            = "Ihre Eingabe ist zu lang, bitte geben Sie maximal XXX Zeichen ein.";
+            var no_match_error            = "Ihre eingetragenen Passwörter stimmen nicht überein.";
+            var too_small_error           = "Dieses Feld muss einen Wert von mindestens XXX haben.";
+            
+        </script>
         <a href="#main_content" class="sr-only sr-only-focusable noprint">
             Zum Hauptinhalt springen
         </a>
@@ -728,18 +715,18 @@ S...">
 <nav>
     <div class="row pagination-ads noprint">
         <div class="col-xs-4 text-left">
-                            <a class="previous" href="wg-zimmer-in-Wien-Favoriten.5789460.html" rel="nofollow">
+                            <a class="previous" href="wg-zimmer-in-Wien-Wieden.5244780.html" rel="nofollow">
                     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <span class="hidden-xs">Vorheriges Angebot</span><span class="visible-xs-inline">&nbsp;</span>
                 </a>
                     </div>
 
         <div class="col-xs-4 text-center">
-                            <a href="wg-zimmer-in-Wien.163.0.0.4.html#back_to_ad_1955366">
-                    Treffer: 16816                </a>
+                            <a href="wg-zimmer-in-Wien.163.0.0.1.html#back_to_ad_1955366">
+                    Treffer: 17011                </a>
                     </div>
 
         <div class="col-xs-4">
-                            <a class="next pull-right" href="wg-zimmer-in-Wien-Ottakring.5753396.html" rel="nofollow">
+                            <a class="next pull-right" href="wg-zimmer-in-Wien-Mariahilf.5818834.html" rel="nofollow">
                     <span class="hidden-xs">Nächstes Angebot</span><span class="visible-xs-inline">&nbsp;</span> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
                 </a>
                     </div>
@@ -1352,7 +1339,7 @@ S...">
                     
                     
                     <b style="color: #218700">
-                        Online: 2 Tage
+                        Online: 18 Stunden
                     </b>
                 </p>
             </div>
@@ -1624,18 +1611,18 @@ Nähe Schönbrunn, Hietzing<br />
 <nav>
     <div class="row pagination-ads noprint">
         <div class="col-xs-4 text-left">
-                            <a class="previous" href="wg-zimmer-in-Wien-Favoriten.5789460.html" rel="nofollow">
+                            <a class="previous" href="wg-zimmer-in-Wien-Wieden.5244780.html" rel="nofollow">
                     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <span class="hidden-xs">Vorheriges Angebot</span><span class="visible-xs-inline">&nbsp;</span>
                 </a>
                     </div>
 
         <div class="col-xs-4 text-center">
-                            <a href="wg-zimmer-in-Wien.163.0.0.4.html#back_to_ad_1955366">
-                    Treffer: 16816                </a>
+                            <a href="wg-zimmer-in-Wien.163.0.0.1.html#back_to_ad_1955366">
+                    Treffer: 17011                </a>
                     </div>
 
         <div class="col-xs-4">
-                            <a class="next pull-right" href="wg-zimmer-in-Wien-Ottakring.5753396.html" rel="nofollow">
+                            <a class="next pull-right" href="wg-zimmer-in-Wien-Mariahilf.5818834.html" rel="nofollow">
                     <span class="hidden-xs">Nächstes Angebot</span><span class="visible-xs-inline">&nbsp;</span> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
                 </a>
                     </div>
@@ -1703,7 +1690,7 @@ Nähe Schönbrunn, Hietzing<br />
                                     <ol class="breadcrumb noprint hidden-xs">
                                         <li><a href="http://www.wg-gesucht.de/">Start</a></li>
                                                                                     <li><a href="wohnraumangebote.html">Wohnungsmarkt</a></li>
-                                                                                <li><a href="wg-zimmer-in-Wien.163.0.0.4.html">WG Zimmer in Wien</a></li>
+                                                                                <li><a href="wg-zimmer-in-Wien.163.0.0.1.html">WG Zimmer in Wien</a></li>
                                     </ol>
                                 </div>
                                                     
@@ -1856,9 +1843,10 @@ Nähe Schönbrunn, Hietzing<br />
             <span class="note_date">
             Neue Notiz:
         </span>
-        <textarea  class="form-control  note_textarea" rows="6" cols="8" style="resize: none;"></textarea>
-
-                    <div class="text-center row" style="margin-top: 12px; font-size: 14px;">
+    
+            <textarea  rows="4" class="form-control  note_textarea"></textarea>
+    
+                    <div class="text-center row noprint" style="margin-top: 12px; font-size: 14px;">
             <div class="col-xs-12">
                 <a class="notes_login_save btn btn-info btn-block" href="#" onclick='fireLoginOrRegisterModalRequest("sign_in");'>
                     Speichern
@@ -1892,7 +1880,8 @@ $(function() {
         saveNote('Notiz hinzufügen', 'Notiz bearbeiten');
     });
 })
-</script></div>
+</script>
+</div>
         </div>
     </div>
 
@@ -2232,7 +2221,7 @@ $(function() {
     <ol class="breadcrumb noprint">
         <li><a href="http://www.wg-gesucht.de/">Start</a></li>
         <li><a href="wohnraumangebote.html">Wohnungsmarkt</a></li>
-        <li><a href="wg-zimmer-in-Wien.163.0.0.4.html">WG Zimmer in Wien</a></li>
+        <li><a href="wg-zimmer-in-Wien.163.0.0.1.html">WG Zimmer in Wien</a></li>
     </ol>
 </div>
                     </div>
@@ -2315,7 +2304,7 @@ $(function() {
             <li class="li-bottom-link"><a href="http://www.wg-gesucht.de/mietwohnungen.html" class="a-bottom-link">Mietwohnungen</a></li>
             <li class="li-bottom-link"><a href="http://www.wg-gesucht.de/ic/wohnungsmarkt.html" class="a-bottom-link">Wohnungsmarkt</a></li>
             <li class="li-bottom-link"><a href="http://www.wg-gesucht.de/wohnungssuche.html" class="a-bottom-link">Wohnungssuche</a></li>
-                    </ul>
+        </ul>
     </div>
 </div>
                                         <br class="CLR" />
@@ -2345,7 +2334,7 @@ $(function() {
         
                     
 <div id="div_layer">
-    <script src="//urban.adspirit.de/adscript.php?pid=2898&amp;ord=1474290648"></script>
+    <script src="//urban.adspirit.de/adscript.php?pid=2898&amp;ord=1476111304"></script>
 </div>
             
             
@@ -2422,18 +2411,6 @@ $(function() {
             
 
     
-      <script type="text/javascript">
-        (function(p,f,t){
-        t=t||'outstream';var s,g,d,x,n='script',a='data-display',m='PLISTA_OUTSTREAM',w=window;try{x=w.frameElement;w=x?w.top:w;if(x){d=w.document.createElement('div');d.setAttribute(a,'plista_widget_'+t);x.parentNode.insertBefore(d,x);}}catch(e){}if(!w[m]){w[m]={publickey:p,widgets:[t],dataMode:a,noCache:true,oncomplete:f,onwidgetinit:function(d){this.passback=!d.items.length}};s=w.document.createElement(n);g=w.document.getElementsByTagName(n)[0];s.async=true;s.type='text/javascript';s.src=(w.location.protocol==='https:'?'https:':'http:')+'//static.plista.com/async/'+m+'.js';g.parentNode.insertBefore(s,g);}
-        }('fdc5a7f9d15be004aa03fc4d', function() {
-            if (this.passback) {
-                /*passback code here*/
-            }
-        }));
-        var i = "%i";
-    
-
-    
         <script>
             (function(p,f,t){
             t=t||'outstream';var s,g,d,x,n='script',a='data-display',m='PLISTA_OUTSTREAM',w=window;try{x=w.frameElement;w=x?w.top:w;if(x){d=w.document.createElement('div');d.setAttribute(a,'plista_widget_'+t);x.parentNode.insertBefore(d,x);}}catch(e){}if(!w[m]){w[m]={publickey:p,widgets:[t],dataMode:a,noCache:true,oncomplete:f,onwidgetinit:function(d){this.passback=!d.items.length}};s=w.document.createElement(n);g=w.document.getElementsByTagName(n)[0];s.async=true;s.type='text/javascript';s.src=(w.location.protocol==='https:'?'https:':'http:')+'//static.plista.com/async/'+m+'.js';g.parentNode.insertBefore(s,g);}
@@ -2492,10 +2469,6 @@ $(function() {
         window.onbeforeunload = null;
     </script>
 
-                <script>
-            window._taboola = window._taboola || [];
-            _taboola.push( { flush: true } );
-        </script>
     
     
     <div class="ajax_loader_gif position-absolute display-none" style="z-index: 999; top: 40%; left: 45%;">
