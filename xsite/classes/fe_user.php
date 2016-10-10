@@ -2176,7 +2176,7 @@ class fe_user
 
 		if (count($send2)>0)
 		{
-			$html = xredaktor_render::renderPage($pageId,true);
+			$html = xredaktor_render::renderPage($pageId,true,array(),false);
 
 			$_s = array();
 			$_r = array();

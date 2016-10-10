@@ -8,8 +8,8 @@ class fe_room
 
 	public static $regDefaults = array(
 		//'wz_COUNT_MITBEWOHNER_M' 	=> 1,
-		//'wz_COUNT_MITBEWOHNER_F' 	=> 1,
-		//'wz_COUNT_MITBEWOHNER' 	=> 2,
+		'wz_COUNT_MITBEWOHNER_F' 	=> 1,
+		'wz_COUNT_MITBEWOHNER' 		=> 1,
 		//'wz_UNREG_M' 				=> 1,
 		//'wz_UNREG_F' 				=> 1,
 		'wz_ADRESSE_LAT' 			=> 48.2081743,
