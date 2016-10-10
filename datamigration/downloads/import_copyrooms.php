@@ -2,9 +2,18 @@
 
 require_once(dirname(__FILE__).'/../_includes.php');
 
-$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 ORDER BY wz_images_cnt DESC");
+//$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
+$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
 
-foreach ($copyRooms as $room)
+/*
+echo "<pre>";
+print_r($copyRooms);
+echo "</pre>";
+die();
+ */
+
+ 
+ foreach ($copyRooms as $room)
 {
 	$source 	= $room['wz_source'];
 	$source_id 	= $room['wz_source_id'];
@@ -12,35 +21,42 @@ foreach ($copyRooms as $room)
 
 	$roomData = json_decode($room['wz_json_cfg'], true);
 	
-	// WG ZIMMER GRÖSSE
-	$RoomSize = $roomData['details']['Die WG'];
-	$newRoomSize = substr($RoomSize[0], 0, 2);
-		
-	// MIETE
-	$wz_miete = intval($roomData['angabenObjekt']['Miete']);
-	if ($wz_miete == 0 || $wz_miete === 0)
-		$wz_miete = intval($roomData['angabenObjekt']['Miete pro Tag']);
-
-	// GESUCHT ALTER VON BIS
-	$strGesucht = $roomData['details']['Gesucht wird'];
-	$strGesucht = implode(" ", $strGesucht);
 	
-	$arrGesucht = getNumerics($strGesucht);
-	$mateVon 	= $arrGesucht[0];
-	$mateBis 	= $arrGesucht[1];
+/////////// ABLÖSE / KAUTIONS	
+	$wz_abloese = intval(str_replace('-','',filter_var($roomData['angabenObjekt']['Kaution'], FILTER_SANITIZE_NUMBER_INT)));
+	
+	if(is_int($wz_abloese) && $wz_abloese != 0){
+		$wz_abloese = 'Y';
+	}
+	else
+	{
+		$wz_abloese = 'N';
+	}
 
+
+////////// MITBEWOHNER ALTER
+	$wz_MB_str = getNumerics($roomData['details']['Die WG']['3']);		
+	$wz_MB_Alter_von = $wz_MB_str[0];
+	$wz_MB_Alter_bis = $wz_MB_str[1];
+		
+	if($wz_MB_Alter_von == '' || $wz_MB_Alter_von == 0)
+	{
+		$wz_MB_Alter_von = 1;
+	}
+	
+	if($wz_MB_Alter_bis == '' || $wz_MB_Alter_bis == 0)
+	{
+		$wz_MB_Alter_bis = 99;
+	}
+
+	echo $room['wz_total'];
+	die();
 	
 	$db = array(
 		'wz_FROM_IMPORT'			=> 'Y',
 		
-		//'wz_GROESSE' 				=> intval($roomData['key_size']),
-		//'wz_GROESSE_TOTAL' 		=> intval($roomdata['key_size']),
-		//'wz_MIETE'				=> intval($roomData['key_total']),
-		//'wz_MIETE_TOTAL'			=> intval($roomData['key_total']),
-		'wz_GROESSE' 				=> intval($newRoomSize),
-		//'wz_GROESSE_TOTAL' 			=> intval($newRoomSize),
-		'wz_MIETE'					=> $wz_miete,
-		//'wz_MIETE_TOTAL'			=> $wz_miete,
+		'wz_GROESSE' 				=> intval($room['wz_size']),
+		'wz_MIETE'					=> intval($room['wz_total']),
 		'wz_BESCHREIBUNG'			=> strip_tags($roomData['anzeigenText']),
 		'wz_BESCHREIBUNG_PREMIUM'	=> $roomData['anzeigenText'],
 		'wz_ADRESSE' 				=> $roomData['search']['Adresse'],
@@ -48,7 +64,7 @@ foreach ($copyRooms as $room)
 		'wz_HAUSTIERE'				=> 'X',
 		'wz_VEGGIE'					=> 'X',
 		'wz_RAUCHER'				=> 'X',
-		'wz_ABLOESE'				=> 'X',
+		'wz_ABLOESE'				=> $wz_abloese,
 		'wz_GESCHLECHT_MITBEWOHNER' => 'X',
 		
 		'wz_PROFILBILD' 			=> intval($roomData['images'][0]),
@@ -62,8 +78,8 @@ foreach ($copyRooms as $room)
 		'wz_SOURCE_ID'				=> $roomData['id'],
 		'wz_COPY_ID'				=> $room['wz_id'],
 		
-		'wz_MITBEWOHNER_ALTER_VON'	=> $mateVon,
-		'wz_MITBEWOHNER_ALTER_BIS'	=> $mateBis
+		'wz_MITBEWOHNER_ALTER_VON'	=> $wz_MB_Alter_von,
+		'wz_MITBEWOHNER_ALTER_BIS'	=> $wz_MB_Alter_bis
 	);
 	
 	// verfügbarkeit

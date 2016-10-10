@@ -66,14 +66,14 @@ xkalt_.prototype = {
 		{name: 'wz_kalt_status',		text:'Status',					type:'string',	hidden: false,	header:true},
 		{name: 'wz_BEARBEITET_TS',		text:'Erledigt-Zeitpunkt',		type:'string' , hidden: false, 	header:true},
 		{name: 'wz_lastChanged',		text:'LastChanged',				type:'string' , hidden: false, 	header:true},
-		{name: 'wz_created',			text:'Erstellt',				type:'string' , hidden: false, 	header:false},
+		{name: 'wz_created',			text:'Erstellt',				type:'string' , hidden: true, 	header:true},
 		{name: 'images_cnt',			text:'Bilder',					type:'string' , hidden: false, 	header:true},
 		{name: 'size',					text:'m²',						type:'string' , hidden: false, 	header:true},
 		{name: 'total',					text:'€',						type:'string' , hidden: false, 	header:true},
 		{name: 'wz_kalt_phone',			text:'TelNR',					type:'string' , hidden: false, 	header:true},
 		{name: 'wz_kalt_log',			text:'Kommentar',				type:'string' , hidden: false, 	header:true},
-		{name: 'quelle',				text:'Quelle',					type:'string' , hidden: false, 	header:false},
-		{name: 'url',					text:'Quell-URL',				type:'string' , hidden: true, 	header:false},
+		{name: 'quelle',				text:'Quelle',					type:'string' , hidden: true, 	header:true},
+		{name: 'url',					text:'Quell-URL',				type:'string' , hidden: true, 	header:true},
 		
 		
 
