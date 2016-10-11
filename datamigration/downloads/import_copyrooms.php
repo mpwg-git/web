@@ -5,26 +5,15 @@ require_once(dirname(__FILE__).'/../_includes.php');
 //$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
 $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
 
-/*
-echo "<pre>";
-print_r($copyRooms);
-echo "</pre>";
-die();
- */
-
 
  foreach ($copyRooms as $room)
 {
-	$source 	= $room['wz_source'];
+	$source 		= $room['wz_source'];
 	$source_id 	= $room['wz_source_id'];
-	$exists 	= dbx::query("SELECT wz_id, wz_ADRESSE_LAT, wz_ADRESSE_LNG FROM wizard_auto_809 WHERE wz_FROM_IMPORT = 'Y' AND wz_SOURCE = '$source' AND wz_SOURCE_ID = '$source_id' ");
+	$exists 		= dbx::query("SELECT wz_id, wz_ADRESSE_LAT, wz_ADRESSE_LNG FROM wizard_auto_809 WHERE wz_FROM_IMPORT = 'Y' AND wz_SOURCE = '$source' AND wz_SOURCE_ID = '$source_id' ");
 
 	$roomData = json_decode($room['wz_json_cfg'], true);
 
-	echo "<pre>";
-	print_r($roomData);
-	echo "</pre>";
-	die();
 
 /////////// ABLÖSE / KAUTIONS
 	$wz_abloese = intval(str_replace('-','',filter_var($roomData['angabenObjekt']['Kaution'], FILTER_SANITIZE_NUMBER_INT)));
@@ -56,8 +45,24 @@ die();
 	if($explode[1] == "bis")
 	{
 		$alterBis=$explode[2];
-		$alterVon="1";
+		$alterVon=1;
 	}
+	if($explode[1] == "ab")
+	{
+		$alterVon=$explode[2];
+		$alterBis=99;
+	}
+	if($alterVon == '' && $alterBis == '')
+	{
+		$alterVon = 1;
+		$alterBis = 99;
+	}
+
+	//$stripText = strip_tags($roomData['anzeigenText']);
+	$splitText = utf8_decode($roomData['anzeigenText']);
+
+	$splitText = explode("<b>",$splitText);
+
 
 
 	$db = array(
@@ -65,8 +70,10 @@ die();
 
 		'wz_GROESSE' 					=> intval($room['wz_size']),
 		'wz_MIETE'						=> intval($room['wz_total']),
-		'wz_BESCHREIBUNG'				=> strip_tags($roomData['anzeigenText']),
-		'wz_BESCHREIBUNG_PREMIUM'	=> $roomData['anzeigenText'],
+		//'wz_BESCHREIBUNG'				=> strip_tags($roomData['anzeigenText']),
+		'wz_BESCHREIBUNG'				=> strip_tags($splitText[3]) . strip_tags($splitText[4]),
+		//'wz_BESCHREIBUNG_PREMIUM'	=> $roomData['anzeigenText'],
+		'wz_BESCHREIBUNG_PREMIUM'	=> strip_tags($splitText[3]) . strip_tags($splitText[4]),
 		'wz_ADRESSE' 					=> $roomData['search']['Adresse'],
 
 		'wz_HAUSTIERE'					=> 'X',
@@ -86,9 +93,12 @@ die();
 		'wz_SOURCE_ID'					=> $roomData['id'],
 		'wz_COPY_ID'					=> $room['wz_id'],
 
+		'wz_LAGE'						=> strip_tags(preg_replace('/\bLage\b/','',$splitText[2])),
+
 		'wz_MITBEWOHNER_ALTER_VON'	=> $alterVon,
 		'wz_MITBEWOHNER_ALTER_BIS'	=> $alterBis
 	);
+
 
 	// verfügbarkeit
 	preg_match_all('/(\d+\.\d+\.\d+)/', $roomData['search']['Verfügbarkeit'], $matches);

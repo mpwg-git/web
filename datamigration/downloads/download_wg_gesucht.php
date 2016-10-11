@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/../_includes.php');
 
 $links = array();
 
-for ($i=0;$i<=1;$i++)
+for ($i=0;$i<=2;$i++)
 {
 	$links[] = 	"http://www.wg-gesucht.de/wg-zimmer-in-Wien.163.0.0.$i.html";
 }
@@ -150,6 +150,7 @@ function getNumbersFromString($txt)
 	return str_replace('-','',filter_var($txt, FILTER_SANITIZE_NUMBER_INT));
 }
 
+
 function processRoom($l)
 {
 	$dl_f = dirname(__FILE__).'/zimmer/'.basename($l);
@@ -179,8 +180,8 @@ function processRoom($l)
 	foreach(pq('.panel.panel-default.panelToTranslate .wordWrap') as $txt) {
 		$anzeigentext[] = pq($txt)->html();
 	}
-	$anzeigentext = cleanHtml(implode("",$anzeigentext));
 
+	$anzeigentext = cleanHtml(implode("",$anzeigentext));
 
 
 //////////////////////// AngabenObjekt
