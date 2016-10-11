@@ -114,7 +114,7 @@ function downloadImages($images)
 		if (!file_exists($cache_file))
 		{
 			$imageString = file_get_contents($i);
-			
+
 			if (trim($imageString) != '' && $imageString != false)
 			{
 				$save = file_put_contents($cache_file,$imageString);
@@ -222,11 +222,11 @@ function processRoom($l)
 
 /////////////////////// WG-Details
 	$details = array();
-	
+
 	foreach(pq('.panel.panel-default ul.ul-detailed-view-datasheet') as $key => $ulset) {
-		
+
 		$k = strictClean(pq($ulset)->prev('h4')->html());
-		
+
 		foreach(pq('li',$ulset) as $li) {
 			if (!isset($details[$k])) $details[$k] = array();
 			$details[$k][] = strictClean(pq($li)->html());
@@ -237,24 +237,22 @@ function processRoom($l)
 
 //////////////////////// Div:
 	$search = array(
-	
+
 	'Adresse' 	=> array(
 	'find' 		=> 'h3.headline.headline-detailed-view-panel-title',
-	'search'	=> 'Adresse',
+	'search'		=> 'Adresse',
 	'get' 		=> 'a',
 	'kick'		=> 'Umzugsfirma beauftragen1'
 	)
-	
 	);
 
-	
 	$searchObject = array();
 	foreach ($search as $key => $cfg)
 	{
 
 		$find 	= $cfg['find'];
-		$search = $cfg['search'];
-		$get 	= $cfg['get'];
+		$search 	= $cfg['search'];
+		$get 		= $cfg['get'];
 		$kick 	= $cfg['kick'];
 
 		foreach(pq($find) as $ulset) {
@@ -266,6 +264,7 @@ function processRoom($l)
 		}
 	}
 
+
 	list($ad_street,$ad_street_nr,$ad_zip,$ad_city) = explode(' ',$searchObject['Adresse'],6);
 
 	$id = str_replace('-','',filter_var($l, FILTER_SANITIZE_NUMBER_INT));
@@ -273,46 +272,46 @@ function processRoom($l)
 	$room = array();
 
 	$room['source']			= 'wg-gesucht';
-	$room['id']				= $id;
-	$room['images'] 		= $images;
+	$room['id']					= $id;
+	$room['images'] 			= $images;
 	$room['anzeigenText'] 	= $anzeigentext;
 	$room['angabenObjekt'] 	= $angabenObjekt;
-	$room['details'] 		= $details;
+	$room['details'] 			= $details;
 	$room['search'] 		= $searchObject;
 	$room['ad_street'] 		= $ad_street;
 	$room['ad_street_nr']	= $ad_street_nr;
 	$room['ad_zip']			= $ad_zip;
-	$room['ad_city']		= $ad_city;
+	$room['ad_city']			= $ad_city;
 
 	$room['key'] = array();
 
 	//	header('Content-Type: text/html; charset=utf-8');
-	
-	//$key_facts = pq("h1.headline.headline-orange.headline-key-facts")->text(); 
+
+	//$key_facts = pq("h1.headline.headline-orange.headline-key-facts")->text();
 	$key_facts = pq("table.headline-orange")->text();
 	$key_facts = explode(utf8_decode('Â'),$key_facts);
 	$key_facts = preg_replace('!\s+!', '', $key_facts);
-	
+
 	$roomSizeMiete = array();
-	
+
 	foreach($key_facts as $key) {
-		
+
 		$tmp = getNumbersFromString($key);
-		
+
 		if($tmp != '')
 		{
 			$roomSizeMiete[] = getNumbersFromString($key);
-		}	
+		}
 	}
 
 	$wz_source_id 	= $room['id'];
 	$wz_source 		= $room['source'];
 	$wz_groesse		= $roomSizeMiete[0];
 	$wz_miete		= $roomSizeMiete[1];
-	
-		
+
+
 	$present = dbx::query("select * from wizard_auto_858 where wz_del='N' and wz_source_id = $wz_source_id and wz_source='$wz_source'");
-	
+
 	$db = array(
 	'wz_source' 	=> $wz_source,
 	'wz_source_id' 	=> $wz_source_id,
@@ -323,7 +322,7 @@ function processRoom($l)
 	'wz_size'		=> $wz_groesse,
 	'wz_total'		=> $wz_miete
 	);
-	
+
 
 	if ($present === false)
 	{
@@ -334,7 +333,7 @@ function processRoom($l)
 	{
 		$wz_id = intval($present['wz_id']);
 		dbx::update('wizard_auto_858',$db,array('wz_id'=>$wz_id));
-	}	
+	}
 }
 
 
@@ -363,4 +362,3 @@ foreach ($zimmer as $l)
 
 
 echo "\nENDE DOWNLOAD WG-GESUCHT\n\n";
-
