@@ -45,13 +45,10 @@ class fe_search
 		$userId						= xredaktor_feUser::getUserId();
 
 		$returnJson					= false;
-		$showAll					= false;
+		$showAll						= false;
 		$userId						= intval(xredaktor_feUser::getUserId());
 
-
-
-
-		$type						= "biete";
+		$type							= "biete";
 
 		$offset						= intval($_REQUEST['offset']);
 
@@ -267,24 +264,14 @@ class fe_search
 
 
 		// WEB-385
-		$search_rework['price_from'] = intval($_SESSION['xredaktor_feUser_wsf']['wz_MIETE_VON']);
-		$search_rework['price_to'] = intval($_SESSION['xredaktor_feUser_wsf']['wz_MIETE_BIS']);
-
-
-
-
+		$search_rework['price_from']	= intval($_SESSION['xredaktor_feUser_wsf']['wz_MIETE_VON']);
+		$search_rework['price_to'] 	= intval($_SESSION['xredaktor_feUser_wsf']['wz_MIETE_BIS']);
 
 		$searchData['SEARCH'] 				= json_encode($search_rework);
-
-
-
-
 
 		$resultsHtml	= array();
 		$resultsData	= array();
 		$type = $trueType;
-
-
 
 
 		if ($type == '') $type = fe_user::getUserType($userId);
@@ -295,9 +282,6 @@ class fe_search
 		print_r(compact('filterIsSet', 'trueType', 'trueFilter'));
 		print_r($searchData); die();
 			*/
-
-
-
 
 
 		if ($type == "biete")
@@ -561,16 +545,10 @@ class fe_search
 	public static function getRoomResultsByParams($searchData, $showAll=false, $offset=0)
 	{
 
-
 		session_start();
 
-
-
-
-
-
 		$userId					= intval(xredaktor_feUser::getUserId());
-		$type					= 'suche';
+		$type						= 'suche';
 		$profileTableId 		= 717;
 		$resultLimit			= 99; //18;
 
@@ -579,8 +557,6 @@ class fe_search
 		$toSearch	= json_decode($searchData['SEARCH'], true);
 
 		$filterIsSet = false;
-
-
 
 
 		// WEB-385
@@ -855,13 +831,6 @@ class fe_search
 							}
 
 
-
-
-
-
-
-
-
 							$sqlLocationPostfix = " having distance < $dist ORDER BY wz_RESULT DESC, distance ASC ";
 						}
 					}
@@ -874,15 +843,10 @@ class fe_search
 		}
 
 
-
-
 		// allgemein: keine deaktivierten / gelöschten Räume in den suchergebnissen
 		$where[] = " wizard_auto_809.wz_ACTIVE != 'N' ";
 		$where[] = " wizard_auto_809.wz_del != 'Y' ";
 		$where[] = " wizard_auto_809.wz_online != 'N' ";
-
-
-
 
 
 
@@ -920,8 +884,6 @@ class fe_search
 
 	public static function setSearchDataForUser($searchData, $userId, $isJson=false)
 	{
-
-
 
 		$userId = intval($userId);
 		if ($userId == 0) return false;
@@ -1035,11 +997,6 @@ class fe_search
 
 		$toSearch	= json_decode($searchData['SEARCH'], true);
 
-
-
-
-
-
 		$filterIsSet = false;
 
 		if (isset($toSearch['filter']) && trim($toSearch['filter']) != '')
@@ -1137,160 +1094,160 @@ class fe_search
 		}
 
 
-		if (!$filterIsSet) foreach ($toSearch as $k => $v) {
+		if (!$filterIsSet)
+		{
+			foreach ($toSearch as $k => $v) {
 
-			if (trim($v) == '') continue;
+				if (trim($v) == '') continue;
 
-			switch($k)
-			{
-				case 'date':
-					// wz_ZEITRAUM_VON, wz_ZEITRAUM_BIS
-					$date		= date("Y-m-d", strtotime($v));
-					$where[] 	= " (wz_ZEITRAUM_VON = '0000-00-00' OR wz_ZEITRAUM_VON >= '$date') AND (wz_ZEITRAUM_BIS = '0000-00-00' OR wz_ZEITRAUM_BIS <= '$date') ";
-					break;
+				switch($k)
+				{
+					case 'date':
+						// wz_ZEITRAUM_VON, wz_ZEITRAUM_BIS
+						$date			= date("Y-m-d", strtotime($v));
+						$where[] 	= " (wz_ZEITRAUM_VON = '0000-00-00' OR wz_ZEITRAUM_VON >= '$date') AND (wz_ZEITRAUM_BIS = '0000-00-00' OR wz_ZEITRAUM_BIS <= '$date') ";
+						break;
 
-				case 'price_from':
-					if ($type == 'biete') {
+					case 'price_from':
+						if ($type == 'biete') {
 
-						// miete von 100 => findet user die 50-101 eingestellt haben
-						// wz_MIETE_VON
-						$val		= intval($v);
-						$where[] 	= " (  /* miete von */
-							(wz_MIETE_VON >= $val AND (wz_MIETE_BIS >= $val OR wz_MIETE_BIS = 0))
-							OR
-							(wz_MIETE_BIS >= $val)
-						) ";
-					}
+							// miete von 100 => findet user die 50-101 eingestellt haben
+							// wz_MIETE_VON
+							$val		= intval($v);
+							$where[] 	= " (  /* miete von */
+								(wz_MIETE_VON >= $val AND (wz_MIETE_BIS >= $val OR wz_MIETE_BIS = 0))
+								OR
+								(wz_MIETE_BIS >= $val)
+							) ";
+						}
+						break;
 
-					break;
-
-				case 'price_to':
-					if ($type == 'biete') {
-						// miete bis 200 => findet user die 199-1000 eingestellt haben, und user die 199-0 eingestellt haben
-						// wz_MIETE_BIS
-						$val		= intval($v);
-						$where[] 	= " (  /*miete bis*/
-							(wz_MIETE_BIS = 0)
-							OR
-							(wz_MIETE_BIS <= $val)
-							OR
-							(wz_MIETE_VON <= $val)
-						) ";
-					}
-					break;
+					case 'price_to':
+						if ($type == 'biete') {
+							// miete bis 200 => findet user die 199-1000 eingestellt haben, und user die 199-0 eingestellt haben
+							// wz_MIETE_BIS
+							$val		= intval($v);
+							$where[] 	= " (  /*miete bis*/
+								(wz_MIETE_BIS = 0)
+								OR
+								(wz_MIETE_BIS <= $val)
+								OR
+								(wz_MIETE_VON <= $val)
+							) ";
+						}
+						break;
 
 
-				case 'location':
+					case 'location':
 
-					// ONLY use values if no LAT / LONG PRESENT
-					if ($location['ADRESSE_LAT'] == 0 || $location['ADRESSE_LNG'] == 0)
-					{
-						// location fields to be used to match search results
-						$fieldsToSearch 	= array('ADRESSE_STADT', 'ADRESSE_LAND', 'ADRESSE_PLZ');
-
-						foreach ($fieldsToSearch as $field)
+						// ONLY use values if no LAT / LONG PRESENT
+						if ($location['ADRESSE_LAT'] == 0 || $location['ADRESSE_LNG'] == 0)
 						{
-							if (trim($location[$field]) != '')
-							{
-								// special case, get wz_id from country
-								if ($field == 'ADRESSE_LAND')
-								{
-									$countryId	= intval(self::getCountryIdByIso2($location[$field]));
+							// location fields to be used to match search results
+							$fieldsToSearch 	= array('ADRESSE_STADT', 'ADRESSE_LAND', 'ADRESSE_PLZ');
 
-									if ($countryId > 0)
-									{
-										$where[]	= " wz_".$field." = '".$countryId."'";
-									}
-								}
-								else
+							foreach ($fieldsToSearch as $field)
+							{
+								if (trim($location[$field]) != '')
 								{
-									$where[]	= " wz_".$field." = '".$location[$field]."'";
+									// special case, get wz_id from country
+									if ($field == 'ADRESSE_LAND')
+									{
+										$countryId	= intval(self::getCountryIdByIso2($location[$field]));
+
+										if ($countryId > 0)
+										{
+											$where[]	= " wz_".$field." = '".$countryId."'";
+										}
+									}
+									else
+									{
+										$where[]	= " wz_".$field." = '".$location[$field]."'";
+									}
 								}
 							}
 						}
-					}
 
-					break;
+						break;
 
-				case 'range':
+					case 'range':
 
-					if ($location != false)
-					{
-
-
-						if ($location['ADRESSE_LAT'] != '' && $location['ADRESSE_LNG'] != '')
+						if ($location != false)
 						{
 
-							$dist			= intval($v);
-							$origLat 		= $location['ADRESSE_LAT'];
-							$origLon 		= $location['ADRESSE_LNG'];
-							$tableName		= "wizard_auto_$profileTableId";
 
-							$sqlLocation 	= "select  DISTINCT * , wizard_auto_707.wz_id AS user_id, 12733.13 *
-								          ASIN(SQRT( POWER(SIN(($origLat - abs(wz_ADRESSE_LAT))*pi()/180/2),2)
-								          +COS($origLat*pi()/180 )*COS(abs(wz_ADRESSE_LAT)*pi()/180)
-								          *POWER(SIN(($origLon-wz_ADRESSE_LNG)*pi()/180/2),2)))
-								          as distance FROM wizard_auto_707 left join wizard_auto_773 on (wz_USERID1 = $userId AND wz_USERID2 = wizard_auto_707.wz_id) WHERE
-								          wizard_auto_707.wz_del ='N'
-								          and wz_ADRESSE_LNG between ($origLon-$dist/abs(cos(radians($origLat))*69))
-								          and ($origLon+$dist/abs(cos(radians($origLat))*69))
-								          and wz_ADRESSE_LAT between ($origLat-($dist/69))
-								          and ($origLat+($dist/69))
-
-
-								          ";
-
-							$sqlLocationPostfix = " having distance < $dist ORDER BY wz_RESULT desc, distance asc";
-
-
-
-
-
-							switch ($searchData['FILTER']) {
-								case 'FAVS':
-									$sqlLocation .= " and wizard_auto_707.wz_id in (select wz_F_USERID from ".fe_user::table_user_fav." where wz_USERID = $userId) ";
-									break;
-
-								case 'BLOCKED':
-									$sqlLocation .= " and wizard_auto_707.wz_id in (select wz_F_USERID from ".fe_user::table_user_block." where wz_USERID = $userId) ";
-
-									break;
-
-								default:
-									if ($searchData['FILTER'] != 'BLOCKED')
-									{
-										$sqlLocation 	.= " and wizard_auto_707.wz_id not in (select wz_F_USERID from ".fe_user::table_user_block." where wz_USERID = $userId) ";
-									}
-									break;
-							}
-
-
-							$sqlLocation .= " AND wizard_auto_707.wz_TYPE = 'suche' ";
-
-							if ($userId > 0)
+							if ($location['ADRESSE_LAT'] != '' && $location['ADRESSE_LNG'] != '')
 							{
-								$sqlLocation .= " and wizard_auto_707.wz_id != $userId";
+
+								$dist			= intval($v);
+								$origLat 		= $location['ADRESSE_LAT'];
+								$origLon 		= $location['ADRESSE_LNG'];
+								$tableName		= "wizard_auto_$profileTableId";
+
+								$sqlLocation 	= "select  DISTINCT * , wizard_auto_707.wz_id AS user_id, 12733.13 *
+									          ASIN(SQRT( POWER(SIN(($origLat - abs(wz_ADRESSE_LAT))*pi()/180/2),2)
+									          +COS($origLat*pi()/180 )*COS(abs(wz_ADRESSE_LAT)*pi()/180)
+									          *POWER(SIN(($origLon-wz_ADRESSE_LNG)*pi()/180/2),2)))
+									          as distance FROM wizard_auto_707 left join wizard_auto_773 on (wz_USERID1 = $userId AND wz_USERID2 = wizard_auto_707.wz_id) WHERE
+									          wizard_auto_707.wz_del ='N'
+									          and wz_ADRESSE_LNG between ($origLon-$dist/abs(cos(radians($origLat))*69))
+									          and ($origLon+$dist/abs(cos(radians($origLat))*69))
+									          and wz_ADRESSE_LAT between ($origLat-($dist/69))
+									          and ($origLat+($dist/69))
+
+
+									          ";
+
+								$sqlLocationPostfix = " having distance < $dist ORDER BY wz_RESULT desc, distance asc";
+
+
+								switch ($searchData['FILTER']) {
+									case 'FAVS':
+										$sqlLocation .= " and wizard_auto_707.wz_id in (select wz_F_USERID from ".fe_user::table_user_fav." where wz_USERID = $userId) ";
+										break;
+
+									case 'BLOCKED':
+										$sqlLocation .= " and wizard_auto_707.wz_id in (select wz_F_USERID from ".fe_user::table_user_block." where wz_USERID = $userId) ";
+
+										break;
+
+									default:
+										if ($searchData['FILTER'] != 'BLOCKED')
+										{
+											$sqlLocation 	.= " and wizard_auto_707.wz_id not in (select wz_F_USERID from ".fe_user::table_user_block." where wz_USERID = $userId) ";
+										}
+										break;
+								}
+
+
+								$sqlLocation .= " AND wizard_auto_707.wz_TYPE = 'suche' ";
+
+								if ($userId > 0)
+								{
+									$sqlLocation .= " and wizard_auto_707.wz_id != $userId";
+								}
 							}
-
-
-
-
-
-
-
 						}
-					}
 
-					break;
+						break;
 
-				default:
-					break;
+					default:
+						break;
+				}
 			}
 		}
 
 		// allgemein: keine deaktivierten / gelöschten Profile in den suchergebnissen
 		$where[] = " wizard_auto_707.wz_ACTIVE != 'N' ";
 		$where[] = " wizard_auto_707.wz_USERDEL != 'Y' ";
+
+		//if wz_miete_von && wz_miete_bis < wz_MIETE Room / dont show Profile
+		$where[] = " wizard_auto_707.wz_MIETE_VON >= $miete_von ";
+		$where[] = " wizard_auto_707.wz_MIETE_BIS < $miete_bis ";
+
+
+		//print_r($where); die("aaa");
+
 
 		$whereStr 	= '';
 		if (!empty($where))
@@ -1313,8 +1270,6 @@ class fe_search
 
 		$results 	= dbx::queryAll($sql, true);
 
-
-		//die(" ".print_r($results));
 
 		return $results;
 	}

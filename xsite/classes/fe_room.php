@@ -171,7 +171,6 @@ class fe_room
 		// remove hash from room + activate, now can be seen by everyone
 		dbx::update('wizard_auto_809', array('wz_HASH' 	=> '','wz_ACTIVE' => 'Y'), array('wz_id' => $roomId));
 
-
 		// update user so he can be found in chat
 		dbx::update('wizard_auto_707', array('wz_IS_TMP_USER'=>'C','wz_USERDEL'=>'N'), array('wz_id'=>intval($room['wz_ADMIN'])));
 
@@ -179,11 +178,11 @@ class fe_room
 		dbx::insert('wizard_auto_853', array('wz_ROOMID' => $roomId, 'wz_STATUS' => 'TODO'));
 
 		// insert into matching cron
-		dbx::insert("wizard_auto_845", array('wz_USERID' => intval($room['wz_ADMIN']), 'wz_STATUS' => 'TODO'));
-		
-		
+		dbx::insert('wizard_auto_845', array('wz_USERID' => intval($room['wz_ADMIN']), 'wz_STATUS' => 'TODO'));
+
+
 		self::assignUser2Room($room['wz_ADMIN'], $roomId);
-		
+
 		// redirect to startpage
 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 1)));
 		die();
