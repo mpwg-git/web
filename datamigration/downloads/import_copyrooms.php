@@ -2,17 +2,8 @@
 
 require_once(dirname(__FILE__).'/../_includes.php');
 
-
-function cleanHtml($html)
-{
-	$html = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
-	$html = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $html);
-	$html = strip_tags($html,"<b><span><br>");
-	return $html;
-}
-
 //$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
-$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
+$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' and wz_id = '2066' ORDER BY wz_created DESC");
 
 
  foreach ($copyRooms as $room)
@@ -70,7 +61,6 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 
 ////////// split anzeigentext
 	$str 				= $roomData['anzeigentext'];
-	$str				= utf8_decode($str);
 
 	$textArray 		= explode("<b>", $str);
 
@@ -79,19 +69,7 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 	$lage				= implode(" ", $lage);
 
 	$beschreibung 	= preg_grep('/\bLage\b/', $textArray, PREG_GREP_INVERT);
-	$beschreibung 	= implode("<b>", $beschreibung);
-
-	// foreach($textArray as $k => $v)
-	// {
-	//
-	// 	if(preg_match('/\bLage\b/', $v))
-	// 	{
-	// 		$lage = preg_grep('/\bLage\b/', $textArray);
-	// 		$lage	= preg_replace('/\bLage\b/','',$lage);
-	// 		$lage = implode(" ", $lage);
-	//
-	// 	}
-	// }
+	$beschreibung 	= implode(" ", $beschreibung);
 
 
 	$db = array(
@@ -99,9 +77,9 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 
 		'wz_GROESSE' 					=> intval($room['wz_size']),
 		'wz_MIETE'						=> intval($room['wz_total']),
-		'wz_BESCHREIBUNG'				=> $beschreibung,
-		'wz_BESCHREIBUNG_PREMIUM'	=> $beschreibung,
-		'wz_LAGE'						=> $lage,
+		'wz_BESCHREIBUNG'				=> preg_replace('/<br>\s+/', ' ', $beschreibung),
+		'wz_BESCHREIBUNG_PREMIUM'	=> preg_replace('/<br>\s+/', ' ', $beschreibung),
+		'wz_LAGE'						=> preg_replace('/<br>\s+/', ' ', $lage),
 
 		'wz_ADRESSE' 					=> $roomData['search']['Adresse'],
 
@@ -125,6 +103,12 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 		'wz_MITBEWOHNER_ALTER_VON'		=> $alterVon,
 		'wz_MITBEWOHNER_ALTER_BIS'		=> $alterBis
 	);
+
+	// echo $db['wz_BESCHREIBUNG'] . "<br><br>";
+	// echo $db['wz_LAGE'] . "<br><br>";
+	//
+	// die();
+
 
 	// verfügbarkeit
 	preg_match_all('/(\d+\.\d+\.\d+)/', $roomData['search']['Verfügbarkeit'], $matches);
