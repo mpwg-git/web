@@ -181,9 +181,21 @@ function processRoom($l)
 		$anzeigentext[] = pq($txt)->html();
 	}
 
-	$anzeigentext = cleanHtml(implode("",$anzeigentext));
+	$anzeigentext 		= cleanHtml(implode("",$anzeigentext));
+	
+	$anzeigentext	 	= explode(utf8_decode('Â'),$anzeigentext);
+	$anzeigentext 		= preg_replace('!\s+!', ' ', $anzeigentext);
+	$wz_lage			= cleanHtml($anzeigentext[2]);
+	unset($anzeigentext[2]);
 
-
+	
+	foreach($anzeigentext as $a)
+	{
+		$anzeigentext[0] = $a;
+	}
+	//$anzeigentext	 	= utf8_decode($anzeigentext);
+	$anzeigentext 		= cleanHtml(implode("",$anzeigentext));
+	
 //////////////////////// AngabenObjekt
 	$angabenObjekt = array();
 	foreach(pq('.panel.panel-default table tr') as $tr) {
@@ -273,16 +285,18 @@ function processRoom($l)
 	$room = array();
 
 	$room['source']			= 'wg-gesucht';
-	$room['id']					= $id;
-	$room['images'] 			= $images;
-	$room['anzeigenText'] 	= $anzeigentext;
+	$room['id']				= $id;
+	$room['images'] 		= $images;
+	$room['anzeigentext'] 	= anzeigentext;
+	$room['wz_lage']		= $wz_lage;
 	$room['angabenObjekt'] 	= $angabenObjekt;
-	$room['details'] 			= $details;
+	$room['details'] 		= $details;
 	$room['search'] 		= $searchObject;
 	$room['ad_street'] 		= $ad_street;
 	$room['ad_street_nr']	= $ad_street_nr;
 	$room['ad_zip']			= $ad_zip;
-	$room['ad_city']			= $ad_city;
+	$room['ad_city']		= $ad_city;
+	
 
 	$room['key'] = array();
 

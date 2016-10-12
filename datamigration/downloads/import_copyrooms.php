@@ -58,48 +58,47 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 		$alterBis = 99;
 	}
 
-	//$stripText = strip_tags($roomData['anzeigenText']);
-	$splitText = utf8_decode($roomData['anzeigenText']);
-
-	$splitText = explode("<b>",$splitText);
-
-
-
+	/*
+	$splitText	= utf8_decode($roomData['anzeigenText']);
+	$splitText	= explode("<b>",$splitText);
+	$wz_lage	= preg_replace('/\bLage\b/','',$splitText[2]);
+	unset($splitText[1]);
+	unset($splitText[2]);
+	$splitText	= implode("<b>",$splitText);	
+	*/
+	
+	
 	$db = array(
 		'wz_FROM_IMPORT'				=> 'Y',
 
 		'wz_GROESSE' 					=> intval($room['wz_size']),
 		'wz_MIETE'						=> intval($room['wz_total']),
-		//'wz_BESCHREIBUNG'				=> strip_tags($roomData['anzeigenText']),
-		'wz_BESCHREIBUNG'				=> strip_tags($splitText[3]) . strip_tags($splitText[4]),
-		//'wz_BESCHREIBUNG_PREMIUM'	=> $roomData['anzeigenText'],
-		'wz_BESCHREIBUNG_PREMIUM'	=> strip_tags($splitText[3]) . strip_tags($splitText[4]),
+		'wz_BESCHREIBUNG'				=> $roomData['anzeigentext'],
+		'wz_BESCHREIBUNG_PREMIUM'		=> $roomData['anzeigentext'],
+		'wz_LAGE'						=> $roomData['wz_lage'],
+		
 		'wz_ADRESSE' 					=> $roomData['search']['Adresse'],
 
 		'wz_HAUSTIERE'					=> 'X',
 		'wz_VEGGIE'						=> 'X',
 		'wz_RAUCHER'					=> 'X',
 		'wz_ABLOESE'					=> $wz_abloese,
-		'wz_GESCHLECHT_MITBEWOHNER' => 'X',
+		'wz_GESCHLECHT_MITBEWOHNER' 	=> 'X',
 
 		'wz_PROFILBILD' 				=> intval($roomData['images'][0]),
 		'wz_ACTIVE' 					=> 'N',
-		'wz_COUNT_MITBEWOHNER' 		=> intval($mann + $frau), //4,
-		'wz_COUNT_MITBEWOHNER_M' 	=> $mann, //2,
-		'wz_COUNT_MITBEWOHNER_F' 	=> $frau, //2,
-		//'wz_UNREG_M' 				=> X, //2,
-		//'wz_UNREG_F' 				=> X, //2,
+		'wz_COUNT_MITBEWOHNER' 			=> intval($mann + $frau), //4,
+		'wz_COUNT_MITBEWOHNER_M' 		=> $mann, //2,
+		'wz_COUNT_MITBEWOHNER_F' 		=> $frau, //2,
+		//'wz_UNREG_M' 					=> X, //2,
+		//'wz_UNREG_F' 					=> X, //2,
 		'wz_SOURCE'						=> $roomData['source'],
 		'wz_SOURCE_ID'					=> $roomData['id'],
 		'wz_COPY_ID'					=> $room['wz_id'],
-
-		'wz_LAGE'						=> strip_tags(preg_replace('/\bLage\b/','',$splitText[2])),
-
-		'wz_MITBEWOHNER_ALTER_VON'	=> $alterVon,
-		'wz_MITBEWOHNER_ALTER_BIS'	=> $alterBis
+		'wz_MITBEWOHNER_ALTER_VON'		=> $alterVon,
+		'wz_MITBEWOHNER_ALTER_BIS'		=> $alterBis
 	);
-
-
+	
 	// verfügbarkeit
 	preg_match_all('/(\d+\.\d+\.\d+)/', $roomData['search']['Verfügbarkeit'], $matches);
 
