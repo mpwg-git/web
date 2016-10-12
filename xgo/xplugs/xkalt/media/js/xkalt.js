@@ -24,19 +24,19 @@ xkalt_.prototype = {
         if (r.data.wz_kalt_status == 'NEU')
 		{
 			meta.style = 'background-color:blue;color:white;';
-			
+
 		} else if (r.data.wz_kalt_status == 'Zimmer weg' || r.data.wz_kalt_status == 'Will nicht' || r.data.wz_kalt_status == 'TelNr = 0')
 		{
 			meta.style = 'background-color:gray;color:white;';
-				
+
 		} else if (r.data.wz_kalt_status == 'Nicht erreicht' || r.data.wz_kalt_status == 'Ja' || r.data.wz_kalt_status == 'Anderes')
 		{
 			meta.style = 'background-color:yellow;color:black;';
-				
-		} else if (r.data.wz_kalt_status == 'Mail verschickt' || r.data.wz_kalt_status == 'Aktiviert') 
+
+		} else if (r.data.wz_kalt_status == 'Mail verschickt' || r.data.wz_kalt_status == 'Aktiviert')
 		{
 			meta.style = 'background-color:#7FFF00;color:black;';
-			
+
 		} else
 		{
 			meta.style = 'background-color:blue;color:white;';
@@ -58,10 +58,10 @@ xkalt_.prototype = {
             border: false,
             items: []
         });
-		
+
 
        var fields = [
-	
+
 		{name: 'wz_id',					text:'Nummer',					type:'int',		hidden: false, 	folder: true, header:true, width: 50, flex: 0, renderer: this.renderer_bestellung, renderer_scope: this},
 		{name: 'wz_kalt_status',		text:'Status',					type:'string',	hidden: false,	header:true},
 		{name: 'wz_BEARBEITET_TS',		text:'Erledigt-Zeitpunkt',		type:'string' , hidden: false, 	header:true},
@@ -74,14 +74,14 @@ xkalt_.prototype = {
 		{name: 'wz_kalt_log',			text:'Kommentar',				type:'string' , hidden: false, 	header:true},
 		{name: 'quelle',				text:'Quelle',					type:'string' , hidden: true, 	header:true},
 		{name: 'url',					text:'Quell-URL',				type:'string' , hidden: true, 	header:true},
-		
-		
+
+
 
 		{name: 'wz_HASH',				text:'Hash',					type:'string' , hidden: false, 	header:false},
 		{name: 'wz_BEARBEITET',			text:'Erledigt',				type:'string' , hidden: true, 	header:false, width: 40},
 		{name: 'user',					text:'E-Benutzer',				type:'string' , hidden: false, 	header:false},
-		
-		
+
+
 
 		];
 
@@ -108,7 +108,8 @@ xkalt_.prototype = {
                 params: {
                     initSort: Ext.encode([{
 
-                        'property': 'images_cnt',
+                        // 'property': 'images_cnt',
+								'property': 'wz_id',
                         'direction': 'desc',
 
                     }])
@@ -400,7 +401,7 @@ xkalt_.prototype = {
 
                     listeners: {
                         select: function(combo, record) {
-                        	
+
                             //console.log(combo.getValue());
                             selectedStateId = combo.getValue();
 
