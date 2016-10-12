@@ -65,7 +65,7 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 	$textArray 		= explode("<b>", $str);
 
 	$lage				= preg_grep('/\bLage\b/', $textArray);
-	$lage				= preg_replace('/\bLage\b/','',$lage);
+	$lage				= preg_replace('/\bLage\b/','',$lage,1);
 	$lage				= implode(" ", $lage);
 
 	$beschreibung 	= preg_grep('/\bLage\b/', $textArray, PREG_GREP_INVERT);
