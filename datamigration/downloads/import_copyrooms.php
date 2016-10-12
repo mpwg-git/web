@@ -2,8 +2,8 @@
 
 require_once(dirname(__FILE__).'/../_includes.php');
 
-//$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
-$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' and wz_id = '2066' ORDER BY wz_created DESC");
+$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
+//$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' and wz_id = '2066' ORDER BY wz_created DESC");
 
 
  foreach ($copyRooms as $room)
