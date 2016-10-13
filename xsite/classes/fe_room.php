@@ -204,7 +204,16 @@ class fe_room
 
 		$myUserId		= xredaktor_feUser::getUserId();
 
-		$room			= dbx::query("select * from wizard_auto_809 where wz_id = $roomId");
+		$room			= dbx::query("select * from wizard_auto_809 where wz_id = $roomId and wz_online = 'Y' ");
+
+///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
+		if(!$itsMe){
+			if ($room['wz_ADMIN'] == 0 || ($room['wz_online'] == 'N' || $room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+			{
+				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+				die();
+			}
+		}
 
 		// if hash of room not empty, check if correct
 		if ($room['wz_HASH'] != '' && $hash != $room['wz_HASH']) {
@@ -216,10 +225,6 @@ class fe_room
 		{
 			return self::activateRoomWithHash($roomId, $hash);
 		}
-
-
-
-
 
 		$admin			= intval($room['wz_ADMIN']);
 		$user			= fe_user::getUserData($admin);
@@ -377,6 +382,15 @@ class fe_room
 
 		$room			= dbx::query("select * from wizard_auto_809 where wz_id = $roomId");
 
+
+///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
+		if ($room['wz_ADMIN'] == 0 || ($room['wz_online'] == 'N' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+		{
+
+			header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+			die();
+		}
+
 		$admin			= intval($room['wz_ADMIN']);
 		//$user			= fe_user::getUserData($admin);
 
@@ -439,8 +453,6 @@ class fe_room
 				$room[$v] = date("d.m.Y", strtotime($room[$v]));
 			}
 		}
-
-
 
 		$ret 			= array(
 			'USER' 		=> $user['USER'],

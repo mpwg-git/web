@@ -71,33 +71,33 @@ var facebook = {
 			e.preventDefault();
 			facebook.doLogin();
 		});
-		
+
 		$(document).on('click', '#fb-login-submit', function(e) {
 			e.preventDefault();
 			facebook.doLoginSimple();
 		});
-		
+
 		$(document).on('click', '.fb-login-submit', function(e) {
 			e.preventDefault();
 			facebook.doLoginSimple();
 		});
 	},
-	
+
 	doLoginSimple : function() {
 		FB.login(function(response) {
-			if (response.authResponse) {		
-				
+			if (response.authResponse) {
+
 				var authResponse = response.authResponse;
-							
+
 				FB.api('/me', {
 					fields : 'first_name, last_name, email, picture, gender'
 				}, function(response) {
 
 					var formdata = $('#wg-zimmer-finden').serializeObject();
 					var object = $.extend(response, formdata);
-					
+
 					object.accessToken = authResponse.accessToken;
-					
+
 					var cfg = {
 						be_scope : 'fe_user',
 						be_fn : 'doFacebookLoginSimple',
@@ -105,7 +105,7 @@ var facebook = {
 						scope : this,
 						cb : facebook.doLoginSimpleCallback
 					}
-																	
+
 					backend_request.post(cfg);
 
 				});
@@ -116,7 +116,7 @@ var facebook = {
 			scope : 'email,public_profile'
 		});
 	},
-	
+
 	doLoginSimpleCallback : function(state, cfg, data) {
 
 		if (data.status == 'OK') {
@@ -127,52 +127,52 @@ var facebook = {
 			// TODO show warning
 		}
 	},
-	
+
 	doLogin : function() {
-		
+
 		var checkboxError = false;
-		
+
 		$('.checkbox-error').hide();
-		
+
 		$(".hidden-fragen").each(function(i,o){
 			var frageId = $(o).val();
-			
+
 			var checkedChecker = $('input:checkbox[data-frage="'+frageId+'"]:checked').length;
-			
+
 			if(checkedChecker == 0)
 			{
 				$('#FRAGE_'+frageId+'_error').show();
-				
+
 				checkboxError = true;
-			}	
+			}
 		});
-				
+
 		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
-		
-		if ((typeof ok != "undefined" && ok == false) || checkboxError) 
+
+		if ((typeof ok != "undefined" && ok == false) || checkboxError)
 		{
 			$('.scrollbarfix','.middle-row').animate({
 	        	scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top-200
 	    	}, 500);
-			
+
 			return false;
 		}
-		
+
 		if ( typeof ok != "undefined" && ok == true) {
 			FB.login(function(response) {
-				if (response.authResponse) {		
-					
+				if (response.authResponse) {
+
 					var authResponse = response.authResponse;
-								
+
 					FB.api('/me', {
 						fields : 'first_name, last_name, email, picture, gender'
 					}, function(response) {
 
 						var formdata = $('#wg-zimmer-finden').serializeObject();
 						var object = $.extend(response, formdata);
-						
+
 						object.accessToken = authResponse.accessToken;
-						
+
 						var cfg = {
 							be_scope : 'fe_user',
 							be_fn : 'doFacebookLogin',
@@ -180,7 +180,7 @@ var facebook = {
 							scope : this,
 							cb : facebook.doLoginCallback
 						}
-																		
+
 						backend_request.post(cfg);
 
 					});
@@ -212,34 +212,34 @@ var facebook = {
 }
 
 var simpleLogin = {
-	
+
 	init : function()
 	{
 		$(document).on('click', '.js-show-simple-login', function(e) {
 			e.preventDefault();
 			$(this).hide();
 			$('.js-simple-login').show();
-			
+
 			$('#show-simple-login-form').slideDown();
 		});
-		
+
 		$(document).on('click', '.js-simple-login', function(e) {
 			e.preventDefault();
 			simpleLogin.doSimpleLogin();
 		});
-		
+
 		$(document).on('click', '#sendEmailConfirmationAgain', function(e) {
 			e.preventDefault();
 			simpleLogin.sendEmailConfirmationAgain();
 		});
-		
+
 		$('#EmailConfirmModal').on('hidden.bs.modal', function () {
     		simpleLogin.resetEmailConfirmationAgain();
 		});
 	},
-	
+
 	resetEmailConfirmationAgain : function()
-	{		
+	{
 		var cfg = {
 			be_scope : 'fe_user',
 			be_fn : 'resetEmailConfirmationAgain',
@@ -249,15 +249,15 @@ var simpleLogin = {
 		}
 
 		backend_request.post(cfg);
-		
+
 	},
-	
+
 	resetEmailConfirmationAgainCallback : function(state, cfg, data) {
-		
+
 	},
-	
+
 	sendEmailConfirmationAgain : function()
-	{		
+	{
 		var cfg = {
 			be_scope : 'fe_user',
 			be_fn : 'sendEmailConfirmationAgain',
@@ -267,23 +267,23 @@ var simpleLogin = {
 		}
 
 		backend_request.post(cfg);
-		
+
 	},
-	
+
 	sendEmailConfirmationAgainCallback : function(state, cfg, data) {
-		
+
 		$('#EmailConfirmModal').modal('hide');
-				
+
 		if (data.status == 'NOK') {
 			window.location = data.redirect;
 		}
 	},
-	
+
 	isValidEmailAddress : function(emailAddress) {
 		var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 		return pattern.test(emailAddress);
 	},
-			
+
 	checkEMail : function(id,val)
 	{
 		var div_error 		= jQuery('#'+id+"_error");
@@ -299,12 +299,12 @@ var simpleLogin = {
 			return false;
 		}
 	},
-	
+
 	checkVal : function(id,val)
 	{
 		var div_error		 = jQuery('#'+id+"_error");
 		var input_error		 = jQuery('#'+id);
-		
+
 		if (val.split(' ').join('') == "")
 		{
 			div_error.show();
@@ -316,66 +316,66 @@ var simpleLogin = {
 			return false;
 		}
 	},
-	
+
 	doSimpleLogin: function()
 	{
 		var checkboxError = false;
-		
+
 		$('.checkbox-error').hide();
-		
+
 		$(".hidden-fragen").each(function(i,o){
 			var frageId = $(o).val();
-			
+
 			var checkedChecker = $('input:checkbox[data-frage="'+frageId+'"]:checked').length;
-			
+
 			if(checkedChecker == 0)
 			{
 				$('#FRAGE_'+frageId+'_error').show();
-				
+
 				checkboxError = true;
-			}	
+			}
 		});
-				
+
 		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
-		
-		if ((typeof ok != "undefined" && ok == false) || checkboxError) 
+
+		if ((typeof ok != "undefined" && ok == false) || checkboxError)
 		{
 			$('.scrollbarfix','.middle-row').animate({
 	        	scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top-200
 	    	}, 500);
-			
+
 			return false;
 		}
-		
+
 		ok = fe_core.jsFormValidation2('wg-zimmer-finden');
-		
-		if ((typeof ok != "undefined" && ok == false) || checkboxError) 
+
+		if ((typeof ok != "undefined" && ok == false) || checkboxError)
 		{
 			$('.scrollbarfix','.middle-row').animate({
 	        	scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top-200
 	    	}, 500);
-			
+
 			return false;
 		}
-			
+
 		if(ok)
 		{
 			ok = simpleLogin.checkEMail('v2_EMAIL',$('#v2_EMAIL').val()) ? false : true;
 		}
-		
+
 		if(ok)
 		{
 			ok = simpleLogin.checkVal('v2_PASSWORT',$('#v2_PASSWORT').val()) ? false : true;
 		}
-		
-				
+
+
 		if(ok != true)
 		{
 			return false;
 		}
-		
+
 		var formdata = $('#wg-zimmer-finden').serializeObject();
-		
+
 		var cfg = {
 			be_scope : 'fe_user',
 			be_fn : 'doSimpleLogin',
@@ -385,9 +385,9 @@ var simpleLogin = {
 		}
 
 		backend_request.post(cfg);
-		
+
 	},
-	
+
 	doLoginCallback : function(state, cfg, data) {
 		console.info(state, cfg, data);
 
@@ -498,9 +498,9 @@ var formLogic = {
 			// in the handler, 'this' refers to the box clicked on
 			var $box 		= $(this);
 			var $frageId 	= $(this).data('frage');
-			
+
 			$('#FRAGE_'+$frageId+'_error').hide();
-			
+
 			if ($box.is(":checked")) {
 				// the name of the box is retrieved using the .attr() method
 				// as it is assumed and expected to be immutable
@@ -518,46 +518,32 @@ var formLogic = {
 }
 
 $(document).ready(function(){
-	
+
 	formLogic.init();
 	addressAutoCompletion.init();
 	facebook.init();
 	simpleLogin.init();
-	
+
 	if(typeof showEmailConfirmMsg !== 'undefined')
 	{
 		var showEmailConfirmMsgOnce = false;
 		if(showEmailConfirmMsg)
 		{
-			if(showEmailConfirmMsgOnce) 
+			if(showEmailConfirmMsgOnce)
 			{
 				return false;
 			}
-			
+
 			showEmailConfirmMsgOnce = true;
-			
+
 			$('#EmailConfirmModal').modal('show');
 		}
 	}
-	
+
 });
 
 
 // [WEB-57] notification wenn keine WG-Test Fragen beantwortet wurden
 $(document).ready(function() {
 	$('#noQuestionModal').modal('show');
-
 });
-
-
-// [WEB-253] Geburtstagskalender
-$(document).ready(function() {
-	$('#geburtsdatum').datepicker({
-		format: "dd/mm/yyyy",
-		defaultViewDate: { year: 1993, month: 01, day: 01 }
-	});
-});
-
-
-
-

@@ -607,6 +607,16 @@ class fe_user
 
 		$user			= dbx::query("select * from wizard_auto_707 where wz_id = $userId");
 
+///// redirect to error page if user is deleted || not active etc
+		if(!$itsMe){
+			if ($user['wz_del'] == 'Y' && $user['wz_USERDEL'] == 'Y' && ($user['wz_ACTIVE'] == 'N') || $user['wz_MAIL_CHECKED'] != 'Y' || $user['wz_online'] == 'N')
+			{
+				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+				die();
+			}
+		}
+
+
 		if($user === false)
 		{
 			return array();

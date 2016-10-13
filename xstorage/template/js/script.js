@@ -61,6 +61,7 @@ function reloadPage() {
 }
 
 
+
 $(document).ready(function() {
 	registerListeners();
 
@@ -71,21 +72,22 @@ $(document).ready(function() {
 		language : 'de-DE',
 		startDate : '-0d'
 	});
-	
+
 	//$('[data-toggle="tooltip"]').tooltip();
-	
+
 	$( '.swipebox' ).swipebox({
 		hideBarsDelay : false
 	});
-	
+
+
 	$('.datepicker-birthday').datepicker({
 		autoclose: true,
 		todayHighlight : true,
 		format : 'dd.mm.yyyy',
 		language : 'de-DE',
 	});
-	
-	
+
+
 	/*
 	$(document).on('blur', '.datepicker', function() {
 		var me = $(this);
@@ -124,14 +126,14 @@ $(document).ready(function() {
 	$(document).on('blur', 'input', function() {
 		$('.landscape-overlay').removeClass('force-hidden-overlay');
 	});
-	
-	
+
+
 	$(document).on('click', '.cookie-warning-top .closing-icon', function(){
 		$.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function(response){
 			$('.js-cookie-warning-top').removeClass('active');
 		});
 	});
-	
+
 	// AJAXER FÜR BLOG
 	$('#blog-kategorie input[type="checkbox"]').off('change').change(function(){
 		$.ajax({
@@ -143,13 +145,13 @@ $(document).ready(function() {
 		   }
 		});
 	});
-	
-	
+
+
 	// CLICK AUF LABEL IN BLOG MENU
 	$(document).on('click', '.fake-checkbox', function(){
 		$(this).siblings('label').trigger('click');
 	});
-	
+
 	$('input[id="blog-kategorie-all"]').on('change',function(){
 		if($(this).is(':checked')){
 			$('input[class="blog-menu-input"]').each(function(idx, el){
@@ -164,10 +166,10 @@ $(document).ready(function() {
 			$('.blog-menu-input').first().trigger('change');
 		}, 50);
 	});
-	
+
 	$('input[class="blog-menu-input"]').on('change',function(){
 		var allChecked = true;
-		
+
 		$('input[class="blog-menu-input"]').each(function(idx, el){
 			if(!$(el).is(':checked')){
 				allChecked = false;
@@ -179,10 +181,10 @@ $(document).ready(function() {
 			$('input[id="blog-kategorie-all"]').prop('checked', true);
 		}
 	});
-	
-	
-	
-	
+
+
+
+
 });
 
 function registerListeners() {
@@ -322,7 +324,7 @@ function initAutocomplete() {
 			}
 		});
 		autocomplete = autocompleteVar;
-		
+
 		// When the user selects an address from the dropdown, populate the address
 		// fields in the form.
 		autocompleteVar.addListener('place_changed', function() {
@@ -438,4 +440,3 @@ function chatwindwoResize() {
 	console.log('--------------------------------------' + offsetDiff + '--------------------------------------------');
 	$('.js-chatwindow').css('height', offsetDiff);
 }
-
