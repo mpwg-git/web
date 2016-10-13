@@ -347,6 +347,19 @@ class fe_room
 	}
 
 
+	public static function sc_getRoomAdresseByRoomHash(){
+
+		$hash			= dbx::escape(trim($_REQUEST['h']));
+		// $userId		= intval(dbx::queryAttribute("select wz_ADMIN FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_ADMIN"));
+		$adresse		= dbx::queryAttribute("select wz_ADRESSE FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_ADRESSE");
+
+		return $adresse;
+	}
+
+
+
+
+
 	public static function sc_getPublicRoomData()
 	{
 		$roomId   = intval($_REQUEST['id']);

@@ -2928,19 +2928,17 @@ class fe_user
 	public static function sc_getUserMailByRoomHash(){
 
 		$hash 		= dbx::escape(trim($_REQUEST['h']));
-
 		$userId		= intval(dbx::queryAttribute("select * FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_ADMIN"));
-
 		$email		= dbx::queryAttribute("select wz_EMAIL FROM wizard_auto_707 WHERE wz_id = $userId","wz_EMAIL");
 
 		if ($email == '')
 		{
 			return false;
 
-		} else
-		{
-			return $email;
 		}
+
+		return $email;
+
 	}
 
 
