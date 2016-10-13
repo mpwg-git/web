@@ -1,4 +1,5 @@
 <%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+<%xr_siteCall fn="fe_user::getMyData" var="mydata"%>
 <%$user = $data['USER']%>
 <%$matching = $data['MATCHING']%>
 
@@ -18,13 +19,29 @@
                 <p class="match-text">
                     <%$matching['TEXT']['GESAMT']%>
                 </p>
-                <span class="prozent"><%$matching['RESULT']['matchGesamt']%></span>
+                <span class="prozent">
+                    <%if $user['wz_id'] == $mydata['USER']['wz_id']%>
+                        <style>
+                            .matchinginfos .prozent:after {
+                                content: '100%';
+                                font-size: 5vw;
+                            }
+                            .matchinginfos .prozent{
+                                margin-bottom: 0.75vw;
+                            }
+                            .profil .match-text {
+                                display: none;
+                            }
+                        </style>
+                    <%else%>
+                        <%$matching['RESULT']['matchGesamt']%>
+                    <%/if%>
+                </span>
                 <span class="match">match</span>
-                
-                <div class="match-profile">
-                    <span class="first-name"><%$data['USER']['wz_VORNAME']%></span>
-                    <span class="last-name"><%$data['USER']['wz_NACHNAME']%></span>
-                </div>
+                <!--<div class="match-profile">-->
+                <!--    <span class="first-name"><%$data['USER']['wz_VORNAME']%></span>-->
+                <!--    <span class="last-name"><%$data['USER']['wz_NACHNAME']%></span>-->
+                <!--</div>-->
                 
                  <div class="clearfix"></div>
             </div>
