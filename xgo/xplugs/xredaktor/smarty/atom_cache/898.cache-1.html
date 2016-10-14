@@ -1,9 +1,14 @@
+<!--<%if $adresseValue==''%>-->
+<!--    <%$adresseValue='Wien, Österreich'%>-->
+<!--<%/if%>-->
 
-<%if $adresseValue==''%><%$adresseValue='Wien, Österreich'%><%/if%>
 
 <div class="input-icon search-input search-input-map">
-    <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="<%$adresseValue%>"  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
-    
+    <%if (isset($smarty.request.h) && $addr != '')%>
+        <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="<%$addr%>"  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
+    <%else%>
+        <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="<%$adresseValue%>"  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
+    <%/if%>
     <span class="icon-Map js-autocomplete-duck">
 	    <span class="path1"></span><span class="path2"></span>
 	</span>
@@ -30,9 +35,6 @@
         <div class="error-div" id="ADRESSE_error">
             <%xr_translate tag="Bitte Adresse angeben"%>
         </div>
-   
 </div>
-
-
 
 

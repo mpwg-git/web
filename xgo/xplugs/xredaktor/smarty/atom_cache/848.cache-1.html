@@ -1,7 +1,11 @@
 <div class="form-group">
     <label><%xr_translate tag="Raumname (nicht öffentlich)"%>*</label>
-    <div class="column-input v-center" style="width:100%">
-        <input class="form-control" name="BESCHRIFTUNG_INTERN" value="<%$profile['wz_BESCHRIFTUNG_INTERN']%>" id="BESCHRIFTUNG_INTERN" placeholder="<%xr_translate tag="Name in Übersicht?"%>" rel="required"  />
+    <div class="column-input v-center" style="width:66%">
+        <%if $profile['wz_BESCHRIFTUNG_INTERN'] != ''%>
+            <input class="form-control" name="BESCHRIFTUNG_INTERN" value="<%$profile['wz_BESCHRIFTUNG_INTERN']%>" id="BESCHRIFTUNG_INTERN" placeholder="<%xr_translate tag="Name in Übersicht?"%>" rel="required"  />
+        <%else%>
+            <input class="form-control" name="BESCHRIFTUNG_INTERN" value='<%xr_translate tag="Raum"%>' id="BESCHRIFTUNG_INTERN" placeholder="<%xr_translate tag="Name in Übersicht?"%>" rel="required"  />
+        <%/if%>
     </div>
     
     <div class="error-div" id="BESCHRIFTUNG_INTERN_error">
