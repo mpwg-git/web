@@ -6,24 +6,6 @@
 <%xr_siteCall fn="fe_user::sc_getUserMailByRoomHash" var="mailaddr"%>
 <%xr_siteCall fn="fe_room::sc_getRoomAdresseByRoomHash" var="addr"%>
 
-<%xr_feUser action='isEmailAlreadyRegistered' email=$mailaddr var='emailReg'%>
-
-
-<!--<%xr_feUser action='doLogin' triggerByVar='doLogin' triggerByVal='1' var='info'%>-->
-
-<!--<%xr_siteCall fn="fe_util::isV2" var="isV2"%>-->
-
-<!--<%if $info['state'] == 0%>-->
-<!--<div class="errorNotification">-->
-<!--    <b><%xr_translate tag='Der eingegebene Benutzername oder das Passwort sind falsch.'%></b>-->
-<!--    <br />-->
-<!--    <%xr_translate tag='Bitte versuchen Sie es erneut, oder klicken Sie unten auf "Login-Daten vergessen?"'%>-->
-<!--     <br /><br />-->
-<!--</div>-->
-<!--<%/if%>-->
-
-
-
 <form method="post" id="wg-zimmer-finden">
     <%xr_wzActionInvisibleCaptcha%>    
     <div class="register-fragen">
@@ -146,7 +128,7 @@
                     <label for="v2_PASSWORT"><%xr_translate tag="Passwort?"%></label>
                     <input id="v2_PASSWORT" name="v2_PASSWORT" type="password" class="form-control" rel="required2_minlength" data-minlength="6" />
                     <div class="error-div" id="v2_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
-                    <div class="error-div" id="v2_PASSWORT_minlength_error"><%xr_translate tag='Mindestlänge: 6 Zeichen'%></div>
+                    <div class="error-div" id="v2_PASSWORT_minlength_error"><%xr_translate tag="Diese Emailadresse ist bereits registriert."%></div>
                     <!--<div class="error-div" id="v2_PASSWORT_wrong_error"><%xr_translate tag='Email oder Passwort falsch'%></div>-->
                     <!--<a href="<%xr_genlink p_id=25%>" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>-->
                 </div>
