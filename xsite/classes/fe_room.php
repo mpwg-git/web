@@ -54,15 +54,6 @@ class fe_room
 	}
 
 
-
-	public static function sc_getRoomData()
-	{
-		$roomId   = intval($_REQUEST['id']);
-		$hash     = trim($_REQUEST['h']);
-		$activate = intval($_REQUEST['activate']);
-		return self::getRoomData($roomId, $hash, $activate);
-	}
-
 	public static function get_hash_by_roomId($roomId)
 	{
 		$roomId = intval($roomId);
@@ -189,6 +180,15 @@ class fe_room
 	}
 
 
+	public static function sc_getRoomData()
+	{
+		$roomId   = intval($_REQUEST['id']);
+		$hash     = trim($_REQUEST['h']);
+		$activate = intval($_REQUEST['activate']);
+
+		return self::getRoomData($roomId, $hash, $activate);
+	}
+
 
 	public static function getRoomData($roomId, $hash, $activate)
 	{
@@ -208,7 +208,7 @@ class fe_room
 
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
 		if(!$itsMe){
-			if ($room['wz_ADMIN'] == 0 || ($room['wz_online'] == 'N' || $room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+			if ($room['wz_ADMIN'] == 0 && ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
 			{
 				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
 				die();
@@ -362,9 +362,6 @@ class fe_room
 	}
 
 
-
-
-
 	public static function sc_getPublicRoomData()
 	{
 		$roomId   = intval($_REQUEST['id']);
@@ -375,6 +372,9 @@ class fe_room
 
 	public static function getPublicRoomData($roomId, $hash, $activate)
 	{
+		@session_start();
+		$_SESSION['LAST_PUBLIC_ROMM_ID'] = $roomId;
+
 		$roomId			= intval($roomId);
 		if ($roomId == 0) return array();
 
@@ -384,11 +384,16 @@ class fe_room
 
 
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
-		if ($room['wz_ADMIN'] == 0 || ($room['wz_online'] == 'N' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+
+		if(!libx::isDeveloper())
 		{
 
-			header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
-			die();
+			if ($room['wz_ADMIN'] == 0 && ($room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+			{
+
+				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+				die();
+			}
 		}
 
 		$admin			= intval($room['wz_ADMIN']);
@@ -523,6 +528,7 @@ class fe_room
 
 		return $ret;
 	}
+
 
 	public static function matchYN($val)
 	{
@@ -1010,6 +1016,7 @@ class fe_room
 
 		return intval(dbx::queryAttribute("SELECT wz_ADMIN FROM wizard_auto_809 WHERE wz_id = $roomId", 'wz_ADMIN'));
 	}
+
 
 	public static function ajax_profileSave()
 	{

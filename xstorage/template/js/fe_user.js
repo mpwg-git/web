@@ -407,6 +407,7 @@ var fe_user = (function() {
 				return fe_core.submitWithValidation('form-mein-profil')
 			});
 			
+			
 			$('#form-login-submit').unbind("click");
 			$('#form-login-submit').click(function(e)
 			{

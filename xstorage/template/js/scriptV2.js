@@ -287,6 +287,7 @@ var simpleLogin = {
 	checkEMail : function(id,val)
 	{
 		var div_error 		= jQuery('#'+id+"_error");
+		var div_error 		= jQuery('#'+id+"_mailReg_error");
 		var input_error		= jQuery('#'+id);
 		if (!simpleLogin.isValidEmailAddress(val))
 		{
