@@ -51,8 +51,10 @@ class fe_search
 		$type							= "biete";
 
 		$offset						= intval($_REQUEST['offset']);
-
-
+		
+		
+		
+		
 		if ($_REQUEST['returnJson'] == 1)
 		{
 			$returnJson = true;
@@ -62,8 +64,6 @@ class fe_search
 		{
 			$showAll = true;
 		}
-
-
 
 		// ist das ein default search? Wenn ja, Daten aus Userdaten holen
 
@@ -84,6 +84,7 @@ class fe_search
 		else
 		{
 			$reqSearch = $_REQUEST['searchData'];
+			
 		}
 
 		$toSearch  = json_decode($reqSearch, true);
@@ -102,7 +103,7 @@ class fe_search
 
 		// searchtype...
 		$trueType = $toSearch['type'];
-
+			
 		// anbieter bekommen standardmäßig natürlich mitbewohner angezeigt
 		// im template hats gepasst ("mitbewohner" = active) aber suchergebnisse zeigen bisher nur räume
 		// this is the fix:
@@ -226,6 +227,7 @@ class fe_search
 		$searchData['type'] 		= $trueType;
 		$searchDataBackup['type'] 	= $trueType;
 
+		
 
 		$filterIsSet 	= false;
 		if (isset($searchDataBackup['filter']) && trim($searchDataBackup['filter']) != '')
@@ -520,7 +522,6 @@ class fe_search
 
 		}
 
-
 		if ($returnJson == true)
 		{
 			frontcontrollerx::json_success(array('html' => $html, 'results' => $results, 'endOfResults' => $isEndOfResults));
@@ -530,14 +531,17 @@ class fe_search
 			'HTML' 				=> $html,
 			'COUNT'				=> $resultsCount,
 			'RESULTS'			=> $results,
-			'endOfResults' 		=> $isEndOfResults
+			'endOfResults' 		=> $isEndOfResults,
+
 		);
 
 		if ($resultsCount == 0)
 		{
 			$res['endOfResults'] = 1;
 		}
-
+			
+		
+			
 		return $res;
 	}
 
@@ -1287,9 +1291,22 @@ class fe_search
 	}
 
 
-	public static function sc_getResults()
+////// FUNCTIONS FOR GOOGLE TAG MANAGER
+	public static function getUserId()
 	{
-		return self::ajax_getResults();
+		$userId = intval(xredaktor_feUser::getUserId());
+		
+		return $userId;
+	}
+	
+	
+	public static function getLoginCounter()
+	{
+		$userId = self::getUserId();
+		
+		$counter = intval(dbx::queryAttribute("select wz_LOGINCOUNTER from wizard_auto_707 where wz_id = $userId","wz_LOGINCOUNTER"));
+			
+		return $counter;
 	}
 
 }

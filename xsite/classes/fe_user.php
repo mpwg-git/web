@@ -42,7 +42,7 @@ class fe_user
 		//'wz_WGGROESSE_VON' => 1,
 		//'wz_WGGROESSE_BIS' => 10,
 	);
-	
+
 
 	public static function doIBlockUser($otherUserId)
 	{
@@ -339,7 +339,10 @@ class fe_user
 
 		$email		= dbx::escape($_REQUEST['wz_EMAIL']);
 
+		$FbId			= trim($_REQUEST['id']);
+
 		$user		= dbx::query("select * from wizard_auto_707 where wz_EMAIL = '$email' AND wz_del = 'N' ");
+		$counter	= $user['wz_LOGINCOUNTER'];
 
 		if ($user === false) {
 			return "/";
@@ -347,6 +350,10 @@ class fe_user
 
 
 		$userId		= intval($user['wz_id']);
+
+		++$counter;
+		dbx::update('wizard_auto_707',array('wz_LOGINCOUNTER'=>$counter),array('wz_id'=>$userId));
+
 
 		// CHECK IF ACTIVATE NEEDED
 		if ($user['wz_IS_TMP_USER'] == 'Y')
@@ -2366,6 +2373,19 @@ class fe_user
 
 		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
 
+		if($presentUser !== false)
+		{
+			$counter = $presentUser['wz_LOGINCOUNTER'];
+			++$counter;
+			dbx::update("wizard_auto_707", array('wz_LOGINCOUNTER' => $counter), array('wz_id' => intval($presentUser['wz_id'])));
+		}
+
+		// if(libx::isDeveloper())
+		// {
+		// 	print_r($presentUser['wz_LOGINCOUNTER']);
+		// 	die();
+		// }
+
 
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 		{
@@ -2374,7 +2394,10 @@ class fe_user
 			if ($presentUser['wz_IS_TMP_USER'] == 'Y')
 			{
 				$tmpUserId = intval($presentUser['wz_id']);
-				dbx::query("UPDATE wizard_auto_707 SET wz_FACEBOOK_ID = '$FACEBOOK_ID' WHERE wz_id = $tmpUserId");
+				$counter = $presentUser['wz_LOGINCOUNTER'];
+				++$counter;
+
+				dbx::query("UPDATE wizard_auto_707 SET wz_FACEBOOK_ID = '$FACEBOOK_ID', wz_LOGINCOUNTER = '$counter' WHERE wz_id = $tmpUserId");
 
 
 				if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
@@ -2441,7 +2464,6 @@ class fe_user
 		{
 			frontcontrollerx::json_success(array('status'=>'NOK','msg'=>'','redirect' => ''));
 		}
-
 
 		$feu_id = intval($presentUser['wz_id']);
 
@@ -2546,6 +2568,8 @@ class fe_user
 
 		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
 
+		$counter	= $presentUser['wz_LOGINCOUNTER'];
+
 		if($presentUser === false)
 		{
 			$presentEmail = false;
@@ -2613,7 +2637,9 @@ class fe_user
 				xredaktor_feUser::refreshUserdata($feu_id);
 			}
 
-			dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
+			++$counter;
+
+			dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()','wz_LOGINCOUNTER'=>$counter),array('wz_id'=>$feu_id));
 
 			if($db_user['wz_TYPE'] == 'biete' && $presentEmail === false)
 			{
@@ -2687,7 +2713,9 @@ class fe_user
 		{
 			$feu_id = intval($presentUser['wz_id']);
 
-			dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
+			++$counter;
+
+			dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()','wz_LOGINCOUNTER'=>$counter),array('wz_id'=>$feu_id));
 
 			$dbUpdate = array();
 
@@ -2878,9 +2906,6 @@ class fe_user
 		{
 			frontcontrollerx::json_success(array('status'=>'NOK','msg'=>'PWD_ERROR'));
 		}
-
-
-
 
 		$present_SEARCHDATA = json_decode($presentUser['wz_SEARCHDATA'],true);
 

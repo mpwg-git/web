@@ -387,7 +387,7 @@ class fe_room
 
 		if(!libx::isDeveloper())
 		{
-
+			die("nicht isDev");
 			if ($room['wz_ADMIN'] == 0 && ($room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
 			{
 
