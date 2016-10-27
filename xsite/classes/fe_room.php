@@ -8,10 +8,10 @@ class fe_room
 
 	public static $regDefaults = array(
 		//'wz_COUNT_MITBEWOHNER_M' 	=> 1,
-		'wz_COUNT_MITBEWOHNER_F' 	=> 1,
-		'wz_COUNT_MITBEWOHNER' 		=> 1,
-		//'wz_UNREG_M' 				=> 1,
-		//'wz_UNREG_F' 				=> 1,
+		//'wz_COUNT_MITBEWOHNER_F' 	=> 1,
+		//'wz_COUNT_MITBEWOHNER' 		=> 1,
+		// 'wz_UNREG_M' 				=> 1,
+		// 'wz_UNREG_F' 				=> 1,
 		'wz_ADRESSE_LAT' 			=> 48.2081743,
 		'wz_ADRESSE_LNG' 			=> 16.3738189,
 		//'wz_GROESSE' 				=> 10,
@@ -206,9 +206,11 @@ class fe_room
 
 		$room			= dbx::query("select * from wizard_auto_809 where wz_id = $roomId and wz_online = 'Y' ");
 
+
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
-		if(!$itsMe){
-			if ($room['wz_ADMIN'] == 0 && ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+		if(!$itsMe && !libx::isDeveloper()){
+
+			if ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y' || $room['wz_USERDEL'] == 'Y')
 			{
 				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
 				die();
@@ -384,18 +386,16 @@ class fe_room
 
 
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
-
 		if(!libx::isDeveloper())
 		{
-			die("nicht isDev");
-			if ($room['wz_ADMIN'] == 0 && ($room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y'))
+			if ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y' || $room['wz_USERDEL'] == 'Y')
 			{
 
 				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
 				die();
 			}
 		}
-
+		
 		$admin			= intval($room['wz_ADMIN']);
 		//$user			= fe_user::getUserData($admin);
 
