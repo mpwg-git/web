@@ -1,13 +1,13 @@
 <div class="js-toggle-favourite" data-id="<%$userId%>" <%if $isRoom==1%>data-type="room"<%/if%>>
     <div class="inactive" <%if $state == true%>style="display: none;"<%/if%>>
-        <span class="icon icon-Favourite_inaktiv"></span>
+        <span id="toggle-favourite" class="icon icon-Favourite_inaktiv"></span>
         <%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>    
     </div>
     
     <div class="active" <%if $state == false%>style="display: none;"<%/if%>>
-        <span class="icon icon-Favourite_aktiv">
+        <span id="toggle-favourite" class="icon icon-Favourite_aktiv">
 		    <span class="path1"></span><span class="path2"></span>
 		</span>
 		<%if $description != ''%>

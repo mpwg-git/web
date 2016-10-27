@@ -9,6 +9,10 @@
 <%xr_print_r val=$data%>
 <%/if%>
 
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
+<input type="hidden" id="hiddenRoomId" value="<%$smarty.request.roomId%>">
+
 <div class="col-xs-4 meinprofil-links">
     <%xr_atom a_id=678 user=$data['USER'] return=1%>
 </div>
@@ -30,11 +34,12 @@
     <%xr_atom a_id=851 return=1 showFace=0%>
     
     <%if $data.ROOM.wz_ACTIVE == 'Y'%>
-        <button class="js-deactivate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Deaktivieren'%></button>
+        <button id="deactivate-room" class="js-deactivate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Deaktivieren'%></button>
     <%else%>
         <button class="js-activate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Aktivieren'%></button>
     <%/if%>
-    <button class="js-delete-room-popup" data-room="<%$data.ROOM.wz_id%>" style="margin-right: 10px;">
+    
+    <button id="delete-room-popup" class="js-delete-room-popup" data-room="<%$data.ROOM.wz_id%>" style="margin-right: 10px;">
         <%xr_translate tag="Raum löschen"%>
     </button>
     

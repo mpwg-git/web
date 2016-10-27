@@ -2,13 +2,13 @@
 <%xr_siteCall fn='fe_user::sc_refreshSessionData' var='xxx'%>
 
 <%xr_siteCall fn='fe_search::getUserId' var='id'%>
-<%xr_siteCall fn='fe_search::getLoginCounter' var='counter'%>
 <input type="hidden" id="hiddenUserId" value="<%$id%>">
+
+<%xr_siteCall fn='fe_search::getLoginCounter' var='counter'%>
 <input type="hidden" id="hiddenLoginCounter" value="<%$counter%>">
 
-
 <div class="searchlist">
-
+    
     <%if $results['COUNT'] > 9%>
         <div class="pfeil pfeil-up searchlist-js-up">
             <span class="icon-pfeil_bg">

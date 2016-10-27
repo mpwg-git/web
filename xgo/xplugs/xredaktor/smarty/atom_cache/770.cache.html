@@ -2,7 +2,7 @@
 <div class="js-toggle-blocked <%$addClass%>" <%if $isRoom==1%>data-type="room"<%else%>data-type="<%$theType%>"<%/if%> data-id="<%$userId%>">
         
     <div class="inactive" <%if $state == true%>style="display: none;"<%/if%>>
-        <span class="icon icon-Blocked_inaktiv"></span>
+        <span id="toggle-block" class="icon icon-Blocked_inaktiv"></span>
         <%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>    

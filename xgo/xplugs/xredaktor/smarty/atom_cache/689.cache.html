@@ -4,6 +4,8 @@
     <%xr_siteCall fn="fe_user::getMyRoomData" roomId=$smarty.request.roomId var="data" redirect=true%>
 <%/if%>
 
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
 
 <div class="profilerstellen meinprofil-meinedaten">
    
