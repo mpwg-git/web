@@ -51,9 +51,9 @@
             <div class="form-group">
                 <label for="emailbenachrichtigung" style="font-size: 1.4rem;"><%xr_translate tag="Benachrichtigungen erlauben"%></label>
                 <select id="emailbenachrichtigung" name="EMAILBENACHRICHTIGUNG" class="form-control select-helvetica">
-                    <option value='<%xr_translate tag="DEUTSCH"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE')%>selected="selected"<%/if%>><%xr_translate tag="DEUTSCH"%></option>
-                    <option value='<%xr_translate tag="ENGLISCH"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'EN')%>selected="selected"<%/if%>><%xr_translate tag="ENGLISCH"%></option>
-                    <option value='<%xr_translate tag="Keine Benachrichtigungen erlauben"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'KEINE')%>selected="selected"<%/if%>><%xr_translate tag="Keine Benachrichtigungen erlauben"%></option>
+                    <option value='<%xr_translate tag="DE"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE')%>selected="selected"<%/if%>><%xr_translate tag="DEUTSCH"%></option>
+                    <option value='<%xr_translate tag="EN"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'EN')%>selected="selected"<%/if%>><%xr_translate tag="ENGLISCH"%></option>
+                    <option value='<%xr_translate tag="KEINE"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'KEINE')%>selected="selected"<%/if%>><%xr_translate tag="Keine Benachrichtigungen erlauben"%></option>
                 </select>
             </div>
             

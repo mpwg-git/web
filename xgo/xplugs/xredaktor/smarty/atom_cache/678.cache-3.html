@@ -62,7 +62,7 @@
                 <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>"class="form-control" />
             </div>
             
-            <div class="form-group hasDatePicker">
+            <div id="geburtsdatum" class="form-group hasDatePicker">
                 <label for="geburtsdatum"><%xr_translate tag="Geburtsdatum"%></label>
                 <%if $user['wz_GEBURTSDATUM'] == 0000-00-00%>
                     <input id="geburtsdatum" name="GEBURTSDATUM" value="01.01.1993" class="form-control datepicker-birthday" onclick="this.style.color='inherit';" style="color: rgba(105,121,135,0.1);" />
@@ -79,9 +79,9 @@
             <div class="form-group">
                 <label for="emailbenachrichtigung" style="font-size: 1.4rem;"><%xr_translate tag="Benachrichtigungen erlauben"%></label>
                 <select id="emailbenachrichtigung" name="EMAILBENACHRICHTIGUNG" class="form-control select-helvetica">
-                    <option value='<%xr_translate tag="DEUTSCH"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE')%>selected="selected"<%/if%>><%xr_translate tag="DEUTSCH"%></option>
-                    <option value='<%xr_translate tag="ENGLISCH"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'EN')%>selected="selected"<%/if%>><%xr_translate tag="ENGLISCH"%></option>
-                    <option value='<%xr_translate tag="Keine Benachrichtigungen erlauben"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'KEINE')%>selected="selected"<%/if%>><%xr_translate tag="Keine Benachrichtigungen erlauben"%></option>
+                    <option value='<%xr_translate tag="DE"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE')%>selected="selected"<%/if%>><%xr_translate tag="DEUTSCH"%></option>
+                    <option value='<%xr_translate tag="EN"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'EN')%>selected="selected"<%/if%>><%xr_translate tag="ENGLISCH"%></option>
+                    <option value='<%xr_translate tag="KEINE"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'KEINE')%>selected="selected"<%/if%>><%xr_translate tag="Keine Benachrichtigungen erlauben"%></option>
                 </select>
             </div>
 
