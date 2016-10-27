@@ -4,11 +4,18 @@ require_once(dirname(__FILE__).'/_includes.php');
 require_once(dirname(__FILE__).'/../xgo/xplugs/_includes.php');
 
 
-$items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' AND wz_F_USERID = '10593' GROUP BY wz_F_USERID");
+$items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' GROUP BY wz_F_USERID");
 
-$log_file = 'cronlog.log';
+$log_file = "cronlog.log";
 
 //$ids_done	= array();
+
+/*
+echo "<pre>";
+print_r($items);
+echo "</pre>";
+die();
+*/
 
 echo "\n\n Start sending mails New Chat Message \n\n";
 
@@ -34,22 +41,37 @@ foreach ($items as $k => $i) {
 
 		$replacers = fe_chat::get_mail_replacers_for_fuser($fUserId);
 
-		fe_user::burnMail(
-			$email,
-			53,
-			'Du hast ' . $countNotSeen . ' neue Nachricht/en auf MeinePerfekteWG',
-			$replacers,
-			array(),
-			'office@meineperfektewg.com',
-			'office@meineperfektewg.com'
-		);
+		if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE' || $user['wz_EMAILBENACHRICHTIGUNG'] == '')
+		{
+			fe_user::burnMail(
+				$email,
+				53,
+				'Du hast ' . $countNotSeen . ' neue Nachricht/en auf MeinePerfekteWG',
+				$replacers,
+				array(),
+				'office@meineperfektewg.com',
+				'office@meineperfektewg.com'
+			);
+		}
+		elseif ($user['wz_EMAILBENACHRICHTIGUNG'] == 'EN') {
+			fe_user::burnMail(
+				$email,
+				54,
+				'You have ' . $countNotSeen . ' new message(s) at MeinePerfekteWG',
+				$replacers,
+				array(),
+				'office@meineperfektewg.com',
+				'office@meineperfektewg.com'
+			);
+		}
 
 		dbx::query("UPDATE chatitems SET wz_lastMailedMessageId = $lastWzId, wz_lastChanged = NOW() WHERE wz_id = $lastWzId");
 		//dbx::update("chatitems", array('wz_lastMailedMessageId' =>  $lastWzId, 'wz_lastChanged' => 'NOW()'), array('wz_id' => $lastWzId));
-
-		$data = "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
+		
+		$date = date("d/m/Y");
+		$data = "Date: $date " . "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
 		file_put_contents($log_file, $data, FILE_APPEND);
-
+		
 	}
 	else
 	{
