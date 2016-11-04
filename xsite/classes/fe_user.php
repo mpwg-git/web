@@ -2369,7 +2369,24 @@ class fe_user
 
 		$GESCHLECHT = trim($_REQUEST['gender']);
 
+
 		$redirectUrl = fe_vanityurls::genUrl_suche();
+
+		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
+		{
+			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+			if($LAST_PUBLIC_ROMM_ID > 0)
+			{
+				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+
+				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+			}
+		}
+
+
 
 		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
 
