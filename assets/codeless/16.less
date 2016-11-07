@@ -2212,9 +2212,10 @@ label {
 		-webkit-overflow-scrolling: touch;
 		bottom: 81px;
 
-		@media (device-height: 480px) and (device-width: 320px) {
-		    height: calc(~"90% - 54vw");
-		    bottom: 84px;
+		@media (max-device-height: 480px) and (max-device-width: 320px) {
+		    height: calc(~"100% - 62vw");
+		    bottom: 60px;
+		    top: 105px;
 		}
 		@media (device-height: 568px) and (device-width: 320px) {
 		    height: calc(~"98% - 54vw");
@@ -3184,198 +3185,198 @@ div.fakeline {
 
 /////////////// TABLET STYLING
 
-@media (min-width: 589px) and (max-width: 1024px) {
-
-//FONT
-    .mobile-row, .mobileV2, div > p, .text, .blog-start h3.headline {
-        font-size: 2rem !important;
+    @media (min-width: 589px) and (max-width: 1024px) {
+    
+    //FONT
+        .mobile-row, .mobileV2, div > p, .text, .blog-start h3.headline {
+            font-size: 2rem !important;
+            
+        }
+        a.navlinks {
+            font-size: 1.6rem !important;
+        }
+        .faq-question p {
+            font-size: 2.2rem;
+        }
         
-    }
-    a.navlinks {
-        font-size: 1.6rem !important;
-    }
-    .faq-question p {
-        font-size: 2.2rem;
-    }
-    
-//NAV
-    .search-start.default-container-padding.mobileV2 {
-        padding-top: 4rem;
-    }
-    
-// HEADER
-    header, header.clearfix {
-        height: 5rem;
-        padding-bottom: 5.6rem;
-        .left-row, .middle-row, .right-row {
-            width: 33.33333333333333% !important;
-            padding: 10px 0;
-            height: inherit !important;
+    //NAV
+        .search-start.default-container-padding.mobileV2 {
+            padding-top: 4rem;
         }
-        .right-row {
-            text-align: right !important;
-            margin-top: 0 !important;
-            padding: 2rem;
-        }
-        .middle-row .right-logo img {
-            width: 18rem;
-        }
-    }
-    header.header-suche .text {
-        font-size: 1.6rem !important;
-    }
-    header.header-suche .logo-legend-section .item span[class*="icon-"], header.header-suche .logo-legend-section .item span[class^="icon-"] {
-        vertical-align: text-bottom;
-    }
-    header.clearfix.black.header-suche nav.middle-row {
-        padding: 5px;
-    }
-    header.clearfix.black.header-suche {
-        & > nav{
-            width: 50% !important;  
-            & > span.text {
-                font-size: 1.6rem !important;
+        
+    // HEADER
+        header, header.clearfix {
+            height: 5rem;
+            padding-bottom: 5.6rem;
+            .left-row, .middle-row, .right-row {
+                width: 33.33333333333333% !important;
+                padding: 10px 0;
+                height: inherit !important;
+            }
+            .right-row {
+                text-align: right !important;
+                margin-top: 0 !important;
+                padding: 2rem;
+            }
+            .middle-row .right-logo img {
+                width: 18rem;
             }
         }
-    }
-    .scrollbarfix {
-        & > div {
-            margin-top: 5rem;
+        header.header-suche .text {
+            font-size: 1.6rem !important;
         }
-        & > div.searchlist {
-                margin-top: 0;
-            }
-    }
-    
-// LOGO & INTRO TEXT
-    .col-xs-8.text-center.mpwg-teaser-wrapper {
-        font-size: 2rem;
-    }
-    img.img-responsive {
-       max-width: 15rem !important;
-    }
-    .searchlist {
-        padding-top: 7vw;
-        padding-bottom: 7vw;
-    }
-    .modal-dialog {
-        margin: 46px auto;
-    }
-    
-    
-//BUTTONS
-    a.button.start-button, .button, button {
-        margin-bottom: 1.5rem;
-        font-size: 2.25rem;
-        height: 6rem;
-    }
-    .search-start .bigicon {
-        font-size: 18rem;
-    }
-    
-    #slider-range {
-        width: 100%;
-        right: 6rem;
-    }
-    p.legend.clearfix {
-        margin-top: -1.5rem;
-        margin-left: 2.2rem;
-        margin-right: 2.8rem;
-        margin-bottom: -1.5rem;
-    }
-    div.fakeline {
-        display: none;
-    }
-    #slider-range span:nth-child(2) {
-        margin-left: 0;
-    }
-    button.link-zu-wgtest {
-        height: 6rem !important;
-    }
-
-
-
-//CHAT
-    .new-message-counter {
-        width: 4vw !important;
-        height: 4vw !important;
-        font-size: 2.3rem !important;
-    }
-    
-    .chatcontacts .icon-Lupe {
-        font-size: 3vw;
-        top: 3.6vw;
-        margin-right: 2vw;
-
-    }
-    
-    .controls-wrapper {
-        width: 22vw !important;
-        margin: 6px 0;
-
-        .timestamp {
-            margin-bottom: 20px;
-            text-align: right;
+        header.header-suche .logo-legend-section .item span[class*="icon-"], header.header-suche .logo-legend-section .item span[class^="icon-"] {
+            vertical-align: text-bottom;
         }
-    }
-    
-    .chatcontacts {
-        .teaser-wrapper {
-            width: 60vw !important;
+        header.clearfix.black.header-suche nav.middle-row {
+            padding: 5px;
         }
-    }
-    
-    .js-chatwindow.chatwindow.fromsearch {
-        height: calc(~"100% - 41vw");
-        bottom: 150px;
-    }
-    
-    .chat {
-        .textwindow{
-            bottom: 25.5px;
-            button {
-                font-size: 1.6rem;
-                height: 41.5px;
+        header.clearfix.black.header-suche {
+            & > nav{
+                width: 50% !important;  
+                & > span.text {
+                    font-size: 1.6rem !important;
+                }
             }
         }
-    }
-
-//PROFIL
-    .profilerstellen {
-        padding-top: 2.6vw !important;
+        .scrollbarfix {
+            & > div {
+                margin-top: 5rem;
+            }
+            & > div.searchlist {
+                    margin-top: 0;
+                }
+        }
+        
+    // LOGO & INTRO TEXT
+        .col-xs-8.text-center.mpwg-teaser-wrapper {
+            font-size: 2rem;
+        }
+        img.img-responsive {
+           max-width: 15rem !important;
+        }
+        .searchlist {
+            padding-top: 7vw;
+            padding-bottom: 7vw;
+        }
+        .modal-dialog {
+            margin: 46px auto;
+        }
+        
+        
+    //BUTTONS
+        a.button.start-button, .button, button {
+            margin-bottom: 1.5rem;
+            font-size: 2.25rem;
+            height: 6rem;
+        }
+        .search-start .bigicon {
+            font-size: 18rem;
+        }
+        
+        #slider-range {
+            width: 100%;
+            right: 6rem;
+        }
+        p.legend.clearfix {
+            margin-top: -1.5rem;
+            margin-left: 2.2rem;
+            margin-right: 2.8rem;
+            margin-bottom: -1.5rem;
+        }
+        div.fakeline {
+            display: none;
+        }
+        #slider-range span:nth-child(2) {
+            margin-left: 0;
+        }
+        button.link-zu-wgtest {
+            height: 6rem !important;
+        }
+    
+    
+    
+    //CHAT
+        .new-message-counter {
+            width: 4vw !important;
+            height: 4vw !important;
+            font-size: 2.3rem !important;
+        }
+        
+        .chatcontacts .icon-Lupe {
+            font-size: 3vw;
+            top: 3.6vw;
+            margin-right: 2vw;
+    
+        }
+        
+        .controls-wrapper {
+            width: 22vw !important;
+            margin: 6px 0;
+    
+            .timestamp {
+                margin-bottom: 20px;
+                text-align: right;
+            }
+        }
+        
+        .chatcontacts {
+            .teaser-wrapper {
+                width: 60vw !important;
+            }
+        }
+        
+        .js-chatwindow.chatwindow.fromsearch {
+            height: calc(~"100% - 41vw");
+            bottom: 150px;
+        }
+        
+        .chat {
+            .textwindow{
+                bottom: 25.5px;
+                button {
+                    font-size: 1.6rem;
+                    height: 41.5px;
+                }
+            }
+        }
+    
+    //PROFIL
+        .profilerstellen {
+            padding-top: 2.6vw !important;
+        }
+        
+        #form-mein-profil-save-user{
+            height: 6rem !important;
+        }
+        
+        a.js-delete-room-popup.room-edit-icon.icon-delete.pull-right, a.room-edit-icon.icon-new.pull-right {
+            font-size: 3.64vw !important;
+        }
     }
     
-    #form-mein-profil-save-user{
-        height: 6rem !important;
+    @media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        p.match-text {
+            margin-bottom: 65px !important;
+        }
+        .cookie-warning-top {
+            top: 5.5vw;
+        }
+        .js-chatwindow.chatwindow.fromsearch {
+            height: calc(~"100% - 28vw");
+            bottom: 87px;
+        }
+        .controls-wrapper {
+            margin: 6px 0px 6px 36px;
+        }
+        .chatcontacts .icon-Lupe {
+            top: 2.4vw;
+            margin-right: 1vw;
+        }
+        .modal-dialog {
+            margin: 72px auto;    
+        }
     }
-    
-    a.js-delete-room-popup.room-edit-icon.icon-delete.pull-right, a.room-edit-icon.icon-new.pull-right {
-        font-size: 3.64vw !important;
-    }
-}
-
-@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
-    p.match-text {
-        margin-bottom: 65px !important;
-    }
-    .cookie-warning-top {
-        top: 5.5vw;
-    }
-    .js-chatwindow.chatwindow.fromsearch {
-        height: calc(~"100% - 28vw");
-        bottom: 87px;
-    }
-    .controls-wrapper {
-        margin: 6px 0px 6px 36px;
-    }
-    .chatcontacts .icon-Lupe {
-        top: 2.4vw;
-        margin-right: 1vw;
-    }
-    .modal-dialog {
-        margin: 72px auto;    
-    }
-}
 
 
 
