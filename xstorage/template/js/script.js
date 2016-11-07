@@ -67,10 +67,11 @@ $(document).ready(function() {
 
 	$('.datepicker').datepicker({
 		autoclose: true,
-		todayHighlight : true,
+		// todayHighlight : true,
 		format : 'dd.mm.yyyy',
 		language : 'de-DE',
-		startDate : '-0d'
+		startDate : '-0d',
+		startView : 'decade',
 	});
 
 	//$('[data-toggle="tooltip"]').tooltip();
@@ -85,24 +86,9 @@ $(document).ready(function() {
 		todayHighlight : true,
 		format : 'dd.mm.yyyy',
 		language : 'de-DE',
+		startView : 'decade',
 	});
 
-
-	/*
-	$(document).on('blur', '.datepicker', function() {
-		var me = $(this);
-		setTimeout(function(){
-			$(me).datepicker('hide');
-		},100);
-	});
-
-	$(document).on('blur', '.datepicker-birthday', function() {
-		var me = $(this);
-		setTimeout(function(){
-			$(me).datepicker('hide');
-		},100);
-	});
-	*/
 
 	$('.hasDatePicker .add-on').on('click', function(e) {
 		$(this).parent().find('.datepicker').datepicker('show');
