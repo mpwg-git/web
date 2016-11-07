@@ -1,10 +1,7 @@
 <%if !$user%>
-
     <%xr_siteCall fn="fe_user::getMyData" var="data"%>
     <%$user = $data['USER']%>
-
 <%/if%>
-
 
 <div class="meinprofil-uebermich">
 
@@ -59,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label for="nachname"><%xr_translate tag="Nachname"%></label>
-                <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>"class="form-control" />
+                <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>" class="form-control" />
             </div>
             
             <div id="geburtsdatum" class="form-group hasDatePicker">
@@ -70,7 +67,95 @@
                     <input id="geburtsdatum" name="GEBURTSDATUM" value="<%$user['wz_GEBURTSDATUM']%>" class="form-control datepicker-birthday" />
                 <%/if%>
             </div>
-          
+
+<!--
+TODO GEBURTSDATUM DROPDOWN
+
+<%xr_siteCall fn="fe_user::sc_getBirthdayDropdown" var="res"%>
+
+<%xr_siteCall fn="fe_user::sc_getBirthDate" var="birthdate"%>
+
+<%xr_siteCall fn="fe_user::sc_setBirthDate" var="setDate"%>
+
+            <style>
+                .geb-tag, .geb-monat, .geb-jahr {
+                    float: left;
+                    margin-right: 10px;
+                }
+                
+                .geb-tag > label, .geb-monat > label, .geb-jahr > label {
+                    font-size: 13px;
+                }
+                
+            </style>
+            
+            <div id="geburtsdatum" class="form-group">
+                <label for="geburtsdatum" style="margin-bottom: 5px;"><%xr_translate tag="Geburtsdatum"%> (T.M.J)</label>
+                <input id="geburtsdatum" name="GEBURTSDATUM" value="<%$user['wz_GEBURTSDATUM']%>" class="form-control">
+                <br>
+                <div class="gebtag">
+                	<label for="gebtag"><%xr_translate tag="Tag"%></label>
+                	<select id="gebtag" name="GEBTAG">
+                		<%if $birthdate['wz_GEBURTSDATUM'] == 0000-00-00%>
+                			<option disabled selected></option>
+                			<%foreach $res as $v%>
+                				<%foreach $v['tag'] as $key => $tag%>
+                					<option value="<%$tag%>"><%$tag%></option>
+                				<%/foreach%>
+                			<%/foreach%>
+                		<%else%>
+                			<%foreach $res as $v%>
+                				<%foreach $v['tag'] as $key => $tag%>
+                    				<option value="<%$tag%>" <%if $setDate['tag'] == $tag%>selected="selected"<%/if%>><%$tag%></option>
+                    			<%/foreach%>
+                        <%/foreach%>
+                		<%/if%>
+                	</select>
+                </div>
+                <div class="gebmonat">
+                	<label for="gebmonat"><%xr_translate tag="Monat"%></label>
+                	<select id="gebmonat" name="GEBMONAT">
+                		<%if $birthdate['wz_GEBURTSDATUM'] == 0000-00-00%>
+                			<option disabled selected></option>
+                			<%foreach $res as $v%>
+                				<%foreach $v['monat'] as $key => $tag%>
+                					<option value="<%$monat%>"><%$tag%></option>
+                				<%/foreach%>
+                			<%/foreach%>
+                		<%else%>
+                			<%foreach $res as $v%>
+                				<%foreach $v['monat'] as $key => $tag%>
+                    				<option value="<%$tag%>" <%if $setDate['monat'] == $tag%>selected="selected"<%/if%>><%$tag%></option>
+                    			<%/foreach%>
+                        <%/foreach%>
+                		<%/if%>
+                	</select>
+                </div>
+                <div class="gebjahr">
+                	<label for="gebjahr"><%xr_translate tag="Tag"%></label>
+                	<select id="gebjahr" name="GEBJAHR">
+                		<%if $birthdate['wz_GEBURTSDATUM'] == 0000-00-00%>
+                			<option disabled selected></option>
+                			<%foreach $res as $v%>
+                				<%foreach $v['jahr'] as $key => $tag%>
+                					<option value="<%$tag%>"><%$tag%></option>
+                				<%/foreach%>
+                			<%/foreach%>
+                		<%else%>
+                			<%foreach $res as $v%>
+                				<%foreach $v['jahr'] as $key => $tag%>
+                    				<option value="<%$tag%>" <%if $setDate['jahr'] == $tag%>selected="selected"<%/if%>elected><%$tag%></option>
+                    			<%/foreach%>
+                        <%/foreach%>
+                		<%/if%>
+                	</select>
+                </div>
+            </div>
+-->
+
+            <div class="clearfix"></div>
+            <br>
+            
             <div class="form-group">
                 <label for="email"><%xr_translate tag="Email"%></label>
                 <input id="email" name="EMAIL" disabled="true" value="<%$user['wz_EMAIL']%>" class="form-control" />
