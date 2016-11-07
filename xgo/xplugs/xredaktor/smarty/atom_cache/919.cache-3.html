@@ -1,0 +1,29 @@
+<%xr_siteCall fn="fe_mpwgtest::checkIsDeveloper" var="test"%>
+
+
+<%if $test == true%>
+    <div style="height: 800px; border: 1px solid #ccc; margin: 50px;">
+        <h1>Amazon Widget & RebotMe</h1>
+        <br>
+        <div class="amazon-partner" style="margin-left: 20px;">
+        <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F3507bc2f-9d63-4548-9efe-5836e708cbc3&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F3507bc2f-9d63-4548-9efe-5836e708cbc3&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+        </div>
+        
+        <div class="rebotMe">
+        	    <script type="text/javascript">
+            	var headID = document.getElementsByTagName("head")[0];
+            	var newCss = document.createElement('link');
+            	newCss.rel = 'stylesheet';
+            	newCss.type = 'text/css';
+            	window._botUsername = '469630';
+            	window._botName = 'Michael Schramm';
+            	newCss.href = "http://rebot.me/assets/css/bot.css";
+            	var newScript = document.createElement('script');
+            	newScript.src = "http://rebot.me/assets/js/bot.js";
+            	newScript.type = 'text/javascript';
+            	headID.appendChild(newScript);
+            	headID.appendChild(newCss);
+            </script>
+        </div>
+    </div>
+<%/if%>
