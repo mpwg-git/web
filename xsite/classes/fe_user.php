@@ -2562,9 +2562,6 @@ class fe_user
 			}
 		}
 
-
-
-
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
 
