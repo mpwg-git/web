@@ -33,6 +33,7 @@ $header = array(
 'USERDELETE',
 'TEMP USER',
 'ANSCHREIBEN',
+'LOGINCOUNT',
 );
 
 $userData = array();
@@ -74,18 +75,18 @@ foreach ($users as $key => $value)
 
 	$FAVORIT = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_767 WHERE wz_F_USERID = $ID","cntx");
 	$FAVORIT = intval($FAVORIT);
-	
+
 	$xKALT = dbx::query("SELECT * FROM wizard_auto_809 WHERE wz_ADMIN = $ID and wz_SOURCE = 'wg-gesucht'");
-	
+
 	$ANSCHREIBEN = 'N';
-	
+
 	if($value['wz_MAIL_CHECKED'] == 'Y' && $value['wz_ACTIVE'] == 'Y' && $value['wz_USERDEL'] == 'N' && $value['wz_EMAILBENACHRICHTIGUNG'] != 'KEINE' && $value['wz_IS_TMP_USER'] != 'Y')
 	{
 		$ANSCHREIBEN = 'Y';
 	}
 
-	
-	
+
+
 	$tmp = array(
 	"".$ID,
 	"".$value['wz_TYPE'],
@@ -114,6 +115,7 @@ foreach ($users as $key => $value)
 	"".$value['wz_USERDEL'],
 	"".$value['wz_IS_TMP_USER'],
 	"".$ANSCHREIBEN,
+	"".$value['wz_LOGINCOUNTER'],
 	);
 
 	$userData[] = $tmp;
