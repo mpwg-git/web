@@ -6,16 +6,10 @@ require_once(dirname(__FILE__).'/../xgo/xplugs/_includes.php');
 
 $items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' GROUP BY wz_F_USERID");
 
-$log_file = "cronlog.log";
+$log_file = "cronlog.log";		
+$date = "Date: " . date("d/m/Y H:i");
+file_put_contents($log_file, $date, FILE_APPEND);
 
-//$ids_done	= array();
-
-/*
-echo "<pre>";
-print_r($items);
-echo "</pre>";
-die();
-*/
 
 echo "\n\n Start sending mails New Chat Message \n\n";
 
@@ -31,7 +25,6 @@ foreach ($items as $k => $i) {
 
 	$checkId	= intval(dbx::queryAttribute("SELECT wz_lastMailedMessageId FROM chatitems WHERE wz_id = " . $i['msgID'], 'wz_lastMailedMessageId'));
 
-	// if((!in_array($fUserId, $ids_done)) && ($checkId != $i['wz_id']))
 	if ($checkId != $lastWzId)
 	{
 
@@ -40,7 +33,7 @@ foreach ($items as $k => $i) {
 		$email   = trim($user['wz_EMAIL']);
 
 		$replacers = fe_chat::get_mail_replacers_for_fuser($fUserId);
-
+		
 		if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE' || $user['wz_EMAILBENACHRICHTIGUNG'] == '')
 		{
 			fe_user::burnMail(
@@ -66,10 +59,8 @@ foreach ($items as $k => $i) {
 		}
 
 		dbx::query("UPDATE chatitems SET wz_lastMailedMessageId = $lastWzId, wz_lastChanged = NOW() WHERE wz_id = $lastWzId");
-		//dbx::update("chatitems", array('wz_lastMailedMessageId' =>  $lastWzId, 'wz_lastChanged' => 'NOW()'), array('wz_id' => $lastWzId));
 		
-		$date = date("d/m/Y");
-		$data = "Date: $date " . "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
+		$data = "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
 		file_put_contents($log_file, $data, FILE_APPEND);
 		
 	}
