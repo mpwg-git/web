@@ -208,14 +208,14 @@ class fe_room
 
 
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
-		if(!$itsMe && !libx::isDeveloper()){
-
-			if ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y' || $room['wz_USERDEL'] == 'Y')
-			{
-				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
-				die();
-			}
-		}
+		// if(!$itsMe && !libx::isDeveloper()){
+		//
+		// 	if ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y' || $room['wz_USERDEL'] == 'Y')
+		// 	{
+		// 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+		// 		die();
+		// 	}
+		// }
 
 		// if hash of room not empty, check if correct
 		if ($room['wz_HASH'] != '' && $hash != $room['wz_HASH']) {
@@ -386,16 +386,16 @@ class fe_room
 
 
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
-		if(!libx::isDeveloper())
-		{
-			if ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y' || $room['wz_USERDEL'] == 'Y')
-			{
+		// if(!libx::isDeveloper())
+		// {
+		// 	if ($room['wz_del'] == 'Y' || $room['wz_ACTIVE'] == 'N' || $room['wz_HIDE'] == 'Y' || $room['wz_USERDEL'] == 'Y')
+		// 	{
+		//
+		// 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+		// 		die();
+		// 	}
+		// }
 
-				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
-				die();
-			}
-		}
-		
 		$admin			= intval($room['wz_ADMIN']);
 		//$user			= fe_user::getUserData($admin);
 

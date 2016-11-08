@@ -629,13 +629,13 @@ class fe_user
 		$user			= dbx::query("select * from wizard_auto_707 where wz_id = $userId");
 
 ///// redirect to error page if user is deleted || not active etc
-		if(!$itsMe){
-			if ($user['wz_del'] == 'Y' && $user['wz_USERDEL'] == 'Y' && ($user['wz_ACTIVE'] == 'N') || $user['wz_MAIL_CHECKED'] != 'N' || $user['wz_online'] == 'N' || $user['wz_hide'] == 'Y')
-			{
-				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
-				die();
-			}
-		}
+		// if(!$itsMe){
+		// 	if ($user['wz_del'] == 'Y' && $user['wz_USERDEL'] == 'Y' && ($user['wz_ACTIVE'] == 'N') || $user['wz_MAIL_CHECKED'] != 'N' || $user['wz_online'] == 'N' || $user['wz_hide'] == 'Y')
+		// 	{
+		// 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+		// 		die();
+		// 	}
+		// }
 
 
 		if($user === false)
@@ -2447,21 +2447,6 @@ class fe_user
 
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
-		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
-		{
-			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-			if($LAST_PUBLIC_ROMM_ID > 0)
-			{
-				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-
-				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-			}
-		}
-
-
 
 		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
 
@@ -2562,6 +2547,23 @@ class fe_user
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
 
 		xredaktor_feUser::refreshUserdata($feu_id);
+
+		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
+		{
+			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+			if($LAST_PUBLIC_ROMM_ID > 0)
+			{
+				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+
+				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+			}
+		}
+
+
+
 
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
@@ -2871,6 +2873,20 @@ class fe_user
 			fe_matching::clearMatchingResults($feu_id);
 		}
 
+		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
+		{
+			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+			if($LAST_PUBLIC_ROMM_ID > 0)
+			{
+				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+
+				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+			}
+		}
+
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
 
@@ -3058,9 +3074,21 @@ class fe_user
 			}
 		}
 
-
-
 		$redirectUrl = fe_vanityurls::genUrl_suche();
+
+		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
+		{
+			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+			if($LAST_PUBLIC_ROMM_ID > 0)
+			{
+				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+
+				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+			}
+		}
 
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
