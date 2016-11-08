@@ -1,16 +1,37 @@
+
 <div class="col-sm-3 room-roomie">
     <a href="<%$single['USER']['PROFILE_URL']%>">
         <%xr_imgWrapper s_id=$single['USER']['wz_PROFILBILD'] w=768 class="img-responsive"%>
-        <%*xr_print_r val=$single*%>
+        <%*xr_print_r val=$single['USER']['wz_id']*%>
+        <%*xr_print_r val=$roomData['wz_ADMIN']*%>
         <span class="roomie-matching-name" style="color:@blue;"><%$single['USER']['wz_VORNAME']%></span>
         
         
         <div class="roomie-matching-info" style="color:@blue;">
             
-            <span class="prozent" >
-                <%$single['MATCHING']['RESULT']['matchGesamt']%>    
-            </span>
+            <!--<span class="prozent" >-->
+            <!--    <%$single['MATCHING']['RESULT']['matchGesamt']%>    -->
+            <!--</span>-->
             
+            <span class="prozent">
+            <%if $single['USER']['wz_id'] == $roomData['wz_ADMIN']%>
+                    <style>
+                        .roomie-matching-info .prozent:after {
+                            content: '100%';
+                            font-size: 15px;
+                        }
+                        .matchinginfos .prozent{
+                            margin-bottom: 0.75vw;
+                        }
+                        .profil .match-text {
+                            display: none;
+                        }
+                    </style>
+                <%else%>
+                    <%$single['MATCHING']['RESULT']['matchGesamt']%>
+                <%/if%>
+            </span>
+                
         </div>
     </a>    
 </div>

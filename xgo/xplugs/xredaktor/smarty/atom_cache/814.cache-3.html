@@ -26,7 +26,26 @@
                 </p>
                 
                 
-                <span class="prozent"><%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%></span>
+                <!--<span class="prozent"><%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%></span>-->
+                <span class="prozent">
+                    <%if $user['wz_id'] == $room['wz_ADMIN']%>
+                        <style>
+                            .matchinginfos .prozent:after {
+                                content: '100%';
+                                font-size: 5vw;
+                            }
+                            .matchinginfos .prozent{
+                                margin-bottom: 0.75vw;
+                            }
+                            .profil .match-text {
+                                display: none;
+                            }
+                        </style>
+                    <%else%>
+                        <%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%>
+                    <%/if%>
+                </span>
+               
                 <span class="match">match</span>
                 
                 <%******* 3 sätze... bei räumen nicht anzeigen
