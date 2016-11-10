@@ -6,9 +6,9 @@ require_once(dirname(__FILE__).'/../xgo/xplugs/_includes.php');
 
 $items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' GROUP BY wz_F_USERID");
 
-$log_file = "cronlog.log";		
-$date = "Date: " . date("d/m/Y H:i");
-file_put_contents($log_file, $date, FILE_APPEND);
+//$log_file = "cronlog.log";		
+//$date = "Date: " . date("d/m/Y H:i");
+//file_put_contents($log_file, $date, FILE_APPEND);
 
 
 echo "\n\n Start sending mails New Chat Message \n\n";
@@ -60,15 +60,15 @@ foreach ($items as $k => $i) {
 
 		dbx::query("UPDATE chatitems SET wz_lastMailedMessageId = $lastWzId, wz_lastChanged = NOW() WHERE wz_id = $lastWzId");
 		
-		$data = "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
-		file_put_contents($log_file, $data, FILE_APPEND);
+		echo "DB updated: " . "fUser: $fUserId " . "wz_id: " . $i['msgID'] . " mail: $email" ."\n";
+		//file_put_contents($log_file, $data, FILE_APPEND);
 		
 	}
 	else
 	{
-		$data = "fUser: $fUserId " . "already done\n";
+		echo "fUser: $fUserId " . "already done\n";
 
-		file_put_contents($log_file, $data, FILE_APPEND);
+		//file_put_contents($log_file, $data, FILE_APPEND);
 
 		continue;
 	}
