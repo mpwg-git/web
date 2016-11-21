@@ -21,6 +21,7 @@ $header = array(
 'TEXT',
 'GELESEN',
 'GELÖSCHT',
+'LastMailMessageID',
 );
 
 $messageData = array();
@@ -50,7 +51,8 @@ foreach ($messages as $key => $value)
 	"".$value['wz_TIME'],
 	"".$value['wz_MESSAGE'],	
 	"".$value['wz_SEEN'],	
-	"".$value['wz_DELETED'],	
+	"".$value['wz_DELETED'],
+	"".$value['wz_lastMailedMessageId'],		
 	);
 	
 	$messageData[] = $tmp;
