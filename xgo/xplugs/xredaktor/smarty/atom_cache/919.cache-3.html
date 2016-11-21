@@ -1,16 +1,99 @@
-<%xr_siteCall fn="fe_mpwgtest::checkIsDeveloper" var="test"%>
+<%xr_siteCall fn="fe_mpwgtest::checkIsDeveloper" var="check"%>
 
+<%if $check%>
+<style>
+    body {overflow-y: visible;}
+</style>
+    <div style="width: 100%; margin: 0 auto 50px auto; text-align: center; ">
+        <!-- AMAZON WIDGET -->
+        <div style="margin-top: 25px;">
+            <h2>Bannerlink</h2>
+            <br>
+            <iframe src="//rcm-eu.amazon-adsystem.com/e/cm?t=mepewg-21&o=3&p=48&l=ur1&category=electronics&banner=0MNQ6KCCWY32BF4PH5G2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;max-width:800px;max-height:600px;" frameborder="0"></iframe>
 
-<%if $test == true%>
-    <div style="height: 800px; border: 1px solid #ccc; margin: 50px;">
-        <h1>Amazon Widget & RebotMe</h1>
-        <br>
-        <div class="amazon-partner" style="margin-left: 20px;">
-        <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F3507bc2f-9d63-4548-9efe-5836e708cbc3&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F3507bc2f-9d63-4548-9efe-5836e708cbc3&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+        </div>
+        <div style="width: 20%; height: 352px; padding: 20px;border: 1px solid #ccc;margin: 15px; float: left;">
+            <h2>Widget</h2>
+            <br>
+            <div class="amazon-partner">
+                <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F3507bc2f-9d63-4548-9efe-5836e708cbc3&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F3507bc2f-9d63-4548-9efe-5836e708cbc3&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+            </div>
         </div>
         
+        <!-- EINZELLINK -->
+        <div style="width: 20%; height: 352px;  padding: 20px;border: 1px solid #ccc;margin: 15px; float: left;">
+            <h2>Einzellink</h2>
+            <br>
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=DE&source=ac&ref=tf_til&ad_type=product_link&tracking_id=mepewg-21&marketplace=amazon&region=DE&placement=B000EOTSRS&asins=B000EOTSRS&linkId=&show_border=true&link_opens_in_new_window=true">
+            </iframe>
+        </div>
+        
+        <!-- Quick link widget -->
+        <div style="width: 20%; height: 352px;  padding: 20px;border: 1px solid #ccc;margin: 15px; float: left;">
+            <h2>Quick link widget</h2>
+            <br>
+            <a type=amzn search="Wohnung">Wohnung</a>
+            <br><br>
+            <a type=amzn asin="B000EOTSRS">Die Rentner-WG</a>
+            <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8005%2Feda0c1e5-231c-4c03-845d-a2ebb7420603"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8005%2Feda0c1e5-231c-4c03-845d-a2ebb7420603&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+        </div>
+        
+        <!-- Such Widget -->
+        <div style="width: 20%; height: 352px;  padding: 20px;border: 1px solid #ccc;margin: 15px;float:left;">
+            <h2>Such-Widget</h2>
+            <br>
+            <script charset="utf-8" type="text/javascript">
+                amzn_assoc_ad_type = "responsive_search_widget";
+                amzn_assoc_tracking_id = "mepewg-21";
+                amzn_assoc_marketplace = "amazon";
+                amzn_assoc_region = "DE";
+                amzn_assoc_placement = "";
+                amzn_assoc_search_type = "search_widget";
+                amzn_assoc_width = 300;
+                amzn_assoc_height = 250;
+                amzn_assoc_default_search_category = "";
+                amzn_assoc_default_search_key = "";
+                amzn_assoc_theme = "dark";
+                amzn_assoc_bg_color = "000000";
+            </script>
+            <script src="//z-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=DE"></script>
+        </div>
+        
+        <!-- Banner hoch -->
+        <div style="margin: 15px;padding: 20px;border: 1px solid #ccc; width: 20%; float: left;">
+            <h2>Banner hoch</h2>
+            <br>
+            <iframe src="//rcm-eu.amazon-adsystem.com/e/cm?t=mepewg-21&o=3&p=14&l=ur1&category=electronics&banner=13A5GV557KB63QK6EGG2&f=ifr" width="160" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;max-width:800px;max-height:600px;" frameborder="0"></iframe>
+        </div>
+        
+        <!-- Karusell Widget -->
+        <div style="margin: 15px;padding: 20px;border: 1px solid #ccc; width: 20%; float: left;">
+            <h2>Karussell Widget</h2>
+            <br>
+            <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_cw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8010%2F6b694c15-9738-46fd-aac0-110de859d265&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_cw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8010%2F6b694c15-9738-46fd-aac0-110de859d265&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+        </div>
+        
+        
+        <!-- Meine Favoriten Widget -->
+        <div style="margin: 15px;padding: 20px;border: 1px solid #ccc; width: 20%; height: 352px; text-align: center; float: left;">
+            <h2>Meine Favoriten Widget</h2>
+            <br>
+            <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8001%2F595e3ee9-eed8-4f36-81a7-a13526cd553e"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8001%2F595e3ee9-eed8-4f36-81a7-a13526cd553e&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+        </div>
+        
+        
+        <!-- Slideshow Widget -->
+        <div style="margin: 15px;padding: 20px;border: 1px solid #ccc; width: 20%; height: 352px; text-align: center; float: left;">
+            <h2>Slideshow Widget</h2>
+            <br>
+            <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F2690c17e-b11e-4142-9229-7122ad6784d9&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_ssw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmepewg-21%2F8003%2F2690c17e-b11e-4142-9229-7122ad6784d9&Operation=NoScript">Amazon.de Widgets</A></NOSCRIPT>
+        </div>
+        
+        
+        <!-- RebotMe -->
+
         <div class="rebotMe">
-        	    <script type="text/javascript">
+            <script type="text/javascript">
             	var headID = document.getElementsByTagName("head")[0];
             	var newCss = document.createElement('link');
             	newCss.rel = 'stylesheet';
@@ -25,5 +108,6 @@
             	headID.appendChild(newCss);
             </script>
         </div>
+        
     </div>
 <%/if%>

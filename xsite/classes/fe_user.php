@@ -629,13 +629,13 @@ class fe_user
 		$user			= dbx::query("select * from wizard_auto_707 where wz_id = $userId");
 
 ///// redirect to error page if user is deleted || not active etc
-		// if(!$itsMe){
-		// 	if ($user['wz_del'] == 'Y' && $user['wz_USERDEL'] == 'Y' && ($user['wz_ACTIVE'] == 'N') || $user['wz_MAIL_CHECKED'] != 'N' || $user['wz_online'] == 'N' || $user['wz_hide'] == 'Y')
-		// 	{
-		// 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
-		// 		die();
-		// 	}
-		// }
+		if(!$itsMe){
+			if (($user['wz_del'] == 'Y' && $user['wz_USERDEL'] == 'Y') || $user['wz_ACTIVE'] == 'N' || $user['wz_online'] == 'N')
+			{
+				header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 2)));
+				die();
+			}
+		}
 
 
 		if($user === false)
@@ -692,10 +692,10 @@ class fe_user
 		$user['LAND_COMBO'] = $countriesState;
 
 
-		$ret 				= array(
+		$ret 			= array(
 			'USER' 		=> $user,
 			'PROFILE'	=> $profile,
-			'IMAGES'		=> $images
+			'IMAGES'	=> $images
 		);
 
 		if ($itsMe == false)
@@ -1057,60 +1057,6 @@ class fe_user
 		return $ret;
 	}
 
-
-// TODO GEBURTSDATUM DROPDOWN
-/*
-	public static function sc_getBirthdayDropdown()
-	{
-
-		$tag = array_map(function($val) {
-  			return sprintf('%02d', $val);
-		}, range(1, 31));
-
-		$monat = array_map(function($value) {
-			return sprintf('%02d', $value);
-		}, range(1,12));
-
-		$jahr 	= range(1900,2016);
-
-		$res[] = array(
-			'tag' 	=> $tag,
-			'monat'	=> $monat,
-			'jahr'	=> $jahr
-		);
-
-		return $res;
-	}
-
-
-	public static function sc_setBirthDate()
-	{
-		$date = self::sc_getBirthDate();
-
-		$expl = explode("-",$date['wz_GEBURTSDATUM']);
-
-		$res = array(
-			'tag' 	=> $expl[2],
-			'monat'	=> $expl[1],
-			'jahr'	=> $expl[0]
-		);
-
-		return $res;
-
-	}
-
-	public static function sc_getBirthDate()
-	{
-
-		$userId = intval(xredaktor_feUser::getUserId());
-		$userData = self::getUserDataOnly($userId);
-
-		return $userData;
-
-	}
-*/
-
-
 	public static function checkLoggedIn()
 	{
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
@@ -1269,27 +1215,6 @@ class fe_user
 		{
 			$update['wz_GEBURTSDATUM'] = date("Y-m-d", strtotime($update['wz_GEBURTSDATUM']));
 		}
-
-// TODO GEBURTSDATUM DROPDOWN
-/*
-		if ($update['wz_GEBURTSDATUM'] != '')
-		{
-			$dateSelected = $userReq['GEBJAHR']."-".$userReq['GEBMONAT']."-".$userReq['GEBTAG'];
-
-			if($dateSelected !== $update['wz_GEBURTSDATUM'])
-			{
-				$update['wz_GEBURTSDATUM'] = date("Y-m-d", strtotime($dateSelected));
-				print_r("newDate: ".$update['wz_GEBURTSDATUM']);
-				die();
-			}
-			else
-			{
-				$update['wz_GEBURTSDATUM'] = date("Y-m-d", strtotime($update['wz_GEBURTSDATUM']));
-				print_r("equalDate: ".$update['wz_GEBURTSDATUM']);
-				die();
-			}
-		}
-*/
 
 		// größe von / bis
 		if (
@@ -2444,9 +2369,21 @@ class fe_user
 
 		$GESCHLECHT = trim($_REQUEST['gender']);
 
-
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
+		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
+		{
+			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+			if($LAST_PUBLIC_ROMM_ID > 0)
+			{
+				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
+
+				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+
+				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+			}
+		}
 
 		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
 
@@ -2457,17 +2394,12 @@ class fe_user
 			dbx::update("wizard_auto_707", array('wz_LOGINCOUNTER' => $counter), array('wz_id' => intval($presentUser['wz_id'])));
 		}
 
-		// if(libx::isDeveloper())
-		// {
-		// 	print_r($presentUser['wz_LOGINCOUNTER']);
-		// 	die();
-		// }
 
-
+////// CHECK IF ACTIVATE NEEDED
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 		{
 			$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE (wz_FACEBOOK_ID = '$FACEBOOK_ID' || wz_EMAIL = '$EMAIL') AND wz_del = 'N' AND wz_online = 'Y'");
-	////// CHECK IF ACTIVATE NEEDED
+
 			if ($presentUser['wz_IS_TMP_USER'] == 'Y')
 			{
 				$tmpUserId = intval($presentUser['wz_id']);
@@ -2488,7 +2420,7 @@ class fe_user
 					}
 				}
 			}
-	////////
+
 
 			if($presentUser === false)
 			{
@@ -2798,7 +2730,10 @@ class fe_user
 
 				$redirectUrl = xredaktor_niceurl::genUrl(array('p_id' => 30, 'm_suffix' => $myRoomId, 'roomId' => $myRoomId, 'comingFromRedirect' => 1));
 			}
-
+			else
+			{
+				$redirectUrl = xredaktor_niceurl::genUrl(array('p_id' => 8));
+			}
 		}
 		else
 		{
@@ -2883,6 +2818,7 @@ class fe_user
 				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
 		}
+
 
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
