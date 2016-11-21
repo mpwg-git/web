@@ -1,6 +1,7 @@
 <div class="col-xs-4 picture-col searchresult-single searchresult-single-biete">
     
     <a href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>">
+    <input type="hidden" id="hiddenRoomId" value="<%$data['ID']%>">
     <div class="img-wrapper" data-userid="<%$data['ID']%>">
         <div class="inner-wrapper">
             <%xr_imgWrapper s_id=$data['IMG'] h=500 w=470 colorspace="gray" rmode="cco" class="img-responsive"%>

@@ -3,50 +3,30 @@
      
     <%xr_atom a_id=647 return=1%>
      
-     <%$CMS%>
-     
-	<body>
-	    
-	    
-    <script>
-	    dataLayer= [{
-	        'pageId':'<%$P_ID%>',
-	        'pageTitle':'<%$TITLETAG%>',
-	    }];
-	    
-	   // dataLayer = CookieTracking.changeGtm(dataLayer);
-	</script>   	    
-	    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-52J8F5');</script>
-    <!-- End Google Tag Manager -->   
-    <!-- Google Tag Manager (noscript) -->
+    <%$CMS%>
+    
+    <body>
+
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52J8F5"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-       
-       
-        <!-- HEADER ATOM -->
-        <%xr_atom a_id=642 return=1%>
+    
+    <!-- HEADER ATOM -->
+    <%xr_atom a_id=642 return=1%>
 
-        <%$CONTENT%>
-        <%xr_atom a_id=761 return=1 desc="img upload modal"%>
+    <%$CONTENT%>
+    <%xr_atom a_id=761 return=1 desc="img upload modal"%>
+    
+    <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
         
-        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
-        
-        <script src=" //maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+    <script src=" //maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
        
         
         
-        <%xr_atom a_id=794 return=1 desc='face in use'%>
-        
-		<%xr_atom a_id=704 return=1 desc='js files'%>
-        <%xr_atom a_id=757 return=1 desc='ajax loader'%>
-        <%xr_atom a_id=799 return=1 desc='landscape overlay'%>
+    <%xr_atom a_id=794 return=1 desc='face in use'%>
+    
+	<%xr_atom a_id=704 return=1 desc='js files'%>
+    <%xr_atom a_id=757 return=1 desc='ajax loader'%>
+    <%xr_atom a_id=799 return=1 desc='landscape overlay'%>
 		
 	</body>
 </html>

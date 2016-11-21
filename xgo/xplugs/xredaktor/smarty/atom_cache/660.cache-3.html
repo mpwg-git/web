@@ -36,6 +36,7 @@
     <%xr_siteCall fn='fe_user::sc_is_active' userId=$smarty.request.id var='otherIsActive'%>
     
     <%if $otherIsActive && $iAmActive%>
+    <input type="hidden" id="hiddenUserId" value="<%$myUserId%>">
     <div class="js-chattext textwindow" style="white-space:nowrap;">
         <textarea placeholder="<%xr_translate tag="dein text"%>" style="width: 24.6vw;"></textarea><!--
         --><button id="send-chat" style="vertical-align:top"><%xr_translate tag='Senden'%></button>

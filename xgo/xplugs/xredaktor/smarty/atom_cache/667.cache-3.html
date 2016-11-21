@@ -3,7 +3,8 @@
 <%xr_siteCall fn="fe_user::getMyRooms" var="roomdataNew"%>
 <%xr_siteCall fn="fe_wgtest::sc_getAllQuestionsAndState" var="wgtestdata"%>
 
-
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
 
 <div class="meinprofil-container">
 <%*xr_print_r val=$data*%>   

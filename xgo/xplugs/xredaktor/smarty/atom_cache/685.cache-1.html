@@ -38,7 +38,10 @@
                        <%/if%>
                        
                        <p class="button-search-profil-container">
-                            <a href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>" class="btn button-search-profil"><%xr_translate tag="Profil"%></a>
+                           <input type="hidden" id="hiddenRoomId" value="<%$data['ID']%>">
+                            <a id="room-detail" href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>" class="btn button-search-profil"><%xr_translate tag="Profil"%></a>
+                                <input type="hidden" id="hiddenRoomId" value="<%$data['ID']%>">
+
                         </p>
                     </div>
                 </div>

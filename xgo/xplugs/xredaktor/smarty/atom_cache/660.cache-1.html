@@ -54,9 +54,10 @@
     <div class="js-chatwindow chatwindow <%$addClass%>">
     </div>
     
-    
+    <input type="hidden" id="hiddenUserId" value="<%$myUserId%>">
     
     <%if $otherIsActive && $iAmActive%>
+    
     <div class="js-chattext textwindow flex-container">
         <textarea placeholder="<%xr_translate tag="dein text"%>"></textarea>
         <button id="send-chat"><%xr_translate tag='Senden'%></button>

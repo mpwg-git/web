@@ -1,3 +1,7 @@
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
+
+
 <h2><%xr_translate tag="Meine Daten"%></h2>
 <form class="form-mein-profil" id="form-mein-profil">
     <%*xr_atom a_id=734 return=1 desc='zeitraum'*%>

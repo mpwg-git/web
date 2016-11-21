@@ -1,3 +1,5 @@
+<input type="hidden" id="hiddenRoomId" value="<%$room.ROOM.wz_id%>">
+
 <%foreach $roomdataNew as $room name="roomloop"%>
     <%if $smarty.request.dev==1%>
         <%xr_print_r val=$room%>

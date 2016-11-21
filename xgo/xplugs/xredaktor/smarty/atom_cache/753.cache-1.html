@@ -3,6 +3,8 @@
 <div class="col-xs-12 picture-col searchresult-single">
     
     <div class="img-wrapper searchresult-wrapper-js" data-userid="<%$data['ID']%>">
+                    <input type="hidden" id="hiddenUserId" value="<%$data['ID']%>">
+
         <div class="inner-wrapper">
             
             <%xr_img s_id=$data['IMG'] w=768 colorspace="gray" var='img'%>
@@ -46,6 +48,7 @@
                         
                         <p class="button-search-profil-container">
                             <a href="<%xr_genlink p_id=14 id=$data['ID'] m_suffix=$data['ID']%>" class="btn button-search-profil">Profil</a>
+                            
                         </p>
                         
                     </div>

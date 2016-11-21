@@ -1,5 +1,6 @@
 <%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
 <%$matching = $data['MATCHING']%>
+<input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
 
 <div class="profil">
     

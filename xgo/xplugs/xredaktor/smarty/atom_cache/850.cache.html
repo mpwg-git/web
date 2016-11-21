@@ -1,3 +1,5 @@
+<input type="hidden" id="hiddenRoomId" value="<%$room.ROOM.wz_id%>">
+
 <%foreach $roomdataNew as $room name="roomloop"%>
     <%if $smarty.request.dev==1%>
         <%xr_print_r val=$room%>
@@ -49,7 +51,7 @@
             class="js-delete-room-popup room-edit-icon icon-delete pull-right" 
             style="display:inline-block; cursor:pointer;"
             data-room="<%$room.ROOM.wz_id%>" >
-            <span>&nbsp;</span>
+            
             <span class="add-xdelete edit-icon"><span class="path1"></span><span class="path2"></span></span>
         </a>
         <%if $room.ROOM.wz_ACTIVE != 'Y'%>

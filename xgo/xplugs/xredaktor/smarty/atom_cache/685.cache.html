@@ -29,9 +29,12 @@
                             <%xr_atom a_id=751 mitbewohner=$data['MITBEWOHNER'] return=1%>
                         </p>
                         
-                        
+                        <input type="hidden" id="hiddenRoomId" value="<%$data['ID']%>">
+
                         <p class="button-search-profil-container">
-                            <a href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>" class="btn button-search-profil">Profil</a>
+                            <a id="room-detail" href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>" class="btn button-search-profil">Profil</a>
+                                                            <input type="hidden" id="hiddenRoomId" value="<%$data['ID']%>">
+
                         </p>
                         
                     </div>

@@ -1,4 +1,6 @@
 <input type="hidden" name="allData" value="1" />
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
 
 <div class="form-group">
     <label for="vorname"><%xr_translate tag="Vorname"%></label>
