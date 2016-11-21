@@ -166,7 +166,7 @@ var fe_map = (function() {
 				    	// LAST SLIDE:
 
 				    	if(sliderInstance.numSlides==sliderInstance.currSlideId+1){
-				    		//console.log('last slide! activating endless scrolling mobile');
+				    		console.log('last slide! activating endless scrolling mobile');
 				    		me.activateEndlessScrollingMobile();
 				    	}
 
@@ -451,7 +451,6 @@ var fe_map = (function() {
 				var freshContent = me.getNewSearchResults(curSlide);
 
 				$(document).one('new_sliderdata_ready', function(){
-
 					if (top.endOfResults == 1) {
 						$('.ajax-loader').hide();
 						return;
@@ -539,7 +538,7 @@ var fe_map = (function() {
 			//console.log("------------- " + $('.middle-row'));
 
 			this.interval = $('.middle-row').endlessScroll({
-			  	//loader: '<div class="loading">loading<div>',
+				//  	loader: '<div class="loading">loading<div>',
 			  	//insertBefore: ".js-replacer-search div:first",
 
 				// wo wird inserted => jquery selector
