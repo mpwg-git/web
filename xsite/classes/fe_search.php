@@ -51,10 +51,10 @@ class fe_search
 		$type							= "biete";
 
 		$offset						= intval($_REQUEST['offset']);
-		
-		
-		
-		
+
+
+
+
 		if ($_REQUEST['returnJson'] == 1)
 		{
 			$returnJson = true;
@@ -84,7 +84,7 @@ class fe_search
 		else
 		{
 			$reqSearch = $_REQUEST['searchData'];
-			
+
 		}
 
 		$toSearch  = json_decode($reqSearch, true);
@@ -103,7 +103,7 @@ class fe_search
 
 		// searchtype...
 		$trueType = $toSearch['type'];
-			
+
 		// anbieter bekommen standardmäßig natürlich mitbewohner angezeigt
 		// im template hats gepasst ("mitbewohner" = active) aber suchergebnisse zeigen bisher nur räume
 		// this is the fix:
@@ -227,7 +227,7 @@ class fe_search
 		$searchData['type'] 		= $trueType;
 		$searchDataBackup['type'] 	= $trueType;
 
-		
+
 
 		$filterIsSet 	= false;
 		if (isset($searchDataBackup['filter']) && trim($searchDataBackup['filter']) != '')
@@ -539,9 +539,9 @@ class fe_search
 		{
 			$res['endOfResults'] = 1;
 		}
-			
-		
-			
+
+
+
 		return $res;
 	}
 
@@ -554,7 +554,7 @@ class fe_search
 		$userId					= intval(xredaktor_feUser::getUserId());
 		$type						= 'suche';
 		$profileTableId 		= 717;
-		$resultLimit			= 99; //18;
+		$resultLimit			= 18; //18;
 
 		$results 				= array();
 
@@ -979,7 +979,7 @@ class fe_search
 
 		$userId				= intval(xredaktor_feUser::getUserId());
 		$type					= fe_user::getUserType($userId);
-		$resultLimit		= 99; //18;
+		$resultLimit		= 18; //18;
 
 		$results = array();
 
@@ -1295,17 +1295,17 @@ class fe_search
 	public static function getUserId()
 	{
 		$userId = intval(xredaktor_feUser::getUserId());
-		
+
 		return $userId;
 	}
-	
-	
+
+
 	public static function getLoginCounter()
 	{
 		$userId = self::getUserId();
-		
+
 		$counter = intval(dbx::queryAttribute("select wz_LOGINCOUNTER from wizard_auto_707 where wz_id = $userId","wz_LOGINCOUNTER"));
-			
+
 		return $counter;
 	}
 
