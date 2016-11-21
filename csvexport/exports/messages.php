@@ -26,16 +26,16 @@ $header = array(
 
 $messageData = array();
 
-foreach ($messages as $key => $value) 
+foreach ($messages as $key => $value)
 {
 	$ID = intval($value['wz_id']);
-	
+
 	$wz_id = $value['wz_USERID'];
 	$wz_f_id = $value['wz_F_USERID'];
-	
+
 	$USER = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $wz_id");
 	$FUSER = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $wz_f_id");
-	
+
 	$tmp = array(
 	"".$ID,
 	"".$value['wz_USERID'],
@@ -49,17 +49,18 @@ foreach ($messages as $key => $value)
 	"".$FUSER['wz_EMAIL'],
 	"".$FUSER['wz_TYPE'],
 	"".$value['wz_TIME'],
-	"".$value['wz_MESSAGE'],	
-	"".$value['wz_SEEN'],	
+	"".$value['wz_MESSAGE'],
+	"".$value['wz_SEEN'],
 	"".$value['wz_DELETED'],
-	"".$value['wz_lastMailedMessageId'],		
+	"".$value['wz_lastMailedMessageId'],
 	);
-	
+
 	$messageData[] = $tmp;
-	
-}	
+
+}
 
 $filename = 'Messages';
+
 
 $R=new PHPReport();
 $R->load(array(
