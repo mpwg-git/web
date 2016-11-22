@@ -9,6 +9,28 @@
 <input type="hidden" id="hiddenLoginCounter" value="<%$counter%>">
 <input type="hidden" id="hiddenUserType" value="<%$type%>">
 
+
+<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
+<%if $stillToDo===true && $wgteststate==1%>
+	<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		    <span class="icon-duck"></span>
+		    <span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	     </div>
+        <div class="modal-body">
+	        <p>
+		    <%xr_translate tag='Dr. Duck vergleicht dich gerade mit weiteren Profilen und ist noch mit der Auswertung beschäftigt.'%>
+	        </p>
+        </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<%/if%>
+
+
 <%xr_atom a_id=778 showFace=0 return=1 desc='hidden filter field'%>
 
 

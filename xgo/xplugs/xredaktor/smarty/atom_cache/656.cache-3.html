@@ -9,6 +9,49 @@
 <input type="hidden" id="hiddenLoginCounter" value="<%$counter%>">
 <input type="hidden" id="hiddenUserType" value="<%$type%>">
 
+<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
+	
+<%if $stillToDo == true%>
+	<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="col-xs-6 col-md-4"></div>
+					<div class="col-xs-6 col-md-4">
+						<span class="icon-duck"></span>
+						<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+						<br>
+						<p>
+							<%xr_translate tag='Dr. Duck vergleicht dich gerade mit weiteren Profilen und ist noch mit der Auswertung beschäftigt.'%>
+						</p>
+					</div>
+					<div class="col-xs-6 col-md-4">
+						<div class="col-xs-6 col-md-3">
+							<!--<%if $P_LANG == 'de'%>-->
+					        <!--<a href="/de/mein-profil">-->
+						    <!--<div class="mheader-stoerer">-->
+							<!--<span style="font-size:2rem; top:28%;left:2%;"><%xr_translate tag='Mein <br>Profil'%></span>-->
+							<!--</div>-->
+						    <!--</a>-->
+                            <!--<%elseif $P_LANG == 'en'%>-->
+                            <!--<a href="/en/mein-profil">-->
+						    <!--<div class="mheader-stoerer">-->
+							<!--<span style="font-size:2rem; top:28%;left:2%;"><%xr_translate tag='Mein <br>Profil'%></span>-->
+							<!--</div>-->
+						    <!--</a>-->
+                            <!--<%/if%>-->
+						</div>
+						<div class="col-xs-6 col-md-9" style="padding-right:0;">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<%/if%>
 
 <div class="searchlist">
     
