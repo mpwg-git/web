@@ -543,10 +543,10 @@ class fe_matching
 	public static function doInstantMatching()
 	{
 		$matchDone = false;
-
 		if($matchDone == false)
 		{
-			exec('php /srv/gitgo_daten/www/wsfbeta.xgodev.com/web/datamigration/cronjob_matching.php',$out);
+			$command = $_SERVER['DOCUMENT_ROOT'] . "/datamigration/cronjob_matching.php";
+			exec('php '.$command,$out);
 			if($out != '' || $out !== false || $out != null)
 			{
 				$matchDone = true;
