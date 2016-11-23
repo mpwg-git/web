@@ -164,12 +164,12 @@ var fe_map = (function() {
 				    sliderInstance.ev.on('rsAfterSlideChange', function() {
 
 				    	// LAST SLIDE:
-
+/*
 				    	if(sliderInstance.numSlides==sliderInstance.currSlideId+1){
 				    		console.log('last slide! activating endless scrolling mobile');
 				    		me.activateEndlessScrollingMobile();
 				    	}
-
+*/
 					    me.registerListenersForSlider();
 					});
 
@@ -329,7 +329,7 @@ var fe_map = (function() {
 
 			this.searchData = searchData;
 
-			me.activateEndlessScrolling();
+			// me.activateEndlessScrolling();
 
 			$.ajax({
 				type: 'POST',
@@ -367,7 +367,7 @@ var fe_map = (function() {
 							me.refreshSearchMobileSpecials(response);
 						}
 
-						me.activateEndlessScrolling();
+						// me.activateEndlessScrolling();
 
 
 						// handle results in map
@@ -426,7 +426,7 @@ var fe_map = (function() {
 
 		}
 
-
+/*
 		this.activateEndlessScrollingMobile = function()
 		{
 
@@ -506,6 +506,7 @@ var fe_map = (function() {
 
 
 		}
+
 
 
 		this.activateEndlessScrolling = function()
@@ -588,9 +589,7 @@ var fe_map = (function() {
 					return appendWhat;
 			  }
 			});
-
 			return appendWhat;
-
 		}
 
 
@@ -601,7 +600,7 @@ var fe_map = (function() {
 			return true;
 		}
 
-
+*/
 		this.refreshSearchMobileSpecials = function()
 		{
 
