@@ -94,9 +94,9 @@
 <a href="#" data-frage="<%$data['FRAGE']['wz_id']%>" data-redirect="<%xr_genlink p_id=11%>" class="frage-button-next-question frage-wgtest-submit">
     <%xr_siteCall fn='fe_wgtest::sc_is_frage_last_frage' frageId=$data['FRAGE']['wz_id'] var='isLastFrage'%>
     <%if $isLastFrage%>
-        <span class="save-and-back"><%xr_translate tag="Speichern und zurück"%></span>
+        <span class="save-and-back" onclick="<%xr_siteCall fn='fe_matching::doInstantMatching' var='matchDone'%>"><%xr_translate tag="Speichern und zurück"%></span>
     <%else%>
-        <span class="icon-pfeil pull-right"></span>    
+        <span class="icon-pfeil pull-right" onclick="<%xr_siteCall fn='fe_matching::doInstantMatching' var='matchDone'%>"></span>    
     <%/if%>
 </a>
 

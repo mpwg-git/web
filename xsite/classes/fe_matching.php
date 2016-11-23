@@ -538,7 +538,30 @@ class fe_matching
 		return true;
 	}
 
-    public static function matchRoom2AllUsers($roomId)
+
+// sofort matchen wenn wg-test frage beantwortet wurde
+	public static function doInstantMatching()
+	{
+		$matchDone = false;
+
+		if($matchDone == false)
+		{
+			exec('php /srv/gitgo_daten/www/wsfbeta.xgodev.com/web/datamigration/cronjob_matching.php',$out);
+			if($out != '' || $out !== false || $out != null)
+			{
+				$matchDone = true;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+
+
+
+   public static function matchRoom2AllUsers($roomId)
     {
         $roomId = intval($roomId);
         if ($roomId == 0) return false;
