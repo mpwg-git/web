@@ -4,6 +4,7 @@ class sitemap
 {
 	const baseURL = 'https://www.meineperfektewg.com';
 
+
 	public static function generate_sitemaps()
 	{
 		//error_reporting(7); // falls man entity fehler finden will...
@@ -47,7 +48,7 @@ class sitemap
 
 			// blog einträge - wir brauchen nur wz_id da wir nur URLs rausspucken
 			$blogEntries = dbx::queryAll("SELECT wz_id FROM " . fe_blog::table_blog . " WHERE wz_del = 'N' and wz_online = 'Y' ");
-
+			
 			// multilang brauchen wir nicht aus selbem grund
 			//$blogEntries = xredaktor_wizards::mapLanguageFieldsToNormFieldsMulti(fe_blog::table_blog_id, $blogEntries);
 
@@ -61,6 +62,11 @@ class sitemap
 
 			// XML START
 			$xml   = new DOMDocument("1.0", "UTF-8");
+
+			//creating an xslt adding processing line
+			$xslt = $xml->createProcessingInstruction('xml-stylesheet', 'type="text/xsl" href="../xstorage/template/css/xml-sitemap.xsl"');
+			$xml->appendChild($xslt);
+
 			$root  = $xml->createElementNS("http://www.sitemaps.org/schemas/sitemap/0.9", 'urlset');
 			$xml->appendChild($root);
 
