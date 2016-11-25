@@ -1,2 +1,4 @@
 User-agent:*
 Disallow: /
+
+Sitemap: https://beta.meineperfektewg.com/sitemap.xml 
