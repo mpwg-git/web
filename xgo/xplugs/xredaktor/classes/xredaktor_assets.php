@@ -57,7 +57,7 @@ class xredaktor_assets
 		{
 			return implode("\n",$output);
 		}
-		
+
 		$code = hdx::fread($file_css_test);
 		if (strpos($code,"31mFileError") !== false)
 		{
@@ -355,7 +355,9 @@ class xredaktor_assets
 			foreach ($files as $file) {
 
 				$t = substr($file,strlen(Ixcore::htdocsRoot));
-				$output .= "<script src=\"$t\" type=\"text/javascript\"></script>";
+				// for pageSpeedInsight test
+				// $output .= "<script src=\"$t\" type=\"text/javascript\"></script>";
+				$output .= "<script src=\"$t\" type=\"text/javascript\" defer></script>";
 
 			}
 			//die("".$output);
