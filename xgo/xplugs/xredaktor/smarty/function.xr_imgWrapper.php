@@ -23,8 +23,8 @@ function smarty_function_xr_imgWrapper($params, &$template)
 	unset($params['showgififgif']);
 
 	$params['src'] 		= $imgCfg['src'];
-	$params['width'] 	= $imgCfg['rw'];
-	$params['height']	= $imgCfg['rh'];
+	// $params['width'] 	= $imgCfg['rw'];
+	// $params['height']	= $imgCfg['rh'];
 	$params['alt']		= $imgCfg['alt'];
 
 	// if (!isset($params['border'])) {
