@@ -1562,7 +1562,12 @@ label{
 }
 
 .worumgehts, .impressum{
-
+    & > .col-lg-12
+    {
+        float: none !important;
+        .padding(0);
+    }
+    
     .icon-pfeil-container {
         text-align: center;
         .font-size(30);
@@ -1571,15 +1576,21 @@ label{
         }
 
     }
-
-
-    .padding(15);
-    h2{
+    // .padding(15);
+    h1
+    {
         .font-size(45);
         text-transform:uppercase;
         text-align:center;
-        .margin-top(22);
-        .margin-bottom(10);
+        margin: 40px 0 25px 0;
+    }
+    h2{
+        .font-size(36);
+            text-transform: uppercase;
+            text-align: center;
+            .margin-top(10);
+            .margin-bottom(30);
+            font-family: 'HelveticaNeueW01-ThinCn_673383';
     }
     h3{
         .font-size(27);
@@ -1593,8 +1604,8 @@ label{
         text-transform: none;
         text-align:center;
         color:#fff;
-        .font-size(22);
-        .margin-bottom(32);
+        .font-size(20);
+        margin: 25px 35px;
     }
     .icon-pfeil_bottom{
         .font-size(24);
