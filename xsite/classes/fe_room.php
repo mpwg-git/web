@@ -797,10 +797,10 @@ class fe_room
 		}
 
 		$update = array();
+		$state = '';
 
 		switch ($active) {
 			case true:
-				self::sendRoomActivatedMail($roomId);
 				$update = array('wz_ACTIVE' => 'Y');
 				fe_user::setErrorMessage(fe_user::message_room_activated);
 				break;
@@ -814,23 +814,34 @@ class fe_room
 				break;
 		}
 
-		// if($update['wz_ACTIVE'] == 'Y')
-		// {
-		// 	self::sendRoomActivatedMail($roomId);
-		// }
-
 		dbx::update("wizard_auto_809", $update, array('wz_id' => $roomId));
 
-		frontcontrollerx::json_success();
+		frontcontrollerx::json_success(self::sendRoomActivatedMail($roomId));
 	}
 
 
+	public static function sc_getReplacersRoomActivateMail($roomId)
+	{
+
+		$url = fe_vanityurls::genUrl_room(intval($roomId));
+
+		$replacers = array();
+
+		$replacers['###VORNAME###'] = 'DocDuck';
+		$replacers['###LINK_VIEW###']	= 'http://' . $_SERVER['HTTP_HOST'] . $url;
+		$replacers['###LINK_DEACTIVATE_SEARCH###'] = 'http://' . $_SERVER['HTTP_HOST'];
+		$replacers['###LINK_CONTACT###'] = 'http://' . $_SERVER['HTTP_HOST'];
+
+		return $replacers;
+	}
+
 	public static function sendRoomActivatedMail($roomId)
 	{
-		//TODO 1
+
+//TODO 1
 		//mail bcc an docduck@meineperfektewg.com wenn Zimmer aktiviert wurde
 
-		//TODO 2
+//TODO 2
 		//ZUSÄZLICH: wenn ein Zimmer angelegt wird (Nicht von Kalt sondern richtigen user)
 		//aber noch nicht aktiviert dann mail an docduck@mwg als Warnung
 		//Inhalt der Mail:
@@ -838,11 +849,8 @@ class fe_room
 		//User ID / Zimmer ID beides ist ein link zum jeweiligen Profil
 		//(geht nur mit developerIP falls deaktiv)
 
-
+//USER MAILS
 		//$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_del = 'N' AND wz_USERDEL = 'N' AND wz_online = 'Y' AND wz_ACTIVE = 'Y' AND wz_MAIL_CHECKED = 'Y' AND wz_TYPE = 'suche' AND wz_EMAILBENACHRICHTIGUNG != 'KEINE' ");
-
-
-		//USER MAILS
 		// $send2 = array();
 		// $user = dbx::queryAll("SELECT * FROM `wizard_auto_707` WHERE `wz_EMAIL` LIKE '%mack.pm%' AND wz_del = 'N' AND wz_TYPE = 'suche'");
 		//
@@ -852,23 +860,15 @@ class fe_room
 		//
 		// $bccMail = 'peter@meineperfektewg.com';
 		// array_push($send2, $bccMail);
+//
 
+		$id = intval($roomId);
 
+		$bccMail = 'webmail@mack.pm';
 
-		// MAIL SETTINGS
-		$subject = 'Achtung: Ein neues Zimmer wurde auf MeinePerfekteWG.com aktiviert!';
-		$lng = xredaktor_pages::getFrontEndLang();
-		$roomUrl = fe_vanityurls::genUrl_room(intval($roomId));
+		$subject = 'Achtung: Neues Zimmer online auf MeinePerfekteWG.com!';
 
-		$replacers = array();
-		$replacers['###VORNAME###'] = 'DocDuck';
-		$replacers['###LINK_VIEW###']	= 'http://' . $_SERVER['HTTP_HOST'] . $roomUrl;
-		$replacers['###LINK_DEACTIVATE_SEARCH###'] = 'http://' . $_SERVER['HTTP_HOST'];
-		$replacers['###LINK_CONTACT###'] = 'http://' . $_SERVER['HTTP_HOST'];
-
-
-		//FIRST MAIL AN DOCTOR DUCK
-		$bccMail = 'peter@meineperfektewg.com';
+		$replacers = self::sc_getReplacersRoomActivateMail($roomId);
 
 		fe_user::burnMail(
 			$bccMail,
@@ -897,8 +897,12 @@ class fe_room
 				'office@meineperfektewg.com'
 			);
 		}
+	}
 
-		return true;
+
+	public static function ajax_activateRoom()
+	{
+		return self::switchRoomActiveState(true, intval($_REQUEST['room']));
 	}
 
 
@@ -979,11 +983,6 @@ class fe_room
 		return true;
 	}
 
-
-	public static function ajax_activateRoom()
-	{
-		return self::switchRoomActiveState(true, intval($_REQUEST['room']));
-	}
 
 	public static function getRoomById($roomId)
 	{

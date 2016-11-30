@@ -115,17 +115,19 @@ var fe_user = (function() {
                     url: '/xsite/call/fe_room/activateRoom',
                     data: data,
                     success: function(data) {
-							  location.reload(true);
-						  }
+                        location.reload(true);
+                    },
+                  //   complete: function() {
+						// 		$.ajax({
+                  //           type: 'POST',
+                  //           url: '/xsite/call/fe_room/sendRoomActivatedMail',
+                  //           data: data,
+                  //           success: function() {
+                  //               console.log('sendRoomActivatedMail done');
+                  //           }
+                  //       });
+                  //   }
                 });
-					//  $.ajax({
-					// 	 type: 'POST',
-					// 	 url:'/xsite/call/fe_room/sendRoomActivatedMail',
-					// 	 data: data,
-					// 	 success: function() {
-					// 		 console.log('sendRoomActivatedMail done');
-					// 	 }
-					//  });
             });
             $('.js-deactivate-room').unbind("click");
             $('.js-deactivate-room').click(function(e) {

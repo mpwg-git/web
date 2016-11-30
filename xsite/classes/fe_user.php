@@ -2287,6 +2287,7 @@ class fe_user
 	{
 		session_start();
 		$_SESSION['error_message'] = xredaktor_translate::doTranslate($translateStr, xredaktor_pages::getFrontEndLang(), 1);
+
 		return $_SESSION['error_message'];
 	}
 
