@@ -725,10 +725,6 @@ class fe_room
 	}
 
 
-
-
-
-
 	public static function ajax_acceptInvitation()
 	{
 		fe_user::checkLoggedIn();
@@ -804,6 +800,7 @@ class fe_room
 
 		switch ($active) {
 			case true:
+				self::sendRoomActivatedMail($roomId);
 				$update = array('wz_ACTIVE' => 'Y');
 				fe_user::setErrorMessage(fe_user::message_room_activated);
 				break;
@@ -817,12 +814,93 @@ class fe_room
 				break;
 		}
 
+		// if($update['wz_ACTIVE'] == 'Y')
+		// {
+		// 	self::sendRoomActivatedMail($roomId);
+		// }
+
 		dbx::update("wizard_auto_809", $update, array('wz_id' => $roomId));
 
 		frontcontrollerx::json_success();
-
-
 	}
+
+
+	public static function sendRoomActivatedMail($roomId)
+	{
+		//TODO 1
+		//mail bcc an docduck@meineperfektewg.com wenn Zimmer aktiviert wurde
+
+		//TODO 2
+		//ZUSÄZLICH: wenn ein Zimmer angelegt wird (Nicht von Kalt sondern richtigen user)
+		//aber noch nicht aktiviert dann mail an docduck@mwg als Warnung
+		//Inhalt der Mail:
+		//"Neues Zimemr von angelegt!
+		//User ID / Zimmer ID beides ist ein link zum jeweiligen Profil
+		//(geht nur mit developerIP falls deaktiv)
+
+
+		//$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_del = 'N' AND wz_USERDEL = 'N' AND wz_online = 'Y' AND wz_ACTIVE = 'Y' AND wz_MAIL_CHECKED = 'Y' AND wz_TYPE = 'suche' AND wz_EMAILBENACHRICHTIGUNG != 'KEINE' ");
+
+
+		//USER MAILS
+		// $send2 = array();
+		// $user = dbx::queryAll("SELECT * FROM `wizard_auto_707` WHERE `wz_EMAIL` LIKE '%mack.pm%' AND wz_del = 'N' AND wz_TYPE = 'suche'");
+		//
+		// foreach ($user as $k => $u) {
+		// 	$send2[$k] = $u['wz_EMAIL'];
+		// }
+		//
+		// $bccMail = 'peter@meineperfektewg.com';
+		// array_push($send2, $bccMail);
+
+
+
+		// MAIL SETTINGS
+		$subject = 'Achtung: Ein neues Zimmer wurde auf MeinePerfekteWG.com aktiviert!';
+		$lng = xredaktor_pages::getFrontEndLang();
+		$roomUrl = fe_vanityurls::genUrl_room(intval($roomId));
+
+		$replacers = array();
+		$replacers['###VORNAME###'] = 'DocDuck';
+		$replacers['###LINK_VIEW###']	= 'http://' . $_SERVER['HTTP_HOST'] . $roomUrl;
+		$replacers['###LINK_DEACTIVATE_SEARCH###'] = 'http://' . $_SERVER['HTTP_HOST'];
+		$replacers['###LINK_CONTACT###'] = 'http://' . $_SERVER['HTTP_HOST'];
+
+
+		//FIRST MAIL AN DOCTOR DUCK
+		$bccMail = 'peter@meineperfektewg.com';
+
+		fe_user::burnMail(
+			$bccMail,
+			56,
+			$subject,
+			$replacers,
+			array(),
+			'office@meineperfektewg.com',
+			'office@meineperfektewg.com'
+		);
+
+		$user = dbx::queryAll("SELECT * FROM `wizard_auto_707` WHERE `wz_EMAIL` LIKE '%mack.pm%' AND wz_del = 'N' AND wz_TYPE = 'suche'");
+
+		foreach ($user as $k => $u)
+		{
+			$mail = trim($u['wz_EMAIL']);
+			$replacers['###VORNAME###'] = $u['wz_VORNAME'];
+
+			fe_user::burnMail(
+				$mail,
+				56,
+				$subject,
+				$replacers,
+				array(),
+				'office@meineperfektewg.com',
+				'office@meineperfektewg.com'
+			);
+		}
+
+		return true;
+	}
+
 
 	public static function update_mitbewohner_counts_of_room($roomId)
 	{
