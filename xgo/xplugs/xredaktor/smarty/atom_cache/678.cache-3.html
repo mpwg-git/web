@@ -62,7 +62,7 @@
             <div id="geburtsdatum" class="form-group hasDatePicker">
                 <label for="geburtsdatum"><%xr_translate tag="Geburtsdatum"%></label>
                 <%if $user['wz_GEBURTSDATUM'] == 0000-00-00%>
-                    <input id="geburtsdatum" name="GEBURTSDATUM" value="01.01.1993" class="form-control datepicker-birthday" onclick="this.style.color='inherit';" style="color: rgba(105,121,135,0.1);" />
+                    <input id="geburtsdatum" name="GEBURTSDATUM" <%*value="01.01.1993"*%> class="form-control datepicker-birthday" onclick="this.style.color='inherit';" style="color: rgba(105,121,135,0.1);" />
                 <%else%>
                     <input id="geburtsdatum" name="GEBURTSDATUM" value="<%$user['wz_GEBURTSDATUM']%>" class="form-control datepicker-birthday" />
                 <%/if%>
