@@ -816,7 +816,15 @@ class fe_room
 
 		dbx::update("wizard_auto_809", $update, array('wz_id' => $roomId));
 
-		frontcontrollerx::json_success(self::sendRoomActivatedMail($roomId));
+		if($update['wz_ACTIVE'] == 'Y')
+		{
+			frontcontrollerx::json_success(self::sendRoomActivatedMail($roomId));
+		}
+		else
+		{
+			frontcontrollerx::json_success();
+		}
+
 	}
 
 
@@ -824,7 +832,6 @@ class fe_room
 	{
 
 		$url = fe_vanityurls::genUrl_room(intval($roomId));
-
 		$replacers = array();
 
 		$replacers['###VORNAME###'] = 'DocDuck';
@@ -835,19 +842,52 @@ class fe_room
 		return $replacers;
 	}
 
+
+	public static function sendNewRoomMail($userId)
+	{
+//TODO
+	//ZUSÄZLICH: wenn ein Zimmer angelegt wird (Nicht von Kalt sondern richtigen user)
+	//aber noch nicht aktiviert dann mail an docduck@mwg als Warnung
+	//Inhalt der Mail:
+	//"Neues Zimemr von angelegt!
+	//User ID / Zimmer ID beides ist ein link zum jeweiligen Profil
+	//(geht nur mit developerIP falls deaktiv)
+//
+
+		$id = $userId;
+
+		// $testMailingList = array();
+
+		$peter = 'peter@meineperfektewg.com';
+		// $testMailingList[] = $peter;
+		// array_push($testMailingList,$docDuck,$peter,$michi,$valentina,$damian);
+
+		$subject = '(nZ) Neues Zimmer inseriert';
+		$replacers = self::sc_getReplacersRoomActivateMail($id);
+
+		// $mail = trim($u);
+		$replacers['###VORNAME###'] = $u;
+
+		fe_user::burnMail(
+			$peter,
+			56,
+			$subject,
+			$replacers,
+			array(),
+			'office@meineperfektewg.com',
+			'office@meineperfektewg.com'
+		);
+
+
+
+	}
+
+
 	public static function sendRoomActivatedMail($roomId)
 	{
 
 //TODO 1
 		//mail bcc an docduck@meineperfektewg.com wenn Zimmer aktiviert wurde
-
-//TODO 2
-		//ZUSÄZLICH: wenn ein Zimmer angelegt wird (Nicht von Kalt sondern richtigen user)
-		//aber noch nicht aktiviert dann mail an docduck@mwg als Warnung
-		//Inhalt der Mail:
-		//"Neues Zimemr von angelegt!
-		//User ID / Zimmer ID beides ist ein link zum jeweiligen Profil
-		//(geht nur mit developerIP falls deaktiv)
 
 //USER MAILS
 		//$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_del = 'N' AND wz_USERDEL = 'N' AND wz_online = 'Y' AND wz_ACTIVE = 'Y' AND wz_MAIL_CHECKED = 'Y' AND wz_TYPE = 'suche' AND wz_EMAILBENACHRICHTIGUNG != 'KEINE' ");
@@ -864,14 +904,21 @@ class fe_room
 
 		$id = intval($roomId);
 
-		$bccMail = 'webmail@mack.pm';
+		$testMailingList = array();
 
-		$subject = 'Achtung: Neues Zimmer online auf MeinePerfekteWG.com!';
+		$docDuck = 'docduck@meineperfektewg.com';
+      $peter = 'peter@meineperfektewg.com';
+		$peter2 = 'peter@mack.pm';
+      $michi  = 'michael@meineperfektewg.com';
+      $valentina  = 'valentina@meineperfektewg.com';
+      $damian = 'damian@meineperfektewg.com';
+      array_push($testMailingList,$docDuck,$peter,$michi,$valentina,$damian);
 
+		$subject = '(t) Achtung: Neues Zimmer online auf MeinePerfekteWG.com!';
 		$replacers = self::sc_getReplacersRoomActivateMail($roomId);
 
 		fe_user::burnMail(
-			$bccMail,
+			$peter2,
 			56,
 			$subject,
 			$replacers,
@@ -880,23 +927,47 @@ class fe_room
 			'office@meineperfektewg.com'
 		);
 
-		$user = dbx::queryAll("SELECT * FROM `wizard_auto_707` WHERE `wz_EMAIL` LIKE '%mack.pm%' AND wz_del = 'N' AND wz_TYPE = 'suche'");
+		return true;
 
-		foreach ($user as $k => $u)
-		{
-			$mail = trim($u['wz_EMAIL']);
-			$replacers['###VORNAME###'] = $u['wz_VORNAME'];
+		// foreach ($testMailingList as $k => $u)
+		// {
+		// 	$mail = trim($u);
+		// 	$replacers['###VORNAME###'] = $u;
+		//
+		// 	fe_user::burnMail(
+		// 		$mail,
+		// 		56,
+		// 		$subject,
+		// 		$replacers,
+		// 		array(),
+		// 		'office@meineperfektewg.com',
+		// 		'office@meineperfektewg.com'
+		// 	);
+		// }
 
-			fe_user::burnMail(
-				$mail,
-				56,
-				$subject,
-				$replacers,
-				array(),
-				'office@meineperfektewg.com',
-				'office@meineperfektewg.com'
-			);
-		}
+		// $user = dbx::queryAll("SELECT * FROM `wizard_auto_707` WHERE `wz_EMAIL` LIKE '%mack.pm%' AND wz_del = 'N' AND wz_TYPE = 'suche'");
+		//
+		// foreach ($user as $k => $u)
+		// {
+		// 	$mail = trim($u['wz_EMAIL']);
+		// 	$replacers['###VORNAME###'] = $u['wz_VORNAME'];
+		//
+		// 	fe_user::burnMail(
+		// 		$mail,
+		// 		56,
+		// 		$subject,
+		// 		$replacers,
+		// 		array(),
+		// 		'office@meineperfektewg.com',
+		// 		'office@meineperfektewg.com'
+		// 	);
+		// }
+	}
+
+
+	public static function ajax_roomActivatedMail()
+	{
+		return self::sendNewRoomMail($_REQUEST['user']);
 	}
 
 
@@ -906,59 +977,11 @@ class fe_room
 	}
 
 
-	public static function update_mitbewohner_counts_of_room($roomId)
-	{
-		$roomId = intval($roomId);
-		if ($roomId == false) return false;
-
-		$cnt_female = intval(dbx::queryAttribute("SELECT COUNT(*) AS cntx FROM wizard_auto_707 WHERE
-		wz_id IN (SELECT wz_id_low FROM wizard_auto_SIMPLE_W2W_707_809 WHERE wz_id_high = $roomId )
-
-		AND wz_GESCHLECHT = 'F'", 'cntx'));
-
-		$cnt_male = intval(dbx::queryAttribute("SELECT COUNT(*) AS cntx FROM wizard_auto_707 WHERE
-			wz_id IN (SELECT wz_id_low FROM wizard_auto_SIMPLE_W2W_707_809 WHERE wz_id_high = $roomId )
-			AND wz_GESCHLECHT != 'F'", 'cntx'));
-
-		$cnt_female_unreg = intval(dbx::queryAttribute("SELECT wz_UNREG_F FROM wizard_auto_809 WHERE wz_id = $roomId ", 'wz_UNREG_F'));
-		$cnt_male_unreg   = intval(dbx::queryAttribute("SELECT wz_UNREG_M FROM wizard_auto_809 WHERE wz_id = $roomId ", 'wz_UNREG_M'));
-		$cnt_total_unreg = $cnt_female_unreg + $cnt_male_unreg;
-
-		// einstweilen nehmen wir nur die zahlen die der raumadmin einstellt (UNREG_F, UNREG_M heißen die)
-		if (1==2)
-		{
-			dbx::update("wizard_auto_809", array(
-				'wz_COUNT_MITBEWOHNER_M' => $cnt_male + $cnt_male_unreg,
-				'wz_COUNT_MITBEWOHNER_F' => $cnt_female + $cnt_female_unreg,
-				'wz_COUNT_MITBEWOHNER' => $cnt_total + $cnt_total_unreg,
-			), array('wz_id' => $roomId));
-
-			return array(
-				'MALE' 	 => $cnt_male + $cnt_male_unreg,
-				'FEMALE' => $cnt_female + $cnt_female_unreg,
-				'TOTAL'	 => $cnt_total + $cnt_total_unreg
-			);
-		}
-		else {
-			dbx::update("wizard_auto_809", array(
-				'wz_COUNT_MITBEWOHNER_M' => $cnt_male_unreg,
-				'wz_COUNT_MITBEWOHNER_F' => $cnt_female_unreg,
-				'wz_COUNT_MITBEWOHNER' => $cnt_total_unreg,
-			), array('wz_id' => $roomId));
-
-			return array(
-				'MALE' 	 => $cnt_male_unreg,
-				'FEMALE' => $cnt_female_unreg,
-				'TOTAL'	 => $cnt_total_unreg
-			);
-		}
-
-	}
-
 	public static function ajax_deactivateRoom()
 	{
 		return self::switchRoomActiveState(false, intval($_REQUEST['room']));
 	}
+
 
 	public static function deleteRoom($roomId)
 	{
@@ -1013,6 +1036,56 @@ class fe_room
 			return 1;
 		}
 
+
+	}
+
+
+	public static function update_mitbewohner_counts_of_room($roomId)
+	{
+		$roomId = intval($roomId);
+		if ($roomId == false) return false;
+
+		$cnt_female = intval(dbx::queryAttribute("SELECT COUNT(*) AS cntx FROM wizard_auto_707 WHERE
+		wz_id IN (SELECT wz_id_low FROM wizard_auto_SIMPLE_W2W_707_809 WHERE wz_id_high = $roomId )
+
+		AND wz_GESCHLECHT = 'F'", 'cntx'));
+
+		$cnt_male = intval(dbx::queryAttribute("SELECT COUNT(*) AS cntx FROM wizard_auto_707 WHERE
+			wz_id IN (SELECT wz_id_low FROM wizard_auto_SIMPLE_W2W_707_809 WHERE wz_id_high = $roomId )
+			AND wz_GESCHLECHT != 'F'", 'cntx'));
+
+		$cnt_female_unreg = intval(dbx::queryAttribute("SELECT wz_UNREG_F FROM wizard_auto_809 WHERE wz_id = $roomId ", 'wz_UNREG_F'));
+		$cnt_male_unreg   = intval(dbx::queryAttribute("SELECT wz_UNREG_M FROM wizard_auto_809 WHERE wz_id = $roomId ", 'wz_UNREG_M'));
+		$cnt_total_unreg = $cnt_female_unreg + $cnt_male_unreg;
+
+		// einstweilen nehmen wir nur die zahlen die der raumadmin einstellt (UNREG_F, UNREG_M heißen die)
+		if (1==2)
+		{
+			dbx::update("wizard_auto_809", array(
+				'wz_COUNT_MITBEWOHNER_M' => $cnt_male + $cnt_male_unreg,
+				'wz_COUNT_MITBEWOHNER_F' => $cnt_female + $cnt_female_unreg,
+				'wz_COUNT_MITBEWOHNER' => $cnt_total + $cnt_total_unreg,
+			), array('wz_id' => $roomId));
+
+			return array(
+				'MALE' 	 => $cnt_male + $cnt_male_unreg,
+				'FEMALE' => $cnt_female + $cnt_female_unreg,
+				'TOTAL'	 => $cnt_total + $cnt_total_unreg
+			);
+		}
+		else {
+			dbx::update("wizard_auto_809", array(
+				'wz_COUNT_MITBEWOHNER_M' => $cnt_male_unreg,
+				'wz_COUNT_MITBEWOHNER_F' => $cnt_female_unreg,
+				'wz_COUNT_MITBEWOHNER' => $cnt_total_unreg,
+			), array('wz_id' => $roomId));
+
+			return array(
+				'MALE' 	 => $cnt_male_unreg,
+				'FEMALE' => $cnt_female_unreg,
+				'TOTAL'	 => $cnt_total_unreg
+			);
+		}
 
 	}
 

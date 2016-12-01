@@ -101,6 +101,39 @@ var fe_user = (function() {
                 $me.popover('show');
                 delRoomOnce = false;
             });
+				$('#neues-zimmer-anlegen').unbind('click');
+				$('#neues-zimmer-anlegen').one('click', function(){
+					var userid = $('#hiddenUserId').attr('value');
+					var data = {
+						 user: userid
+					};
+					// console.log(userId);
+					$.ajax({
+						type: 'POST',
+						url: '/xsite/call/fe_room/roomActivatedMail',
+						data: data,
+						success: function(data) {
+							console.log("send mail new room ",userid);
+						},
+					});
+				});
+				// $('.new-room').click(function(e) {
+				// 	// e.preventDefault();
+				// 	var userid = $('#hiddenUserId').attr('value');
+				// 	var data = {
+				// 		 user: userid
+				// 	};
+				// 	// console.log(userId);
+				// 	$.ajax({
+				// 		type: 'POST',
+				// 		url: '/xsite/call/fe_room/roomActivatedMail',
+				// 		data: data,
+				// 		success: function(data) {
+				// 			console.log("send mail new room ",userid);
+				// 		},
+				// 	});
+				// });
+
             $('.js-activate-room').unbind("click");
             $('.js-activate-room').click(function(e) {
                 e.preventDefault();
