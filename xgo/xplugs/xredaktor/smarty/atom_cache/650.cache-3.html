@@ -1,365 +1,169 @@
 <%xr_siteCall fn="fe_user::redirectIfLoggedIn"%>
-
 <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
-
 <!-- DESKTOP PICTURES -->
-
 <div class="black-bg">
-    
-    <%if $isV2 == 1%>
-    
-    <div class="row start-overlay">
-        <div class="col-xs-12">
-        
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <p class="start-text-1">
-                        <%xr_translate tag="Das Leben ist zu kurz für nervige Mitbewohner"%><br />
-                    </p>
-                    <p class="start-text-2">
-                        <%xr_translate tag="Finde hier deine perfekte WG durch Persönlichkeitsmatching"%><br/>
-                    </p>
-                    <br/>
-                    <a href="<%xr_genlink p_id=47%>" class="button start-button"><%xr_translate tag='WG Zimmer<br> finden'%></a>
-                    <a href="<%xr_genlink p_id=48%>" class="button start-button pull-right"><%xr_translate tag='Neuen Mitbewohner<br> finden'%></a>
-                    
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <p class="start-text-2">
-                        <%xr_translate tag="Lärm, Party, Sauberkeit in der WG? Da hat jeder eine andere Meinung! Anstelle von 100 Interviews, Massen-Castings und böses Erwachen: Einige Fragen zu deinen Erwartungen und Dr. Duck findet jemanden der wirklich zu dir passt!"%>
-                    </p>
-                    
-                    <div class="text-center" style="padding-top: 8px;">
-                    <!--<div class="text-center">-->
-                        <a href="<%xr_genlink p_id=4%>" class="button start-button start-button-wie"><%xr_translate tag='Wie funktioniert das?'%></a>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 start-meinungen">
-                    <p>&nbsp;</p>
-                    <%xr_wz_fetch id=893 var='aussagen'%>
-                    
-                    <%foreach $aussagen as $k => $v%>
-                    
-                    <div class="row start-meinungen-abstand">
-                        <div class="col-xs-2">
-                            <!--<%xr_imgWrapper s_id=$v['wz_BILD'] w=400 h=400 rmode='cco' class="img-responsive"%>-->
-                            <%xr_imgWrapper s_id=$v['wz_BILD'] rmode='cco' class="img-responsive"%>
-                            <%$v['wz_NAME']%>
-                        </div>
-                        <div class="col-xs-10">
-                            &bdquo;<%$v['wz_TEXT']%>&ldquo;
-                        </div>
-                    </div>
-                    
-                    <%/foreach%>
-                    
-                    <div class="row start-meinungen-abstand"></div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    
-    <%/if%>
-    
-    <div class="row picture-row">
-        
-        <div class="js-replacer-pictures-start">
-            
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=545 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">90%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Lukas klappt jede sportliche Herausforderung."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=546 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">93%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Auch wenn ihr immer einer Meinung seid, Sandra duscht alleine."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=550 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">69%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Alex ist der Wecker inklusive - nie wieder verschlafen."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=549 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">74%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Tanja Beautytipps beim Wellnesstag tauschen."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class=" logo">
-                        <div class="inner-wrapper">
-                            <%xr_imgWrapper s_id=18448 h=400 w=375  class="img-responsive"%>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=548 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">78%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Patrick machst du die Nacht zum Tag."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=547 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">84%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Für Philipp ist alles öko- logisch seine Politik ändert die Welt."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=543 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">92%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Lena wird putzen zur Homeparty"%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=544 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">65%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Katharina unterhält dich immer und überall."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <%if $isV2 == 1%>
-            
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=545 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">90%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Lukas klappt jede sportliche Herausforderung."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=546 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">93%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Auch wenn ihr immer einer Meinung seid, Sandra duscht alleine."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=550 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">69%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Alex ist der Wecker inklusive - nie wieder verschlafen."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=549 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">74%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Tanja Beautytipps beim Wellnesstag tauschen."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class=" logo">
-                        <div class="inner-wrapper">
-                            <%xr_imgWrapper s_id=18448 h=400 w=375  class="img-responsive"%>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4 picture-col">
-                <div class="img-wrapper">
-                    <div class="inner-wrapper">
-                        <%xr_imgWrapper s_id=548 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
-                        <div class="overlay-bg">
-                            <div class="overlay">
-                                <p class="upper">
-                                    <span class="pull-left drduck icon-duck"></span>
-                                    <span class="pull-right">
-                                        <span class="prozent">78%</span>
-                                        <span class="match">match</span>
-                                    </span>
-                                </p>
-                                <div style="clear:both"></div>
-                                <p><%xr_translate tag="Mit Patrick machst du die Nacht zum Tag."%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <%/if%>
-            
-        
-        </div>
-    </div>
+	<%if $isV2 == 1%>
+		<div class="row start-overlay">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+						<p class="start-text-1">
+							<%xr_translate tag="Das Leben ist zu kurz für nervige Mitbewohner"%><br/>
+						</p>
+						<p class="start-text-2">
+							<%xr_translate tag="Finde hier deine perfekte WG durch Persönlichkeitsmatching"%><br/>
+						</p>
+						<br/>
+						<a href="<%xr_genlink p_id=47%>" class="button start-button"><%xr_translate tag='WG Zimmer<br> finden'%></a>
+						<a href="<%xr_genlink p_id=48%>" class="button start-button pull-right"><%xr_translate tag='Neuen Mitbewohner<br> finden'%></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+						<p class="start-text-2">
+							<%xr_translate tag="Lärm, Party, Sauberkeit in der WG? Da hat jeder eine andere Meinung! Anstelle von 100 Interviews, Massen-Castings und böses Erwachen: Einige Fragen zu deinen Erwartungen und Dr. Duck findet jemanden der wirklich zu dir passt!"%>
+						</p>
+						<div class="text-center" style="padding-top: 8px;">
+							<!--<div class="text-center">-->
+							<a href="<%xr_genlink p_id=4%>" class="button start-button start-button-wie"><%xr_translate tag='Wie funktioniert das?'%></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1 start-meinungen">
+						<p>&nbsp;</p>
+						<%xr_wz_fetch id=893 var='aussagen'%>
+						<%foreach $aussagen as $k => $v%>
+							<div class="row start-meinungen-abstand">
+								<div class="col-xs-2">
+									<!--<%xr_imgWrapper s_id=$v['wz_BILD'] w=400 h=400 rmode='cco' class="img-responsive"%>-->
+									<%xr_imgWrapper s_id=$v['wz_BILD'] rmode='cco' class="img-responsive"%>
+									<%$v['wz_NAME']%>
+								</div>
+								<div class="col-xs-10">
+									&bdquo;<%$v['wz_TEXT']%>&ldquo;
+								</div>
+							</div>
+						<%/foreach%>
+						<div class="row start-meinungen-abstand"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<%/if%>
+	<div class="row picture-row">
+		<div class="js-replacer-pictures-start">
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=545 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=546 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=550 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=549 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class=" logo">
+						<div class="inner-wrapper">
+							<%xr_imgWrapper s_id=18448 h=400 w=375  class="img-responsive"%>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=548 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=547 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=543 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4 picture-col">
+				<div class="img-wrapper">
+					<div class="inner-wrapper">
+						<%xr_imgWrapper s_id=544 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+					</div>
+				</div>
+			</div>
+			<%if $isV2 == 1%>
+				<div class="col-xs-4 picture-col">
+					<div class="img-wrapper">
+						<div class="inner-wrapper">
+							<%xr_imgWrapper s_id=545 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4 picture-col">
+					<div class="img-wrapper">
+						<div class="inner-wrapper">
+							<%xr_imgWrapper s_id=546 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4 picture-col">
+					<div class="img-wrapper">
+						<div class="inner-wrapper">
+							<%xr_imgWrapper s_id=550 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4 picture-col">
+					<div class="img-wrapper">
+						<div class="inner-wrapper">
+							<%xr_imgWrapper s_id=549 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4 picture-col">
+					<div class="img-wrapper">
+						<div class=" logo">
+							<div class="inner-wrapper">
+								<%xr_imgWrapper s_id=18448 h=400 w=375  class="img-responsive"%>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4 picture-col">
+					<div class="img-wrapper">
+						<div class="inner-wrapper">
+							<%xr_imgWrapper s_id=548 h=500 w=470 rmode="cco" colorspace="gray" class="img-responsive"%>
+						</div>
+					</div>
+				</div>
+			<%/if%>
+		</div>
+	</div>
 </div>
