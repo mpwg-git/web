@@ -46,6 +46,10 @@ End Google Tag Manager -->
 	<meta name="description" content="<%$DESCRIPTION%>"/>
 	<meta name="keywords" content="<%$KEYWORDS%>"/>
 
+    <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
+
+ <!--   <link rel="stylesheet" href="/datamigration/rollout/css.php">-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
 
 	<!-- first view css files -->
 	<!--<link rel="stylesheet" type="text/css" href="/xstorage/template/bootstrap/css/bootstrap.min.css">-->
@@ -74,7 +78,7 @@ End Google Tag Manager -->
 	<!--<link rel="stylesheet" type="text/css" href="/xstorage/template/css/jquery.Jcrop.min.css">-->
 
 
-	<!-- <script type="text/javascript">
+	 <script type="text/javascript">
 		top.P_LANG = '<%$P_LANG%>';
 		top.P_ID = <%$P_ID%>;
 		top.str_yes = '<%xr_translate tag="Ja"%>';
@@ -85,7 +89,7 @@ End Google Tag Manager -->
 		top.deactivate_word2 = '<%xr_translate tag="deaktivieren"%>';
 		top.activate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
 		top.activate_word2 = '<%xr_translate tag="aktivieren"%>';
-	</script> -->
+	</script> 
 
 	<style>
 		.smooth_zoom_preloader {
@@ -100,6 +104,6 @@ End Google Tag Manager -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
-	<!-- <%xr_atom a_id=890 return=1 desc="og stuff"%> -->
+	 <%xr_atom a_id=890 return=1 desc="og stuff"%> 
 
 </head>

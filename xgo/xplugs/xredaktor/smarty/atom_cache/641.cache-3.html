@@ -2,7 +2,7 @@
 <html lang="<%$P_LANG%>">
 
 	<%xr_atom a_id=647 return=1%>
-
+    
 	<body>
 
 		<!-- HEADER ATOM -->
@@ -16,7 +16,6 @@
 		<%*xr_atom a_id=643 return=1*%>
 
 		<%xr_atom a_id=757 return=1 desc='ajax loader'%>
-
 		<%xr_atom a_id=794 return=1 desc='face in use'%>
 
 		<%xr_atom a_id=899 return=1%>
@@ -35,17 +34,16 @@
 				if ($("body").size() > 0) {
 					if (document.createStyleSheet) {
 						document.createStyleSheet('styles.css');
-						
 					}
 					else
 					{
-						$("head").append($("<link rel='stylesheet' href='//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css'/>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/bootstrap.min.css'/>"));
-				 		$("head").append($("<link rel='stylesheet' href='/assets/codeless/13.css'class='css_flush' />"));
-						$("head").append($("<link rel='stylesheet' href='/assets/codeless/14.css'class='css_flush' />"));
+				// 		$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/bootstrap.min.css,/assets/codeless/13.css,/assets/codeless/14.css,/xstorage/template/bootstrap/css/BootstrapXL.css'/>"));
+						$("head").append($("<link rel='stylesheet' href='//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/bootstrap.min.css'>"));
+				    	$("head").append($("<link rel='stylesheet' href='/assets/codeless/13.css'class='css_flush'>"));
+						$("head").append($("<link rel='stylesheet' href='/assets/codeless/14.css'class='css_flush'>"));
 						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/BootstrapXL.css'>"));
 						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/mcustomscrollbar/jquery.mCustomScrollbar.css'>"));
-						
 						$("head").append($("<link rel='stylesheet' href='/xstorage/template/icomoon/style.css'>"));
 						$("head").append($("<link rel='stylesheet' href='/xstorage/template/en-icomoon/style.css'>"));
 						$("head").append($("<link rel='stylesheet' href='/xstorage/template/add-icomoon/style.css'>"));
@@ -70,6 +68,19 @@
 		<script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript" async></script>
 
 		<%xr_atom a_id=704 return=1 desc='js files'%>
-
+        
+        <!--<%if $P_ID == 1 || $P_ID == 11%>-->
+        <!--    <script>-->
+        <!--        window.onload = function() {-->
+        <!--            document.getElementById("loading-mask").style.display = "none";-->
+        <!--        }-->
+        <!--    </script>-->
+        <!--<%else%>-->
+        <!--    <script>-->
+        <!--        window.onload = function() {-->
+        <!--            document.getElementsByClassName("ajax-loader").style.display = "none";-->
+        <!--        }-->
+        <!--    </script>-->
+        <!--<%/if%>-->
 	</body>
 </html>
