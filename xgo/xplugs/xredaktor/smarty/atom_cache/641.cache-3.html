@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html lang="<%$P_LANG%>">
-    
-    <%xr_atom a_id=647 return=1%>
-	
+
+	<%xr_atom a_id=647 return=1%>
+
 	<body>
 
-    <!-- GTM ID LIVE WEBSITE 
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52J8F5"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    -->
-    <!-- Google Tag Manager (noscript) 
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B39DJQ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-End Google Tag Manager (noscript) -->
-  
-	    
-        <div id="fb-root"></div>
-        
-        <script>
-        
-        window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '1101804963210825',
-              xfbml      : true,
-              version    : 'v2.6'
-            });
-          };
-        
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.6&appId=242558162535234";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-        
-        <!-- HEADER ATOM -->
-        <%xr_atom a_id=642 return=1%>
+		<!-- HEADER ATOM -->
+		<%xr_atom a_id=642 return=1%>
 
-        <%$CONTENT%>
-        <%xr_atom a_id=761 return=1 desc="img upload modal"%>
-        
-        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
-        
-        <script src=" //maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-        
-        <%xr_atom a_id=794 return=1 desc='face in use'%>
-        <!-- FOOTER ATOM -->
-        <%*xr_atom a_id=643 return=1*%>
-        
-        <%xr_atom a_id=899 return=1%>
-        
+		<%$CONTENT%>
+
+		<%xr_atom a_id=761 return=1 desc="img upload modal"%>
+
+		<!-- FOOTER ATOM -->
+		<%*xr_atom a_id=643 return=1*%>
+
+		<%xr_atom a_id=757 return=1 desc='ajax loader'%>
+
+		<%xr_atom a_id=794 return=1 desc='face in use'%>
+
+		<%xr_atom a_id=899 return=1%>
+
+		<%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
+
+		<%if $EmailConfirmMsg%>
+		<script>
+			var showEmailConfirmMsg = true;
+		</script>
+		<%/if%>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				if ($("body").size() > 0) {
+					if (document.createStyleSheet) {
+						document.createStyleSheet('styles.css');
+						
+					}
+					else
+					{
+						$("head").append($("<link rel='stylesheet' href='//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css'/>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/bootstrap.min.css'/>"));
+				 		$("head").append($("<link rel='stylesheet' href='/assets/codeless/13.css'class='css_flush' />"));
+						$("head").append($("<link rel='stylesheet' href='/assets/codeless/14.css'class='css_flush' />"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/BootstrapXL.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/mcustomscrollbar/jquery.mCustomScrollbar.css'>"));
+						
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/icomoon/style.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/en-icomoon/style.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/add-icomoon/style.css'>"));
+						
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/fonts/fonts.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/css/jquery-ui.min.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/Select-or-Die-master/_src/selectordie.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/css/animate.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/swipeBox/src/css/swipebox.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/royalslider/royalslider.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/royalslider/skins/default/rs-default.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/datepicker/css/bootstrap-datepicker3.min.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/raty/jquery.raty.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/multiselect/bootstrap-multiselect.css'>"));
+						$("head").append($("<link rel='stylesheet' href='/xstorage/template/css/jquery.Jcrop.min.css'>"));
+					}
+				}
+			});
+		</script>
+
+		<%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript" async></script> *%>
+		<script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript" async></script>
+
 		<%xr_atom a_id=704 return=1 desc='js files'%>
-        <%xr_atom a_id=757 return=1 desc='ajax loader'%>
-        
-        <%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
-        
-        <%if $EmailConfirmMsg%>
-        
-        <script>
-            
-            var showEmailConfirmMsg = true;
-            
-        </script>
-        
-        <%/if%>
 
 	</body>
 </html>

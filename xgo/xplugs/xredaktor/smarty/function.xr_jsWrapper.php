@@ -16,18 +16,17 @@ function smarty_function_xr_jsWrapper($params, &$template)
 		{
 			$file = xredaktor_storage::xr_file(array('s_id'=>$f['s_id']));
 			$src 	= $file['url'];
-			$ret[] 	= "<script src=\"$src\" type=\"text/javascript\"></script>";
+			$ret[] 	= "<script src=\"$src\" type=\"text/javascript\" async></script>";
 		}
 		return implode("\n",$ret);
-		
+
 	} else {
 		$s_id 	= intval($params['s_id']); // '' oder 0
 		if ($s_id == 0) return "";
 		$imgCfg = xredaktor_storage::xr_file($params);
 		$src 	= $imgCfg['url'];
-		return "<script src=\"$src\" type=\"text/javascript\"></script>";
+		return "<script src=\"$src\" type=\"text/javascript\" async></script>";
 	}
 
 
 }
-

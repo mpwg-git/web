@@ -271,8 +271,6 @@ class fe_room
 			}
 		}
 
-
-
 		$ret 			= array(
 			'USER' 		=> $user['USER'],
 			'ROOM' 		=> $room,
@@ -399,7 +397,6 @@ class fe_room
 		$admin			= intval($room['wz_ADMIN']);
 		//$user			= fe_user::getUserData($admin);
 
-
 		$images					 = array();
 
 		/*
@@ -412,7 +409,6 @@ class fe_room
 			array_unshift($images, array('wz_S_ID' => $room['wz_PROFILBILD']));
 		}
 		*/
-
 
 		$images					 = self::getRoomImages($roomId);
 
@@ -431,11 +427,7 @@ class fe_room
 
 		//$bewohner 		= fe_user::getUsersByRoomIdWithDetails($roomId);
 
-
-
 		$bewohner_age   = fe_user::getUserAgespanByRoomId($roomId);
-
-
 
 		// TODO Matching für sprachen etc
 		$room['ABLOESE']			= self::matchYN($room['wz_ABLOESE']);
@@ -517,10 +509,9 @@ class fe_room
 				);
 			}
 
-
-			$matching 			= array(
+			$matching 		= array(
 				'RESULT'		=> $matchResult,
-				'TEXT'			=> fe_matching::getMatchTextByRoomResult($matchResult)
+				'TEXT'		=> fe_matching::getMatchTextByRoomResult($matchResult)
 			);
 
 			$ret['MATCHING'] 	= $matching;
@@ -830,14 +821,42 @@ class fe_room
 
 	public static function sc_getReplacersRoomActivateMail($roomId)
 	{
-
 		$url = fe_vanityurls::genUrl_room(intval($roomId));
 		$replacers = array();
-
 		$replacers['###VORNAME###'] = 'DocDuck';
 		$replacers['###LINK_VIEW###']	= 'http://' . $_SERVER['HTTP_HOST'] . $url;
 		$replacers['###LINK_DEACTIVATE_SEARCH###'] = 'http://' . $_SERVER['HTTP_HOST'];
 		$replacers['###LINK_CONTACT###'] = 'http://' . $_SERVER['HTTP_HOST'];
+		return $replacers;
+	}
+
+
+	public static function sc_getReplacersNewRoomMail($userId)
+	{
+//TODO:
+//replacers für mail wenn neues zimmer angelegt
+//Inhalt der Mail: | "Neues Zimemr von angelegt! | uid,rid, beides ein link zum jeweiligen Profil | geht nur mit developerIP falls deaktiv
+//TODO: weil keine public user ansicht vorhanden
+//USERPROFIL BTN: wenn user eingeloggt profildetailansicht
+//user !eingeloggt anmelde seite mit url ?u=base64_encoded_userid für weiterleitung nach login
+
+		$userData 	= dbx::query("SELECT wz_VORNAME, wz_NACHNAME FROM wizard_auto_707 WHERE wz_id = $userId");
+
+		$urlUser = xredaktor_niceurl::genUrl(array('p_id' => 14, 'm_suffix' => $userId, 'id' => $userId));
+		$username = '/' . $userData['wz_VORNAME'] . '-' . $userData['wz_NACHNAME'];
+		$urlUser .= $username;
+
+		$lastRoomId = dbx::query("SELECT MAX( wz_id ) AS lastCreatedRoom FROM wizard_auto_809 WHERE wz_ADMIN = $userId ");
+
+		$roomId 		= $lastRoomId['lastCreatedRoom'];
+
+		$urlRoom 	= fe_vanityurls::genUrl_room($roomId);
+
+		$replacers = array();
+		$replacers['###VORNAME###'] 		= 'DocDuck';
+		$replacers['###USERID###'] 		= 'UserID: ' . $userId;
+		$replacers['###USERPROFIL###'] 	= 'http://' . $_SERVER['HTTP_HOST'] . $urlUser;
+		$replacers['###ZIMMERPROFIL###'] = 'http://' . $_SERVER['HTTP_HOST'] . $urlRoom;
 
 		return $replacers;
 	}
@@ -853,24 +872,18 @@ class fe_room
 	//User ID / Zimmer ID beides ist ein link zum jeweiligen Profil
 	//(geht nur mit developerIP falls deaktiv)
 //
-
 		$id = $userId;
-
 		// $testMailingList = array();
-
-		$peter = 'peter@meineperfektewg.com';
+		$peter = 'peter@mack.pm';
 		// $testMailingList[] = $peter;
 		// array_push($testMailingList,$docDuck,$peter,$michi,$valentina,$damian);
 
-		$subject = '(nZ) Neues Zimmer inseriert';
-		$replacers = self::sc_getReplacersRoomActivateMail($id);
-
-		// $mail = trim($u);
-		$replacers['###VORNAME###'] = $u;
+		$subject = '(t) Neues Zimmer angelegt von User: ' . $id;
+		$replacers = self::sc_getReplacersNewRoomMail($id);
 
 		fe_user::burnMail(
 			$peter,
-			56,
+			57,
 			$subject,
 			$replacers,
 			array(),
@@ -878,8 +891,7 @@ class fe_room
 			'office@meineperfektewg.com'
 		);
 
-
-
+		return true;
 	}
 
 
@@ -965,17 +977,15 @@ class fe_room
 	}
 
 
-	public static function ajax_roomActivatedMail()
+	public static function ajax_sendMailNewRoom()
 	{
-		return self::sendNewRoomMail($_REQUEST['user']);
+		return self::sendNewRoomMail(intval($_REQUEST['user']));
 	}
-
 
 	public static function ajax_activateRoom()
 	{
 		return self::switchRoomActiveState(true, intval($_REQUEST['room']));
 	}
-
 
 	public static function ajax_deactivateRoom()
 	{
