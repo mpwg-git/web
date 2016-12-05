@@ -174,6 +174,9 @@ class fe_room
 
 		self::assignUser2Room($room['wz_ADMIN'], $roomId);
 
+		$xKalt = true;
+		self::sendMailNewRoom($room['wz_ADMIN'], $xKalt);
+
 		// redirect to startpage
 		header("Location: " . xredaktor_niceurl::genUrl(array('p_id' => 1)));
 		die();
@@ -809,7 +812,8 @@ class fe_room
 
 		if($update['wz_ACTIVE'] == 'Y')
 		{
-			frontcontrollerx::json_success(self::sendRoomActivatedMail($roomId));
+			$xKalt = false;
+			frontcontrollerx::json_success(self::sendRoomActivatedMail($roomId, $xKalt));
 		}
 		else
 		{
@@ -824,9 +828,9 @@ class fe_room
 		$url = fe_vanityurls::genUrl_room(intval($roomId));
 		$replacers = array();
 		$replacers['###VORNAME###'] = 'DocDuck';
-		$replacers['###LINK_VIEW###']	= 'http://' . $_SERVER['HTTP_HOST'] . $url;
-		$replacers['###LINK_DEACTIVATE_SEARCH###'] = 'http://' . $_SERVER['HTTP_HOST'];
-		$replacers['###LINK_CONTACT###'] = 'http://' . $_SERVER['HTTP_HOST'];
+		$replacers['###LINK_VIEW###']	= 'https://' . $_SERVER['HTTP_HOST'] . $url;
+		$replacers['###LINK_DEACTIVATE_SEARCH###'] = 'https://' . $_SERVER['HTTP_HOST'];
+		$replacers['###LINK_CONTACT###'] = 'https://' . $_SERVER['HTTP_HOST'];
 		return $replacers;
 	}
 
@@ -855,14 +859,14 @@ class fe_room
 		$replacers = array();
 		$replacers['###VORNAME###'] 		= 'DocDuck';
 		$replacers['###USERID###'] 		= 'UserID: ' . $userId;
-		$replacers['###USERPROFIL###'] 	= 'http://' . $_SERVER['HTTP_HOST'] . $urlUser;
-		$replacers['###ZIMMERPROFIL###'] = 'http://' . $_SERVER['HTTP_HOST'] . $urlRoom;
+		$replacers['###USERPROFIL###'] 	= 'https://' . $_SERVER['HTTP_HOST'] . $urlUser;
+		$replacers['###ZIMMERPROFIL###'] = 'https://' . $_SERVER['HTTP_HOST'] . $urlRoom;
 
 		return $replacers;
 	}
 
 
-	public static function sendNewRoomMail($userId)
+	public static function sendMailNewRoom($userId, $xKalt)
 	{
 //TODO
 	//ZUSÄZLICH: wenn ein Zimmer angelegt wird (Nicht von Kalt sondern richtigen user)
@@ -873,12 +877,18 @@ class fe_room
 	//(geht nur mit developerIP falls deaktiv)
 //
 		$id = $userId;
+
+		$peter = 'admin@mack.pm';
+
 		// $testMailingList = array();
-		$peter = 'peter@mack.pm';
 		// $testMailingList[] = $peter;
 		// array_push($testMailingList,$docDuck,$peter,$michi,$valentina,$damian);
 
-		$subject = '(t) Neues Zimmer angelegt von User: ' . $id;
+		//tNR = Testkennzeichen Neues Zimmer
+		$subject = '(tNZ) Neues Zimmer angelegt von User: ' . $id;
+
+		if($xKalt == true) $subject = '(tNZ) xKalt: Zimmer von User: ' . $id . ' wurde aktiviert!';
+
 		$replacers = self::sc_getReplacersNewRoomMail($id);
 
 		fe_user::burnMail(
@@ -890,7 +900,6 @@ class fe_room
 			'office@meineperfektewg.com',
 			'office@meineperfektewg.com'
 		);
-
 		return true;
 	}
 
@@ -979,7 +988,7 @@ class fe_room
 
 	public static function ajax_sendMailNewRoom()
 	{
-		return self::sendNewRoomMail(intval($_REQUEST['user']));
+		return self::sendMailNewRoom(intval($_REQUEST['user']),$_REQUEST['xKalt']);
 	}
 
 	public static function ajax_activateRoom()
