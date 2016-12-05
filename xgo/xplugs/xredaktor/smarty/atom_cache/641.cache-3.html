@@ -1,86 +1,66 @@
 <!DOCTYPE html>
 <html lang="<%$P_LANG%>">
-
-	<%xr_atom a_id=647 return=1%>
-    
+    <%xr_atom a_id=647 return=1%>
 	<body>
-
-		<!-- HEADER ATOM -->
-		<%xr_atom a_id=642 return=1%>
-
-		<%$CONTENT%>
-
-		<%xr_atom a_id=761 return=1 desc="img upload modal"%>
-
-		<!-- FOOTER ATOM -->
-		<%*xr_atom a_id=643 return=1*%>
-
-		<%xr_atom a_id=757 return=1 desc='ajax loader'%>
-		<%xr_atom a_id=794 return=1 desc='face in use'%>
-
-		<%xr_atom a_id=899 return=1%>
-
-		<%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
-
-		<%if $EmailConfirmMsg%>
-		<script>
-			var showEmailConfirmMsg = true;
-		</script>
-		<%/if%>
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				if ($("body").size() > 0) {
-					if (document.createStyleSheet) {
-						document.createStyleSheet('styles.css');
-					}
-					else
-					{
-				// 		$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/bootstrap.min.css,/assets/codeless/13.css,/assets/codeless/14.css,/xstorage/template/bootstrap/css/BootstrapXL.css'/>"));
-						$("head").append($("<link rel='stylesheet' href='//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/bootstrap.min.css'>"));
-				    	$("head").append($("<link rel='stylesheet' href='/assets/codeless/13.css'class='css_flush'>"));
-						$("head").append($("<link rel='stylesheet' href='/assets/codeless/14.css'class='css_flush'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/bootstrap/css/BootstrapXL.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/mcustomscrollbar/jquery.mCustomScrollbar.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/icomoon/style.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/en-icomoon/style.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/add-icomoon/style.css'>"));
-						
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/fonts/fonts.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/css/jquery-ui.min.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/Select-or-Die-master/_src/selectordie.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/css/animate.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/swipeBox/src/css/swipebox.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/royalslider/royalslider.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/royalslider/skins/default/rs-default.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/datepicker/css/bootstrap-datepicker3.min.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/raty/jquery.raty.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/plugins/multiselect/bootstrap-multiselect.css'>"));
-						$("head").append($("<link rel='stylesheet' href='/xstorage/template/css/jquery.Jcrop.min.css'>"));
-					}
-				}
-			});
-		</script>
-
-		<%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript" async></script> *%>
-		<script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript" async></script>
-
-		<%xr_atom a_id=704 return=1 desc='js files'%>
+        <div id="fb-root"></div>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : '1101804963210825',
+                  xfbml      : true,
+                  version    : 'v2.6'
+                });
+              };
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.6&appId=242558162535234";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
         
-        <!--<%if $P_ID == 1 || $P_ID == 11%>-->
-        <!--    <script>-->
-        <!--        window.onload = function() {-->
-        <!--            document.getElementById("loading-mask").style.display = "none";-->
-        <!--        }-->
-        <!--    </script>-->
-        <!--<%else%>-->
-        <!--    <script>-->
-        <!--        window.onload = function() {-->
-        <!--            document.getElementsByClassName("ajax-loader").style.display = "none";-->
-        <!--        }-->
-        <!--    </script>-->
-        <!--<%/if%>-->
+        <!-- HEADER ATOM -->
+        <%xr_atom a_id=642 return=1%>
+        
+        <%$CONTENT%>
+        
+        <%xr_atom a_id=761 return=1 desc="img upload modal"%>
+	
+    	<!-- BELOW THE FOLD CSS -->
+    	<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+        <%xr_cssWrapperV2 s_ids='89,15,178,11998,76,39,26,17209,402,408,321,422,13331,426,461,76' var="packedcss"%>
+        <%xr_siteCall fn="fe_util::isNewLayout" var="newlayout"%>
+        <%if $newlayout == 1%>
+            <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+            <%if $isV2 == 1%>
+                <%xr_cssWrapper s_id=18475%>
+                <%xr_cssWrapper s_id=18557%>
+            	<%xr_lessWrapper ids='13,14'%>
+        	<%else%>
+        	    <%xr_lessWrapper ids='11,12'%>
+        	<%/if%>
+        <%else%>
+            <%xr_lessWrapper ids='6,7'%>
+        <%/if%>
+
+        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript" async></script> *%>
+        <script src=" //maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript" async></script>
+        
+        <%xr_atom a_id=794 return=1 desc='face in use'%>
+        
+        <!-- FOOTER ATOM -->
+        <%*xr_atom a_id=643 return=1*%>
+        <%xr_atom a_id=899 return=1%>
+		<%xr_atom a_id=704 return=1 desc='js files'%>
+        <%xr_atom a_id=757 return=1 desc='ajax loader'%>
+        
+        <%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
+        
+        <%if $EmailConfirmMsg%>
+            <script>
+                var showEmailConfirmMsg = true;
+            </script>
+        <%/if%>
 	</body>
 </html>

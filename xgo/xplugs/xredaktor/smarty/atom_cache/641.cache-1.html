@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="<%$P_LANG%>">
-   
    <%xr_atom a_id=647 return=1%>
-
 	<body>
-
-    <!-- GTM ID LIVE WEBSITE 
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52J8F5"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    -->
-    <!-- Google Tag Manager (noscript)
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B39DJQ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
- End Google Tag Manager (noscript) -->
         <div id="fb-root"></div>
-        <script async>
+        <script>
             window.fbAsyncInit = function() {
                 FB.init({
                   appId      : '1101804963210825',
@@ -34,15 +23,25 @@
         
         <%xr_atom a_id=642 return=1%>
         
-        <!-- CONTENT -->
         <%$CONTENT%>
-        <!-- CONTENT -->
         
         <%xr_atom a_id=761 return=1 desc="img upload modal"%>
         
-        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
+    	<!-- BELOW THE FOLD CSS -->
+        <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+    	<%xr_cssWrapperV2 s_ids='89,15,11998,13331,178,17209,76,39,26,321,402,408,461,461' var="packedcss"%>
+    	<link rel="stylesheet" href="/xstorage/template/Darkroomjs/build/darkroom.css"/>
+    	<%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+        <%if $isV2 == 1%>
+            <%xr_cssWrapper s_id=18475%>
+            <%xr_cssWrapper s_id=18557%>
+            <%xr_lessWrapper ids='15,16'%>
+        <%else%>
+            <%xr_lessWrapper ids='8,9'%>
+        <%/if%>
         
-        <script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript" async></script>
+        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript" async></script> *%>
+        <script src=" //maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript" async></script>
         
         <%xr_atom a_id=794 return=1 desc='face in use'%>
         <!-- FOOTER ATOM -->
@@ -65,6 +64,6 @@
         </script>
         
         <%/if%>
-    </body>
-</html>
 
+	</body>
+</html>
