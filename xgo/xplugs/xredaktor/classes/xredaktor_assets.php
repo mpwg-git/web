@@ -357,7 +357,7 @@ class xredaktor_assets
 				$t = substr($file,strlen(Ixcore::htdocsRoot));
 				// for pageSpeedInsight test
 				// $output .= "<script src=\"$t\" type=\"text/javascript\"></script>";
-				$output .= "<script src=\"$t\" type=\"text/javascript\" async></script>";
+				$output .= "<script src=\"$t\" type=\"text/javascript\" defer></script>";
 
 			}
 			//die("".$output);
