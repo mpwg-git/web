@@ -23,19 +23,19 @@ class sitemap
 			// 50, 	//pressebereich overview
 		);
 
-		// $langs = array('de', 'en');
-		$langs = array('de');
+		$langs = array('de', 'en');
+		// $langs = array('de');
 
 		$urlPrefix = self::baseURL;
 
-		$targetFile 	= Ixcore::htdocsRoot . '/sitemap.xml';
+		// $targetFile 	= Ixcore::htdocsRoot . '/sitemap.xml';
 
 		foreach ($langs as $lang)
 		{
 			// request lang setzen für mapLanguageFieldsToNormFields
 			$_REQUEST['lang'] = $lang;
 
-			// $targetFile 	= Ixcore::htdocsRoot . '/sitemap_' .$lang . '.xml';
+			$targetFile 	= Ixcore::htdocsRoot . '/sitemap_' .$lang . '.xml';
 			$data_this_lang	= array();
 
 			foreach ($static_pages as $p_id)
@@ -48,7 +48,7 @@ class sitemap
 
 			// blog einträge - wir brauchen nur wz_id da wir nur URLs rausspucken
 			$blogEntries = dbx::queryAll("SELECT wz_id FROM " . fe_blog::table_blog . " WHERE wz_del = 'N' and wz_online = 'Y' ");
-			
+
 			// multilang brauchen wir nicht aus selbem grund
 			//$blogEntries = xredaktor_wizards::mapLanguageFieldsToNormFieldsMulti(fe_blog::table_blog_id, $blogEntries);
 
@@ -72,8 +72,8 @@ class sitemap
 
 			// add support for images
 			$root->setAttributeNS('http://www.w3.org/2000/xmlns/','xmlns:image','http://www.google.com/schemas/sitemap-image/1.1');
-
 			$root->setAttributeNS('http://www.w3.org/2000/xmlns/','xmlns:xhtml','http://www.w3.org/1999/xhtml');
+
 			// XML LOOP
 			foreach ($data_this_lang as $k => $contents)
 			{
@@ -85,11 +85,24 @@ class sitemap
 
 				$xLink = $xml->createElement('xhtml:link');
 
-				//Attributes for mulitlang
+				//Attributes for x-default
 				$relAttr 		= $xml->createAttribute('rel');
 				$hrefLangAttr	= $xml->createAttribute('hreflang');
 				$hrefAttr		= $xml->createAttribute('href');
 
+				//x-default
+				$relAttr->value 		= 'alternate';
+				$hrefLangAttr->value = 'x-default';
+				$hrefAttr->value		= $urlPrefix.($contents['url']);
+
+				$xLink->appendChild($relAttr);
+				$xLink->appendChild($hrefLangAttr);
+				$xLink->appendChild($hrefAttr);
+				$urlNode->appendChild($xLink);
+
+
+
+				//mulitlang EN
 				$relAttr->value 		= 'alternate';
 				$hrefLangAttr->value = 'en';
 				$hrefAttr->value		= $urlPrefix.(str_replace('/de/','/en/',$contents['url']));
@@ -108,10 +121,7 @@ class sitemap
 			$xml = null;
 		}
 	}
-
-
-
-
+}
 
 	/*
 	unused functions, braucht man für multilang content (zB bild-descriptions)
@@ -143,4 +153,3 @@ class sitemap
 	}
 	 *
 	 */
-}
