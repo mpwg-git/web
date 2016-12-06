@@ -1064,7 +1064,6 @@ class fe_user
 			return true;
 		}
 
-
 		if (xredaktor_feUser::isLoggedIn() === false)
 		{
 			return self::redirectToLogin();
