@@ -4,7 +4,15 @@
     <!--[if lt IE 11]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		
+    <meta name="Author" content="MeinePerfekteWG.com">
+    <meta name="description" content="<%$DESCRIPTION%>" />
+    <meta name="keywords" content="<%$KEYWORDS%>" />
+    <!--<meta name="ROBOTS" content="noindex, nofollow">-->
+    
+    <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
+    
+    <link rel="canonical" href="https://www.meineperfektewg.com">
+	
 	<link rel="icon" href="/xstorage/template/img/favicon/favicon.ico">
 	<link rel="icon" sizes="196x196" href="/xstorage/template/img/favicon/favicon-196x196.png">
 	
@@ -28,11 +36,6 @@
         <%/if%>
     <%/if%>
 
-    <meta name="description" content="<%$DESCRIPTION%>" />
-    <meta name="keywords" content="<%$KEYWORDS%>" />
-    <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
-    
-    <link rel="canonical" href="https://www.meineperfektewg.com">
     
     <script type="text/javascript">
         top.P_LANG='<%$P_LANG%>';
