@@ -1,0 +1,171 @@
+/*
+HEADLINE
+TEXT
+DIV
+FOOTER
+
+*/
+
+
+
+
+/*
+   HEADLINE
+*/
+h1 {
+    font-family: 'jaapokkiregular';
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #04e0d7;
+}
+.start-overlay h1 {
+   text-align: center;
+   letter-spacing: -.22rem;
+}
+.start-overlay h1>span {
+    text-transform: lowercase;
+}
+.worumgehts h1, .impressum h1 {
+    font-size: 5rem;
+    margin: 0;
+    text-align: left;
+}
+h2, h2.find{
+    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    font-size: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #04e0d7;
+    letter-spacing: inherit;
+
+}
+.search-start h2.find {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding-top: 35px;
+    padding-left: 0;
+    background: transparent;
+}
+
+h3 {
+    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    font-size: 2.7rem;
+    color: #04e0d7;
+}
+h3.jaapokk {
+    font-family: 'jaapokkiregular';
+    font-size: 2.5rem !important;
+    text-align: left;
+}
+.blog h3 {
+    font-family: 'jaapokkiregular';
+    font-size: 1.6rem !important;
+}
+
+h4 {
+    font-size: 2.2rem;
+}
+
+hgroup {
+    margin: 5rem auto 4rem auto;
+}
+/* END HEADLINE */
+
+
+
+
+/*
+   TEXT
+*/
+
+
+p.start-text {
+    font-family: 'HelveticaNeueW01-45Ligh';
+    font-size: 2.1rem;
+    margin: 1.8rem auto;
+    text-align: center;
+    text-transform: none;
+    color: #fff;
+}
+
+p.start-aussagen {
+    font-family: 'HelveticaNeueW01-45Ligh';
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.col-xs-2 p.start-aussagen {
+    font-size: 1.4rem;
+    letter-spacing: .03rem;
+}
+
+.faq-text.impressum {
+    margin-bottom: 5rem;
+    padding-left: 0;
+}
+
+
+/* END TEXT */
+
+
+/*
+   DIV
+*/
+
+.faq-container {
+    margin: 3rem auto;
+}
+
+.worumgehts.default-container-padding, .impressum.default-container-padding {
+    padding: 3rem;
+}
+
+.row {
+    margin: 1.5rem 0;
+}
+
+div.row:first-of-type, div.row:last-of-type {
+    margin-top: 0;
+}
+
+.row .start-meinungen-abstand {
+    margin: 0;
+    padding-top: 2rem;
+}
+
+
+/* END DIV */
+
+
+/*
+   FOOTER
+*/
+
+.right-row .footer {
+    font-size: 1.3rem !important;
+}
+
+.right-row .footer .footer-top>a>span {
+    font-size: 1.8rem;
+    text-shadow: .126rem .126rem .126rem #666;
+}
+
+.right-row .footer .footer-bottom>a>span {
+    font-size: 1.5rem;
+}
+
+.footer a:focus, .footer a:active, .footer a.active, .footer a:hover {
+    color: #04e0d7;
+    border-right: .1rem solid #04e0d7 !important;
+    text-shadow: .126rem .126rem .126rem rgba(50, 220, 205, .4);
+}
+
+.right-row .footer .footer-top>a, .right-row .footer .footer-bottom>a {
+    padding-right: .5rem;
+    text-transform: uppercase;
+    border-right: .1rem solid #333;
+}
+
+
+/* END FOOTER */
