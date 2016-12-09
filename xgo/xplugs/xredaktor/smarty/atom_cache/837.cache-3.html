@@ -1,38 +1,30 @@
 <%xr_wz_fetch id=839 wz_online='Y' var='data'%>
 
 <div class="impressum default-container-padding">
-    <!--<h1>Impressum</h1>-->
-    <span class="looklikeh1">
-            Impressum
-    </span>
-    <br>
-    <br>
+    <h1>Impressum</h1>
+    <!--<span class="looklikeh1">-->
+    <!-- Impressum -->
+    <!--</span>-->
+
     <div class="impressum-container">
         <div class="impressum">
-            
-            <div class="faq-question">
-                <%xr_translate tag="WhoShowersFirst e.U."%>
-            </div> 
-            
+            <!--<div class="faq-question">-->
+            <!--    <%xr_translate tag="WhoShowersFirst e.U."%>-->
+            <!-- </div> -->
             <%foreach $data as $k => $v%>
             <div class="faq-text impressum" >
                 <p><%$v['wz_TEXT']%></p>
             </div>
             <%/foreach%>
-             
-            <div class="faq-question">
-                <%xr_translate tag="Sitz:"%>
-            </div> 
+
                 
             <%foreach $data as $k => $v%>
                 <div class="faq-text impressum" >
+                    <h3 class="jaapokk"><%xr_translate tag="Sitz:"%></h3>
                     <p><%$v['wz_SITZ']%></p>
-                
                 </div>
             <%/foreach%>
-                
-            </div>
-        
+        </div>
     </div>
 </div>    
 
