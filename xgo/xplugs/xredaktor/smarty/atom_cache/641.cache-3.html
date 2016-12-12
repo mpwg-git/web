@@ -27,21 +27,23 @@
         
         <%xr_atom a_id=761 return=1 desc="img upload modal"%>
 	
-    	<!-- BELOW THE FOLD CSS -->
-    	<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
-        <%xr_cssWrapperV2 s_ids='89,15,178,11998,76,39,26,17209,402,408,321,422,13331,426,461,76' var="packedcss"%>
-        <%xr_siteCall fn="fe_util::isNewLayout" var="newlayout"%>
-        <%if $newlayout == 1%>
-            <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
-            <%if $isV2 == 1%>
-                <%xr_cssWrapper s_id=18475%>
-                <%xr_cssWrapper s_id=18557%>
-            	<%xr_lessWrapper ids='13,14'%>
-        	<%else%>
-        	    <%xr_lessWrapper ids='11,12'%>
-        	<%/if%>
-        <%else%>
-            <%xr_lessWrapper ids='6,7'%>
+        <%if $P_ID == 1%>
+        	<!-- BELOW THE FOLD CSS -->
+        	<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+            <%xr_cssWrapperV2 s_ids='89,15,178,11998,76,39,26,17209,402,408,321,422,13331,426,461,76' var="packedcss"%>
+            <%xr_siteCall fn="fe_util::isNewLayout" var="newlayout"%>
+            <%if $newlayout == 1%>
+                <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+                <%if $isV2 == 1%>
+                    <%xr_cssWrapper s_id=18475%>
+                    <%xr_cssWrapper s_id=18557%>
+                	<%xr_lessWrapper ids='13,14'%>
+            	<%else%>
+            	    <%xr_lessWrapper ids='11,12'%>
+            	<%/if%>
+            <%else%>
+                <%xr_lessWrapper ids='6,7'%>
+            <%/if%>
         <%/if%>
 
         <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript" async></script> *%>
