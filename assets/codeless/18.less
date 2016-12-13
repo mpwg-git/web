@@ -1,16 +1,35 @@
-@turkis: #04e0d7; // Appears 6 times
-@lighterblack: #333333; // Appears 2 times
-@white: #ffffff; // Appears 2 times
+@import "13.less";
 
+.row.start-overlay {
+    background-color: #697984;
+    // background: -webkit-linear-gradient(white, #697984);
+    // background: -o-linear-gradient(white, #697984); 
+    // background: -moz-linear-gradient(white, #697984); 
+    // background: linear-gradient(white, #697984);
+}
+
+.black-bg {
+    background: #697984;
+}
+
+
+
+/************************/
+/*      HEADLINES       */
+/************************/
 h1 {
-	color: @turkis;
-	font-size: 5rem;
-	text-transform: uppercase;
+	color: @blue;
+	font-family: @japoki;
+	font-size: 4.5rem;
+	text-transform: none;
 }
 .start-overlay {
 	h1 {
-		letter-spacing: -.22rem;
-		text-align: center;
+    	color: @blue;
+    	font-family: @japoki;
+    	font-size: 4.5rem;
+    	text-align: center;
+    	line-height: 5rem;
 	}
 	h1>span {
 		text-transform: lowercase;
@@ -31,62 +50,192 @@ h1 {
 	}
 }
 h2 {
-	color: @turkis;
-	font-size: 3rem;
-	letter-spacing: inherit;
-	margin-top: 3rem;
-	text-align: center;
-	text-transform: uppercase;
+	color: @blue !important;
+	font-family: @helvetica !important;
+	font-size: 3rem !important;
+	letter-spacing: inherit !important;
+	margin-top: 3rem !important;
+	text-transform: uppercase !important;
 }
-h2.find {
-	color: @turkis;
-	font-size: 3rem;
-	letter-spacing: inherit;
-	margin-top: 3rem;
-	text-align: center;
-	text-transform: uppercase;
+.start-overlay {
+    h2 {
+        text-align: center !important;
+    }
 }
-.search-start {
+.search-start{
 	h2.find {
-		background: transparent;
-		color: rgb(0, 0, 0);
-		font-weight: bold;
-		padding-left: 0;
-		padding-top: 35px;
+    	color: #000 !important;
+    	font-family: @helvetica !important;
+    	font-size: 2.7rem !important;
+    	font-weight: bold !important;
+    	letter-spacing: inherit !important;
+    	margin-top: 5rem !important;
+    	text-align: left !important;
+    	text-transform: uppercase !important;
+    	
 	}
 }
+.register-fragen {
+    .row {
+        h2 {
+            font-weight: bold;
+            text-transform: none !important;
+            letter-spacing: 0.1rem!important;
+        }
+    }
+}
+
+
 h3 {
-	color: @turkis;
+	color: @blue;
+	font-family: @helvetica;
 	font-size: 2.7rem;
 }
 h3.jaapokk {
-
-	font-size: 2.5rem !important;
+	font-family: @japoki;
+	font-size: 2.7rem !important;
 	text-align: left;
 }
 .blog {
 	h3 {
-
+		font-family: @japoki;
 		font-size: 1.6rem !important;
 	}
 }
 h4 {
-	font-size: 2.2rem;
+	font-size: 1.9rem;
+	letter-spacing: -.025rem;
 }
 hgroup {
-	margin: 5rem auto 4rem auto;
+	margin: 8rem auto 5rem auto;
 }
+/*****************************/
+/*      END HEADLINES       */
+/***************************/
+
+
+
+
+/*****************************/
+/*      BUTTONS / LINKS     */
+/***************************/
+.col-xs-10.col-xs-offset-1 {
+    .button.start-button {
+        text-align: center;
+        margin: 0 auto 2rem auto;
+    }
+}
+
+.einleitungstext {
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+}
+
+.button.start-button{
+    color: #fff !important;
+    border-radius: .4rem;
+    text-shadow: 1px 1px 1px #697984;
+    font-size: 2rem;
+}
+.button.start-button
+{
+    font-family:@helvetica65;
+    font-weight: normal;
+
+    width: 185px;
+    .font-size(14);
+    
+    &:hover{
+        color: #333 !important;
+        text-shadow: none !important;
+    }
+    
+    &:active,
+    &:focus,
+    {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    &.start-button-wie
+    {
+        width: 250px;
+        text-transform: none;
+    }
+
+    @media @lg
+    {
+        width: 215px;
+        .font-size(17);
+
+        &.start-button-wie
+        {
+            width: 280px;
+        }
+    }
+
+    @media @xl{
+         width: 265px;
+        .font-size(20);
+
+        &.start-button-wie
+        {
+            width: 310px;
+        }
+    }
+
+    @media @xxl{
+         width: 300px;
+        .font-size(22);
+
+        &.start-button-wie
+        {
+            width: 340px;
+        }
+    }
+
+    @media @xxxl{
+        width: 360px;
+        font-size: 2.1rem;
+        &.start-button-wie
+        {
+            width: 400px;
+        }
+    }
+}
+
+/*********************************/
+/*      END BUTTONS / LINKS     */
+/*******************************/
+
+
+
+
+
+.header-wrapper  {
+    color: @blue !important;
+}
+
 p.start-text {
-	color: @white;
-	font-size: 2.1rem;
-	margin: 1.8rem auto;
-	text-align: center;
+	color: #fff;
+	font-family: @helvetica45;
+	font-size: 1.8rem;
+    margin: 2rem 0 4rem 0;
+    text-align: center;
 	text-transform: none;
 }
 p.start-aussagen {
-	color: @white;
+	color: #fff;
+	font-family: @helvetica45;
 	font-size: 1.5rem;
 }
+
+.start-overlay.start-meinungen.start-meinungen-abstand {
+    padding-top: 2rem;
+}
+
 .col-xs-2 {
 	p.start-aussagen {
 		font-size: 1.4rem;
@@ -106,12 +255,28 @@ p.start-aussagen {
 .impressum.default-container-padding {
 	padding: 3rem;
 }
+.register-fragen {
+    .row {
+        margin: 0;
+    }
+}
+.register-inner {
+    .form-group {
+        margin-top: 1.5rem;
+    }
+}
 .row {
-	margin: 1.5rem 0;
+	margin: 0 -2.2rem 0 -0.75rem;
+	
 	.start-meinungen-abstand {
 		margin: 0;
 		padding-top: 2rem;
 	}
+}
+.row.start-meinungen-abstand {
+    &:first-of-type {
+        padding-top: 0;
+    }
 }
 div.row {
 	&:first-of-type {
@@ -122,6 +287,10 @@ div.row {
 	}
 }
 .right-row {
+    .date {
+        font-family: @helvetica45 !important; 
+        color: #333 !important;
+    }
 	.footer {
 		font-size: 1.3rem !important;
 		.footer-top>a>span {
@@ -132,19 +301,19 @@ div.row {
 			font-size: 1.5rem;
 		}
 		.footer-top>a {
-			border-right: .1rem solid @lighterblack;
+			border-right: .1rem solid #697984;
 			padding-right: .5rem;
 			text-transform: uppercase;
 		}
 		.footer-bottom>a {
-			border-right: .1rem solid @lighterblack;
+			border-right: .1rem solid #697984;
 			padding-right: .5rem;
 			text-transform: uppercase;
 		}
 	}
 }
 .footer a:focus, .footer a:active, .footer a.active, .footer a:hover  {
-	border-right: .1rem solid @turkis !important;
-	color: @turkis;
+	border-right: .1rem solid @blue !important;
+	color: @blue;
 	text-shadow: .126rem .126rem .126rem rgba(50, 220, 205, .4);
 }

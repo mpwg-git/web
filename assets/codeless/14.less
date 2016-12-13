@@ -1,6 +1,7 @@
 @import "10.less";
 @import "13.less";
 @import "../../xstorage/template/less/hover/hover.less";
+
 @hovertrans: background 300ms ease;
 
 
@@ -18,7 +19,7 @@ body{
 }
 body.modal-open[style]{
     .padding(0)!important;
- }
+}
 
 .faq-question{
     font-family:@japoki;
@@ -147,6 +148,41 @@ a.blue-link {
 }
 
 
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+hgroup{
+	margin: 5rem auto 5rem auto;	
+}
+
+h1 {
+	font-size: 5rem;
+	color: @blue;
+	text-transform: uppercase;
+	margin: 0;
+	font-family: @japoki;
+	line-height: inherit;
+	letter-spacing: -0.2rem;
+    	
+	@media @lg {
+		font-size: 3rem;
+	}
+    @media @xl{
+		font-size: 3.6rem;
+	}
+
+	@media @xxl{
+		font-size: 3.6rem;
+	}
+	@media @xxxl{
+		font-size: 5rem;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+
 p{
    font-family:@helvetica45;
 
@@ -222,34 +258,6 @@ p{
    }
 }
 
-h1, h2, h3{
-    color:@blue;
-    margin:0;
-    font-family:@japoki;
-}
-
-h3{
-    .margin-bottom(10);
-    .margin-top(25);
-    /*font-size:1.5vw;*/
-    .font-size(22);
-
-    @media @md{
-
-    }
-
-    @media @lg{
-
-    }
-
-    @media @xl{
-        .font-size(25);
-    }
-
-    @media @xxl{
-        .font-size(27);
-    }
-}
 
 .button-container-favblock {
 
@@ -718,8 +726,6 @@ button, .button{
 }
 
 
-
-
 input{
     .font-size(14);
     outline: 0;
@@ -741,27 +747,6 @@ input{
     }
 }
 
-.start-overlay
-{
-    position:absolute;
-    top: 0px;
-    z-index: 1;
-    background: url('/xstorage/template/img/start-overlay.png');
-    height: 100%;
-    width: 100%;
-    margin-left: 0px;
-
-    .start-meinungen
-    {
-        color: #000000;
-
-        .start-meinungen-abstand
-        {
-            padding-top: 24px;
-        }
-    }
-
-}
 
 /*
 .icon-rel.icon-minus-rel:after {
@@ -1159,7 +1144,7 @@ label{
         h3
         {
             margin-top: 18px;
-            .font-size(16);
+            font-size: 1.6rem;
         }
 
         .date
@@ -1261,12 +1246,6 @@ label{
 }
 
 .search-start{
-  h2{
-    letter-spacing: -0.5vw;
-    font-family:@japoki;
-    .font-size(45);
-    color:@blue;
-  }
   .search-input{
     .margin-bottom(41);
 
@@ -1577,29 +1556,7 @@ label{
 
     }
     // .padding(15);
-    h1
-    {
-        .font-size(45);
-        text-transform:uppercase;
-        text-align:center;
-        margin: 40px 0 25px 0;
-    }
-    h2{
-        .font-size(36);
-            text-transform: uppercase;
-            text-align: center;
-            .margin-top(10);
-            .margin-bottom(30);
-            font-family: 'HelveticaNeueW01-ThinCn_673383';
-    }
-    h3{
-        .font-size(27);
-        text-transform:uppercase;
-        text-align:center;
-        .margin-top(10);
-        .margin-bottom(30);
-        font-family:@helvetica;
-    }
+
     .text{
         text-transform: none;
         text-align:center;
@@ -1625,17 +1582,7 @@ label{
             margin: auto;
             .font-size(133);
         }
-        h4{
-            .font-size(23);
-            color: @blue;
-            opacity: 0;
-        }
-        h5{
-            font-family: @helvetica;
-            .font-size(15);
-            color: @blue;
-            opacity: 0;
-        }
+
         .desc{
             color: #ffffff;
             text-transform: none;
@@ -4025,6 +3972,7 @@ a.room-edit-icon {
     {
         font-family:@helvetica65;
         color: #04e0d7;
+        margin: 1.6rem 15rem 0.5rem 0px;
     }
 
     #v2_EMAIL, #v2_PASSWORT, #VORNAME, #NACHNAME

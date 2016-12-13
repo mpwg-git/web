@@ -1,5 +1,6 @@
 <%xr_siteCall fn="fe_user::redirectIfLoggedIn"%>
 <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+
 <!-- DESKTOP PICTURES -->
 <div class="black-bg">
 	<%if $isV2 == 1%>
@@ -9,7 +10,7 @@
 					<div class="col-xs-10 col-xs-offset-1">
 						<hgroup>
 							<!--<h1><%xr_translate tag="WGs finden den perfekten Mitbewohner!"%></h1>-->
-							<h1><%xr_translate tag="wg"%><span>s</span> <%xr_translate tag="finden den perfekten mitbewohner"%></h1>
+							<h1><%xr_translate tag="WG"%><span>s</span> <%xr_translate tag="finden den perfekten Mitbewohner"%></h1>
 							<h2><%xr_translate tag="Finde hier deine perfekte WG durch Persönlichkeitsmatching"%><h2/>
 						</hgroup>
 						<a href="<%xr_genlink p_id=47%>" class="button start-button"><%xr_translate tag='WG Zimmer<br> finden'%></a>
