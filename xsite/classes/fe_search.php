@@ -317,10 +317,6 @@ class fe_search
 			}
 
 
-
-
-
-
 			// WEB-385
 			$userSearchDataSave = self::getSearchDataForUser($userId);
 
@@ -554,7 +550,7 @@ class fe_search
 		$userId					= intval(xredaktor_feUser::getUserId());
 		$type						= 'suche';
 		$profileTableId 		= 717;
-		$resultLimit			= 18; //18;
+		$resultLimit			= 99; //18;
 
 		$results 				= array();
 
@@ -878,8 +874,6 @@ class fe_search
 			die($sql);
 		}
 
-
-
 		$results 	= dbx::queryAll($sql, true);
 
 		return $results;
@@ -971,18 +965,17 @@ class fe_search
 		return $_SESSION['xredaktor_feUser_wsf']['SEARCH']['SEARCH_ARRAY'];
 	}
 
+
 	public static function getResultsByParams($searchData, $showAll=false, $offset=0)
 	{
-		//$offset = 0;
 
 		session_start();
 
 		$userId				= intval(xredaktor_feUser::getUserId());
 		$type					= fe_user::getUserType($userId);
-		$resultLimit		= 18; //18;
+		$resultLimit		= 99; //18;
 
 		$results = array();
-
 
 		switch ($type) {
 
@@ -1016,8 +1009,6 @@ class fe_search
 		$filterIsSet = true;
 
 
-
-
 		//$sql 	= "select  * , user.wz_id AS user_id from wizard_auto_707 AS user, wizard_auto_$profileTableId as profile where user.wz_id = profile.wz_USERID and user.wz_del ='N' and profile.wz_del = 'N'";
 
         // seit der umstellung profile -> user/räume waren anbieterprofile in der mitbewohner suche vorhanden
@@ -1033,7 +1024,6 @@ class fe_search
 			$sql 	.= " and wizard_auto_707.wz_id not in (select wz_F_USERID from ".fe_user::table_user_block." where wz_USERID = $userId) ";
 			$sql 	.= " and wizard_auto_707.wz_id not in (select wz_USERID from ".fe_user::table_user_block." where wz_F_USERID = $userId) ";
 		}
-
 
 
 
@@ -1086,8 +1076,6 @@ class fe_search
 			}
 		}
 
-
-
 		// miete von / bis: safety first, "from" muss immer der niedrigere wert sein
 		// brauchen wir das bei der usersuche überhaupt? weiter unten ist es auskommentiert...
 		$miete_von = intval($toSearch['price_from']);
@@ -1097,9 +1085,9 @@ class fe_search
 			$toSearch['price_to']   = $miete_von;
 		}
 
-
 		if (!$filterIsSet)
 		{
+
 			foreach ($toSearch as $k => $v) {
 
 				if (trim($v) == '') continue;
@@ -1132,8 +1120,6 @@ class fe_search
 							// wz_MIETE_BIS
 							$val		= intval($v);
 							$where[] 	= " (  /*miete bis*/
-								(wz_MIETE_BIS = 0)
-								OR
 								(wz_MIETE_BIS <= $val)
 								OR
 								(wz_MIETE_VON <= $val)
@@ -1246,11 +1232,16 @@ class fe_search
 		$where[] = " wizard_auto_707.wz_USERDEL != 'Y' ";
 
 		//if wz_miete_von && wz_miete_bis < wz_MIETE Room / dont show Profile
-		$where[] = " wizard_auto_707.wz_MIETE_VON >= $miete_von ";
-		$where[] = " wizard_auto_707.wz_MIETE_BIS < $miete_bis ";
+		// $where[] = " wizard_auto_707.wz_MIETE_VON > $miete_von ";
+		// $where[] = " wizard_auto_707.wz_MIETE_BIS < $miete_bis ";
 
+		$roomMiete = dbx::query("SELECT wz_MIETE FROM wizard_auto_809 WHERE wz_ADMIN = $userId AND wz_del = 'N' AND wz_ONLINE = 'Y' AND wz_ACTIVE = 'Y' ");
+		$roomMiete = implode("", $roomMiete);
+		// print_r($roomMiete);
+		// die("\n------");
 
-		//print_r($where); die("aaa");
+		$where[] = " wizard_auto_707.wz_MIETE_VON >= $roomMiete ";
+		$where[] = " wizard_auto_707.wz_MIETE_BIS <= $roomMiete ";
 
 
 		$whereStr 	= '';
@@ -1263,17 +1254,19 @@ class fe_search
 		{
 			$sql 	=  $sqlLocation.$whereStr.$sqlLocationPostfix;
 		}
-		else
-		{
-			$sql 	.=  $whereStr." order by wz_RESULT DESC";
-		}
+		// else
+		// {
+		// 	$sql 	.=  $whereStr." order by wz_RESULT DESC";
+		// }
 
 		$limitOffset = $offset * $resultLimit;
 
 		$sql 	.= " limit $limitOffset, $resultLimit  ";
+		//
+		// print_r($sql);
+		// die("\n-----");
 
 		$results 	= dbx::queryAll($sql, true);
-
 
 		return $results;
 	}
@@ -1289,6 +1282,13 @@ class fe_search
 
 		return $id;
 	}
+
+
+	public static function sc_getResults()
+	{
+		return self::ajax_getResults();
+	}
+
 
 
 ////// FUNCTIONS FOR GOOGLE TAG MANAGER
