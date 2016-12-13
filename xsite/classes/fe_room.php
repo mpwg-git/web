@@ -828,7 +828,6 @@ class fe_room
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////		START NEW MAILINGS		///////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
-
 	public static function sc_getReplacersRoomActivateMail($roomId)
 	{
 		$url = fe_vanityurls::genUrl_room(intval($roomId));
@@ -845,16 +844,23 @@ class fe_room
 
 	public static function sc_getReplacersNewRoomMail($userId)
 	{
+		// $urlUser = xredaktor_niceurl::genUrl(array('p_id' => 14, 'm_suffix' => $userId, 'id' => $userId));
+		// $username = '/' . $userData['wz_VORNAME'] . '-' . $userData['wz_NACHNAME'];
+		// $urlUser .= $username;
+		// $replacers['###LINK###']	= 'http://' . $_SERVER["SERVER_NAME"] . '/' . $lng . '/anmelden';
+
 		$userData 	= dbx::query("SELECT wz_VORNAME, wz_NACHNAME FROM wizard_auto_707 WHERE wz_id = $userId");
 
-		$urlUser = xredaktor_niceurl::genUrl(array('p_id' => 14, 'm_suffix' => $userId, 'id' => $userId));
-		$username = '/' . $userData['wz_VORNAME'] . '-' . $userData['wz_NACHNAME'];
-		$urlUser .= $username;
+		$newRoom 	= dbx::query("SELECT max(wz_id) AS roomId FROM `wizard_auto_809`");
+		$roomId = intval($newRoom['roomId']) + 1;
+
+		$lng = xredaktor_pages::getFrontEndLang();
 
 		$replacers = array();
 		$replacers['###VORNAME###'] 		= 'DocDuck';
 		$replacers['###USERID###'] 		= 'UserID: ' . $userId;
-		$replacers['###USERPROFIL###'] 	= 'https://' . $_SERVER['HTTP_HOST'] . $urlUser;
+		$replacers['###USERPROFIL###'] 	= 'https://' . $_SERVER["SERVER_NAME"] . '/' . $lng . '/profile/' . $userData['wz_VORNAME'] . '-' . $userData['wz_NACHNAME'];
+		$replacers['###ZIMMERPROFIL###'] = 'https://' . $_SERVER["SERVER_NAME"] . '/' . $lng . '/room/' . $roomId;
 
 		return $replacers;
 	}
@@ -862,54 +868,66 @@ class fe_room
 
 	public static function sendMailNewRoom($userId, $xKalt)
 	{
-		$peter 		= 'admin@mack.pm';
-		$peter2 		= 'peter@mack.pm';
-		$peter3 		= 'peter2@mack.pm';
-		$peter4		= 'peter3@mack.pm';
-		$peter5 		= 'peter4@mack.pm';
-		$peter6 		= 'peter5@mack.pm';
-		$peter7 		= 'peter6@mack.pm';
-		$peter8 		= 'peter7@mack.pm';
-		$peter9 		= 'peter8@mack.pm';
-		$peter10 	= 'peter9@mack.pm';
-		$peter22 	= 'peter10@mack.pm';
-
-		$testMailingList = array();
-		array_push($testMailingList,$peter,$peter2,$peter3,$peter4,$peter5,$peter6,$peter7,$peter8,$peter9,$peter10);
-
 
 		$id = intval($userId);
 
 		$replacers = self::sc_getReplacersNewRoomMail($id);
 
-		$sql = dbx::query("SELECT max(wz_id) AS roomId FROM `wizard_auto_809`");
-		$roomId = intval($sql['roomId']) + 1;
 
-		$replacers['###ZIMMERPROFIL###'] = 'https://' . $_SERVER['HTTP_HOST'] . fe_vanityurls::genUrl_room($roomId);
+/// TODO: bevor LIVE wz_EMAIL LIKE ==> DELETE !!!!!!!!!!!!!!
 
-//tNR = Testkennzeichen Neues Zimmer
-		$subject = '(tNZ) Neues Zimmer angelegt von User: ' . $id . ' Zimmer: ' . $roomId;
+		$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_del = 'N' AND wz_USERDEL = 'N' AND wz_online = 'Y' AND wz_ACTIVE = 'Y' AND wz_MAIL_CHECKED = 'Y' AND wz_TYPE = 'suche' AND wz_EMAILBENACHRICHTIGUNG != 'KEINE' AND wz_EMAIL LIKE '%@mack.pm%'");
 
-		if($xKalt == true)
+		foreach ($users as $k => $u)
 		{
-			$subject = '(tNZ) xKalt: Zimmer von User: ' . $id . ' wurde aktiviert!';
+			$mail = trim($u['wz_EMAIL']);
+
+			$replacers = fe_room::sc_getReplacersNewRoomMail($u['wz_id']);
+
+			$replacers['###VORNAME###'] = $u['wz_VORNAME'];
+
+			if ($u['wz_EMAILBENACHRICHTIGUNG'] == 'DE' || $u['wz_EMAILBENACHRICHTIGUNG'] == '')
+			{
+				$subject = '(t_de) Neues Zimmer online auf MeinePerfekteWG.com!';
+
+				if($xKalt == true)
+				{
+					$subject = '(t_de) Neues Zimmer online auf MeinePerfekteWG.com!';
+				}
+
+				fe_user::burnMail(
+					$mail,
+					57,
+					$subject,
+					$replacers,
+					array(),
+					'office@meineperfektewg.com',
+					'office@meineperfektewg.com'
+				);
+			}
+
+			if ($u['wz_EMAILBENACHRICHTIGUNG'] == 'EN')
+			{
+				$subject = '(t_en) New shared apartment online at MeinePerfekteWG.com!';
+				$replacers['###ZIMMERPROFIL###'] = str_replace('/de/','/en/',$replacers['###ZIMMERPROFIL###']);
+
+				if($xKalt == true)
+				{
+					$subject = '(t_en) New shared apartment online at MeinePerfekteWG.com!';
+				}
+
+				fe_user::burnMail(
+					$mail,
+					58,
+					$subject,
+					$replacers,
+					array(),
+					'office@meineperfektewg.com',
+					'office@meineperfektewg.com'
+				);
+			}
 		}
 
-		foreach ($testMailingList as $k => $v)
-		{
-			$mail = trim($v);
-			$replacers['###VORNAME###'] = $v;
-
-			fe_user::burnMail(
-				$mail,
-				57,
-				$subject,
-				$replacers,
-				array(),
-				'office@meineperfektewg.com',
-				'office@meineperfektewg.com'
-			);
-		}
 		return true;
 	}
 
