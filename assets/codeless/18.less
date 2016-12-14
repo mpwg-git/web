@@ -29,7 +29,8 @@ h1 {
     	font-family: @japoki;
     	font-size: 4.5rem;
     	text-align: center;
-    	line-height: 5rem;
+    	line-height: 6rem;
+    	margin: 3rem auto;
 	}
 	h1>span {
 		text-transform: lowercase;
@@ -54,7 +55,7 @@ h2 {
 	font-family: @helvetica !important;
 	font-size: 3rem !important;
 	letter-spacing: inherit !important;
-	margin-top: 3rem !important;
+	margin-top: 4rem !important;
 	text-transform: uppercase !important;
 }
 .start-overlay {
@@ -75,6 +76,10 @@ h2 {
     	
 	}
 }
+.anmelden-inner h2 {
+    font-size: 2.3rem !important;
+    margin: 0 !important;
+}
 .register-fragen {
     .row {
         h2 {
@@ -86,15 +91,25 @@ h2 {
 }
 
 
-h3 {
+h3, h3.headline {
 	color: @blue;
-	font-family: @helvetica;
+	font-family: @japoki;
 	font-size: 2.7rem;
 }
 h3.jaapokk {
 	font-family: @japoki;
 	font-size: 2.7rem !important;
 	text-align: left;
+}
+#blog-page, .blog-page {
+    h3 {
+        font-family: @japoki;
+	    font-size: 2.7rem !important;
+	    text-align: left;
+    }
+    .date {
+        color: #fff;
+    }
 }
 .blog {
 	h3 {
@@ -107,7 +122,7 @@ h4 {
 	letter-spacing: -.025rem;
 }
 hgroup {
-	margin: 8rem auto 5rem auto;
+	margin: 5rem auto 5rem auto;
 }
 /*****************************/
 /*      END HEADLINES       */
@@ -209,11 +224,6 @@ hgroup {
 /*********************************/
 /*      END BUTTONS / LINKS     */
 /*******************************/
-
-
-
-
-
 .header-wrapper  {
     color: @blue !important;
 }
@@ -317,3 +327,38 @@ div.row {
 	color: @blue;
 	text-shadow: .126rem .126rem .126rem rgba(50, 220, 205, .4);
 }
+
+
+
+// LOGGEDIN CONTETN
+.picture-col {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 4px;
+    transform: translateZ(0);
+}
+.meinprofil-links, .profil-links {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+.meinprofil-meinedaten {
+    padding-right: 30px;
+}
+.default-container-paddingtop {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    overflow-y: auto;
+    height: 100%;
+}
+.row.frage-ich-container {
+    margin-bottom: 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+
+
+
+
