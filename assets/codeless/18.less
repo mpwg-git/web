@@ -1,16 +1,16 @@
 @import "13.less";
 
 .row.start-overlay {
-    background-color: #697984;
-    // background: -webkit-linear-gradient(white, #697984);
-    // background: -o-linear-gradient(white, #697984); 
-    // background: -moz-linear-gradient(white, #697984); 
-    // background: linear-gradient(white, #697984);
+    background-color: @dark-grey;
+    // background: -webkit-linear-gradient(white, @dark-grey);
+    // background: -o-linear-gradient(white, @dark-grey); 
+    // background: -moz-linear-gradient(white, @dark-grey); 
+    // background: linear-gradient(white, @dark-grey);
 }
 
-.black-bg {
-    background: #697984;
-}
+// .black-bg {
+//     background: @dark-grey;
+// }
 
 
 
@@ -53,7 +53,7 @@ h1 {
 h2 {
 	color: @blue !important;
 	font-family: @helvetica !important;
-	font-size: 3rem !important;
+	font-size: 2.7rem !important;
 	letter-spacing: inherit !important;
 	margin-top: 4rem !important;
 	text-transform: uppercase !important;
@@ -61,6 +61,8 @@ h2 {
 .start-overlay {
     h2 {
         text-align: center !important;
+        font-weight: bold;
+        letter-spacing: 0.1rem !important;
     }
 }
 .search-start{
@@ -82,10 +84,13 @@ h2 {
 }
 .register-fragen {
     .row {
+        margin-left: 1.5rem;
         h2 {
             font-weight: bold;
             text-transform: none !important;
             letter-spacing: 0.1rem!important;
+            margin-bottom: 2rem;
+            margin-top: 2rem !important;
         }
     }
 }
@@ -103,7 +108,7 @@ h3.jaapokk {
 }
 #blog-page, .blog-page {
     h3 {
-        font-family: @japoki;
+        font-family: @helvetica65;
 	    font-size: 2.7rem !important;
 	    text-align: left;
     }
@@ -113,7 +118,7 @@ h3.jaapokk {
 }
 .blog {
 	h3 {
-		font-family: @japoki;
+		font-family: @helvetica65;
 		font-size: 1.6rem !important;
 	}
 }
@@ -127,6 +132,7 @@ hgroup {
 /*****************************/
 /*      END HEADLINES       */
 /***************************/
+
 
 
 
@@ -151,7 +157,7 @@ hgroup {
 .button.start-button{
     color: #fff !important;
     border-radius: .4rem;
-    text-shadow: 1px 1px 1px #697984;
+    text-shadow: 1px 1px 1px @dark-grey;
     font-size: 2rem;
 }
 .button.start-button
@@ -165,6 +171,7 @@ hgroup {
     &:hover{
         color: #333 !important;
         text-shadow: none !important;
+        text-decoration: none;
     }
     
     &:active,
@@ -220,10 +227,15 @@ hgroup {
         }
     }
 }
-
 /*********************************/
 /*      END BUTTONS / LINKS     */
 /*******************************/
+
+
+
+/*****************************************/
+/*      TEXTE / LEFT RIGHT MID ROW      */
+/***************************************/
 .header-wrapper  {
     color: @blue !important;
 }
@@ -265,16 +277,6 @@ p.start-aussagen {
 .impressum.default-container-padding {
 	padding: 3rem;
 }
-.register-fragen {
-    .row {
-        margin: 0;
-    }
-}
-.register-inner {
-    .form-group {
-        margin-top: 1.5rem;
-    }
-}
 .row {
 	margin: 0 -2.2rem 0 -0.75rem;
 	
@@ -296,6 +298,44 @@ div.row {
 		margin-top: 0;
 	}
 }
+
+// WG ZIMMER / MITBEWOHNER FINDEN \\
+.register-fragen {
+    background: @dark-grey;
+    font-size: 1.6rem;
+    .row {
+        div[class*="col-"] {
+		    label {
+		        color: #fff;
+				text-transform: none;
+				font-weight: normal;
+				font-size: 1.6rem;
+			}
+		}
+    }
+}
+input[type=checkbox] {
+    margin: 0.6rem 0.6rem 0;
+}
+.register-inner {
+    .form-group {
+        margin-top: 1.5rem;
+    }
+}
+.form-control {
+	font-size: 1.8rem;
+	color: #fff;
+	border: 1px solid #fff;
+}
+.small {
+    color: #fff;
+    font-size: 1.2rem;
+}
+.register-inner {
+    margin-right: 9rem;
+}
+// END WG ZIMMER / MITBEWOHNER FINDEN \\
+
 .right-row {
     .date {
         font-family: @helvetica45 !important; 
@@ -311,12 +351,12 @@ div.row {
 			font-size: 1.5rem;
 		}
 		.footer-top>a {
-			border-right: .1rem solid #697984;
+			border-right: .1rem solid @dark-grey;
 			padding-right: .5rem;
 			text-transform: uppercase;
 		}
 		.footer-bottom>a {
-			border-right: .1rem solid #697984;
+			border-right: .1rem solid @dark-grey;
 			padding-right: .5rem;
 			text-transform: uppercase;
 		}
@@ -330,7 +370,11 @@ div.row {
 
 
 
-// LOGGEDIN CONTETN
+// LOGGEDIN CONTENT
+.picture-row {
+    margin-left: -0.2rem;
+    margin-right: -0.2rem;
+}
 .picture-col {
     padding-left: 2px;
     padding-right: 2px;
@@ -350,6 +394,7 @@ div.row {
     padding-top: 30px;
     padding-bottom: 50px;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 100%;
 }
 .row.frage-ich-container {
@@ -357,7 +402,9 @@ div.row {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
 }
-
+/*****************************************/
+/*  END TEXTE / LEFT RIGHT MID ROW      */
+/***************************************/
 
 
 

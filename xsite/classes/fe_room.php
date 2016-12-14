@@ -877,7 +877,7 @@ class fe_room
 /// TODO: bevor LIVE wz_EMAIL LIKE ==> DELETE !!!!!!!!!!!!!!
 
 		$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_del = 'N' AND wz_USERDEL = 'N' AND wz_online = 'Y' AND wz_ACTIVE = 'Y' AND wz_MAIL_CHECKED = 'Y' AND wz_TYPE = 'suche' AND wz_EMAILBENACHRICHTIGUNG != 'KEINE' AND wz_EMAIL LIKE '%@mack.pm%'");
-
+      
 		foreach ($users as $k => $u)
 		{
 			$mail = trim($u['wz_EMAIL']);
@@ -885,7 +885,7 @@ class fe_room
 			$replacers = fe_room::sc_getReplacersNewRoomMail($u['wz_id']);
 
 			$replacers['###VORNAME###'] = $u['wz_VORNAME'];
-
+         
 			if ($u['wz_EMAILBENACHRICHTIGUNG'] == 'DE' || $u['wz_EMAILBENACHRICHTIGUNG'] == '')
 			{
 				$subject = '(t_de) Neues Zimmer online auf MeinePerfekteWG.com!';
@@ -894,7 +894,7 @@ class fe_room
 				{
 					$subject = '(t_de) Neues Zimmer online auf MeinePerfekteWG.com!';
 				}
-
+   
 				fe_user::burnMail(
 					$mail,
 					57,
@@ -927,7 +927,6 @@ class fe_room
 				);
 			}
 		}
-
 		return true;
 	}
 
