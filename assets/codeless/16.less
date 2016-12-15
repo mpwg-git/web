@@ -379,7 +379,8 @@ header {
 		.font-size(20);
 		color: @blue;
 		.width(30);
-		.padding-top(10);
+// 		.padding-top(10);
+        padding: 0 2.5rem;
 	}
 	.right-row {
 		height: auto;
@@ -458,7 +459,7 @@ header {
 	}
 	.middle-row {
 		/*width: 71.2vw;*/
-		width: 66.2vw;
+		width: auto;
 		background: transparent;
 		height: auto;
 		overflow: auto;
@@ -471,6 +472,11 @@ header {
 		}
 	}
 	nav {
+	    &.right-row {
+            float: left;
+            margin-top: 1.5rem !important;
+            margin-left: 1.5rem; 
+	    }
 		.main-nav {
 			.padding-top(10);
 			.padding-bottom(10);
@@ -1728,11 +1734,14 @@ label {
 		margin-bottom: 2vw;
 	}
 	.link-zu-wgtest {
-		font-size: 3.5vw;
+		font-size: 1.1rem;
 		padding-left: 2vw;
 		padding-right: 2vw;
 		width: 79vw;
 		margin-bottom: 2vw;
+		color: #333;
+		font-weight: bold;
+		
 		&:hover {
 			color: #fff!important;
 		}
@@ -1741,7 +1750,7 @@ label {
 
 #collapseProfileWgtest {		
     a { 		
-        text-decoration: underline; 		
+        text-decoration: none; 		
     }		
 }
 
@@ -1963,7 +1972,7 @@ label {
 		height: auto;
 	}
 	.geschlecht {
-		.margin-top(6);
+// 		.margin-top(6);
 	}
 	input,
 	textarea {
@@ -3191,15 +3200,76 @@ div.fakeline {
     font-size: 1.8rem;
 }
 
-
-
-
-
-
-
-
-
-
+.meinprofil-meinedaten {
+    .mainform {
+        .geschlecht {
+            label {
+                .font-size(30);
+                padding-left:0;
+                float: left;
+                margin-right: 1rem;
+                span {
+                    font-size: 4rem;
+                    vertical-align:middle;
+                }
+                .icon-frau{
+                    display:none;
+                    .path1:before{
+                        color: @blue;
+                    }
+                    .path2:before, .path3:before, .path4:before, .path5:before, .path6:before{
+                        color: rgb(35, 31, 32);
+                    }
+    
+                }
+                .icon-frau_outline{
+                    display:inline-block;
+                     .path1:before{
+                        color: #ffffff;
+                    }
+					.path2:before, .path3:before, .path4:before, .path5:before, .path6:before{
+                        color: #ffffff;
+                    }
+                }
+                .icon-mann{
+                    display:none;
+                     .path1:before{
+                        color: @blue;
+                    }
+                    .path2:before {
+                        color: rgb(35, 31, 32);
+                    }
+                }
+                .icon-mann_outline{
+                    display:inline-block;
+                    .path1:before{
+                        color: #ffffff;
+                    }
+					.path2:before {
+                        color: #ffffff;
+                    }
+                }
+            }
+            input[type=radio] {
+                display: none;
+                &:checked{
+                    & ~ .icon-frau{
+                        display:inline-block;
+                    }
+                    & ~ .icon-frau_outline{
+                        display:none;
+                    }
+                     & ~ .icon-mann{
+                        display:inline-block;
+                    }
+                    & ~ .icon-mann_outline{
+                        display:none;
+                    }
+                }
+            }
+        } 
+    }
+}
 
 
 /////////////// TABLET STYLING
