@@ -78,9 +78,15 @@ h2 {
     	
 	}
 }
-.anmelden-inner h2 {
-    font-size: 2.3rem !important;
-    margin: 0 !important;
+.anmelden-inner {
+    h2 {
+        font-size: 2.3rem !important;
+        margin: 0 !important;
+    }
+    input.form-control {
+        color: #333;
+    }
+    
 }
 .register-fragen {
     .row {
@@ -390,6 +396,9 @@ input[type=checkbox] {
 .meinprofil-meinedaten {
     padding-right: 30px;
 }
+.meinprofil-uebermich-inner .form-control {
+    border: none;
+}
 .default-container-paddingtop {
     padding-top: 30px;
     padding-bottom: 50px;
@@ -402,6 +411,25 @@ input[type=checkbox] {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
 }
+
+
+// UEBER MICH 
+.meinprofil-uebermich-inner {
+        .form-control{
+            font-size: 1.6rem;
+        }
+        .geschlecht {
+            label {
+                margin-right: .5rem;
+                .icon-frau_outline, .icon-mann_outline {
+                    .path1:before, .path2:before, .path3:before, .path4:before, .path5:before, .path6:before {
+                        color: @dark-grey;
+                }
+            }
+        }
+    }
+}
+
 /*****************************************/
 /*  END TEXTE / LEFT RIGHT MID ROW      */
 /***************************************/
