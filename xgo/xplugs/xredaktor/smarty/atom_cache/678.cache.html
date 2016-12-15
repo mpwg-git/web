@@ -1,8 +1,6 @@
 <%if !$user%>
-
     <%xr_siteCall fn="fe_user::getMyData" var="data"%>
     <%$user = $data['USER']%>
-
 <%/if%>
 
 <div class="meinprofil-uebermich">
@@ -33,24 +31,22 @@
     </span>
     
         <form class="form-mein-user" id="form-mein-user">
-            <div class="form-group geschlecht">
-                <div class="radio">
-                    <%if ($user['wz_GESCHLECHT'] == 'F')%>
-                    <label for="female">
-                        <input id="female" type="radio" name="GESCHLECHT" value="F" <%if ($user['wz_GESCHLECHT'] == 'F')%>checked="checked"<%/if%> disabled="disabled">
-                        <span class="icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
-                        <span class="icon-frau_outline"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
-                    </label>
-                    <%else%>
-                    <label for="male">
-                        <input id="male" type="radio" name="GESCHLECHT" value="M" <%if ($user['wz_GESCHLECHT'] == 'M')%>checked="checked"<%/if%>  disabled="disabled">
-                        <span class="icon-mann"><span class="path1"></span><span class="path2"></span></span>
-                        <span class="icon-mann_outline"><span class="path1"></span><span class="path2"></span></span>
-                    </label>
-                    <%/if%>
+            <div class="geschlecht-chooser geschlecht">
+                <div class="form-group">
+                    <div class="radio">
+                        <label for="female">
+                            <input id="female" type="radio" name="GESCHLECHT" value="F" <%if ($user['wz_GESCHLECHT'] == 'F')%>checked="checked"<%/if%>>
+                            <span class="icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+                            <span class="icon-frau_outline"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+                        </label>
+                        <label for="male">
+                            <input id="male" type="radio" name="GESCHLECHT" value="M" <%if ($user['wz_GESCHLECHT'] == 'M')%>checked="checked"<%/if%>>
+                            <span class="icon-mann"><span class="path1"></span><span class="path2"></span></span>
+                            <span class="icon-mann_outline"><span class="path1"></span><span class="path2"></span></span>
+                        </label>
+                    </div>
                 </div>
             </div>
-            
             
             <div class="form-group">
                 <label for="vorname"><%xr_translate tag="Vorname"%></label>
@@ -58,16 +54,19 @@
             </div>
             <div class="form-group">
                 <label for="nachname"><%xr_translate tag="Nachname"%></label>
-                <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>"class="form-control" />
+                <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>" class="form-control" />
             </div>
-            <div class="form-group hasDatePicker">
+            
+            <div id="geburtsdatum" class="form-group hasDatePicker">
                 <label for="geburtsdatum"><%xr_translate tag="Geburtsdatum"%></label>
                 <%if $user['wz_GEBURTSDATUM'] == 0000-00-00%>
-                    <input id="geburtsdatum" name="GEBURTSDATUM" <%*value="01.01.1993" *%> class="form-control datepicker-birthday" onclick="this.style.color='inherit';" style="color: rgba(105,121,135,0.1);" />
+                    <input id="geburtsdatum" name="GEBURTSDATUM" <%*value="01.01.1993"*%> class="form-control datepicker-birthday" onclick="this.style.color='inherit';" style="color: rgba(105,121,135,0.1);" />
                 <%else%>
                     <input id="geburtsdatum" name="GEBURTSDATUM" value="<%$user['wz_GEBURTSDATUM']%>" class="form-control datepicker-birthday" />
                 <%/if%>
             </div>
+
+            
             <div class="form-group">
                 <label for="email"><%xr_translate tag="Email"%></label>
                 <input id="email" name="EMAIL" disabled="true" value="<%$user['wz_EMAIL']%>" class="form-control" />
@@ -81,33 +80,32 @@
                     <option value='<%xr_translate tag="KEINE"%>' <%if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'KEINE')%>selected="selected"<%/if%>><%xr_translate tag="Keine Benachrichtigungen erlauben"%></option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="telefon"><%xr_translate tag="Telefon"%></label>
-                <input id="telefon" name="TELEFON" value="<%$user['wz_TELEFON']%>" class="form-control" />
+                <input type="tel" id="telefon" name="TELEFON" value="<%$user['wz_TELEFON']%>" class="form-control" />
             </div>
             
             <div class="form-group">
                 <label for="land"><%xr_translate tag="Land"%></label>
-                
                 <select id="land" name="LAND" class="form-control select-helvetica">
                     <%foreach $user['LAND_COMBO'] as $k => $v%>
-                        <option value="<%$v['id']%>" <%if $v['selected'] == '1'%>selected="selected"<%/if%>><%$v['label']%></option>
+                        <option value="<%$v['id']%>" <%if $user.wz_LAND == $v.id%>selected="selected"<%/if%>><%$v['label']%></option>
                     <%/foreach%>
                 </select>
+                
             </div>
             <div class="form-group">
                 <label for="beschreibung"><%xr_translate tag="Beschreibung"%></label>
-                <textarea id="beschreibung" style="background-color: rgba(105,121,135,0.1);" name="BESCHREIBUNG" class="form-control" placeholder="..."><%$user['wz_BESCHREIBUNG']%></textarea>
+                <textarea id="beschreibung" style="background-color: rgba(105,121,135,0.1)!important;" name="BESCHREIBUNG" class="form-control" placeholder="..."><%$user['wz_BESCHREIBUNG']%></textarea>
             </div>
+          
             
-            
-            
-            <%if $P_ID != 8%>
+            <%*if $P_ID != 8*%>
                 <div class="submitbutton-container">
-                    <button id="form-mein-profil-save-user" data-redirect="<%xr_genlink p_id=7%>">speichern</button>
+                    <button id="form-mein-profil-save-user"><%xr_translate tag="speichern"%></button>
                 </div>
-            <%/if%>
+            <%*/if*%>
             
             
         </form>
