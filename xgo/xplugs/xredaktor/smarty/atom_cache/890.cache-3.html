@@ -1,5 +1,5 @@
 <%******************* OPENGRAPH STUFF START ****************************%>	
-<meta property="og:site_name" content="MeinePerfekteWG"/>
+<meta property="og:site_name" content="Meine Perfekte WG"/>
 <meta property="og:type" content="website" />
 
 <%****OG Tags für Detailseite*****%>
@@ -34,16 +34,16 @@
 <%if $FBOG_DATA%>
     <%if $FBOG_DATA.wz_PROFILBILD > 0%>
     <%xr_img s_id=$FBOG_DATA.wz_PROFILBILD var="ogImage"%>
-    <meta property="og:image" content="//<%$smarty.server.HTTP_HOST%><%$ogImage.src%>">
+    <meta property="og:image" content="//<%$smarty.server.HTTP_HOST%><%$ogImage.src%>" />
     <%else%>
     <%xr_img s_id=792 var="ogImage"%>
-    <meta property="og:image" content="//<%$smarty.server.HTTP_HOST%><%$ogImage.src%>">
+    <meta property="og:image" content="//<%$smarty.server.HTTP_HOST%><%$ogImage.src%>" />
     <%/if%>
     
-    <meta property="og:url" content="//<%$smarty.server.HTTP_HOST%><%$smarty.server.REDIRECT_URL%>?layoutV2">
+    <meta property="og:url" content="//<%$smarty.server.HTTP_HOST%><%$smarty.server.REDIRECT_URL%>?layoutV2" />
     
     <meta property="og:title"         content="<%xr_translate tag='FB_ShareRoom_Title'%>" />
-	<meta property="og:description"   content="<%$FBOG_DATA.wz_BESCHREIBUNG|strip_tags|replace:'"':''%>" />
+	<meta property="og:description"   content="<%$FBOG_DATA.wz_BESCHREIBUNG|strip_tags|replace:'&quot;':''%>" />
    
     
 <%/if%>
@@ -53,6 +53,7 @@
     <%xr_img s_id=18388 ext='jpg' w=300 var='ogImage'%>
     
     <meta property="og:title" content="MeinePerfekteWG.com - <%xr_translate tag='Deine persönliche WG-Suchmaschine'%>" />
+    <!-- <meta property="og:title" content="<%$TITLETAG%>" /> -->
     <meta property="og:description" content="<%xr_translate tag='Suchen'%>.<%xr_translate tag='Matchen'%>.<%xr_translate tag='Wohnen'%>. <%xr_translate tag='Du entscheidest was dir wichtig ist und wir zeigen dir durch schnelle und simple Fragen wer zu dir passt'%>." />
     <meta property="og:image" content="//www.meineperfektewg.com<%$ogImage.src%>"/>
     <meta property="og:url" content="//www.meineperfektewg.com" />
