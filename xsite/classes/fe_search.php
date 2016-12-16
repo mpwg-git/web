@@ -52,9 +52,6 @@ class fe_search
 
 		$offset						= intval($_REQUEST['offset']);
 
-
-
-
 		if ($_REQUEST['returnJson'] == 1)
 		{
 			$returnJson = true;
@@ -65,8 +62,8 @@ class fe_search
 			$showAll = true;
 		}
 
-		// ist das ein default search? Wenn ja, Daten aus Userdaten holen
 
+		// ist das ein default search? Wenn ja, Daten aus Userdaten holen
 		if(intval($_REQUEST['p_id']) == 11 && intval($_REQUEST['xr_face']) == 1)
 		{
 			// write to session
@@ -77,14 +74,11 @@ class fe_search
 		elseif(intval($_REQUEST['p_id']) == 17 && intval($_REQUEST['xr_face']) == 1)
 		{
 			// read from session
-
 			$reqSearch = $_SESSION['wsf_searchrequest_backup'];
-
 		}
 		else
 		{
 			$reqSearch = $_REQUEST['searchData'];
-
 		}
 
 		$toSearch  = json_decode($reqSearch, true);
@@ -114,10 +108,8 @@ class fe_search
 			else if ($xtype == 'suche') $type = 'suche';
 		}
 
-
 		// WEB-385
-
-		// MOBILE
+			// MOBILE
 		if(intval($_REQUEST['p_id']) == 17 && intval($_REQUEST['xr_face']) == 1 ) {
 
 		}
@@ -127,67 +119,6 @@ class fe_search
 			self::setSearchDataForUser($toSearch, $userId, false);
 		}
 
-		/*
-
-
-			if (
-				$toSearch['date'] 					== ""
-				&& intval($toSearch['price_from']) 	== 75
-				&& intval($toSearch['price_to']) 	== 400
-				&& $loc['ADRESSE_STRASSE'] 			== ''
-				&& $loc['ADRESSE_STADT'] 			== ''
-				&& $loc['ADRESSE_LAND']				== ''
-			) {
-
-	            $toSearchBackup = $toSearch;
-				$toSearch = self::getSearchDataForUser($userId, true);
-
-
-
-	            // es kann sein dass in der gesaveden searchdata nur steht "type=suche"
-	            // diesen fall abfangen damit die suche funktioniert!
-	            // thanks to mario für epic fail - LG von mario selbst ^
-	            // kann auch passieren dass jemand searchdata hat: {"location":"","filter":"","type":"suche"}
-	            // für das habe ich count <= 3 eingefügt
-
-	            // 2. fall: toSearch === false, dann muss auch das von request benutzt werden..
-	            $toSearchJSONDecoded = json_decode($toSearch, true);
-	            if (count($toSearchJSONDecoded) <= 3 || $toSearch === false || $toSearch == "") {
-	                $toSearch = json_encode($toSearchBackup);
-	            }
-
-
-
-				$asArray = json_decode($toSearch, true);
-
-				$type = $asArray['type'];
-				if ($type == '') $type = fe_user::getUserType($userId);
-
-
-
-				$searchData['SEARCH']		= $toSearch;
-				$searchDataBackup			= json_decode($searchData['SEARCH'], true);
-
-			}
-			else {
-				//print_r($toSearch); die();
-
-				$toSearch['type'] = $type;
-				self::setSearchDataForUser($toSearch, $userId, false);
-
-
-
-				$searchData['SEARCH']		= json_encode($toSearch);
-				$searchDataBackup			= json_decode($searchData['SEARCH'], true);
-
-
-			}
-
-		*/
-
-
-
-
 		$onlyUseSavedSessionData = false;
 		if (intval($_REQUEST['p_id']) == 17 && intval($_REQUEST['xr_face']) == "1")
 		{
@@ -195,29 +126,17 @@ class fe_search
 		}
 
 
-
-		//print_r($searchDataBackup); die();
-
-
-
 		// check if searchData in session / if filter set ignore
 		if ($onlyUseSavedSessionData || ($showAll == true && (!isset($searchDataBackup['filter']) || $searchDataBackup['filter'] == '')))
 		{
-
-
 			if (isset($_SESSION['xredaktor_feUser_wsf']['SEARCH']['SEARCH_DATA']))
 			{
 				$searchData = $_SESSION['xredaktor_feUser_wsf']['SEARCH']['SEARCH_DATA'];
-
-
 			}
-
 		}
-
 
 		$searchData['filter'] 		= $trueFilter;
 		$searchDataBackup['filter'] = $trueFilter;
-
 
 		if ($trueType == '')
 		{
@@ -226,8 +145,6 @@ class fe_search
 
 		$searchData['type'] 		= $trueType;
 		$searchDataBackup['type'] 	= $trueType;
-
-
 
 		$filterIsSet 	= false;
 		if (isset($searchDataBackup['filter']) && trim($searchDataBackup['filter']) != '')
@@ -275,35 +192,26 @@ class fe_search
 		$resultsData	= array();
 		$type = $trueType;
 
-
 		if ($type == '') $type = fe_user::getUserType($userId);
-
-
 
 		/*
 		print_r(compact('filterIsSet', 'trueType', 'trueFilter'));
 		print_r($searchData); die();
 			*/
 
-
 		if ($type == "biete")
 		{
-
 			$a_id_result_single		= 753;
 
 			if (libx::isDeveloper()) {
 				 //file_put_contents(Ixcore::htdocsRoot . '/search.txt', "\n" . date('Y-m-d H:i:s') . "\n -- get USER Results by Params -- " . print_r($searchData, true) . "\n", FILE_APPEND);
 			}
-
-
 			$results				= self::getResultsByParams($searchData, $showAll, $offset);
 		}
 		else
 		{
-
 			$up_lat_lang = json_decode($searchData['SEARCH'], true);
 			parse_str($up_lat_lang['location'], $lat_lng_data);
-
 
 			$updateUserProfile = array(
 				'wz_ADRESSE_LAT' => floatval($lat_lng_data['ADRESSE_LAT']),
@@ -315,7 +223,6 @@ class fe_search
 				dbx::update('wizard_auto_707', $updateUserProfile, array('wz_id' => $userId));
 				xredaktor_feUser::refreshUserdata($userId);
 			}
-
 
 			// WEB-385
 			$userSearchDataSave = self::getSearchDataForUser($userId);
@@ -338,25 +245,17 @@ class fe_search
 			  	$searchData_rework['range']		 			  = intval($userSearchDataSave['range']);
 			}
 
-
 			$searchData['SEARCH'] = json_encode($searchData_rework);
 
 
 			// WEB-385 fin
-
-
-
 			if (libx::isDeveloper()) {
 				 //file_put_contents(Ixcore::htdocsRoot . '/search.txt', "\n" . date('Y-m-d H:i:s') . "\n -- get room Results by Params -- " . "line " . __LINE__ . print_r($searchData, true) . "\n", FILE_APPEND);
 			}
 
-
-
-
 			$a_id_result_single 	= 685;
 			$results				= self::getRoomResultsByParams($searchData, $showAll, $offset);
 		}
-
 
 		foreach ($results as $k => &$v)
 		{
@@ -364,9 +263,7 @@ class fe_search
 			switch ($type) {
 
 				case 'suche':
-
 					// ROOMS
-
 					$raumBild = intval($v['wz_PROFILBILD']);
 					if ($raumBild == 0)
 					{
@@ -387,16 +284,11 @@ class fe_search
 						}
 					}
 
-
-
-
 					$roomId		= $v['wz_id'];
 					//$roomMatch 	= fe_matching::matchUser2Room($userId, $roomId);
 
-
-
 					$assign		= array(
-						'ID'					=> $v['room_id'],
+						'ID'						=> $v['room_id'],
 						'wz_id'					=> $v['room_id'],
 						//'NAME' 					=> $v['wz_VORNAME'],
 						'IMG' 					=> $raumBild,
@@ -405,9 +297,9 @@ class fe_search
 						'ALTERSDURCHSCHNITT'	=> $v['wz_ALTERSDURCHSCHNITT'],
 						'MITBEWOHNER'			=> fe_user::getUsersByRoomId($roomId, true),
 						'GESCHLECHT'			=> $v['wz_GESCHLECHT'],
-						'LAT'					=> $v['wz_ADRESSE_LAT'],
-						'LNG'					=> $v['wz_ADRESSE_LNG'],
-						'FAV'					=> (fe_user::getUser2RoomState($userId, $v['user_id'], 'fav') == true ? 1 : 0),
+						'LAT'						=> $v['wz_ADRESSE_LAT'],
+						'LNG'						=> $v['wz_ADRESSE_LNG'],
+						'FAV'						=> (fe_user::getUser2RoomState($userId, $v['user_id'], 'fav') == true ? 1 : 0),
 						'BLOCK'					=> (fe_user::getUser2RoomState($userId, $v['user_id'], 'block') == true ? 1 : 0)
 					);
 					break;
@@ -438,7 +330,7 @@ class fe_search
 
 			//$url 			= fe_vanityurls::genUrl_profil($v['user_id'], $type);
 
-			 // fix für WEB-301 - leider gibts hier ein bäumchen wechsel dich spielchen:
+			// fix für WEB-301 - leider gibts hier ein bäumchen wechsel dich spielchen:
 			switch ($type)
 			{
 				case 'suche':
@@ -536,10 +428,9 @@ class fe_search
 			$res['endOfResults'] = 1;
 		}
 
-
-
 		return $res;
 	}
+
 
 
 	public static function getRoomResultsByParams($searchData, $showAll=false, $offset=0)
