@@ -26,13 +26,13 @@ class fe_blog
 		return $ret;
 	}
 
+	
 	public static function sc_get_latest_blogentries()
 	{
-
 		// order by wz_sort / WEB-454
 		$data = dbx::queryAll("SELECT blog.*, (SELECT GROUP_CONCAT(wz_id_high) FROM wizard_auto_SIMPLE_W2W_834_882 WHERE wz_id_low = blog.wz_id) AS categories
 			FROM " . self::table_blog . " AS blog
-			WHERE blog.wz_online = 'Y' AND blog.wz_del = 'N'
+			WHERE blog.wz_online = 'Y' AND blog.wz_del = 'N' AND blog.wz_MENU = 'Y'
 			ORDER BY blog.wz_sort DESC LIMIT 5
 		");
 
@@ -50,11 +50,10 @@ class fe_blog
 
 	public static function sc_get_all_blogentries()
 	{
-
 		// order by wz_sort / WEB-454
 		$data = dbx::queryAll("SELECT blog.*, (SELECT GROUP_CONCAT(wz_id_high) FROM wizard_auto_SIMPLE_W2W_834_882 WHERE wz_id_low = blog.wz_id) AS categories
 			FROM " . self::table_blog . " AS blog
-			WHERE blog.wz_online = 'Y' AND blog.wz_del = 'N'
+			WHERE blog.wz_online = 'Y' AND blog.wz_del = 'N' AND blog.wz_MENU = 'Y'
 			ORDER BY blog.wz_sort DESC
 		");
 
@@ -69,7 +68,13 @@ class fe_blog
 		$data = xredaktor_wizards::mapLanguageFieldsToNormFieldsMulti(self::table_blog_id, $data);
 		return $data;
 	}
-
+	
+	
+	public static function checkMenu()
+	{
+		
+	}
+	
 	public static function ajax_getFiltered()
 	{
 		$categories = array();
@@ -113,7 +118,6 @@ class fe_blog
 			$blogCategories = explode(',', $blogCategoriesStr);
 			$v['categories'] = $blogCategories;
 		}
-
 
 		$html = xredaktor_render::renderSoloAtom(self::atom_blog_overview, array('dataViaAjax' => $blogEntries));
 
