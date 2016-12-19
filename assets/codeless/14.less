@@ -1232,10 +1232,16 @@ label{
 }
 
 
-.upload-image-modal {
+.upload-image-modal.modal.fade.in {
 
     .modal-dialog {
-
+        width: 600px;
+        height: 900px;
+        background: @blue;
+        .modal-content {
+            box-shadow: none !important;
+            border: none !important;
+        }
         .jcrop-holder {
 
             .cropperimage {
@@ -2064,9 +2070,9 @@ label{
     }
     .prozent{
         display:block;
-        .line-height(110);
+        line-height: 11rem;
         //.font-size(110);
-        font-size: 7vw;
+        font-size: 9rem;
         font-family: @japoki;
         &:after{
             content:'%';
@@ -2140,7 +2146,7 @@ label{
 
         .match{
             line-height: 1.2;
-            margin-top: -2vw;
+            margin-top: -3.5rem;
         }
     }
 
@@ -3172,7 +3178,7 @@ label{
                 text-align: center;
                 color: #ffffff;
                 .bottom(8);
-                .left(-5);
+                left: 0.3rem;
                 font-family: @japoki;
                 .line-height(22);
                 font-size: 0.7vw;
@@ -4003,110 +4009,112 @@ small.small{
     overflow: hidden;
     .padding(0)!important;
 }
-.modal-dialog {
-    width: 100%;
-    margin: 41px auto;
+.modal.fade.in{
+    .modal-dialog {
+        width: 100%;
+        margin: 41px auto;
+        
+    	 .modal-content{
+    		.height(180);
+            background-color: #04e0d7;
     
-	 .modal-content{
-		.height(180);
-        background-color: #04e0d7;
-
-        .modal-header{
-            height: 33.33333333333333%;
-            border: none;
-
-            & > .col-xs-6, .col-md-4 {
-                width: 33.33333333333333%;
-                .padding(0);
-
-                &:nth-child(2){
-                    text-align: center;
-                }
-
-                & > .icon-duck:before{
-                    content: "\e61d";
-                    .padding-right(25);
-                    .padding-bottom(25);
-                    position: relative;
-                    font-size: 3em;
-                    display: inline-block;
-
-                    @media screen and (max-width: 755px) {
-                        font-size: 2em;
+            .modal-header{
+                height: 33.33333333333333%;
+                border: none;
+    
+                & > .col-xs-6, .col-md-4 {
+                    width: 33.33333333333333%;
+                    .padding(0);
+    
+                    &:nth-child(2){
+                        text-align: center;
                     }
-                    
-                }
-                & > .modalh1 {
-                    color: #333;
-                    font-size: 3em;
-                    text-transform: uppercase;
-                    font-family: @japoki;
-                    line-height: 1.25;
-
-                    @media screen and (max-width: 755px) {
-                        font-size: 2em;
-                     }
-                }
-
-                .col-xs-6, .col-md-3 {
-                    & > a {
-                        & > .mheader-stoerer {
-                            background: url('/xstorage/template/img/sys/delete.svg') no-repeat transparent;
-                            .width(120);
-                            .height(120);
-                            display: inline-block;
-                            position: relative;
-                            text-align: center;
-                            .rotate(7deg);
-
-                             @media screen and (max-width: 755px) {
-                                  .width(90);
-                                  .height(90);
-                                }
-
-                            span {
-                                font-family: @japoki;
-                                color: white;
-                                font-size: inherit;
+    
+                    & > .icon-duck:before{
+                        content: "\e61d";
+                        .padding-right(25);
+                        .padding-bottom(25);
+                        position: relative;
+                        font-size: 3em;
+                        display: inline-block;
+    
+                        @media screen and (max-width: 755px) {
+                            font-size: 2em;
+                        }
+                        
+                    }
+                    & > .modalh1 {
+                        color: #333;
+                        font-size: 3em;
+                        text-transform: uppercase;
+                        font-family: @japoki;
+                        line-height: 1.25;
+    
+                        @media screen and (max-width: 755px) {
+                            font-size: 2em;
+                         }
+                    }
+    
+                    .col-xs-6, .col-md-3 {
+                        & > a {
+                            & > .mheader-stoerer {
+                                background: url('/xstorage/template/img/sys/delete.svg') no-repeat transparent;
+                                .width(120);
+                                .height(120);
+                                display: inline-block;
                                 position: relative;
-                                top: 27%;
-                                text-transform: uppercase;
-                                line-height: 0;
-            
-                                @media screen and (max-width: 755px) {
-                                  font-size: 0.875em;
-                                  top: 23%;
-                                  line-height: 0;
+                                text-align: center;
+                                .rotate(7deg);
+    
+                                 @media screen and (max-width: 755px) {
+                                      .width(90);
+                                      .height(90);
+                                    }
+    
+                                span {
+                                    font-family: @japoki;
+                                    color: white;
+                                    font-size: inherit;
+                                    position: relative;
+                                    top: 27%;
+                                    text-transform: uppercase;
+                                    line-height: 0;
+                
+                                    @media screen and (max-width: 755px) {
+                                      font-size: 0.875em;
+                                      top: 23%;
+                                      line-height: 0;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-
-                .col-md-9 {
-                    .padding-right(0);
-                    .close {
-                        color: #333;
-                        line-height: 1;
-                        opacity: .4;
-                        font-size: 2.5em;
-                        position: relative;
-
-                        &:hover{
-                            opacity: .7;
+    
+                    .col-md-9 {
+                        .padding-right(0);
+                        .close {
+                            color: #333;
+                            line-height: 1;
+                            opacity: .4;
+                            font-size: 2.5em;
+                            position: relative;
+    
+                            &:hover{
+                                opacity: .7;
+                            }
+                        }
+                    }
+    
+                    p {
+                        @media screen and (max-width: 1055px) {
+                            font-size: 0.875em;
                         }
                     }
                 }
-
-                p {
-                    @media screen and (max-width: 1055px) {
-                        font-size: 0.875em;
-                    }
-                }
+    
             }
-
-        }
-	 }
+    	 }
+    }
 }
 
 div#EmailConfirmModal{
