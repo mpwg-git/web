@@ -451,7 +451,7 @@ class fe_search
 		$userId					= intval(xredaktor_feUser::getUserId());
 		$type						= 'suche';
 		$profileTableId 		= 717;
-		$resultLimit			= 99; //18;
+		$resultLimit			= 18; //18;
 
 		$results 				= array();
 
@@ -873,7 +873,7 @@ class fe_search
 
 		$userId			= intval(xredaktor_feUser::getUserId());
 		$type				= fe_user::getUserType($userId);
-		$resultLimit	= 99; //18;
+		$resultLimit	= 18; //18;
 
 		$results = array();
 

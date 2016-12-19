@@ -298,7 +298,7 @@ var fe_map = (function() {
 
             this.searchData = searchData;
 
-            // me.activateEndlessScrolling();
+            me.activateEndlessScrolling();
 
             $.ajax({
                 type: 'POST',
@@ -333,7 +333,7 @@ var fe_map = (function() {
                         }
 
 
-                        // me.activateEndlessScrolling();
+                        me.activateEndlessScrolling();
 
 
                         // handle results in map
@@ -383,7 +383,7 @@ var fe_map = (function() {
                 }
             });
 
-            //return res;
+            // return res;
 
         }
 
@@ -462,91 +462,90 @@ var fe_map = (function() {
 
         }
 
+        this.activateEndlessScrolling = function() {
 
-      //   this.activateEndlessScrolling = function() {
-		  //
-      //       // ist mobile!
-      //       if (fe_core.getCurrentFace() == 1) {
-      //           return;
-      //       }
-		  //
-      //       var me = this;
-      //       var appendWhat = ' ';
-		  //
-		  //
-      //       console.log("activate endless scrolling", this.interval);
-		  //
-      //       // Destroy EndlessScroll
-      //       // wenn man von room auf roomie wechselt, sonst fehler
-      //       if (this.interval) {
-      //           //console.log("cleared endlesss scroll");
-      //           clearInterval(this.interval);
-      //           $('.middle-row .scrollbarfix').unbind('scroll');
-      //           $('.middle-row .scrollbarfix').scrollTop(0);
-      //       }
-		  //
-      //       // aktiviert endless scroll
-      //       //https://github.com/fredwu/jquery-endless-scroll
-		  //
-      //       //console.log("------------- " + $('.middle-row'));
-		  //
-      //       this.interval = $('.middle-row').endlessScroll({
-      //           //loader: '<div class="loading">loading<div>',
-      //           //insertBefore: ".js-replacer-search div:first",
-		  //
-      //           // wo wird inserted => jquery selector
-      //           insertAfter: ".middle-row .js-replacer-search .searchresult-single:last",
-      //           // wie weit vom bottom weg
-      //           inflowPixels: 300,
-		  //
-      //           // was einfügen
-      //           content: function(i, p, d) {
-		  //
-      //               //console.log("-------- cont");
-		  //
-      //               // ML: nur bei downscroll (== next) sachen laden
-      //               if (d == 'next') {
-      //                   $.ajax({
-      //                       type: 'POST',
-      //                       url: '/xsite/call/fe_search/getResults',
-      //                       data: {
-      //                           showAll: 0,
-      //                           returnJson: 1,
-      //                           lang: top.P_LANG,
-      //                           offset: i + 1,
-      //                           searchData: JSON.stringify(me.searchData),
-      //                           xr_face: currentFace,
-      //                           p_id: top.P_ID,
-      //                           xxx: 'case3'
-      //                       },
-      //                       success: function(response) {
-      //                           // php gibt endofresults zurück, dann destroy endless scroll
-      //                           if (response.endOfResults == 1) {
-      //                               //console.log("end of results");
-      //                               clearInterval(me.interval);
-      //                               $('.middle-row .scrollbarfix').unbind('scroll');
-      //                               $('.middle-row .scrollbarfix').scrollTop(0);
-      //                           }
-      //                           appendWhat = response.html;
-      //                       },
-      //                       failure: function(response) {
-      //                           console.log("failure endless");
-      //                       }
-      //                   });
-      //               }
-		  //
-      //               return appendWhat;
-      //           }
-      //       });
-		  //
-      //       return appendWhat;
-		  //
-      //   }
-		  //
-		  //
-      //   this.deActivateEndlessScrolling = function() {
-      //       return true;
-      //   }
+            // ist mobile!
+            if (fe_core.getCurrentFace() == 1) {
+                return;
+            }
+
+            var me = this;
+            var appendWhat = ' ';
+
+
+            console.log("activate endless scrolling", this.interval);
+
+            // Destroy EndlessScroll
+            // wenn man von room auf roomie wechselt, sonst fehler
+            if (this.interval) {
+                //console.log("cleared endlesss scroll");
+                clearInterval(this.interval);
+                $('.middle-row .scrollbarfix').unbind('scroll');
+                $('.middle-row .scrollbarfix').scrollTop(0);
+            }
+
+            // aktiviert endless scroll
+            //https://github.com/fredwu/jquery-endless-scroll
+
+            //console.log("------------- " + $('.middle-row'));
+
+            this.interval = $('.middle-row').endlessScroll({
+                //loader: '<div class="loading">loading<div>',
+                //insertBefore: ".js-replacer-search div:first",
+
+                // wo wird inserted => jquery selector
+                insertAfter: ".middle-row .js-replacer-search .searchresult-single:last",
+                // wie weit vom bottom weg
+                inflowPixels: 300,
+
+                // was einfügen
+                content: function(i, p, d) {
+
+                    //console.log("-------- cont");
+
+                    // ML: nur bei downscroll (== next) sachen laden
+                    if (d == 'next') {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/xsite/call/fe_search/getResults',
+                            data: {
+                                showAll: 0,
+                                returnJson: 1,
+                                lang: top.P_LANG,
+                                offset: i + 1,
+                                searchData: JSON.stringify(me.searchData),
+                                xr_face: currentFace,
+                                p_id: top.P_ID,
+                                xxx: 'case3'
+                            },
+                            success: function(response) {
+                                // php gibt endofresults zurück, dann destroy endless scroll
+                                if (response.endOfResults == 1) {
+                                    //console.log("end of results");
+                                    clearInterval(me.interval);
+                                    $('.middle-row .scrollbarfix').unbind('scroll');
+                                    $('.middle-row .scrollbarfix').scrollTop(0);
+                                }
+                                appendWhat = response.html;
+                            },
+                            failure: function(response) {
+                                console.log("failure endless");
+                            }
+                        });
+                    }
+
+                    return appendWhat;
+                }
+            });
+
+            return appendWhat;
+
+        }
+
+
+        this.deActivateEndlessScrolling = function() {
+            return true;
+        }
 
 
         this.refreshSearchMobileSpecials = function() {
