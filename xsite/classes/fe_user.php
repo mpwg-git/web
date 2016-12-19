@@ -4,7 +4,7 @@ class fe_user
 {
 
 	public static $defaultImageFemale 	= 792;
-	public static $defaultImageMale 	= 791;
+	public static $defaultImageMale	 	= 791;
 
 	const table_room_fav 	= 'wizard_auto_846';
 	const table_room_block 	= 'wizard_auto_847';
@@ -13,10 +13,10 @@ class fe_user
 	const table_user_block	= 'wizard_auto_768';
 
 	const errorMessage_cant_deactivate_room_roomies_inside 	= '###cannot_deactivate_room_roomies_still_inside###';
-	const errorMessage_cant_delete_room_roomies_inside		= '###cannot_delete_room_roomies_still_inside###';
-	const message_room_deleted								= '###room_deleted###';
-	const message_room_activated							= '###room_activated###';
-	const message_room_deactivated							= '###room_deactivated###';
+	const errorMessage_cant_delete_room_roomies_inside			= '###cannot_delete_room_roomies_still_inside###';
+	const message_room_deleted											= '###room_deleted###';
+	const message_room_activated										= '###room_activated###';
+	const message_room_deactivated									= '###room_deactivated###';
 
 
 
@@ -458,37 +458,6 @@ class fe_user
 		return $invitations;
 	}
 
-
-	/*
-	public static function createProfile($type, $user_id, $request=false)
-	{
-		$type 		= dbx::escape($type);
-		$user_id	= intval($user_id);
-
-		switch ($type) {
-			case 'suche':
-				$table 	= "wizard_auto_718";
-				break;
-
-			case 'biete':
-				$table 	= "wizard_auto_717";
-				break;
-
-			default:
-				return false;
-				break;
-		}
-
-		$present = dbx::query("select * from $table where wz_USERID = $user_id");
-
-		if ($present === false)
-		{
-			dbx::insert($table, array('wz_USERID' => $user_id));
-		}
-
-		return true;
-	}
-	*/
 
 	public static function getMyRoomData($params)
 	{
@@ -2541,51 +2510,56 @@ class fe_user
 			'location'	=> array(
 				'ADRESSE_STRASSE' 		=> $_REQUEST['ADRESSE_STRASSE'],
 				'ADRESSE_STRASSE_NR' 	=> $_REQUEST['ADRESSE_STRASSE_NR'],
-				'ADRESSE_PLZ' 			=> $_REQUEST['ADRESSE_PLZ'],
-				'ADRESSE_STADT' 		=> $_REQUEST['ADRESSE_STADT'],
-				'ADRESSE_LAT' 			=> $_REQUEST['ADRESSE_LAT'],
-				'ADRESSE_LNG' 			=> $_REQUEST['ADRESSE_LNG'],
+				'ADRESSE_PLZ' 				=> $_REQUEST['ADRESSE_PLZ'],
+				'ADRESSE_STADT' 			=> $_REQUEST['ADRESSE_STADT'],
+				'ADRESSE_LAT' 				=> $_REQUEST['ADRESSE_LAT'],
+				'ADRESSE_LNG' 				=> $_REQUEST['ADRESSE_LNG'],
 			),
 			'adresse'					=> $_REQUEST['ADRESSE'],
 			'price_from'				=> 1,
 			'price_to'					=> $MIETE_BIS,
 			'range'						=> 5,
 			'type'						=> 'suche',
-			'filter'					=> ''
+			'filter'						=> ''
 		);
 
 		$land		= dbx::queryAttribute("select * from wizard_auto_716 where wz_ISO2 = '$landShort'", "wz_id");
 
 		$db_user = self::$regDefaults;
 
-		$db_user['wz_FACEBOOK_ID'] 			= $FACEBOOK_ID;
-		$db_user['wz_EMAIL']				= $EMAIL;
+		$db_user['wz_FACEBOOK_ID'] 		= $FACEBOOK_ID;
+		$db_user['wz_EMAIL']					= $EMAIL;
 		$db_user['wz_VORNAME']				= $VORNAME;
 		$db_user['wz_NACHNAME']				= $NACHNAME;
 		$db_user['wz_ADRESSE']				= $ADRESSE;
-		$db_user['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
-		$db_user['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
+		$db_user['wz_ADRESSE_STRASSE']	= $ADRESSE_STRASSE;
+		$db_user['wz_ADRESSE_STRASSE_NR']= $ADRESSE_STRASSE_NR;
 		$db_user['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
 		$db_user['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
-		$db_user['wz_ADRESSE_LAND']			= intval($land);
+		$db_user['wz_ADRESSE_LAND']		= intval($land);
 		$db_user['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
 		$db_user['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
 		$db_user['wz_MIETE_BIS']			= $MIETE_BIS;
 		$db_user['wz_GESCHLECHT']			= ($GESCHLECHT == 'male') ? 'M' : 'F';
 		$db_user['wz_online']				= 'Y';
 		$db_user['wz_created']				= 'NOW()';
-		$db_user['wz_MAIL_CHECKED']			= 'Y';
+		$db_user['wz_MAIL_CHECKED']		= 'Y';
 		$db_user['wz_ACTIVE']				= 'Y';
-		$db_user['wz_AGB_1']				= $AGB;
-
+		$db_user['wz_AGB_1']					= $AGB;
 
 		$db_user['wz_TYPE'] = 'suche';
 
 		if(intval($_REQUEST['p_id']) == 48)
 		{
-			$db_user['wz_TYPE'] = 'biete';
-			$searchData['type']	= 'biete';
+			$db_user['wz_TYPE'] 			= 'biete';
+			$db_user['wz_MIETE_VON'] 	= $MIETE_BIS;
+			$db_user['wz_MIETE_BIS']	= 1000;
+
+			$searchData['type']			= 'biete';
+			$searchData['price_from']	= $MIETE_BIS;
+			$searchData['price_to']		= 1000;
 		}
+
 
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
@@ -2709,7 +2683,7 @@ class fe_user
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
 
-				$insert['wz_MIETE'] 			= $MIETE_BIS;
+				$insert['wz_MIETE'] 				= $MIETE_BIS;
 				$insert['wz_ADRESSE']			= $ADRESSE;
 				$insert['wz_ADRESSE_STRASSE']	= $ADRESSE_STRASSE;
 				$insert['wz_ADRESSE_STRASSE_NR']= $ADRESSE_STRASSE_NR;
@@ -2768,7 +2742,6 @@ class fe_user
 			$dbUpdate['wz_SEARCHDATA'] 	= $db_user['wz_SEARCHDATA'];
 
 			dbx::update('wizard_auto_707',$dbUpdate,array('wz_id'=>$feu_id));
-
 
 			xredaktor_feUser::refreshUserdata($feu_id);
 		}
@@ -2852,17 +2825,17 @@ class fe_user
 ////////
 
 		//$PASSWORT				= dbx::escape($_REQUEST['v2_PASSWORT']);
-		$VORNAME				= trim($_REQUEST['VORNAME']);
+		$VORNAME					= trim($_REQUEST['VORNAME']);
 		$NACHNAME				= trim($_REQUEST['NACHNAME']);
 
-		$ADRESSE				= trim($_REQUEST['ADRESSE']);
+		$ADRESSE					= trim($_REQUEST['ADRESSE']);
 		$ADRESSE_STRASSE		= trim($_REQUEST['ADRESSE_STRASSE']);
-		$ADRESSE_STRASSE_NR		= trim($_REQUEST['ADRESSE_STRASSE_NR']);
+		$ADRESSE_STRASSE_NR	= trim($_REQUEST['ADRESSE_STRASSE_NR']);
 		$ADRESSE_PLZ			= trim($_REQUEST['ADRESSE_PLZ']);
 		$ADRESSE_STADT			= trim($_REQUEST['ADRESSE_STADT']);
 		$ADRESSE_LAT			= trim($_REQUEST['ADRESSE_LAT']);
 		$ADRESSE_LNG			= trim($_REQUEST['ADRESSE_LNG']);
-		$AGB					= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
+		$AGB						= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
 
 
 		if($AGB == 'off')
@@ -2929,8 +2902,19 @@ class fe_user
 
 			if(intval($_REQUEST['p_id']) == 48)
 			{
-				$db_user['wz_TYPE'] = 'biete';
-				$searchData['type']	= 'biete';
+				$db_user['wz_TYPE'] 			= 'biete';
+				$db_user['wz_MIETE_VON']	= $MIETE_BIS;
+				$db_user['wz_MIETE_BIS']	= 1000;
+
+				$searchData['type']			= 'biete';
+				$searchData['price_from'] 	= $MIETE_BIS;
+				$searchData['price_to'] 	= 1000;
+			}
+
+			if($searchData['type'] == 'biete')
+			{
+				$searchData['price_from'] = $MIETE_BIS;
+				$searchData['price_to'] = 1000;
 			}
 
 			dbx::insert('wizard_auto_707',$db_user);
@@ -2967,6 +2951,24 @@ class fe_user
 			'type'						=> $present_SEARCHDATA['type'],
 			'filter'					=> ''
 		);
+
+		if(intval($_REQUEST['p_id']) == 48)
+		{
+			$db_user['wz_TYPE'] 			= 'biete';
+			$db_user['wz_MIETE_VON']	= $MIETE_BIS;
+			$db_user['wz_MIETE_BIS']	= 1000;
+
+			$searchData['type']			= 'biete';
+			$searchData['price_from'] 	= $MIETE_BIS;
+			$searchData['price_to'] 	= 1000;
+		}
+
+		if($searchData['type'] == 'biete')
+		{
+			$searchData['price_from'] = $MIETE_BIS;
+			$searchData['price_to'] = 1000;
+		}
+
 
 		$feu_id = intval($presentUser['wz_id']);
 
@@ -3027,7 +3029,8 @@ class fe_user
 	}
 
 
-	public static function sc_getUserMailByRoomHash(){
+	public static function sc_getUserMailByRoomHash()
+	{
 
 		$hash 		= dbx::escape(trim($_REQUEST['h']));
 		$userId		= intval(dbx::queryAttribute("select * FROM wizard_auto_809 WHERE wz_HASH = '$hash' ","wz_ADMIN"));
@@ -3036,10 +3039,16 @@ class fe_user
 		if ($email == '')
 		{
 			return false;
-
 		}
-
 		return $email;
+	}
+
+
+	public static function sc_getLoginCount()
+	{
+		$userId = xredaktor_feUser::getUserId();
+
+		return intval(dbx::queryAttribute("select * FROM wizard_auto_707 WHERE wz_id = '$userId' ","wz_LOGINCOUNTER"));
 
 	}
 

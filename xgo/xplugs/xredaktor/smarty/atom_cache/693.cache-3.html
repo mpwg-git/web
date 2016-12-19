@@ -64,9 +64,9 @@
 	<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
 	<%xr_siteCall fn='fe_cookie::checkFragenSession' var='hasQuestionsAnsweredInSession'%>
     <%xr_siteCall fn="fe_wgtest::sc_getWgTestState" userId=$smarty.session['xredaktor_feUser_wsf']['wz_id'] var=wgteststate%>
+    <%xr_siteCall fn="fe_user::sc_getLoginCount" var='loginCount'%>
 
-
-	<%if $stillToDo===true && $wgteststate==1%>
+	<%if $stillToDo===true && $wgteststate==1 && $loginCount !== 0%>
 		<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -106,7 +106,7 @@
 				</div>
 			</div>
 		</div>
-    <%elseif ($hasQuestionsAnswered === false && $hasQuestionsAnsweredInSession && $wgteststate==0)%>
+    <%elseif ($hasQuestionsAnswered === false && $hasQuestionsAnsweredInSession && $wgteststate==0 && $loginCount !== 0)%>
 	    <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -148,7 +148,7 @@
 				</div>
 			</div>
 		</div>
-	<%elseif $hasQuestionsAnswered === true && $hasQuestionsAnsweredInSession && $wgteststate==2%>
+	<%elseif $hasQuestionsAnswered === true && $hasQuestionsAnsweredInSession && $wgteststate==2 && $loginCount !== 0%>
         <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">

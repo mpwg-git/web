@@ -83,6 +83,13 @@ class fe_search
 
 		$toSearch  = json_decode($reqSearch, true);
 
+// 		if(libx::isDeveloper())
+// 		{
+// 		    echo "<pre>";
+// 		    print_r($toSearch);
+// 		    echo "</pre>";
+// 		}
+// 		die("---tosSearch  ---");
 
 		// mobile: fav / block in request overrult immer
 		if(intval($_REQUEST['p_id']) == 17 && intval($_REQUEST['xr_face']) == 1 ) {
@@ -197,15 +204,18 @@ class fe_search
 		/*
 		print_r(compact('filterIsSet', 'trueType', 'trueFilter'));
 		print_r($searchData); die();
-			*/
+		*/
 
 		if ($type == "biete")
 		{
 			$a_id_result_single		= 753;
 
+			/*
 			if (libx::isDeveloper()) {
 				 //file_put_contents(Ixcore::htdocsRoot . '/search.txt', "\n" . date('Y-m-d H:i:s') . "\n -- get USER Results by Params -- " . print_r($searchData, true) . "\n", FILE_APPEND);
 			}
+			*/
+			// print_r($results); die();
 			$results				= self::getResultsByParams($searchData, $showAll, $offset);
 		}
 		else
@@ -570,12 +580,13 @@ class fe_search
 			$toSearch['price_to'] = fe_user::$regDefaults['wz_MIETE_BIS'];
 		}
 
-
+		/*
 		if (libx::isDeveloper())
 		{
 			//var_dump($filterIsSet); die();
 
 		}
+		*/
 
 		// bei $filterIsSet (== fav/blocked gewählt) dürfen wir keine Suchparameter benutzen!
 		if (!$filterIsSet) foreach ($toSearch as $k => $v) {
@@ -837,7 +848,6 @@ class fe_search
 
 	public static function sc_getStoredSearchData($params)
 	{
-
 		session_start();
 		$userId	  = intval(xredaktor_feUser::getUserId());
 		$toSearch = self::getSearchDataForUser($userId, false);
@@ -859,12 +869,11 @@ class fe_search
 
 	public static function getResultsByParams($searchData, $showAll=false, $offset=0)
 	{
-
 		session_start();
 
-		$userId				= intval(xredaktor_feUser::getUserId());
-		$type					= fe_user::getUserType($userId);
-		$resultLimit		= 99; //18;
+		$userId			= intval(xredaktor_feUser::getUserId());
+		$type				= fe_user::getUserType($userId);
+		$resultLimit	= 99; //18;
 
 		$results = array();
 
@@ -899,15 +908,11 @@ class fe_search
 		$searchData['FILTER'] = $searchData['filter'];
 		$filterIsSet = true;
 
-
-		//$sql 	= "select  * , user.wz_id AS user_id from wizard_auto_707 AS user, wizard_auto_$profileTableId as profile where user.wz_id = profile.wz_USERID and user.wz_del ='N' and profile.wz_del = 'N'";
-
         // seit der umstellung profile -> user/räume waren anbieterprofile in der mitbewohner suche vorhanden
         // was nicht unbedingt falsch ist, weil ein anbieter ja auch ein user ist.
         // trotzdem war das vor der umstellung nicht so, da wurde auf den profiltyp gefiltert
         // deshalb  AND wizard_auto_707.wz_TYPE = 'suche' hinzugefügt
 		$sql 	= "select  * , wizard_auto_707.wz_id AS user_id from wizard_auto_707 left join wizard_auto_773 on (wz_USERID1 = $userId AND wz_USERID2 = wizard_auto_707.wz_id) where wizard_auto_707.wz_del ='N' AND wizard_auto_707.wz_TYPE = 'suche' ";
-
 
 		// normale mitbewohner suche (nicht fav/block): keine blocks anzeigen
 		if (!isset($searchData['FILTER']) || $searchData['FILTER'] != 'BLOCKED')
@@ -915,8 +920,6 @@ class fe_search
 			$sql 	.= " and wizard_auto_707.wz_id not in (select wz_F_USERID from ".fe_user::table_user_block." where wz_USERID = $userId) ";
 			$sql 	.= " and wizard_auto_707.wz_id not in (select wz_USERID from ".fe_user::table_user_block." where wz_F_USERID = $userId) ";
 		}
-
-
 
 		if ($userId > 0)
 		{
@@ -941,9 +944,7 @@ class fe_search
 		}
 
 		$where		= array();
-
 		$location	= false;
-
 		if (trim($toSearch['location'] != '') && !$filterIsSet)
 		{
 			parse_str($toSearch['location'], $location);
@@ -956,8 +957,6 @@ class fe_search
 
 			}
 		}
-
-
 		if ($filterIsSet == false)
 		{
 			$_SESSION['xredaktor_feUser_wsf']['SEARCH']['SEARCH_ARRAY'] 		= $toSearch;
@@ -978,11 +977,8 @@ class fe_search
 
 		if (!$filterIsSet)
 		{
-
 			foreach ($toSearch as $k => $v) {
-
 				if (trim($v) == '') continue;
-
 				switch($k)
 				{
 					case 'date':
@@ -990,34 +986,25 @@ class fe_search
 						$date			= date("Y-m-d", strtotime($v));
 						$where[] 	= " (wz_ZEITRAUM_VON = '0000-00-00' OR wz_ZEITRAUM_VON >= '$date') AND (wz_ZEITRAUM_BIS = '0000-00-00' OR wz_ZEITRAUM_BIS <= '$date') ";
 						break;
-
 					case 'price_from':
 						if ($type == 'biete') {
 
-							// miete von 100 => findet user die 50-101 eingestellt haben
 							// wz_MIETE_VON
 							$val		= intval($v);
-							$where[] 	= " (  /* miete von */
-								(wz_MIETE_VON >= $val AND (wz_MIETE_BIS >= $val OR wz_MIETE_BIS = 0))
-								OR
-								(wz_MIETE_BIS >= $val)
-							) ";
+							$where[]	= " (
+							(wz_MIETE_VON >= $val OR wz_MIETE_VON = 0)
+							AND
+							(wz_MIETE_BIS >= $val OR wz_MIETE_BIS = 0)) OR (wz_MIETE_BIS >= $val)) ";
 						}
 						break;
-
 					case 'price_to':
 						if ($type == 'biete') {
-							// miete bis 200 => findet user die 199-1000 eingestellt haben, und user die 199-0 eingestellt haben
+
 							// wz_MIETE_BIS
 							$val		= intval($v);
-							$where[] 	= " (  /*miete bis*/
-								(wz_MIETE_BIS <= $val)
-								OR
-								(wz_MIETE_VON <= $val)
-							) ";
+							$where[] = " ((wz_MIETE_BIS = 0) OR (wz_MIETE_BIS <= $val) OR (wz_MIETE_VON <= $val)) ";
 						}
 						break;
-
 
 					case 'location':
 
@@ -1048,15 +1035,12 @@ class fe_search
 								}
 							}
 						}
-
 						break;
 
 					case 'range':
 
 						if ($location != false)
 						{
-
-
 							if ($location['ADRESSE_LAT'] != '' && $location['ADRESSE_LNG'] != '')
 							{
 
@@ -1080,7 +1064,6 @@ class fe_search
 									          ";
 
 								$sqlLocationPostfix = " having distance < $dist ORDER BY wz_RESULT desc, distance asc";
-
 
 								switch ($searchData['FILTER']) {
 									case 'FAVS':
@@ -1123,17 +1106,8 @@ class fe_search
 		$where[] = " wizard_auto_707.wz_USERDEL != 'Y' ";
 
 		//if wz_miete_von && wz_miete_bis < wz_MIETE Room / dont show Profile
-		// $where[] = " wizard_auto_707.wz_MIETE_VON > $miete_von ";
-		// $where[] = " wizard_auto_707.wz_MIETE_BIS < $miete_bis ";
-
-		$roomMiete = dbx::query("SELECT wz_MIETE FROM wizard_auto_809 WHERE wz_ADMIN = $userId AND wz_del = 'N' AND wz_ONLINE = 'Y' AND wz_ACTIVE = 'Y' ");
-		$roomMiete = implode("", $roomMiete);
-		// print_r($roomMiete);
-		// die("\n------");
-
-		$where[] = " wizard_auto_707.wz_MIETE_VON >= $roomMiete ";
-		$where[] = " wizard_auto_707.wz_MIETE_BIS <= $roomMiete ";
-
+		$where[] = " wizard_auto_707.wz_MIETE_VON >= $miete_von ";
+		$where[] = " wizard_auto_707.wz_MIETE_BIS <= $miete_bis ";
 
 		$whereStr 	= '';
 		if (!empty($where))
@@ -1145,17 +1119,14 @@ class fe_search
 		{
 			$sql 	=  $sqlLocation.$whereStr.$sqlLocationPostfix;
 		}
-		// else
-		// {
-		// 	$sql 	.=  $whereStr." order by wz_RESULT DESC";
-		// }
+		else
+		{
+			$sql 	.=  $whereStr." order by wz_RESULT DESC";
+		}
 
 		$limitOffset = $offset * $resultLimit;
 
-		$sql 	.= " limit $limitOffset, $resultLimit  ";
-		//
-		// print_r($sql);
-		// die("\n-----");
+		$sql 	.= " limit $limitOffset, $resultLimit";
 
 		$results 	= dbx::queryAll($sql, true);
 
@@ -1172,12 +1143,6 @@ class fe_search
 		if ($id === false) return 0;
 
 		return $id;
-	}
-
-
-	public static function sc_getResults()
-	{
-		return self::ajax_getResults();
 	}
 
 

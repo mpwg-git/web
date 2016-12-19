@@ -345,6 +345,65 @@ class fe_room
 	}
 
 
+
+	public static function sc_getMieteByUserId(){
+
+		$userId		= intval(xredaktor_feUser::getUserId());
+		$roomData	= dbx::queryAll("select wz_MIETE FROM wizard_auto_809 WHERE wz_ADMIN = '$userId' and wz_del != 'Y' and wz_USERDEL != 'Y' and wz_ACTIVE != 'N' and wz_HIDE != 'Y' ORDER BY wz_MIETE ASC");
+
+
+		if(count($roomData)==0 || $roomData===false)
+		{
+
+			return false;
+		}
+		elseif(count($roomData) == 1)
+		{
+
+			return $roomData[0];
+		}
+		else
+		{
+			$miete[] = reset($roomData);
+			$miete[] = end($roomData);
+
+			return $miete;
+		}
+
+		// if(libx::isDeveloper()) print_r($roomData);
+
+		// return $roomData;
+
+		// if(count($roomData) == 1)
+		// {
+		// 	echo "<pre>";
+		// 	print_r($miete);
+		// 	echo "</pre>";
+		//
+		// 	return $miete;
+		//
+		// }
+		// elseif(count($roomData) > 1)
+		// {
+		// 	$miete = array();
+		// 	array_push($miete, reset($roomData), end($roomData));
+		//
+		// 	echo "<pre>";
+		// 	print_r($miete);
+		// 	echo "</pre>";
+		//
+		// 	return $miete;
+		//
+		// }
+		// else
+		// {
+		// 	return false;
+		//
+		// }
+		// return false;
+	}
+
+
 	public static function sc_getMieteByRoomHash(){
 
 		$hash 		= dbx::escape(trim($_REQUEST['h']));
@@ -877,7 +936,7 @@ class fe_room
 /// TODO: bevor LIVE wz_EMAIL LIKE ==> DELETE !!!!!!!!!!!!!!
 
 		$users = dbx::queryAll("SELECT * FROM wizard_auto_707 WHERE wz_del = 'N' AND wz_USERDEL = 'N' AND wz_online = 'Y' AND wz_ACTIVE = 'Y' AND wz_MAIL_CHECKED = 'Y' AND wz_TYPE = 'suche' AND wz_EMAILBENACHRICHTIGUNG != 'KEINE' AND wz_EMAIL LIKE '%@mack.pm%'");
-      
+
 		foreach ($users as $k => $u)
 		{
 			$mail = trim($u['wz_EMAIL']);
@@ -885,7 +944,7 @@ class fe_room
 			$replacers = fe_room::sc_getReplacersNewRoomMail($u['wz_id']);
 
 			$replacers['###VORNAME###'] = $u['wz_VORNAME'];
-         
+
 			if ($u['wz_EMAILBENACHRICHTIGUNG'] == 'DE' || $u['wz_EMAILBENACHRICHTIGUNG'] == '')
 			{
 				$subject = '(t_de) Neues Zimmer online auf MeinePerfekteWG.com!';
@@ -894,7 +953,7 @@ class fe_room
 				{
 					$subject = '(t_de) Neues Zimmer online auf MeinePerfekteWG.com!';
 				}
-   
+
 				fe_user::burnMail(
 					$mail,
 					57,
@@ -954,13 +1013,14 @@ class fe_room
 
 		$docDuck = 'docduck@meineperfektewg.com';
 		$peter = 'peter@meineperfektewg.com';
+		$peter2 = 'peter@mack.pm';
       $michi  = 'michael@meineperfektewg.com';
       $valentina  = 'valentina@meineperfektewg.com';
       $damian = 'damian@meineperfektewg.com';
 
       array_push($testMailingList,$docDuck,$peter,$michi,$valentina,$damian);
 
-		$subject = '(t) Achtung: Neues Zimmer online auf MeinePerfekteWG.com!';
+		$subject = '(t) Achtung: Ein Zimmer wurde aktiviert auf MeinePerfekteWG.com!';
 		$replacers = self::sc_getReplacersRoomActivateMail($roomId);
 
 		fe_user::burnMail(
@@ -1062,6 +1122,8 @@ class fe_room
 	{
 		return dbx::query("SELECT * FROM wizard_auto_809 WHERE wz_id = $roomId AND wz_del = 'N'");
 	}
+
+
 	public static function sc_getMyRoomState($params)
 	{
 
