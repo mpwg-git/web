@@ -110,7 +110,8 @@ var fe_map = (function() {
 
                     $("#slider-range").data('valueab', ui.values[0]);
                     $("#slider-range").data('valuebis', ui.values[1]);
-							fe_map.refreshSearch(location.reload(true));
+							// fe_map.refreshSearch(location.reload(true));
+							fe_map.refreshSearch();
                 }
             });
             $(".ui-slider-handle:first", "#slider-range").html("€ " + $("#slider-range").slider("values", 0));
