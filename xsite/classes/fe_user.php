@@ -2800,8 +2800,6 @@ class fe_user
 	{
 		$EMAIL		= dbx::escape(trim($_REQUEST['v2_EMAIL']));
 		$PASSWORT	= dbx::escape($_REQUEST['v2_PASSWORT']);
-		$PASSWORT2	= dbx::escape($_REQUEST['v2_PASSWORT_confirm']);
-
 
 /////// USER LOGIN AUS KALT
 		$user		= dbx::query("select * from wizard_auto_707 where wz_EMAIL = '$EMAIL' AND wz_del = 'N' ");

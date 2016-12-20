@@ -8,9 +8,13 @@
 <%xr_siteCall fn="fe_user::sc_getUserMailByRoomHash" var="mailaddr"%>
 
 
-<form method="post" id="wg-zimmer-finden">
+<br /><br />
 
-<div class="register-fragen">
+<div class="col-xs-12">
+
+    <form method="post" id="wg-zimmer-finden">
+    
+    <div class="register-fragen">
 
     <div class="row">
         <div class="col-xs-12">
@@ -92,8 +96,8 @@
     </div>
 
     <div class="row" style="padding-top: 18px; display:none;" id="show-simple-login-form">
-        <div class="col-xs-5"></div>
-        <div class="col-xs-5 pull-right register-inner" style="max-width: 360px;">
+            <div class="col-xs-12"></div>
+            <div class="col-xs-12 register-inner register">
 
             <div class="form-group">
                 <label for="vorname"><%xr_translate tag="Vorname?"%>*</label>
@@ -130,41 +134,46 @@
                 <div class="error-div" id="v2_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
                 <div class="error-div" id="v2_PASSWORT_minlength_error"><%xr_translate tag='Mindestlänge: 6 Zeichen'%></div>
             </div>
+            <div class="form-group">
+                <label for="v2_PASSWORT"><%xr_translate tag='Passwort wiederholen'%>*</label>
+                <input id="v2_PASSWORT_confirm" name="v2_PASSWORT_confirm" type="password" class="form-control" title="<%xr_translate tag='Geben Sie hier das Passwort ein, das Sie für die Anmeldung benutzen wollen.'%>" required/>
+                <div class="error-div" id="v2_PASSWORT_confirm_error"><%xr_translate tag='Die Passwörter stimmen nicht überein'%></div>
+            </div>
 
             <div class="geschlecht-chooser geschlecht">
-            <div class="form-group">
-                <div class="radio">
-                    <label for="female">
-                        <input id="female" type="radio" name="GESCHLECHT" value="female" rel="required2_radio_oneofmany">
-                        <span class="icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
-                        <span class="icon-frau_outline"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
-                    </label>
-                    <label for="male">
-                        <input id="male" type="radio" name="GESCHLECHT" value="male"  rel="required2_radio_oneofmany">
-                        <span class="icon-mann"><span class="path1"></span><span class="path2"></span></span>
-                        <span class="icon-mann_outline"><span class="path1"></span><span class="path2"></span></span>
-                    </label>
+                <div class="form-group">
+                    <div class="radio">
+                        <label for="female">
+                            <input id="female" type="radio" name="GESCHLECHT" value="female" rel="required2_radio_oneofmany">
+                            <span class="icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+                            <span class="icon-frau_outline"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+                        </label>
+                        <label for="male">
+                            <input id="male" type="radio" name="GESCHLECHT" value="male"  rel="required2_radio_oneofmany">
+                            <span class="icon-mann"><span class="path1"></span><span class="path2"></span></span>
+                            <span class="icon-mann_outline"><span class="path1"></span><span class="path2"></span></span>
+                        </label>
+                    </div>
+                    <div class="error-div" id="GESCHLECHT_error">
+                        <%xr_translate tag='Bitte Geschlecht auswählen'%>
+                    </div>
                 </div>
-                 <div class="error-div" id="GESCHLECHT_error"><%xr_translate tag='Bitte Geschlecht auswählen'%></div>
             </div>
 
             </div>
         </div>
     </div>
-
+    
     <div class="row" style="padding-top: 18px;">
         <div class="col-xs-5">
             <button class="button start-button <%if $smarty.request.h%>fb-login-submit<%else%>js-fb-login<%/if%>"><%xr_translate tag='Weiter mit Facebook Login'%></button>
         </div>
-        <div class="col-xs-5 pull-right" style="text-align: right; padding-right: 0px;">
+        <div class="col-xs-5" style="text-align: right; padding-right: 0px;">
             <button style="display:none;" class="button start-button js-simple-login"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
             <button class="button start-button js-show-simple-login"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
-
         </div>
     </div>
-
-    <br /><br /><br />
-
+        </form>
+        <br /><br /><br /><br /><br />
 </div>
 
-</form>

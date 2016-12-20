@@ -225,6 +225,20 @@ var simpleLogin = {
 			return false;
 		}
 	},
+	checkEqual: function (id, val_1, val_2) {
+		var div_error = jQuery('#' + id + "_error");
+		var input_error = jQuery('#' + id);
+
+		if (val_1 != val_2) {
+		    div_error.show();
+		    input_error.addClass("error");
+		    return true;
+		} else {
+		    div_error.hide();
+		    input_error.removeClass("error");
+		    return false; 
+		}
+	},
 	doSimpleLogin: function () {
 		var checkboxError = false;
 		$('.checkbox-error').hide();
@@ -256,6 +270,10 @@ var simpleLogin = {
 		if (ok) {
 			ok = simpleLogin.checkVal('v2_PASSWORT', $('#v2_PASSWORT').val()) ? false : true;
 		}
+		if (ok) {
+		    	ok = simpleLogin.checkEqual('v2_PASSWORT_confirm', $('#v2_PASSWORT').val(), $('#v2_PASSWORT_confirm').val()) ? false : true;
+		}
+
 		if (ok != true) {
 			return false;
 		}
