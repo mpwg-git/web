@@ -26,7 +26,7 @@ class fe_blog
 		return $ret;
 	}
 
-	
+
 	public static function sc_get_latest_blogentries()
 	{
 		// order by wz_sort / WEB-454
@@ -68,13 +68,7 @@ class fe_blog
 		$data = xredaktor_wizards::mapLanguageFieldsToNormFieldsMulti(self::table_blog_id, $data);
 		return $data;
 	}
-	
-	
-	public static function checkMenu()
-	{
-		
-	}
-	
+
 	public static function ajax_getFiltered()
 	{
 		$categories = array();

@@ -1,5 +1,65 @@
 @import "15.less";
 
+header {
+    padding-bottom: 4.2rem;
+}
+.footer .footer-inner {
+    padding: .7rem 1rem;
+}
+
+.profil-room {
+    a[href*="/anmelden"] {
+        position: fixed;
+        z-index: 3;
+        bottom: 90px;
+        padding: 1.5rem;
+        left: 5%;
+        font-family: @helvetica65;
+        font-weight: normal;
+        font-size: 1.6rem;
+    }	
+    a[href*="/wg-zimmer-finden"], a[href*="/neuen-mitbewohner-finden"] {
+        position: fixed;
+        z-index: 3;
+        bottom: 90px;
+        padding: 1.5rem;
+        right: 5%;
+        font-family: @helvetica65;
+        font-weight: normal;
+        font-size: 1.6rem;
+    }
+    a {
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .profil-room {
+        a[href*="/anmelden"] {
+            padding: 1rem;
+        }
+            
+        a[href*="/wg-zimmer-finden"], a[href*="/neuen-mitbewohner-finden"] {
+            padding: 1rem;
+        }
+    }
+    .middle-row > .right-logo > a > img {
+        width: 150px;
+    }
+    nav > .main-nav {
+        padding-top:0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    header > nav.right-row {
+        margin-top: 1.2rem !important;
+        margin-left: 2rem;
+    }
+    
+}
+
+
 // FOOTER BURGER MENU
 .glyphicon {
     top: 0;
@@ -10,38 +70,33 @@
 .navbar-toggle .icon-bar:nth-of-type(2) {
 	  top: 1px;
 }
-
 .navbar-toggle .icon-bar:nth-of-type(3) {
   	top: 2px;
 }
-
 .navbar-toggle .icon-bar {
 	  position: relative;
 	  transition: all 500ms ease-in-out;
 }
-
 .navbar-toggle.active .icon-bar:nth-of-type(1) {
 	  top: 6px;
 	  transform: rotate(45deg);
 }
-
 .navbar-toggle.active .icon-bar:nth-of-type(2) {
 	  background-color: transparent;
 }
-
 .navbar-toggle.active .icon-bar:nth-of-type(3) {
 	  top: -6px;
 	  transform: rotate(-45deg);
 }
-
-
 .navbar-nav {
     font-size: 1.6rem;
     padding: 0;
-    margin: 0 -1.5rem;
+    margin: 0 -1.4rem;
     background-color: #000;
 }
-
+.nav > li {
+    margin-bottom: 1rem;
+}
 .navbar-inverse {
     border: none;
     background-color: inherit;
@@ -51,24 +106,35 @@
     width: 1.8rem;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: @blue;
+    background-color: #000;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: @blue;
 }
 .navbar-toggle {
     position: relative;
     float: right;
     padding: 8px 6px;
-    margin-top: -4px;
-    margin-right: 25px;
+    margin-top: -3px;
+    margin-right: 30px;
     margin-bottom: 8px;
     background-color: transparent;
     background-image: none;
     border: none;
     border-radius: 4px;
 }
+.navbar-inverse .navbar-nav>.active>a {
+    color: @blue;
+    background-color: #000;
+    border: 1px solid @blue;
+    width: 93%;
+}
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    box-sizing: content-box;
+    box-shadow: none;
     border: none;
     position: absolute;
-    bottom: 60px;
+    bottom: 56px;
     right: 5px;
     width: 105%;
     padding: 0 10px;

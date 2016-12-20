@@ -109,14 +109,14 @@
                 <%* FIX FOR ROOM SHARING *%>
                 <%if !$isLoggedIn%>
                     <%if ($data['ROOM']['wz_HASH'] != '')%>
-                        <a href="<%xr_genlink p_id=48%>?h=<%$smarty.request.h%>&activate=1" class="button start-button" style="position: fixed; z-index:3; bottom: 90px; padding: 20px 0; left: 45%; font-family: 'HelveticaNeueW01-65Medi'; font-weight: normal;">
+                        <a href="<%xr_genlink p_id=48%>?h=<%$smarty.request.h%>&activate=1" class="button start-button">
                             <span><%xr_translate tag='Zimmer jetzt inserieren'%></span>
                         </a>        
                     <%else%>
-                        <a href="<%xr_genlink p_id=6%>" class="button start-button" style="position: fixed; z-index:3; bottom: 90px; padding: 20px 0; left: 31%; font-family: 'HelveticaNeueW01-65Medi'; font-weight: normal;">
+                        <a href="<%xr_genlink p_id=6%>" class="button start-button">
                             <span><%xr_translate tag='Anmelden'%></span>
                         </a>
-                        <a href="<%xr_genlink p_id=47%>" class="button start-button" style="position: fixed; z-index:3; bottom: 90px; padding: 20px 0; left: 54%; font-family: 'HelveticaNeueW01-65Medi'; font-weight: normal;">
+                        <a href="<%xr_genlink p_id=47%>" class="button start-button">
                             <span><%xr_translate tag='Jetzt Registrieren'%></span>
                         </a>
                     <%/if%>
