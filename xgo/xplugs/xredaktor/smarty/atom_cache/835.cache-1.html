@@ -1,7 +1,8 @@
 <%if $dataViaAjax%>
     <%$data = $dataViaAjax%>
 <%else%>
-    <%xr_wz_fetch id=834 wz_online='Y' order='wz_created DESC' var='data'%>
+    <%xr_siteCall fn='fe_blog::sc_get_all_blogentries' var='data'%>
+    <%*****xr_wz_fetch id=834 wz_online='Y' order='wz_created DESC' var='data'*****%>
 <%/if%>
 
 <div id="blog-page" class="blog-page">

@@ -105,7 +105,7 @@
             
             <div class="form-group">
                 <!--<input type='hidden' name='doLogin' value='1' />-->
-                <label for="v2_EMAIL"><span class="small">e</span>Mail</label>
+                <label for="v2_EMAIL"><span class="small">e</span>Mail*</label>
                 <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
                 <div class="error-div" id="v2_EMAIL_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
                 <div class="error-div" id="v2_PASSWORT_wrong_error">
@@ -113,10 +113,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="v2_PASSWORT"><%xr_translate tag="Passwort?"%></label>
-                <input id="v2_PASSWORT" name="v2_PASSWORT" type="password" class="form-control" rel="required2_minlength" data-minlength="6" />
+                <label for="v2_PASSWORT"><%xr_translate tag="Passwort?"%>*</label>
+                <input id="v2_PASSWORT" name="v2_PASSWORT" type="password" class="form-control" rel="required2_minlength" data-minlength="6" required/>
                 <div class="error-div" id="v2_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
                 <div class="error-div" id="v2_PASSWORT_minlength_error"><%xr_translate tag='Mindestlänge: 6 Zeichen'%></div>
+            </div>
+            <div class="form-group">
+                <label for="v2_PASSWORT"><%xr_translate tag='Passwort wiederholen'%>*</label>
+                <input id="v2_PASSWORT_confirm" name="v2_PASSWORT_confirm" type="password" class="form-control" title="<%xr_translate tag='Geben Sie hier das gleiche Passwort ein zweites Mal ein.'%>" required/>
+                <div class="error-div" id="v2_PASSWORT_confirm_error"><%xr_translate tag='Die Passwörter stimmen nicht überein'%></div>
             </div>
             
             <div class="geschlecht-chooser geschlecht">
