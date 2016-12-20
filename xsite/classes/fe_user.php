@@ -2798,9 +2798,8 @@ class fe_user
 
 	public static function ajax_doSimpleLogin()
 	{
-
-		$EMAIL					= dbx::escape(trim($_REQUEST['v2_EMAIL']));
-		$PASSWORT				= dbx::escape($_REQUEST['v2_PASSWORT']);
+		$EMAIL		= dbx::escape(trim($_REQUEST['v2_EMAIL']));
+		$PASSWORT	= dbx::escape($_REQUEST['v2_PASSWORT']);
 
 /////// USER LOGIN AUS KALT
 		$user		= dbx::query("select * from wizard_auto_707 where wz_EMAIL = '$EMAIL' AND wz_del = 'N' ");
@@ -2824,7 +2823,6 @@ class fe_user
 		}
 ////////
 
-		//$PASSWORT				= dbx::escape($_REQUEST['v2_PASSWORT']);
 		$VORNAME					= trim($_REQUEST['VORNAME']);
 		$NACHNAME				= trim($_REQUEST['NACHNAME']);
 
