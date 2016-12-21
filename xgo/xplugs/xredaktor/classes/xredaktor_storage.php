@@ -160,7 +160,7 @@ class xredaktor_storage
 
 			if ($debug)
 			{
-				die('TTTTTTTT');
+				// die('TTTTTTTT');
 			}
 
 			$db = array(
@@ -204,10 +204,10 @@ class xredaktor_storage
 			$s_id = $s['s_id'];
 			dbx::update('storage',$db,array('s_id'=>$s_id));
 
-		
+
 
 			self::handleCMYK($s_id);
-			
+
 			return $s_id;
 		}
 	}
