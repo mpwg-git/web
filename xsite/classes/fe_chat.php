@@ -88,7 +88,7 @@ class fe_chat
 	{
 		$userId 		= xredaktor_feUser::getUserId();
 
-		$users			= self::getInvolvedUsers($userId);
+		$users		= self::getInvolvedUsers($userId);
 
 		if (libx::isDeveloper())
 		{
@@ -196,22 +196,23 @@ class fe_chat
 
 		$sql			= "select *, IF(wz_USERID =  '$userId',  wz_F_USERID,  wz_USERID ) AS otherUser  from chatitems where (wz_USERID = $userId OR wz_F_USERID = $userId) GROUP BY otherUser";
 		$involvedUsers	= dbx::queryAll($sql);
-		/*
-		if (libx::isDeveloper())
-		{
-			echo $sql; die();
-		}
-		*/
 
 		$aux			= array();
 		foreach ($involvedUsers as $k => $v)
 		{
 			$fUserId	= $v['otherUser'];
-			if (self::checkConversationHidden($userId, $fUserId) == false)
+
+			$delAttr = dbx::queryAttribute("select wz_del from wizard_auto_707 where wz_id = $fUserId","wz_del");
+
+			if(dbx::queryAttribute("select wz_del from wizard_auto_707 where wz_id = $fUserId","wz_del") == 'N')
 			{
-				$aux[] = $v;
+				if (self::checkConversationHidden($userId, $fUserId) == false)
+				{
+					$aux[] = $v;
+				}
 			}
 		}
+
 		return $aux;
 	}
 
@@ -343,7 +344,7 @@ class fe_chat
 
 		// update messages as already seen
 		$other_userid = intval($_REQUEST['other_userid']);
-		// 
+		//
 		// echo "$other_userid\n";
 		// echo "$userId\n";
 		// print_r($allMessages);

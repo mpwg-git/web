@@ -70,11 +70,11 @@ var fe_map = (function() {
                 },
                 stop: function(event, ui) {
                     $("#umkreis-slider").data('value', ui.value);
-                    me.refreshSearch();
+                    fe_map.refreshSearch(location.reload());
+
                 }
             });
             $(".ui-slider-handle:first", "#umkreis-slider").html($("#umkreis-slider").slider("value"));
-
 
             var valueAb = 75;
             var valueBis = 400;
@@ -84,8 +84,8 @@ var fe_map = (function() {
             if ($("#slider-range").data('valuebis') != '') {
                 valueBis = parseInt($("#slider-range").data('valuebis'), 10);
             }
-            console.log("valueab", valueAb);
-            console.log("valuebis", valueBis);
+            // console.log("valueab", valueAb);
+            // console.log("valuebis", valueBis);
 
             $("#slider-range").slider({
                 range: true,
@@ -102,6 +102,7 @@ var fe_map = (function() {
 
                     $(".ui-slider-handle", "#slider-range").first().html("€ " + ui.values[0]);
                     $(".ui-slider-handle", "#slider-range").last().html("€ " + ui.values[1]);
+
                 },
                 stop: function(event, ui) {
 
@@ -110,12 +111,15 @@ var fe_map = (function() {
 
                     $("#slider-range").data('valueab', ui.values[0]);
                     $("#slider-range").data('valuebis', ui.values[1]);
-							// fe_map.refreshSearch(location.reload(true));
-							fe_map.refreshSearch();
+
+                    fe_map.refreshSearch(location.reload());
                 }
             });
+
             $(".ui-slider-handle:first", "#slider-range").html("€ " + $("#slider-range").slider("values", 0));
             $(".ui-slider-handle:last", "#slider-range").html("€ " + $("#slider-range").slider("values", 1));
+
+
 
 
             // mobile only
@@ -205,7 +209,6 @@ var fe_map = (function() {
                 //e.preventDefault();
                 $(this).toggleClass("active");
             });
-
 
             return;
         }
@@ -982,7 +985,11 @@ var fe_map = (function() {
     }
 })();
 
-
 $(document).ready(function() {
     fe_map.init();
 });
+
+
+// $(window).load(function () {
+// 	fe_core.hideLoader();
+// });
