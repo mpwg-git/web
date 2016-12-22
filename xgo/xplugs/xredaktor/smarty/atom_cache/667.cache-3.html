@@ -131,10 +131,7 @@
                     <p><b><%xr_translate tag="Kostenlos"%></b> <%xr_translate tag="bis 1.2.2016"%><br />(<%xr_translate tag="Danach entstehende Kosten: nur nach expliziter Zustimmung"%>).</p> 
             		<p><%xr_translate tag="Mitgliedschaft seit"%>: <%$data['USER']['wz_created']|date_format:"%d.%m.%Y"%></p>
             		**************%>
-            		
-            		<div class="submitbutton-container">
-                        <button id="form-del-account" class="button link-zu-wgtest"><%xr_translate tag="Account löschen"%></button>
-                    </div>
+            	
                     
                     <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
                     <div class="submitbutton-container">
@@ -148,6 +145,9 @@
                     </div>
                     <%/if%>
                     
+                    <div class="submitbutton-container">
+                        <button id="form-del-account" class="button link-zu-wgtest"><%xr_translate tag="Account löschen"%></button>
+                    </div>
                     <br/>
                 </div>
             </li>
