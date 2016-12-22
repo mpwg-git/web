@@ -2683,15 +2683,15 @@ class fe_user
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
 
-				$insert['wz_MIETE'] 				= $MIETE_BIS;
-				$insert['wz_ADRESSE']			= $ADRESSE;
-				$insert['wz_ADRESSE_STRASSE']	= $ADRESSE_STRASSE;
-				$insert['wz_ADRESSE_STRASSE_NR']= $ADRESSE_STRASSE_NR;
-				$insert['wz_ADRESSE_PLZ']		= $ADRESSE_PLZ;
+				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_ADRESSE']				= $ADRESSE;
+				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
+				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
+				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
 				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
-				$insert['wz_ADRESSE_LAND']		= intval($land);
-				$insert['wz_ADRESSE_LAT']		= $ADRESSE_LAT;
-				$insert['wz_ADRESSE_LNG']		= $ADRESSE_LNG;
+				$insert['wz_ADRESSE_LAND']			= intval($land);
+				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
+				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
 
 				dbx::insert("wizard_auto_809", $insert);
 
@@ -2963,8 +2963,8 @@ class fe_user
 
 		if($searchData['type'] == 'biete')
 		{
-			$searchData['price_from'] = $MIETE_BIS;
-			$searchData['price_to'] = 1000;
+			$searchData['price_from'] 	= $MIETE_BIS;
+			$searchData['price_to'] 	= 1000;
 		}
 
 
@@ -3008,6 +3008,39 @@ class fe_user
 		}
 
 		$redirectUrl = fe_vanityurls::genUrl_suche();
+
+		if($db_user['wz_TYPE'] == 'biete')
+		{
+			$insert = array(
+				'wz_ADMIN' 		=> $feu_id,
+				'wz_online' 	=> 'Y',
+				'wz_created' 	=> 'NOW()',
+				'wz_ACTIVE' 	=> 'Y'
+			);
+			// defaultwerte hinzufügen
+			$insert = array_merge($insert, fe_room::$regDefaults);
+
+			$insert['wz_MIETE'] 					= $MIETE_BIS;
+			$insert['wz_ADRESSE']				= $ADRESSE;
+			$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
+			$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
+			$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
+			$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+			$insert['wz_ADRESSE_LAND']			= intval($land);
+			$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
+			$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
+
+			dbx::insert("wizard_auto_809", $insert);
+
+			$myRoomId	= dbx::getLastInsertId();
+
+			fe_room::assignUser2Room($feu_id, $myRoomId);
+
+			// raum in matching room Todo eintragen
+			dbx::insert('wizard_auto_853', array('wz_ROOMID' => $myRoomId, 'wz_STATUS' => 'TODO'));
+
+			$redirectUrl = xredaktor_niceurl::genUrl(array('p_id' => 30, 'm_suffix' => $myRoomId, 'roomId' => $myRoomId, 'comingFromRedirect' => 1));
+		}
 
 		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
 		{
