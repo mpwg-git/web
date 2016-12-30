@@ -5,9 +5,9 @@
     <!--[if lt IE 11]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   <meta name="Author" content="MeinePerfekteWG.com">
-   <meta name="description" content="<%$DESCRIPTION%>" />
-   <meta name="keywords" content="<%$KEYWORDS%>" />
+    <meta name="Author" content="MeinePerfekteWG.com">
+    <meta name="description" content="<%$DESCRIPTION%>" />
+    <meta name="keywords" content="<%$KEYWORDS%>" />
 
 
     <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
@@ -91,6 +91,7 @@
     <%else%>
         <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
         <%xr_cssWrapperV2 s_ids='89,15,178,11998,76,39,26,17209,402,408,321,422,13331,426,461,76' var="packedcss"%>
+        
         <%xr_siteCall fn="fe_util::isNewLayout" var="newlayout"%>
         <%if $newlayout == 1%>
             <%xr_siteCall fn="fe_util::isV2" var="isV2"%>

@@ -283,10 +283,22 @@ var fe_user = (function() {
                         }
                     });
                 } else if (!ok) {
-                    $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
-                        top: 0,
-                        left: 0
-                    }, 500);
+                  //  $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
+                  //      top: 0,
+                  //      left: 0
+                  //  }, 500);
+                  if (fe_core.getCurrentFace() != 3)
+                  {
+                     var errorDiv = $('#pflichtfelder-error');
+                     errorDiv.show();
+
+                  } else {
+
+                     $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
+                          top: ($('.error-div').offset().top - 150)
+                     }, 800);
+
+                  }
                 }
                 return false;
             });

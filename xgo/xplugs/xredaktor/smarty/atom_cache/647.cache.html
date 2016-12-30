@@ -1,21 +1,5 @@
 <head>
-    
-<!-- GTM ID LIVE WEBSITE 
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-52J8F5');</script>
--->
 
-<!-- Google Tag Manager
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5B39DJQ');</script>
- End Google Tag Manager -->
-    
     <meta charset="utf-8"><%$CMS%>
     <!--[if lt IE 11]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -49,33 +33,24 @@
     <%if $ROBOTS == '1'%><meta name="robots" content="noindex" /><%/if%>
     
     <link rel="canonical" href="https://www.meineperfektewg.com">
+    
+    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+    
+	<%xr_cssWrapperV2 s_ids='89,15,178,11998,13331,17209,76,39,26,402,408,461,461,321' var="packedcss"%>
+	<%xr_lessWrapper ids='4,5'%>
 
 	
-    <!--
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', 'UA-63302825-2', 'auto');
-      ga('send', 'pageview');
-    
-    </script>
-	-->
-	
-	
 	<script type="text/javascript">
-    top.P_LANG='<%$P_LANG%>';
-    top.P_ID=<%$P_ID%>;
-    top.str_yes = '<%xr_translate tag="Ja"%>';
-    top.str_no = '<%xr_translate tag="Nein"%>';
-    top.delete_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
-    top.delete_word2 = '<%xr_translate tag="###loeschen_wort2###"%>';
-    top.deactivate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
-    top.deactivate_word2 = '<%xr_translate tag="deaktivieren"%>';
-    top.activate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
-    top.activate_word2 = '<%xr_translate tag="aktivieren"%>';
+        top.P_LANG='<%$P_LANG%>';
+        top.P_ID=<%$P_ID%>;
+        top.str_yes = '<%xr_translate tag="Ja"%>';
+        top.str_no = '<%xr_translate tag="Nein"%>';
+        top.delete_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+        top.delete_word2 = '<%xr_translate tag="###loeschen_wort2###"%>';
+        top.deactivate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+        top.deactivate_word2 = '<%xr_translate tag="deaktivieren"%>';
+        top.activate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+        top.activate_word2 = '<%xr_translate tag="aktivieren"%>';
     </script>
 	
 	<style>	
@@ -117,12 +92,4 @@
 
     <%xr_atom a_id=890 return=1 desc="og stuff"%>	
 
-	<%if $P_ID == 52%>
-        <style>
-            header nav.right-row {display: none;}
-            header nav .main-nav {visibility: hidden;}
-            img.503{position: relative; top: -34px; padding-left: 8px; z-index: 999;}
-            .middle404container {top: -5%;}
-        </style>
-	<%/if%>
 </head>

@@ -1,20 +1,25 @@
 @import "13.less";
 
+.modal.fade.in .modal-dialog .modal-content {
+    height: auto;
+    background-color: #04e0d7;
+}
+h4.modal-title{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: HelveticaNeueW01-55Roma;
+}
 .row.start-overlay {
     background-color: @dark-grey;
-    // background: -webkit-linear-gradient(white, @dark-grey);
-    // background: -o-linear-gradient(white, @dark-grey); 
-    // background: -moz-linear-gradient(white, @dark-grey); 
-    // background: linear-gradient(white, @dark-grey);
 }
 
-/************************/
-/*      HEADLINES       */
-/************************/
+
+
+
 h1 {
 	color: @blue;
-// 	font-family: @japoki;
-    font-family: @helvetica65;
+	font-family: @japoki;
+    // font-family: @helvetica65;
 	font-size: 4.5rem;
 	text-transform: none;
 }
@@ -37,8 +42,6 @@ h1 {
         padding-right: .5rem;
     }
 }
-
-
 
 .worumgehts {
 	h1 {
@@ -143,15 +146,12 @@ h4 {
 hgroup {
 	margin: 5rem auto 5rem auto;
 }
-/*****************************/
-/*      END HEADLINES       */
-/***************************/
 
 
 
-/*****************************/
-/*      BUTTONS / LINKS     */
-/***************************/
+
+
+
 .col-xs-10.col-xs-offset-1 {
     .button.start-button {
         text-align: center;
@@ -239,15 +239,15 @@ hgroup {
         }
     }
 }
-/*********************************/
-/*      END BUTTONS / LINKS     */
-/*******************************/
 
 
 
-/*****************************************/
-/*      TEXTE / LEFT RIGHT MID ROW      */
-/***************************************/
+
+
+
+
+
+
 .chatcontacts input {
     color: inherit;
 }
@@ -326,7 +326,9 @@ div.row {
 	}
 }
 
-// WG ZIMMER / MITBEWOHNER FINDEN \\
+
+
+
 .register-fragen {
     background: @dark-grey;
     font-size: 1.6rem;
@@ -362,7 +364,10 @@ input[type=checkbox] {
 .register-inner {
     margin-right: 9rem;
 }
-// END WG ZIMMER / MITBEWOHNER FINDEN \\
+
+
+
+
 
 .right-row {
     .date {
@@ -398,7 +403,8 @@ input[type=checkbox] {
 
 
 
-// LOGGEDIN CONTENT
+
+
 .picture-row {
     margin-left: -0.2rem;
     margin-right: -0.2rem;
@@ -434,7 +440,8 @@ input[type=checkbox] {
     margin-right: -1.5rem;
 }
 
-// UEBER MICH 
+
+
 .meinprofil-uebermich-inner {
         .form-control{
             font-size: 1.6rem;
@@ -450,6 +457,9 @@ input[type=checkbox] {
         }
     }
 }
+
+
+
 .register .register-inner {
     margin-right: 1rem;
     h1.white-heading {
@@ -479,9 +489,8 @@ form#reset-password input {
     margin: 5px 0 0 0;
 }
 
-/*****************************************/
-/*  END TEXTE / LEFT RIGHT MID ROW      */
-/***************************************/
+
+
 
 
 @media screen and (max-width: 1611px) {
