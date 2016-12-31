@@ -1,34 +1,33 @@
 <link rel="stylesheet" type="text/css" href="/xstorage/test/css/style.css"  />
                     <link rel="stylesheet" type="text/css" href="/xstorage/test/css/imgareaselect-default.css" />  
                     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" > </script>
-                    <script type="text/javascript" src="/xstorage/test/js/jquery.imgareaselect.pack.js" > </script>
 
 
 
 
-<div id="crop-wrapper" >
+<div id="crop-wrapper">
         
-                    <div class="crop-container" >
+                    <div class="crop-container">
                         <h3> Drag on image and select an area to crop </h3>
                         <p>
-                            <img id="photo" class="crop-img" src="/xstorage/test/nature.jpg" alt="Nature" title="Nature" />
+                            <img id="photo" class="crop-img" src="/xstorage/test/nature.jpg" alt="Nature" title="Nature"><div style="float: left; position: relative; overflow: hidden; width: 200px; height: 200px; margin-right: 20px;"><img class="crop-img" src="/xstorage/test/nature.jpg" style="position: relative; width: 400px; height: 400px; margin-left: -100px; margin-top: -100px;"><div></div></div>
                         </p>
-                       <form action="/xstorage/test/crop.php" method="post" >
-                           <input type="hidden" name="x1" value="" />
-                           <input type="hidden" name="y1" value="" />
-                           <input type="hidden" name="x2" value="" />
-                           <input type="hidden" name="y2" value="" />
-                           <input type="hidden" name="width" value="" />
-                           <input type="hidden" name="height" value="" />
-                           <input type="submit" value="Crop" />
+                       <form action="/xstorage/test/crop.php" method="post">
+                           <input type="hidden" name="x1" value="">
+                           <input type="hidden" name="y1" value="">
+                           <input type="hidden" name="x2" value="">
+                           <input type="hidden" name="y2" value="">
+                           <input type="hidden" name="width" value="">
+                           <input type="hidden" name="height" value="">
+                           <input type="submit" value="Crop">
                        </form>
                     </div>
                     
                 </div>
+                
+                                    <script type="text/javascript" src="/xstorage/test/js/jquery.imgareaselect.pack.js" > </script>
 
-
-
-<script>
+                <script>
                         // This method is used to preview the selected area of main image
                         function preview( img, selected ) {
                             var scaleX = 200 / (selected.width || 1);
@@ -73,4 +72,3 @@
                     });
         
                     </script>
-  

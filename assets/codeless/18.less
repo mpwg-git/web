@@ -1,14 +1,14 @@
 @import "13.less";
 
-.modal.fade.in .modal-dialog .modal-content {
-    height: auto;
-    background-color: #04e0d7;
-}
-h4.modal-title{
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: HelveticaNeueW01-55Roma;
-}
+// .modal.fade.in .modal-dialog .modal-content {
+//     height: auto;
+//     background-color: #04e0d7;
+// }
+// h4.modal-title{
+//     font-weight: bold;
+//     text-transform: uppercase;
+//     font-family: HelveticaNeueW01-55Roma;
+// }
 .row.start-overlay {
     background-color: @dark-grey;
 }
@@ -520,4 +520,24 @@ form#reset-password input {
             .font-size(50);
         }
     }
+}
+
+.icon-rel.icon-minus-rel:after {
+    content: '-';
+    top: -16px;
+    position: relative;
+    left: 0;
+}
+.upload-image-modal.modal{
+    position: inherit;
+}
+.upload-image-modal .modal-dialog .modal-body {
+    padding: 30px 20px 25px 20px;
+}
+.upload-image-modal.modal.fade.in .modal-dialog {
+    width: 600px;
+    height: 700px;
+    background: #04e0d7;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 8px;
 }
