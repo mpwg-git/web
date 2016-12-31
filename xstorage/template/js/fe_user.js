@@ -732,6 +732,7 @@ var fe_user = (function() {
                 });
             } catch (e) {}
         }
+
         this.imgCrop = function() {
             var trueOrigW = parseInt($('#trueOrigW').val(), 10);
             var trueOrigH = parseInt($('#trueOrigH').val(), 10);
@@ -745,13 +746,33 @@ var fe_user = (function() {
             formdata.lang = top.P_LANG;
             formdata.refid = $('input[name="refid"]').first().val();
             formdata.type = $('input[name="type"]').first().val();
-            if (fe_core.getCurrentFace() != 3) {
-                formdata.trueCropW = 0;
-                formdata.trueCropH = 0;
-                formdata.trueX = 0;
-                formdata.trueY = 0;
-                cropData = formdata;
-            } else {
+            // if (fe_core.getCurrentFace() != 3) {
+            //     formdata.trueCropW = 0;
+            //     formdata.trueCropH = 0;
+            //     formdata.trueX = 0;
+            //     formdata.trueY = 0;
+            //     cropData = formdata;
+            // } else {
+            if(fe_core.getCurrentFace() == 3){
+                $("#avatarCrop").mouseup(function(){
+                    $('.ajax-loader').show();
+                }),
+
+                $(".controlsBg").click(function(){
+                    $('.ajax-loader').show();
+                })
+              }
+              else
+              {
+                $("#avatarCrop").on("touchstart", function () {
+                    $('.ajax-loader').show();
+                }),
+
+                $("#avatarCrop").on("tap", function () {
+                    $('.ajax-loader').show();
+                  })
+                }
+
                 $image.smoothZoom({
                     width: selectionWidth,
                     height: selectionHeight,
@@ -761,8 +782,12 @@ var fe_user = (function() {
                     responsive_maintain_ratio: true,
                     max_WIDTH: '',
                     max_HEIGHT: '',
-                    on_ZOOM_PAN_UPDATE: function(obj, e) {},
+
+                    on_ZOOM_PAN_UPDATE: function(obj, e) {
+                    },
                     on_ZOOM_PAN_COMPLETE: function(obj, e) {
+                        $('.ajax-loader').hide();
+
                         formdata = obj;
                         formdata.s_id = $('#s_id').val();
                         formdata.p_id = top.P_ID;
@@ -790,9 +815,11 @@ var fe_user = (function() {
                             $('.cropx').css('left', cropData.trueX + 'px');
                             $('.cropx').css('top', cropData.trueY + 'px');
                         }
+
+                        // $('.ajax-loader').hide();
                     }
                 });
-            }
+            // }
         }
         this.goToStep = function(step, data) {
             var me = this;
