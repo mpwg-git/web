@@ -1,0 +1,17 @@
+
+.crop-container {
+    margin: 0 auto;
+    width: 920px;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+h3 {
+    text-align: center;
+}
+p {
+    margin: 20px;
+}
+.crop-img {
+    width: 400px;
+    height: 400px;
+}
