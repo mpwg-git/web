@@ -3011,7 +3011,7 @@ class fe_user
 
 		if($db_user['wz_TYPE'] == 'biete')
 		{
-			
+
 			$insert = array(
 				'wz_ADMIN' 		=> $feu_id,
 				'wz_online' 	=> 'Y',
