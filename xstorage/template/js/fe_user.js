@@ -101,39 +101,39 @@ var fe_user = (function() {
                 $me.popover('show');
                 delRoomOnce = false;
             });
-				$('#neues-zimmer-anlegen').unbind('click');
-				$('#neues-zimmer-anlegen').one('click', function(){
-					var userid = $('#hiddenUserId').attr('value');
-					var data = {
-						 user: userid,
-						 xkalt: false,
-					};
-					// console.log(userId);
-					$.ajax({
-						type: 'POST',
-						url: '/xsite/call/fe_room/sendMailNewRoom',
-						data: data,
-						success: function(data) {
-							console.log("send mail new room ",userid);
-						},
-					});
-				});
-				// $('.new-room').click(function(e) {
-				// 	// e.preventDefault();
-				// 	var userid = $('#hiddenUserId').attr('value');
-				// 	var data = {
-				// 		 user: userid
-				// 	};
-				// 	// console.log(userId);
-				// 	$.ajax({
-				// 		type: 'POST',
-				// 		url: '/xsite/call/fe_room/roomActivatedMail',
-				// 		data: data,
-				// 		success: function(data) {
-				// 			console.log("send mail new room ",userid);
-				// 		},
-				// 	});
-				// });
+                $('#neues-zimmer-anlegen').unbind('click');
+                $('#neues-zimmer-anlegen').one('click', function(){
+                    var userid = $('#hiddenUserId').attr('value');
+                    var data = {
+                         user: userid,
+                         xkalt: false,
+                    };
+                    // console.log(userId);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/xsite/call/fe_room/sendMailNewRoom',
+                        data: data,
+                        success: function(data) {
+                            console.log("send mail new room ",userid);
+                        },
+                    });
+                });
+                // $('.new-room').click(function(e) {
+                //  // e.preventDefault();
+                //  var userid = $('#hiddenUserId').attr('value');
+                //  var data = {
+                //       user: userid
+                //  };
+                //  // console.log(userId);
+                //  $.ajax({
+                //      type: 'POST',
+                //      url: '/xsite/call/fe_room/roomActivatedMail',
+                //      data: data,
+                //      success: function(data) {
+                //          console.log("send mail new room ",userid);
+                //      },
+                //  });
+                // });
 
             $('.js-activate-room').unbind("click");
             $('.js-activate-room').click(function(e) {
@@ -152,7 +152,7 @@ var fe_user = (function() {
                         location.reload(true);
                     },
                   //   complete: function() {
-						// 		$.ajax({
+                        //      $.ajax({
                   //           type: 'POST',
                   //           url: '/xsite/call/fe_room/sendRoomActivatedMail',
                   //           data: data,
@@ -283,10 +283,22 @@ var fe_user = (function() {
                         }
                     });
                 } else if (!ok) {
-                    $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
-                        top: 0,
-                        left: 0
-                    }, 500);
+                  //  $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
+                  //      top: 0,
+                  //      left: 0
+                  //  }, 500);
+                  if (fe_core.getCurrentFace() != 3)
+                  {
+                     var errorDiv = $('#pflichtfelder-error');
+                     errorDiv.show();
+
+                  } else {
+
+                     $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
+                          top: ($('.error-div').offset().top - 150)
+                     }, 800);
+
+                  }
                 }
                 return false;
             });
@@ -720,6 +732,7 @@ var fe_user = (function() {
                 });
             } catch (e) {}
         }
+
         this.imgCrop = function() {
             var trueOrigW = parseInt($('#trueOrigW').val(), 10);
             var trueOrigH = parseInt($('#trueOrigH').val(), 10);
@@ -733,13 +746,33 @@ var fe_user = (function() {
             formdata.lang = top.P_LANG;
             formdata.refid = $('input[name="refid"]').first().val();
             formdata.type = $('input[name="type"]').first().val();
-            if (fe_core.getCurrentFace() != 3) {
-                formdata.trueCropW = 0;
-                formdata.trueCropH = 0;
-                formdata.trueX = 0;
-                formdata.trueY = 0;
-                cropData = formdata;
-            } else {
+            // if (fe_core.getCurrentFace() != 3) {
+            //     formdata.trueCropW = 0;
+            //     formdata.trueCropH = 0;
+            //     formdata.trueX = 0;
+            //     formdata.trueY = 0;
+            //     cropData = formdata;
+            // } else {
+            if(fe_core.getCurrentFace() == 3){
+                $("#avatarCrop").mouseup(function(){
+                    $('.ajax-loader').show();
+                }),
+
+                $(".controlsBg").click(function(){
+                    $('.ajax-loader').show();
+                })
+              }
+              else
+              {
+                $("#avatarCrop").on("touchstart", function () {
+                    $('.ajax-loader').show();
+                }),
+
+                $("#avatarCrop").on("tap", function () {
+                    $('.ajax-loader').show();
+                  })
+                }
+
                 $image.smoothZoom({
                     width: selectionWidth,
                     height: selectionHeight,
@@ -749,8 +782,12 @@ var fe_user = (function() {
                     responsive_maintain_ratio: true,
                     max_WIDTH: '',
                     max_HEIGHT: '',
-                    on_ZOOM_PAN_UPDATE: function(obj, e) {},
+
+                    on_ZOOM_PAN_UPDATE: function(obj, e) {
+                    },
                     on_ZOOM_PAN_COMPLETE: function(obj, e) {
+                        $('.ajax-loader').hide();
+
                         formdata = obj;
                         formdata.s_id = $('#s_id').val();
                         formdata.p_id = top.P_ID;
@@ -778,9 +815,11 @@ var fe_user = (function() {
                             $('.cropx').css('left', cropData.trueX + 'px');
                             $('.cropx').css('top', cropData.trueY + 'px');
                         }
+
+                        // $('.ajax-loader').hide();
                     }
                 });
-            }
+            // }
         }
         this.goToStep = function(step, data) {
             var me = this;
