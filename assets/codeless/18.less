@@ -1,5 +1,64 @@
+// DesktopStylesV3
+
 @import "13.less";
 
+.black-bg {
+    background: @dark-grey !important;
+}
+
+#noQuestionModal {
+    overflow: hidden;
+    padding: 0 !important;
+}
+.modal.fade.in .modal-dialog.noQuestionModal {
+        width: 100%;
+        margin: 41px auto;
+
+}
+.modal-content.noQuestionModal {
+            height: auto;
+            background-color: @blue;
+}
+.modal-header.noQuestionModal {
+                height: 33.3333333%;
+                border: none;
+                text-align: center;
+            }
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.icon-duck:before, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.icon-duck:before {
+    content: "\e61d";
+    padding-right: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    font-size: 3em;
+    display: inline-block;
+}
+.icon-duck:before {
+    content: "\e61d";
+}
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.modalh1, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.modalh1 {
+    color: #333;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-family: 'jaapokkiregular';
+    line-height: 1.25;
+}
+.mheader-stoerer {
+    background: url(/xstorage/template/img/sys/delete.svg) no-repeat transparent;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.mheader-stoerer span {
+    font-family: 'jaapokkiregular';
+    color: white;
+    font-size: inherit;
+    position: relative;
+    top: 27%;
+    text-transform: uppercase;
+    line-height: 0;
+}
 // .modal.fade.in .modal-dialog .modal-content {
 //     height: auto;
 //     background-color: #04e0d7;
@@ -12,9 +71,6 @@
 .row.start-overlay {
     background-color: @dark-grey;
 }
-
-
-
 
 h1 {
 	color: @blue;

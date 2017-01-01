@@ -68,9 +68,9 @@
 
 	<%if $stillToDo===true && $wgteststate==1 && $loginCount != 0%>
 		<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content" style="min-height: 170px;">
-					<div class="modal-header">
+			<div class="modal-dialog noQuestionModal" role="document">
+				<div class="modal-content noQuestionModal" style="min-height: 170px;">
+					<div class="modal-header noQuestionModal">
 						<div class="col-xs-6 col-md-4"></div>
 						<div class="col-xs-6 col-md-4">
 							<span class="icon-duck"></span>
@@ -108,9 +108,9 @@
 		</div>
     <%elseif ($hasQuestionsAnswered === false && $hasQuestionsAnsweredInSession && $wgteststate==0 && $loginCount !== 0)%>
 	    <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content" style="min-height: 170px;">
-					<div class="modal-header">
+			<div class="modal-dialog noQuestionModal" role="document">
+				<div class="modal-content noQuestionModal" style="min-height: 170px;">
+					<div class="modal-header noQuestionModal">
 						<div class="col-xs-6 col-md-4"></div>
 						<div class="col-xs-6 col-md-4">
 							<span class="icon-duck"></span>
@@ -150,9 +150,9 @@
 		</div>
 	<%elseif $hasQuestionsAnswered === true && $hasQuestionsAnsweredInSession && $wgteststate==2 && $loginCount !== 0%>
         <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content" style="min-height: 170px;">
-					<div class="modal-header">
+			<div class="modal-dialog noQuestionModal" role="document">
+				<div class="modal-content noQuestionModal" style="min-height: 170px;">
+					<div class="modal-header noQuestionModal">
 						<div class="col-xs-6 col-md-4"></div>
 						<div class="col-xs-6 col-md-4">
 							<span class="icon-duck"></span>
