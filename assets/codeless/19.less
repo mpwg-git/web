@@ -1,5 +1,6 @@
 @import "15.less";
 
+
 .cookie-warning-top {
     padding-top: 20px !important;
 }
@@ -125,16 +126,35 @@ label {
     margin-top: 1.8rem;
 }
 
+
+
 button.start-button{
     font-size: 1.3rem; 
-    // font-weight: bold;
-    // letter-spacing: 0.025rem;
+    font-weight: bold;
 }
+
+
 
 .register-fragen {
     #NACHNAME, #VORNAME, #v2_EMAIL, #v2_PASSWORT, #v2_PASSWORT_confirm {
-        max-width: 380px;
+        max-width: 300px;
+        margin-left: 15px;
     }
+}
+
+.radio [class*=icon-] {
+    font-size: 36px;
+}
+
+.geschlecht-chooser.geschlecht {
+    margin-left: 15px;
+}
+.register .geschlecht label {
+    padding: 0 6px;
+    margin-right: 0;
+}
+.register-inner.register .form-group > label {
+    margin-left: 15px;
 }
 .register-inner .row div[class*="col-"] label {
     text-transform: none;
@@ -142,24 +162,12 @@ button.start-button{
     font-size: 1.6rem;
     color: inherit;
 }
-
 .register-inner .geschlecht input[type=radio] {
     display: none;
 }
-.radio [class*=icon-] {
-    font-size: 36px;
-}
-.register-inner .geschlecht label .icon-mann_outline {
-    display: inline-block;
-}
-
 .register-inner .geschlecht label span {
     font-size: 4.5rem;
     vertical-align: middle;
-}
-
-.register-inner .geschlecht input[type=radio] {
-    display: none;
 }
 .register-inner .geschlecht label .icon-frau {
     display: none;
@@ -173,9 +181,6 @@ button.start-button{
 .register-inner .geschlecht label .icon-mann_outline {
     display: inline-block;
 }
-
-
-
 .icon-frau_outline .path1:before {
 	content: "\e629";
 	color: rgb(11, 223, 214);
@@ -255,7 +260,7 @@ button.start-button{
 
 
 
-//////////////////////////////////////////////////////////// FOOTER BURGER MENU
+
 .glyphicon {
     top: 0;
     right: 4rem;
@@ -334,3 +339,69 @@ button.start-button{
     width: 105%;
     padding: 0 10px;
 }
+
+
+
+
+
+#slider-range {
+	margin-left: 2vw;
+    margin-right: 4vw;
+}
+.searchform.default-container-padding {
+    padding-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15.3vw;
+}
+.searchform .legend {
+    margin-top: -25px;
+    color: #04e0d7;
+    padding-left: 2px;
+    font-size: 16px;
+}
+.searchform .legend>span {
+    margin-top: 1rem;
+    color: #04e0d7;
+    padding-left: 1rem;
+    padding-right: 2.1rem;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	margin-top: -14px;
+}
+#slider-range span.ui-slider-handle.ui-state-default.ui-corner-all:first-of-type {
+    margin-left: 0rem;
+}
+#slider-range span.ui-slider-handle.ui-state-default.ui-corner-all:last-of-type {
+    margin-right: 1rem;
+}
+.slider-padder {
+    padding: 0 26px 0 0px;
+    margin: 0 0 0 -3px;
+}
+.fakeline {
+    width: 80%;
+    left: 0;
+}
+
+.scrollTouch {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

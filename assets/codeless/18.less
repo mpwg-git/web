@@ -1,21 +1,150 @@
+// DesktopStylesV3
+
 @import "13.less";
 
-.row.start-overlay {
-    background-color: @dark-grey;
-    // background: -webkit-linear-gradient(white, @dark-grey);
-    // background: -o-linear-gradient(white, @dark-grey); 
-    // background: -moz-linear-gradient(white, @dark-grey); 
-    // background: linear-gradient(white, @dark-grey);
+.black-bg {
+    background: @dark-grey !important;
 }
 
-/************************/
-/*      HEADLINES       */
-/************************/
+#noQuestionModal {
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+
+
+
+.left-row {
+    width: 22.5%;
+    .form-control {
+        color: inherit;
+    }
+}
+
+.middle-row {
+    width: 55%;
+}
+
+.right-row {
+    width: 22.5%;
+    .date {
+        font-family: @helvetica45 !important; 
+        color: #333 !important;
+    }
+	.footer {
+		font-size: 1.3rem !important;
+		.footer-top>a>span {
+			font-size: 1.8rem;
+			text-shadow: .126rem .126rem .126rem #666666;
+		}
+		.footer-bottom>a>span {
+			font-size: 1.5rem;
+		}
+		.footer-top>a {
+			border-right: .1rem solid @dark-grey;
+			padding-right: .5rem;
+			text-transform: uppercase;
+		}
+		.footer-bottom>a {
+			border-right: .1rem solid @dark-grey;
+			padding-right: .5rem;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.footer a:focus, .footer a:active, .footer a.active, .footer a:hover  {
+	border-right: .1rem solid @blue !important;
+	color: @blue;
+	text-shadow: .126rem .126rem .126rem rgba(50, 220, 205, .4);
+}
+
+
+
+
+
+
+.modal.fade.in .modal-dialog.noQuestionModal {
+        width: 100%;
+        margin: 41px auto;
+
+}
+.modal-content.noQuestionModal {
+            height: auto;
+            background-color: @blue;
+}
+.modal-header.noQuestionModal {
+                height: 33.3333333%;
+                border: none;
+                text-align: center;
+            }
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.icon-duck:before, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.icon-duck:before {
+    content: "\e61d";
+    padding-right: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    font-size: 3em;
+    display: inline-block;
+}
+.icon-duck:before {
+    content: "\e61d";
+}
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.modalh1, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.modalh1 {
+    color: #333;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-family: 'jaapokkiregular';
+    line-height: 1.25;
+}
+.mheader-stoerer {
+    background: url(/xstorage/template/img/sys/delete.svg) no-repeat transparent;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.mheader-stoerer span {
+    font-family: 'jaapokkiregular';
+    color: white;
+    font-size: inherit;
+    position: relative;
+    top: 27%;
+    text-transform: uppercase;
+    line-height: 0;
+}
+
+.upload-image-modal .modal-dialog .add-image-final-form {
+    height: 300%;
+    text-align: center;
+}
+
+button.cropImg {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    font-weight: bold;
+}
+
+// .modal.fade.in .modal-dialog .modal-content {
+//     height: auto;
+//     background-color: #04e0d7;
+// }
+// h4.modal-title{
+//     font-weight: bold;
+//     text-transform: uppercase;
+//     font-family: HelveticaNeueW01-55Roma;
+// }
+.row.start-overlay {
+    background-color: @dark-grey;
+}
+
 h1 {
 	color: @blue;
-// 	font-family: @japoki;
-    font-family: @helvetica65;
-	font-size: 4.5rem;
+	font-family: @japoki;
+    // font-family: @helvetica65;
+	font-size: 5rem;
 	text-transform: none;
 }
 .input-icon .icon-Map {
@@ -25,20 +154,19 @@ h1 {
 }
 .start-overlay {
 	h1 {
-    	color: #04e0d7;
-        font-family: 'jaapokkiregular';
-        font-size: 4.6rem;
+        color: @blue;
+        font-family: @japoki;
+        font-size: 5rem;
         text-align: center;
-        line-height: 6rem;
-        letter-spacing: -0.1rem;
+        line-height: 1;
+        letter-spacing: -0.099rem;
+        padding: 2rem 1rem;
 	}
     .tight {
         letter-spacing: -.7rem;
         padding-right: .5rem;
     }
 }
-
-
 
 .worumgehts {
 	h1 {
@@ -140,18 +268,7 @@ h4 {
 	font-size: 1.9rem;
 	letter-spacing: -.025rem;
 }
-hgroup {
-	margin: 5rem auto 5rem auto;
-}
-/*****************************/
-/*      END HEADLINES       */
-/***************************/
 
-
-
-/*****************************/
-/*      BUTTONS / LINKS     */
-/***************************/
 .col-xs-10.col-xs-offset-1 {
     .button.start-button {
         text-align: center;
@@ -239,15 +356,15 @@ hgroup {
         }
     }
 }
-/*********************************/
-/*      END BUTTONS / LINKS     */
-/*******************************/
 
 
 
-/*****************************************/
-/*      TEXTE / LEFT RIGHT MID ROW      */
-/***************************************/
+
+
+
+
+
+
 .chatcontacts input {
     color: inherit;
 }
@@ -255,11 +372,7 @@ hgroup {
 #EmailConfirmModal {
     padding-left: 0;
 }
-.left-row {
-    .form-control {
-        color: inherit;
-    }
-}
+
 label#cost{
     margin-bottom: 1.5rem;
 }
@@ -326,7 +439,9 @@ div.row {
 	}
 }
 
-// WG ZIMMER / MITBEWOHNER FINDEN \\
+
+
+
 .register-fragen {
     background: @dark-grey;
     font-size: 1.6rem;
@@ -362,43 +477,17 @@ input[type=checkbox] {
 .register-inner {
     margin-right: 9rem;
 }
-// END WG ZIMMER / MITBEWOHNER FINDEN \\
-
-.right-row {
-    .date {
-        font-family: @helvetica45 !important; 
-        color: #333 !important;
-    }
-	.footer {
-		font-size: 1.3rem !important;
-		.footer-top>a>span {
-			font-size: 1.8rem;
-			text-shadow: .126rem .126rem .126rem #666666;
-		}
-		.footer-bottom>a>span {
-			font-size: 1.5rem;
-		}
-		.footer-top>a {
-			border-right: .1rem solid @dark-grey;
-			padding-right: .5rem;
-			text-transform: uppercase;
-		}
-		.footer-bottom>a {
-			border-right: .1rem solid @dark-grey;
-			padding-right: .5rem;
-			text-transform: uppercase;
-		}
-	}
-}
-.footer a:focus, .footer a:active, .footer a.active, .footer a:hover  {
-	border-right: .1rem solid @blue !important;
-	color: @blue;
-	text-shadow: .126rem .126rem .126rem rgba(50, 220, 205, .4);
-}
 
 
 
-// LOGGEDIN CONTENT
+
+
+
+
+
+
+
+
 .picture-row {
     margin-left: -0.2rem;
     margin-right: -0.2rem;
@@ -434,7 +523,8 @@ input[type=checkbox] {
     margin-right: -1.5rem;
 }
 
-// UEBER MICH 
+
+
 .meinprofil-uebermich-inner {
         .form-control{
             font-size: 1.6rem;
@@ -450,6 +540,9 @@ input[type=checkbox] {
         }
     }
 }
+
+
+
 .register .register-inner {
     margin-right: 1rem;
     h1.white-heading {
@@ -479,9 +572,6 @@ form#reset-password input {
     margin: 5px 0 0 0;
 }
 
-/*****************************************/
-/*  END TEXTE / LEFT RIGHT MID ROW      */
-/***************************************/
 
 
 @media screen and (max-width: 1611px) {
@@ -511,4 +601,24 @@ form#reset-password input {
             .font-size(50);
         }
     }
+}
+
+.icon-rel.icon-minus-rel:after {
+    content: '-';
+    top: -16px;
+    position: relative;
+    left: 0;
+}
+.upload-image-modal.modal{
+    position: inherit;
+}
+.upload-image-modal .modal-dialog .modal-body {
+    padding: 30px 20px 25px 20px;
+}
+.upload-image-modal.modal.fade.in .modal-dialog {
+    width: 600px;
+    height: 700px;
+    background: #04e0d7;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 8px;
 }
