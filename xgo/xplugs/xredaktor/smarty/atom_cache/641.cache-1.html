@@ -2,6 +2,11 @@
 <html lang="<%$P_LANG%>">
    <%xr_atom a_id=647 return=1%>
 	<body>
+	            <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52J8F5"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->	 
+        
         <div id="fb-root"></div>
         <script>
             window.fbAsyncInit = function() {
@@ -26,32 +31,20 @@
         <%$CONTENT%>
         
         <%xr_atom a_id=761 return=1 desc="img upload modal"%>
-        
-        <%if $P_ID == 1%>
-        	<!-- BELOW THE FOLD CSS -->
-            <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
-        	<%xr_cssWrapperV2 s_ids='89,15,11998,13331,178,17209,76,39,26,321,402,408,461,461' var="packedcss"%>
-        	<link rel="stylesheet" href="/xstorage/template/Darkroomjs/build/darkroom.css"/>
-        	<%xr_siteCall fn="fe_util::isV2" var="isV2"%>
-            <%if $isV2 == 1%>
-                <%xr_cssWrapper s_id=18475%>
-                <%xr_cssWrapper s_id=18557%>
-                <%xr_lessWrapper ids='15,16,19'%>
-            <%else%>
-                <%xr_lessWrapper ids='8,9'%>
-            <%/if%>
-        <%/if%>
-        
-        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
-        <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyC8wi58RIMPGI379eTvxC7e6khEM5s898E&libraries=places" type="text/javascript"></script>
-        
+
         <%xr_atom a_id=794 return=1 desc='face in use'%>
         <!-- FOOTER ATOM -->
         <%xr_atom a_id=643 return=1%>
         
         <%xr_atom a_id=899 return=1%>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        
+        <!-- <%xr_jsWrapper s_id=35371%> -->
+        <script src="/xstorage/template/js/jquery-2.1.4.min.js"></script>
+        <script src="//cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+        
+        <%* <script src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script> *%>
+        <script async src="//maps.googleapis.com/maps/api/js?key=AIzaSyC8wi58RIMPGI379eTvxC7e6khEM5s898E&libraries=places" type="text/javascript"></script>
+        
        	<%xr_atom a_id=704 return=1 desc='js files'%>
        	
         <%xr_atom a_id=757 return=1 desc='ajax loader'%>
