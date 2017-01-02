@@ -778,7 +778,7 @@ var fe_user = (function() {
                     height: selectionHeight,
                     zoom_OUT_TO_FIT: false,
                     responsive: true,
-                    pan_BUTTONS_SHOW: false,
+                    pan_BUTTONS_SHOW: true,
                     responsive_maintain_ratio: true,
                     max_WIDTH: '',
                     max_HEIGHT: '',
