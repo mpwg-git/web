@@ -84,8 +84,8 @@ var fe_map = (function() {
             if ($("#slider-range").data('valuebis') != '') {
                 valueBis = parseInt($("#slider-range").data('valuebis'), 10);
             }
-            // console.log("valueab", valueAb);
-            // console.log("valuebis", valueBis);
+            console.log("valueab", valueAb);
+            console.log("valuebis", valueBis);
 
             $("#slider-range").slider({
                 range: true,
