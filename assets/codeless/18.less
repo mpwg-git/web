@@ -115,8 +115,10 @@
 }
 
 .upload-image-modal .modal-dialog .add-image-final-form {
-    height: 300%;
+    // height: 300%;
     text-align: center;
+    // left: -6%;
+    position: relative;
 }
 
 button.cropImg {
@@ -613,7 +615,8 @@ form#reset-password input {
     position: inherit;
 }
 .upload-image-modal .modal-dialog .modal-body {
-    padding: 30px 20px 25px 20px;
+    // padding: 30px 20px 25px 20px;
+    // padding: none;
 }
 .upload-image-modal.modal.fade.in .modal-dialog {
     width: 600px;
@@ -623,17 +626,26 @@ form#reset-password input {
     border-radius: 8px;
 }
 
-.cropImg {
-    width: 100%;
-    height: auto;
+// .cropImg {
+//     width: 100%;
+//     height: auto;
+// }
+.noSel.smooth_zoom_preloader {
+    left: 4px;
 }
-
 .upload-image-modal.modal.fade.in .modal-dialog {
-    width: 100%;
+    // width: 100%;
     height: auto;
     background: #04e0d7;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 8px;
+}
+
+.upload-image-modal .modal-dialog .add-image-crop-area {
+    height: 600px !important;
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
 
 

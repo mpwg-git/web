@@ -1,5 +1,6 @@
-<img src="<%$image['src']%>" id="avatarCrop" class="img-height-responsive avatarCrop <%$type%> cropperimage" />
-        
+
+<img src="<%$image['src']%>" id="avatarCrop" class="img-height-responsive avatarCrop <%$type%> cropperimage"  />
+
 <form id="coords" class="coords" onsubmit="return false;" action="#">
 
 	<input data-crop type="hidden" size="4" id="x1" name="x1" value="" />
@@ -16,15 +17,19 @@
 	<input data-crop type="hidden" id="trueOrigH" value="<%$image['trueH']%>">
 	<input type="hidden" name="type" value="<%$type%>" />
 	<input type="hidden" name="refid" value="<%$refid%>" />
-    
+
 </form>
 <button type="button" class="btn btn-primary modal-image-button close-image-cropper pull-left">Abbrechen</button>
 <button type="button" class="btn btn-primary modal-image-button add-image-crop" data-type="<%$type%>">Weiter</button>
 <div class="clearfix"></div>
-<!--<%xr_siteCall fn='libx::isDeveloper' var='dev'%>-->
-<!--<%if $dev%>-->
-<!--    <h3>Hi dev!</h3>-->
-<!--    <div class="movex" style="background-image:url(<%$image.src%>); width:100%; height:100%; position:relative;">-->
-<!--        <div class="cropx" style="position:absolute; left:0; top:0; background-color:red; opacity:0.8">`</div>-->
-<!--    </div>-->
-<!--<%/if%>-->
+
+<!--
+<%xr_siteCall fn='libx::isDeveloper' var='dev'%>
+<%if $dev%>
+<h3>Hi dev!</h3>
+<div class="movex" style="background-image:url(<%$image.src%>); width:1200px; height:1200px; transform:scale(0.2); left:-50%; position:relative;">
+    <div class="cropx" style="position:absolute; left:0; top:0; background-color:red; opacity:0.8">`</div>
+
+</div>
+<%/if%>
+-->
