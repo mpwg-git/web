@@ -274,10 +274,9 @@ var fe_user = (function() {
                 if (typeof ok != "undefined" && ok == true) {
                     $('.ajax-loader').show();
                     var data = {};
-                    var xrFace = fe_core.getCurrentFace();
                     data.room = $('.form-mein-raum').serialize();                  
                     
-                    if(xrFace == 3) {
+                    if(fe_core.getCurrentFace() == 3) {
                     	data.ueberMich = $('.form-mein-user').serialize();
                 	}
                     $.ajax({
@@ -289,10 +288,6 @@ var fe_user = (function() {
                         }
                     });
                 } else if (!ok) {
-                  //  $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
-                  //      top: 0,
-                  //      left: 0
-                  //  }, 500);
                   if (fe_core.getCurrentFace() != 3)
                   {
                      var errorDiv = $('#pflichtfelder-error');
@@ -331,6 +326,17 @@ var fe_user = (function() {
                 var data = {
                     user: $('.form-mein-user').serialize()
                 };
+
+                // hiddenRoomId != false oder leer type == biete
+                if(fe_core.getCurrentFace() == 3) {
+                    var checkType = $('#hiddenRoomId').val();
+                    
+                	if(checkType != false || checkType != '') {
+//                		console.log("type biete");
+                		data.room = $('.form-mein-raum').serialize();
+                	}
+                }
+                
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/profileSave',

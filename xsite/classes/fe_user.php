@@ -1234,9 +1234,32 @@ class fe_user
 			}
 		}
 		*/
+		
+		//		update room ??
+		$updateRoom = array();
+		
+		if(isset($_REQUEST['room'])) {
+			
+			parse_str($_REQUEST['room'], $meinRaum);
+			
+			$roomId = $meinRaum['id'];
+
+			foreach($meinRaum as $k => $v)
+			{
+				$updateRoom['wz_'.$k] = $meinRaum[$k];
+			}
+			
+			unset($updateRoom['wz_id']);
+			
+// 			print_r($roomId);
+// 			print_r($updateRoom);
+// 			die("-+-+-+-");
+
+			dbx::update("wizard_auto_809", $updateRoom, array("wz_id" => $roomId));
+		}
+
 
 		// update user
-
 		dbx::update("wizard_auto_707", $update, array("wz_id" => $userId));
 
 		// das müsste man auch noch machen... damit die daten in der session passen
