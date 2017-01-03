@@ -270,10 +270,16 @@ var fe_user = (function() {
             $('.form-mein-raum').submit(function(e) {
                 e.preventDefault();
                 var ok = fe_core.jsFormValidation('form-mein-raum');
+                
                 if (typeof ok != "undefined" && ok == true) {
                     $('.ajax-loader').show();
                     var data = {};
-                    data.room = $('.form-mein-raum').serialize();
+                    var xrFace = fe_core.getCurrentFace();
+                    data.room = $('.form-mein-raum').serialize();                  
+                    
+                    if(xrFace == 3) {
+                    	data.ueberMich = $('.form-mein-user').serialize();
+                	}
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_room/profileSave',
