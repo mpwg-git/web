@@ -7,15 +7,15 @@ class fe_room
 	public static $table_roomImages 	= "wizard_auto_810";
 
 	public static $regDefaults = array(
-		//'wz_COUNT_MITBEWOHNER_M' 	=> 1,
-		//'wz_COUNT_MITBEWOHNER_F' 	=> 1,
-		//'wz_COUNT_MITBEWOHNER' 		=> 1,
-		// 'wz_UNREG_M' 				=> 1,
-		// 'wz_UNREG_F' 				=> 1,
+// 		'wz_COUNT_MITBEWOHNER_M' 	=> NULL,
+// 		'wz_COUNT_MITBEWOHNER_F' 	=> NULL,
+// 		'wz_COUNT_MITBEWOHNER' 		=> NULL,
+// 		'wz_UNREG_M' 				=> NULL,
+// 		'wz_UNREG_F' 				=> NULL,
 		'wz_ADRESSE_LAT' 			=> 48.2081743,
 		'wz_ADRESSE_LNG' 			=> 16.3738189,
-		//'wz_GROESSE' 				=> 10,
-		//'wz_MIETE'				=> 250,
+// 		'wz_GROESSE' 				=> NULL,
+// 		'wz_MIETE'					=> NULL,
 		'wz_RAUCHER'				=> 'X',
 		'wz_ABLOESE'				=> 'X',
 		'wz_HAUSTIERE'				=> 'X',
@@ -1307,10 +1307,9 @@ class fe_room
 			frontcontrollerx::json_failure("ERROR: User $userId is NOT admin of room $roomId !");
 		}
 
-		parse_str($_REQUEST['room'], $userReq);
-
 		$updateCollection = $userReq;
-
+	
+		
 		if (trim($updateCollection['ADRESSE_LAND']) != '')
 		{
 			$landShort	= dbx::escape($updateCollection['ADRESSE_LAND']);
@@ -1356,8 +1355,6 @@ class fe_room
 			}
 		}
 
-
-
 		// safety first
 		unset($update['wz_id']);
 
@@ -1376,8 +1373,29 @@ class fe_room
 		{
 			$update['wz_ZEITRAUM_BIS'] = date("Y-m-d", strtotime($update['wz_ZEITRAUM_BIS']));
 		}
+		
+		
+//		update user	
+		$updateUeberMich = array();
+		
+		if(isset($_REQUEST['ueberMich']))
+		{
+			$userFields = array('VORNAME','NACHNAME','GEBURTSDATUM','TELEFON','BESCHREIBUNG','LAND');
+			
+			parse_str($_REQUEST['ueberMich'], $ueberMich);
+			
+			foreach($ueberMich as $k => $v)
+			{
+				if (in_array($k, $userFields))
+				{
+					$updateUeberMich['wz_'.$k] = $ueberMich[$k];
+				}
+			}
+			
+			dbx::update("wizard_auto_707", $updateUeberMich, array("wz_id" => $userId));
+		}
 
-
+		
 		// update room
 		dbx::update("wizard_auto_809", $update, array("wz_id" => $roomId));
 		self::update_mitbewohner_counts_of_room($roomId);
