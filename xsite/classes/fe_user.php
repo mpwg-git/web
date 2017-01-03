@@ -30,10 +30,9 @@ class fe_user {
 			'wz_MIETE_VON' => 0,
 			'wz_MIETE_BIS' => 1000,
 			'wz_UMKREIS' => 5 
-	)
+	);
 	// 'wz_WGGROESSE_VON' => 1,
 	// 'wz_WGGROESSE_BIS' => 10,
-	;
 	public static function doIBlockUser($otherUserId) {
 		$otherUserId = intval ( $otherUserId );
 		if ($otherUserId == 0)
@@ -82,9 +81,8 @@ class fe_user {
 				'wz_GESCHLECHT' => 'F',
 				'wz_IS_TMP_USER' => 'Y',
 				'wz_EMAIL' => $email 
-		)
+		);
 		// 'wz_PASSWORT' => md5($pass),
-		;
 		
 		$db = array_merge ( $db, self::$regDefaults );
 		
@@ -279,9 +277,8 @@ class fe_user {
 				'wz_created' => 'NOW()',
 				'wz_GESCHLECHT' => $geschlecht,
 				'wz_TYPE' => $type 
-		)
+		);
 		// 'wz_ACTIVE' => 'Y' // erst nach Mailbestätigung
-		;
 		
 		unset ( $update ['wz_SPRACHEN'] );
 		
@@ -1256,7 +1253,7 @@ class fe_user {
 		// jetzt in xr_img2 werfen - sollte dann korrekte s_media_w und _h setzen
 		
 		// rotate if neccessary
-		// xredaktor_storage::rotate_if_necessary($image_s_id);
+		xredaktor_storage::rotate_if_necessary($image_s_id);
 		
 		if (libx::isDeveloper ()) {
 			// kamerabild
@@ -1295,6 +1292,16 @@ class fe_user {
 				'refid' => $refid 
 		) );
 		
+		// TODO debug
+// 		if (libx::isDeveloper ()) {
+			// echo '<pre>';
+			// print_r($img);
+			// echo '</pre>';
+			// echo '<pre>';
+			// var_dump($_SESSION['image']);
+			// echo '</pre>';
+// 		}
+		
 		frontcontrollerx::json_success ( array (
 				'data' => array (
 						'html' => $html 
@@ -1320,7 +1327,7 @@ class fe_user {
 			return false;
 		if ($userId == 0)
 			return false;
-		
+
 		switch ($type) {
 			case 'other' :
 			case 'profile' :
@@ -1405,6 +1412,7 @@ class fe_user {
 				'wz_TYPE' => $type 
 		);
 		
+		die( 'die before insert in table 720' );
 		dbx::insert ( "wizard_auto_720", $db );
 		
 		if ($type == 'profile') {
@@ -1417,21 +1425,44 @@ class fe_user {
 		
 		frontcontrollerx::json_success ();
 	}
+	
+//////////////////	
+	
+// 	public static function croppingImage($src) {
+		
+// 		$targ_w = $targ_h = 345;
+// 		$jpeg_quality = 90;
+		
+// 		$src = 'demo_files/flowers.jpg';
+
+// 		$img_r = imagecreatefromjpeg($src);
+// 		$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
+		
+// 		imagecopyresampled($dst_r,$img_r,0,0,$_POST['x'],$_POST['y'],
+// 				$targ_w,$targ_h,$_POST['w'],$_POST['h']);
+		
+// 		header('Content-type: image/jpeg');
+// 		imagejpeg($dst_r, null, $jpeg_quality);
+
+// 	}
+	
+//////////////////
+	
+	
 	public static function ajax_cropImageAndSaveNew() {
 		$crop = array ();
 		$crop = $_REQUEST;
+
 		unset ( $crop ['url'] );
 		
-		/*
-		 * if (!isset($_REQUEST['type']))
-		 * {
-		 * $type = "other";
-		 * }
-		 * else
-		 * {
-		 * $type = $_REQUEST['type'];
-		 * }
-		 */
+		// if (!isset($_REQUEST['type']))
+		// {
+		// $type = "other";
+		// }
+		// else
+		// {
+		// $type = $_REQUEST['type'];
+		// }
 		
 		// profil upload - per p_id catchen, pfeif auf den type
 		if (intval ( $crop ['p_id'] ) == 42 || intval ( $crop ['p_id'] ) == 7) {
@@ -1442,6 +1473,7 @@ class fe_user {
 		
 		$refid = intval ( $_REQUEST ['refid'] );
 		$s_id = intval ( $crop ['s_id'] );
+
 		
 		// SMOOTHZOOM
 		if ($crop ['uploader'] == 'smoothZoom') {
@@ -1467,8 +1499,8 @@ class fe_user {
 			);
 			
 			if ($crop ['devicepixelratio'] > 1) {
-				// $cropdata['w'] = ($crop['selectionWidth'] / $crop['ratio']) * $crop['devicepixelratio'];
-				// $cropdata['h'] = ($crop['selectionHeight'] / $crop['ratio']) * $crop['devicepixelratio'];
+// 				$cropdata['w'] = ($crop['selectionWidth'] / $crop['ratio']) * $crop['devicepixelratio'];
+// 				$cropdata['h'] = ($crop['selectionHeight'] / $crop['ratio']) * $crop['devicepixelratio'];
 			}
 			/*
 			 * // mobiles gerät - canvas ist verzogen wegen zoom - also wieder wegrechnen
@@ -1489,23 +1521,23 @@ class fe_user {
 			 * }
 			 *
 			 */
-			
-			$params = array (
-					's_id' => $s_id,
-					'w' => intval ( $cropdata ['w'] ),
-					'h' => intval ( $cropdata ['h'] ),
-					'ext' => 'jpg',
-					'fullpath' => 'Y',
-					'rmode' => 'vcut',
-					'crop' => json_encode ( array (
-							'x' => intval ( $cropdata ['x'] ),
-							'y' => intval ( $cropdata ['y'] ),
-							'w' => intval ( $cropdata ['w'] ),
-							'h' => intval ( $cropdata ['h'] ) 
-					) ) 
-			);
-		} 		// JCROP
-		else {
+				$params = array (
+						's_id' => $s_id,
+						'w' => intval ( $cropdata ['w'] ),
+						'h' => intval ( $cropdata ['h'] ),
+						'ext' => 'jpg',
+						'fullpath' => 'Y',
+						'rmode' => 'vcut',
+						'crop' => json_encode ( array (
+								'x' => intval ( $cropdata ['x'] ),
+								'y' => intval ( $cropdata ['y'] ),
+								'w' => intval ( $cropdata ['w'] ),
+								'h' => intval ( $cropdata ['h'] ) 
+						) ) 
+				);
+		}
+		else
+		{
 			$cropdata = array (
 					'x' => $_REQUEST ['x1'],
 					'y' => $_REQUEST ['y1'],
@@ -1532,21 +1564,25 @@ class fe_user {
 			);
 		}
 		
-		$filename = '/srv/gitgo_daten/www/wsfdev.xgodev.com/web/xstorage/upload_out_debug.txt';
+		$filename = '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xstorage/upload_out_debug.txt';
 		file_put_contents ( $filename, "\n\n " . date ( 'Y-m-d H:i:s' ) . $_SERVER ['HTTP_USER_AGENT'] . "\n" . print_r ( array (
 				'cropdata' => $cropdata,
 				'crop' => $crop,
 				'params' => $params 
 		), true ) . "\n", FILE_APPEND );
 		
+		
+//TODO del debug cropImage
+// 		$debug = true;
 		if ($debug) {
 			print_r ( compact ( 'crop', 'cropdata', 'params' ) );
 			die ( 'x' );
+	
 		}
 		
 		// (eventuell gecropptes) image erzeugen
 		
-		$maybeCroppedImg = xredaktor_storage::xr_img3 ( $params );
+		$maybeCroppedImg = xredaktor_storage::xr_img3( $params );
 		
 		// jetzt originalfilenamen mit _auto_cropped_x0_y0_w300_h300 angehängt
 		$srcFile = xredaktor_storage::getFileDstById ( $s_id );
@@ -2945,9 +2981,9 @@ class fe_user {
 				'app_id' => '1101804963210825',
 				'app_secret' => 'f4a787724a05eec3be2be8404b53e09b',
 				'default_graph_version' => 'v2.6' 
-		]
+		] );
 		// 'default_access_token' => '{access-token}', // optional
-		 );
+		
 		
 		/*
 		 * try {

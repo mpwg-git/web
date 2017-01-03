@@ -2591,8 +2591,6 @@ class xredaktor_storage
 		$colorspace = $params['colorspace'];
 		$cacheDir 	= xredaktor_storage::getDirOfStorageScopeCache(xredaktor_storage::getByIdStorageScope($s_id));
 
-
-
 		$onDisk 	= imagesx::smartResizer($fileOnDisk,$w,$h,$rmode,$cacheDir,false,true,false,$type,$file_name.'_'.$s_id,$q,$colorspace,$crop,$isAnimatedGif);
 
 		if(trim($fullpath)=='Y')
@@ -3158,11 +3156,6 @@ class xredaktor_storage
 		// Now that it's auto-rotated, make sure the EXIF data is correct in case the EXIF gets saved with the image!
 		$image->setImageOrientation(imagick::ORIENTATION_TOPLEFT);
 		// todo: try / catch for setImageOrientation
-
-
-
-
-
 
 		$image->writeImage($fileOnSrv);
 		// todo: try / catch for writeImage

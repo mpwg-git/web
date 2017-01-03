@@ -19743,3 +19743,1673 @@ Array
 
 )
 
+
+
+ 2017-01-03 11:12:11Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 0
+            [y] => 0
+            [w] => 403
+            [h] => 438
+            [s_id] => 27434
+        )
+
+    [crop] => Array
+        (
+            [normX] => 0
+            [normY] => 0
+            [normWidth] => 307
+            [normHeight] => 246
+            [scaledX] => 0
+            [scaledY] => 0
+            [scaledWidth] => 973.413892192569
+            [scaledHeight] => 779.9994054702671
+            [centerX] => 87.046153846154
+            [centerY] => 94.615384615385
+            [ratio] => 3.1707317073171
+            [s_id] => 27434
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 4.169381107491857
+            [origRatioY] => 4.162601626016261
+            [ratiox2] => 1.3149596592636048
+            [ratioy2] => 1.3128215134761843
+            [selRatio] => 0.92
+            [trueX] => 0
+            [trueY] => 0
+            [trueCropW] => 403.6923076923077
+            [trueCropH] => 438.79598662207354
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27434
+            [w] => 403
+            [h] => 438
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":0,"w":403,"h":438}
+        )
+
+)
+
+
+
+ 2017-01-03 11:12:53Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 145
+            [y] => 311
+            [w] => 310
+            [h] => 337
+            [s_id] => 27436
+        )
+
+    [crop] => Array
+        (
+            [normX] => 34.893539519
+            [normY] => 74.851746508356
+            [normWidth] => 307
+            [normHeight] => 246
+            [scaledX] => 143.8294677734375
+            [scaledY] => 308.5352478027344
+            [scaledWidth] => 1265.4388684707308
+            [scaledHeight] => 1013.999875061237
+            [centerX] => 101.85211940066
+            [centerY] => 147.63281159711
+            [ratio] => 4.1219512195122
+            [s_id] => 27436
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 4.169381107491857
+            [origRatioY] => 4.162601626016261
+            [ratiox2] => 1.0115067838455651
+            [ratioy2] => 1.0098620573677675
+            [selRatio] => 0.92
+            [trueX] => 145.48446444403754
+            [trueY] => 311.5780017258383
+            [trueCropW] => 310.5325443786982
+            [trueCropH] => 337.535374324672
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27436
+            [w] => 310
+            [h] => 337
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":145,"y":311,"w":310,"h":337}
+        )
+
+)
+
+
+
+ 2017-01-03 11:13:27Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 
+        )
+
+    [crop] => Array
+        (
+        )
+
+    [params] => Array
+        (
+            [s_id] => 0
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":null,"y":null,"w":null,"h":null}
+        )
+
+)
+
+
+
+ 2017-01-03 11:33:14Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 200
+            [y] => 112
+            [w] => 238
+            [h] => 259
+            [s_id] => 27438
+        )
+
+    [crop] => Array
+        (
+            [normX] => 48.130678880958
+            [normY] => 26.982998750293
+            [normWidth] => 307
+            [normHeight] => 246
+            [scaledX] => 257.9100036621094
+            [scaledY] => 144.58938598632812
+            [scaledWidth] => 1645.0633053992124
+            [scaledHeight] => 1318.1940492775448
+            [centerX] => 99.637278789925
+            [centerY] => 82.968433433953
+            [ratio] => 5.3585365853659
+            [s_id] => 27438
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 4.169381107491857
+            [origRatioY] => 4.162601626016261
+            [ratiox2] => 0.7780855580444539
+            [ratioy2] => 0.776820378275276
+            [selRatio] => 0.92
+            [trueX] => 200.67514321702373
+            [trueY] => 112.3194744727659
+            [trueCropW] => 238.871187983614
+            [trueCropH] => 259.64259563436303
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27438
+            [w] => 238
+            [h] => 259
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":200,"y":112,"w":238,"h":259}
+        )
+
+)
+
+
+
+ 2017-01-03 11:35:33Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 64
+            [y] => 39
+            [w] => 64
+            [h] => 70
+            [s_id] => 27440
+        )
+
+    [crop] => Array
+        (
+            [normX] => 64.175711908284
+            [normY] => 39.078363843688
+            [normWidth] => 256
+            [normHeight] => 256
+            [scaledX] => 254.19598388671875
+            [scaledY] => 154.78695678710938
+            [scaledWidth] => 1013.9978416754666
+            [scaledHeight] => 1013.9978416754666
+            [centerX] => 133.85618528107
+            [centerY] => 114.8180088141
+            [ratio] => 3.9609375
+            [s_id] => 27440
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 256
+            [origH] => 256
+            [origRatioX] => 1
+            [origRatioY] => 1
+            [ratiox2] => 0.2524660206149962
+            [ratioy2] => 0.2524660206149962
+            [selRatio] => 0.92
+            [trueX] => 64.17571190828403
+            [trueY] => 39.07836384368836
+            [trueCropW] => 64.63116370808679
+            [trueCropH] => 70.25126490009433
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27440
+            [w] => 64
+            [h] => 70
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":64,"y":39,"w":64,"h":70}
+        )
+
+)
+
+
+
+ 2017-01-03 11:40:09Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 149
+            [y] => 120
+            [w] => 32
+            [h] => 34
+            [s_id] => 27443
+        )
+
+    [crop] => Array
+        (
+            [normX] => 149.43200683594
+            [normY] => 120.18170166016
+            [normWidth] => 256
+            [normHeight] => 256
+            [scaledX] => 1195.4560546875
+            [scaledY] => 961.45361328125
+            [scaledWidth] => 2048
+            [scaledHeight] => 2048
+            [centerX] => 183.93200683594
+            [centerY] => 157.68170166016
+            [ratio] => 8
+            [s_id] => 27443
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 256
+            [origH] => 256
+            [origRatioX] => 1
+            [origRatioY] => 1
+            [ratiox2] => 0.125
+            [ratioy2] => 0.125
+            [selRatio] => 0.92
+            [trueX] => 149.4320068359375
+            [trueY] => 120.18170166015625
+            [trueCropW] => 32
+            [trueCropH] => 34.78260869565217
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27443
+            [w] => 32
+            [h] => 34
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":149,"y":120,"w":32,"h":34}
+        )
+
+)
+
+
+
+ 2017-01-03 13:59:08Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 0
+            [y] => 0
+            [x2] => 
+            [y2] => 
+            [w] => 200
+            [h] => 200
+            [s_id] => 27489
+        )
+
+    [crop] => Array
+        (
+            [normX] => 70.82000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 98.13394919168593
+            [scaledY] => 0
+            [scaledWidth] => 748.2678983833719
+            [scaledHeight] => 600
+            [centerX] => 270
+            [centerY] => 216.5
+            [ratio] => 1.3856812933025404
+            [s_id] => 27489
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.7106172839506173
+            [ratioy2] => 1.7066666666666668
+            [selRatio] => 0.92
+            [trueX] => 167.86962962962963
+            [trueY] => 0
+            [trueCropW] => 923.7333333333333
+            [trueCropH] => 1004.0579710144928
+            [x1] => 0
+            [y1] => 0
+            [w] => 200
+            [h] => 200
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27489
+            [w] => 200
+            [h] => 200
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":"0","y":"0","w":"200","h":"200"}
+        )
+
+)
+
+
+
+ 2017-01-03 13:59:35Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 0
+            [y] => 0
+            [x2] => 
+            [y2] => 
+            [w] => 200
+            [h] => 200
+            [s_id] => 27491
+        )
+
+    [crop] => Array
+        (
+            [normX] => 70.82000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 98.13394919168593
+            [scaledY] => 0
+            [scaledWidth] => 748.2678983833719
+            [scaledHeight] => 600
+            [centerX] => 270
+            [centerY] => 216.5
+            [ratio] => 1.3856812933025404
+            [s_id] => 27491
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.7106172839506173
+            [ratioy2] => 1.7066666666666668
+            [selRatio] => 0.92
+            [trueX] => 167.86962962962963
+            [trueY] => 0
+            [trueCropW] => 923.7333333333333
+            [trueCropH] => 1004.0579710144928
+            [x1] => 0
+            [y1] => 0
+            [w] => 200
+            [h] => 200
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27491
+            [w] => 200
+            [h] => 200
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":"0","y":"0","w":"200","h":"200"}
+        )
+
+)
+
+
+
+ 2017-01-03 14:03:19Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 277
+            [y] => 22
+            [x2] => 
+            [y2] => 
+            [w] => 234
+            [h] => 234
+            [s_id] => 27493
+        )
+
+    [crop] => Array
+        (
+            [normX] => 156.75384615384615
+            [normY] => 98.42423076923083
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 282.37413394919173
+            [scaledY] => 177.30000000000013
+            [scaledWidth] => 972.7482678983835
+            [scaledHeight] => 780.0000000000001
+            [centerX] => 309.96923076923076
+            [centerY] => 264.96269230769235
+            [ratio] => 1.8013856812933027
+            [s_id] => 27493
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.3158594491927824
+            [ratioy2] => 1.3128205128205126
+            [selRatio] => 0.92
+            [trueX] => 371.56467236467233
+            [trueY] => 232.76307692307708
+            [trueCropW] => 710.5641025641025
+            [trueCropH] => 772.3522853957636
+            [x1] => 277
+            [y1] => 22
+            [w] => 234
+            [h] => 234
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27493
+            [w] => 234
+            [h] => 234
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":"277","y":"22","w":"234","h":"234"}
+        )
+
+)
+
+
+
+ 2017-01-03 14:06:14Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 27496
+        )
+
+    [crop] => Array
+        (
+            [normX] => 70.82000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 98.13394919168593
+            [scaledY] => 0
+            [scaledWidth] => 748.2678983833719
+            [scaledHeight] => 600
+            [centerX] => 270
+            [centerY] => 216.5
+            [ratio] => 1.3856812933025404
+            [s_id] => 27496
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.7106172839506173
+            [ratioy2] => 1.7066666666666668
+            [selRatio] => 0.92
+            [trueX] => 167.86962962962963
+            [trueY] => 0
+            [trueCropW] => 923.7333333333333
+            [trueCropH] => 1004.0579710144928
+            [x1] => 
+            [y1] => 
+            [w] => 
+            [h] => 
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27496
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":"","y":"","w":"","h":""}
+        )
+
+)
+
+
+
+ 2017-01-03 14:12:23Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 27500
+        )
+
+    [crop] => Array
+        (
+            [normX] => 70.82000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 98.13394919168593
+            [scaledY] => 0
+            [scaledWidth] => 748.2678983833719
+            [scaledHeight] => 600
+            [centerX] => 270
+            [centerY] => 216.5
+            [ratio] => 1.3856812933025404
+            [s_id] => 27500
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.7106172839506173
+            [ratioy2] => 1.7066666666666668
+            [selRatio] => 0.92
+            [trueX] => 167.86962962962963
+            [trueY] => 0
+            [trueCropW] => 923.7333333333333
+            [trueCropH] => 1004.0579710144928
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27500
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":null,"y":null,"w":null,"h":null}
+        )
+
+)
+
+
+
+ 2017-01-03 14:18:26Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 27504
+        )
+
+    [crop] => Array
+        (
+            [normX] => 55.50000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 556
+            [normHeight] => 445
+            [scaledX] => 70.84044943820226
+            [scaledY] => 0
+            [scaledWidth] => 709.6808988764045
+            [scaledHeight] => 568
+            [centerX] => 278
+            [centerY] => 222.5
+            [ratio] => 1.2764044943820225
+            [s_id] => 27504
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 600
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.302158273381295
+            [origRatioY] => 2.301123595505618
+            [ratiox2] => 1.8036275205187962
+            [ratioy2] => 1.8028169014084507
+            [selRatio] => 1
+            [trueX] => 127.76978417266189
+            [trueY] => 0
+            [trueCropW] => 1002.8169014084507
+            [trueCropH] => 1002.8169014084507
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27504
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":null,"y":null,"w":null,"h":null}
+        )
+
+)
+
+
+
+ 2017-01-03 14:19:11Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 27506
+        )
+
+    [crop] => Array
+        (
+            [normX] => 55.50000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 556
+            [normHeight] => 445
+            [scaledX] => 70.84044943820226
+            [scaledY] => 0
+            [scaledWidth] => 709.6808988764045
+            [scaledHeight] => 568
+            [centerX] => 278
+            [centerY] => 222.5
+            [ratio] => 1.2764044943820225
+            [s_id] => 27506
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 600
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.302158273381295
+            [origRatioY] => 2.301123595505618
+            [ratiox2] => 1.8036275205187962
+            [ratioy2] => 1.8028169014084507
+            [selRatio] => 1
+            [trueX] => 127.76978417266189
+            [trueY] => 0
+            [trueCropW] => 1002.8169014084507
+            [trueCropH] => 1002.8169014084507
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27506
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":null,"y":null,"w":null,"h":null}
+        )
+
+)
+
+
+
+ 2017-01-03 14:20:58Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 27508
+        )
+
+    [crop] => Array
+        (
+            [normX] => 55.50000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 556
+            [normHeight] => 445
+            [scaledX] => 70.84044943820226
+            [scaledY] => 0
+            [scaledWidth] => 709.6808988764045
+            [scaledHeight] => 568
+            [centerX] => 278
+            [centerY] => 222.5
+            [ratio] => 1.2764044943820225
+            [s_id] => 27508
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 600
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.302158273381295
+            [origRatioY] => 2.301123595505618
+            [ratiox2] => 1.8036275205187962
+            [ratioy2] => 1.8028169014084507
+            [selRatio] => 1
+            [trueX] => 127.76978417266189
+            [trueY] => 0
+            [trueCropW] => 1002.8169014084507
+            [trueCropH] => 1002.8169014084507
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27508
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":null,"y":null,"w":null,"h":null}
+        )
+
+)
+
+
+
+ 2017-01-03 14:27:26Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 
+            [y] => 
+            [x2] => 
+            [y2] => 
+            [w] => 
+            [h] => 
+            [s_id] => 27512
+        )
+
+    [crop] => Array
+        (
+            [normX] => 55.50000000000001
+            [normY] => 0.00000000000000
+            [normWidth] => 556
+            [normHeight] => 445
+            [scaledX] => 70.84044943820226
+            [scaledY] => 0
+            [scaledWidth] => 709.6808988764045
+            [scaledHeight] => 568
+            [centerX] => 278
+            [centerY] => 222.5
+            [ratio] => 1.2764044943820225
+            [s_id] => 27512
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 600
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.302158273381295
+            [origRatioY] => 2.301123595505618
+            [ratiox2] => 1.8036275205187962
+            [ratioy2] => 1.8028169014084507
+            [selRatio] => 1
+            [trueX] => 127.76978417266189
+            [trueY] => 0
+            [trueCropW] => 1002.8169014084507
+            [trueCropH] => 1002.8169014084507
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27512
+            [w] => 0
+            [h] => 0
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":null,"y":null,"w":null,"h":null}
+        )
+
+)
+
+
+
+ 2017-01-03 14:28:34Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 127
+            [y] => 0
+            [w] => 1002
+            [h] => 1002
+            [s_id] => 27513
+        )
+
+    [crop] => Array
+        (
+            [normX] => 55.5
+            [normY] => 0
+            [normWidth] => 556
+            [normHeight] => 445
+            [scaledX] => 70.84044943820226
+            [scaledY] => 0
+            [scaledWidth] => 709.6808988764045
+            [scaledHeight] => 568
+            [centerX] => 278
+            [centerY] => 222.5
+            [ratio] => 1.276404494382
+            [s_id] => 27513
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 600
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.302158273381295
+            [origRatioY] => 2.301123595505618
+            [ratiox2] => 1.8036275205187962
+            [ratioy2] => 1.8028169014084507
+            [selRatio] => 1
+            [trueX] => 127.76978417266189
+            [trueY] => 0
+            [trueCropW] => 1002.8169014084507
+            [trueCropH] => 1002.8169014084507
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27513
+            [w] => 1002
+            [h] => 1002
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":127,"y":0,"w":1002,"h":1002}
+        )
+
+)
+
+
+
+ 2017-01-03 15:05:56Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 644
+            [y] => 0
+            [w] => 546
+            [h] => 594
+            [s_id] => 27526
+        )
+
+    [crop] => Array
+        (
+            [normX] => 271.68778465015
+            [normY] => 0
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 636.2388305664062
+            [scaledY] => 0
+            [scaledWidth] => 1264.571784388285
+            [scaledHeight] => 1013.9992271113471
+            [centerX] => 389.54577281583
+            [centerY] => 128.10650887574
+            [ratio] => 2.3418013856813
+            [s_id] => 27526
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.0122003478190666
+            [ratioy2] => 1.0098627026739881
+            [selRatio] => 0.92
+            [trueX] => 644.0006747262858
+            [trueY] => 0
+            [trueCropW] => 546.5877712031559
+            [trueCropH] => 594.1171426121259
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27526
+            [w] => 546
+            [h] => 594
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":644,"y":0,"w":546,"h":594}
+        )
+
+)
+
+
+
+ 2017-01-03 15:07:08Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 604
+            [y] => 0
+            [w] => 546
+            [h] => 594
+            [s_id] => 27527
+        )
+
+    [crop] => Array
+        (
+            [normX] => 254.88509078468
+            [normY] => 0
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 596.8902587890625
+            [scaledY] => 0
+            [scaledWidth] => 1264.555133493567
+            [scaledHeight] => 1013.9858755605824
+            [centerX] => 372.74307895036
+            [centerY] => 128.10650887574
+            [ratio] => 2.3418013856813
+            [s_id] => 27527
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.0122136758590856
+            [ratioy2] => 1.009875999933314
+            [selRatio] => 0.92
+            [trueX] => 604.172067045164
+            [trueY] => 0
+            [trueCropW] => 546.5877712031559
+            [trueCropH] => 594.1171426121259
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27527
+            [w] => 546
+            [h] => 594
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":604,"y":0,"w":546,"h":594}
+        )
+
+)
+
+
+
+ 2017-01-03 15:07:36Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 660
+            [y] => 31
+            [w] => 420
+            [h] => 457
+            [s_id] => 27528
+        )
+
+    [crop] => Array
+        (
+            [normX] => 278.66824571867
+            [normY] => 13.13912911546
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 848.3613891601562
+            [scaledY] => 40
+            [scaledWidth] => 1643.9445722549688
+            [scaledHeight] => 1318.1999996044472
+            [centerX] => 369.32823661534
+            [centerY] => 111.68259748141
+            [ratio] => 3.0443418013857
+            [s_id] => 27528
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 0.7786150589275935
+            [ratioy2] => 0.7768168717245275
+            [selRatio] => 0.92
+            [trueX] => 660.5469528146194
+            [trueY] => 31.072674859657116
+            [trueCropW] => 420.4521316947352
+            [trueCropH] => 457.01318662471215
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27528
+            [w] => 420
+            [h] => 457
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":660,"y":31,"w":420,"h":457}
+        )
+
+)
+
+
+
+ 2017-01-03 15:08:17Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 641
+            [y] => 298
+            [w] => 546
+            [h] => 594
+            [s_id] => 27530
+        )
+
+    [crop] => Array
+        (
+            [normX] => 270.71287253717
+            [normY] => 126.18960264308
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 633.9557800292969
+            [scaledY] => 295.510986328125
+            [scaledWidth] => 1264.5677620966394
+            [scaledHeight] => 1013.9960018293423
+            [centerX] => 388.57086070285
+            [centerY] => 254.29611151881
+            [ratio] => 2.3418013856813
+            [s_id] => 27530
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.0122035673895198
+            [ratioy2] => 1.0098659148089437
+            [selRatio] => 0.92
+            [trueX] => 641.6897719399473
+            [trueY] => 298.42529585798815
+            [trueCropW] => 546.5877712031559
+            [trueCropH] => 594.1171426121259
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27530
+            [w] => 546
+            [h] => 594
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":641,"y":298,"w":546,"h":594}
+        )
+
+)
+
+
+
+ 2017-01-03 15:08:28Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 518
+            [y] => 138
+            [w] => 314
+            [h] => 341
+            [s_id] => 27532
+        )
+
+    [crop] => Array
+        (
+            [normX] => 273.58863632626
+            [normY] => 73.180473268602
+            [normWidth] => 540
+            [normHeight] => 405
+            [scaledX] => 890.4803466796875
+            [scaledY] => 238.1888885498047
+            [scaledWidth] => 1757.6000008959
+            [scaledHeight] => 1318.200000671925
+            [centerX] => 358.3860873959
+            [centerY] => 165.3516157356
+            [ratio] => 3.2548148148148
+            [s_id] => 27532
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1024
+            [origH] => 768
+            [origRatioX] => 1.8962962962962964
+            [origRatioY] => 1.8962962962962964
+            [ratiox2] => 0.5826126533215962
+            [ratioy2] => 0.5826126533215962
+            [selRatio] => 0.92
+            [trueX] => 518.8051177742377
+            [trueY] => 138.77186042045975
+            [trueCropW] => 314.61083295402824
+            [trueCropH] => 341.9682966891611
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27532
+            [w] => 314
+            [h] => 341
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":518,"y":138,"w":314,"h":341}
+        )
+
+)
+
+
+
+ 2017-01-03 15:10:20Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 181
+            [y] => 273
+            [w] => 546
+            [h] => 594
+            [s_id] => 27534
+        )
+
+    [crop] => Array
+        (
+            [normX] => 76.526489378197
+            [normY] => 115.50134132882
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 179.2098388671875
+            [scaledY] => 270.481201171875
+            [scaledWidth] => 1264.5520777747865
+            [scaledHeight] => 1013.9834253268195
+            [centerX] => 194.38447754388
+            [centerY] => 243.60785020456
+            [ratio] => 2.3418013856813
+            [s_id] => 27534
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.0122161218163486
+            [ratioy2] => 1.009878440241715
+            [selRatio] => 0.92
+            [trueX] => 181.39612297054202
+            [trueY] => 273.14866863905326
+            [trueCropW] => 546.5877712031559
+            [trueCropH] => 594.1171426121259
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27534
+            [w] => 546
+            [h] => 594
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":181,"y":273,"w":546,"h":594}
+        )
+
+)
+
+
+
+ 2017-01-03 16:13:45Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 611
+            [y] => 387
+            [w] => 524
+            [h] => 570
+            [s_id] => 27536
+        )
+
+    [crop] => Array
+        (
+            [normX] => 187.53032088768
+            [normY] => 118.74898918336
+            [normWidth] => 540
+            [normHeight] => 393
+            [scaledX] => 629.013916015625
+            [scaledY] => 398.30767822265625
+            [scaledWidth] => 1811.3982930346658
+            [scaledHeight] => 1318.295424375229
+            [centerX] => 269.81525488859
+            [centerY] => 208.18913483652
+            [ratio] => 3.3541984732824
+            [s_id] => 27536
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1760
+            [origH] => 1282
+            [origRatioX] => 3.259259259259259
+            [origRatioY] => 3.262086513994911
+            [ratiox2] => 0.9716250737166383
+            [ratioy2] => 0.9724679129547686
+            [selRatio] => 0.92
+            [trueX] => 611.2099347450329
+            [trueY] => 387.36947616556296
+            [trueCropW] => 524.715521165225
+            [trueCropH] => 570.342957788288
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27536
+            [w] => 524
+            [h] => 570
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":611,"y":387,"w":524,"h":570}
+        )
+
+)
+
+
+
+ 2017-01-03 16:13:58Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 517
+            [y] => 396
+            [w] => 524
+            [h] => 570
+            [s_id] => 27538
+        )
+
+    [crop] => Array
+        (
+            [normX] => 158.68934947358
+            [normY] => 121.52124792975
+            [normWidth] => 540
+            [normHeight] => 393
+            [scaledX] => 532.2755737304688
+            [scaledY] => 407.60638427734375
+            [scaledWidth] => 1811.267150903597
+            [scaledHeight] => 1318.1999820465066
+            [centerX] => 240.97428347449
+            [centerY] => 210.96139358291
+            [ratio] => 3.3541984732824
+            [s_id] => 27538
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1760
+            [origH] => 1282
+            [origRatioX] => 3.259259259259259
+            [origRatioY] => 3.262086513994911
+            [ratiox2] => 0.9716954227994357
+            [ratioy2] => 0.9725383230621001
+            [selRatio] => 0.92
+            [trueX] => 517.2097316175965
+            [trueY] => 396.4128240354685
+            [trueCropW] => 524.7155211652251
+            [trueCropH] => 570.3429577882881
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27538
+            [w] => 524
+            [h] => 570
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":517,"y":396,"w":524,"h":570}
+        )
+
+)
+
+
+
+ 2017-01-03 16:24:09Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 600
+            [y] => 56
+            [w] => 546
+            [h] => 594
+            [s_id] => 27542
+        )
+
+    [crop] => Array
+        (
+            [normX] => 253.37690978643
+            [normY] => 23.979389800123
+            [normWidth] => 540
+            [normHeight] => 433
+            [scaledX] => 593.3583984375
+            [scaledY] => 56.15496826171875
+            [scaledWidth] => 1264.5682023774434
+            [scaledHeight] => 1013.9963548693204
+            [centerX] => 371.23489795211
+            [centerY] => 152.08589867586
+            [ratio] => 2.3418013856813
+            [s_id] => 27542
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 1024
+            [origRatioX] => 2.3703703703703702
+            [origRatioY] => 2.3648960739030023
+            [ratiox2] => 1.012203214973731
+            [ratioy2] => 1.0098655632070481
+            [selRatio] => 0.92
+            [trueX] => 600.5971194937541
+            [trueY] => 56.7087647928994
+            [trueCropW] => 546.5877712031559
+            [trueCropH] => 594.1171426121259
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27542
+            [w] => 546
+            [h] => 594
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":600,"y":56,"w":546,"h":594}
+        )
+
+)
+
+
+
+ 2017-01-03 16:24:28Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 76
+            [y] => 0
+            [w] => 297
+            [h] => 323
+            [s_id] => 27544
+        )
+
+    [crop] => Array
+        (
+            [normX] => 40.275980191642
+            [normY] => 0
+            [normWidth] => 540
+            [normHeight] => 383
+            [scaledX] => 138.62088012695312
+            [scaledY] => 0
+            [scaledWidth] => 1858.5587424709768
+            [scaledHeight] => 1318.1999969747853
+            [centerX] => 120.46714996861
+            [centerY] => 87.164314974966
+            [ratio] => 3.4417754569191
+            [s_id] => 27544
+            [p_id] => 7
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1024
+            [origH] => 726
+            [origRatioX] => 1.8962962962962964
+            [origRatioY] => 1.8955613577023498
+            [ratiox2] => 0.5509645601185461
+            [ratioy2] => 0.5507510253877561
+            [selRatio] => 0.92
+            [trueX] => 76.37519206711454
+            [trueY] => 0
+            [trueCropW] => 297.5208617812168
+            [trueCropH] => 323.39224106654
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27544
+            [w] => 297
+            [h] => 323
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":76,"y":0,"w":297,"h":323}
+        )
+
+)
+
+
+
+ 2017-01-03 16:37:54Mozilla/5.0 (iPhone; CPU iPhone OS 10_1_1 like Mac OS X) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0 Mobile/14B100 Safari/602.1
+Array
+(
+    [cropdata] => Array
+        (
+            [x] => 469
+            [y] => 623
+            [w] => 449
+            [h] => 488
+            [s_id] => 27546
+        )
+
+    [crop] => Array
+        (
+            [normX] => 92.8191901914
+            [normY] => 218.78160494905
+            [normWidth] => 253
+            [normHeight] => 337
+            [scaledX] => 264.56146240234375
+            [scaledY] => 623.5906737895257
+            [scaledWidth] => 721.1229687499999
+            [scaledHeight] => 960.5471955286561
+            [centerX] => 147.19965191484
+            [centerY] => 277.89080247453
+            [ratio] => 2.8502884140316
+            [s_id] => 27546
+            [p_id] => 42
+            [lang] => de
+            [refid] => 0
+            [type] => profile
+            [selectionWidth] => 552
+            [selectionHeight] => 600
+            [uploader] => smoothZoom
+            [origW] => 1280
+            [origH] => 960
+            [origRatioX] => 5.059288537549407
+            [origRatioY] => 2.8486646884273
+            [ratiox2] => 1.7750093333162884
+            [ratioy2] => 0.9994303293672573
+            [selRatio] => 0.92
+            [trueX] => 469.59906499996646
+            [trueY] => 623.2354324958155
+            [trueCropW] => 449.0773613290209
+            [trueCropH] => 488.12756666197924
+            [devicepixelratio] => 0
+        )
+
+    [params] => Array
+        (
+            [s_id] => 27546
+            [w] => 449
+            [h] => 488
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":469,"y":623,"w":449,"h":488}
+        )
+
+)
+
