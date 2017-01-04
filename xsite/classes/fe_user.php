@@ -256,7 +256,28 @@ class fe_user
 
 		return 1;
 	}
+	
+	
 
+	// WEB-271
+	public static function ajax_changePwd()
+	{
+		$pwdForm = array();
+		$pwdForm = dbx::escape($_REQUEST);
+	
+		unset($pwdForm['url']);
+	
+		$uid = intval(xredaktor_feUser::getUserId());
+	
+		$pwdAlt 	= dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort");
+		$pwdAltForm = md5($pwdForm['v2_PASSWORT']);
+	
+		
+		print_r($pwdForm);
+	
+		die("x");
+	}
+	
 
 	public static function afterRegistration()
 	{
@@ -1234,23 +1255,23 @@ class fe_user
 			}
 		}
 		*/
-		
+
 		//		update room ??
 		$updateRoom = array();
-		
+
 		if(isset($_REQUEST['room'])) {
-			
+
 			parse_str($_REQUEST['room'], $meinRaum);
-			
+
 			$roomId = $meinRaum['id'];
 
 			foreach($meinRaum as $k => $v)
 			{
 				$updateRoom['wz_'.$k] = $meinRaum[$k];
 			}
-			
+
 			unset($updateRoom['wz_id']);
-			
+
 // 			print_r($roomId);
 // 			print_r($updateRoom);
 // 			die("-+-+-+-");
@@ -3188,6 +3209,7 @@ class fe_user
 		//return $response->getDecodedBody();
 		return $imgResponse->getDecodedBody();
 	}
+
 
 	/*************************************** OLD
 

@@ -270,12 +270,12 @@ var fe_user = (function() {
             $('.form-mein-raum').submit(function(e) {
                 e.preventDefault();
                 var ok = fe_core.jsFormValidation('form-mein-raum');
-                
+
                 if (typeof ok != "undefined" && ok == true) {
                     $('.ajax-loader').show();
                     var data = {};
-                    data.room = $('.form-mein-raum').serialize();                  
-                    
+                    data.room = $('.form-mein-raum').serialize();
+
                     if(fe_core.getCurrentFace() == 3) {
                     	data.ueberMich = $('.form-mein-user').serialize();
                 	}
@@ -330,13 +330,13 @@ var fe_user = (function() {
                 // hiddenRoomId != false oder leer type == biete
                 if(fe_core.getCurrentFace() == 3) {
                     var checkType = $('#hiddenRoomId').val();
-                    
+
                 	if(checkType != false || checkType != '') {
 //                		console.log("type biete");
                 		data.room = $('.form-mein-raum').serialize();
                 	}
                 }
-                
+
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/profileSave',
@@ -404,6 +404,45 @@ var fe_user = (function() {
                     }
                 });
             });
+
+            // WEB-271
+            
+            $('input#v2_PASSWORT_confirm').bind('input propertychange', function() {
+            	
+            });
+            
+            $('#changePwd-btn').unbind('click');
+            $('#changePwd-btn').bind('click', function(e) {
+            	e.preventDefault();
+
+            	var pwd_alt 		= $.md5($('#v2_PASSWORT').val());
+            	var pwd_neu 		= $.md5($('#v2_PASSWORT_neu').val());
+            	var pwd_neuConfirm 	= $.md5($('#v2_PASSWORT_confirm').val());
+
+            	var pwdform = {
+            		pwd_alt: pwd_alt,
+            		pwd_neu: pwd_neu,
+            		pwd_neuConfirm: pwd_neuConfirm
+            	};
+
+            	$.ajax({
+            		type: 'POST',
+            		url:'/xsite/call/fe_user/changePwd',
+            		data: pwdform,
+                	success: function() {
+            			console.log('change pwd success');
+            			fe_core.hideLoader();
+            		},
+            		
+            		error: function() {
+            			console.log('change pwd error');
+            			fe_core.hideLoader();
+            		}
+            	});
+
+            });
+
+
             $('#reset-password-btn').on('click', function(e) {
                 e.preventDefault();
                 var valid = fe_core.jsFormValidation('reset-password');
