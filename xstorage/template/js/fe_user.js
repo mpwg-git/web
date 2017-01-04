@@ -381,7 +381,7 @@ var fe_user = (function() {
             $('.add-image-crop').unbind('click');
             $('.add-image-crop').bind('click', function(e) {
                 e.preventDefault();
-                console.log(cropData);
+               
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/cropImageAndSaveNew',

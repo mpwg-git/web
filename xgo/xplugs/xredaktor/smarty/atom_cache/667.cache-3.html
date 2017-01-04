@@ -9,7 +9,7 @@
 <div class="meinprofil-container">
 <%*xr_print_r val=$data*%>   
     <%if $smarty.request.dev==1%>
-        <%xr_print_r val=$roomdataNew%>
+        <%*xr_print_r val=$roomdataNew*%>
     <%/if%>
     
     <div class="col-xs-4 meinprofil-links">
@@ -134,15 +134,45 @@
             	
                     
                     <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
-                    <div class="submitbutton-container">
-                        <button id="<%if $data.USER.wz_ACTIVE == 'Y'%>form-deactivate-account<%else%>form-reactivate-account<%/if%>" class="button link-zu-wgtest">
-                            <%if $data.USER.wz_ACTIVE == 'Y'%>
-                                <%xr_translate tag="Account deaktivieren"%>
-                            <%else%>
-                                <%xr_translate tag="Account wieder aktivieren"%>
-                            <%/if%>
-                        </button>
-                    </div>
+                    
+                        <a data-toggle="collapse" href="#collapseChangeEmail" class="submitbutton-container button link-zu-wgtest"><%xr_translate tag='EMailadresse ändern'%></a>
+                                                                
+                        <a data-toggle="collapse" href="#collapseChangePwd" class="submitbutton-container button link-zu-wgtest"><%xr_translate tag='Passwort ändern'%></a>
+                        <div class="meinprofil-meinkonto-collapse changePwd-collapse collapse" id="collapseChangePwd">
+    
+                            <form id="changePwd" name="changePwd" method="post" action="" >
+                                <div class="form-group">
+                                    <label for="v2_PASSWORT"><%xr_translate tag='Altes Passwort'%></label>
+                                    <input type="password" id="v2_PASSWORT" name="v2_PASSWORT" class="form-control" rel="required2_minlength" data-minlength="6" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="v2_PASSWORT"><%xr_translate tag='Neues Passwort'%></label>
+                                    <input type="password" id="v2_PASSWORT_neu" name="v2_PASSWORT_neu" class="form-control" rel="required2_minlength" data-minlength="6" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="v2_PASSWORT"><%xr_translate tag='Neues Passwort wiederholen'%></label>
+                                    <input type="password" id="v2_PASSWORT_confirm" name="v2_PASSWORT_confirm" class="form-control" data-minlength="6" required>
+                                </div>
+                                <div id="email-error" class="alert alert-danger" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="error-message"></span>
+                                </div>
+                                <!--<div class="error-div" id="v2_PASSWORT_confirm_error"><%xr_translate tag='Die Passwörter stimmen nicht überein'%></div>-->
+    
+                                <button type="submit" id="changePwd-btn" name="submit" class="btn btn-primary btn-block"><%xr_translate tag="Speichern"%></button>
+    
+                            </form> 
+                        </div>
+                        
+                        <div class="submitbutton-container">
+                            <button id="<%if $data.USER.wz_ACTIVE == 'Y'%>form-deactivate-account<%else%>form-reactivate-account<%/if%>" class="button link-zu-wgtest">
+                                <%if $data.USER.wz_ACTIVE == 'Y'%>
+                                    <%xr_translate tag="Account deaktivieren"%>
+                                <%else%>
+                                    <%xr_translate tag="Account wieder aktivieren"%>
+                                <%/if%>
+                            </button>
+                        </div>
                     <%/if%>
                     
                     <div class="submitbutton-container">

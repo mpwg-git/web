@@ -19,11 +19,6 @@ img.img-height-responsive.avatarCrop.profile.cropperimage {
 // END DEBUG CSS 
 
 
-
-
-
-
-
 .black-bg {
     background: @dark-grey !important;
 }
@@ -136,12 +131,6 @@ img.img-height-responsive.avatarCrop.profile.cropperimage {
     line-height: 0;
 }
 
-.upload-image-modal .modal-dialog .add-image-final-form {
-    // height: 300%;
-    text-align: center;
-    // left: -6%;
-    position: relative;
-}
 
 button.cropImg {
     border: 1px solid #fff;
@@ -598,7 +587,7 @@ form#reset-password input {
 
 
 
-@media screen and (max-width: 1611px) {
+@media screen and (max-width: 1691px) {
 	.meinprofil-erklaerung li a {
 		display: inline-block !important;
     line-height: 1.5 !important;
@@ -655,6 +644,11 @@ form#reset-password input {
 // .noSel.smooth_zoom_preloader {
 //     left: 4px;
 // }
+button.cropImg:hover {
+    background: rgb(105,121,132);
+    border-radius: 4px;
+    padding: 6px 12px;
+}
 .upload-image-modal.modal.fade.in .modal-dialog {
     // width: 100%;
     height: auto;
@@ -670,6 +664,39 @@ form#reset-password input {
     bottom: 0;
 }
 
+.meinprofil-images-container {
+    display: none;
+}
+
+.wg-test-collapse .link-zu-wgtest {
+    color: #fff;
+    font-weight: 500;
+    font-family: @helvetica47CN;
+    letter-spacing: .056rem;
+    
+    &:hover {
+        color: #333;
+    }
+}
 
 
+div#collapseChangePwd {
+    padding: 0 2.1vw;
+}
+#changePwd {
+    margin: 20px 0px 30px 0;
+    border: 4px solid #fff;
+    padding: 20px 20px 40px 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 0.65rem #04e0d7;
+}
+#email-error {
+    display: none;
+}
+.btn.btn-primary.btn-block {
+    font-size: 1.8rem;
+}
+.meinprofil-options .meinprofil-meinkonto-collapse {
+    padding-right: 5vw;
+}
 

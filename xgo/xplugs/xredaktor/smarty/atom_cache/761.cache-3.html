@@ -1,10 +1,14 @@
+<%*xr_print_r val=$data*%>
+<%if $smarty.request.dev==1%>
+    <%xr_print_r val=$datatype%>
+<%/if%>
 <div class="upload-image-modal modal fade" style="position: absolute !important;">
     <div class="modal-dialog">
         <div class="modal-content" style="height: 100%;">
            
             <div class="modal-body" style="margin-right: 0;">
                 <div class="add-image-crop-area">
-                    
+
                 </div>
             </div>
             

@@ -11,6 +11,7 @@ class fe_user {
 	const message_room_deleted = '###room_deleted###';
 	const message_room_activated = '###room_activated###';
 	const message_room_deactivated = '###room_deactivated###';
+
 	
 	// defaults bei reg
 	public static $regDefaults = array (
@@ -1201,7 +1202,7 @@ class fe_user {
 		}
 		
 		if ($_FILES ['add-image-file'] ['size'] > 10145728) // max. 10 MB
-{
+		{
 			die ( 'WRONGSIZE' );
 		}
 		
@@ -1292,16 +1293,18 @@ class fe_user {
 				'refid' => $refid 
 		) );
 		
-		// TODO debug
-// 		if (libx::isDeveloper ()) {
-			// echo '<pre>';
-			// print_r($img);
-			// echo '</pre>';
-			// echo '<pre>';
-			// var_dump($_SESSION['image']);
-			// echo '</pre>';
-// 		}
-		
+		if(libx::isDeveloper()) {
+			
+			$referer = $_SERVER['HTTP_REFERER'];
+			
+			$out = $html['image'];
+			
+			if(substr_count($referer, "?debugUpload=1")){
+				print_r($imageData);
+			}
+
+		}
+	
 		frontcontrollerx::json_success ( array (
 				'data' => array (
 						'html' => $html 
@@ -1401,6 +1404,8 @@ class fe_user {
 		) );
 		frontcontrollerx::json_success ();
 	}
+	
+	
 	public static function handleFinalSubmit($userId, $s_id, $type) {
 		$userId = intval ( $userId );
 		$s_id = intval ( $s_id );
@@ -1412,7 +1417,6 @@ class fe_user {
 				'wz_TYPE' => $type 
 		);
 		
-		die( 'die before insert in table 720' );
 		dbx::insert ( "wizard_auto_720", $db );
 		
 		if ($type == 'profile') {
@@ -1477,18 +1481,17 @@ class fe_user {
 		
 		// SMOOTHZOOM
 		if ($crop ['uploader'] == 'smoothZoom') {
-			$crop ['normX'] = floatval ( $crop ['normX'] );
-			$crop ['normY'] = floatval ( $crop ['normY'] );
-			$crop ['normWidth'] = intval ( $crop ['normWidth'] );
-			$crop ['normHeight'] = intval ( $crop ['normHeight'] );
-			$crop ['centerX'] = floatval ( $crop ['centerX'] );
-			$crop ['centerY'] = floatval ( $crop ['centerY'] );
-			$crop ['selectionWidth'] = floatval ( $crop ['selectionWidth'] );
-			$crop ['selectionHeight'] = floatval ( $crop ['selectionHeight'] );
-			$crop ['ratio'] = floatval ( $crop ['ratio'] );
-			$crop ['s_id'] = intval ( $crop ['s_id'] );
-			
-			$crop ['devicepixelratio'] = floatval ( $crop ['devicepixelratio'] );
+			$crop ['normX'] 			= floatval ( $crop ['normX'] );
+			$crop ['normY'] 			= floatval ( $crop ['normY'] );
+			$crop ['normWidth'] 		= intval ( $crop ['normWidth'] );
+			$crop ['normHeight'] 		= intval ( $crop ['normHeight'] );
+			$crop ['centerX'] 			= floatval ( $crop ['centerX'] );
+			$crop ['centerY'] 			= floatval ( $crop ['centerY'] );
+			$crop ['selectionWidth'] 	= floatval ( $crop ['selectionWidth'] );
+			$crop ['selectionHeight'] 	= floatval ( $crop ['selectionHeight'] );
+			$crop ['ratio'] 			= floatval ( $crop ['ratio'] );
+			$crop ['s_id'] 				= intval ( $crop ['s_id'] );
+			$crop ['devicepixelratio'] 	= floatval ( $crop ['devicepixelratio'] );
 			
 			$cropdata = array (
 					'x' => intval ( $crop ['trueX'] ),
@@ -1499,8 +1502,8 @@ class fe_user {
 			);
 			
 			if ($crop ['devicepixelratio'] > 1) {
-// 				$cropdata['w'] = ($crop['selectionWidth'] / $crop['ratio']) * $crop['devicepixelratio'];
-// 				$cropdata['h'] = ($crop['selectionHeight'] / $crop['ratio']) * $crop['devicepixelratio'];
+				// $cropdata['w'] = ($crop['selectionWidth'] / $crop['ratio']) * $crop['devicepixelratio'];
+				// $cropdata['h'] = ($crop['selectionHeight'] / $crop['ratio']) * $crop['devicepixelratio'];
 			}
 			/*
 			 * // mobiles gerät - canvas ist verzogen wegen zoom - also wieder wegrechnen
@@ -1521,7 +1524,8 @@ class fe_user {
 			 * }
 			 *
 			 */
-				$params = array (
+			
+			$params = array (
 						's_id' => $s_id,
 						'w' => intval ( $cropdata ['w'] ),
 						'h' => intval ( $cropdata ['h'] ),
@@ -1572,8 +1576,6 @@ class fe_user {
 		), true ) . "\n", FILE_APPEND );
 		
 		
-//TODO del debug cropImage
-// 		$debug = true;
 		if ($debug) {
 			print_r ( compact ( 'crop', 'cropdata', 'params' ) );
 			die ( 'x' );
@@ -1624,6 +1626,19 @@ class fe_user {
 		
 		$a_id = 747;
 		
+
+//TODO DEBUG
+		if(libx::isDeveloper()) {
+			$referer = $_SERVER['HTTP_REFERER'];
+			
+			if(substr_count($referer, "?debugCrop=1")){
+				print_r ( compact ( 'crop', 'cropdata', 'params' ) );
+				die('XXX');
+			}
+		
+		}
+//		
+	
 		$imageData = array (
 				'new_s_id' => $new_s_id,
 				'xparams' => $params,
