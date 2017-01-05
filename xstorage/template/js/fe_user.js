@@ -414,6 +414,13 @@ var fe_user = (function() {
             $('#changePwd-btn').unbind('click');
             $('#changePwd-btn').bind('click', function(e) {
             	e.preventDefault();
+            	
+            	var valid = fe_core.jsFormValidation2('changePwd');
+            	console.log("valid",valid);
+                
+            	if (!valid) {
+                    return false;
+                }
 
             	var pwd_alt 		= $.md5($('#v2_PASSWORT').val());
             	var pwd_neu 		= $.md5($('#v2_PASSWORT_neu').val());
@@ -429,14 +436,39 @@ var fe_user = (function() {
             		type: 'POST',
             		url:'/xsite/call/fe_user/changePwd',
             		data: pwdform,
-                	success: function() {
-            			console.log('change pwd success');
-            			fe_core.hideLoader();
+                	success: function(response) {
+                		$('#v2_PASSWORT_current_error').hide();
+                		$('#v2_PASSWORT_minlength_error').hide();
+                		$('#v2_PASSWORT_confirm_error').hide();
+                		
+                		$('#changePwd').animate({
+                            display: 'none'
+                        }, 250, function() {
+                        	console.log('change pwd success');
+                        	fe_core.hideLoader();
+                        });
             		},
             		
-            		error: function() {
-            			console.log('change pwd error');
-            			fe_core.hideLoader();
+            		error: function(response) {
+            			if (response.responseJSON.msg.id == -2) {
+            				$('#v2_PASSWORT_confirm_error').show();          				
+            				$('#v2_PASSWORT_error').hide();
+            				$('#v2_PASSWORT_current_error').hide();
+            				$('#v2_PASSWORT_minlength_error').hide();
+                        }
+                        if (response.responseJSON.msg.id == -1) {
+                        	$('#v2_PASSWORT_current_error').show();
+            				$('#v2_PASSWORT_error').hide();
+                        	$('#v2_PASSWORT_minlength_error').hide();
+                    		$('#v2_PASSWORT_confirm_error').hide();
+                        }
+                        if (response.responseJSON.msg.id == 0) {
+            				$('#v2_PASSWORT_error').show();
+                        	$('#v2_PASSWORT_current_error').hide();
+                        	$('#v2_PASSWORT_minlength_error').hide();
+                    		$('#v2_PASSWORT_confirm_error').hide();
+                        }
+                        fe_core.hideLoader();
             		}
             	});
 

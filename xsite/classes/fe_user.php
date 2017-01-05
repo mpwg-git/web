@@ -255,6 +255,7 @@ class fe_user
 		dbx::update($table,array('wz_PASSWORT'=>md5($PASSWORT)),array('wz_id'=>$user_id,'wz_PASSWORT'=>md5($currentPwd)));
 
 		return 1;
+		
 	}
 	
 	
@@ -262,37 +263,59 @@ class fe_user
 	// WEB-271
 	public static function ajax_changePwd()
 	{
+		// 1  || Aktuelles pw OK
+		// -1 || Aktuelles pw !OK
+		// 2  || Neue Pw's stimmen überein
+		// -2 || Neue Pw's stimmen !überein
+		
 		$status = self::changePwd();
 		
+		if($status <= 0)
+		{
+			frontcontrollerx::json_failure(array('id'=>$status));
+		}
+		else
+		{
+			frontcontrollerx::json_success();
+		}
 	}
 	
 
 	public static function changePwd()
 	{
+		// 0  || Kein passwort eingegeben
+		// 1  || Aktuelles pw OK
+		// -1 || Aktuelles pw !OK
+		// 2  || Neue Pw's stimmen überein
+		// -2 || Neue Pw's stimmen !überein
+		
 		$pwdForm = array();
-		$pwdForm = dbx::escape($_REQUEST);
-	
+		$pwdForm = $_REQUEST;
+
 		unset($pwdForm['url']);
 	
 		$uid = intval(xredaktor_feUser::getUserId());
-	
-		$pwdAlt 	= dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort");
-// 		$pwdAltForm = md5($pwdForm['v2_PASSWORT']);
-	
-		if($pwdForm['pwd_alt'] == $pwdAlt){
-			return 1;
-		}
 		
-		print_r($pwdForm);
-	
-		die("x");
+		$status;
+		
+		if(!isset($pwdForm['pwd_alt'])) 
+			$status = 0;
+		
+		if($pwdForm['pwd_alt'] == dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort"))
+			$status = 1;
+
+		
+		if($pwdForm['pwd_neu'] == $pwdForm['pwd_neuConfirm'])
+			$status = 2;
+		
+		return $status;
 	}
 	
 
 	public static function afterRegistration()
 	{
 		// NO PROFILE TABLE ANYMORE
-
+		
 		$type 				= dbx::escape($_REQUEST['TYPE']);
 		$geschlecht 		= $_REQUEST['GESCHLECHT']; // nix escapen, wird eh gleich im switch sauber gesetzt
 		$email				= dbx::escape($_REQUEST['EMAIL']);
