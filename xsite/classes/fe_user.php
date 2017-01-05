@@ -255,13 +255,94 @@ class fe_user
 		dbx::update($table,array('wz_PASSWORT'=>md5($PASSWORT)),array('wz_id'=>$user_id,'wz_PASSWORT'=>md5($currentPwd)));
 
 		return 1;
+		
 	}
+	
+	
+	
+	// WEB-271
+	public static function ajax_changePwd()
+	{
+		// -3  || Kein passwort eingegeben
+		// 1  || Aktuelles pw OK
+		// -1 || Aktuelles pw !OK
+		// 2  || Neue Pw's stimmen überein
+		// -2 || Neue Pw's stimmen !überein
+		
+		$status = self::changePwd();
+		
+		if($status < 0)
+		{
+			frontcontrollerx::json_failure(array('id'=>$status));
+		}
+		else
+		{
+			frontcontrollerx::json_success();
+		}
+	}
+	
 
+	public static function changePwd()
+	{
+		// -3  || Kein passwort eingegeben
+		// 1  || Aktuelles pw OK
+		// -1 || Aktuelles pw !OK
+		// 2  || Neue Pw's stimmen überein
+		// -2 || Neue Pw's stimmen !überein
+		
+		$pwdForm = array();
+		$pwdForm = $_REQUEST;
+
+		unset($pwdForm['url']);
+	
+		$uid = intval(xredaktor_feUser::getUserId());
+	
+		$status = false;
+		
+		if($pwdForm['pwd_alt'] == "" || $pwdForm['pwd_alt'] == md5(""))
+		{
+			$status = -3;
+			return $status;
+		}
+		else
+		{			
+			if($pwdForm['pwd_alt'] == dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort"))
+			{
+				$status = 1;
+			}
+			if($pwdForm['pwd_alt'] != dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort"))
+			{
+				$status = -1;
+				return $status;
+			}			
+		}
+		
+		if($pwdForm['pwd_neu'] == "" || $pwdForm['pwd_neu'] == md5(""))
+		{
+			$status = -4;
+			return $status;
+		}
+		else
+		{
+			if($pwdForm['pwd_neu'] == $pwdForm['pwd_neuConfirm'])
+			{
+				$status = 2;
+			}
+			if($pwdForm['pwd_neu'] != $pwdForm['pwd_neuConfirm'])
+			{
+				$status = -2;
+				return $status;
+			}
+		}
+		
+		return $status;
+	}
+	
 
 	public static function afterRegistration()
 	{
 		// NO PROFILE TABLE ANYMORE
-
+		
 		$type 				= dbx::escape($_REQUEST['TYPE']);
 		$geschlecht 		= $_REQUEST['GESCHLECHT']; // nix escapen, wird eh gleich im switch sauber gesetzt
 		$email				= dbx::escape($_REQUEST['EMAIL']);
@@ -1234,23 +1315,23 @@ class fe_user
 			}
 		}
 		*/
-		
+
 		//		update room ??
 		$updateRoom = array();
-		
+
 		if(isset($_REQUEST['room'])) {
-			
+
 			parse_str($_REQUEST['room'], $meinRaum);
-			
+
 			$roomId = $meinRaum['id'];
 
 			foreach($meinRaum as $k => $v)
 			{
 				$updateRoom['wz_'.$k] = $meinRaum[$k];
 			}
-			
+
 			unset($updateRoom['wz_id']);
-			
+
 // 			print_r($roomId);
 // 			print_r($updateRoom);
 // 			die("-+-+-+-");
@@ -3188,6 +3269,7 @@ class fe_user
 		//return $response->getDecodedBody();
 		return $imgResponse->getDecodedBody();
 	}
+
 
 	/*************************************** OLD
 

@@ -48,10 +48,10 @@
         <%xr_atom a_id=781 return=1 desc='slider umkreis'%>
         
         <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%>
-        <div class="">
-            <a href="<%xr_genlink p_id=8%>"><%xr_translate tag="Weitere Suchkriterien"%></a>
-        </div>
-        <br/>
+            <div class="">
+                <a href="<%xr_genlink p_id=8%>" class="blue-link"><%xr_translate tag="Weitere Suchkriterien"%></a>
+            </div>
+            <br/>
         <%/if%>
        
         <%if $P_ID != 19 && $P_ID != 11%>
