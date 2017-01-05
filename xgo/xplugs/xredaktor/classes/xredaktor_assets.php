@@ -52,7 +52,7 @@ class xredaktor_assets
 		$cmd = "lessc $file_less -x --source-map-less-inline --source-map-map-inline > $file_css_test 2>&1";
 		$output = array();
 		exec($cmd,$output);
-
+		
 		if ((!file_exists($file_css_test))||(filesize($file_css_test) == 0))
 		{
 			return implode("\n",$output);

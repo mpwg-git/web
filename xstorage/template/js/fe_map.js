@@ -483,8 +483,8 @@ var fe_map = (function() {
             if (this.interval) {
                 //console.log("cleared endlesss scroll");
                 clearInterval(this.interval);
-                $('.middle-row .scrollbarfix').unbind('scroll');
-                $('.middle-row .scrollbarfix').scrollTop(0);
+                $('div.middle-row .scrollbarfix').unbind('scroll');
+                $('div.middle-row .scrollbarfix').scrollTop(0);
             }
 
             // aktiviert endless scroll
@@ -492,22 +492,24 @@ var fe_map = (function() {
 
             //console.log("------------- " + $('.middle-row'));
 
-            this.interval = $('.middle-row').endlessScroll({
+            this.interval = $('div.middle-row').endlessScroll({
                 //loader: '<div class="loading">loading<div>',
                 //insertBefore: ".js-replacer-search div:first",
 
                 // wo wird inserted => jquery selector
-                insertAfter: ".middle-row .js-replacer-search .searchresult-single:last",
+                insertAfter: "div.middle-row .js-replacer-search .searchresult-single:last",
                 // wie weit vom bottom weg
-                inflowPixels: 300,
+                bottomPixels: 300,
+                //fireOnce: true,
+                intervalFrequency: 250,
 
                 // was einfügen
                 content: function(i, p, d) {
 
-                    //console.log("-------- cont");
+                    console.log("-------- cont", i, p, d);
 
                     // ML: nur bei downscroll (== next) sachen laden
-                    if (d == 'next') {
+                    //if (d == 'next') {
                         $.ajax({
                             type: 'POST',
                             url: '/xsite/call/fe_search/getResults',
@@ -526,8 +528,8 @@ var fe_map = (function() {
                                 if (response.endOfResults == 1) {
                                     //console.log("end of results");
                                     clearInterval(me.interval);
-                                    $('.middle-row .scrollbarfix').unbind('scroll');
-                                    $('.middle-row .scrollbarfix').scrollTop(0);
+                                   // $('div.middle-row .scrollbarfix').unbind('scroll');
+                                    //$('div.middle-row .scrollbarfix').scrollTop(0);
                                 }
                                 appendWhat = response.html;
                             },
@@ -535,13 +537,13 @@ var fe_map = (function() {
                                 console.log("failure endless");
                             }
                         });
-                    }
-
+                    //}
+                    //console.log("appendWhat", appendWhat);
                     return appendWhat;
                 }
             });
 
-            return appendWhat;
+           return appendWhat;
 
         }
 
