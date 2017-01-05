@@ -258,9 +258,16 @@ class fe_user
 	}
 	
 	
-
+	
 	// WEB-271
 	public static function ajax_changePwd()
+	{
+		$status = self::changePwd();
+		
+	}
+	
+
+	public static function changePwd()
 	{
 		$pwdForm = array();
 		$pwdForm = dbx::escape($_REQUEST);
@@ -270,8 +277,11 @@ class fe_user
 		$uid = intval(xredaktor_feUser::getUserId());
 	
 		$pwdAlt 	= dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort");
-		$pwdAltForm = md5($pwdForm['v2_PASSWORT']);
+// 		$pwdAltForm = md5($pwdForm['v2_PASSWORT']);
 	
+		if($pwdForm['pwd_alt'] == $pwdAlt){
+			return 1;
+		}
 		
 		print_r($pwdForm);
 	
