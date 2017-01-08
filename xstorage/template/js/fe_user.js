@@ -405,96 +405,86 @@ var fe_user = (function() {
                 });
             });
 
-            // WEB-271
             
-            $('input#v2_PASSWORT_confirm').bind('input propertychange', function() {
-            	
+            
+// WEB-271
+            $('a[href*="collapseChangePwd"]').click(function() {
+            	$('#changePwd')[0].reset();
+				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
             });
-            
             $('#changePwd-btn').unbind('click');
-            $('#changePwd-btn').bind('click', function(e) {
-            	e.preventDefault();
+            $('#changePwd-btn').on('click', function(e) {
+            	e.preventDefault();            	
             	
-            	var pwd_alt 		= $('#v2_PASSWORT').val();
-            	var pwd_neu 		= $('#v2_PASSWORT_neu').val();
-            	var pwd_neuConfirm 	= $('#v2_PASSWORT_confirm').val();
-            	
-            	var msgId = 1;
-            	
-            	if($('#v2_PASSWORT_neu').val().length < 6) {
-            		msgId = -5;
-            	}
-            	
-            	var pwdform = {
-            		pwd_alt: 		$.md5(pwd_alt),
-            		pwd_neu: 		$.md5(pwd_neu),
-            		pwd_neuConfirm: $.md5(pwd_neuConfirm)
-            	};
+            	var pwd_alt 		= $('#oldPasswd').val();
+            	var pwd_neu 		= $('#newPasswd').val();
+            	var pwd_neuConfirm 	= $('#newPasswdConfirm').val();
 
+            	var pwdform = {
+                    pwd_alt: 		pwd_alt,
+                    pwd_neu: 		pwd_neu,
+                    pwd_neuConfirm: pwd_neuConfirm
+            	};
             	$.ajax({
             		type: 'POST',
-            		url:'/xsite/call/fe_user/changePwd',
+            		url:'/xsite/call/fe_user/checkPasswdForm',
             		data: pwdform,
-                	success: function(response) {
-        				$('#v2_PASSWORT_error').hide();      
-        				$('#v2_PASSWORT_neu_error').hide();                		
-                		$('#v2_PASSWORT_current_error').hide();
-                		$('#v2_PASSWORTSHORT_error').hide();
-                		$('#v2_PASSWORT_confirm_error').hide();
-                		
-                		$('#changePwd').animate({
-                            display: 'none'
-                        }, 250, function() {
-                        	console.log('change pwd success');
-                        	fe_core.hideLoader();
-                        });
+            		dataType : 'json',
+                	success: function(result) {
+                		console.log("Success: ",result);
+                		if(result.checkAlt == "01")
+                		{
+                			$('#oldPasswd-error, span.error-message-1').show();
+            				$('#newPasswd-error, #newPasswd-error #newPasswdConfirm-error, span.error-message-2').hide();
+            				return;
+                		}
+                		if(result.checkNeu == "02")
+                		{
+            				$('#oldPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2').hide();
+            				$('#newPasswd-error').show();
+            				return;
+                		}
+                		if(result.checkAlt == "-1")
+                		{
+                			$('#oldPasswd-error, span.error-message-2').show();
+            				$('#newPasswd-error, #newPasswd-error #newPasswdConfirm-error, span.error-message-1').hide();
+            				return;
+                		}
+                		if(result.checkNeu == "-2")
+                		{
+            				$('#oldPasswd-error, #newPasswd-error, #newPasswd-error, span.error-message-1, span.error-message-2').hide();
+            				$('#newPasswdConfirm-error').show();
+            				return;
+                		}
+                		if(result.checkAlt == "1" && result.checkNeu == "2")
+                		{
+                    		$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, span.error-message-1, span.error-message-2').hide();
+                    		$('#changePasswd-success').show();
+                    		
+                    		$.ajax({
+                        		type: 'POST',
+                        		url:'/xsite/call/fe_user/changePwd',
+                        		data: pwdform,
+                        		dataType : 'json',
+                            	success: function(result) {
+                            		console.log("pw changed");
+                            		location.reload(true);
+                            	}
+                    		});
+                		}
             		},
-            		
-            		error: function(response) {
-            			if (response.responseJSON.msg.id == -1) {
-//            				$('#v2_PASSWORT').val('');
-                        	$('#v2_PASSWORT_error').hide();      
-            				$('#v2_PASSWORT_neu_error').hide();                		
-                    		$('#v2_PASSWORT_current_error').show();
-                    		$('#v2_PASSWORTSHORT_error').hide();
-                    		$('#v2_PASSWORT_confirm_error').hide();
-                        }            			
-            			if (response.responseJSON.msg.id == -2) {
-            				$('#v2_PASSWORT_error').hide();      
-            				$('#v2_PASSWORT_neu_error').hide();                		
-                    		$('#v2_PASSWORT_current_error').hide();
-                    		$('#v2_PASSWORTSHORT_error').hide();
-                    		$('#v2_PASSWORT_confirm_error').show();
-                        }
-            			if (response.responseJSON.msg.id == -4) {
-            				if(msgId == -5) {
-                            	$('#v2_PASSWORT_error').hide();      
-                				$('#v2_PASSWORT_neu_error').hide();               		
-                        		$('#v2_PASSWORT_current_error').hide();
-                        		$('#v2_PASSWORTSHORT_error').show();
-                        		$('#v2_PASSWORT_confirm_error').hide();
-                            } else {
-	            				$('#v2_PASSWORT_error').hide();      
-	            				$('#v2_PASSWORT_neu_error').show();                		
-	                    		$('#v2_PASSWORT_current_error').hide();
-	                    		$('#v2_PASSWORTSHORT_error').hide();
-	                    		$('#v2_PASSWORT_confirm_error').hide();
-                            }
-                        }
-                        if (response.responseJSON.msg.id == -3) {
-                        	$('#v2_PASSWORT_error').show();      
-            				$('#v2_PASSWORT_neu_error').hide();                		
-                    		$('#v2_PASSWORT_current_error').hide();
-                    		$('#v2_PASSWORTSHORT_error').hide();
-                    		$('#v2_PASSWORT_confirm_error').hide();
-                        }
-                        fe_core.hideLoader();
+            		error: function(result) {
+            			console.log("Error: ",result);
+            		},
+            		failure: function(result) {
+            			console.log("Failure: ",result);
             		}
             	});
 
             });
-
-
+// END WEB-271
+            
+            
             $('#reset-password-btn').on('click', function(e) {
                 e.preventDefault();
                 var valid = fe_core.jsFormValidation('reset-password');

@@ -171,11 +171,12 @@
                     
                     <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
                     
-<!--CHANGE MAIL-->
+
+                        <!--CHANGE MAIL-->
                         <a data-toggle="collapse" href="#collapseChangeMail" class="submitbutton-container button link-zu-wgtest"><%xr_translate tag='EMailadresse ändern'%></a>
                         <div class="meinprofil-meinkonto-collapse changeMail-collapse collapse" id="collapseChangeMail">
     
-                            <form id="changeMail" name="changeMail" method="post" action="" >
+                            <form id="changeMail" name="changeMail" method="post" action="#" >
                                 <div class="form-group">
                                     <label for="v2_EMAIL_neu"><%xr_translate tag='Neue Emailadresse'%></label>
                                     <input id="v2_EMAIL_neu" name="v2_EMAIL_neu" type="email" class="form-control">
@@ -194,56 +195,54 @@
     
                             </form> 
                         </div>
+                        <!--END CHANGE MAIL-->
                         
-                    <!--CHANGE PASSWORD-->    
-                        <a data-toggle="collapse" href="#collapseChangePwd" class="submitbutton-container button link-zu-wgtest"><%xr_translate tag='Passwort ändern'%></a>
+                        <!--CHANGE PASSWORD-->    
+                        <a id="changePwd-link" data-toggle="collapse" href="#collapseChangePwd" class="submitbutton-container button link-zu-wgtest"><%xr_translate tag='Passwort ändern'%></a>
                         <div class="meinprofil-meinkonto-collapse changePwd-collapse collapse" id="collapseChangePwd">
-    
-                            <form id="changePwd" name="changePwd" method="post" action="" >
+                            <form id="changePwd" name="changePwd" method="post" action="#">
+                                <div class="form-group">
+                                    <label for="oldPasswd"><%xr_translate tag='Aktuelles Passwort'%></label>
+                                    <input type="password" id="oldPasswd" name="oldPasswd" required class="form-control" value="" placeholder="<%xr_translate tag='Aktuelles Passwort'%>">
+                                </div>
+                                <!--error-div-->
+                                <div id="oldPasswd-error" class="alert alert-danger" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="error-message error-message-1"><%xr_translate tag='Bitte Passwort eingeben'%></span>
+                                    <span class="error-message error-message-2"><%xr_translate tag='Aktuelles Passwort ist falsch'%></span>
+                                </div>
+                                <!--END error-div-->
                                 
                                 <div class="form-group">
-                                    <label for="v2_PASSWORT"><%xr_translate tag='Altes Passwort'%></label>
-                                    <input type="password" id="v2_PASSWORT" name="v2_PASSWORT" class="form-control" required>
-                                    
-                                    <div class="error-div alert alert-danger" id="v2_PASSWORT_error">
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                        <span class="error-message"><%xr_translate tag='Bitte Passwort eingeben'%></span>
-                                    </div>
-                                    <div class="error-div" id="v2_PASSWORT_current_error">
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                        <span class="error-message"><%xr_translate tag='Aktuelles Passwort ist falsch'%></span>
-                                    </div>
+                                    <label for="newPasswd"><%xr_translate tag='Neues Passwort'%></label>
+                                    <input type="password" id="newPasswd" name="newPasswd" required data-minlength="6" class="form-control" value="" placeholder="<%xr_translate tag='Neues Passwort'%>">
                                 </div>
-
-
+                                <!--error-div-->
+                                <div id="newPasswd-error" class="alert alert-danger" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="error-message"><%xr_translate tag='Mindestens 6 Zeichen'%></span>
+                                </div>
+                                <!--END error-div-->
+                                
                                 <div class="form-group">
-                                    <label for="v2_PASSWORT"><%xr_translate tag='Neues Passwort'%></label>
-                                    <input type="password" id="v2_PASSWORT_neu" name="v2_PASSWORT_neu" class="form-control" data-minlength="6" required>
-                                        <div class="error-div alert alert-danger" id="v2_PASSWORT_neu_error">
-                                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                            <span class="error-message"><%xr_translate tag='Bitte Passwort eingeben'%></span>
-                                        </div>
-                                        <div class="error-div alert alert-danger" id="v2_PASSWORT_minlength_error">
-                                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                            <span class="error-message"><%xr_translate tag='Mindestlänge: 6 Zeichen'%></span>
-                                        </div>
+                                    <label for="newPasswdConfirm"><%xr_translate tag='Neues Passwort wiederholen'%></label>
+                                    <input type="password" id="newPasswdConfirm" name="newPasswdConfirm" class="form-control" value="" placeholder="<%xr_translate tag='Neues Passwort wiederholen'%>">
                                 </div>
-                              
-                                <div class="form-group">
-                                    <label for="v2_PASSWORT"><%xr_translate tag='Neues Passwort wiederholen'%></label>
-                                    <input type="password" id="v2_PASSWORT_confirm" name="v2_PASSWORT_confirm" class="form-control">
-                                </div>
-                                <div class="error-div alert alert-danger" id="v2_PASSWORT_confirm_error">
+                                <!--error-div-->
+                                <div id="newPasswdConfirm-error" class="alert alert-danger" role="alert">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                     <span class="error-message"><%xr_translate tag='Die Passwörter stimmen nicht überein'%></span>
                                 </div>
-                                
-                                
-                                
+                                <!--END error-div-->
+                                <div id="changePasswd-success" class="alert alert-success" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="error-message"><%xr_translate tag='Änderungen gespeichert'%></span>
+                                </div>
                                 <button type="submit" id="changePwd-btn" name="submit" class="btn btn-primary btn-block"><%xr_translate tag="Speichern"%></button>
-    
-                            </form> 
+                            </form>
+                            
                         </div>
+                        <!--END CHANGE PASSWORD-->
                     
                     
                         <div class="submitbutton-container">

@@ -262,80 +262,86 @@ class fe_user
 	
 	// WEB-271
 	public static function ajax_changePwd()
-	{
-		// -3  || Kein passwort eingegeben
-		// 1  || Aktuelles pw OK
-		// -1 || Aktuelles pw !OK
-		// 2  || Neue Pw's stimmen überein
-		// -2 || Neue Pw's stimmen !überein
+	{	
+	
+		$data = $_REQUEST['pwd_neu'];
+		$pw = md5($data);
+
+		$userid = intval(xredaktor_feUser::getUserId());
 		
-		$status = self::changePwd();
+		$update = dbx::update('wizard_auto_707',array('wz_PASSWORT'=>$pw),array('wz_id'=>$userid));
 		
-		if($status < 0)
-		{
-			frontcontrollerx::json_failure(array('id'=>$status));
-		}
-		else
-		{
-			frontcontrollerx::json_success();
-		}
+		echo json_encode($update);
+		
+		
 	}
 	
 
-	public static function changePwd()
+	public static function ajax_checkPasswdForm()
 	{
-		// -3  || Kein passwort eingegeben
-		// 1  || Aktuelles pw OK
-		// -1 || Aktuelles pw !OK
-		// 2  || Neue Pw's stimmen überein
-		// -2 || Neue Pw's stimmen !überein
+		$data = $_REQUEST;	
+		unset($data['url']);
 		
-		$pwdForm = array();
-		$pwdForm = $_REQUEST;
+		$ok;
+		$status = array();
+		
+		$userid = intval(xredaktor_feUser::getUserId());
+		
+		$userpw = dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$userid'", "wz_passwort");
+		
+		$checkAlt = $data['pwd_alt'];
+		$checkNeu = $data['pwd_neu'];
+		$checkNeuConfirm = $data['pwd_neuConfirm'];
 
-		unset($pwdForm['url']);
-	
-		$uid = intval(xredaktor_feUser::getUserId());
-	
-		$status = false;
 		
-		if($pwdForm['pwd_alt'] == "" || $pwdForm['pwd_alt'] == md5(""))
+		// aktuelles Passwort leer
+		if(strlen($checkAlt) == 0)
 		{
-			$status = -3;
-			return $status;
+			$ok = "01";
+			$status['checkAlt'] = $ok;
+			
+			echo json_encode($status);
+			return;
 		}
-		else
-		{			
-			if($pwdForm['pwd_alt'] == dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort"))
-			{
-				$status = 1;
-			}
-			if($pwdForm['pwd_alt'] != dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$uid'", "wz_passwort"))
-			{
-				$status = -1;
-				return $status;
-			}			
+		// pw neu strlen < 6
+		if(strlen($checkNeu) < 6)
+		{
+			$ok = "02";
+			$status['checkNeu'] = $ok;
+			
+			echo json_encode($status);
+			return;
 		}
 		
-		if($pwdForm['pwd_neu'] == "" || $pwdForm['pwd_neu'] == md5(""))
+		
+		//aktuelles Passwort != db passwort
+		if($userpw != $checkAlt)
 		{
-			$status = -4;
-			return $status;
+			$ok = "-1";
+			$status['checkAlt'] = $ok;
 		}
-		else
+		//pw neu != pw neu confirm
+		if($checkNeu != $checkNeuConfirm)
 		{
-			if($pwdForm['pwd_neu'] == $pwdForm['pwd_neuConfirm'])
-			{
-				$status = 2;
-			}
-			if($pwdForm['pwd_neu'] != $pwdForm['pwd_neuConfirm'])
-			{
-				$status = -2;
-				return $status;
-			}
+			$ok = "-2";
+			$status['checkNeu'] = $ok;
 		}
 		
-		return $status;
+		
+		//aktuelles Passwort == db passwort
+		if($userpw == md5($checkAlt))
+		{
+			$ok = "1";
+			$status['checkAlt'] = $ok;
+		}
+		//pw neu == pw neu confirm
+		if(($checkNeu == $checkNeuConfirm) && strlen($checkNeu) > 5)
+		{
+			$ok = "2";
+			$status['checkNeu'] = $ok;
+		}
+
+		echo json_encode($status);
 	}
 	
 

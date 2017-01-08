@@ -688,9 +688,6 @@ div#collapseChangePwd {
     border-radius: 6px;
     box-shadow: 0 0 0.65rem #04e0d7;
 }
-#email-error {
-    display: none;
-}
 .btn.btn-primary.btn-block {
     font-size: 1.8rem;
 }
@@ -698,8 +695,8 @@ div#collapseChangePwd {
     padding-right: 5vw;
 }
 
-
-.error-div {
+#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error {
+    display: none;
     font-family: 'HelveticaNeueW01-ThinCn_673383';
     background-color: #fff;
     border: 1px solid #f00;
@@ -709,6 +706,23 @@ div#collapseChangePwd {
     text-transform: none;
     letter-spacing: .1rem;
 }
+
+#changePasswd-success{
+    display: none;
+    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    background-color: #5cb85c;
+    border: 1px solid #4cae4c;
+    margin-top: 1px;
+    padding: 5px;
+    color: #fff !important;
+    text-transform: none;
+    letter-spacing: .1rem;
+}
+
+#changePwd > .alert.alert-danger, .alert.alert.success  {
+    margin-top: -15px;
+}
+
 
 
 
