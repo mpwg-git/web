@@ -263,7 +263,6 @@ class fe_user
 	// WEB-271
 	public static function ajax_changePwd()
 	{	
-	
 		$data = $_REQUEST['pwd_neu'];
 		$pw = md5($data);
 
@@ -272,8 +271,6 @@ class fe_user
 		$update = dbx::update('wizard_auto_707',array('wz_PASSWORT'=>$pw),array('wz_id'=>$userid));
 		
 		echo json_encode($update);
-		
-		
 	}
 	
 
@@ -286,20 +283,17 @@ class fe_user
 		$status = array();
 		
 		$userid = intval(xredaktor_feUser::getUserId());
-		
 		$userpw = dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$userid'", "wz_passwort");
 		
 		$checkAlt = $data['pwd_alt'];
 		$checkNeu = $data['pwd_neu'];
 		$checkNeuConfirm = $data['pwd_neuConfirm'];
 
-		
 		// aktuelles Passwort leer
 		if(strlen($checkAlt) == 0)
 		{
 			$ok = "01";
 			$status['checkAlt'] = $ok;
-			
 			echo json_encode($status);
 			return;
 		}
@@ -307,13 +301,10 @@ class fe_user
 		if(strlen($checkNeu) < 6)
 		{
 			$ok = "02";
-			$status['checkNeu'] = $ok;
-			
+			$status['checkNeu'] = $ok;	
 			echo json_encode($status);
 			return;
 		}
-		
-		
 		//aktuelles Passwort != db passwort
 		if($userpw != $checkAlt)
 		{
@@ -326,8 +317,6 @@ class fe_user
 			$ok = "-2";
 			$status['checkNeu'] = $ok;
 		}
-		
-		
 		//aktuelles Passwort == db passwort
 		if($userpw == md5($checkAlt))
 		{
@@ -340,9 +329,9 @@ class fe_user
 			$ok = "2";
 			$status['checkNeu'] = $ok;
 		}
-
 		echo json_encode($status);
 	}
+	
 	
 
 	public static function afterRegistration()
