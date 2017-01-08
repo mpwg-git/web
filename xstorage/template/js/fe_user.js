@@ -412,6 +412,63 @@ var fe_user = (function() {
             	$('#changePwd')[0].reset();
 				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
             });
+            $('a[href*="collapseChangeMail"]').click(function() {
+            	$('#changeMail')[0].reset();
+				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
+            });
+            
+            $('#changeMail-btn').unbind('click');
+            $('#changeMail-btn').on('click', function(e) {
+            	e.preventDefault();
+            	
+            	var email_neu 			= $('#email_neu').val();
+            	var email_neu_confirm	= $('#email_neu_confirm').val();
+            	
+            	var emailForm = {
+            		email_neu: 			email_neu,
+            		email_neu_confirm: 	email_neu_confirm
+            	};
+            	
+            	$.ajax({
+            		type: 'POST',
+            		url:'/xsite/call/fe_user/checkNewMail',
+            		data: emailForm,
+            		dataType : 'json',
+            		success: function(result) {
+            			if(result == -1) {
+            				$('#email-error-1').show();
+            				$('#email-error-2, #email-error-3').hide();
+            				return false;
+            			}
+            			if(result == -2) {
+            				$('#email-error-2').show();
+            				$('#email-error-1, #email-error-3').hide();
+            				return false;
+            			}
+            			if(result == -3) {
+            				$('#email-error-3').show();
+            				$('#email-error-1, #email-error-2').hide();
+            				return false;
+            			}            			
+            			if(result == 1) {
+            				$('#changeMail-success').show();
+            				$('#email-error-1, #email-error-2, #email-error-3').hide();
+            				
+            				$.ajax({
+                        		type: 'POST',
+                        		url:'/xsite/call/fe_user/changeMail',
+                        		data: emailForm,
+                        		dataType : 'json',
+                            	success: function(result) {
+                            		location.reload(true);
+                            	}
+                    		});
+            			}
+            		}
+            	});
+            });
+            
+            
             $('#changePwd-btn').unbind('click');
             $('#changePwd-btn').on('click', function(e) {
             	e.preventDefault();            	

@@ -260,6 +260,73 @@ class fe_user
 	
 	
 	
+	
+	// WEB-276
+	public static function ajax_changeMail()
+	{
+		$data = $_REQUEST;
+		unset($data['url']);
+		
+		$emailNeu = $data['email_neu'];
+		
+		$userid = intval(xredaktor_feUser::getUserId());
+		
+		$update = array(
+				'wz_EMAIL'			=> $emailNeu
+// 				'wz_MAIL_CHECKED' 	=> 'N'
+		);
+		
+		$ret = dbx::update('wizard_auto_707',$update,array('wz_id'=>$userid));
+		
+		if(!$ret) {
+			frontcontrollerx::json_failure();
+		}
+		else
+		{
+			frontcontrollerx::json_success();
+		}
+	}
+	
+	
+	public static function ajax_checkNewMail()
+	{
+		$ok;
+		$data = $_REQUEST;
+		unset($data['url']);
+		
+		$emailNeu = $data['email_neu'];
+		
+		$present = dbx::queryAll("select * from wizard_auto_707 where wz_email = '$emailNeu' and wz_del = 'N' and wz_online = 'Y'");
+		
+		if(!filter_var($data['email_neu'], FILTER_VALIDATE_EMAIL))
+		{
+			$ok = -1;
+			echo json_encode($ok);
+			return;
+		}
+		elseif($data['email_neu'] != $data['email_neu_confirm'])
+		{
+			$ok = -2;
+			echo json_encode($ok);
+			return;
+		}
+		elseif($present !== false || $present != "")
+		{
+			$ok = -3;
+			echo json_encode($ok);
+			return;
+		}
+		else
+		{
+			$ok = 1;
+			echo json_encode($ok);
+			return;
+		}
+
+	}
+	
+	
+	
 	// WEB-271
 	public static function ajax_changePwd()
 	{	
