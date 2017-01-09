@@ -938,7 +938,7 @@ var fe_user = (function() {
                     },
                     on_ZOOM_PAN_COMPLETE: function(obj, e) {
                         $('.ajax-loader').hide();
-
+                        
                         formdata = obj;
                         formdata.s_id = $('#s_id').val();
                         formdata.p_id = top.P_ID;
@@ -966,8 +966,7 @@ var fe_user = (function() {
                             $('.cropx').css('left', cropData.trueX + 'px');
                             $('.cropx').css('top', cropData.trueY + 'px');
                         }
-
-                        // $('.ajax-loader').hide();
+                        $('.ajax-loader').hide();
                     }
                 });
             // }

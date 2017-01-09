@@ -1748,17 +1748,6 @@ class fe_user
 		unset($crop['url']);
 
 
-		/*
-		if (!isset($_REQUEST['type']))
-		{
-			$type = "other";
-		}
-		else
-		{
-			$type 	= $_REQUEST['type'];
-		}
-		*/
-
 		// profil upload - per p_id catchen, pfeif auf den type
 		if (intval($crop['p_id']) == 42 || intval($crop['p_id']) == 7)
 		{
