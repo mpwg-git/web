@@ -1,27 +1,64 @@
+<style>
+    img {
+         max-width: 100%; /* This rule is very important, please do not ignore this! */
+    }
+</style>
+<div>
+    <img id="image" src="" alt="Picture" class="cropper-hidden">
+    <div class="cropper-container cropper-bg">
+        <div class="cropper-wrap-box">
+            <div class="cropper-canvas"><img src=""</div>
+        </div>
+        <div class="cropper-drag-box cropper-modal cropper-crop"></div>
+        <div class="cropper-crop-box">
+            <span class="cropper-view-box"><img src=""></span>
+            <span class="cropper-dashed dashed-h"></span>
+            <span class="cropper-dashed dashed-v"></span>
+            <span class="cropper-center"></span>
+            <span class="cropper-face cropper-move"></span>
+            <span class="cropper-line line-e" data-action="e"></span>
+            <span class="cropper-line line-n" data-action="n"></span>
+            <span class="cropper-line line-w" data-action="w"></span>
+            <span class="cropper-line line-s" data-action="s"></span>
+            <span class="cropper-point point-e" data-action="e"></span>
+            <span class="cropper-point point-n" data-action="n"></span>
+            <span class="cropper-point point-w" data-action="w"></span>
+            <span class="cropper-point point-s" data-action="s"></span>
+            <span class="cropper-point point-ne" data-action="ne"></span>
+            <span class="cropper-point point-nw" data-action="nw"></span>
+            <span class="cropper-point point-sw" data-action="sw"></span>
+            <span class="cropper-point point-se" data-action="se"></span>
+        </div>
+    </div>
+</div>
+</div>
 
-<img src="<%$image['src']%>" id="avatarCrop" class="img-height-responsive avatarCrop <%$type%> cropperimage"  />
 
-<form id="coords" class="coords" onsubmit="return false;" action="#">
 
-	<input data-crop type="hidden" size="4" id="x1" name="x1" value="" />
-	<input data-crop type="hidden" size="4" id="y1" name="y1" value="" />
-	<input data-crop type="hidden" size="4" id="x2" name="x2" value="" />
-	<input data-crop type="hidden" size="4" id="y2" name="y2" value="" />
-	<input data-crop type="hidden" size="4" id="w" name="w" value="" />
-	<input data-crop type="hidden" size="4" id="h" name="h" value="" />
-    <input data-crop type="hidden" size="4" id="origW" name="origW" value="<%$image['trueW']%>" />
-	<input data-crop type="hidden" size="4" id="origH" name="origH" value="<%$image['trueH']%>" />
-	<input data-crop type="hidden" id="s_id" name="s_id" value="<%$image['s_id']%>" />
-	<input data-crop type="hidden" id="new_s_id" name="new_s_id" value="" />
-	<input data-crop type="hidden" id="trueOrigW" value="<%$image['trueW']%>">
-	<input data-crop type="hidden" id="trueOrigH" value="<%$image['trueH']%>">
-	<input type="hidden" name="type" value="<%$type%>" />
-	<input type="hidden" name="refid" value="<%$refid%>" />
+<!--<img src="<%$image['src']%>" id="avatarCrop" class="img-height-responsive avatarCrop <%$type%> cropperimage"  />-->
 
-</form>
-<button type="button" class="btn btn-primary modal-image-button close-image-cropper pull-left">Abbrechen</button>
-<button type="button" class="btn btn-primary modal-image-button add-image-crop" data-type="<%$type%>">Weiter</button>
-<div class="clearfix"></div>
+<!--<form id="coords" class="coords" onsubmit="return false;" action="#">-->
+<!--<form id="coords" class="coords" onsubmit="return checkCoords();" action="#">-->
+
+<!--	<input data-crop type="hidden" id="x1" name="x1" value="" />-->
+<!--	<input data-crop type="hidden" id="y1" name="y1" value="" />-->
+<!--	<input data-crop type="hidden" id="x2" name="x2" value="" />-->
+<!--	<input data-crop type="hidden" id="y2" name="y2" value="" />-->
+<!--	<input data-crop type="hidden" id="w" name="w" value="" />-->
+<!--	<input data-crop type="hidden" id="h" name="h" value="" />-->
+<!--    <input data-crop type="hidden" id="origW" name="origW" value="<%$image['trueW']%>" />-->
+<!--	<input data-crop type="hidden" id="origH" name="origH" value="<%$image['trueH']%>" />-->
+<!--	<input data-crop type="hidden" id="s_id" name="s_id" value="<%$image['s_id']%>" />-->
+<!--	<input data-crop type="hidden" id="new_s_id" name="new_s_id" value="" />-->
+<!--	<input data-crop type="hidden" id="trueOrigW" value="<%$image['trueW']%>">-->
+<!--	<input data-crop type="hidden" id="trueOrigH" value="<%$image['trueH']%>">-->
+<!--	<input type="hidden" name="type" value="<%$type%>" />-->
+<!--	<input type="hidden" name="refid" value="<%$refid%>" />-->
+
+<!--</form>-->
+<!--<button type="button" class="btn btn-primary modal-image-button close-image-cropper cropImg pull-left">Abbrechen</button>-->
+<!--<button type="button" class="btn btn-primary modal-image-button add-image-crop cropImg pull-left" data-type="<%$type%>">Weiter</button>-->
+<!--<div class="clearfix"></div>-->
 
 
 
