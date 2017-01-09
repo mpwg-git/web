@@ -408,10 +408,6 @@ var fe_user = (function() {
             
             
 // WEB-271
-            $('a[href*="collapseChangePwd"]').click(function() {
-            	$('#changePwd')[0].reset();
-				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
-            });
             $('a[href*="collapseChangeMail"]').click(function() {
             	$('#changeMail')[0].reset();
 				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
@@ -468,6 +464,11 @@ var fe_user = (function() {
             	});
             });
             
+
+            $('a[href*="collapseChangePwd"]').click(function() {
+            	$('#changePwd')[0].reset();
+				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
+            });
             
             $('#changePwd-btn').unbind('click');
             $('#changePwd-btn').on('click', function(e) {
@@ -477,15 +478,14 @@ var fe_user = (function() {
             	var pwd_neu 		= $('#newPasswd').val();
             	var pwd_neuConfirm 	= $('#newPasswdConfirm').val();
 
-            	var pwdform = {
-                    pwd_alt: 		pwd_alt,
-                    pwd_neu: 		pwd_neu,
-                    pwd_neuConfirm: pwd_neuConfirm
-            	};
             	$.ajax({
             		type: 'POST',
             		url:'/xsite/call/fe_user/checkPasswdForm',
-            		data: pwdform,
+            		data: {
+            			pwd_alt: pwd_alt,
+            			pwd_neu: pwd_neu,
+            			pwd_neuConfirm: pwd_neuConfirm
+                    },
             		dataType : 'json',
                 	success: function(result) {
                 		console.log("Success: ",result);
@@ -521,10 +521,11 @@ var fe_user = (function() {
                     		$.ajax({
                         		type: 'POST',
                         		url:'/xsite/call/fe_user/changePwd',
-                        		data: pwdform,
+                        		data: {
+                        			pwChange: pwd_neu
+                        		},
                         		dataType : 'json',
                             	success: function(result) {
-                            		console.log("pw changed");
                             		location.reload(true);
                             	}
                     		});

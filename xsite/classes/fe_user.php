@@ -290,8 +290,8 @@ class fe_user
 	
 	public static function ajax_checkNewMail()
 	{
-		$ok;
-		$data = $_REQUEST;
+		$ok = false;
+		$data = dbx::escape($_REQUEST);
 		unset($data['url']);
 		
 		$emailNeu = $data['email_neu'];
@@ -330,11 +330,10 @@ class fe_user
 	// WEB-271
 	public static function ajax_changePwd()
 	{	
-		$data = $_REQUEST['pwd_neu'];
-		$pw = md5($data);
-
-		$userid = intval(xredaktor_feUser::getUserId());
+		$pw = dbx::escape(md5($_REQUEST['pwChange']));
 		
+		$userid = intval(xredaktor_feUser::getUserId());
+	
 		$update = dbx::update('wizard_auto_707',array('wz_PASSWORT'=>$pw),array('wz_id'=>$userid));
 		
 		echo json_encode($update);
@@ -343,19 +342,16 @@ class fe_user
 
 	public static function ajax_checkPasswdForm()
 	{
-		$data = $_REQUEST;	
-		unset($data['url']);
-		
-		$ok;
+		$checkAlt = dbx::escape($_REQUEST['pwd_alt']);
+		$checkNeu = dbx::escape($_REQUEST['pwd_neu']);
+		$checkNeuConfirm = dbx::escape($_REQUEST['pwd_neuConfirm']);
+
+		$ok = false;
 		$status = array();
 		
 		$userid = intval(xredaktor_feUser::getUserId());
 		$userpw = dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$userid'", "wz_passwort");
 		
-		$checkAlt = $data['pwd_alt'];
-		$checkNeu = $data['pwd_neu'];
-		$checkNeuConfirm = $data['pwd_neuConfirm'];
-
 		// aktuelles Passwort leer
 		if(strlen($checkAlt) == 0)
 		{
@@ -2327,9 +2323,6 @@ class fe_user
 
 		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId($pageId);
 
-
-
-
 		if (count($send2)>0)
 		{
 			$html = xredaktor_render::renderPage($pageId,true,array(),false);
@@ -2370,8 +2363,6 @@ class fe_user
 				}
 
 
-
-
 				$mailCfg = array(
 				'to'						=> array('email' => $to, 'name'=>$to),
 				'from'						=> array('email' => xredaktor_feUser::getFromMail_EMAIL($mailSettings),	'name' => xredaktor_feUser::getFromMail_NAME($mailSettings)),
@@ -2391,10 +2382,6 @@ class fe_user
 				'smtp_pwd'		=> $s_mail_smtp_pwd,
 				)
 				);
-
-
-
-
 
 				if (!mailx::sendMail($mailCfg))
 				{

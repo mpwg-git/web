@@ -2,10 +2,31 @@
 <%if $fromRoom == 1%>
     <%$datatype='other-room'%>
 <%/if%>
-
 <div class="upload-image add-image add-image-other" data-type="<%$datatype%>" data-refid="<%$refid%>" >
     <label class="img-upload-label" >
         <input type="file" class="fileupload" name="add-image-file" data-filename-placement="inside" title="<%xr_translate tag='Datei wählen'%>">
         <span class="upload-progress-bar" ></span>
     </label>
 </div>
+<script>
+    $(function () {
+        var $image = $('#image');
+        var cropBoxData;
+        var canvasData;
+
+        $('#modal').on('shown.bs.modal', function () {
+            $image.cropper({
+                autoCropArea: 0.5,
+                aspectRatio: 1 / 1,
+                built: function () {
+                    $image.cropper('setCanvasData', canvasData);
+                    $image.cropper('setCropBoxData', cropBoxData);
+                }
+            });
+        }).on('hidden.bs.modal', function () {
+            cropBoxData = $image.cropper('getCropBoxData');
+            canvasData = $image.cropper('getCanvasData');
+            $image.cropper('destroy');
+        });
+    });
+</script>
