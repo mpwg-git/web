@@ -260,51 +260,47 @@ class fe_user
 	
 	
 	
-	
 	// WEB-276
 	public static function ajax_changeMail()
 	{
-		$data = $_REQUEST;
-		unset($data['url']);
+		$emailNeu = dbx::escape($_REQUEST['email_neu']);
 		
-		$emailNeu = $data['email_neu'];
-		
-		$userid = intval(xredaktor_feUser::getUserId());
+		$user = xredaktor_feUser::getUserInfo(); 
+		$userid = $user['wz_id'];
 		
 		$update = array(
-				'wz_EMAIL'			=> $emailNeu
-// 				'wz_MAIL_CHECKED' 	=> 'N'
+				'wz_id'				=> $userid,
+				'wz_EMAIL_ALT'		=> $emailNeu //zwischenspeichern der neuen mail bis wz_MAIL_CHECKED == Y
 		);
 		
-		$ret = dbx::update('wizard_auto_707',$update,array('wz_id'=>$userid));
+		dbx::update('wizard_auto_707',$update,array('wz_id'=>$userid));
 		
-		if(!$ret) {
-			frontcontrollerx::json_failure();
-		}
-		else
-		{
-			frontcontrollerx::json_success();
-		}
+		xredaktor_feUser::sendConfirmMailChange($userid);
+		
+		self::doLogout();
+		
+		echo json_encode("OK");
+		
+		return;
 	}
 	
 	
 	public static function ajax_checkNewMail()
 	{
 		$ok = false;
-		$data = dbx::escape($_REQUEST);
-		unset($data['url']);
-		
-		$emailNeu = $data['email_neu'];
+
+		$emailNeu 			= dbx::escape($_REQUEST['email_neu']);
+		$emailNeuConfirm 	= dbx::escape($_REQUEST['email_neu_confirm']);
 		
 		$present = dbx::queryAll("select * from wizard_auto_707 where wz_email = '$emailNeu' and wz_del = 'N' and wz_online = 'Y'");
 		
-		if(!filter_var($data['email_neu'], FILTER_VALIDATE_EMAIL))
+		if(!filter_var($emailNeu, FILTER_VALIDATE_EMAIL))
 		{
 			$ok = -1;
 			echo json_encode($ok);
 			return;
 		}
-		elseif($data['email_neu'] != $data['email_neu_confirm'])
+		elseif($emailNeu != $emailNeuConfirm)
 		{
 			$ok = -2;
 			echo json_encode($ok);
@@ -451,7 +447,8 @@ class fe_user
 
 		dbx::update("wizard_auto_707", $update, array('wz_id' => $user_id));
 	}
-
+	
+	
 	public static function ajax_resetEmailConfirmationAgain()
 	{
 		@session_start();
@@ -2652,42 +2649,42 @@ class fe_user
 			'location'	=> array(
 				'ADRESSE_STRASSE' 		=> $_REQUEST['ADRESSE_STRASSE'],
 				'ADRESSE_STRASSE_NR' 	=> $_REQUEST['ADRESSE_STRASSE_NR'],
-				'ADRESSE_PLZ' 				=> $_REQUEST['ADRESSE_PLZ'],
-				'ADRESSE_STADT' 			=> $_REQUEST['ADRESSE_STADT'],
-				'ADRESSE_LAT' 				=> $_REQUEST['ADRESSE_LAT'],
-				'ADRESSE_LNG' 				=> $_REQUEST['ADRESSE_LNG'],
+				'ADRESSE_PLZ' 			=> $_REQUEST['ADRESSE_PLZ'],
+				'ADRESSE_STADT' 		=> $_REQUEST['ADRESSE_STADT'],
+				'ADRESSE_LAT' 			=> $_REQUEST['ADRESSE_LAT'],
+				'ADRESSE_LNG' 			=> $_REQUEST['ADRESSE_LNG'],
 			),
 			'adresse'					=> $_REQUEST['ADRESSE'],
 			'price_from'				=> 1,
 			'price_to'					=> $MIETE_BIS,
 			'range'						=> 5,
 			'type'						=> 'suche',
-			'filter'						=> ''
+			'filter'					=> ''
 		);
 
 		$land		= dbx::queryAttribute("select * from wizard_auto_716 where wz_ISO2 = '$landShort'", "wz_id");
 
 		$db_user = self::$regDefaults;
 
-		$db_user['wz_FACEBOOK_ID'] 		= $FACEBOOK_ID;
-		$db_user['wz_EMAIL']					= $EMAIL;
+		$db_user['wz_FACEBOOK_ID'] 			= $FACEBOOK_ID;
+		$db_user['wz_EMAIL']				= $EMAIL;
 		$db_user['wz_VORNAME']				= $VORNAME;
 		$db_user['wz_NACHNAME']				= $NACHNAME;
 		$db_user['wz_ADRESSE']				= $ADRESSE;
-		$db_user['wz_ADRESSE_STRASSE']	= $ADRESSE_STRASSE;
-		$db_user['wz_ADRESSE_STRASSE_NR']= $ADRESSE_STRASSE_NR;
+		$db_user['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
+		$db_user['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
 		$db_user['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
 		$db_user['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
-		$db_user['wz_ADRESSE_LAND']		= intval($land);
+		$db_user['wz_ADRESSE_LAND']			= intval($land);
 		$db_user['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
 		$db_user['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
 		$db_user['wz_MIETE_BIS']			= $MIETE_BIS;
 		$db_user['wz_GESCHLECHT']			= ($GESCHLECHT == 'male') ? 'M' : 'F';
 		$db_user['wz_online']				= 'Y';
 		$db_user['wz_created']				= 'NOW()';
-		$db_user['wz_MAIL_CHECKED']		= 'Y';
+		$db_user['wz_MAIL_CHECKED']			= 'Y';
 		$db_user['wz_ACTIVE']				= 'Y';
-		$db_user['wz_AGB_1']					= $AGB;
+		$db_user['wz_AGB_1']				= $AGB;
 
 		$db_user['wz_TYPE'] = 'suche';
 

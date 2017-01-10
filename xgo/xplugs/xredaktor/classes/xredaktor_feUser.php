@@ -24,6 +24,8 @@ class xredaktor_feUser
 	private static $mailPage_welcomeWithToken_subject	= "Registrierung auf MeinePerfekteWG";
 	private static $mailPage_resetPwdWithToken			= 22;
 	private static $mailPage_resetPwdWithToken_subject	= "Passwort MeinePerfekteWG neu setzen";
+	private static $mailPage_changeMailWithToken			= 60;
+	private static $mailPage_changeMailWithToken_subject	= "Neue E-Mailadresse auf MeinePerfekteWG bestÃ¤tigen";
 	private static $MAIL_FROM_NAME						= "MeinePerfekteWG";
 	private static $MAIL_FROM_EMAIL						= "hello@meineperfektewg.com";
 
@@ -37,6 +39,7 @@ class xredaktor_feUser
 	private static $userField_firstName 	= "wz_VORNAME";
 	private static $userField_LastName 		= "wz_NACHNAME";
 	private static $userField_eMail 		= "wz_EMAIL";
+	private static $userField_eMailOld 		= "wz_EMAIL_ALT";
 	private static $userField_userName		= "wz_EMAIL";
 	private static $userField_userPassword	= "wz_PASSWORT";
 	private static $userField_userToken		= "wz_MAIL_TOKEN";
@@ -772,7 +775,7 @@ class xredaktor_feUser
 		if (self::$siteCallAfterRegister != "")
 		{
 					
-			frontcontrollerx::safeCallUserFunction(self::$siteCallAfterRegister);
+			frontcontrollerx::safeCallUserFunction(self::$siteCallAfterRegister); 
 		}
 
 		if (!self::sendTokenMail($wz_id,false,$params))
@@ -845,6 +848,7 @@ class xredaktor_feUser
 		}
 	}
 
+	
 	public static function resetPassword($params)
 	{
 		$t = trim($_REQUEST['t']);
@@ -880,17 +884,17 @@ class xredaktor_feUser
 			return array('status'=>'USER_NOT_FOUND','user'=>false);
 		}
 	}
-
-
+	
+	
 	public static function saveAccount($params)
 	{
 		if ((!isset($params['triggerByVar'])) || (!isset($params['triggerByVal']))) return array('status'=>'NOT_ACTIVATED','user'=>false);
 		if ($_REQUEST[$params['triggerByVar']] != $params['triggerByVal']) 			return array('status'=>'NOT_ACTIVATED','user'=>false);
 		if (!self::isLoggedIn()) 													return array('status'=>'NOT_LOGGED_IN','user'=>false);
-
+	
 		$u 		= self::getUserInfo();
 		$wz_id 	= $u['wz_id'];
-
+	
 		if (!is_numeric($wz_id))													return array('status'=>'INTERNAL_ERROR','user'=>false);
 		if ($u[self::$userField_userPassword] != md5($_REQUEST['currentPWD']))		return array('status'=>'CURRENT_PWD_WRONG','user'=>false);
 		if (trim($_REQUEST['PASSWORT']) != '') {
@@ -898,23 +902,168 @@ class xredaktor_feUser
 		} else {
 			unset($_REQUEST['PASSWORT']);
 		}
-
+	
 		$present = false;
 		$present = xredaktor_wizards::processFrontEndFormUpdate(array('w_id'=>180,'r_id'=>$wz_id));
 		if ($present === false)
 		{
 			return array('status' => 'ERROR_SAVING_DATA', 'user' => $u);
 		}
-
+	
 		self::setSessionData($present);
-
+	
 		if (self::$siteCallAfterSave != "")
 		{
 			frontcontrollerx::safeCallUserFunction(self::$siteCallAfterSave);
 		}
-
+	
 		return array('status' => 'UPDATED', 'user' => $u);
-
+	
 	}
+	
+	
+	public static function changeMail()
+	{
+		$t 		= trim($_REQUEST['t']);
+		
+		if ($t != "")
+		{
+			$u 		= self::getUserRecordByToken($t);
+			if ($u === false) return array('status'=>'TOKEN_NOT_FOUND','user'=>false);
+			$wz_id		= $u['wz_id'];
+			$emailNeu 	= $u['wz_EMAIL_ALT'];
+			$emailAlt 	= $u['wz_EMAIL'];
+			
+			self::updateUserRecord($wz_id,array(
+					self::$userField_userToken		=> '',
+					self::$userField_userConfirmed 	=> 'Y',
+					'wz_lastChanged' 				=> 'NOW()',
+					'wz_EMAIL' 						=> $emailNeu,
+					'wz_EMAIL_ALT' 					=> $emailAlt
+			));
+		}
+		
+		return array('status' => 'UPDATED', 'user' => $u);
+		
+	}
+	
+	
+	public static function sendConfirmMailChange($wz_id)
+	{
+		$uid 	= $wz_id;
+		$token	= self::genUserTokenById($uid);
+		
+		self::updateUserRecord($uid,array(
+				self::$userField_userToken=>$token,
+				self::$userField_userConfirmed=>'N'
+		));
+		
+		self::sendTokenMail2($uid);
+		
+		return array('status'=>'SEND TOKEN MAIL','user'=>$uid);
+		
+	}
+	
+	private static function sendTokenMail2($wz_id,$subject=false,$params=false)
+	{
+		$u 			= self::getUserRecordById($wz_id);
+		$subject 	= self::$mailPage_changeMailWithToken_subject;
+		$token		= self::genUserTokenById($u['wz_id']);
+		
+		$replacers = array(
+			'###BLOCK_NAME###' 	=> self::getNameBy($wz_id),
+			'###VORNAME###' 	=> self::getNameBy($wz_id, true),
+			'###LINK###' 		=> 'https://'.$_SERVER['HTTP_HOST'].''.xredaktor_niceurl::genUrl(array('p_id'=>1)).'?t='.$token
+		);
+			
+		$html 			= "";
+		$send2 			= array();
+	
+		$customerMail	= trim($u[self::$userField_eMailOld]); //neue mail in wz_mail_alt temporär gesaved bis mail_checked == y
+	
+		if ($customerMail != "") {
+			$send2[] = $customerMail;
+		}
+	
+		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId(self::$mailPage_changeMailWithToken);
+	
+		if (count($send2)>0)
+		{
+			$html = xredaktor_render::renderPage(self::$mailPage_changeMailWithToken,true);
+	
+			$_s = array();
+			$_r = array();
+	
+			foreach ($replacers as $k=>$v)
+			{
+				$_s[] = $k;
+				$_r[] = $v;
+			}
+	
+			$html 		= str_replace($_s,$_r,$html);
+			$storage 	= dirname(xredaktor_storage::getDirOfStorageScope($mailSettings['s_s_storage_scope']));
+	
+			$s_mail_from_name 	= $mailSettings['s_mail_from_name'];
+			$s_mail_from_email 	= $mailSettings['s_mail_from_email'];
+			$s_mail_smtp_server = $mailSettings['s_mail_smtp_server'];
+			$s_mail_smtp_user 	= $mailSettings['s_mail_smtp_user'];
+			$s_mail_smtp_pwd 	= $mailSettings['s_mail_smtp_pwd'];
+	
+			if (isset($params['s_mail_smtp_server']))
+			{
+				$s_mail_reply_name 	= $params['s_mail_reply_name'];
+				$s_mail_reply_email = $params['s_mail_reply_email'];
+				$s_mail_from_name 	= $params['s_mail_from_name'];
+				$s_mail_from_email 	= $params['s_mail_from_email'];
+				$s_mail_smtp_server = $params['s_mail_smtp_server'];
+				$s_mail_smtp_user 	= $params['s_mail_smtp_user'];
+				$s_mail_smtp_pwd 	= $params['s_mail_smtp_pwd'];
+			}
+	
+			if (trim($s_mail_reply_name) == "") 	$s_mail_reply_name 	= $s_mail_from_name;
+			if (trim($s_mail_reply_email) == "") 	$s_mail_reply_email = $s_mail_from_email;
+	
+			foreach ($send2 as $to)
+			{
+				$mailCfg = array(
+						'to'						=> array('email' => $to, 'name'=>$to),
+						'from'						=> array('email' => self::getFromMail_EMAIL($mailSettings),	'name' => self::getFromMail_NAME($mailSettings)),
+						'reply'						=> array('email' => self::getFromMail_EMAIL($mailSettings),	'name' => self::getFromMail_NAME($mailSettings)),
+						'bcc' 						=> array('email' => 'xgo@pixelfarmers.at', 	'name' => 'xgo@pixelfarmers.at'),
+						'html'						=> $html,
+						'txt'						=> '',
+						'subject'					=> $subject,
+						'priority'					=> mailx::PRIO_NORMAL,
+						'imageProcessing' 			=> true,
+						'imageProcessing_type' 		=> 'embedd',
+						'imageProcessing_location' 	=> $storage,
+						'smtp_settings'				=> array(
+								'smtp_server'	=> $s_mail_smtp_server,
+								'smtp_user'		=> $s_mail_smtp_user,
+								'smtp_pwd'		=> $s_mail_smtp_pwd,
+						)
+				);
+	
+				if (!mailx::sendMail($mailCfg))
+				{
+					$error = mailx::sendMailGetLastError();
+					if (libx::isDeveloper())
+					{
+						echo "<b>Mail konnte nicht an ($to) geschickt werden.</b>";
+						echo "<pre>\n$error</pre>";
+						echo "<pre>".print_r($mailCfg['smtp_settings'],true).'</pre>';
+					}
+	
+					return false;
+	
+				} else
+				{
+					return true;
+				}
+			}
+		}
+	
+	}
+	
 
 }
