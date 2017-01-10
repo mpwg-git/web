@@ -419,16 +419,14 @@ var fe_user = (function() {
             	
             	var email_neu 			= $('#email_neu').val();
             	var email_neu_confirm	= $('#email_neu_confirm').val();
-            	
-            	var emailForm = {
-            		email_neu: 			email_neu,
-            		email_neu_confirm: 	email_neu_confirm
-            	};
-            	
+
             	$.ajax({
             		type: 'POST',
             		url:'/xsite/call/fe_user/checkNewMail',
-            		data: emailForm,
+            		data: {
+            			email_neu: email_neu,
+            			email_neu_confirm: email_neu_confirm
+            		},
             		dataType : 'json',
             		success: function(result) {
             			if(result == -1) {
@@ -453,12 +451,16 @@ var fe_user = (function() {
             				$.ajax({
                         		type: 'POST',
                         		url:'/xsite/call/fe_user/changeMail',
-                        		data: emailForm,
-                        		dataType : 'json',
+                        		data: {
+                        			email_neu: email_neu
+                        		},
                             	success: function(result) {
-                            		location.reload(true);
+                            		if(result == 'OK')
+                            			console.log(result);
+                            			location.reload(true);
                             	}
                     		});
+            				location.reload(true);
             			}
             		}
             	});
@@ -858,6 +860,7 @@ var fe_user = (function() {
                         }
                     },
                     progressall: function(e, data) {
+                        fe_core.showLoader();
                         var progress = parseInt(data.loaded / data.total * 100, 10);
                         if (me.type == 'profile') {
                             $('.add-image-profil .upload-progress-bar').animate({
@@ -870,16 +873,20 @@ var fe_user = (function() {
                         }
                     },
                     add: function(e, data) {
-                        data.submit();
+                        fe_core.showLoader();
+                    	data.submit();
                     },
-                    fail: function(e, data) {},
+                    fail: function(e, data) {
+                        fe_core.hideLoader();
+                    },
                     done: function(e, data) {
+                        fe_core.hideLoader();
                         $('.upload-progress-bar').css('height', '0px');
                         $('.upload-progress-bar').css('width', '0%');
                         if (data.result.success == true) {
                             me.goToStep(1, data.result);
                         } else {}
-                    }
+                    } 
                 });
             } catch (e) {}
         }
@@ -938,7 +945,7 @@ var fe_user = (function() {
                     },
                     on_ZOOM_PAN_COMPLETE: function(obj, e) {
                         $('.ajax-loader').hide();
-
+                        
                         formdata = obj;
                         formdata.s_id = $('#s_id').val();
                         formdata.p_id = top.P_ID;
@@ -966,8 +973,7 @@ var fe_user = (function() {
                             $('.cropx').css('left', cropData.trueX + 'px');
                             $('.cropx').css('top', cropData.trueY + 'px');
                         }
-
-                        // $('.ajax-loader').hide();
+                        $('.ajax-loader').hide();
                     }
                 });
             // }
