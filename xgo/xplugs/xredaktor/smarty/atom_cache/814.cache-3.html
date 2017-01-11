@@ -67,11 +67,7 @@
                     <%xr_atom a_id=770 theType="room" userId=$room['wz_id'] state=$roomState['BLOCK'] description="Block" return=1%>
                 </div>
             </p>
-            
-            
-            
-            
-            
+
             
             <p>
                 <a href="<%xr_genlink p_id=12 id=$room['wz_ADMIN'] m_suffix="room/`$room['wz_id']`"%>">
@@ -89,9 +85,10 @@
             
             <%xr_siteCall fn="fe_vanityurls::getFacebookShare" var="fbShareUrl"%>
             <%if $fbShareUrl != ''%>
-            <p style="padding-top: 8px;">
+            <p>
                 <a href="<%$fbShareUrl%>?utm_source=FB&utm_medium=usershare&utm_campaign=other " target="_blank">
-                <%xr_imgWrapper s_id=18489 w=150 ext='png'%>
+                <!--<%xr_imgWrapper s_id=18489 w=150 ext='png'%>-->
+                <%xr_imgWrapper s_id=27725 h=23 ext='png'%>
                 </a>
             </p>
             <%/if%>

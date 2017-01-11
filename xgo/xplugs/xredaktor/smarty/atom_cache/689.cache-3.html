@@ -26,9 +26,11 @@
     </div>  
     
     
-    <span class="looklikeh1">
+    <!--<span class="looklikeh1">-->
+        <h1>
         <%xr_translate tag="Mein Raum"%>
-    </span>
+        </h1>
+    <!--</span>-->
     
     <%**Session Messages**%>
     <%xr_atom a_id=851 return=1 showFace=0%>
@@ -50,7 +52,8 @@
     <%xr_siteCall fn="fe_vanityurls::getFacebookShare" var="fbShareUrl"%>
     <%if $fbShareUrl != ''%>
         <a href="<%$fbShareUrl%>?utm_source=FB&utm_medium=usershare&utm_campaign=own" target="_blank">
-        <%xr_imgWrapper s_id=18489 w=150 ext='png'%>
+        <!--<%xr_imgWrapper s_id=18489 w=150 ext='png'%>-->
+        <%xr_imgWrapper s_id=27725 h=28 ext='png'%>
         </a>
     <%/if%>
     <%/if%>

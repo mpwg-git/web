@@ -46,7 +46,11 @@ header nav .main-nav .navlinks {
 }
 
 .profilerstellen {
+    position: absolute;
+    top: 0;
     padding-top: 5.3rem;
+    
+    
 }
 .profil-room {
     a[href*="/anmelden"] {
@@ -425,18 +429,25 @@ div#collapseChangePwd, div#collapseChangeMail {
     font-size: 1.6rem;
 }
 
-#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3  {
+#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, .error-div  {
     display: none;
     font-family: 'HelveticaNeueW01-ThinCn_673383';
     background-color: #fff;
     border: 1px solid #f00;
-    margin-top: 1px;
+    margin: 1px auto 15px 0;
     padding: 5px;
     color: #f00 !important;
     text-transform: none;
     letter-spacing: .1rem;
+    width: 80%;
+    border-radius: 4px;
 }
-
+.error-div, #MIETE_error, #MIETE_VON_error, #ZEITRAUM_VON_error,  {
+        width: inherit;
+    }
+#BESCHRIFTUNG_INTERN_error {
+    width: 66%;
+}
 #changePasswd-success, #changeMail-success {
     display: none;
     font-family: 'HelveticaNeueW01-ThinCn_673383';
@@ -450,13 +461,41 @@ div#collapseChangePwd, div#collapseChangeMail {
 }
 
 #changePwd > .alert.alert-danger, .alert.alert.success  {
-    margin-top: -15px;
+    margin-top: -10px;
 }
 .glyphicon {
     top: 3px;
     right: 0rem;
     line-height: 0;
     font-size: 1.6rem;
-    padding-right: 5px;
+    padding-right: 3px;
 }
+.profil .button-container-favblock .inner .item:not(last-child) {
+    margin-right: 30px;
+}
+
+.profil .button-container-favblock .inner .icon {
+    font-size: 45px;
+}
+.fakten .info [class*="icon-"] {
+    font-size: 27px;
+    padding: 0px 10px 0 0;
+    line-height: 1;
+}
+.searchlist .img-wrapper .overlay-bg .overlay .upper .drduck {
+    margin-bottom: 25p;
+}
+.item-search-geschlecht {
+    margin-top: 20px;
+}
+.searchlist .img-wrapper .overlay-bg .overlay .upper {
+    margin-top: 4%;
+}
+
+
+
+
+
+
+
 

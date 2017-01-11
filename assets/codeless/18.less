@@ -154,11 +154,21 @@ button.cropImg {
 
 h1 {
 	color: @blue;
-	font-family: @japoki;
-    // font-family: @helvetica65;
-	font-size: 5rem;
-	text-transform: none;
+	font-family: @japoki; // font-family: @helvetica65;
+	font-size: 8rem;
+    text-transform: uppercase;
 }
+h1, h2, h3, h4 {
+    color: @blue;
+    display: block;
+    line-height: 1;
+    letter-spacing: normal;
+    
+    // &::first-letter {
+    //     letter-spacing: -0.099rem;
+    // }
+}
+
 .input-icon .icon-Map {
     font-size: 20px;
     margin-top: -1.1rem;
@@ -166,7 +176,6 @@ h1 {
 }
 .start-overlay {
 	h1 {
-        color: @blue;
         font-family: @japoki;
         font-size: 5rem;
         text-align: center;
@@ -622,6 +631,42 @@ form#reset-password input {
     left: 0;
 }
 
+.upload-image {
+    border: 1px solid #04e0d7;
+    width: 110px;
+    height: 120px;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    float: left;
+    margin-right: 10px;
+}
+.upload-image.add-image:after {
+    color: #000;
+    text-align: center;
+    content: '+';
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: #04e0d7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    font-size: 30px;
+    line-height: 16px;
+    pointer-events: none;
+}
+
 
 /*
 .upload-image-modal.modal{
@@ -667,11 +712,6 @@ button.cropImg:hover {
     bottom: 0;
 }
 */
-
-
-.meinprofil-images-container {
-    display: none;
-}
 
 .wg-test-collapse .link-zu-wgtest {
     color: #fff;
@@ -730,10 +770,12 @@ div#collapseChangePwd {
     margin-top: -15px;
 }
 
-
-
-
-
+a > img.mCS_img_loaded {
+    padding: 0 0 0 8px;
+}
+a > .profileimage.mCS_img_loaded {
+    padding: 0;
+}
 
 
 

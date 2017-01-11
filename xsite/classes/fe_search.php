@@ -449,10 +449,13 @@ class fe_search
 		session_start();
 
 		$userId					= intval(xredaktor_feUser::getUserId());
-		$type						= 'suche';
+		$type					= 'suche';
 		$profileTableId 		= 717;
+		
 		$resultLimit			= 18; //18;
-
+		
+		if(intval($_REQUEST['xr_face']) == "1") $resultLimit = 99;
+		
 		$results 				= array();
 
 		$toSearch	= json_decode($searchData['SEARCH'], true);
@@ -873,8 +876,11 @@ class fe_search
 
 		$userId			= intval(xredaktor_feUser::getUserId());
 		$type				= fe_user::getUserType($userId);
+		
 		$resultLimit	= 18; //18;
-
+		if(intval($_REQUEST['xr_face']) == "1") $resultLimit = 99;
+		
+		
 		$results = array();
 
 		switch ($type) {

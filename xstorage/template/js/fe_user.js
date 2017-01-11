@@ -266,6 +266,7 @@ var fe_user = (function() {
                     }
                 });
             });
+            $('.form-mein-raum-save').unbind("click");
             $('.form-mein-raum').unbind("submit");
             $('.form-mein-raum').submit(function(e) {
                 e.preventDefault();
@@ -288,15 +289,27 @@ var fe_user = (function() {
                         }
                     });
                 } else if (!ok) {
-                  if (fe_core.getCurrentFace() != 3)
+                  if (fe_core.getCurrentFace() == 1)
                   {
-                     var errorDiv = $('#pflichtfelder-error');
-                     errorDiv.show();
+                	  
+                	  
+//                	  var scrollPos = $(window).height() * 1.25;
+                	  
+//                	  $('html, body').animate({
+//              		    scrollTop: $("#MITBEWOHNER_ALTER_VON").offset().top
+//              		},800);
+                
+                          $('.profilerstellen').animate({
+                              top: 1150
+                          }, 600);
+            
+//                     var errorDiv = $('#pflichtfelder-error');
+//                     errorDiv.show();
 
                   } else {
 
                      $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
-                          top: ($('.error-div').offset().top - 150)
+                          top: ($('#ZEITRAUM_VON_error').offset().top - 100)
                      }, 800);
 
                   }
