@@ -14,13 +14,9 @@ var fe_map = (function() {
                 map: null,
                 marker: null,
                 radius: {
-                    shape: null,
-                    value: 5
+                    shape: null
+//                    value: 5
                 }
-//            ,
-//                options: {
-//                	zoom: 10
-//                }
             };
 
             // multiple maps
@@ -714,7 +710,6 @@ var fe_map = (function() {
 
             this.searchMap.radius.shape = new google.maps.Circle({
                 map: me.searchMap.map,
-                radius: me.searchMap.radius.value * 1000,
                 radius: myRadius * 1000,
                 fillColor: '#04e0d7',
                 fillOpacity: 0.5,
