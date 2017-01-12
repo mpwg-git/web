@@ -15,8 +15,12 @@ var fe_map = (function() {
                 marker: null,
                 radius: {
                     shape: null,
-                    value: 10
+                    value: 5
                 }
+//            ,
+//                options: {
+//                	zoom: 10
+//                }
             };
 
             // multiple maps
@@ -64,6 +68,7 @@ var fe_map = (function() {
                 max: 50,
                 slide: function(event, ui) {
                     $(".ui-slider-handle", "#umkreis-slider").first().html(ui.value);
+                    console.log('ui value ', ui.value);
                     if (me.searchMap.radius.shape != null) {
                         me.searchMap.radius.shape.setRadius(ui.value * 1000);
                     }
@@ -595,12 +600,13 @@ var fe_map = (function() {
                 var $el = $('.map').first();
             }
 
-            //console.log("init map");
+            console.log("init map");
+//            console.log($("#umkreis-slider").data('value'));
 
             $el.gmap3({
                 map: {
                     options: {
-                        zoom: 14,
+                        zoom: 10,
                         mapTypeId: "wsfStyle",
                         zoomControl: false,
                     }
@@ -680,8 +686,15 @@ var fe_map = (function() {
                 }
             });
 
-            var myLatLng = new google.maps.LatLng(48.2081743, 16.37381890000006);
-
+ 
+            var inputLat = $('input.location-lat').val();
+            var inputLng = $('input.location-lng').val();
+            
+//            var myLatLng = new google.maps.LatLng(48.2081743, 16.37381890000006);
+            var myLatLng = new google.maps.LatLng(inputLat, inputLng);
+            
+            var myRadius = $("#umkreis-slider").data('value');
+            
             this.searchMap.map = $el.gmap3('get');
 
             this.searchMap.map.setCenter(myLatLng);
@@ -702,9 +715,12 @@ var fe_map = (function() {
             this.searchMap.radius.shape = new google.maps.Circle({
                 map: me.searchMap.map,
                 radius: me.searchMap.radius.value * 1000,
+                radius: myRadius * 1000,
                 fillColor: '#04e0d7',
-                fillOpacity: 0.15,
-                strokeOpacity: 0
+                fillOpacity: 0.5,
+                strokeOpacity: 1,
+                strokeWeight: 1,
+                strokeColor: '#333'
             });
             this.searchMap.radius.shape.bindTo('center', this.searchMap.marker, 'position');
 
