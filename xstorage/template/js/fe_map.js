@@ -712,7 +712,7 @@ var fe_map = (function() {
                 map: me.searchMap.map,
                 radius: myRadius * 1000,
                 fillColor: '#04e0d7',
-                fillOpacity: 0.5,
+                fillOpacity: 0.35,
                 strokeOpacity: 1,
                 strokeWeight: 1,
                 strokeColor: '#333'
