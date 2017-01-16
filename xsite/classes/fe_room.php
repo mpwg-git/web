@@ -436,7 +436,9 @@ class fe_room
 	{
 		@session_start();
 		$_SESSION['LAST_PUBLIC_ROMM_ID'] = $roomId;
-
+		
+		echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+		
 		$roomId			= intval($roomId);
 		if ($roomId == 0) return array();
 
