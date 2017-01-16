@@ -162,7 +162,7 @@
             
              <li>
                 <a data-toggle="collapse" href="#collapseProfileKonto"><%xr_translate tag="Mein Konto"%></a>        
-                <div class="meinprofil-meinkonto-collapse collapse wg-test-collapse" id="collapseProfileKonto">
+                <div class="meinprofil-meinkonto-collapse collapse wg-test-collapse <%if isset($smarty.request['deactivate-account'])%>in<%/if%>" id="collapseProfileKonto">
                     <%****************
                     <p><b><%xr_translate tag="Kostenlos"%></b> <%xr_translate tag="bis 1.2.2016"%><br />(<%xr_translate tag="Danach entstehende Kosten: nur nach expliziter Zustimmung"%>).</p> 
             		<p><%xr_translate tag="Mitgliedschaft seit"%>: <%$data['USER']['wz_created']|date_format:"%d.%m.%Y"%></p>
