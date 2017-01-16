@@ -78,11 +78,13 @@ foreach ($users as $key => $value)
 
 	$xKALT = dbx::query("SELECT * FROM wizard_auto_809 WHERE wz_ADMIN = $ID and wz_SOURCE = 'wg-gesucht'");
 
-	$ANSCHREIBEN = 'N';
-
-	if($value['wz_MAIL_CHECKED'] == 'Y' && $value['wz_ACTIVE'] == 'Y' && $value['wz_USERDEL'] == 'N' && $value['wz_EMAILBENACHRICHTIGUNG'] != 'KEINE' && $value['wz_IS_TMP_USER'] != 'Y')
+	if($value['wz_MAIL_CHECKED'] == 'Y' && $value['wz_ACTIVE'] == 'Y' && $value['wz_USERDEL'] != 'Y' && $value['wz_EMAILBENACHRICHTIGUNG'] != 'KEINE' && $value['wz_del'] != 'Y')
 	{
 		$ANSCHREIBEN = 'Y';
+	}
+	else
+	{
+		$ANSCHREIBEN = 'N';
 	}
 
 

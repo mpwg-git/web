@@ -250,13 +250,15 @@ var fe_user = (function() {
                 });
                 $me.popover('show');
             });
+
             $('.form-mein-profil').unbind("submit");
             $('.form-mein-profil').submit(function(e) {
                 e.preventDefault();
-                $('.ajax-loader').show();
                 var data = {};
                 data.user = $('.form-mein-user').serialize();
                 data.profile = $('.form-mein-profil').serialize();
+                
+                $('.ajax-loader').show();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/profileSave',
@@ -266,6 +268,7 @@ var fe_user = (function() {
                     }
                 });
             });
+            
             $('.form-mein-raum-save').unbind("click");
             $('.form-mein-raum').unbind("submit");
             $('.form-mein-raum').submit(function(e) {
@@ -291,20 +294,9 @@ var fe_user = (function() {
                 } else if (!ok) {
                   if (fe_core.getCurrentFace() == 1)
                   {
-                	  
-                	  
-//                	  var scrollPos = $(window).height() * 1.25;
-                	  
-//                	  $('html, body').animate({
-//              		    scrollTop: $("#MITBEWOHNER_ALTER_VON").offset().top
-//              		},800);
-                
                           $('.profilerstellen').animate({
                               top: 1150
                           }, 600);
-            
-//                     var errorDiv = $('#pflichtfelder-error');
-//                     errorDiv.show();
 
                   } else {
 
@@ -335,7 +327,22 @@ var fe_user = (function() {
             $('.form-mein-user').unbind("submit");
             $('.form-mein-user').submit(function(e) {
                 e.preventDefault();
+                $('#VORNAME_error, #NACHNAME_error').hide();
+                
+                var vname = $('input#vorname').val().length;
+                var nname = $('input#nachname').val().length;
+                
+                if(vname == 0) {
+                	$('#VORNAME_error').show();
+                	return;
+                }
+                else if(nname == 0) {
+                	$('#NACHNAME_error').show();
+                	return;
+                }
+                
                 $('.ajax-loader').show();
+                
                 var data = {
                     user: $('.form-mein-user').serialize()
                 };
@@ -606,6 +613,7 @@ var fe_user = (function() {
                 var userId = $(this).data('id');
                 var theType = $(this).data('type');
                 var me = this;
+                fe_core.showLoader();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/toggleFav',
@@ -618,6 +626,7 @@ var fe_user = (function() {
                             case true:
                                 $(me).find('.active').show();
                                 $(me).find('.inactive').hide();
+                                $('.ajax-loader').hide(location.reload());
                                 break;
                             case false:
                                 $(me).find('.inactive').show();
@@ -638,6 +647,7 @@ var fe_user = (function() {
                 var userId = $(this).data('id');
                 var theType = $(this).data('type');
                 var me = this;
+                fe_core.showLoader();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/toggleBlock',
@@ -653,6 +663,7 @@ var fe_user = (function() {
                                 if ($(me).hasClass('js-toggle-fade')) {
                                     $(me).closest('.searchresult-single').fadeOut();
                                 }
+                                $('.ajax-loader').hide(location.reload());
                                 break;
                             case false:
                                 $(me).find('.inactive').show();

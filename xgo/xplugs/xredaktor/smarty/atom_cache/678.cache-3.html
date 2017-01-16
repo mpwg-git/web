@@ -50,13 +50,30 @@
                 </div>
             </div>
             
+            <!--<div class="form-group">-->
+            <!--    <label for="vorname"><%xr_translate tag="Vorname"%></label>-->
+            <!--    <input id="vorname" name="VORNAME" value="<%$user['wz_VORNAME']%>" class="form-control" />-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--    <label for="nachname"><%xr_translate tag="Nachname"%></label>-->
+            <!--    <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>" class="form-control" />-->
+            <!--</div>-->
+            
             <div class="form-group">
                 <label for="vorname"><%xr_translate tag="Vorname"%></label>
-                <input id="vorname" name="VORNAME" value="<%$user['wz_VORNAME']%>" class="form-control" />
+                <input id="vorname" name="VORNAME" value="<%$user['wz_VORNAME']%>" class="form-control" placeholder="<%xr_translate tag='Vorname'%>"/>
+                <div class="error-div" id="VORNAME_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="error-message"><%xr_translate tag="Bitte Vorname eingeben"%></span>
+                </div>
             </div>
             <div class="form-group">
                 <label for="nachname"><%xr_translate tag="Nachname"%></label>
-                <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>" class="form-control" />
+                <input id="nachname" name="NACHNAME" value="<%$user['wz_NACHNAME']%>" class="form-control" placeholder="<%xr_translate tag='Nachname'%>" />
+                <div class="error-div" id="NACHNAME_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="error-message"><%xr_translate tag="Bitte Nachname eingeben"%></span>
+                </div>
             </div>
             
             <div id="geburtsdatum" class="form-group hasDatePicker">

@@ -4,6 +4,28 @@ class fe_util
 {
 	public static function isV2()
 	{
+		@session_start();
+		
+		if(isset($_REQUEST['deactivate-account']))
+		{
+			$_SESSION['DEACTIVATE-ACCOUNT'] = 1;
+			
+			if(isset($_SESSION['SEARCHLIST']))
+			{
+				unset($_SESSION['SEARCHLIST']);
+			}
+		}
+		if(isset($_REQUEST['searchlist']))
+		{
+			$_SESSION['SEARCHLIST'] = 1;
+			
+			if(isset($_SESSION['DEACTIVATE-ACCOUNT']))
+			{
+				unset($_SESSION['DEACTIVATE-ACCOUNT']);
+			}		
+		}
+
+		
 		return true;
 		
 		/*
