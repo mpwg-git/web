@@ -1,14 +1,13 @@
-<!-- 770 mobile -->
-<div class="js-toggle-blocked <%$addClass%>" data-type="<%$theType%>" data-id="<%$userId%>">
-        
-    <div class="inactive" <%if $state == true%>style="display: none;"<%/if%>>
+<div class="js-toggle-blocked <%$addClass%>" <%if $data['USER']['wz_TYPE']=='biete'%>data-type="room"<%else%>data-type="<%$theType%>"<%/if%> data-id="<%$userId%>">
+    
+    <div class="inactive" <%if $data['USER']['STATE_BLOCK'] == true%>style="display: none;"<%/if%>>
         <span id="toggle-block" class="icon icon-Blocked_inaktiv"></span>
         <%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>    
     </div>
     
-    <div class="active" <%if $state == false%>style="display: none;"<%/if%>>
+    <div class="active" <%if $data['USER']['STATE_BLOCK'] == false%>style="display: none;"<%/if%>>
         <span class="icon icon-Blocked_aktiv">
 		    <span class="path1"></span><span class="path2"></span><span class="path3"></span>
 		</span>

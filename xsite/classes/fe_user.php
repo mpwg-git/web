@@ -1319,7 +1319,28 @@ class fe_user
 		foreach ($updateCollection as $k => $v) {
 			$update['wz_'.$k] = $updateCollection[$k];
 		}
+		
+// 		if(libx::isDeveloper())
+// 		{
+// 			print_r($update);
+// 			die();
+// 		}
+		
 
+// 		if(trim($update['wz_VORNAME'] == ''))
+// 		{	
+// 			return frontcontrollerx::json_failure("vname");
+
+// 		}
+		
+// 		if(trim($update['wz_NACHNAME'] == ''))
+// 		{
+// 			return frontcontrollerx::json_failure("nname");
+// 		}
+		
+		
+		
+		
 		$update['wz_LAND'] = $userReq['LAND'];
 
 		if (isset($_REQUEST['profile']))

@@ -1,4 +1,14 @@
-<!-- 702 mobile -->
+<!--<%if $isRoom == 1%>-->
+<!--    <%xr_siteCall fn='fe_user::sc_getUser2RoomState' fUserId=$user['wz_id'] var='roomState'%>-->
+<!--    <%$stateFav=$roomState['FAV']%>-->
+<!--    <%$stateBlk=$roomState['BLOCK']%>-->
+<!--<%else%>-->
+<!--    <%$stateFav=$user['STATE_FAV']%>-->
+<!--    <%$stateBlk=$user['STATE_BLOCK']%>-->
+<!--<%/if%>-->
+
+<!--<%xr_print_r val=$data%>-->
+
 <div class="button-container-favblock clearfix">
     <div class="inner clearfix">
         <div class="item">
