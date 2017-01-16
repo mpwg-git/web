@@ -482,9 +482,9 @@ class fe_user
 
 		if ($user === false) {
 			return "/";
-		}
+		}	
 
-
+	
 		$userId		= intval($user['wz_id']);
 
 		++$counter;
@@ -526,7 +526,7 @@ class fe_user
 		}
 
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$userId));
-
+		
 		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
 		{
 			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
@@ -534,11 +534,42 @@ class fe_user
 			if($LAST_PUBLIC_ROMM_ID > 0)
 			{
 				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
+				
+				$adminOfRoom = fe_room::checkIfIAmAdminOfThisRoom($LAST_PUBLIC_ROMM_ID);
+				
+				if($adminOfRoom === false)
+				{
+					return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
+				}
+				elseif($adminOfRoom === true && $_SESSION['ROOM-DETAILVIEW'] == 1)
+				{
+					unset($_SESSION['ROOM-DETAILVIEW']);
+					$redirect = fe_vanityurls::genUrl_myprofile();
+					$redirect .= "/mein-raum/" . $LAST_PUBLIC_ROMM_ID;
+					
+					return $redirect;
+				}
 
-				return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
 		}
+		
+		if(isset($_SESSION['SEARCHLIST']))
+		{
+			return fe_vanityurls::genUrl_suche();
+		}
+		
+		
+		if(isset($_SESSION['DEACTIVATE-ACCOUNT']))
+		{
+			unset($_SESSION['DEACTIVATE-ACCOUNT']);
+			
+			$redirect = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
+			
+			return $redirect;
+		}
+		
 
+		
 		// FIRST visit ever after registration
 		if ($user['wz_NOTLOGGEDIN'] == 1)
 		{
@@ -702,7 +733,8 @@ class fe_user
 
 
 	public static function getMyData()
-	{
+	{	
+		
 		self::checkLoggedIn();
 
 		$userId			= xredaktor_feUser::getUserId();
@@ -722,6 +754,7 @@ class fe_user
 	public static function getUserData($userId)
 	{
 		self::checkLoggedIn();
+
 
 		$userId			= intval($userId);
 		$myUserId		= xredaktor_feUser::getUserId();
@@ -743,11 +776,12 @@ class fe_user
 		}
 
 
+
 		if($user === false)
 		{
 			return array();
 		}
-
+		
 		if ($user['wz_PROFILBILD'] == 0)
 		{
 			$user['wz_PROFILBILD'] = self::getProfileImage($userId);
@@ -845,7 +879,7 @@ class fe_user
 
 	public static function redirectIfLoggedIn()
 	{
-
+		
 		if (xredaktor_feUser::isLoggedIn() !== false)
 		{
 			return self::redirectToSearch();
@@ -1164,13 +1198,14 @@ class fe_user
 
 	public static function checkLoggedIn()
 	{
+		
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 		{
 			return true;
 		}
-
+		
 		if (xredaktor_feUser::isLoggedIn() === false)
-		{
+		{			
 			return self::redirectToLogin();
 		}
 		else
@@ -1222,6 +1257,7 @@ class fe_user
 
 	public static function redirectToLogin($addQueryParam = false)
 	{
+		
 		$cfg = array('p_id' => fe_vanityurls::$page_login);
 
 		// damit wir nicht in infinite loop kommen...

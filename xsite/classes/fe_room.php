@@ -195,20 +195,33 @@ class fe_room
 
 	public static function getRoomData($roomId, $hash, $activate)
 	{
+		
 		$roomId			= intval($roomId);
 		if ($roomId == 0) return array();
 
 		$itsMe 			= false;
-
+		
 		if (self::checkIfIAmPartOfThisRoom($roomId) !== false)
 		{
 			$itsMe 		= true;
+			
+			if(isset($_REQUEST['room-detailview']))
+			{	
+				unset($_SESSION['ROOM-DETAILVIEW']);
+				
+				$redirect = fe_vanityurls::genUrl_myprofile();
+				$redirect .= "/mein-raum/" . $roomId;
+			
+				header("Location: " . $redirect);
+				die();
+			}
+				
 		}
 
 		$myUserId		= xredaktor_feUser::getUserId();
 
 		$room			= dbx::query("select * from wizard_auto_809 where wz_id = $roomId and wz_online = 'Y' ");
-
+		
 
 ///// redirect to error page if room is not online/active/ADMIN = 0 OR hide = Y
 		if(!$itsMe && !libx::isDeveloper()){
@@ -234,7 +247,7 @@ class fe_room
 		$admin			= intval($room['wz_ADMIN']);
 		$user			= fe_user::getUserData($admin);
 
-
+	
 		if ($room['wz_PROFILBILD'] == 0)
 		{
 			$room['wz_PROFILBILD'] = self::$defaultProfileImage;
@@ -370,37 +383,6 @@ class fe_room
 			return $miete;
 		}
 
-		// if(libx::isDeveloper()) print_r($roomData);
-
-		// return $roomData;
-
-		// if(count($roomData) == 1)
-		// {
-		// 	echo "<pre>";
-		// 	print_r($miete);
-		// 	echo "</pre>";
-		//
-		// 	return $miete;
-		//
-		// }
-		// elseif(count($roomData) > 1)
-		// {
-		// 	$miete = array();
-		// 	array_push($miete, reset($roomData), end($roomData));
-		//
-		// 	echo "<pre>";
-		// 	print_r($miete);
-		// 	echo "</pre>";
-		//
-		// 	return $miete;
-		//
-		// }
-		// else
-		// {
-		// 	return false;
-		//
-		// }
-		// return false;
 	}
 
 
@@ -437,7 +419,10 @@ class fe_room
 		@session_start();
 		$_SESSION['LAST_PUBLIC_ROMM_ID'] = $roomId;
 		
-		echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+		if(isset($_REQUEST['room-detailview']))
+		{
+			$_SESSION['ROOM-DETAILVIEW'] = true;
+		}
 		
 		$roomId			= intval($roomId);
 		if ($roomId == 0) return array();
