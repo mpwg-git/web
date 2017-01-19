@@ -424,7 +424,29 @@ var fe_user = (function() {
                     }
                 });
             });
+            
+            
+            $('.save-gui-image').unbind('click');
+            $('.save-gui-image').bind('click', function(e) {
+                e.preventDefault();
+                
+                var imgData = $('#gui_image').guillotine('getData');
+                
+                console.log('imgData ', imgData);
+                
+                $.ajax({
+                	type: 'POST',
+                	url: '/xsite/call/fe_user/cropImageAndSaveNew',
+                	data: imgData,
+                	success: function(response) {
+                        if (response.success) {
+                            console.log(response);
+                        }
+                	}
+                })
 
+            });
+            
             
             
 // WEB-271
@@ -827,6 +849,7 @@ var fe_user = (function() {
                     });
                 }
             });
+
             me.registerUploadListeners();
         }
         this.delContent = function(type, id) {

@@ -1671,7 +1671,6 @@ class fe_user
 
 		$a_id = 746;
 
-
 		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
 
 		frontcontrollerx::json_success(array('data' => array('html' => $html)));

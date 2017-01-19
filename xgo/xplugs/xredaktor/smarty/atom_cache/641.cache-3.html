@@ -77,6 +77,46 @@
         
         
         
+        <script src="/xstorage/template/plugins/guillotine/jquery.guillotine.js"></script>
+        
+        <script>
+            window.onload = function() {
+                console.log('window loaded');
+                
+                $('#modal').on('shown.bs.modal', function () {
+                    console.log('shown bs modal');
+                    
+                    var img = $('#gui_image');
+                    img.guillotine({width: 345, height: 345});
+                    
+                    $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
+	
+                	$('#zoom_out').bind('click', function() {
+                		img.guillotine('zoomOut')
+                	});
+                	
+                	$('#zoom_in').bind('click', function() {
+                		img.guillotine('zoomIn')
+                	});
+                	
+                	$('#rotate_left').bind('click', function() {
+                		img.guillotine('rotateLeft')
+                	});
+                	
+                	$('#rotate_right').bind('click', function() {
+                		img.guillotine('rotateRight')
+                	});
+                	
+                	$('#fit').bind('click', function() {
+                		img.guillotine('fit')
+                	});
+                    
+                  }).on('hidden.bs.modal', function () {
+                    console.log('hidden bs modal');
+                })
+            };
+        </script>
+    
 	</body>
 </html>
 

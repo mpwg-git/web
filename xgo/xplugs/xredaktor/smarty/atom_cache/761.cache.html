@@ -1,98 +1,27 @@
-<style>
-    .imageBox {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    border: 1px solid #aaa;
-    background: #fff;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    cursor: move;
-}
-   .imageBox .thumbBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    margin-top: -150px;
-    margin-left: -150px;
-    box-sizing: border-box;
-    border: 1px solid rgb(102, 102, 102);
-    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
-    background: none repeat scroll 0% 0% transparent;
-}
-    .imageBox .spinner{
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        text-align: center;
-        line-height: 400px;
-        background: rgba(0,0,0,0.7);
-    }
-    .modal-dialog {
-        width: 95%;
-    }
-    
-    .crop-wrapper {
-        position: absolute;
-        top: 4%;
-        left: 6%;
-        right: 0;
-        bottom: 0;
-    }
-    .action
-    {
-        width: 150px;
-        height: 30px;
-        margin: 10px 0;
-    }
-    .action > input {
-        padding: 0 5px;
-    }
-
-</style>
-
-
 
 <%*xr_print_r val=$data*%>
 <%if $smarty.request.dev==1%>
 <%xr_print_r val=$datatype%>
 <%/if%>
 
-<script src="/xstorage/template/plugins/cropBox/cropbox.js"></script>
-<div class="upload-image-modal modal fade">
+
+
+
+<div id="modal" class="upload-image-modal modal fade">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background: rgb(105,121,132);height: 110%;">
             <div class="modal-body">
+                <div class="add-image-crop-area" style="height:initial;width: 120% !important;position: relative;left: -22px;">
                 
-                <!-- CROP BOX -->
-                <div class="crop-wrapper">
-                    <div class="imageBox">
-                        <div class="thumbBox"></div>
-                        <div class="spinner" style="display: none">Loading...</div>
-                    </div>
-                    <div class="action">
-                        <!--<input type="file" id="file" style="float:left; width: 250px">-->
-                        <input type="button" id="btnCrop" value="Crop" style="float: right">
-                        <input type="button" id="btnZoomIn" value="+" style="float: right">
-                        <input type="button" id="btnZoomOut" value="-" style="float: right">
-                    </div>
-                    <div class="cropped">
-                    </div>
-                </div>
-                <!-- END CROP BOX -->
-                
-                <div class="add-image-crop-area" style="display: none;">
-                    
                 </div>
             </div>
             
         </div>
     </div>
 </div>
+
+
+
 
 
 

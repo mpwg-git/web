@@ -15,6 +15,7 @@
 <%xr_img s_id=$image['new_s_id'] var='croppedImg'%>
 <%xr_print_r val=$image%>
 <style>
+    /*
     #content {
         width: 35%;
         text-align: left;
@@ -24,16 +25,19 @@
         -moz-box-shadow: 0 0 20px 0 #999;
         box-shadow: 0 0 20px 0 #999;
     }
+    */
+
     #gui-container {
         width: 80%;
-        text-align: center;
-        margin: 0 auto;
-        border: 5px solid #04e0d7;
-        border-radius: 4px;
+        /*text-align: center;*/
+        /*margin: 0 auto;*/
+        /*border: 5px solid #04e0d7;*/
+        /*border-radius: 4px;*/
     }
     #controls {
         background-color: #1b1b1b;
         text-align: center;
+        margin: 6px auto 0;
     }
     #controls a {
         display: inline-block;
@@ -65,9 +69,9 @@
     }
 </style>
 
-<div id="content">
-    <div id="gui-container">
-        <img id="gui-image" src="/xstorage/_cache/_27808_5_9dd92562a4510d2ac773ce9d9076956d.jpg">
+<div id="content" style="max-width:35%;">
+    <div id="gui-container" style="width: 80%;text-align: center;margin: 15px auto 15px;">
+        <img id="sample_picture" src="/xstorage/_cache/_27808_5_9dd92562a4510d2ac773ce9d9076956d.jpg">
     </div>
     <div id="controls">
       <a href="#" id="rotate_left" title="Rotate left"><i class="fa fa-rotate-left"></i></a>
@@ -93,38 +97,6 @@
     </ul>
 </div>
 
-
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src="/xstorage/template/plugins/guillotine/jquery.guillotine.min.js" type="text/javascript"></script>
-        <script>
-            $(document).ready(function() {
-                
-                var cropAvatar = $('#gui-image');
-                
-                console.log(cropAvatar.width());
-                
-                if(cropAvatar.width > 0) {
-                    cropAvatar.guillotine({width: 345, height: 345});
-                    
-                    cropAvatar.on('load', function() {
-                    	cropAvatar.guillotine({ eventOnChange: 'guillotinechange' })
-                    	cropAvatar.guillotine('fit')
-                    });
-                    
-                    $('#controls a').click(function(e) {
-                        e.preventDefault()
-                        action = camelize(this.id)
-                        picture.guillotine(action)
-                    })
-                    
-                    var camelize = function() {
-                        var regex = /[\W_]+(.)/g
-                        var replacer = function (match, submatch) { return submatch.toUpperCase() }
-                        return function (str) { return str.replace(regex, replacer) }
-                    }()
-                }
-            });
-        </script>
 
 
 
