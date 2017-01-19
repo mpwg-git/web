@@ -1,9 +1,110 @@
-<div class="upload-image-modal modal fade" style="position: absolute !important;">
+<style>
+.imageBox {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border: 1px solid #aaa;
+    background: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor: move;
+    margin-bottom: 35%;
+    
+}
+   .imageBox .thumbBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 178px;
+    height: 195px;
+    margin-top: -100px;
+    margin-left: -90px;
+    box-sizing: border-box;
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0% 0% transparent;
+}
+    .imageBox .spinner{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        line-height: 400px;
+        background: rgba(0,0,0,0.7);
+    }
+    .modal-dialog {
+        width: 95%;
+    }
+
+.crop-wrapper {
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    right: 0;
+    bottom: 0;
+}
+.action {
+    width: 100%;
+    position: absolute;
+    height: 30px;
+    margin: 0;
+    bottom: 3%;
+}
+.action > input {
+    padding: 5px 15px;
+    margin: 0 4px;
+}
+.upload-image-modal .modal-dialog .modal-content {
+    width: 390px;
+    height: 480px;
+}
+.cropped {
+    position: relative;
+    top: 20px;
+}
+.fa {
+    font-size: 24px !important;
+    color: #ccc;
+    margin: 0 5px;
+}
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/xstorage/template/plugins/cropBox/cropbox.js"></script>
+
+
+<%*xr_print_r val=$data*%>
+<%if $smarty.request.dev==1%>
+<%xr_print_r val=$datatype%>
+<%/if%>
+
+<div class="upload-image-modal modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-           
             <div class="modal-body">
-                <div class="add-image-crop-area">
+                
+                <!-- CROP BOX -->
+                <div class="crop-wrapper">
+                    <div class="imageBox" draggable="true">
+                        <div class="thumbBox"></div>
+                        <div class="spinner" style="display: none">Loading...</div>
+                    </div>
+                    <div class="action">
+                        <!--<input type="file" id="file" style="float:left; width: 250px">-->
+                        <input type="button" id="btnCrop" value="Crop" style="float: right">
+                        <input type="button" id="btnZoomIn" value="+" style="float: right">
+                        <input type="button" id="btnZoomOut" value="-" style="float: right">
+                        <!--<span class="fa fa-rotate-left"></span>-->
+                        <!--<span class="fa fa-rotate-right"></span>-->
+                    </div>
+                    <div class="cropped">
+                    </div>
+                </div>
+                <!-- END CROP BOX -->
+                
+                <div class="add-image-crop-area" style="display: none;">
                     
                 </div>
             </div>
@@ -11,3 +112,60 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    window.onload = function() {
+        var options =
+        {
+            imageBox: '.imageBox',
+            thumbBox: '.thumbBox',
+            spinner: '.spinner',
+            imgSrc: ''
+        }
+        var cropper = new cropbox(options);
+        var imgBox = document.querySelector('.imageBox');
+        
+        document.querySelector('#file').addEventListener('change', function(){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = new cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        
+        document.querySelector('#btnCrop').addEventListener('click', function(){
+            var img = cropper.getDataURL();
+            document.querySelector('.cropped').innerHTML += '<img src="'+img+'">';
+            
+           removeEventListener('click', this);
+        })
+        document.querySelector('#btnZoomIn').addEventListener('click', function(){
+            cropper.zoomIn();
+        })
+        document.querySelector('#btnZoomOut').addEventListener('click', function(){
+            cropper.zoomOut();
+        })
+        
+        document.querySelector('.fa-rotate-right').addEventListener('click', function(){
+            imgBox.style.transform += 'rotate(45deg)';
+        })
+        
+        document.querySelector('.fa-rotate-left').addEventListener('click', function(){
+            imgBox.style.transform = 'rotate(-45deg)';
+        })
+        
+        imgBox.addEventListener('touchmove', function(e) {
+            var touchobj = e.changedTouches[0] // reference first touch point for this event
+            var dist = parseInt(touchobj.clientX) - startx
+            statusdiv.innerHTML = 'Status: touchmove<br> Horizontal distance traveled: ' + dist + 'px'
+            e.preventDefault()
+        }, false)
+        
+        
+    };
+</script>
+
+
+

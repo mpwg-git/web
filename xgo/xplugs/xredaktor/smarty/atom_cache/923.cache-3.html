@@ -1,365 +1,130 @@
-<!--http://phpflow.com/php/image-crop-functionality-in-model-box/-->
+<%xr_siteCall fn="fe_user::sc_redirectIfNotLoggedIn" var="checkLogin"%>
+<%if !$user%>
+    <%xr_siteCall fn="fe_user::getMyData" var="data"%>
+    <%$user = $data['USER']%>
+<%/if%>
 
-<!--Step 1: First we will include all necessary jquery plugin and library files.We will keep all below files in head section of index.php file.-->
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="dist/jquery.imgareaselect.js" type="text/javascript"></script>
-<script src="dist/jquery.form.js"></script>
-<link rel="stylesheet" href="dist/imgareaselect.css">
--->
-<!--step 1-->
+<%$datatype='other'%>
+<%if $fromRoom == 1%>
+    <%$datatype='other-room'%>
+<%/if%>
 
+<%xr_img s_id=$user['wz_PROFILBILD'] var='image'%>
 
 
+<%xr_img s_id=$image['new_s_id'] var='croppedImg'%>
+<%xr_print_r val=$image%>
+<style>
+    #content {
+        width: 35%;
+        text-align: left;
+        margin: 20px auto;
+        padding: 20px 40px 40px;
+        -webkit-box-shadow: 0 0 20px 0 #999;
+        -moz-box-shadow: 0 0 20px 0 #999;
+        box-shadow: 0 0 20px 0 #999;
+    }
+    #gui-container {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        border: 5px solid #04e0d7;
+        border-radius: 4px;
+    }
+    #controls {
+        background-color: #1b1b1b;
+        text-align: center;
+    }
+    #controls a {
+        display: inline-block;
+        padding: 0 5%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: 300;
+        color: #888;
+    }
+    #data {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+        margin: 40px 0 0;
+        text-align: left;
+    }
+    #data .column {
+        display: inline-block;
+        margin: 0 15px;
+    }
+    #data li {
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    #data span {
+        display: inline-block;
+        font-weight: 400;
+    }
+</style>
 
-
-
-<!--Step 2:We will Create div to show image and option to change image.-->
-<!--
-<div>
-    <img class="img-circle" id="avatar-edit-img" height="128" data-src="default.jpg"  data-holder-rendered="true" style="width: 140px; height: 140px;" src="default.jpg"/>
-    <a type="button" class="btn btn-primary" id="change-pic">Change Image</a>
-</div>
--->
-<!--step 2-->
-
-
-
-
-
-
-
-
-<!--Step 3: Now we will create model box to upload and crop image.-->
-<!--model box -->
-<!--
-
-<div id="changePic" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               <h3>Change Profile Picture</h3>
-            </div>
-            <div class="modal-body">
-                <form id="cropimage" method="post" enctype="multipart/form-data" action="profile.php">
-                    Upload your image <input type="file" name="photoimg" id="photoimg" />
-                    <input type="hidden" name="hdn-profile-id" id="hdn-profile-id" value="1" />
-                    <input type="hidden" name="hdn-x1-axis" id="hdn-x1-axis" value="" />
-                    <input type="hidden" name="hdn-y1-axis" id="hdn-y1-axis" value="" />
-                    <input type="hidden" name="hdn-x2-axis" value="" id="hdn-x2-axis" />
-                    <input type="hidden" name="hdn-y2-axis" value="" id="hdn-y2-axis" />
-                    <input type="hidden" name="hdn-thumb-width" id="hdn-thumb-width" value="" />
-                    <input type="hidden" name="hdn-thumb-height" id="hdn-thumb-height" value="" />
-                    <input type="hidden" name="action" value="" id="action" />
-                    <input type="hidden" name="image_name" value="" id="image_name" />
-                    
-                    <div id='preview-avatar-profile'>
-                </div>
-                <div id="thumbs" style="padding:5px; width:600"></div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" id="btn-crop" class="btn btn-primary">Crop & Save</button>
-            </div>
-        </div>
+<div id="content">
+    <div id="gui-container">
+        <img id="gui-image" src="/xstorage/_cache/_27808_5_9dd92562a4510d2ac773ce9d9076956d.jpg">
+    </div>
+    <div id="controls">
+      <a href="#" id="rotate_left" title="Rotate left"><i class="fa fa-rotate-left"></i></a>
+      <a href="#" id="zoom_out" title="Zoom out"><i class="fa fa-search-minus"></i></a>
+      <a href="#" id="fit" title="Fit image"><i class="fa fa-arrows-alt"></i></a>
+      <a href="#" id="zoom_in" title="Zoom in"><i class="fa fa-search-plus"></i></a>
+      <a href="#" id="rotate_right" title="Rotate right"><i class="fa fa-rotate-right"></i></a>
     </div>
 </div>
--->
-<!--step 3-->
+<ul id="data">
+      <div class="column">
+        <li>x: <span id="x">162</span></li>
+        <li>y: <span id="y">92</span></li>
+      </div>
+      <div class="column">
+        <li>width:  <span id="w">400</span></li>
+        <li>height: <span id="h">300</span></li>
+      </div>
+      <div class="column">
+        <li>scale: <span id="scale">0.2097</span></li>
+        <li>angle: <span id="angle">0</span></li>
+      </div>
+    </ul>
+</div>
 
 
-
-
-
-
-
-
-
-<!--Step 4: Now will write some jquery code to show the model box when we will click change pic button.-->
-<!--
-<script>
-    jQuery('#change-pic').live('click', function(e){
-            e.preventDefault();
-            
-            jQuery('#changePic').show();
-            
-        });
-</script>
--->
-<!--step4-->
-
-
-
-
-
-
-
-<!--Step 5: Now we will use jQuery Ajax form plugin for form submitting and show the image for crop process on bootstrap modal box.-->
-<!--
-<script>
-jQuery('#photoimg').live('change', function()   
-{ 
-jQuery("#preview-avatar-profile").html('');
-jQuery("#preview-avatar-profile").html('Uploading....');
-jQuery("#cropimage").ajaxForm(
-{
-target: '#preview-avatar-profile',
-success:    function() { 
-        jQuery('img#photo').imgAreaSelect({
-        aspectRatio: '1:1',
-        onSelectEnd: getSizes,
-    });
-    }
-}).submit();
-});
-</script>
--->
-<!--step 5-->
-
-
-
-
-
-
-
-<!--Step 6: Now we will cropped image and call save Ajax method to save image on hard disk storage.-->
-<!--    
- //fucntion for get image cropped co-ordinate
-function getSizes(img, obj)
-    {
-        var x_axis = obj.x1;
-        var x2_axis = obj.x2;
-        var y_axis = obj.y1;
-        var y2_axis = obj.y2;
-        var thumb_width = obj.width;
-        var thumb_height = obj.height;
-        if(thumb_width > 0)
-            {
-
-                jQuery('#hdn-x1-axis').val(x_axis);
-                jQuery('#hdn-y1-axis').val(y_axis);
-                jQuery('#hdn-x2-axis').val(x2_axis);
-                jQuery('#hdn-y2-axis').val(y2_axis);
-                jQuery('#hdn-thumb-width').val(thumb_width);
-                jQuery('#hdn-thumb-height').val(thumb_height);
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="/xstorage/template/plugins/guillotine/jquery.guillotine.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
                 
-            }
-        else
-            alert("Please select portion..!");
-    }
-    //call on crop iamge button
-jQuery('#btn-crop').live('click', function(e){
-    e.preventDefault();
-    params = {
-            targetUrl: 'profiles/saveAvatarTmp/',
-            action: 'profiles_controller_saveAvatarTmp',
-            x_axis: jQuery('#hdn-x1-axis').val(),
-            y_axis : jQuery('#hdn-y1-axis').val(),
-            x2_axis: jQuery('#hdn-x2-axis').val(),
-            y2_axis : jQuery('#hdn-y2-axis').val(),
-            thumb_width : jQuery('#hdn-thumb-width').val(),
-            thumb_height:jQuery('#hdn-thumb-height').val()
-        };
-        saveCropImage(params);
-    });
-    //make ajax request to PHP for save image
-function saveCropImage(params) {
-    jQuery.ajax({
-        url: siteurl + params['targetUrl'],
-        cache: false,
-        dataType: "html",
-        data: {
-            action: params['action'],
-            id: jQuery('#hdn-profile-id').val(),
-             t: 'ajax',
-                                w1:params['thumb_width'],
-                                x1:params['x_axis'],
-                                h1:params['thumb_height'],
-                                y1:params['y_axis'],
-                                x2:params['x2_axis'],
-                                y2:params['y2_axis']
-        },
-        type: 'Post',
-       // async:false,
-        success: function (response) {
-                jQuery("#changePic").hide();
-                jQuery(".imgareaselect-border1,.imgareaselect-border2,.imgareaselect-border3,.imgareaselect-border4,.imgareaselect-border2,.imgareaselect-outer").css('display', 'none');
+                var cropAvatar = $('#gui-image');
                 
-                jQuery("#avatar-edit-img").attr('src', response);
-                jQuery("#preview-avatar-profile").html('');
-                jQuery("#photoimg").val();
-                AlertManager.showNotification('Image cropped!', 'Click Save Profile button to save image.', 'success');
+                console.log(cropAvatar.width());
                 
-                
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            alert('status Code:' + xhr.status + 'Error Message :' + thrownError);
-        }
-    });
-    }   
--->    
-   <!--step 6-->
- 
-    
-  
-  
+                if(cropAvatar.width > 0) {
+                    cropAvatar.guillotine({width: 345, height: 345});
+                    
+                    cropAvatar.on('load', function() {
+                    	cropAvatar.guillotine({ eventOnChange: 'guillotinechange' })
+                    	cropAvatar.guillotine('fit')
+                    });
+                    
+                    $('#controls a').click(function(e) {
+                        e.preventDefault()
+                        action = camelize(this.id)
+                        picture.guillotine(action)
+                    })
+                    
+                    var camelize = function() {
+                        var regex = /[\W_]+(.)/g
+                        var replacer = function (match, submatch) { return submatch.toUpperCase() }
+                        return function (str) { return str.replace(regex, replacer) }
+                    }()
+                }
+            });
+        </script>
 
 
-<!--Step 7: We will define controller/action method in profile.php.  -->
-<!--  
-  /*********************************************************************
-     Purpose            : update image.
-     Parameters         : null
-     Returns            : integer
-     ***********************************************************************/
-    public function changeAvatar() {
-        global $current_user;
-        $loggedInId = $current_user->ID;
-        $post = isset($_POST) ? $_POST: array();
-        $max_width = "500"; 
-        $userId = isset($post['hdn-profile-id']) ? intval($post['hdn-profile-id']) : 0;
-        $path = get_theme_root(). '\images\uploads\tmp';
-
-        $valid_formats = array("jpg", "png", "gif", "bmp","jpeg");
-        $name = $_FILES['photoimg']['name'];
-        $size = $_FILES['photoimg']['size'];
-        if(strlen($name))
-        {
-        list($txt, $ext) = explode(".", $name);
-        if(in_array($ext,$valid_formats))
-        {
-        if($size<(1024*1024)) // Image size max 1 MB
-        {
-        $actual_image_name = 'avatar' .'_'.$userId .'.'.$ext;
-        $filePath = $path .'/'.$actual_image_name;
-        $tmp = $_FILES['photoimg']['tmp_name'];
-        
-        if(move_uploaded_file($tmp, $filePath))
-        {
-        $width = $this->getWidth($filePath);
-            $height = $this->getHeight($filePath);
-            //Scale the image if it is greater than the width set above
-            if ($width > $max_width){
-                $scale = $max_width/$width;
-                $uploaded = $this->resizeImage($filePath,$width,$height,$scale);
-            }else{
-                $scale = 1;
-                $uploaded = $this->resizeImage($filePath,$width,$height,$scale);
-            }
-        $res = $this->Profile->saveAvatar(array(
-                        'userId' => isset($userId) ? intval($userId) : 0,
-                                                'avatar' => isset($actual_image_name) ? $actual_image_name : '',
-                        ));
-                        
-        //mysql_query("UPDATE users SET profile_image='$actual_image_name' WHERE uid='$session_id'");
-        echo "<img id='photo' class='' src='".getCustomAvatar($userId, true).'?'.time()."' class='preview'/>";
-        }
-        else
-        echo "failed";
-        }
-        else
-        echo "Image file size max 1 MB"; 
-        }
-        else
-        echo "Invalid file format.."; 
-        }
-        else
-        echo "Please select image..!";
-        exit;
-        
-        
-    }
-    /*********************************************************************
-     Purpose            : update image.
-     Parameters         : null
-     Returns            : integer
-     ***********************************************************************/
-    public function saveAvatarTmp() {
-        global $current_user;
-        $loggedInId = $current_user->ID;
-        $post = isset($_POST) ? $_POST: array();
-        $userId = isset($post['id']) ? intval($post['id']) : 0;
-        $path = get_theme_root(). '\\images\uploads\tmp';
-        $t_width = 300; // Maximum thumbnail width
-        $t_height = 300;    // Maximum thumbnail height
-
-    if(isset($_POST['t']) and $_POST['t'] == "ajax")
-    {
-        extract($_POST);
-        
-        $img = get_user_meta($userId, 'user_avatar', true);
-        $imagePath = $path.'/'.$img;
-        $ratio = ($t_width/$w1); 
-        $nw = ceil($w1 * $ratio);
-        $nh = ceil($h1 * $ratio);
-        $nimg = imagecreatetruecolor($nw,$nh);
-        $im_src = imagecreatefromjpeg($imagePath);
-        imagecopyresampled($nimg,$im_src,0,0,$x1,$y1,$nw,$nh,$w1,$h1);
-        imagejpeg($nimg,$imagePath,90);
-        
-    }
-    echo getCustomAvatar($userId, true);
-    exit(0);    
-    }
-    
-    /*********************************************************************
-     Purpose            : resize image.
-     Parameters         : null
-     Returns            : image
-     ***********************************************************************/
-    function resizeImage($image,$width,$height,$scale) {
-    $newImageWidth = ceil($width * $scale);
-    $newImageHeight = ceil($height * $scale);
-    $newImage = imagecreatetruecolor($newImageWidth,$newImageHeight);
-    $source = imagecreatefromjpeg($image);
-    imagecopyresampled($newImage,$source,0,0,0,0,$newImageWidth,$newImageHeight,$width,$height);
-    imagejpeg($newImage,$image,90);
-    chmod($image, 0777);
-    return $image;
-}
-/*********************************************************************
-     Purpose            : get image height.
-     Parameters         : null
-     Returns            : height
-     ***********************************************************************/
-function getHeight($image) {
-    $sizes = getimagesize($image);
-    $height = $sizes[1];
-    return $height;
-}
-/*********************************************************************
-     Purpose            : get image width.
-     Parameters         : null
-     Returns            : width
-     ***********************************************************************/
-function getWidth($image) {
-    $sizes = getimagesize($image);
-    $width = $sizes[0];
-    return $width;
-}
-  
--->  
-    <!--step 7-->
- 
- 
- 
- <!--Step 8: Model method to save image path into database.-->
-   <!--
-   /*********************************************************************
-     Purpose            : save avatar.
-     Parameters         : $options 
-     Returns            : true/false
-     ***********************************************************************/
-    function saveAvatar($options){
-        //update sql
-
-    }
-   -->
-
-    <!--step 8-->
 
