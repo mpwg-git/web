@@ -1,7 +1,8 @@
 var delRoomOnce = false;
 var deactAccountOnce = false;
 var base64Img = false;
-var cropData = false;
+var glltFormData = false;
+var glltCropData = false;
 var fe_user = (function() {
     return new function() {
         this.init = function() {
@@ -257,7 +258,7 @@ var fe_user = (function() {
                 var data = {};
                 data.user = $('.form-mein-user').serialize();
                 data.profile = $('.form-mein-profil').serialize();
-                
+
                 $('.ajax-loader').show();
                 $.ajax({
                     type: 'POST',
@@ -268,7 +269,7 @@ var fe_user = (function() {
                     }
                 });
             });
-            
+
             $('.form-mein-raum-save').unbind("click");
             $('.form-mein-raum').unbind("submit");
             $('.form-mein-raum').submit(function(e) {
@@ -328,10 +329,10 @@ var fe_user = (function() {
             $('.form-mein-user').submit(function(e) {
                 e.preventDefault();
                 $('#VORNAME_error, #NACHNAME_error').hide();
-                
+
                 var vname = $('input#vorname').val().length;
                 var nname = $('input#nachname').val().length;
-                
+
                 if(vname == 0) {
                 	$('#VORNAME_error').show();
                 	return;
@@ -340,9 +341,9 @@ var fe_user = (function() {
                 	$('#NACHNAME_error').show();
                 	return;
                 }
-                
+
                 $('.ajax-loader').show();
-                
+
                 var data = {
                     user: $('.form-mein-user').serialize()
                 };
@@ -424,41 +425,113 @@ var fe_user = (function() {
                     }
                 });
             });
-            
-            
+
+
+/**
+ * image crop plugin
+ * https://github.com/matiasgagliano/guillotine
+**/
+            $('#modal').on('shown.bs.modal', function () {
+            		console.log('shown bs modal');
+            		
+            		/*var img = $('img#gui_image');
+            		img.guillotine({width: 345, height: 345});
+                    img.guillotine('fit');
+            		*/
+                    var xrFace = fe_core.getCurrentFace();
+                    
+                    console.log('xr_face: ', xrFace);
+                    
+            		var img = $('#gui_image');
+            		if(xrFace == 3) img.guillotine({width: 345, height: 345});
+            		else img.guillotine({width: 200, height: 200});
+
+            		
+                // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
+              	$('#zoom_out').click(function() {
+              		img.guillotine('zoomOut')
+                });
+                $('#zoom_in').click(function() {
+              		img.guillotine('zoomIn')
+              	});
+              	$('#rotate_left').click(function(){
+                  picture.guillotine('rotateLeft')
+                });
+              	$('#rotate_right').click(function() {
+              		img.guillotine('rotateRight')
+              	});
+                $('#fit').bind('click', function() {
+              		img.guillotine('fit')
+              	});
+                }).on('hidden.bs.modal', function () {
+                  console.log('hidden bs modal')
+                });
+
+
             $('.save-gui-image').unbind('click');
             $('.save-gui-image').bind('click', function(e) {
                 e.preventDefault();
                 
-                var imgData = $('#gui_image').guillotine('getData');
+                var controls 	= $('div#controls');
+                var saveButton 	= $('button.save-gui-image');
+                var closeButton = $('button.close-image-cropper');
                 
-                console.log('imgData ', imgData);
+//                formdata.p_id = top.P_ID;
+//                formdata.lang = top.P_LANG;
+                glltFormData = {};
+                glltFormData.s_id 		= $('#s_id').val();
+                glltFormData.origW		= $('#origW').val();
+                glltFormData.origH		= $('#origH').val();                
+                glltFormData.currentW   = $('#gui_image').width();
+                glltFormData.currentH   = $('#gui_image').height();
                 
+                glltCropData = {};
+                glltCropData = $('#gui_image').guillotine('getData');
+
                 $.ajax({
                 	type: 'POST',
-                	url: '/xsite/call/fe_user/cropImageAndSaveNew',
-                	data: imgData,
+                	url: '/xsite/call/fe_user/saveGuillotineImg',
+                	data: {
+                		glltFormData: glltFormData,
+                		glltCropData: glltCropData
+                	},
                 	success: function(response) {
+                		
+                		
+                		$('.ajax-loader').hide();
+                		
+                		var result = response;
                         if (response.success) {
-                            console.log(response);
+                        	controls.css('display', 'none');
+                        	saveButton.removeClass('save-gui-image');
+                        	saveButton.addClass('save-gui-image-final-submit');
+//                        	closeButton.removeClass('close-image-cropper');
+                        	closeButton.addClass('close-image-final-cropper');
+                        	
+                            me.goToStep(2, response);
                         }
-                	}
+                    }
                 })
 
             });
-            
-            
-            
+          $('.save-gui-image-final-submit').unbind("click");
+          $('.save-gui-image-final-submit').click(function(e) {
+              e.preventDefault();
+              me.handleFinalUpload($('.gui-image-final-form'));
+              return;
+          });
+
+
 // WEB-271
             $('a[href*="collapseChangeMail"]').click(function() {
-            	$('#changeMail')[0].reset();
-				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
+            $('#changeMail')[0].reset();
+				        $('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
             });
-            
+
             $('#changeMail-btn').unbind('click');
             $('#changeMail-btn').on('click', function(e) {
             	e.preventDefault();
-            	
+
             	var email_neu 			= $('#email_neu').val();
             	var email_neu_confirm	= $('#email_neu_confirm').val();
 
@@ -485,11 +558,11 @@ var fe_user = (function() {
             				$('#email-error-3').show();
             				$('#email-error-1, #email-error-2').hide();
             				return false;
-            			}            			
+            			}
             			if(result == 1) {
             				$('#changeMail-success').show();
             				$('#email-error-1, #email-error-2, #email-error-3').hide();
-            				
+
             				$.ajax({
                         		type: 'POST',
                         		url:'/xsite/call/fe_user/changeMail',
@@ -507,17 +580,17 @@ var fe_user = (function() {
             		}
             	});
             });
-            
+
 
             $('a[href*="collapseChangePwd"]').click(function() {
             	$('#changePwd')[0].reset();
 				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
             });
-            
+
             $('#changePwd-btn').unbind('click');
             $('#changePwd-btn').on('click', function(e) {
-            	e.preventDefault();            	
-            	
+            	e.preventDefault();
+
             	var pwd_alt 		= $('#oldPasswd').val();
             	var pwd_neu 		= $('#newPasswd').val();
             	var pwd_neuConfirm 	= $('#newPasswdConfirm').val();
@@ -561,7 +634,7 @@ var fe_user = (function() {
                 		{
                     		$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, span.error-message-1, span.error-message-2').hide();
                     		$('#changePasswd-success').show();
-                    		
+
                     		$.ajax({
                         		type: 'POST',
                         		url:'/xsite/call/fe_user/changePwd',
@@ -585,8 +658,8 @@ var fe_user = (function() {
 
             });
 // END WEB-271
-            
-            
+
+
             $('#reset-password-btn').on('click', function(e) {
                 e.preventDefault();
                 var valid = fe_core.jsFormValidation('reset-password');
@@ -623,12 +696,7 @@ var fe_user = (function() {
                     }
                 });
             });
-            $('.add-image-final-submit').unbind("click");
-            $('.add-image-final-submit').click(function(e) {
-                e.preventDefault();
-                me.handleFinalUpload($('.add-image-final-form'));
-                return;
-            });
+
             $('.js-toggle-favourite').unbind('click');
             $('.js-toggle-favourite').bind('click', function(e) {
                 e.preventDefault();
@@ -933,7 +1001,7 @@ var fe_user = (function() {
                         if (data.result.success == true) {
                             me.goToStep(1, data.result);
                         } else {}
-                    } 
+                    }
                 });
             } catch (e) {}
         }
@@ -992,7 +1060,7 @@ var fe_user = (function() {
                     },
                     on_ZOOM_PAN_COMPLETE: function(obj, e) {
                         $('.ajax-loader').hide();
-                        
+
                         formdata = obj;
                         formdata.s_id = $('#s_id').val();
                         formdata.p_id = top.P_ID;
@@ -1011,7 +1079,7 @@ var fe_user = (function() {
                         formdata.selRatio = selRatio;
                         formdata.trueX = parseFloat(formdata.normX) * formdata.origRatioX;
                         formdata.trueY = parseFloat(formdata.normY) * formdata.origRatioY;
-                        formdata.trueCropW = formdata.selectionWidth / (formdata.selectionWidth / formdata.origW) / formdata.ratio;
+                        formdata.trueCropW = formdata.selectionWidth / (formdata.selectionWidth / formdata.origW) / formdata.selRatio;
                         formdata.trueCropH = formdata.trueCropW / formdata.selRatio;
                         cropData = formdata;
                         if ($('.cropx').length > 0) {
@@ -1040,7 +1108,11 @@ var fe_user = (function() {
                     });
                     break;
                 case 2:
-                    $('.add-image-crop-area').html(data.data.html);
+                    $('#gui_container').html(data.data.html);
+//                    $('.gui-cropped-image').attr('src', data.data.img_src);
+//                    $('.gui-cropped-image').attr('alt', data.data.id);
+                    // var tmp = $('.gui-cropped-image').attr('alt');
+//                    $('#s_id').val($('.gui-cropped-image').attr('alt'));
                     break;
                 case 3:
                     $('.upload-image-modal').modal('hide');
@@ -1055,6 +1127,8 @@ var fe_user = (function() {
             var me = this;
             $('.ajax-loader').show();
             var formdata = $(form).serialize();
+            console.log(formdata);
+            
             $.ajax({
                 type: 'POST',
                 url: '/xsite/call/fe_user/finalSubmit',

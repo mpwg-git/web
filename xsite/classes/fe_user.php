@@ -1,4 +1,5 @@
 <?
+//error_reporting(E_PARSE);
 
 class fe_user
 {
@@ -255,45 +256,45 @@ class fe_user
 		dbx::update($table,array('wz_PASSWORT'=>md5($PASSWORT)),array('wz_id'=>$user_id,'wz_PASSWORT'=>md5($currentPwd)));
 
 		return 1;
-		
+
 	}
-	
-	
-	
+
+
+
 	// WEB-276
 	public static function ajax_changeMail()
 	{
 		$emailNeu = dbx::escape($_REQUEST['email_neu']);
-		
-		$user = xredaktor_feUser::getUserInfo(); 
+
+		$user = xredaktor_feUser::getUserInfo();
 		$userid = $user['wz_id'];
-		
+
 		$update = array(
 				'wz_id'				=> $userid,
 				'wz_EMAIL_ALT'		=> $emailNeu //zwischenspeichern der neuen mail bis wz_MAIL_CHECKED == Y
 		);
-		
+
 		dbx::update('wizard_auto_707',$update,array('wz_id'=>$userid));
-		
+
 		xredaktor_feUser::sendConfirmMailChange($userid);
-		
+
 		self::doLogout();
-		
+
 		echo json_encode("OK");
-		
+
 		return;
 	}
-	
-	
+
+
 	public static function ajax_checkNewMail()
 	{
 		$ok = false;
 
 		$emailNeu 			= dbx::escape($_REQUEST['email_neu']);
 		$emailNeuConfirm 	= dbx::escape($_REQUEST['email_neu_confirm']);
-		
+
 		$present = dbx::queryAll("select * from wizard_auto_707 where wz_email = '$emailNeu' and wz_del = 'N' and wz_online = 'Y'");
-		
+
 		if(!filter_var($emailNeu, FILTER_VALIDATE_EMAIL))
 		{
 			$ok = -1;
@@ -320,21 +321,21 @@ class fe_user
 		}
 
 	}
-	
-	
-	
+
+
+
 	// WEB-271
 	public static function ajax_changePwd()
-	{	
+	{
 		$pw = dbx::escape(md5($_REQUEST['pwChange']));
-		
+
 		$userid = intval(xredaktor_feUser::getUserId());
-	
+
 		$update = dbx::update('wizard_auto_707',array('wz_PASSWORT'=>$pw),array('wz_id'=>$userid));
-		
+
 		echo json_encode($update);
 	}
-	
+
 
 	public static function ajax_checkPasswdForm()
 	{
@@ -344,10 +345,10 @@ class fe_user
 
 		$ok = false;
 		$status = array();
-		
+
 		$userid = intval(xredaktor_feUser::getUserId());
 		$userpw = dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$userid'", "wz_passwort");
-		
+
 		// aktuelles Passwort leer
 		if(strlen($checkAlt) == 0)
 		{
@@ -360,7 +361,7 @@ class fe_user
 		if(strlen($checkNeu) < 6)
 		{
 			$ok = "02";
-			$status['checkNeu'] = $ok;	
+			$status['checkNeu'] = $ok;
 			echo json_encode($status);
 			return;
 		}
@@ -390,13 +391,13 @@ class fe_user
 		}
 		echo json_encode($status);
 	}
-	
-	
+
+
 
 	public static function afterRegistration()
 	{
 		// NO PROFILE TABLE ANYMORE
-		
+
 		$type 				= dbx::escape($_REQUEST['TYPE']);
 		$geschlecht 		= $_REQUEST['GESCHLECHT']; // nix escapen, wird eh gleich im switch sauber gesetzt
 		$email				= dbx::escape($_REQUEST['EMAIL']);
@@ -447,8 +448,8 @@ class fe_user
 
 		dbx::update("wizard_auto_707", $update, array('wz_id' => $user_id));
 	}
-	
-	
+
+
 	public static function ajax_resetEmailConfirmationAgain()
 	{
 		@session_start();
@@ -482,9 +483,9 @@ class fe_user
 
 		if ($user === false) {
 			return "/";
-		}	
+		}
 
-	
+
 		$userId		= intval($user['wz_id']);
 
 		++$counter;
@@ -526,7 +527,7 @@ class fe_user
 		}
 
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$userId));
-		
+
 		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
 		{
 			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
@@ -534,9 +535,9 @@ class fe_user
 			if($LAST_PUBLIC_ROMM_ID > 0)
 			{
 				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
-				
+
 				$adminOfRoom = fe_room::checkIfIAmAdminOfThisRoom($LAST_PUBLIC_ROMM_ID);
-				
+
 				if($adminOfRoom === false)
 				{
 					return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
@@ -546,30 +547,30 @@ class fe_user
 					unset($_SESSION['ROOM-DETAILVIEW']);
 					$redirect = fe_vanityurls::genUrl_myprofile();
 					$redirect .= "/mein-raum/" . $LAST_PUBLIC_ROMM_ID;
-					
+
 					return $redirect;
 				}
 
 			}
 		}
-		
+
 		if(isset($_SESSION['SEARCHLIST']))
 		{
 			return fe_vanityurls::genUrl_suche();
 		}
-		
-		
+
+
 		if(isset($_SESSION['DEACTIVATE-ACCOUNT']))
 		{
 			unset($_SESSION['DEACTIVATE-ACCOUNT']);
-			
+
 			$redirect = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
-			
+
 			return $redirect;
 		}
-		
 
-		
+
+
 		// FIRST visit ever after registration
 		if ($user['wz_NOTLOGGEDIN'] == 1)
 		{
@@ -733,8 +734,8 @@ class fe_user
 
 
 	public static function getMyData()
-	{	
-		
+	{
+
 		self::checkLoggedIn();
 
 		$userId			= xredaktor_feUser::getUserId();
@@ -781,7 +782,7 @@ class fe_user
 		{
 			return array();
 		}
-		
+
 		if ($user['wz_PROFILBILD'] == 0)
 		{
 			$user['wz_PROFILBILD'] = self::getProfileImage($userId);
@@ -879,7 +880,7 @@ class fe_user
 
 	public static function redirectIfLoggedIn()
 	{
-		
+
 		if (xredaktor_feUser::isLoggedIn() !== false)
 		{
 			return self::redirectToSearch();
@@ -1198,14 +1199,14 @@ class fe_user
 
 	public static function checkLoggedIn()
 	{
-		
+
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 		{
 			return true;
 		}
-		
+
 		if (xredaktor_feUser::isLoggedIn() === false)
-		{			
+		{
 			return self::redirectToLogin();
 		}
 		else
@@ -1257,7 +1258,7 @@ class fe_user
 
 	public static function redirectToLogin($addQueryParam = false)
 	{
-		
+
 		$cfg = array('p_id' => fe_vanityurls::$page_login);
 
 		// damit wir nicht in infinite loop kommen...
@@ -1319,28 +1320,28 @@ class fe_user
 		foreach ($updateCollection as $k => $v) {
 			$update['wz_'.$k] = $updateCollection[$k];
 		}
-		
+
 // 		if(libx::isDeveloper())
 // 		{
 // 			print_r($update);
 // 			die();
 // 		}
-		
+
 
 // 		if(trim($update['wz_VORNAME'] == ''))
-// 		{	
+// 		{
 // 			return frontcontrollerx::json_failure("vname");
 
 // 		}
-		
+
 // 		if(trim($update['wz_NACHNAME'] == ''))
 // 		{
 // 			return frontcontrollerx::json_failure("nname");
 // 		}
-		
-		
-		
-		
+
+
+
+
 		$update['wz_LAND'] = $userReq['LAND'];
 
 		if (isset($_REQUEST['profile']))
@@ -1615,10 +1616,9 @@ class fe_user
 
 		if($image_s_id === false) return false;
 
-
-
 		$uploaded_file = xredaktor_storage::getById($image_s_id);
 		$file_src = $uploaded_file['s_onDisk'];
+
 
 		// bis hier her haben wir einfach die Datei übertragen
 		// jetzt DPI + rotation setzen
@@ -1629,12 +1629,7 @@ class fe_user
 		// jetzt sollte man noch die filesize updaten...
 
 
-
-
-
 		// jetzt in xr_img2 werfen - sollte dann korrekte s_media_w und _h setzen
-
-
 
 		// rotate if neccessary
 		//xredaktor_storage::rotate_if_necessary($image_s_id);
@@ -1791,6 +1786,227 @@ class fe_user
 
 		frontcontrollerx::json_success();
 	}
+	
+	/**
+	 * // das gecroppte file (vom xr_img3) mit neuem namen in storage haun
+		$filename_with_cropinfo = $dir . '/cropped/' . $name;
+		copy($maybeCroppedImg['src'], $filename_with_cropinfo);
+
+		xredaktor_storage::delFiles(array($s_id), true);
+
+		$new_s_id = xredaktor_storage::registerExistingFile(1,$filename_with_cropinfo);
+		$new_s_id = intval($new_s_id);
+
+		dbx::update('storage',array('
+			s_crop_original_s_id'=>$s_id,'s_crop_data'=>json_encode($cropdata)),array('s_id'=>$new_s_id)
+		);
+
+		$a_id = 747;
+		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropdata);
+		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
+		
+		frontcontrollerx::json_success(array('data' => array('html' => $html)));
+	 * 
+	 */
+
+	public static function myescapeshellarg($arg){
+		return "'".str_replace("'","\\'",$arg)."'";
+	}
+
+	public static function ajax_saveGuillotineImg()
+	{
+		$fileOK = false;
+		
+		$formData 	= $_REQUEST['glltFormData'];
+		$cropData	= $_REQUEST['glltCropData'];
+		
+		$s_id = intval($formData['s_id']);
+		if($s_id == 0) return frontcontrollerx::json_failure("FILE ID NOT VALID");
+		
+		$imgUploaded = xredaktor_storage::getById($s_id);
+		$imgUploaded = $imgUploaded['s_onDisk'];
+		if(!file_exists($imgUploaded)) return frontcontrollerx::json_failure('FILE NOT EXISTS');
+		if(!is_file($imgUploaded)) return frontcontrollerx::json_failure('NO FILE');
+		
+		/*
+		if (intval($cropData['p_id']) == 42 || intval($cropData['p_id']) == 7)
+		{
+			$type = 'profile';
+		} else {
+			$type = 'other-room';
+		}
+		*/
+		
+		$type = 'profile';
+		$refid	= intval($_REQUEST['refid']);
+		
+		$params = array(
+				's_id' 	=> $s_id,
+				'w'		=> $cropData['w'],
+				'h' 	=> $cropData['h'],
+				'ext' 	=> 'jpg',
+				'crop'	=> json_encode(array(
+						'x' => $cropData['x'],
+						'y' => $cropData['y'],
+						'w' => $cropData['w'],
+						'h' => $cropData['h'],
+						's_id' => $s_id
+				))
+		);
+		
+		$inFile  = realpath($imgUploaded);
+		$outFileName = '/' . "_cropped_" . basename($inFile);
+		$outFile = Ixcore::htdocsRoot . '/xstorage/userbilder/cropped'.$outFileName;
+
+		if(file_exists($outFile)) unlink($outFile);
+// 		$cp = copy($inFile, $outFile);
+		
+// 		die(' unlink ');
+		
+		$convert = Ixcore::PATH_ImageMagick;
+		
+		$scale = $cropData['scale']*100;
+		$w = $cropData['w'];
+		$h = $cropData['h'];
+		$x = $cropData['x'];
+		$y = $cropData['y'];
+		
+		$inFileEscapped = self::myescapeshellarg($inFile);
+		$outFileEscapped = self::myescapeshellarg($outFile);
+		
+ 		//$cmd = "$convert -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y " . "'$inFile' '$inFile'  2>&1 ";
+		$cmd = "$convert $inFileEscapped -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
+		
+		$out = array();
+ 		exec($cmd,$out);
+
+ 		/*
+
+		$fileOK = $image = new Imagick($inFile);
+		$fileOK = $image->rotateImage(intval($cropData['angle']));
+		$fileOK = $image->scaleImage($formData['currentW'], $formData['currentH']);		
+		$fileOK = $image->resizeImage($formData['currentW'], $formData['currentH'],Imagick::FILTER_BOX);	
+		$image->setGravity(imagick::GRAVITY_NORTHWEST);
+		
+		$fileOK = $image->setImagePage($image->getImageWidth(), $image->getImageHeight(), 0, 0);
+		
+		$fileOK = $image->cropImage($cropData['w'], $cropData['h'], $cropData['x'], $cropData['y']);
+		
+		$fileOK = $image->setImagePage($image->getImageWidth(), $image->getImageHeight(), 0, 0);
+		
+		if(file_exists($outFile)) unlink($outFile);
+		
+		$fileOK = $image->writeImage($outFile);
+		if($fileOK === false) die(' IMAGE SAVE ERROR ');
+		*/
+ 		
+ 		if(!file_exists($outFile)) return frontcontrollerx::json_failure('CROP ERROR - FILE MISSING');
+
+		xredaktor_storage::delFiles(array($s_id), true);
+		$new_s_id = xredaktor_storage::registerExistingFile(1,$outFile);
+		$new_s_id = intval($new_s_id);
+		
+		unset($cropData['angle']);
+		unset($cropData['scale']);
+		$s_crop_data = $cropData;
+
+		
+// 		print_r(compact('s_id', 's_crop_data', 'new_s_id', 'params', 'cropData'));
+// 						die( ' update db ' );
+		
+		dbx::update('storage',array('s_crop_original_s_id'=>$s_id,'s_crop_data'=>json_encode($s_crop_data)),array('s_id'=>$new_s_id));
+		
+		$a_id = 747;
+		
+		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropData);
+		
+		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
+		
+		frontcontrollerx::json_success(array('data' => array('html' => $html)));
+	}
+		
+//CROP THE IMAGE
+/*
+ * 
+ 		$s_id 		= $formData['s_id'];
+		$srcImg		= $formData['image_src'];
+
+		// $rotate 	= intval($cropData['cropData']['angle']);
+		$new_s_id = intval(1 + $cropData['new_s_id']);
+		$scale		= $cropData['cropData']['scale']*100 . "%";
+		$width 		= $cropData['cropData']['w'];
+		$height 	= $cropData['cropData']['h'];
+		$x 				= $cropData['cropData']['x'];
+		$y				= $cropData['cropData']['y'];
+
+		$params = array(
+			's_id' 		=> $s_id,
+			'w' 		=> intval($formData['currentW']),
+			'h' 		=> intval($formData['currentH']),
+			'ext' 		=> 'jpg',
+			'fullpath' 	=> 'Y',
+			'rmode'		=> 'vcut',
+			'crop'		=> json_encode(array(
+				'x' => intval($x),
+				'y' => intval($y),
+				'w' => intval($width),
+				'h' => intval($height)
+			))
+		);
+		
+		$uploadedImg = xredaktor_storage::getById($s_id);
+		
+		$imgToCrop 		= $uploadedImg['s_onDisk'];
+		$imgToCropDir	= dirname(xredaktor_storage::getFileDstById($s_id));
+
+		$imgCropped 		= $imgToCropDir . '/cropped/' . '_cropped_' . $uploadedImg['s_name'];
+		$imgCroppedDir 	= $imgToCropDir . '/cropped';
+
+		if(!file_exists($imgToCrop))
+		{
+			// die('file not exists');
+			return frontcontrollerx::json_failure('FILE NOT EXISTS');
+		}
+		
+ 		$convert = Ixcore::PATH_ImageMagick;
+
+		$cropWidth_X_Height	= $width.'x'.$height;
+		
+		$cmd = "$convert $imgToCrop -resize $scale -gravity northwest -crop $cropWidth_X_Height+$x+$y $imgCropped";
+
+		$cmd = exec($cmd, $out);
+
+		print_r($out);
+		print_r($imgCropped);
+
+		die(' cmd cropping ');
+
+		$imgName = '_cropped_'.$imgSrc['s_name'];
+
+		$im = new Imagick($imgToCrop);
+		$im->scaleImage(intval($formData['currentW']), intval($formData['currentH']));
+		$im->cropImage($width, $height, $x, $y);
+
+		$imHeight = $im->getImageHeight();
+
+		$page = $im->getImagePage();
+
+		print_r($page);
+		die('x');
+
+
+		die(' after imgaick obj');
+
+
+		$convert = Ixcore::PATH_ImageMagick;
+
+		$cropWidth_X_Height	= $width.'x'.$height;
+
+		$cmd = "$convert $imgToCrop -resize $scale -gravity northwest -crop $cropWidth_X_Height+$x+$y $imgCropped";
+
+		$cmd = exec($cmd, $out);
+		*/
+//CROP THE IMAGE
 
 
 

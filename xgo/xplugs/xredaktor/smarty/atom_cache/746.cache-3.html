@@ -8,42 +8,35 @@
     #controls > a {
        padding: 0 20px 0;
     }
+    .add-image-crop-area button {
+        margin-left: 2.5%;
+        padding: 10px;
+        position: relative;
+        left: 42%;
+        margin-right: 2.5%;
+        margin-top: 2%;
+    }
 </style>
-<%xr_print_r val=$image%>
 
 <!--guillotine-->
 <div id="gui_container" style="width: 80%;text-align: center;margin: 15px auto 6px;border: 6px solid #04e0d7;border-radius: 4px;">
-    
     <img id="gui_image" src="<%$image['src']%>">
     
-    <form id="coords" class="coords" onsubmit="return false;" action="#">
-        
         <input type="hidden" id="origW" name="origW" value="<%$image['trueW']%>" />
     	<input type="hidden" id="origH" name="origH" value="<%$image['trueH']%>" />
-    	
-        <input type="hidden" id="w" name="w" value="" />
-    	<input type="hidden" id="h" name="h" value="" />
-    	
-    	<input type="hidden" id="x1" name="x1" value="" />
-    	<input type="hidden" id="y1" name="y1" value="" />
 
     	<input type="hidden" id="s_id" name="s_id" value="<%$image['s_id']%>" />
     	<input type="hidden" id="new_s_id" name="new_s_id" value="" />
-    	
-    	<input type="hidden" name="type" value="<%$type%>" />
+    	<input type="hidden" name="type" value="profile" />
     	<input type="hidden" name="refid" value="<%$refid%>" />
-    	
-    </form>
 </div>
-    
-    
 <div id="controls" style="font-size: 22px;text-align: center;width: 80%;margin:15px auto;background-color: #04e0d7;border: 1px solid #04e0d7;border-radius: 6px;">
-    <a href="#" id="rotate_left" title="Rotate left"><i class="fa fa-rotate-left"></i></a>
+    <!--<a href="#" id="rotate_left" title="Rotate left"><i class="fa fa-rotate-left"></i></a>-->
     <a href="#" id="zoom_out" title="Zoom out"><i class="fa fa-search-minus"></i></a>
     <a href="#" id="fit" title="Fit image"><i class="fa fa-arrows-alt"></i></a>
     <a href="#" id="zoom_in" title="Zoom in"><i class="fa fa-search-plus"></i></a>
-    <a href="#" id="rotate_right" title="Rotate right"><i class="fa fa-rotate-right"></i></a>
+    <!--<a href="#" id="rotate_right" title="Rotate right"><i class="fa fa-rotate-right"></i></a>-->
 </div>
 
-<button type="button" class="btn btn-primary modal-image-button close-image-cropper">Abbrechen</button>
-<button type="button" class="btn btn-primary modal-image-button save-gui-image">Speichern</button>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image">Speichern</button>
