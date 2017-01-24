@@ -1828,20 +1828,23 @@ class fe_user
 		if(!file_exists($imgUploaded)) return frontcontrollerx::json_failure('FILE NOT EXISTS');
 		if(!is_file($imgUploaded)) return frontcontrollerx::json_failure('NO FILE');
 		
-		/*
-		if (intval($cropData['p_id']) == 42 || intval($cropData['p_id']) == 7)
+		
+		$type = false;
+		$refid = intval($_REQUEST['refid']);
+		
+		if (intval($formData['p_id']) == 42 || intval($formData['p_id']) == 7)
 		{
 			$type = 'profile';
+			$refid = intval($_REQUEST['refid']);
 		} else {
 			$type = 'other-room';
+			$refid = $formData['refid'];
 		}
-		*/
-		
-		$type = 'profile';
-		$refid	= intval($_REQUEST['refid']);
-		
+						
 		$params = array(
 				's_id' 	=> $s_id,
+				'type' => $type,
+				'refid' => $refid,
 				'w'		=> $cropData['w'],
 				'h' 	=> $cropData['h'],
 				'ext' 	=> 'jpg',
@@ -1909,14 +1912,11 @@ class fe_user
 		unset($cropData['angle']);
 		unset($cropData['scale']);
 		$s_crop_data = $cropData;
-
-		
-// 		print_r(compact('s_id', 's_crop_data', 'new_s_id', 'params', 'cropData'));
-// 						die( ' update db ' );
 		
 		dbx::update('storage',array('s_crop_original_s_id'=>$s_id,'s_crop_data'=>json_encode($s_crop_data)),array('s_id'=>$new_s_id));
 		
 		$a_id = 747;
+		
 		
 		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropData);
 		
@@ -1924,89 +1924,7 @@ class fe_user
 		
 		frontcontrollerx::json_success(array('data' => array('html' => $html)));
 	}
-		
-//CROP THE IMAGE
-/*
- * 
- 		$s_id 		= $formData['s_id'];
-		$srcImg		= $formData['image_src'];
 
-		// $rotate 	= intval($cropData['cropData']['angle']);
-		$new_s_id = intval(1 + $cropData['new_s_id']);
-		$scale		= $cropData['cropData']['scale']*100 . "%";
-		$width 		= $cropData['cropData']['w'];
-		$height 	= $cropData['cropData']['h'];
-		$x 				= $cropData['cropData']['x'];
-		$y				= $cropData['cropData']['y'];
-
-		$params = array(
-			's_id' 		=> $s_id,
-			'w' 		=> intval($formData['currentW']),
-			'h' 		=> intval($formData['currentH']),
-			'ext' 		=> 'jpg',
-			'fullpath' 	=> 'Y',
-			'rmode'		=> 'vcut',
-			'crop'		=> json_encode(array(
-				'x' => intval($x),
-				'y' => intval($y),
-				'w' => intval($width),
-				'h' => intval($height)
-			))
-		);
-		
-		$uploadedImg = xredaktor_storage::getById($s_id);
-		
-		$imgToCrop 		= $uploadedImg['s_onDisk'];
-		$imgToCropDir	= dirname(xredaktor_storage::getFileDstById($s_id));
-
-		$imgCropped 		= $imgToCropDir . '/cropped/' . '_cropped_' . $uploadedImg['s_name'];
-		$imgCroppedDir 	= $imgToCropDir . '/cropped';
-
-		if(!file_exists($imgToCrop))
-		{
-			// die('file not exists');
-			return frontcontrollerx::json_failure('FILE NOT EXISTS');
-		}
-		
- 		$convert = Ixcore::PATH_ImageMagick;
-
-		$cropWidth_X_Height	= $width.'x'.$height;
-		
-		$cmd = "$convert $imgToCrop -resize $scale -gravity northwest -crop $cropWidth_X_Height+$x+$y $imgCropped";
-
-		$cmd = exec($cmd, $out);
-
-		print_r($out);
-		print_r($imgCropped);
-
-		die(' cmd cropping ');
-
-		$imgName = '_cropped_'.$imgSrc['s_name'];
-
-		$im = new Imagick($imgToCrop);
-		$im->scaleImage(intval($formData['currentW']), intval($formData['currentH']));
-		$im->cropImage($width, $height, $x, $y);
-
-		$imHeight = $im->getImageHeight();
-
-		$page = $im->getImagePage();
-
-		print_r($page);
-		die('x');
-
-
-		die(' after imgaick obj');
-
-
-		$convert = Ixcore::PATH_ImageMagick;
-
-		$cropWidth_X_Height	= $width.'x'.$height;
-
-		$cmd = "$convert $imgToCrop -resize $scale -gravity northwest -crop $cropWidth_X_Height+$x+$y $imgCropped";
-
-		$cmd = exec($cmd, $out);
-		*/
-//CROP THE IMAGE
 
 
 

@@ -476,14 +476,25 @@ var fe_user = (function() {
                 var saveButton 	= $('button.save-gui-image');
                 var closeButton = $('button.close-image-cropper');
                 
-//                formdata.p_id = top.P_ID;
-//                formdata.lang = top.P_LANG;
                 glltFormData = {};
+                glltFormData.p_id		= top.P_ID;
+                glltFormData.lang		= top.P_LANG;
                 glltFormData.s_id 		= $('#s_id').val();
                 glltFormData.origW		= $('#origW').val();
                 glltFormData.origH		= $('#origH').val();                
                 glltFormData.currentW   = $('#gui_image').width();
                 glltFormData.currentH   = $('#gui_image').height();
+                
+                //console.log(glltFormData.p_id);
+                if(top.P_ID == 7 || top.P_ID == 42)
+                {
+                	glltFormData.type = 'profile';
+                }
+                else
+                {
+                	glltFormData.type = 'other-room';
+                	glltFormData.refid = $('#refid').val();
+                }
                 
                 glltCropData = {};
                 glltCropData = $('#gui_image').guillotine('getData');
@@ -1127,7 +1138,7 @@ var fe_user = (function() {
             var me = this;
             $('.ajax-loader').show();
             var formdata = $(form).serialize();
-            console.log(formdata);
+//            console.log(formdata);
             
             $.ajax({
                 type: 'POST',
