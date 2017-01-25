@@ -768,7 +768,7 @@ button.cropImg:hover {
 }
 
 .upload-image-modal .modal-dialog .add-image-crop-area {
-    height: 600px !important;
+    // height: 600px !important;
     position: relative;
     left: 0;
     bottom: 0;
@@ -843,6 +843,10 @@ a > .profileimage.mCS_img_loaded {
     padding: 0;
 }
 
+.searchlist span.icon.icon-Blocked_aktiv, span.icon.icon-Favourite_aktiv {
+    display: none;
+}
+
 @media screen and (min-width:1200px) and (max-width: 1400px) {
     .searchform label {
         font-size: 18px;
@@ -850,8 +854,17 @@ a > .profileimage.mCS_img_loaded {
     }
 } 
 
-.searchlist span.icon.icon-Blocked_aktiv, span.icon.icon-Favourite_aktiv {
-    display: none;
+.upload-image-modal.modal.fade.in {
+    .gllt-avatar-image {
+        width: 35vw;
+        max-height: 70%;
+    }
+    
+    .gllt-room-image {
+        width: 50vw;
+        height: auto !important;
+        max-height: 70%;
+    }
 }
 
 

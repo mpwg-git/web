@@ -4,9 +4,9 @@ require_once(dirname(__FILE__).'/../_includes.php');
 
 $links = array();
 
-for ($i=0;$i<=2;$i++)
+for ($i=0;$i<=5;$i++)
 {
-	$links[] = 	"http://www.wg-gesucht.de/wg-zimmer-in-Wien.163.0.0.$i.html";
+	$links[] = 	"http://www.wg-gesucht.de/wg-zimmer-in-Muenchen.163.0.0.$i.html";
 }
 
 
@@ -68,7 +68,7 @@ foreach ($links as $l)
 	foreach(pq('#table-compact-list tr td a') as $link) {
 
 		$link = trim(pq($link)->attr('href'));
-		if (strpos($link,"wg-zimmer-in-Wien-") !== false)
+		if (strpos($link,"wg-zimmer-in-Muenchen-") !== false)
 		{
 			if (!in_array($link,$zimmer))
 			{
@@ -160,7 +160,7 @@ function processRoom($l)
 	$doc = phpQuery::newDocument($html);
 	phpQuery::selectDocument($doc);
 
-//////////////////////// Images
+	//////////////////////// Images
 	$images = array();
 	foreach(pq('img') as $img) {
 
@@ -175,7 +175,7 @@ function processRoom($l)
 	}
 
 
-//////////////////////// AnzeigenText
+	//////////////////////// AnzeigenText
 	$anzeigentext = array();
 	foreach(pq('.panel.panel-default.panelToTranslate .wordWrap') as $txt) {
 		$anzeigentext[] = pq($txt)->html();
@@ -184,7 +184,7 @@ function processRoom($l)
 	$anzeigentext 		= cleanHtml(implode("",$anzeigentext));
 
 
-//////////////////////// AngabenObjekt
+	//////////////////////// AngabenObjekt
 	$angabenObjekt = array();
 	foreach(pq('.panel.panel-default table tr') as $tr) {
 
@@ -221,7 +221,7 @@ function processRoom($l)
 	}
 
 
-/////////////////////// WG-Details
+	/////////////////////// WG-Details
 	$details = array();
 
 	foreach(pq('.panel.panel-default ul.ul-detailed-view-datasheet') as $key => $ulset) {
@@ -236,15 +236,15 @@ function processRoom($l)
 	}
 
 
-//////////////////////// Div:
+	//////////////////////// Div:
 	$search = array(
 
-	'Adresse' 	=> array(
-	'find' 		=> 'h3.headline.headline-detailed-view-panel-title',
-	'search'		=> 'Adresse',
-	'get' 		=> 'a',
-	'kick'		=> 'Umzugsfirma beauftragen1'
-	)
+			'Adresse' 	=> array(
+					'find' 		=> 'h3.headline.headline-detailed-view-panel-title',
+					'search'		=> 'Adresse',
+					'get' 		=> 'a',
+					'kick'		=> 'Umzugsfirma beauftragen1'
+			)
 	);
 
 	$searchObject = array();
@@ -293,7 +293,7 @@ function processRoom($l)
 
 	//$key_facts = pq("h1.headline.headline-orange.headline-key-facts")->text();
 	$key_facts = pq("table.headline-orange")->text();
-	$key_facts = explode(utf8_decode('Â'),$key_facts);
+	$key_facts = explode(utf8_decode('Ã‚'),$key_facts);
 	$key_facts = preg_replace('!\s+!', '', $key_facts);
 
 	$roomSizeMiete = array();
@@ -317,14 +317,14 @@ function processRoom($l)
 	$present = dbx::query("select * from wizard_auto_858 where wz_del='N' and wz_source_id = $wz_source_id and wz_source='$wz_source'");
 
 	$db = array(
-	'wz_source' 	=> $wz_source,
-	'wz_source_id' 	=> $wz_source_id,
-	'wz_url' 		=> $l,
-	'wz_images_cnt'	=> count($images),
-	'wz_images'		=> json_encode(downloadImages($images)),
-	'wz_json_cfg'	=> json_encode($room),
-	'wz_size'		=> $wz_groesse,
-	'wz_total'		=> $wz_miete
+			'wz_source' 	=> $wz_source,
+			'wz_source_id' 	=> $wz_source_id,
+			'wz_url' 		=> $l,
+			'wz_images_cnt'	=> count($images),
+			'wz_images'		=> json_encode(downloadImages($images)),
+			'wz_json_cfg'	=> json_encode($room),
+			'wz_size'		=> $wz_groesse,
+			'wz_total'		=> $wz_miete
 	);
 
 
@@ -333,8 +333,8 @@ function processRoom($l)
 	{
 		$db['wz_created'] = 'NOW()';
 		dbx::insert('wizard_auto_858',$db);
-
-	} else
+	}
+	else
 	{
 		$wz_id = intval($present['wz_id']);
 		dbx::update('wizard_auto_858',$db,array('wz_id'=>$wz_id));

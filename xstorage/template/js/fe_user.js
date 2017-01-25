@@ -332,32 +332,53 @@ var fe_user = (function() {
 
                 var vname = $('input#vorname').val().length;
                 var nname = $('input#nachname').val().length;
-
+                
                 if(vname == 0) {
-                	$('#VORNAME_error').show();
-                	return;
+                	if(fe_core.getCurrentFace() == 3)
+                	{
+                		$('#VORNAME_error').show();
+                	}
+                	else
+                	{
+                		$('#VORNAME_error').show();
+                		$('.profilerstellen').animate({
+                            top: ($('.profilerstellen').offset().top + 300)
+                        }, 600);
+                		$('input#vorname').keydown(function(){
+                    		$('#VORNAME_error').hide();
+                		});
+                	}
                 }
                 else if(nname == 0) {
-                	$('#NACHNAME_error').show();
-                	return;
+                	if(fe_core.getCurrentFace() == 3)
+                	{
+                    	$('#NACHNAME_error').show();
+                	}
+                	else
+                	{
+                    	$('#NACHNAME_error').show();
+                		$('.profilerstellen').animate({
+                            top: ($('.profilerstellen').offset().top + 300)
+                        }, 600);
+                		$('input#nachname').keydown(function(){
+                    		$('#NACHNAME_error').hide();
+                		});
+                	}
                 }
-
-                $('.ajax-loader').show();
-
+                
+                
                 var data = {
                     user: $('.form-mein-user').serialize()
                 };
-
                 // hiddenRoomId != false oder leer type == biete
                 if(fe_core.getCurrentFace() == 3) {
                     var checkType = $('#hiddenRoomId').val();
 
                 	if(checkType != false || checkType != '') {
-//                		console.log("type biete");
                 		data.room = $('.form-mein-raum').serialize();
                 	}
                 }
-
+                $('.ajax-loader').show();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/profileSave',
@@ -433,18 +454,35 @@ var fe_user = (function() {
 **/
             $('#modal').on('shown.bs.modal', function () {
             		console.log('shown bs modal');
-            		
-            		/*var img = $('img#gui_image');
-            		img.guillotine({width: 345, height: 345});
-                    img.guillotine('fit');
-            		*/
+
                     var xrFace = fe_core.getCurrentFace();
                     
-                    console.log('xr_face: ', xrFace);
+//                    console.log('xr_face: ', xrFace);
                     
             		var img = $('#gui_image');
-            		if(xrFace == 3) img.guillotine({width: 345, height: 345});
-            		else img.guillotine({width: 200, height: 200});
+            		var imgType = 'other';
+            		
+            		// set user type with top.P_ID
+            		if(top.P_ID == 7 || top.P_ID == 42) {
+            			imgType = 'profile';
+            		}
+                    else
+                    {
+                    	imgType = 'room';
+                    	glltFormData.refid = $('#refid').val();
+                    }
+            		
+            		// check xr_face & set image crop plugin width & height 
+            		if(xrFace == 3)
+            		{
+            			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
+            			 else img.guillotine({width: 415, height: 220})
+            		}
+            		else
+            		{
+            			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
+            			else img.guillotine({width: 340, height: 205});
+            		}
 
             		
                 // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
