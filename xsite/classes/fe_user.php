@@ -1815,35 +1815,31 @@ class fe_user
 
 	public static function ajax_saveGuillotineImg()
 	{
-		$fileOK = false;
-		
 		$formData 	= $_REQUEST['glltFormData'];
 		$cropData	= $_REQUEST['glltCropData'];
 		
-		$s_id = intval($formData['s_id']);
-		if($s_id == 0) return frontcontrollerx::json_failure("FILE ID NOT VALID");
-		
 		$imgUploaded = xredaktor_storage::getById($s_id);
 		$imgUploaded = $imgUploaded['s_onDisk'];
+
+		$s_id = intval($formData['s_id']);
+		
+		if($s_id == 0) return frontcontrollerx::json_failure("FILE ID NOT VALID");
 		if(!file_exists($imgUploaded)) return frontcontrollerx::json_failure('FILE NOT EXISTS');
 		if(!is_file($imgUploaded)) return frontcontrollerx::json_failure('NO FILE');
 		
-		
-		$type = false;
-		$refid = intval($_REQUEST['refid']);
-		
-		if (intval($formData['p_id']) == 42 || intval($formData['p_id']) == 7)
+		$type = 'other';
+		$refid = intval($_REQUEST['refid']);		
+		if(intval($formData['p_id']) == 42 || intval($formData['p_id']) == 7)
 		{
 			$type = 'profile';
 			$refid = intval($_REQUEST['refid']);
 		} else {
 			$type = 'other-room';
 			$refid = $formData['refid'];
-		}
-						
+		}			
 		$params = array(
 				's_id' 	=> $s_id,
-				'type' => $type,
+				'type' 	=> $type,
 				'refid' => $refid,
 				'w'		=> $cropData['w'],
 				'h' 	=> $cropData['h'],
@@ -1862,47 +1858,23 @@ class fe_user
 		$outFile = Ixcore::htdocsRoot . '/xstorage/userbilder/cropped'.$outFileName;
 
 		if(file_exists($outFile)) unlink($outFile);
-// 		$cp = copy($inFile, $outFile);
 		
-// 		die(' unlink ');
-		
-		$convert = Ixcore::PATH_ImageMagick;
-		
-		$scale = $cropData['scale']*100;
-		$w = $cropData['w'];
-		$h = $cropData['h'];
-		$x = $cropData['x'];
-		$y = $cropData['y'];
+		$scale 	= $cropData['scale']*100;
+		$w 		= $cropData['w'];
+		$h 		= $cropData['h'];
+		$x 		= $cropData['x'];
+		$y 		= $cropData['y'];
 		
 		$inFileEscapped = self::myescapeshellarg($inFile);
 		$outFileEscapped = self::myescapeshellarg($outFile);
 		
- 		//$cmd = "$convert -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y " . "'$inFile' '$inFile'  2>&1 ";
+		$convert = Ixcore::PATH_ImageMagick;
+
 		$cmd = "$convert $inFileEscapped -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
 		
 		$out = array();
  		exec($cmd,$out);
 
- 		/*
-
-		$fileOK = $image = new Imagick($inFile);
-		$fileOK = $image->rotateImage(intval($cropData['angle']));
-		$fileOK = $image->scaleImage($formData['currentW'], $formData['currentH']);		
-		$fileOK = $image->resizeImage($formData['currentW'], $formData['currentH'],Imagick::FILTER_BOX);	
-		$image->setGravity(imagick::GRAVITY_NORTHWEST);
-		
-		$fileOK = $image->setImagePage($image->getImageWidth(), $image->getImageHeight(), 0, 0);
-		
-		$fileOK = $image->cropImage($cropData['w'], $cropData['h'], $cropData['x'], $cropData['y']);
-		
-		$fileOK = $image->setImagePage($image->getImageWidth(), $image->getImageHeight(), 0, 0);
-		
-		if(file_exists($outFile)) unlink($outFile);
-		
-		$fileOK = $image->writeImage($outFile);
-		if($fileOK === false) die(' IMAGE SAVE ERROR ');
-		*/
- 		
  		if(!file_exists($outFile)) return frontcontrollerx::json_failure('CROP ERROR - FILE MISSING');
 
 		xredaktor_storage::delFiles(array($s_id), true);
@@ -1917,15 +1889,12 @@ class fe_user
 		
 		$a_id = 747;
 		
-		
 		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropData);
 		
 		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
 		
 		frontcontrollerx::json_success(array('data' => array('html' => $html)));
 	}
-
-
 
 
 	public static function ajax_cropImageAndSaveNew()
