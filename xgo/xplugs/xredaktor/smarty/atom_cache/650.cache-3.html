@@ -1,6 +1,7 @@
 <%xr_siteCall fn="fe_user::redirectIfLoggedIn"%>
 <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
 
+
 <!-- DESKTOP PICTURES -->
 <div class="black-bg">
 	<%if $isV2 == 1%>
@@ -9,6 +10,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<hgroup>
+						    <!--<%xr_print_r val=$smarty.session%>-->
 							<!--<h1><%xr_translate tag="WGs finden den perfekten Mitbewohner!"%></h1>-->
 							<%if $P_LANG == 'de'%>
 							    <h1><span class="tight"><%xr_translate tag="WG"%></span>s <%xr_translate tag="finden den perfekten Mitbewohner"%></h1>

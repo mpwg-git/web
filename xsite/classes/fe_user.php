@@ -448,7 +448,7 @@ class fe_user
 
 		dbx::update("wizard_auto_707", $update, array('wz_id' => $user_id));
 	}
-
+	
 
 	public static function ajax_resetEmailConfirmationAgain()
 	{
@@ -485,12 +485,10 @@ class fe_user
 			return "/";
 		}
 
-
 		$userId		= intval($user['wz_id']);
 
 		++$counter;
 		dbx::update('wizard_auto_707',array('wz_LOGINCOUNTER'=>$counter),array('wz_id'=>$userId));
-
 
 		// CHECK IF ACTIVATE NEEDED
 		if ($user['wz_IS_TMP_USER'] == 'Y')
@@ -506,7 +504,6 @@ class fe_user
 				}
 			}
 		}
-
 
 		// cookie ablegen
 		$feUserSessionKey = xredaktor_feUser::getPrivateStatic('sessionName_FEUSER');
@@ -535,22 +532,8 @@ class fe_user
 			if($LAST_PUBLIC_ROMM_ID > 0)
 			{
 				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-				$adminOfRoom = fe_room::checkIfIAmAdminOfThisRoom($LAST_PUBLIC_ROMM_ID);
-
-				if($adminOfRoom === false)
-				{
-					return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-				}
-				elseif($adminOfRoom === true && $_SESSION['ROOM-DETAILVIEW'] == 1)
-				{
-					unset($_SESSION['ROOM-DETAILVIEW']);
-					$redirect = fe_vanityurls::genUrl_myprofile();
-					$redirect .= "/mein-raum/" . $LAST_PUBLIC_ROMM_ID;
-
-					return $redirect;
-				}
-
+	
+				return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
 		}
 
@@ -560,15 +543,29 @@ class fe_user
 		}
 
 
-		if(isset($_SESSION['DEACTIVATE-ACCOUNT']))
+		if(isset($_SESSION['DEACTIVATE_ACCOUNT']))
 		{
-			unset($_SESSION['DEACTIVATE-ACCOUNT']);
-
-			$redirect = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
-
-			return $redirect;
+			if(intval($_SESSION['DEACTIVATE_ACCOUNT']) > 0)
+			{
+				unset($_SESSION['DEACTIVATE_ACCOUNT']);
+				
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
+				
+				return $redirectUrl; 
+			}
 		}
-
+		
+		if(isset($_SESSION['ROOM_LISTVIEW']) && $user['wz_TYPE'] == 'biete')
+		{
+			if(intval($_SESSION['ROOM_LISTVIEW']) > 0)
+			{
+				unset($_SESSION['ROOM_LISTVIEW']);
+		
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?room-list-view";
+		
+				return $redirectUrl;
+			}
+		}
 
 
 		// FIRST visit ever after registration
@@ -1250,6 +1247,10 @@ class fe_user
 
 	public static function doLogout()
 	{
+		if(isset($_SESSION['DEACTIVATE_ACCOUNT'])) unset($_SESSION['DEACTIVATE_ACCOUNT']);
+		if(isset($_SESSION['ROOM_LISTVIEW'])) unset($_SESSION['ROOM_LISTVIEW']);
+		if(isset($_SESSION['SEARCHLIST'])) unset($_SESSION['SEARCHLIST']);
+		
 		fe_cookie::deleteLoginCookie();
 		xredaktor_feUser::doLogout();
 		return self::redirectToLogin(true);
@@ -2638,6 +2639,16 @@ class fe_user
 
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
+		
+		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
+		
+		if($presentUser !== false)
+		{
+			$counter = $presentUser['wz_LOGINCOUNTER'];
+			++$counter;
+			dbx::update("wizard_auto_707", array('wz_LOGINCOUNTER' => $counter), array('wz_id' => intval($presentUser['wz_id'])));
+		}
+
 		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
 		{
 			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
@@ -2650,17 +2661,26 @@ class fe_user
 
 				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
-		}
-
-		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
-
-		if($presentUser !== false)
+		}		
+		
+		if(isset($_SESSION['DEACTIVATE_ACCOUNT']))
 		{
-			$counter = $presentUser['wz_LOGINCOUNTER'];
-			++$counter;
-			dbx::update("wizard_auto_707", array('wz_LOGINCOUNTER' => $counter), array('wz_id' => intval($presentUser['wz_id'])));
+			if(intval($_SESSION['DEACTIVATE_ACCOUNT']) > 0)
+			{
+				unset($_SESSION['DEACTIVATE_ACCOUNT']);
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
+			}
 		}
-
+		
+		if(isset($_SESSION['ROOM_LISTVIEW']) && ($presentUser !== false && $presentUser['wz_TYPE'] == 'biete'))
+		{	
+			if(intval($_SESSION['ROOM_LISTVIEW']) > 0)
+			{
+				unset($_SESSION['ROOM_LISTVIEW']);
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?room-list-view";
+			}
+		}
+					
 
 ////// CHECK IF ACTIVATE NEEDED
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
@@ -2746,21 +2766,7 @@ class fe_user
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
 
 		xredaktor_feUser::refreshUserdata($feu_id);
-
-		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
-		{
-			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-			if($LAST_PUBLIC_ROMM_ID > 0)
-			{
-				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-
-				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-			}
-		}
-
+		
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
 
@@ -3309,35 +3315,39 @@ class fe_user
 
 		if($db_user['wz_TYPE'] == 'biete')
 		{
-
-			$insert = array(
-				'wz_ADMIN' 		=> $feu_id,
-				'wz_online' 	=> 'Y',
-				'wz_created' 	=> 'NOW()',
-				'wz_ACTIVE' 	=> 'Y'
-			);
-			// defaultwerte hinzufügen
-			$insert = array_merge($insert, fe_room::$regDefaults);
-
-			$insert['wz_MIETE'] 					= $MIETE_BIS;
-			$insert['wz_ADRESSE']				= $ADRESSE;
-			$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
-			$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
-			$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
-			$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
-			$insert['wz_ADRESSE_LAND']			= intval($land);
-			$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
-			$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
-
-			dbx::insert("wizard_auto_809", $insert);
-
-			$myRoomId	= dbx::getLastInsertId();
-
-			fe_room::assignUser2Room($feu_id, $myRoomId);
-
-			// raum in matching room Todo eintragen
-			dbx::insert('wizard_auto_853', array('wz_ROOMID' => $myRoomId, 'wz_STATUS' => 'TODO'));
-
+			$userData = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $feu_id");
+				
+			if($userData['wz_IS_TMP_USER'] == 'N' || $userData['wz_IS_TMP_USER'] == '')
+			{
+				$insert = array(
+						'wz_ADMIN' 		=> $feu_id,
+						'wz_online' 	=> 'Y',
+						'wz_created' 	=> 'NOW()',
+						'wz_ACTIVE' 	=> 'Y'
+				);
+				// defaultwerte hinzufügen
+				$insert = array_merge($insert, fe_room::$regDefaults);
+		
+				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_ADRESSE']				= $ADRESSE;
+				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
+				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
+				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
+				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+				$insert['wz_ADRESSE_LAND']			= intval($land);
+				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
+				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
+		
+				dbx::insert("wizard_auto_809", $insert);
+		
+				$myRoomId	= dbx::getLastInsertId();
+		
+				fe_room::assignUser2Room($feu_id, $myRoomId);
+		
+				// raum in matching room Todo eintragen
+				dbx::insert('wizard_auto_853', array('wz_ROOMID' => $myRoomId, 'wz_STATUS' => 'TODO'));
+			}
+				
 			$redirectUrl = xredaktor_niceurl::genUrl(array('p_id' => 30, 'm_suffix' => $myRoomId, 'roomId' => $myRoomId, 'comingFromRedirect' => 1));
 		}
 

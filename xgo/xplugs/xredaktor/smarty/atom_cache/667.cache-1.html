@@ -136,7 +136,7 @@
                 <li>
                     <a data-toggle="collapse" href="#collapseProfileRoom"><%xr_translate tag="Meine Räume"%></a>  
                     
-                    <ul class="meinprofil-submenu collapse" id="collapseProfileRoom">
+                    <ul class="meinprofil-submenu collapse <%if isset($smarty.request['room-list-view'])%>in<%/if%>" id="collapseProfileRoom">
                         <%**Raumverwaltung**%>
                         <%xr_atom a_id=850 roomdataNew=$roomdataNew return=1 showFace=0%>
                         
