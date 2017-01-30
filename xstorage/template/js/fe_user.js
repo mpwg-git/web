@@ -493,7 +493,7 @@ var fe_user = (function() {
               		img.guillotine('zoomIn')
               	});
               	$('#rotate_left').click(function(){
-                  picture.guillotine('rotateLeft')
+              		img.guillotine('rotateLeft')
                 });
               	$('#rotate_right').click(function() {
               		img.guillotine('rotateRight')

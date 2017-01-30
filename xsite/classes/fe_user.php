@@ -1819,10 +1819,11 @@ class fe_user
 		$formData 	= $_REQUEST['glltFormData'];
 		$cropData	= $_REQUEST['glltCropData'];
 		
+		$s_id = intval($formData['s_id']);
+
 		$imgUploaded = xredaktor_storage::getById($s_id);
 		$imgUploaded = $imgUploaded['s_onDisk'];
 
-		$s_id = intval($formData['s_id']);
 		
 		if($s_id == 0) return frontcontrollerx::json_failure("FILE ID NOT VALID");
 		if(!file_exists($imgUploaded)) return frontcontrollerx::json_failure('FILE NOT EXISTS');
