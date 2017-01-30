@@ -1,9 +1,0 @@
-<%xr_siteCall fn="fe_user::getLoginStatus" var="loggedin"%>
-
-<%if $loggedin === true%>
-    <%$atomtoRender = 659%>
-<%else%>
-    <%$atomtoRender = 661%>
-<%/if%>
-
-<%xr_atom a_id=$atomtoRender return=1%>
