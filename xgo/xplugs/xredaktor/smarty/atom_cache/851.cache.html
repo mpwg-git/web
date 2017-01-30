@@ -1,6 +1,0 @@
-<%if $smarty.session.error_message != ""%>
-    <div class="error-messages">
-        <%$smarty.session.error_message%>
-        <%xr_siteCall fn='fe_user::sc_clearSessionErrorMessage' var='xx'%>
-    </div>
-<%/if%>

@@ -1,7 +1,8 @@
 var delRoomOnce = false;
 var deactAccountOnce = false;
 var base64Img = false;
-var cropData = false;
+var glltFormData = false;
+var glltCropData = false;
 var fe_user = (function() {
     return new function() {
         this.init = function() {
@@ -257,7 +258,7 @@ var fe_user = (function() {
                 var data = {};
                 data.user = $('.form-mein-user').serialize();
                 data.profile = $('.form-mein-profil').serialize();
-                
+
                 $('.ajax-loader').show();
                 $.ajax({
                     type: 'POST',
@@ -268,7 +269,7 @@ var fe_user = (function() {
                     }
                 });
             });
-            
+
             $('.form-mein-raum-save').unbind("click");
             $('.form-mein-raum').unbind("submit");
             $('.form-mein-raum').submit(function(e) {
@@ -328,35 +329,56 @@ var fe_user = (function() {
             $('.form-mein-user').submit(function(e) {
                 e.preventDefault();
                 $('#VORNAME_error, #NACHNAME_error').hide();
-                
+
                 var vname = $('input#vorname').val().length;
                 var nname = $('input#nachname').val().length;
                 
                 if(vname == 0) {
-                	$('#VORNAME_error').show();
-                	return;
+                	if(fe_core.getCurrentFace() == 3)
+                	{
+                		$('#VORNAME_error').show();
+                	}
+                	else
+                	{
+                		$('#VORNAME_error').show();
+                		$('.profilerstellen').animate({
+                            top: ($('.profilerstellen').offset().top + 300)
+                        }, 600);
+                		$('input#vorname').keydown(function(){
+                    		$('#VORNAME_error').hide();
+                		});
+                	}
                 }
                 else if(nname == 0) {
-                	$('#NACHNAME_error').show();
-                	return;
+                	if(fe_core.getCurrentFace() == 3)
+                	{
+                    	$('#NACHNAME_error').show();
+                	}
+                	else
+                	{
+                    	$('#NACHNAME_error').show();
+                		$('.profilerstellen').animate({
+                            top: ($('.profilerstellen').offset().top + 300)
+                        }, 600);
+                		$('input#nachname').keydown(function(){
+                    		$('#NACHNAME_error').hide();
+                		});
+                	}
                 }
                 
-                $('.ajax-loader').show();
                 
                 var data = {
                     user: $('.form-mein-user').serialize()
                 };
-
                 // hiddenRoomId != false oder leer type == biete
                 if(fe_core.getCurrentFace() == 3) {
                     var checkType = $('#hiddenRoomId').val();
 
                 	if(checkType != false || checkType != '') {
-//                		console.log("type biete");
                 		data.room = $('.form-mein-raum').serialize();
                 	}
                 }
-
+                $('.ajax-loader').show();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/profileSave',
@@ -425,18 +447,143 @@ var fe_user = (function() {
                 });
             });
 
-            
-            
+
+/**
+ * image crop plugin
+ * https://github.com/matiasgagliano/guillotine
+**/
+            $('#modal').off('shown.bs.modal');
+            $('#modal').on('shown.bs.modal', function (e) {
+
+                var xrFace = fe_core.getCurrentFace();
+                
+//                    console.log('xr_face: ', xrFace);
+                
+        		var img = $('#gui_image');
+        		var imgType = 'other';
+        		
+        		// set user type with top.P_ID
+        		if(top.P_ID == 7 || top.P_ID == 42) {
+        			imgType = 'profile';
+        		}
+                else
+                {
+                	imgType = 'room';
+                	glltFormData.refid = $('#refid').val();
+                }
+        		
+    			// check xr_face & set image crop plugin width & height 
+        		if(xrFace == 3)
+        		{
+        			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
+        			 else img.guillotine({width: 415, height: 220})
+        		}
+        		else
+        		{
+        			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
+        			else img.guillotine({width: 340, height: 205});
+        		}
+        			
+            		
+                // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
+              	$('#zoom_out').click(function(e) {
+              		e.preventDefault();
+              		img.guillotine('zoomOut');
+                });
+                $('#zoom_in').click(function(e) {
+                	e.preventDefault();
+              		img.guillotine('zoomIn');
+              	});
+              	$('#rotate_left').click(function(){
+              		img.guillotine('rotateLeft');
+                });
+              	$('#rotate_right').click(function() {
+              		img.guillotine('rotateRight');
+              	});
+                $('#fit').bind('click', function() {
+              		img.guillotine('fit');
+              	});
+                });
+
+
+            $('.save-gui-image').unbind('click');
+            $('.save-gui-image').bind('click', function(e) {
+                e.preventDefault();
+                
+                var controls 	= $('div#controls');
+                var saveButton 	= $('button.save-gui-image');
+                var closeButton = $('button.close-image-cropper');
+                
+                glltFormData = {};
+                glltFormData.p_id		= top.P_ID;
+                glltFormData.lang		= top.P_LANG;
+                glltFormData.s_id 		= $('#s_id').val();
+                glltFormData.origW		= $('#origW').val();
+                glltFormData.origH		= $('#origH').val();                
+                glltFormData.currentW   = $('#gui_image').width();
+                glltFormData.currentH   = $('#gui_image').height();
+                
+                //console.log(glltFormData.p_id);
+                if(top.P_ID == 7 || top.P_ID == 42)
+                {
+                	glltFormData.type = 'profile';
+                }
+                else
+                {
+                	glltFormData.type = 'other-room';
+                	glltFormData.refid = $('#refid').val();
+                }
+                
+                glltCropData = {};
+                glltCropData = $('#gui_image').guillotine('getData');
+                
+                console.log("glltCropData", glltCropData);
+                
+
+                $.ajax({
+                	type: 'POST',
+                	url: '/xsite/call/fe_user/saveGuillotineImg',
+                	data: {
+                		glltFormData: glltFormData,
+                		glltCropData: glltCropData
+                	},
+                	success: function(response) {
+                		
+                		
+                		$('.ajax-loader').hide();
+                		
+                		var result = response;
+                        if (response.success) {
+                        	controls.css('display', 'none');
+                        	saveButton.removeClass('save-gui-image');
+                        	saveButton.addClass('save-gui-image-final-submit');
+//                        	closeButton.removeClass('close-image-cropper');
+                        	closeButton.addClass('close-image-final-cropper');
+                        	
+                            me.goToStep(2, response);
+                        }
+                    }
+                })
+
+            });
+          $('.save-gui-image-final-submit').unbind("click");
+          $('.save-gui-image-final-submit').click(function(e) {
+              e.preventDefault();
+              me.handleFinalUpload($('.gui-image-final-form'));
+              return;
+          });
+
+
 // WEB-271
             $('a[href*="collapseChangeMail"]').click(function() {
-            	$('#changeMail')[0].reset();
-				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
+            $('#changeMail')[0].reset();
+				        $('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
             });
-            
+
             $('#changeMail-btn').unbind('click');
             $('#changeMail-btn').on('click', function(e) {
             	e.preventDefault();
-            	
+
             	var email_neu 			= $('#email_neu').val();
             	var email_neu_confirm	= $('#email_neu_confirm').val();
 
@@ -463,11 +610,11 @@ var fe_user = (function() {
             				$('#email-error-3').show();
             				$('#email-error-1, #email-error-2').hide();
             				return false;
-            			}            			
+            			}
             			if(result == 1) {
             				$('#changeMail-success').show();
             				$('#email-error-1, #email-error-2, #email-error-3').hide();
-            				
+
             				$.ajax({
                         		type: 'POST',
                         		url:'/xsite/call/fe_user/changeMail',
@@ -485,17 +632,17 @@ var fe_user = (function() {
             		}
             	});
             });
-            
+
 
             $('a[href*="collapseChangePwd"]').click(function() {
             	$('#changePwd')[0].reset();
 				$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #newPasswd-error, span.error-message-1, span.error-message-2, #changePasswd-success').hide();
             });
-            
+
             $('#changePwd-btn').unbind('click');
             $('#changePwd-btn').on('click', function(e) {
-            	e.preventDefault();            	
-            	
+            	e.preventDefault();
+
             	var pwd_alt 		= $('#oldPasswd').val();
             	var pwd_neu 		= $('#newPasswd').val();
             	var pwd_neuConfirm 	= $('#newPasswdConfirm').val();
@@ -539,7 +686,7 @@ var fe_user = (function() {
                 		{
                     		$('#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, span.error-message-1, span.error-message-2').hide();
                     		$('#changePasswd-success').show();
-                    		
+
                     		$.ajax({
                         		type: 'POST',
                         		url:'/xsite/call/fe_user/changePwd',
@@ -563,8 +710,8 @@ var fe_user = (function() {
 
             });
 // END WEB-271
-            
-            
+
+
             $('#reset-password-btn').on('click', function(e) {
                 e.preventDefault();
                 var valid = fe_core.jsFormValidation('reset-password');
@@ -601,12 +748,7 @@ var fe_user = (function() {
                     }
                 });
             });
-            $('.add-image-final-submit').unbind("click");
-            $('.add-image-final-submit').click(function(e) {
-                e.preventDefault();
-                me.handleFinalUpload($('.add-image-final-form'));
-                return;
-            });
+
             $('.js-toggle-favourite').unbind('click');
             $('.js-toggle-favourite').bind('click', function(e) {
                 e.preventDefault();
@@ -827,6 +969,7 @@ var fe_user = (function() {
                     });
                 }
             });
+
             me.registerUploadListeners();
         }
         this.delContent = function(type, id) {
@@ -908,13 +1051,15 @@ var fe_user = (function() {
                         $('.upload-progress-bar').css('height', '0px');
                         $('.upload-progress-bar').css('width', '0%');
                         if (data.result.success == true) {
+                        	
                             me.goToStep(1, data.result);
                         } else {}
-                    } 
+                    }
                 });
             } catch (e) {}
         }
 
+        /*
         this.imgCrop = function() {
             var trueOrigW = parseInt($('#trueOrigW').val(), 10);
             var trueOrigH = parseInt($('#trueOrigH').val(), 10);
@@ -969,7 +1114,7 @@ var fe_user = (function() {
                     },
                     on_ZOOM_PAN_COMPLETE: function(obj, e) {
                         $('.ajax-loader').hide();
-                        
+
                         formdata = obj;
                         formdata.s_id = $('#s_id').val();
                         formdata.p_id = top.P_ID;
@@ -988,7 +1133,7 @@ var fe_user = (function() {
                         formdata.selRatio = selRatio;
                         formdata.trueX = parseFloat(formdata.normX) * formdata.origRatioX;
                         formdata.trueY = parseFloat(formdata.normY) * formdata.origRatioY;
-                        formdata.trueCropW = formdata.selectionWidth / (formdata.selectionWidth / formdata.origW) / formdata.ratio;
+                        formdata.trueCropW = formdata.selectionWidth / (formdata.selectionWidth / formdata.origW) / formdata.selRatio;
                         formdata.trueCropH = formdata.trueCropW / formdata.selRatio;
                         cropData = formdata;
                         if ($('.cropx').length > 0) {
@@ -1002,22 +1147,22 @@ var fe_user = (function() {
                 });
             // }
         }
+        */
         this.goToStep = function(step, data) {
             var me = this;
             switch (step) {
                 case 1:
+                	console.log("ste 1");
                     $('.add-image-crop-area').html(data.data.html);
                     $('.upload-image-modal').modal('show');
-                    $('.upload-image-modal').on('shown.bs.modal', function(e) {
-                        $('.avatarCrop').attr('src', data.src).css('height', 'auto');
-                        if (typeof me.jcrop_api != "undefined") {
-                            me.jcrop_api.destroy();
-                        }
-                        me.imgCrop();
-                    });
+         
                     break;
                 case 2:
-                    $('.add-image-crop-area').html(data.data.html);
+                    $('#gui_container').html(data.data.html);
+//                    $('.gui-cropped-image').attr('src', data.data.img_src);
+//                    $('.gui-cropped-image').attr('alt', data.data.id);
+                    // var tmp = $('.gui-cropped-image').attr('alt');
+//                    $('#s_id').val($('.gui-cropped-image').attr('alt'));
                     break;
                 case 3:
                     $('.upload-image-modal').modal('hide');
@@ -1032,6 +1177,8 @@ var fe_user = (function() {
             var me = this;
             $('.ajax-loader').show();
             var formdata = $(form).serialize();
+//            console.log(formdata);
+            
             $.ajax({
                 type: 'POST',
                 url: '/xsite/call/fe_user/finalSubmit',

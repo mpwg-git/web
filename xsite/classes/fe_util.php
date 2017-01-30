@@ -8,23 +8,18 @@ class fe_util
 		
 		if(isset($_REQUEST['deactivate-account']))
 		{
-			$_SESSION['DEACTIVATE-ACCOUNT'] = 1;
-			
-			if(isset($_SESSION['SEARCHLIST']))
-			{
-				unset($_SESSION['SEARCHLIST']);
-			}
+			$_SESSION['DEACTIVATE_ACCOUNT'] = 1;
 		}
+		
+		if(isset($_REQUEST['room-list-view']))
+		{
+			$_SESSION['ROOM_LISTVIEW'] = 1;
+		}
+		
 		if(isset($_REQUEST['searchlist']))
 		{
-			$_SESSION['SEARCHLIST'] = 1;
-			
-			if(isset($_SESSION['DEACTIVATE-ACCOUNT']))
-			{
-				unset($_SESSION['DEACTIVATE-ACCOUNT']);
-			}		
+			$_SESSION['SEARCHLIST'] = 1;	
 		}
-
 		
 		return true;
 		

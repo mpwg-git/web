@@ -1,4 +1,5 @@
 <?
+//error_reporting(E_PARSE);
 
 class fe_user
 {
@@ -255,45 +256,45 @@ class fe_user
 		dbx::update($table,array('wz_PASSWORT'=>md5($PASSWORT)),array('wz_id'=>$user_id,'wz_PASSWORT'=>md5($currentPwd)));
 
 		return 1;
-		
+
 	}
-	
-	
-	
+
+
+
 	// WEB-276
 	public static function ajax_changeMail()
 	{
 		$emailNeu = dbx::escape($_REQUEST['email_neu']);
-		
-		$user = xredaktor_feUser::getUserInfo(); 
+
+		$user = xredaktor_feUser::getUserInfo();
 		$userid = $user['wz_id'];
-		
+
 		$update = array(
 				'wz_id'				=> $userid,
 				'wz_EMAIL_ALT'		=> $emailNeu //zwischenspeichern der neuen mail bis wz_MAIL_CHECKED == Y
 		);
-		
+
 		dbx::update('wizard_auto_707',$update,array('wz_id'=>$userid));
-		
+
 		xredaktor_feUser::sendConfirmMailChange($userid);
-		
+
 		self::doLogout();
-		
+
 		echo json_encode("OK");
-		
+
 		return;
 	}
-	
-	
+
+
 	public static function ajax_checkNewMail()
 	{
 		$ok = false;
 
 		$emailNeu 			= dbx::escape($_REQUEST['email_neu']);
 		$emailNeuConfirm 	= dbx::escape($_REQUEST['email_neu_confirm']);
-		
+
 		$present = dbx::queryAll("select * from wizard_auto_707 where wz_email = '$emailNeu' and wz_del = 'N' and wz_online = 'Y'");
-		
+
 		if(!filter_var($emailNeu, FILTER_VALIDATE_EMAIL))
 		{
 			$ok = -1;
@@ -320,21 +321,21 @@ class fe_user
 		}
 
 	}
-	
-	
-	
+
+
+
 	// WEB-271
 	public static function ajax_changePwd()
-	{	
+	{
 		$pw = dbx::escape(md5($_REQUEST['pwChange']));
-		
+
 		$userid = intval(xredaktor_feUser::getUserId());
-	
+
 		$update = dbx::update('wizard_auto_707',array('wz_PASSWORT'=>$pw),array('wz_id'=>$userid));
-		
+
 		echo json_encode($update);
 	}
-	
+
 
 	public static function ajax_checkPasswdForm()
 	{
@@ -344,10 +345,10 @@ class fe_user
 
 		$ok = false;
 		$status = array();
-		
+
 		$userid = intval(xredaktor_feUser::getUserId());
 		$userpw = dbx::queryAttribute("select wz_passwort from wizard_auto_707 where wz_id = '$userid'", "wz_passwort");
-		
+
 		// aktuelles Passwort leer
 		if(strlen($checkAlt) == 0)
 		{
@@ -360,7 +361,7 @@ class fe_user
 		if(strlen($checkNeu) < 6)
 		{
 			$ok = "02";
-			$status['checkNeu'] = $ok;	
+			$status['checkNeu'] = $ok;
 			echo json_encode($status);
 			return;
 		}
@@ -390,13 +391,13 @@ class fe_user
 		}
 		echo json_encode($status);
 	}
-	
-	
+
+
 
 	public static function afterRegistration()
 	{
 		// NO PROFILE TABLE ANYMORE
-		
+
 		$type 				= dbx::escape($_REQUEST['TYPE']);
 		$geschlecht 		= $_REQUEST['GESCHLECHT']; // nix escapen, wird eh gleich im switch sauber gesetzt
 		$email				= dbx::escape($_REQUEST['EMAIL']);
@@ -448,7 +449,7 @@ class fe_user
 		dbx::update("wizard_auto_707", $update, array('wz_id' => $user_id));
 	}
 	
-	
+
 	public static function ajax_resetEmailConfirmationAgain()
 	{
 		@session_start();
@@ -482,14 +483,12 @@ class fe_user
 
 		if ($user === false) {
 			return "/";
-		}	
+		}
 
-	
 		$userId		= intval($user['wz_id']);
 
 		++$counter;
 		dbx::update('wizard_auto_707',array('wz_LOGINCOUNTER'=>$counter),array('wz_id'=>$userId));
-
 
 		// CHECK IF ACTIVATE NEEDED
 		if ($user['wz_IS_TMP_USER'] == 'Y')
@@ -505,7 +504,6 @@ class fe_user
 				}
 			}
 		}
-
 
 		// cookie ablegen
 		$feUserSessionKey = xredaktor_feUser::getPrivateStatic('sessionName_FEUSER');
@@ -526,7 +524,7 @@ class fe_user
 		}
 
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$userId));
-		
+
 		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
 		{
 			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
@@ -534,42 +532,42 @@ class fe_user
 			if($LAST_PUBLIC_ROMM_ID > 0)
 			{
 				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
-				
-				$adminOfRoom = fe_room::checkIfIAmAdminOfThisRoom($LAST_PUBLIC_ROMM_ID);
-				
-				if($adminOfRoom === false)
-				{
-					return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-				}
-				elseif($adminOfRoom === true && $_SESSION['ROOM-DETAILVIEW'] == 1)
-				{
-					unset($_SESSION['ROOM-DETAILVIEW']);
-					$redirect = fe_vanityurls::genUrl_myprofile();
-					$redirect .= "/mein-raum/" . $LAST_PUBLIC_ROMM_ID;
-					
-					return $redirect;
-				}
-
+	
+				return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
 		}
-		
+
 		if(isset($_SESSION['SEARCHLIST']))
 		{
 			return fe_vanityurls::genUrl_suche();
 		}
-		
-		
-		if(isset($_SESSION['DEACTIVATE-ACCOUNT']))
+
+
+		if(isset($_SESSION['DEACTIVATE_ACCOUNT']))
 		{
-			unset($_SESSION['DEACTIVATE-ACCOUNT']);
-			
-			$redirect = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
-			
-			return $redirect;
+			if(intval($_SESSION['DEACTIVATE_ACCOUNT']) > 0)
+			{
+				unset($_SESSION['DEACTIVATE_ACCOUNT']);
+				
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
+				
+				return $redirectUrl; 
+			}
 		}
 		
-
+		if(isset($_SESSION['ROOM_LISTVIEW']) && $user['wz_TYPE'] == 'biete')
+		{
+			if(intval($_SESSION['ROOM_LISTVIEW']) > 0)
+			{
+				unset($_SESSION['ROOM_LISTVIEW']);
 		
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?room-list-view";
+		
+				return $redirectUrl;
+			}
+		}
+
+
 		// FIRST visit ever after registration
 		if ($user['wz_NOTLOGGEDIN'] == 1)
 		{
@@ -733,8 +731,8 @@ class fe_user
 
 
 	public static function getMyData()
-	{	
-		
+	{
+
 		self::checkLoggedIn();
 
 		$userId			= xredaktor_feUser::getUserId();
@@ -781,7 +779,7 @@ class fe_user
 		{
 			return array();
 		}
-		
+
 		if ($user['wz_PROFILBILD'] == 0)
 		{
 			$user['wz_PROFILBILD'] = self::getProfileImage($userId);
@@ -879,7 +877,7 @@ class fe_user
 
 	public static function redirectIfLoggedIn()
 	{
-		
+
 		if (xredaktor_feUser::isLoggedIn() !== false)
 		{
 			return self::redirectToSearch();
@@ -1198,14 +1196,14 @@ class fe_user
 
 	public static function checkLoggedIn()
 	{
-		
+
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
 		{
 			return true;
 		}
-		
+
 		if (xredaktor_feUser::isLoggedIn() === false)
-		{			
+		{
 			return self::redirectToLogin();
 		}
 		else
@@ -1249,6 +1247,10 @@ class fe_user
 
 	public static function doLogout()
 	{
+		if(isset($_SESSION['DEACTIVATE_ACCOUNT'])) unset($_SESSION['DEACTIVATE_ACCOUNT']);
+		if(isset($_SESSION['ROOM_LISTVIEW'])) unset($_SESSION['ROOM_LISTVIEW']);
+		if(isset($_SESSION['SEARCHLIST'])) unset($_SESSION['SEARCHLIST']);
+		
 		fe_cookie::deleteLoginCookie();
 		xredaktor_feUser::doLogout();
 		return self::redirectToLogin(true);
@@ -1257,7 +1259,7 @@ class fe_user
 
 	public static function redirectToLogin($addQueryParam = false)
 	{
-		
+
 		$cfg = array('p_id' => fe_vanityurls::$page_login);
 
 		// damit wir nicht in infinite loop kommen...
@@ -1319,28 +1321,28 @@ class fe_user
 		foreach ($updateCollection as $k => $v) {
 			$update['wz_'.$k] = $updateCollection[$k];
 		}
-		
+
 // 		if(libx::isDeveloper())
 // 		{
 // 			print_r($update);
 // 			die();
 // 		}
-		
+
 
 // 		if(trim($update['wz_VORNAME'] == ''))
-// 		{	
+// 		{
 // 			return frontcontrollerx::json_failure("vname");
 
 // 		}
-		
+
 // 		if(trim($update['wz_NACHNAME'] == ''))
 // 		{
 // 			return frontcontrollerx::json_failure("nname");
 // 		}
-		
-		
-		
-		
+
+
+
+
 		$update['wz_LAND'] = $userReq['LAND'];
 
 		if (isset($_REQUEST['profile']))
@@ -1587,6 +1589,9 @@ class fe_user
 			die('WRONGSIZE');
 		}
 
+		
+		
+		
 		$extension = pathinfo($_FILES['add-image-file']['name'], PATHINFO_EXTENSION);
 		$allowed = array('jpg', 'jpeg', 'png');
 
@@ -1610,31 +1615,34 @@ class fe_user
 		if(!file_exists($src)){
 			die('NOTEXISTS');
 		}
-
+        
+		$convert = Ixcore::PATH_ImageMagick;
+		$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$src' '$src'  2>&1 ";
+		$cmd = exec($cmd, $out);
+		
+		
 		$image_s_id 	= xredaktor_storage::registerFileInStorage($storageDirId,$src,$_FILES['add-image-file']['name']);
 
 		if($image_s_id === false) return false;
 
-
-
 		$uploaded_file = xredaktor_storage::getById($image_s_id);
+		
 		$file_src = $uploaded_file['s_onDisk'];
+
 
 		// bis hier her haben wir einfach die Datei übertragen
 		// jetzt DPI + rotation setzen
+		/*
 		$convert = Ixcore::PATH_ImageMagick;
-		$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$file_src' '$file_src'  2>&1 ";
+		//$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$file_src' '$file_src'  2>&1 ";
+		$cmd = "$convert -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$file_src' '$file_src'  2>&1 ";
 		$cmd = exec($cmd, $out);
+        */
 
 		// jetzt sollte man noch die filesize updaten...
 
 
-
-
-
 		// jetzt in xr_img2 werfen - sollte dann korrekte s_media_w und _h setzen
-
-
 
 		// rotate if neccessary
 		//xredaktor_storage::rotate_if_necessary($image_s_id);
@@ -1670,7 +1678,6 @@ class fe_user
 		$_SESSION['image']['trueH'] = $imageData['trueH'];
 
 		$a_id = 746;
-
 
 		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
 
@@ -1792,7 +1799,120 @@ class fe_user
 
 		frontcontrollerx::json_success();
 	}
+	
+	/**
+	 * // das gecroppte file (vom xr_img3) mit neuem namen in storage haun
+		$filename_with_cropinfo = $dir . '/cropped/' . $name;
+		copy($maybeCroppedImg['src'], $filename_with_cropinfo);
 
+		xredaktor_storage::delFiles(array($s_id), true);
+
+		$new_s_id = xredaktor_storage::registerExistingFile(1,$filename_with_cropinfo);
+		$new_s_id = intval($new_s_id);
+
+		dbx::update('storage',array('
+			s_crop_original_s_id'=>$s_id,'s_crop_data'=>json_encode($cropdata)),array('s_id'=>$new_s_id)
+		);
+
+		$a_id = 747;
+		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropdata);
+		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
+		
+		frontcontrollerx::json_success(array('data' => array('html' => $html)));
+	 * 
+	 */
+
+	public static function myescapeshellarg($arg){
+		return "'".str_replace("'","\\'",$arg)."'";
+	}
+
+	public static function ajax_saveGuillotineImg()
+	{
+		$formData 	= $_REQUEST['glltFormData'];
+		$cropData	= $_REQUEST['glltCropData'];
+		
+		$s_id = intval($formData['s_id']);
+
+		$imgUploaded = xredaktor_storage::getById($s_id);
+		$imgUploaded = $imgUploaded['s_onDisk'];
+
+		
+		if($s_id == 0) return frontcontrollerx::json_failure("FILE ID NOT VALID");
+		if(!file_exists($imgUploaded)) return frontcontrollerx::json_failure('FILE NOT EXISTS');
+		if(!is_file($imgUploaded)) return frontcontrollerx::json_failure('NO FILE');
+		
+		$type = 'other';
+		$refid = intval($_REQUEST['refid']);		
+		if(intval($formData['p_id']) == 42 || intval($formData['p_id']) == 7)
+		{
+			$type = 'profile';
+			$refid = intval($_REQUEST['refid']);
+		} else {
+			$type = 'other-room';
+			$refid = $formData['refid'];
+		}			
+		$params = array(
+				's_id' 	=> $s_id,
+				'type' 	=> $type,
+				'refid' => $refid,
+				'w'		=> $cropData['w'],
+				'h' 	=> $cropData['h'],
+				'ext' 	=> 'jpg',
+				'crop'	=> json_encode(array(
+						'x' => $cropData['x'],
+						'y' => $cropData['y'],
+						'w' => $cropData['w'],
+						'h' => $cropData['h'],
+						//'s_id' => $s_id
+				))
+		);
+		
+		$inFile  = realpath($imgUploaded);
+		$outFileName = '/' . "_cropped_" . basename($inFile);
+		$outFile = Ixcore::htdocsRoot . '/xstorage/userbilder/cropped'.$outFileName;
+
+		if(file_exists($outFile)) unlink($outFile);
+		
+		$scale 	= $cropData['scale']*100;
+		$scale  = intval($scale);
+		$w 		= $cropData['w'];
+		$h 		= $cropData['h'];
+		$x 		= $cropData['x'];
+		$y 		= $cropData['y'];
+		
+		$inFileEscapped = self::myescapeshellarg($inFile);
+		$outFileEscapped = self::myescapeshellarg($outFile);
+		
+		$convert = Ixcore::PATH_ImageMagick;
+
+		//$cmd = "$convert $inFileEscapped -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
+		$cmd = "$convert $inFileEscapped -resize $scale".'%'." -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
+		
+		//die("cmd: $cmd");
+		
+		$out = array();
+ 		exec($cmd,$out);
+
+ 		if(!file_exists($outFile)) return frontcontrollerx::json_failure('CROP ERROR - FILE MISSING');
+
+		xredaktor_storage::delFiles(array($s_id), true);
+		$new_s_id = xredaktor_storage::registerExistingFile(1,$outFile);
+		$new_s_id = intval($new_s_id);
+		
+		unset($cropData['angle']);
+		unset($cropData['scale']);
+		$s_crop_data = $cropData;
+		
+		dbx::update('storage',array('s_crop_original_s_id'=>$s_id,'s_crop_data'=>json_encode($s_crop_data)),array('s_id'=>$new_s_id));
+		
+		$a_id = 747;
+		
+		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropData);
+		
+		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
+		
+		frontcontrollerx::json_success(array('data' => array('html' => $html)));
+	}
 
 
 	public static function ajax_cropImageAndSaveNew()
@@ -2536,6 +2656,16 @@ class fe_user
 
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 
+		
+		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
+		
+		if($presentUser !== false)
+		{
+			$counter = $presentUser['wz_LOGINCOUNTER'];
+			++$counter;
+			dbx::update("wizard_auto_707", array('wz_LOGINCOUNTER' => $counter), array('wz_id' => intval($presentUser['wz_id'])));
+		}
+
 		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
 		{
 			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
@@ -2548,17 +2678,26 @@ class fe_user
 
 				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
-		}
-
-		$presentUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_FACEBOOK_ID = '$FACEBOOK_ID' AND wz_del = 'N' AND wz_online = 'Y'");
-
-		if($presentUser !== false)
+		}		
+		
+		if(isset($_SESSION['DEACTIVATE_ACCOUNT']))
 		{
-			$counter = $presentUser['wz_LOGINCOUNTER'];
-			++$counter;
-			dbx::update("wizard_auto_707", array('wz_LOGINCOUNTER' => $counter), array('wz_id' => intval($presentUser['wz_id'])));
+			if(intval($_SESSION['DEACTIVATE_ACCOUNT']) > 0)
+			{
+				unset($_SESSION['DEACTIVATE_ACCOUNT']);
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?deactivate-account";
+			}
 		}
-
+		
+		if(isset($_SESSION['ROOM_LISTVIEW']) && ($presentUser !== false && $presentUser['wz_TYPE'] == 'biete'))
+		{	
+			if(intval($_SESSION['ROOM_LISTVIEW']) > 0)
+			{
+				unset($_SESSION['ROOM_LISTVIEW']);
+				$redirectUrl = fe_vanityurls::genUrl_myprofile() . "?room-list-view";
+			}
+		}
+					
 
 ////// CHECK IF ACTIVATE NEEDED
 		if (isset($_REQUEST['h']) && $_REQUEST['h'] != '')
@@ -2644,21 +2783,7 @@ class fe_user
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$feu_id));
 
 		xredaktor_feUser::refreshUserdata($feu_id);
-
-		if(isset($_SESSION['LAST_PUBLIC_ROMM_ID']))
-		{
-			$LAST_PUBLIC_ROMM_ID = intval($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-			if($LAST_PUBLIC_ROMM_ID > 0)
-			{
-				unset($_SESSION['LAST_PUBLIC_ROMM_ID']);
-
-				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-
-				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
-			}
-		}
-
+		
 		frontcontrollerx::json_success(array('status'=>'OK','msg'=>'','redirect' => $redirectUrl));
 	}
 
@@ -3207,35 +3332,39 @@ class fe_user
 
 		if($db_user['wz_TYPE'] == 'biete')
 		{
-
-			$insert = array(
-				'wz_ADMIN' 		=> $feu_id,
-				'wz_online' 	=> 'Y',
-				'wz_created' 	=> 'NOW()',
-				'wz_ACTIVE' 	=> 'Y'
-			);
-			// defaultwerte hinzufügen
-			$insert = array_merge($insert, fe_room::$regDefaults);
-
-			$insert['wz_MIETE'] 					= $MIETE_BIS;
-			$insert['wz_ADRESSE']				= $ADRESSE;
-			$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
-			$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
-			$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
-			$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
-			$insert['wz_ADRESSE_LAND']			= intval($land);
-			$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
-			$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
-
-			dbx::insert("wizard_auto_809", $insert);
-
-			$myRoomId	= dbx::getLastInsertId();
-
-			fe_room::assignUser2Room($feu_id, $myRoomId);
-
-			// raum in matching room Todo eintragen
-			dbx::insert('wizard_auto_853', array('wz_ROOMID' => $myRoomId, 'wz_STATUS' => 'TODO'));
-
+			$userData = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $feu_id");
+				
+			if($userData['wz_IS_TMP_USER'] == 'N' || $userData['wz_IS_TMP_USER'] == '')
+			{
+				$insert = array(
+						'wz_ADMIN' 		=> $feu_id,
+						'wz_online' 	=> 'Y',
+						'wz_created' 	=> 'NOW()',
+						'wz_ACTIVE' 	=> 'Y'
+				);
+				// defaultwerte hinzufügen
+				$insert = array_merge($insert, fe_room::$regDefaults);
+		
+				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_ADRESSE']				= $ADRESSE;
+				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
+				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
+				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
+				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+				$insert['wz_ADRESSE_LAND']			= intval($land);
+				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
+				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
+		
+				dbx::insert("wizard_auto_809", $insert);
+		
+				$myRoomId	= dbx::getLastInsertId();
+		
+				fe_room::assignUser2Room($feu_id, $myRoomId);
+		
+				// raum in matching room Todo eintragen
+				dbx::insert('wizard_auto_853', array('wz_ROOMID' => $myRoomId, 'wz_STATUS' => 'TODO'));
+			}
+				
 			$redirectUrl = xredaktor_niceurl::genUrl(array('p_id' => 30, 'm_suffix' => $myRoomId, 'roomId' => $myRoomId, 'comingFromRedirect' => 1));
 		}
 

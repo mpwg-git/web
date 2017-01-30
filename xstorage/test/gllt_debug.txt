@@ -1,0 +1,2836 @@
+
+
+ 2017-01-23 11:39:33Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28209_5_9f41a87f3f81dd923f3c55440a9b10be.jpg
+            [cropData] => Array
+                (
+                    [scale] => 0.8481906623075838
+                    [angle] => 0
+                    [x] => 335
+                    [y] => 112
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28209
+        )
+
+    [crop] => Array
+        (
+            [scale] => 0.8481906623075838
+            [angle] => 0
+            [x] => 335
+            [y] => 112
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28209
+            [w] => 2095
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":335,"y":112,"w":345,"h":345}
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="" method="post">
+    
+
+    <img class="" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 11:40:59Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28209_5_9f41a87f3f81dd923f3c55440a9b10be.jpg
+            [cropData] => Array
+                (
+                    [scale] => 0.8481906623075838
+                    [angle] => 0
+                    [x] => 335
+                    [y] => 112
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28209
+        )
+
+    [crop] => Array
+        (
+            [scale] => 0.8481906623075838
+            [angle] => 0
+            [x] => 335
+            [y] => 112
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28209
+            [w] => 2095
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":335,"y":112,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [new_s_id] => 28209
+            [xparams] => Array
+                (
+                    [s_id] => 28209
+                    [w] => 2095
+                    [h] => 1151
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":335,"y":112,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 335
+                    [y] => 112
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28209
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="" method="post">
+    
+
+    <img class="" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 11:43:20Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28209_5_9f41a87f3f81dd923f3c55440a9b10be.jpg
+            [cropData] => Array
+                (
+                    [scale] => 0.8481906623075838
+                    [angle] => 0
+                    [x] => 335
+                    [y] => 112
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28209
+        )
+
+    [crop] => Array
+        (
+            [scale] => 0.8481906623075838
+            [angle] => 0
+            [x] => 335
+            [y] => 112
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28209
+            [w] => 2095
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":335,"y":112,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [new_s_id] => 28209
+            [xparams] => Array
+                (
+                    [s_id] => 28209
+                    [w] => 2095
+                    [h] => 1151
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":335,"y":112,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 335
+                    [y] => 112
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28209
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="" method="post">
+    
+
+    <img class="" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 11:44:32Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28211_5_9a0f6d661f9979dc1ad6f4575e007127.jpg
+            [cropData] => Array
+                (
+                    [scale] => 0.5644739300537773
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 68
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28211
+        )
+
+    [crop] => Array
+        (
+            [scale] => 0.5644739300537773
+            [angle] => 0
+            [x] => 0
+            [y] => 68
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28211
+            [w] => 1394
+            [h] => 765
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":68,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [new_s_id] => 28211
+            [xparams] => Array
+                (
+                    [s_id] => 28211
+                    [w] => 1394
+                    [h] => 765
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":68,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 0
+                    [y] => 68
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28211
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="" method="post">
+    
+    <pre style='text-align:left;'>Array
+(
+    [new_s_id] => 28211
+    [xparams] => Array
+        (
+            [s_id] => 28211
+            [w] => 1394
+            [h] => 765
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":68,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [x] => 0
+            [y] => 68
+            [w] => 345
+            [h] => 345
+            [s_id] => 28211
+        )
+
+)
+</pre>
+
+    <img class="" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 11:44:43Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28211_5_9a0f6d661f9979dc1ad6f4575e007127.jpg
+            [cropData] => Array
+                (
+                    [scale] => 0.5644739300537773
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 68
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28211
+        )
+
+    [crop] => Array
+        (
+            [scale] => 0.5644739300537773
+            [angle] => 0
+            [x] => 0
+            [y] => 68
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28211
+            [w] => 1394
+            [h] => 765
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":68,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [new_s_id] => 28211
+            [xparams] => Array
+                (
+                    [s_id] => 28211
+                    [w] => 1394
+                    [h] => 765
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":68,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 0
+                    [y] => 68
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28211
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="" method="post">
+    
+    <pre style='text-align:left;'>Array
+(
+    [new_s_id] => 28211
+    [xparams] => Array
+        (
+            [s_id] => 28211
+            [w] => 1394
+            [h] => 765
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":68,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [x] => 0
+            [y] => 68
+            [w] => 345
+            [h] => 345
+            [s_id] => 28211
+        )
+
+)
+</pre>
+
+    <img class="" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 11:54:44Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28212_5_103a3033c67f06a92237d281beaf1105.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.683715
+                    [angle] => 0
+                    [x] => 273
+                    [y] => 160
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28212
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.683715
+            [angle] => 0
+            [x] => 273
+            [y] => 160
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28212
+            [w] => 864
+            [h] => 648
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":273,"y":160,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28212
+            [xparams] => Array
+                (
+                    [s_id] => 28212
+                    [w] => 864
+                    [h] => 648
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":273,"y":160,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 273
+                    [y] => 160
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28212
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="" method="post">
+    
+    <pre style='text-align:left;'>Array
+(
+    [id] => 28212
+    [w] => 400
+    [h] => 300
+    [size] => 7755
+    [hsize] => 7.57 kB
+    [mime] => image/jpeg
+    [rw] => 400
+    [rh] => 300
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/crop_north_west3.jpg
+    [src] => /xstorage/_cache/_28212_5_5b4d43fd3120a63b8ebfb7e1d876fbc5.jpg
+)
+</pre>
+
+    <img class="" src="/xstorage/_cache/_28212_5_5b4d43fd3120a63b8ebfb7e1d876fbc5.jpg" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 11:59:58Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28214_5_00db09e99e3cbcf18e656b633911dcb2.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.3660195435529872
+                    [angle] => 0
+                    [x] => 718
+                    [y] => 322
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28214
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.3660195435529872
+            [angle] => 0
+            [x] => 718
+            [y] => 322
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28214
+            [w] => 3373
+            [h] => 1853
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":718,"y":322,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28214
+            [xparams] => Array
+                (
+                    [s_id] => 28214
+                    [w] => 3373
+                    [h] => 1853
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":718,"y":322,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 718
+                    [y] => 322
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28214
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28214
+    [w] => 1920
+    [h] => 1055
+    [size] => 151277
+    [hsize] => 147.73 kB
+    [mime] => image/jpeg
+    [rw] => 1920
+    [rh] => 1055
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/00_profile-pic - Copy (8).jpg
+    [src] => /xstorage/_cache/_28214_5_685db9eec2d59a2aa9d9d33551931256.jpg
+)
+</pre>-->
+
+    <img class="" src="/xstorage/_cache/_28214_5_685db9eec2d59a2aa9d9d33551931256.jpg" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 12:08:33Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28215_5_340cfec0ad1304a8a9788e384e447ae0.png
+            [cropData] => Array
+                (
+                    [scale] => 1.2376779373921172
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 430
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28215
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.2376779373921172
+            [angle] => 0
+            [x] => 0
+            [y] => 430
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28215
+            [w] => 1673
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":430,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [new_s_id] => 28215
+            [xparams] => Array
+                (
+                    [s_id] => 28215
+                    [w] => 1673
+                    [h] => 1151
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":430,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 0
+                    [y] => 430
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28215
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [new_s_id] => 28215
+    [xparams] => Array
+        (
+            [s_id] => 28215
+            [w] => 1673
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":430,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [x] => 0
+            [y] => 430
+            [w] => 345
+            [h] => 345
+            [s_id] => 28215
+        )
+
+)
+</pre>-->
+
+    <img class="" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 12:34:25Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28219_5_49ccb0dc9be6b9918de9099a4204c4f3.png
+            [cropData] => Array
+                (
+                    [scale] => 1.9932926949493794
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 712
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28219
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.9932926949493794
+            [angle] => 0
+            [x] => 0
+            [y] => 712
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28219
+            [w] => 2694
+            [h] => 1853
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":712,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [new_s_id] => 28219
+            [xparams] => Array
+                (
+                    [s_id] => 28219
+                    [w] => 2694
+                    [h] => 1853
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":712,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [x] => 0
+                    [y] => 712
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28219
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_002_croptest-copy_auto_cropped_x0_y712_w345_h345.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [new_s_id] => 28219
+    [xparams] => Array
+        (
+            [s_id] => 28219
+            [w] => 2694
+            [h] => 1853
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":712,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [x] => 0
+            [y] => 712
+            [w] => 345
+            [h] => 345
+            [s_id] => 28219
+            [src_cropped_img] => /xstorage/userbilder/cropped/_002_croptest-copy_auto_cropped_x0_y712_w345_h345.png
+        )
+
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:03:48Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28222_5_8e41a94642ad0857c7644bb03822f052.png
+            [cropData] => Array
+                (
+                    [scale] => 1.497590304244462
+                    [angle] => 0
+                    [x] => 6
+                    [y] => 580
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28222
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.497590304244462
+            [angle] => 0
+            [x] => 6
+            [y] => 580
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28222
+            [w] => 2024
+            [h] => 1393
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":6,"y":580,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28222
+            [xparams] => Array
+                (
+                    [s_id] => 28222
+                    [w] => 2024
+                    [h] => 1393
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":6,"y":580,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.497590304244462
+                    [angle] => 0
+                    [x] => 6
+                    [y] => 580
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28222
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_000000_userpic.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    Sorry, no image present.FILE:/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xstorage/userbilder/cropped/_000000_userpic_auto_cropped_x6_y580_w345_h345.png !!
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28222
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 
+    [rh] => 
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/cropped/_000000_userpic_auto_cropped_x6_y580_w345_h345.png
+    [src] => 
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:08:33Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28223_5_9e18262849122d3f6582c8e4265d2906.png
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 370
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28223
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 370
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28223
+            [w] => 1383
+            [h] => 951
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":370,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28223
+            [xparams] => Array
+                (
+                    [s_id] => 28223
+                    [w] => 1383
+                    [h] => 951
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":370,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 370
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28223
+                    [src_cropped_img] => /xstorage/userbilder/_00000_croptest - Copy (2).png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28223
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 1051
+    [rh] => 723
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/_00000_croptest - Copy (2).png
+    [src] => /xstorage/_cache/_28223_5_06b9f98569744b236c88838633a4ae39.png
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:09:37Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28224_5_9540cc2b401d96b8c83659b2aaf6ed9d.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.8181720124690264
+                    [angle] => 0
+                    [x] => 1501
+                    [y] => 798
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28224
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.8181720124690264
+            [angle] => 0
+            [x] => 1501
+            [y] => 798
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28224
+            [w] => 4489
+            [h] => 2466
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":1501,"y":798,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28224
+            [xparams] => Array
+                (
+                    [s_id] => 28224
+                    [w] => 4489
+                    [h] => 2466
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":1501,"y":798,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.8181720124690264
+                    [angle] => 0
+                    [x] => 1501
+                    [y] => 798
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28224
+                    [src_cropped_img] => /xstorage/userbilder/00_profile-pic - Copy (9).jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28224
+    [w] => 1920
+    [h] => 1055
+    [size] => 151277
+    [hsize] => 147.73 kB
+    [mime] => image/jpeg
+    [rw] => 1920
+    [rh] => 1055
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/00_profile-pic - Copy (9).jpg
+    [src] => /xstorage/_cache/_28224_5_13eef819fb670fe32975b188450f4baa.jpg
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:14:05Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28226_5_a23bb04cedbae50ae6bd856b60bdf94e.png
+            [cropData] => Array
+                (
+                    [scale] => 1.771561000000001
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 446
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28226
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.771561000000001
+            [angle] => 0
+            [x] => 0
+            [y] => 446
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28226
+            [w] => 2395
+            [h] => 1647
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":446,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28226
+            [xparams] => Array
+                (
+                    [s_id] => 28226
+                    [w] => 2395
+                    [h] => 1647
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":446,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.771561000000001
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 446
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28226
+                    [src_cropped_img] => /xstorage/userbilder/cropped/ _000000_userpic-copy_auto_cropped_x0_y446_w345_h345.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28226
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 1051
+    [rh] => 723
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/_000000_userpic - Copy.png
+    [src] => /xstorage/_cache/_28226_5_4400a5e1bda10e62bb110905f9421487.png
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:35:09Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28228_5_114b5f8a931a9ec8afa33edaaf2b2f15.png
+            [cropData] => Array
+                (
+                    [scale] => 1.497590304244462
+                    [angle] => 0
+                    [x] => 614
+                    [y] => 369
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28228
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.497590304244462
+            [angle] => 0
+            [x] => 614
+            [y] => 369
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28228
+            [w] => 2024
+            [h] => 1393
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":614,"y":369,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28228
+            [xparams] => Array
+                (
+                    [s_id] => 28228
+                    [w] => 2024
+                    [h] => 1393
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":614,"y":369,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.497590304244462
+                    [angle] => 0
+                    [x] => 614
+                    [y] => 369
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28228
+                    [src_cropped_img] => /xstorage/userbilder/cropped/000_cropimage_auto_cropped_x614_y369_w345_h345.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28228
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 1051
+    [rh] => 723
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/000_cropImage.png
+    [src] => /xstorage/_cache/_28228_5_bba31997705625992de0bee49719c1bc.png
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:42:07Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28229_5_97c565a689f98a92ea62871fb4990393.png
+            [cropData] => Array
+                (
+                    [scale] => 1.2376779373921172
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 434
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28229
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.2376779373921172
+            [angle] => 0
+            [x] => 0
+            [y] => 434
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28229
+            [w] => 1673
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":434,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28229
+            [xparams] => Array
+                (
+                    [s_id] => 28229
+                    [w] => 1673
+                    [h] => 1151
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":434,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.2376779373921172
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 434
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28229
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_002_croptest-copy-(2)_auto_cropped_x0_y434_w345_h345.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28229
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 1051
+    [rh] => 723
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/_002_croptest - Copy (2).png
+    [src] => /xstorage/_cache/_28229_5_5743a2d8d2e0218bee63dbbbe4698397.png
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:44:40Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28230_5_3003c2e331da31b7898cc30dfd788199.png
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 368
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28230
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 368
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28230
+            [w] => 1383
+            [h] => 951
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":368,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28230
+            [xparams] => Array
+                (
+                    [s_id] => 28230
+                    [w] => 1383
+                    [h] => 951
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":368,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 368
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28230
+                    [src_cropped_img] => /xstorage/userbilder/cropped/000_cropimage-copy_auto_cropped_x0_y368_w345_h345.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!--Sorry, no image present.FILE:/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xstorage/userbilder/cropped/000_cropimage-copy_auto_cropped_x0_y368_w345_h345.png !!-->
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28230
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 
+    [rh] => 
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/cropped/000_cropimage-copy_auto_cropped_x0_y368_w345_h345.png
+    [src] => 
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:49:01Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28231_5_e913dd8c3cae5c5864921fbd9035da7d.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1
+                    [angle] => 0
+                    [x] => 2
+                    [y] => 355
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28231
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1
+            [angle] => 0
+            [x] => 2
+            [y] => 355
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28231
+            [w] => 1352
+            [h] => 930
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":2,"y":355,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28231
+            [xparams] => Array
+                (
+                    [s_id] => 28231
+                    [w] => 1352
+                    [h] => 930
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":2,"y":355,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1
+                    [angle] => 0
+                    [x] => 2
+                    [y] => 355
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28231
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_petercroptest_auto_cropped_x2_y355_w345_h345.jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28231
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/jpeg
+    [rw] => 345
+    [rh] => 345
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/cropped/_petercroptest_auto_cropped_x2_y355_w345_h345.jpg
+    [src] => /xstorage/_cache/_28231_5_013797b2b6694d1db7bf63bd9d5485c5.jpg
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:51:03Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28232_5_d1265288f9fb2f6a5ae50860c1fb3dad.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.4641000000000006
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 513
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28232
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.4641000000000006
+            [angle] => 0
+            [x] => 0
+            [y] => 513
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28232
+            [w] => 1979
+            [h] => 1361
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":513,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28232
+            [xparams] => Array
+                (
+                    [s_id] => 28232
+                    [w] => 1979
+                    [h] => 1361
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":513,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.4641000000000006
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 513
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28232
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_petercroptest-_test_auto_cropped_x0_y513_w345_h345.jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!--Sorry, no image present.FILE:/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xstorage/userbilder/cropped/_petercroptest-_test_auto_cropped_x0_y513_w345_h345.jpg !!-->
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28232
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/jpeg
+    [rw] => 
+    [rh] => 
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/cropped/_petercroptest-_test_auto_cropped_x0_y513_w345_h345.jpg
+    [src] => 
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:52:50Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28233_5_f6ccc6afc054db0b81f97c7ad34f606c.png
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 395
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28233
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 395
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28233
+            [w] => 1383
+            [h] => 951
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":395,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28233
+            [xparams] => Array
+                (
+                    [s_id] => 28233
+                    [w] => 1383
+                    [h] => 951
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":395,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 395
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28233
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_002_croptest-copy-(3)_auto_cropped_x0_y395_w345_h345.png
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!--Sorry, no image present.FILE:/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xstorage/userbilder/cropped/_002_croptest-copy-(3)_auto_cropped_x0_y395_w345_h345.png !!-->
+    <!--<pre style='text-align:left;'>Array
+(
+    [id] => 28233
+    [w] => 1051
+    [h] => 723
+    [size] => 99470
+    [hsize] => 97.14 kB
+    [mime] => image/png
+    [rw] => 
+    [rh] => 
+    [lang] => 
+    [alts] => 
+    [alt] => 
+    [url] => /xstorage/userbilder/cropped/_002_croptest-copy-(3)_auto_cropped_x0_y395_w345_h345.png
+    [src] => 
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="" />
+    <input type="hidden" name="refid" value="" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:57:17Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28234_5_25ca1084dd95300f126567befed614c3.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.2376779373921172
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 539
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28234
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.2376779373921172
+            [angle] => 0
+            [x] => 0
+            [y] => 539
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28234
+            [w] => 1673
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":539,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28234
+            [xparams] => Array
+                (
+                    [s_id] => 28234
+                    [w] => 1673
+                    [h] => 1151
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":539,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.2376779373921172
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 539
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28234
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_0000petercroptest_auto_cropped_x0_y539_w345_h345.jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <pre style='text-align:left;'>Array
+(
+    [s_id] => 28234
+    [xparams] => Array
+        (
+            [s_id] => 28234
+            [w] => 1673
+            [h] => 1151
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":539,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.2376779373921172
+            [angle] => 0
+            [x] => 0
+            [y] => 539
+            [w] => 345
+            [h] => 345
+            [s_id] => 28234
+            [src_cropped_img] => /xstorage/userbilder/cropped/_0000petercroptest_auto_cropped_x0_y539_w345_h345.jpg
+        )
+
+)
+</pre>
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 13:59:36Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28235_5_bd37c000ca222135e26b4dbfcbf4cca7.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.771561000000001
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 936
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28235
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.771561000000001
+            [angle] => 0
+            [x] => 0
+            [y] => 936
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28235
+            [w] => 2387
+            [h] => 1642
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":936,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28235
+            [xparams] => Array
+                (
+                    [s_id] => 28235
+                    [w] => 2387
+                    [h] => 1642
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":936,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.771561000000001
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 936
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28235
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_11111petercroptest_auto_cropped_x0_y936_w345_h345.jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    
+    <pre style='text-align:left;'>Array
+(
+    [s_id] => 28235
+    [xparams] => Array
+        (
+            [s_id] => 28235
+            [w] => 2387
+            [h] => 1642
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":936,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.771561000000001
+            [angle] => 0
+            [x] => 0
+            [y] => 936
+            [w] => 345
+            [h] => 345
+            [s_id] => 28235
+            [src_cropped_img] => /xstorage/userbilder/cropped/_11111petercroptest_auto_cropped_x0_y936_w345_h345.jpg
+        )
+
+)
+</pre>
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 14:08:04Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28237_5_e3aaea1cd18adc97cc2e0717e12f4199.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.497590304244462
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 697
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28237
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.497590304244462
+            [angle] => 0
+            [x] => 0
+            [y] => 697
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28237
+            [w] => 2018
+            [h] => 1388
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":697,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28237
+            [xparams] => Array
+                (
+                    [s_id] => 28237
+                    [w] => 2018
+                    [h] => 1388
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":697,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.497590304244462
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 697
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28237
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_2222petercroptest-_auto_cropped_x0_y697_w345_h345.jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [s_id] => 28237
+    [xparams] => Array
+        (
+            [s_id] => 28237
+            [w] => 2018
+            [h] => 1388
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":697,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.497590304244462
+            [angle] => 0
+            [x] => 0
+            [y] => 697
+            [w] => 345
+            [h] => 345
+            [s_id] => 28237
+            [src_cropped_img] => /xstorage/userbilder/cropped/_2222petercroptest-_auto_cropped_x0_y697_w345_h345.jpg
+        )
+
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" id="s_id" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 14:08:39Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28238_5_5233b27875fd3c73719f4057c3083eff.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 370
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28238
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 370
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28238
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":370,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28238
+            [xparams] => Array
+                (
+                    [s_id] => 28238
+                    [w] => 1379
+                    [h] => 948
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":370,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 370
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28238
+                    [src_cropped_img] => /xstorage/userbilder/cropped/_11111petercroptest-copy_auto_cropped_x0_y370_w345_h345.jpg
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [s_id] => 28238
+    [xparams] => Array
+        (
+            [s_id] => 28238
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":370,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 370
+            [w] => 345
+            [h] => 345
+            [s_id] => 28238
+            [src_cropped_img] => /xstorage/userbilder/cropped/_11111petercroptest-copy_auto_cropped_x0_y370_w345_h345.jpg
+        )
+
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" id="s_id" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 14:12:50Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28239_5_a5e320b82bc4942bbe1e9c7109450a52.png
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 365
+                    [y] => 197
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28239
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 365
+            [y] => 197
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28239
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":365,"y":197,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28239
+            [xparams] => Array
+                (
+                    [s_id] => 28239
+                    [w] => 1379
+                    [h] => 948
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":365,"y":197,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 365
+                    [y] => 197
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28239
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [s_id] => 28239
+    [xparams] => Array
+        (
+            [s_id] => 28239
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":365,"y":197,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 365
+            [y] => 197
+            [w] => 345
+            [h] => 345
+            [s_id] => 28239
+        )
+
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" id="s_id" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 14:15:33Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28240_5_0165c211cd0b04cf73444a96b023e3ac.jpg
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 395
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28240
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 395
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28240
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":395,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28240
+            [xparams] => Array
+                (
+                    [s_id] => 28240
+                    [w] => 1379
+                    [h] => 948
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":395,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 395
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28240
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [s_id] => 28240
+    [xparams] => Array
+        (
+            [s_id] => 28240
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":395,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 395
+            [w] => 345
+            [h] => 345
+            [s_id] => 28240
+        )
+
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" id="s_id" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+
+
+
+ 2017-01-23 14:18:55Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/55.0.2883.87 Chrome/55.0.2883.87 Safari/537.36
+Array
+(
+    [cropdata] => Array
+        (
+            [crop_image] => /xstorage/_cache/_28241_5_c709f2f6a223433e7e13cf349957fe07.png
+            [cropData] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 395
+                    [w] => 345
+                    [h] => 345
+                )
+
+            [s_id] => 28241
+        )
+
+    [crop] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 395
+            [w] => 345
+            [h] => 345
+        )
+
+    [params] => Array
+        (
+            [s_id] => 28241
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":395,"w":345,"h":345}
+        )
+
+    [imageData] => Array
+        (
+            [s_id] => 28241
+            [xparams] => Array
+                (
+                    [s_id] => 28241
+                    [w] => 1379
+                    [h] => 948
+                    [ext] => jpg
+                    [fullpath] => Y
+                    [rmode] => vcut
+                    [crop] => {"x":0,"y":395,"w":345,"h":345}
+                )
+
+            [xcropdata] => Array
+                (
+                    [scale] => 1.0228743284232371
+                    [angle] => 0
+                    [x] => 0
+                    [y] => 395
+                    [w] => 345
+                    [h] => 345
+                    [s_id] => 28241
+                )
+
+        )
+
+    [html] => <!---->
+
+
+
+<form class="gui-image-final-form" data-type="profile" method="post">
+    <!---->
+    <!--<pre style='text-align:left;'>Array
+(
+    [s_id] => 28241
+    [xparams] => Array
+        (
+            [s_id] => 28241
+            [w] => 1379
+            [h] => 948
+            [ext] => jpg
+            [fullpath] => Y
+            [rmode] => vcut
+            [crop] => {"x":0,"y":395,"w":345,"h":345}
+        )
+
+    [xcropdata] => Array
+        (
+            [scale] => 1.0228743284232371
+            [angle] => 0
+            [x] => 0
+            [y] => 395
+            [w] => 345
+            [h] => 345
+            [s_id] => 28241
+        )
+
+)
+</pre>-->
+
+    <img class="gui-cropped-image" src="" alt="" border="0">
+
+    <input type="hidden" id="s_id" name="s_id" value="" />
+    <input type="hidden" name="new_s_id" value="" />
+
+    <input type="hidden" name="type" value="profile" />
+    <input type="hidden" name="refid" value="0" />
+
+</form>
+<button type="button" class="close-image-cropper">Abbrechen</button>
+<button type="button" class="save-gui-image-final-submit">Speichern</button>
+<div class="clearfix"></div>
+
+)
+

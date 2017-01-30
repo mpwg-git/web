@@ -1,9 +1,0 @@
-<%xr_menuGrid p_id=12 P_ID=$pageid var=menu%>
-
-<ul>
- <%foreach $menu as $k => $v%>
-    <li>
-        <a href="<%xr_genlink p_id=$v['p_id']%>" <%if $v['p_id'] == $P_ID%>class="active"<%/if%>><%$v['p_name']%></a>
-	</li>
-<%/foreach%>
-</ul>

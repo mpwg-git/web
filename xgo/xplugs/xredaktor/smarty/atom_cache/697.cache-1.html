@@ -1,9 +1,0 @@
-<div class="item" data-msg-id="<%$data.chat_message_id%>">
-    <%xr_imgWrapper s_id=$data['chat_img'] w=70 h=80 rmode="cco" class="chatimage blackandwhite"%>
-    <div class="text-wrapper">
-        <span class="timestamp"><%$data['chat_time']%></span>
-        <p class="text <%if $data['chat_deleted'] == 'Y'%>deleted-message<%/if%>"><%$data['chat_text']%></p>
-    </div>
-</div>
-
-<%xr_atom a_id=681 return=1%>

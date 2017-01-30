@@ -204,10 +204,10 @@ class fe_room
 		if (self::checkIfIAmPartOfThisRoom($roomId) !== false)
 		{
 			$itsMe 		= true;
-			
+			/*
 			if(isset($_REQUEST['room-detailview']))
 			{	
-				unset($_SESSION['ROOM-DETAILVIEW']);
+				unset($_SESSION['ROOM_DETAILVIEW']);
 				
 				$redirect = fe_vanityurls::genUrl_myprofile();
 				$redirect .= "/mein-raum/" . $roomId;
@@ -215,6 +215,7 @@ class fe_room
 				header("Location: " . $redirect);
 				die();
 			}
+			*/
 				
 		}
 
@@ -419,10 +420,12 @@ class fe_room
 		@session_start();
 		$_SESSION['LAST_PUBLIC_ROMM_ID'] = $roomId;
 		
+		/*
 		if(isset($_REQUEST['room-detailview']))
 		{
-			$_SESSION['ROOM-DETAILVIEW'] = true;
+			$_SESSION['ROOM_DETAILVIEW'] = true;
 		}
+		*/
 		
 		$roomId			= intval($roomId);
 		if ($roomId == 0) return array();
