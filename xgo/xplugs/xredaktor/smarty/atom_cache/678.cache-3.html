@@ -1,4 +1,5 @@
-<%xr_siteCall fn="fe_user::sc_redirectIfNotLoggedIn" var="checkLogin"%>
+
+
 <%if !$user%>
     <%xr_siteCall fn="fe_user::getMyData" var="data"%>
     <%$user = $data['USER']%>

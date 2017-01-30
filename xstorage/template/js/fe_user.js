@@ -452,57 +452,57 @@ var fe_user = (function() {
  * image crop plugin
  * https://github.com/matiasgagliano/guillotine
 **/
-            $('#modal').on('shown.bs.modal', function () {
-            		console.log('shown bs modal');
+            $('#modal').off('shown.bs.modal');
+            $('#modal').on('shown.bs.modal', function (e) {
 
-                    var xrFace = fe_core.getCurrentFace();
-                    
+                var xrFace = fe_core.getCurrentFace();
+                
 //                    console.log('xr_face: ', xrFace);
-                    
-            		var img = $('#gui_image');
-            		var imgType = 'other';
-            		
-            		// set user type with top.P_ID
-            		if(top.P_ID == 7 || top.P_ID == 42) {
-            			imgType = 'profile';
-            		}
-                    else
-                    {
-                    	imgType = 'room';
-                    	glltFormData.refid = $('#refid').val();
-                    }
-            		
-            		// check xr_face & set image crop plugin width & height 
-            		if(xrFace == 3)
-            		{
-            			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
-            			 else img.guillotine({width: 415, height: 220})
-            		}
-            		else
-            		{
-            			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
-            			else img.guillotine({width: 340, height: 205});
-            		}
-
+                
+        		var img = $('#gui_image');
+        		var imgType = 'other';
+        		
+        		// set user type with top.P_ID
+        		if(top.P_ID == 7 || top.P_ID == 42) {
+        			imgType = 'profile';
+        		}
+                else
+                {
+                	imgType = 'room';
+                	glltFormData.refid = $('#refid').val();
+                }
+        		
+    			// check xr_face & set image crop plugin width & height 
+        		if(xrFace == 3)
+        		{
+        			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
+        			 else img.guillotine({width: 415, height: 220})
+        		}
+        		else
+        		{
+        			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
+        			else img.guillotine({width: 340, height: 205});
+        		}
+        			
             		
                 // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
-              	$('#zoom_out').click(function() {
-              		img.guillotine('zoomOut')
+              	$('#zoom_out').click(function(e) {
+              		e.preventDefault();
+              		img.guillotine('zoomOut');
                 });
-                $('#zoom_in').click(function() {
-              		img.guillotine('zoomIn')
+                $('#zoom_in').click(function(e) {
+                	e.preventDefault();
+              		img.guillotine('zoomIn');
               	});
               	$('#rotate_left').click(function(){
-              		img.guillotine('rotateLeft')
+              		img.guillotine('rotateLeft');
                 });
               	$('#rotate_right').click(function() {
-              		img.guillotine('rotateRight')
+              		img.guillotine('rotateRight');
               	});
                 $('#fit').bind('click', function() {
-              		img.guillotine('fit')
+              		img.guillotine('fit');
               	});
-                }).on('hidden.bs.modal', function () {
-                  console.log('hidden bs modal')
                 });
 
 
@@ -536,6 +536,9 @@ var fe_user = (function() {
                 
                 glltCropData = {};
                 glltCropData = $('#gui_image').guillotine('getData');
+                
+                console.log("glltCropData", glltCropData);
+                
 
                 $.ajax({
                 	type: 'POST',
@@ -1048,6 +1051,7 @@ var fe_user = (function() {
                         $('.upload-progress-bar').css('height', '0px');
                         $('.upload-progress-bar').css('width', '0%');
                         if (data.result.success == true) {
+                        	
                             me.goToStep(1, data.result);
                         } else {}
                     }
@@ -1055,6 +1059,7 @@ var fe_user = (function() {
             } catch (e) {}
         }
 
+        /*
         this.imgCrop = function() {
             var trueOrigW = parseInt($('#trueOrigW').val(), 10);
             var trueOrigH = parseInt($('#trueOrigH').val(), 10);
@@ -1142,19 +1147,15 @@ var fe_user = (function() {
                 });
             // }
         }
+        */
         this.goToStep = function(step, data) {
             var me = this;
             switch (step) {
                 case 1:
+                	console.log("ste 1");
                     $('.add-image-crop-area').html(data.data.html);
                     $('.upload-image-modal').modal('show');
-                    $('.upload-image-modal').on('shown.bs.modal', function(e) {
-                        $('.avatarCrop').attr('src', data.src).css('height', 'auto');
-                        if (typeof me.jcrop_api != "undefined") {
-                            me.jcrop_api.destroy();
-                        }
-                        me.imgCrop();
-                    });
+         
                     break;
                 case 2:
                     $('#gui_container').html(data.data.html);

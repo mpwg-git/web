@@ -1589,6 +1589,9 @@ class fe_user
 			die('WRONGSIZE');
 		}
 
+		
+		
+		
 		$extension = pathinfo($_FILES['add-image-file']['name'], PATHINFO_EXTENSION);
 		$allowed = array('jpg', 'jpeg', 'png');
 
@@ -1612,20 +1615,29 @@ class fe_user
 		if(!file_exists($src)){
 			die('NOTEXISTS');
 		}
-
+        
+		$convert = Ixcore::PATH_ImageMagick;
+		$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$src' '$src'  2>&1 ";
+		$cmd = exec($cmd, $out);
+		
+		
 		$image_s_id 	= xredaktor_storage::registerFileInStorage($storageDirId,$src,$_FILES['add-image-file']['name']);
 
 		if($image_s_id === false) return false;
 
 		$uploaded_file = xredaktor_storage::getById($image_s_id);
+		
 		$file_src = $uploaded_file['s_onDisk'];
 
 
 		// bis hier her haben wir einfach die Datei übertragen
 		// jetzt DPI + rotation setzen
+		/*
 		$convert = Ixcore::PATH_ImageMagick;
-		$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$file_src' '$file_src'  2>&1 ";
+		//$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$file_src' '$file_src'  2>&1 ";
+		$cmd = "$convert -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$file_src' '$file_src'  2>&1 ";
 		$cmd = exec($cmd, $out);
+        */
 
 		// jetzt sollte man noch die filesize updaten...
 
@@ -1851,7 +1863,7 @@ class fe_user
 						'y' => $cropData['y'],
 						'w' => $cropData['w'],
 						'h' => $cropData['h'],
-						's_id' => $s_id
+						//'s_id' => $s_id
 				))
 		);
 		
@@ -1862,6 +1874,7 @@ class fe_user
 		if(file_exists($outFile)) unlink($outFile);
 		
 		$scale 	= $cropData['scale']*100;
+		$scale  = intval($scale);
 		$w 		= $cropData['w'];
 		$h 		= $cropData['h'];
 		$x 		= $cropData['x'];
@@ -1872,7 +1885,10 @@ class fe_user
 		
 		$convert = Ixcore::PATH_ImageMagick;
 
-		$cmd = "$convert $inFileEscapped -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
+		//$cmd = "$convert $inFileEscapped -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
+		$cmd = "$convert $inFileEscapped -resize $scale".'%'." -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
+		
+		//die("cmd: $cmd");
 		
 		$out = array();
  		exec($cmd,$out);

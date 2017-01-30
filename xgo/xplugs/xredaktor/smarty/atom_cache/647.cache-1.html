@@ -14,10 +14,9 @@
     <meta charset="utf-8"><%$CMS%>
     <!--[if lt IE 11]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
-	<meta name = "viewport" content = "user-scalable = no, width = device-width">
-	<!--<meta name = "viewport" content = "user-scalable = no, initial-scale = 1.0">-->
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--<meta name='viewport' content='width=device-width, initial-scale=1.0, target-densitydpi=device-dpi'>-->
+
 	<link rel="icon" href="/xstorage/template/img/favicon/favicon.ico">
 	<link rel="icon" sizes="196x196" href="/xstorage/template/img/favicon/favicon-196x196.png">
 	
@@ -47,21 +46,6 @@
     
     <link rel="canonical" href="https://www.meineperfektewg.com">
     
-    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
-    
-    <%xr_cssWrapperV2 s_ids='89,15,11998,13331,178,17209,76,39,26,321,402,408,461,461' var="packedcss"%>
-	
-	<link rel="stylesheet" href="/xstorage/template/Darkroomjs/build/darkroom.css"/>
-    
-    <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
-    
-    <%if $isV2 == 1%>
-        <%xr_cssWrapper s_id=18475%>
-        <%xr_cssWrapper s_id=18557%>
-        <%xr_lessWrapper ids='15,16,19'%>
-    <%else%>
-        <%xr_lessWrapper ids='8,9'%>
-    <%/if%>
     
 	
 	<script type="text/javascript">
@@ -106,8 +90,6 @@
     </noscript>
     <!-- End Facebook Pixel Code -->
     
-    
-    
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -115,6 +97,22 @@
 	<![endif]-->
 	
 	<%xr_atom a_id=890 return=1 desc="og stuff"%>
+	
+    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/e6956f03-3bdc-41f7-b5f4-ace0569aaedf.css"/>
+    
+    <%xr_cssWrapperV2 s_ids='89,15,11998,13331,178,17209,76,39,26,321,402,408,461,461' var="packedcss"%>
+	
+	<link rel="stylesheet" href="/xstorage/template/Darkroomjs/build/darkroom.css"/>
+    
+    <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+    
+    <%if $isV2 == 1%>
+        <%xr_cssWrapper s_id=18475%>
+        <%xr_cssWrapper s_id=18557%>
+        <%xr_lessWrapper ids='15,16,19'%>
+    <%else%>
+        <%xr_lessWrapper ids='8,9'%>
+    <%/if%>
     
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/xstorage/template/plugins/guillotine/jquery.guillotine.css"/>

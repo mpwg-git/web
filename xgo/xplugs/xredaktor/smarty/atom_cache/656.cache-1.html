@@ -3,7 +3,10 @@
 
 <%xr_siteCall fn='fe_search::getUserId' var='id'%>
 <%xr_siteCall fn='fe_search::getLoginCounter' var='counter'%>
-<%xr_siteCall fn='fe_user::getUserType' val='id' var='type'%>
+<!--<%xr_siteCall fn='fe_user::getUserType' val='id' var='type'%>-->
+<%xr_siteCall fn='fe_user::sc_getMyUserType' var='type'%>
+
+
 
 <input type="hidden" id="hiddenUserId" value="<%$id%>">
 <input type="hidden" id="hiddenLoginCounter" value="<%$counter%>">

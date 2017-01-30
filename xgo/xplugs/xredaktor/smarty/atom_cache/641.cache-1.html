@@ -47,6 +47,8 @@
        	<%xr_atom a_id=704 return=1 desc='js files'%>
        	
         <%xr_atom a_id=757 return=1 desc='ajax loader'%>
+        <script src="/xstorage/template/plugins/guillotine/jquery.guillotine.js"></script>
+        
         <!--<%xr_atom a_id=799 return=1 desc='landscape overlay'%>-->
         
         <%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
@@ -56,46 +58,6 @@
                 var showEmailConfirmMsg = true;
             </script>
         <%/if%>
-        
-        <script src="/xstorage/template/plugins/guillotine/jquery.guillotine.js"></script>
-        
-        <script>
-            window.onload = function() {
-                console.log('window loaded');
-                
-                $('#modal').on('shown.bs.modal', function () {
-                    console.log('shown bs modal');
-                    
-                    var img = $('#gui_image');
-                    img.guillotine({width: 400, height: 400});
-                    
-                    $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
-	
-                	$('#zoom_out').bind('click', function() {
-                		img.guillotine('zoomOut')
-                	});
-                	
-                	$('#zoom_in').bind('click', function() {
-                		img.guillotine('zoomIn')
-                	});
-                	
-                	$('#rotate_left').bind('click', function() {
-                		img.guillotine('rotateLeft')
-                	});
-                	
-                	$('#rotate_right').bind('click', function() {
-                		img.guillotine('rotateRight')
-                	});
-                	
-                	$('#fit').bind('click', function() {
-                		img.guillotine('fit')
-                	});
-                    
-                  }).on('hidden.bs.modal', function () {
-                    console.log('hidden bs modal');
-                })
-            };
-        </script>
-        
+
 	</body>
 </html>

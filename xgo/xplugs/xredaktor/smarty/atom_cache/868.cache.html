@@ -1,10 +1,13 @@
+
+
 <%if !$user%>
     <%xr_siteCall fn="fe_user::getMyData" var="data"%>
     <%$user = $data['USER']%>
 <%/if%>
 
+                
 <div class="profilerstellen meinprofil-meinedaten">
-   
+
     <%xr_atom a_id=783 return=1 desc='oben'%>
     
     <div class="mainform">

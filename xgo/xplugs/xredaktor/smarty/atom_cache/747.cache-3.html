@@ -7,7 +7,7 @@
 <form class="gui-image-final-form" data-type="<%$type%>" method="post">
     <%xr_img s_id=$image['new_s_id'] var='croppedImg'%>
 
-    <img class="gui-cropped-image" src="<%$croppedImg['src']%>" alt="" border="0" style="width: 100%;">
+    <img class="gui-cropped-image" src="<%$croppedImg['src']%>" style="width: 100%; margin-bottom: 20px;">
 
     <input type="hidden" id="s_id" name="s_id" value="<%$image['new_s_id']%>" />
 
@@ -16,6 +16,10 @@
 
 </form>
 
+<!--<div class="modal-btn-group" style="display: none;">-->
+<!--    <button type="button" class="close-image-cropper">Abbrechen</button>-->
+<!--    <button type="button" class="save-gui-image-final-submit">Speichern</button>-->
+<!--</div>-->
 <div class="clearfix"></div>
 <!--<button type="button" class="close-image-cropper"><%xr_translate tag='Abbrechen'%></button>-->
 <!--<button type="button" class="save-gui-image-final-submit"><%xr_translate tag='Speichern'%></button>-->

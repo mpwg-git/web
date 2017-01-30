@@ -1,24 +1,31 @@
+<%*
+<style>
+    .gllt-wrapper {
+        width: 80%;
+    }
+    #gui_container {
+        border: 6px solid #04e0d7; border-radius: 4px;
+    }
+    div#gui_container > img#gui_image {
+        max-width: 100%;
+    }
+</style>
 
-<%if $smarty.request.dev==1%>
-    <%xr_print_r val=$data%>
-    <%xr_print_r val=$datatype%>
-    <%xr_print_r val=$type%>
-<%/if%>
-
-
-
-
+*%>
+<style>
+    div#controls > a {
+       padding: 0 15px;
+    }
+</style>
 <div id="modal" class="upload-image-modal modal fade">
-    <!--<div class="modal-dialog gllt-avatar-image">-->
-    <div class="modal-dialog gllt-room-image">
-
+    <div class="modal-dialog">
         <div class="modal-content" style="background: rgb(105,121,132);">
             <div class="modal-body">
                 <div class="add-image-crop-area">
 
-                </div>
+                </div>   
+                
             </div>
-            
         </div>
     </div>
 </div>

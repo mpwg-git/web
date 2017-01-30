@@ -1,25 +1,7 @@
-<style>
-    .modal-body {
-        text-align: left;
-    }
-    .upload-image-modal.modal.fade.in .modal-dialog {
-        height: 610px;
-    }
-    #controls > a {
-       padding: 0 20px 0;
-    }
-    .add-image-crop-area button {
-        margin-left: 2.5%;
-        padding: 10px;
-        position: relative;
-        left: 42%;
-        margin-right: 2.5%;
-        margin-top: 2%;
-    }
-</style>
-
 <!--guillotine-->
-<div id="gui_container" style="width: 80%;text-align: center;margin: 15px auto 6px;border: 6px solid #04e0d7;border-radius: 4px;">
+<!--<div id="gui_container" style="width: 80%;text-align: center;margin: 15px auto 6px;border: 6px solid #04e0d7;border-radius: 4px;">-->
+
+<div id="gui_container" style="width: 80%; margin: 0 auto;">
     <img id="gui_image" src="<%$image['src']%>">
     
         <input type="hidden" id="origW" name="origW" value="<%$image['trueW']%>" />
@@ -37,6 +19,5 @@
     <a href="#" id="zoom_in" title="Zoom in"><i class="fa fa-search-plus"></i></a>
     <!--<a href="#" id="rotate_right" title="Rotate right"><i class="fa fa-rotate-right"></i></a>-->
 </div>
-
-<button type="button" class="close-image-cropper">Abbrechen</button>
-<button type="button" class="save-gui-image">Speichern</button>
+<button type="button" class="close-image-cropper pull-left" style="margin-left: 60px;">Abbrechen</button>
+<button type="button" class="save-gui-image pull-right" style="margin-right: 60px;">Speichern</button>

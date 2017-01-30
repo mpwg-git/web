@@ -650,7 +650,7 @@ class xredaktor_storage
 		if ($state)
 		{
 			list($width, $height, $type, $attr) = @getimagesize($finalDest);
-
+			
 			$db = array(
 			's_dir' 				=> 'N',
 			's_storage_scope' 		=> $s_storage_scope,
