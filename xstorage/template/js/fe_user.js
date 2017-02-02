@@ -551,6 +551,7 @@ var fe_user = (function() {
                 
                 glltCropData = {};
                 glltCropData = $('#gui_image').guillotine('getData');
+                glltCropData.refid = $('#refid').val();
 
                 $.ajax({
                 	type: 'POST',
@@ -564,6 +565,7 @@ var fe_user = (function() {
                 		var result = response;
                         if (response.success) {
                     		$('.ajax-loader').hide();
+                            $('.gui-image-final-form #refid').val = $('#refidHidden').val();
 
                             me.goToStep(2, response);
                         }
@@ -1164,7 +1166,9 @@ var fe_user = (function() {
                     break;
                 case 2:
                     $('#gui_container').html(data.data.html);
+
                     me.handleFinalUpload($('.gui-image-final-form'));
+                    
                     me.goToStep(3);
 
                     break;
@@ -1180,19 +1184,23 @@ var fe_user = (function() {
         this.handleFinalUpload = function(form) {
             var me = this;
             $('.ajax-loader').show();
-            var formdata = $(form).serialize();
             
+            var formdata = $(form).serialize();
+
             $.ajax({
                 type: 'POST',
                 url: '/xsite/call/fe_user/finalSubmit',
                 data: formdata,
+
                 success: function(response) {
                     $('.ajax-loader').hide();
                     if (response.success) {
                         me.goToStep(3, response);
                     }
                 }
+
             });
+
         }
     }
 })();

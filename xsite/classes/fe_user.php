@@ -1686,6 +1686,7 @@ class fe_user
 
 	public static function ajax_finalSubmit()
 	{
+
 		$userId	= 0;
 
 		$s_id	= intval($_REQUEST['s_id']);
@@ -1700,7 +1701,6 @@ class fe_user
 		}
 
 		$refid	= intval($_REQUEST['refid']);
-
 		$userId = intval(xredaktor_feUser::getUserId());
 
 		if ($s_id == 0) 	return false;
@@ -1712,7 +1712,6 @@ class fe_user
 				self::handleFinalSubmit($userId, $s_id, $type);
 				break;
 			case 'other-room':
-
 				self::handleFinalSubmitRoom($refid, $s_id, $type);
 				break;
 			default:
@@ -1906,9 +1905,9 @@ class fe_user
 		
 		$a_id = 747;
 		
-		$imageData = array('new_s_id'=>$new_s_id, 'xparams' => $params, 'xcropdata' => $cropData);
-		
-		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $refid));
+		$imageData = array('new_s_id'=>$new_s_id, 'refid' => $cropData['refid'], 'xparams' => $params, 'xcropdata' => $cropData);
+
+		$html = xredaktor_render::renderSoloAtom($a_id, array('image' =>$imageData, 'type' => $type, 'refid' => $cropData['refid']));
 		
 		frontcontrollerx::json_success(array('data' => array('html' => $html)));
 	}

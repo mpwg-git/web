@@ -1,3 +1,4 @@
+
 <%if $smarty.request.dev == 1%>
     <%xr_print_r val=$image['s_crop_data'] var='cropdata'%>
 <%/if%>
@@ -12,6 +13,6 @@
     <input type="hidden" id="s_id" name="s_id" value="<%$image['new_s_id']%>" />
 
     <input type="hidden" id="type" name="type" value="<%$type%>" />
-    <input type="hidden" id="refid" name="refid" value="<%$refid%>" />
+    <input type="hidden" id="refid" name="refid" value="<%$image['refid']%>" />
 
 </form>

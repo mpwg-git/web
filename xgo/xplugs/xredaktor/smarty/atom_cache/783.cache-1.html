@@ -14,21 +14,24 @@
         <%/if%>
     <%/if%>
     
-    <span class="icon-plus"></span>
-    <span class="profilbild-hochladen">
+    
         <%if $theType == 'room'%>
-            <%xr_translate tag="Raumbild hochladen"%>
+            <!--<%xr_translate tag="Raumbild hochladen"%>-->
         <%else%>
+        <span class="icon-plus"></span>
+    <span class="profilbild-hochladen">
             <%xr_translate tag="Profilbild hochladen"%>
         <%/if%>
     </span>
     
+    <%if $theType != 'room'%>
     <div class="img-upload-label-container">
         <label class="img-upload-label">
         <input type="file" id="file" class="fileupload add-image-file" name="add-image-file" data-filename-placement="inside" title="<%xr_translate tag='Datei wählen'%>">
         <span class="upload-progress-bar"></span>
-    </label>        
+        </label>        
     </div>
+    <%/if%>
 </div>
 
 <div class="maininfos">

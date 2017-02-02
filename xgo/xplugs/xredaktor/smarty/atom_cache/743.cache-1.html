@@ -2,7 +2,7 @@
 <%if $fromRoom == 1%>
     <%$datatype='other-room'%>
 <%/if%>
-
+<input type="hidden" id="refidHidden" name="refidHidden" value="<%$smarty.request.roomId%>" />
 <div class="upload-image add-image add-image-other" data-type="<%$datatype%>" data-refid="<%$refid%>" >
     <label class="img-upload-label" >
         <input type="file" id="file" class="fileupload add-image-file" name="add-image-file" data-filename-placement="inside" title="<%xr_translate tag='Datei wählen'%>">
