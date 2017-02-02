@@ -1,0 +1,22 @@
+<%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+<%xr_siteCall fn="fe_user::checkLoggedIn" var="checkLogin"%>
+
+<div class="chatcontacts">
+    <h1><%xr_translate tag="Chat"%></h1>
+    <form>
+        <div class="form-group">
+            <div class="input-icon">
+                <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
+                <span class="icon-Lupe"></span>
+    		</div>
+        </div>
+    </form>
+    
+    <div class="contacts-wrapper js-chatcontacts-replace">
+       
+       <%$html%>
+        
+    </div>
+    
+</div>

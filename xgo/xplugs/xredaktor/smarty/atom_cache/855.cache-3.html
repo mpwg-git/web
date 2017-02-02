@@ -1,0 +1,10 @@
+<div class="form-group">
+    <label><%xr_translate tag="Unregistrierte Männer in WG?"%>*</label>
+    <div class="column-input v-center">
+        <%if $data.ROOM.wz_lastChanged == $data.ROOM.wz_created%>
+            <input class="form-control" name="UNREG_M" value="" id="UNREG_M" placeholder="0" rel="required"  />
+        <%else%>
+            <input class="form-control" name="UNREG_M" value="<%$profile['wz_UNREG_M']%>" id="UNREG_M" placeholder="0" rel="required"  />
+        <%/if%>
+    </div>
+</div>

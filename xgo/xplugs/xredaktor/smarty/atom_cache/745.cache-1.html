@@ -1,0 +1,45 @@
+<header class="clearfix <%$addClass%>">
+    
+    <nav class="left-row">
+        <div class="main-nav">
+            <span style="white-space: nowrap;">
+                <a href="<%xr_changeLang lang='de'%>" class="navlinks <%if $P_LANG=='de'%>active<%/if%>">DE</a>
+                <span class="navlinks">|</span>
+                <a href="<%xr_changeLang lang='en'%>" class="navlinks <%if $P_LANG=='en'%>active<%/if%>">EN</a>
+            </span>
+        </div>
+    </nav>
+    
+    <nav class="middle-row">
+        <div class="right-logo">
+            <%*<a href="<%xr_genlink p_id=1%>"><%xr_imgWrapper s_id=394 w=288 h=44%></a>*%>
+            <a href="<%xr_genlink p_id=1%>"><%xr_imgWrapper s_id=18446 w=500%></a>
+        </div>
+    </nav>
+    
+    <%$showClose=0%>
+    <%if ($P_ID == 4 || $P_ID == 5 || $P_ID == 6)%>
+        <%$showClose = 1%>
+    <%else%>
+    
+    <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+
+    <%if $isV2 == 1%>
+    <nav class="right-row">
+        <a href="<%xr_genlink p_id=6%>" class="navlinks">LOGIN</a>
+    </nav>
+    <%/if%>
+    
+    <%/if%>
+    
+    <%if $showClose==1%>
+        <nav class="right-row" style="overflow-y: hidden;">
+            <a href="<%xr_genlink p_id=1%>">
+                <span class="icon-Close mobile-closer" ></span>    
+            </a>
+        </nav>
+    <%/if%>
+    
+</header>
+
+<div class="clearfix"></div>

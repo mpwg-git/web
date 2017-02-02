@@ -455,61 +455,76 @@ var fe_user = (function() {
             $('#modal').off('shown.bs.modal');
             $('#modal').on('shown.bs.modal', function (e) {
 
+            	$('.ajax-loader').show();
+
                 var xrFace = fe_core.getCurrentFace();
-                
-//                    console.log('xr_face: ', xrFace);
-                
+                                
         		var img = $('#gui_image');
         		var imgType = 'other';
         		
-        		// set user type with top.P_ID
-        		if(top.P_ID == 7 || top.P_ID == 42) {
-        			imgType = 'profile';
-        		}
-                else
-                {
-                	imgType = 'room';
-                	glltFormData.refid = $('#refid').val();
-                }
-        		
-    			// check xr_face & set image crop plugin width & height 
-        		if(xrFace == 3)
-        		{
-        			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
-        			 else img.guillotine({width: 415, height: 220})
-        		}
-        		else
-        		{
-        			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
-        			else img.guillotine({width: 340, height: 205});
-        		}
-        			
-            		
-                // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
-              	$('#zoom_out').click(function(e) {
-              		e.preventDefault();
-              		img.guillotine('zoomOut');
-                });
-                $('#zoom_in').click(function(e) {
-                	e.preventDefault();
-              		img.guillotine('zoomIn');
-              	});
-              	$('#rotate_left').click(function(){
-              		img.guillotine('rotateLeft');
-                });
-              	$('#rotate_right').click(function() {
-              		img.guillotine('rotateRight');
-              	});
-                $('#fit').bind('click', function() {
-              		img.guillotine('fit');
-              	});
-                });
+       	      	img.one('load', function(){
+
+	        		// set user type with top.P_ID
+	        		if(top.P_ID == 7 || top.P_ID == 42) {
+	        			imgType = 'profile';
+	        		}
+	                else
+	                {
+	                	imgType = 'room';
+	                	glltFormData.refid = $('#refid').val();
+	                }
+	        		
+	    			// check xr_face & set image crop plugin width & height 
+	        		if(xrFace == 3)
+	        		{
+	        			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
+	        			 else img.guillotine({width: 800, height: 428})
+	        			 
+	        			img.guillotine('fit');
+	             		$('.ajax-loader').hide();
+
+	        		}
+	        		else
+	        		{
+	        			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
+	        			else img.guillotine({width: 340, height: 205});
+	        			
+	        			img.guillotine('fit');
+	             		$('.ajax-loader').hide();
+
+	        		}
+	            		
+	                // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
+	              	$('#zoom_out').click(function(e) {
+	              		e.preventDefault();
+	              		img.guillotine('zoomOut');
+	                });
+	                $('#zoom_in').click(function(e) {
+	                	e.preventDefault();
+	              		img.guillotine('zoomIn');
+	              	});
+	              	$('#rotate_left').click(function(){
+	              		img.guillotine('rotateLeft');
+	                });
+	              	$('#rotate_right').click(function() {
+	              		img.guillotine('rotateRight');
+	              	});
+	                $('#fit').bind('click', function() {
+	              		img.guillotine('fit');
+	              	});
+	       	    });
+       	      	if (img.prop('complete')){
+       	      		img.trigger('load');
+       	      	}
+            });
 
 
             $('.save-gui-image').unbind('click');
             $('.save-gui-image').bind('click', function(e) {
                 e.preventDefault();
-                
+        		$('.ajax-loader').show();
+        		
+
                 var controls 	= $('div#controls');
                 var saveButton 	= $('button.save-gui-image');
                 var closeButton = $('button.close-image-cropper');
@@ -536,9 +551,6 @@ var fe_user = (function() {
                 
                 glltCropData = {};
                 glltCropData = $('#gui_image').guillotine('getData');
-                
-                console.log("glltCropData", glltCropData);
-                
 
                 $.ajax({
                 	type: 'POST',
@@ -549,30 +561,24 @@ var fe_user = (function() {
                 	},
                 	success: function(response) {
                 		
-                		
-                		$('.ajax-loader').hide();
-                		
                 		var result = response;
                         if (response.success) {
-                        	controls.css('display', 'none');
-                        	saveButton.removeClass('save-gui-image');
-                        	saveButton.addClass('save-gui-image-final-submit');
-//                        	closeButton.removeClass('close-image-cropper');
-                        	closeButton.addClass('close-image-final-cropper');
-                        	
+                    		$('.ajax-loader').hide();
+
                             me.goToStep(2, response);
                         }
                     }
                 })
 
             });
+            /*
           $('.save-gui-image-final-submit').unbind("click");
           $('.save-gui-image-final-submit').click(function(e) {
               e.preventDefault();
               me.handleFinalUpload($('.gui-image-final-form'));
               return;
           });
-
+            */
 
 // WEB-271
             $('a[href*="collapseChangeMail"]').click(function() {
@@ -1152,17 +1158,15 @@ var fe_user = (function() {
             var me = this;
             switch (step) {
                 case 1:
-                	console.log("ste 1");
                     $('.add-image-crop-area').html(data.data.html);
                     $('.upload-image-modal').modal('show');
-         
+                    
                     break;
                 case 2:
                     $('#gui_container').html(data.data.html);
-//                    $('.gui-cropped-image').attr('src', data.data.img_src);
-//                    $('.gui-cropped-image').attr('alt', data.data.id);
-                    // var tmp = $('.gui-cropped-image').attr('alt');
-//                    $('#s_id').val($('.gui-cropped-image').attr('alt'));
+                    me.handleFinalUpload($('.gui-image-final-form'));
+                    me.goToStep(3);
+
                     break;
                 case 3:
                     $('.upload-image-modal').modal('hide');
@@ -1177,7 +1181,6 @@ var fe_user = (function() {
             var me = this;
             $('.ajax-loader').show();
             var formdata = $(form).serialize();
-//            console.log(formdata);
             
             $.ajax({
                 type: 'POST',

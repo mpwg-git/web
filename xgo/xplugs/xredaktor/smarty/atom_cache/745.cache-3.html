@@ -1,0 +1,39 @@
+
+<header class="clearfix <%$addClass%>">
+    <nav class="left-row">
+        <div class="main-nav">
+           
+            
+            <%*<div class="right-logo">*%>
+            
+                <%*<a href="<%xr_genlink p_id=1%>"><%xr_imgWrapper s_id=180 w=144 h=22%></a>*%>
+                
+              <a href="<%xr_genlink p_id=1%>"><%xr_imgWrapper s_id=18447 w=144 h=22%></a>
+               
+            <%*</div> *%>
+        
+        </div>
+    </nav>
+    <nav class="middle-row" style="min-height: 1px;">
+    <!--<nav class="middle-row">-->
+    </nav> 
+    
+    
+    <nav class="right-row ">
+        
+        <div class="main-nav pull-right">
+            
+            <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+
+            <%if $isV2 == 1%>
+                <a href="<%xr_genlink p_id=6%>" class="navlinks">LOGIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%/if%>
+            
+            <span>
+                <a href="<%xr_changeLang lang='de'%>" class="navlinks<%if $P_LANG == 'de'%> active<%/if%>">DE&nbsp;</a><span class="navlinks">|</span>
+                <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
+            </span>    
+            
+        </div>
+    </nav>
+</header>

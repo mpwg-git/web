@@ -1,0 +1,16 @@
+<div class="form-group">
+    <label><%xr_translate tag="Miete?"%>*</label>
+    <div class="column-input v-center">
+        <%if $data.ROOM.wz_lastChanged == $data.ROOM.wz_created%>
+            <input class="form-control" name="MIETE" value="" id="MIETE" placeholder="€?" rel="required"  />
+        <%else%>
+            <input class="form-control" name="MIETE" value="<%$profile['wz_MIETE']%>" id="MIETE" placeholder="€?" rel="required"  />
+        <%/if%>
+    </div>
+    
+    <div class="error-div" id="MIETE_error">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="error-message"><%xr_translate tag="Bitte Miete(von) angeben"%></span>
+    </div>
+    
+</div>

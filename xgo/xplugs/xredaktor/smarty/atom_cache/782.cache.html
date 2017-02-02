@@ -1,0 +1,39 @@
+<%$p_id_favsblocked = 11%>
+
+<%if $mobile == 1%>
+    <%$p_id_favsblocked = 17%>
+<%/if%>
+
+<div class="header-icons-fav-blocked">
+    <div class="item <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>active<%/if%>">
+        <a href="<%xr_genlink p_id=$p_id_favsblocked filter='FAVS' m_suffix="favourites"%>">
+            
+            <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>
+                <span class="icon-Favourite_aktiv">
+    			<span class="path1"></span><span class="path2"></span>
+    			</span>
+                <span class="text"><%xr_translate tag="Favourites"%></span>
+            <%else%>
+                <span class="icon-Favourite_inaktiv"></span>
+                <span class="text"><%xr_translate tag="Favourites"%></span>
+            <%/if%>
+            
+        </a> 
+    </div>
+    <div class="item <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'BLOCKED'%>active<%/if%>">
+        <a href="<%xr_genlink p_id=$p_id_favsblocked filter='BLOCKED' m_suffix="blocked"%>">
+            
+             <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'BLOCKED'%>
+                <span class="icon-Blocked_aktiv">
+    			<span class="path1"></span><span class="path2"></span><span class="path3"></span>
+    			</span>
+                <span class="text"><%xr_translate tag="Blocked"%></span>
+            <%else%>
+                 <span class="icon-Blocked_inaktiv"></span>
+                <span class="text"><%xr_translate tag="Blocked"%></span>
+            <%/if%>
+            
+           
+        </a>
+    </div>
+</div>

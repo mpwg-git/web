@@ -1,0 +1,23 @@
+ <div class="form-group">
+    <label><%xr_translate tag="Haustiere?"%></label>
+    <label for="haustiereja" class="radio special-label">
+        <input id="haustiereja" type="radio" name="HAUSTIERE" value="Y" <%if $profile['wz_HAUSTIERE'] == 'Y'%>checked="checked"<%/if%>/>
+        <span class="checked circle circle-filled"><%xr_translate tag='ja'%></span>
+        <span class="unchecked circle circle-plain"><%xr_translate tag='ja'%></span>
+    </label>
+    <label for="haustierenein" class="radio special-label">
+        <input id="haustierenein" type="radio" name="HAUSTIERE" value="N" <%if $profile['wz_HAUSTIERE'] == 'N'%>checked="checked"<%/if%>/>
+        <span class="checked circle circle-filled"><%xr_translate tag='nein'%></span>
+        <span class="unchecked circle circle-plain"><%xr_translate tag='nein'%></span>
+    </label>
+    
+   <%if !isset($noEgal)%>
+    <label for="haustiere-egal" class="radio special-label" style="vertical-align:bottom;">
+        <input id="haustiere-egal" type="radio" name="HAUSTIERE" value="X" <%if $profile['wz_HAUSTIERE'] == 'X'%>checked="checked"<%/if%>/>
+        <span class="checked circle circle-filled"><%xr_translate tag='egal'%></span>
+        <span class="unchecked circle circle-plain"><%xr_translate tag='egal'%></span>
+    </label>
+    <%/if%>
+    
+    
+</div>

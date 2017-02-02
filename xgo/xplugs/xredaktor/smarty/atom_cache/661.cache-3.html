@@ -1,0 +1,81 @@
+<%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+
+<%if $isV2 == 1%>
+<div class="logowrapper">
+<%xr_imgWrapper s_id=18448 h=160 w=150  class="img-responsive"%>
+<!-- 400 375 -->
+</div>
+
+<br /><br />
+
+<div class="col-xs-12 blog blog-start">
+    
+    <%xr_siteCall fn='fe_blog::sc_get_latest_blogentries' var='blogdata'%>
+    
+    <%foreach $blogdata as $k => $v%>
+            
+        <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
+        
+        <a href="<%$detailURL%>">
+            <div class="row" id="post-<%$v.wz_id%>">
+                <div class="hidden-sm hidden-md hidden-lg col-xl-4 col-xxl-3">
+                    <%xr_imgWrapper s_id=$v['wz_BILD'] w=70 h=85 rmode="cco" class="image"%>
+                </div>
+                <div class="col-sm-12 col-md-12 col-xl-8 col-xxl-9">
+                    <div class="header-wrapper">
+                        <h3><%$v['wz_HEADLINE']%></h3>
+                        <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
+                    </div>
+                    <p class="text"><%$v['wz_TEASERTEXT']%></p>
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </a>
+        
+        <hr/>
+        
+    <%/foreach%>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+
+<div style="height: 8px;"></div>
+
+<div class="text-center">
+    <a href="<%xr_genlink p_id=36%>" class="button start-button"><%xr_translate tag='Weitere News'%>...</a>
+</div>
+
+<div style="height: 80px;"></div>
+
+<%else%>
+
+<div class="startsite">
+    <ul class="menu">
+        <%if $P_LANG == 'de'%>
+            <li>
+                <a href="<%xr_genlink p_id=4%>" <%if $extraParams == 1%>class="active"<%/if%>><span class="bigicon icon-WorumGehts"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span></span></a>
+            </li>
+            <li>
+                <a href="<%xr_genlink p_id=5%>"><span class="bigicon icon-Registrieren"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span></span></a>   
+            </li>
+            <li>
+                <a href="<%xr_genlink p_id=6%>"><span class="bigicon icon-Anmelden"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span></span></a>
+            </li>
+        <%elseif $P_LANG == 'en'%>
+            <li>
+                <a href="<%xr_genlink p_id=4%>" <%if $extraParams == 1%>class="active"<%/if%>><span class="bigicon en-icon-WorumGehts_E"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span></a>
+            </li>
+            <li>
+                <a href="<%xr_genlink p_id=5%>"><span class="bigicon en-icon-Registrieren_E"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span></a>   
+            </li>
+            <li>
+                <a href="<%xr_genlink p_id=6%>"><span class="bigicon en-icon-Anmelden_E"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span></a>
+            </li>
+        <%/if%>
+    </ul>
+</div>
+
+<%/if%>
+
+<%* xr_atom a_id=662 return=1 *%>

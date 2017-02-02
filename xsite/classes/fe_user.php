@@ -1588,9 +1588,6 @@ class fe_user
 		{
 			die('WRONGSIZE');
 		}
-
-		
-		
 		
 		$extension = pathinfo($_FILES['add-image-file']['name'], PATHINFO_EXTENSION);
 		$allowed = array('jpg', 'jpeg', 'png');
@@ -1617,7 +1614,8 @@ class fe_user
 		}
         
 		$convert = Ixcore::PATH_ImageMagick;
-		$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$src' '$src'  2>&1 ";
+// 		$cmd = "$convert -units PixelsPerInch -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$src' '$src'  2>&1 ";
+		$cmd = "$convert -units PixelsPerInch -density 72 -resample 72 -auto-orient -strip -colorspace ".Ixcore::PATH_ImageMagick_RGB." '$src' '$src'  2>&1 "; 			
 		$cmd = exec($cmd, $out);
 		
 		
@@ -1849,7 +1847,8 @@ class fe_user
 			$refid = intval($_REQUEST['refid']);
 		} else {
 			$type = 'other-room';
-			$refid = $formData['refid'];
+			$refid = $_REQUEST['roomId'];
+// 			$refid = $formData['refid'];
 		}			
 		$params = array(
 				's_id' 	=> $s_id,

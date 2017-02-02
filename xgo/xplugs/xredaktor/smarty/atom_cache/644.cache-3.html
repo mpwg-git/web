@@ -1,0 +1,36 @@
+
+
+<%xr_siteCall fn="fe_util::isNewLayout" var="newlayout"%>
+
+<%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+	
+<%if $newlayout == 1%>
+    
+    <%if $isV2 == 1%>
+    <%xr_atom a_id=905 DESKTOP_EXTRACLASS_LEFT=$DESKTOP_EXTRACLASS_LEFT DESKTOP_EXTRACLASS_MIDDLE=$DESKTOP_EXTRACLASS_MIDDLE DESKTOP_EXTRACLASS_RIGHT=$DESKTOP_EXTRACLASS_RIGHT return=1%>
+    <%else%>
+     <%xr_atom a_id=887 DESKTOP_EXTRACLASS_LEFT=$DESKTOP_EXTRACLASS_LEFT DESKTOP_EXTRACLASS_MIDDLE=$DESKTOP_EXTRACLASS_MIDDLE DESKTOP_EXTRACLASS_RIGHT=$DESKTOP_EXTRACLASS_RIGHT return=1%>
+    <%/if%>
+    
+<%else%>
+
+    <div class="left-row <%$DESKTOP_EXTRACLASS_LEFT%>">
+        <%xr_atom a_id=$DESKTOP_LEFTROW return=1%>
+    </div>
+    <div class="middle-row darkgrey <%$DESKTOP_EXTRACLASS_MIDDLE%>">
+        <div class="scrollbarfix">
+            <%xr_atom a_id=$DESKTOP_MIDDLEROW return=1%>
+        </div>
+    </div>
+    <div class="right-row <%$DESKTOP_EXTRACLASS_RIGHT%>">
+        <div class="content">
+            
+            <%xr_atom a_id=$DESKTOP_RIGHTROW extraParams=$DESKTOP_RIGHTROW_PARAMS return=1%>
+            
+            <%xr_atom a_id=643 return=1%>
+            
+        </div>
+    </div>
+    
+    
+<%/if%>
