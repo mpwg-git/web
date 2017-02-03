@@ -2,6 +2,83 @@
 
 @import "13.less";
 
+/*
+    guillotine crop image css
+*/
+
+    button, .button {
+        display: inline-block;
+        font-size: 20px;
+        padding: 11px;
+        text-align: center;
+        background: #04e0d7;
+        color: #fff;
+        text-transform: uppercase;
+        border: none;
+    }
+    
+    
+    .save-gui-image.pull-right {
+        font-size: 28px;
+        background: none;
+        padding: 0;
+        margin: 5px 25px 0 0;
+    }
+    
+    .close-image-cropper.pull-left {
+        font-size: 28px;
+        background: none;
+        padding: 0;
+        margin: 5px 0px 0 25px;
+    }
+    
+    .frame {
+        width: 80%;
+        margin-top: 5%;
+        margin-left: 10%;
+        box-shadow: 0px 0px 4px 2px #04e0d7;
+        -webkit-box-shadow: 0px 0px 4px 2px #04e0d7;
+        -moz-box-shadow: 0px 0px 4px 2px #04e0d7;
+    }
+    
+    .frame > img { width: 100%; }
+ 
+    #controls button:hover { color: #333; } 
+    
+    button > i.fa {
+        padding: 0 5px;
+    }
+    
+    #controls {
+        font-size: 22px;
+        text-align: center;
+        width: 80%;
+        margin: 25px auto;
+        background-color: #04e0d7;
+        border: 1px solid #04e0d7;
+        border-radius: 6px;
+    }
+    div#controls > a {
+       padding: 0 15px;
+    }
+    
+    .close-image-cropper.pull-left {
+        margin-left: 50px;
+    }
+    .save-gui-image.pull-right {
+        margin-right: 50px;
+    }
+
+/*
+    END guillotine crop image css
+*/ 
+.upload-image {
+    height: 118px !important;
+}
+.meinprofil-profilbild {
+    border: 2px solid @blue;
+}
+
 
 img.img-height-responsive.avatarCrop.profile.cropperimage {
     width: 97.8% !important;

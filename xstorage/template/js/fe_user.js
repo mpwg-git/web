@@ -453,81 +453,54 @@ var fe_user = (function() {
  * https://github.com/matiasgagliano/guillotine
 **/
             $('#modal').off('shown.bs.modal');
-            $('#modal').on('shown.bs.modal', function (e) {
+            $('#modal').on('shown.bs.modal', function() {
+            	
+//            	console.log('modal shown');
+            	
+            	var xrFace = fe_core.getCurrentFace();
+            	var imgType = 'other';
+                var picture = $('#gui_image');
+                
+                picture.one('load', function(e){
+                	if($('#gui-frame > input#type').val() != 'other')
+                		imgType = $('#gui-frame > input#type').val();
+                	
+                	if(imgType == 'profile') {
+                		picture.guillotine({
+                			width: 345,
+                			height: 345                    		
+                		});
+                	}
+                	else
+                	{
+                		picture.guillotine({
+                			width: 761,
+                			height: 401                    		
+                		});	
+                		$('.modal-dialog').css('height', '60%');
+                		var styles = {
+                			width: '95%',
+                			margin: '3.5% 2.5% 5.5% 2.5%'
+                		}
+                		$('#gui-frame').css( styles );
+                		$('#controls').css('width', '95%');
+                	}
+                	
+                	picture.guillotine('fit');
 
-            	$('.ajax-loader').show();
-
-                var xrFace = fe_core.getCurrentFace();
-                                
-        		var img = $('#gui_image');
-        		var imgType = 'other';
-        		
-       	      	img.one('load', function(){
-
-	        		// set user type with top.P_ID
-	        		if(top.P_ID == 7 || top.P_ID == 42) {
-	        			imgType = 'profile';
-	        		}
-	                else
-	                {
-	                	imgType = 'room';
-	                	glltFormData.refid = $('#refid').val();
-	                }
-	        		
-	    			// check xr_face & set image crop plugin width & height 
-	        		if(xrFace == 3)
-	        		{
-	        			 if(imgType == 'profile') img.guillotine({width: 345, height: 345});
-	        			 else img.guillotine({width: 800, height: 428})
-	        			 
-	        			img.guillotine('fit');
-	             		$('.ajax-loader').hide();
-
-	        		}
-	        		else
-	        		{
-	        			if(imgType == 'profile') img.guillotine({width: 200, height: 200});
-	        			else img.guillotine({width: 340, height: 205});
-	        			
-	        			img.guillotine('fit');
-	             		$('.ajax-loader').hide();
-
-	        		}
-	            		
-	                // $('#zoom_out, #zoom_in, #fit, #rotate_left, #rotate_right').unbind('click');
-	              	$('#zoom_out').click(function(e) {
-	              		e.preventDefault();
-	              		img.guillotine('zoomOut');
-	                });
-	                $('#zoom_in').click(function(e) {
-	                	e.preventDefault();
-	              		img.guillotine('zoomIn');
-	              	});
-	              	$('#rotate_left').click(function(){
-	              		img.guillotine('rotateLeft');
-	                });
-	              	$('#rotate_right').click(function() {
-	              		img.guillotine('rotateRight');
-	              	});
-	                $('#fit').bind('click', function() {
-	              		img.guillotine('fit');
-	              	});
-	       	    });
-       	      	if (img.prop('complete')){
-       	      		img.trigger('load');
-       	      	}
+                	$('#rotate_left').click(function(){ picture.guillotine('rotateLeft'); });
+                	$('#rotate_right').click(function(){ picture.guillotine('rotateRight'); });
+                	$('#fit').click(function(){ picture.guillotine('fit'); });
+                	$('#zoom_in').click(function(){ picture.guillotine('zoomIn'); });
+                	$('#zoom_out').click(function(){ picture.guillotine('zoomOut'); });
+                });
+                if (picture.prop('complete')) picture.trigger('load')
             });
-
-
-            $('.save-gui-image').unbind('click');
-            $('.save-gui-image').bind('click', function(e) {
+            
+            $('#save-gui-image').unbind('click');
+            $('#save-gui-image').bind('click', function(e) {
                 e.preventDefault();
         		$('.ajax-loader').show();
-        		
-
-                var controls 	= $('div#controls');
-                var saveButton 	= $('button.save-gui-image');
-                var closeButton = $('button.close-image-cropper');
                 
                 glltFormData = {};
                 glltFormData.p_id		= top.P_ID;
@@ -538,17 +511,12 @@ var fe_user = (function() {
                 glltFormData.currentW   = $('#gui_image').width();
                 glltFormData.currentH   = $('#gui_image').height();
                 
-                //console.log(glltFormData.p_id);
-                if(top.P_ID == 7 || top.P_ID == 42)
+                var imgType = 'other';
+                if($('#gui-frame > input#type').val() != 'other')
                 {
-                	glltFormData.type = 'profile';
-                }
-                else
-                {
-                	glltFormData.type = 'other-room';
+                	glltFormData.type = $('#gui-frame > input#type').val();
                 	glltFormData.refid = $('#refid').val();
                 }
-                
                 glltCropData = {};
                 glltCropData = $('#gui_image').guillotine('getData');
                 glltCropData.refid = $('#refid').val();
@@ -566,22 +534,11 @@ var fe_user = (function() {
                         if (response.success) {
                     		$('.ajax-loader').hide();
                             $('.gui-image-final-form #refid').val = $('#refidHidden').val();
-
                             me.goToStep(2, response);
                         }
                     }
                 })
-
             });
-            /*
-          $('.save-gui-image-final-submit').unbind("click");
-          $('.save-gui-image-final-submit').click(function(e) {
-              e.preventDefault();
-              me.handleFinalUpload($('.gui-image-final-form'));
-              return;
-          });
-            */
-
 // WEB-271
             $('a[href*="collapseChangeMail"]').click(function() {
             $('#changeMail')[0].reset();
@@ -1162,19 +1119,46 @@ var fe_user = (function() {
                 case 1:
                     $('.add-image-crop-area').html(data.data.html);
                     $('.upload-image-modal').modal('show');
-                    
+                    $('#modal').css('overflow', 'hidden');
+
                     break;
                 case 2:
-                    $('#gui_container').html(data.data.html);
+                	
+                    $('#gui-frame').html(data.data.html);
 
                     me.handleFinalUpload($('.gui-image-final-form'));
                     
-                    me.goToStep(3);
-
                     break;
                 case 3:
-                    $('.upload-image-modal').modal('hide');
-                    location.reload(true);
+                    var newSrc = $('img.gui-cropped-image').attr('src');
+                	
+                    var fotoid = parseInt($('.upload-image.hasImage').attr('data-fotoid'), 10) + 1;
+                    
+                	if(fe_core.getCurrentFace() == 3)
+                	{
+                		if($('.gui-image-final-form > input#type').val() == 'profile')
+                		{
+                			$('.profileimage.mCS_img_loaded').attr('src', newSrc);
+                		}
+                		else
+                		{
+                			$( '<div class="upload-image hasImage hidden" data-fotoid="'+fotoid+'"><span class="popover-del" data-deltype="bild-room" data-delid="'+fotoid+'" data-original-title="" title=""><span class="icon-rel icon-minus-rel"></span></span>" ').prependTo( $('.meinprofil-images-container') );
+                			fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+                		}
+                	}
+                	else
+                	{
+                		if($('.gui-image-final-form > input#type').val() == 'profile')
+                		{
+                			$('.profileimage-img').attr('src', newSrc);
+                		}
+                		else
+                		{
+//                			$('div.upload-image.hasImage > img.img-responsive.mCS_img_loaded').attr('src', newSrc);
+                			fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+                		}
+                	}
+                	$('.upload-image-modal').modal('hide');
                     break;
                 default:
                     break;
@@ -1183,9 +1167,10 @@ var fe_user = (function() {
         }
         this.handleFinalUpload = function(form) {
             var me = this;
-            $('.ajax-loader').show();
             
             var formdata = $(form).serialize();
+            
+            console.log(formdata);
 
             $.ajax({
                 type: 'POST',

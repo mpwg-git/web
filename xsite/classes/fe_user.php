@@ -1743,6 +1743,31 @@ class fe_user
 		frontcontrollerx::json_success();
 	}
 
+	
+	public static function handleFinalSubmit($userId, $s_id, $type)
+	{
+		$userId 	= intval($userId);
+		$s_id		= intval($s_id);
+		$type		= dbx::escape($type);
+	
+		$db		= array(
+				'wz_USERID' 		=> $userId,
+				'wz_S_ID' 			=> $s_id,
+				'wz_TYPE'			=> $type
+		);
+	
+		dbx::insert("wizard_auto_720", $db);
+	
+		if ($type == 'profile')
+		{
+			dbx::update("wizard_auto_707", array('wz_PROFILBILD' => $s_id), array('wz_id' => $userId));
+		}
+	
+		frontcontrollerx::json_success();
+	}
+	
+	
+	
 	public static function ajax_get_dkrm_image()
 	{
 		$base64img = $_REQUEST['img'];
@@ -1775,27 +1800,6 @@ class fe_user
 		frontcontrollerx::json_success();
 	}
 
-	public static function handleFinalSubmit($userId, $s_id, $type)
-	{
-		$userId 	= intval($userId);
-		$s_id		= intval($s_id);
-		$type		= dbx::escape($type);
-
-		$db		= array(
-			'wz_USERID' 		=> $userId,
-			'wz_S_ID' 			=> $s_id,
-			'wz_TYPE'			=> $type
-		);
-
-		dbx::insert("wizard_auto_720", $db);
-
-		if ($type == 'profile')
-		{
-			dbx::update("wizard_auto_707", array('wz_PROFILBILD' => $s_id), array('wz_id' => $userId));
-		}
-
-		frontcontrollerx::json_success();
-	}
 	
 	/**
 	 * // das gecroppte file (vom xr_img3) mit neuem namen in storage haun
@@ -1832,22 +1836,21 @@ class fe_user
 
 		$imgUploaded = xredaktor_storage::getById($s_id);
 		$imgUploaded = $imgUploaded['s_onDisk'];
-
 		
 		if($s_id == 0) return frontcontrollerx::json_failure("FILE ID NOT VALID");
 		if(!file_exists($imgUploaded)) return frontcontrollerx::json_failure('FILE NOT EXISTS');
 		if(!is_file($imgUploaded)) return frontcontrollerx::json_failure('NO FILE');
 		
-		$type = 'other';
+		$type = $formData['type'];
+
 		$refid = intval($_REQUEST['refid']);		
 		if(intval($formData['p_id']) == 42 || intval($formData['p_id']) == 7)
 		{
-			$type = 'profile';
-			$refid = intval($_REQUEST['refid']);
-		} else {
-			$type = 'other-room';
+			
+		}
+		else
+		{
 			$refid = $_REQUEST['roomId'];
-// 			$refid = $formData['refid'];
 		}			
 		$params = array(
 				's_id' 	=> $s_id,
@@ -1861,18 +1864,16 @@ class fe_user
 						'y' => $cropData['y'],
 						'w' => $cropData['w'],
 						'h' => $cropData['h'],
-						//'s_id' => $s_id
 				))
 		);
-		
 		$inFile  = realpath($imgUploaded);
 		$outFileName = '/' . "_cropped_" . basename($inFile);
 		$outFile = Ixcore::htdocsRoot . '/xstorage/userbilder/cropped'.$outFileName;
 
 		if(file_exists($outFile)) unlink($outFile);
-		
+				
 		$scale 	= $cropData['scale']*100;
-		$scale  = intval($scale);
+		$rotate = intval($cropData['angle']);
 		$w 		= $cropData['w'];
 		$h 		= $cropData['h'];
 		$x 		= $cropData['x'];
@@ -1884,9 +1885,7 @@ class fe_user
 		$convert = Ixcore::PATH_ImageMagick;
 
 		//$cmd = "$convert $inFileEscapped -resize $scale".'%'." -gravity northwest -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
-		$cmd = "$convert $inFileEscapped -resize $scale".'%'." -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
-		
-		//die("cmd: $cmd");
+		$cmd = "$convert $inFileEscapped -rotate $rotate -resize $scale".'%'." -crop $w".'X'."$h+$x+$y $outFileEscapped 2>&1";
 		
 		$out = array();
  		exec($cmd,$out);
