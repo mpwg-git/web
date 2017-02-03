@@ -1,51 +1,4 @@
-<%*
- <style>
-    button, .button {
-        display: inline-block;
-        padding: 5px;
-        text-align: center;
-        background: #04e0d7;
-        color: #fff;
-        text-transform: uppercase;
-        border: none;
-    }
-    
-    
-    .button.save-gui-image.pull-right {
-        font-size: 25px;
-        background: none;
-        padding: 0;
-        margin: 0px 10px 0 0;
-    }
-    
-    .button.close-image-cropper.pull-left {
-        font-size: 25px;
-        background: none;
-        padding: 0;
-        margin: 0px 0px 0px 10px;
-    }
-    
-    .frame {
-        width: 100%;
-        margin-top: 10%;
-        box-shadow: 0px 0px 4px 2px #04e0d7;
-        -webkit-box-shadow: 0px 0px 4px 2px #04e0d7;
-        -moz-box-shadow: 0px 0px 4px 2px #04e0d7;
-    }
-    
-    #gui-frame img { width: 100%; }
- 
-    #controls {
-        width: 100%;
-    }
-    
-    button > i.fa {
-        padding: 0 3px;    
-    }
- 
- </style>
- *%>
- 
+
  <input type="hidden" id="img_src" name="<%$image['src']%>">
  
  <div id="content">
@@ -64,45 +17,14 @@
 
 
     <div id="controls">
-        <button id="rotate_left" title="Rotate left"><i class="fa fa-rotate-left"></i></button>
-        <button id="zoom_out" title="Zoom out"><i class="fa fa-search-minus"></i></button>
-        <button id="zoom_in" title="Zoom in"><i class="fa fa-search-plus"></i></button>
-        <button id="rotate_right" title="Rotate right"><i class="fa fa-rotate-right"></i></button>
-        <button id="close-image-cropper" title="Close" class="button close-image-cropper pull-left"><i class="fa fa-times"></i></button>
-        <button id="save-gui-image" title="Save image" class="button save-gui-image pull-right"><i class="fa fa-floppy-o"></i></button>
+        <button id="rotate_left" class="button guillotine" title="Rotate left"><i class="fa fa-rotate-left"></i></button>
+        <button id="zoom_out" class="button guillotine"title="Zoom out"><i class="fa fa-search-minus"></i></button>
+        <button id="zoom_in" class="button guillotine" title="Zoom in"><i class="fa fa-search-plus"></i></button>
+        <button id="rotate_right" class="button guillotine" title="Rotate right"><i class="fa fa-rotate-right"></i></button>
+        <button id="close-image-cropper" class="button guillotine close-image-cropper pull-left" title="Close"><i class="fa fa-times"></i></button>
+        <button id="save-gui-image" class="button guillotine save-gui-image pull-right" title="Save image"><i class="fa fa-floppy-o"></i></button>
     </div>
 
 
 
-<%*
 
-<!--guillotine-->
-<div id="gui_container">
-        
-        <div class="guillotine-loader"></div>
-    
-        <img id="gui_image" src="<%$image['src']%>">
-    
-        <input type="hidden" id="origW" name="origW" value="<%$image['trueW']%>" />
-    	<input type="hidden" id="origH" name="origH" value="<%$image['trueH']%>" />
-
-    	<input type="hidden" id="s_id" name="s_id" value="<%$image['s_id']%>" />
-    	<input type="hidden" id="new_s_id" name="new_s_id" value="" />
-    	<input type="hidden" id="type" name="type" value="<%$theType%>" />
-    	<input type="hidden" id="refid" name="refid" value="<%$refid%>" />
-</div>
-
-<div id="controls" style="">
-    <a href="#" id="rotate_left" title="Rotate left"><i class="fa fa-rotate-left"></i></a>
-    <a href="#" id="zoom_out" title="Zoom out"><i class="fa fa-search-minus"></i></a>
-    <a href="#" id="fit" title="Fit image"><i class="fa fa-arrows-alt"></i></a>
-    <a href="#" id="zoom_in" title="Zoom in"><i class="fa fa-search-plus"></i></a>
-    <a href="#" id="rotate_right" title="Rotate right"><i class="fa fa-rotate-right"></i></a>
-    
-</div>
-<div class="clearfix"></div>
-
-<button type="button" class="btn btn-md close-image-cropper pull-left">Abbrechen</button>
-<button type="button" class="btn btn-md save-gui-image pull-right">Speichern</button>
-
-*%>

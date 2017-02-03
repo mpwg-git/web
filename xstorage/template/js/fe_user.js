@@ -328,41 +328,48 @@ var fe_user = (function() {
             $('.form-mein-user').unbind("submit");
             $('.form-mein-user').submit(function(e) {
                 e.preventDefault();
-                $('#VORNAME_error, #NACHNAME_error').hide();
 
+                $('#VORNAME_error, #NACHNAME_error').hide();
+                
                 var vname = $('input#vorname').val().length;
                 var nname = $('input#nachname').val().length;
                 
                 if(vname == 0) {
+                	fe_core.hideLoader();
                 	if(fe_core.getCurrentFace() == 3)
                 	{
                 		$('#VORNAME_error').show();
+                    	return;
                 	}
                 	else
                 	{
                 		$('#VORNAME_error').show();
                 		$('.profilerstellen').animate({
-                            top: ($('.profilerstellen').offset().top + 300)
+                			top: 500
                         }, 600);
                 		$('input#vorname').keydown(function(){
                     		$('#VORNAME_error').hide();
                 		});
+                    	return;
                 	}
                 }
                 else if(nname == 0) {
+                	fe_core.hideLoader();
                 	if(fe_core.getCurrentFace() == 3)
                 	{
                     	$('#NACHNAME_error').show();
+                    	return;
                 	}
                 	else
                 	{
                     	$('#NACHNAME_error').show();
-                		$('.profilerstellen').animate({
-                            top: ($('.profilerstellen').offset().top + 300)
-                        }, 600);
+                    	$('.profilerstellen').animate({
+                    		top: 500
+                    	}, 600);
                 		$('input#nachname').keydown(function(){
                     		$('#NACHNAME_error').hide();
                 		});
+                    	return;
                 	}
                 }
                 
@@ -378,13 +385,16 @@ var fe_user = (function() {
                 		data.room = $('.form-mein-raum').serialize();
                 	}
                 }
-                $('.ajax-loader').show();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/profileSave',
                     data: data,
                     success: function(data) {
-                        $('.ajax-loader').hide();
+                    	
+//                		fe_core.showLoader(location.reload($('.profilerstellen').css('top', $(window).height() - $('header').height() - 120), fe_core.hiderLoader()));
+                		fe_core.showLoader($(window).scrollTop(0));
+                		fe_core.hideLoader();
+                		
                     }
                 });
             });
@@ -455,8 +465,6 @@ var fe_user = (function() {
             $('#modal').off('shown.bs.modal');
             $('#modal').on('shown.bs.modal', function() {
             	
-//            	console.log('modal shown');
-            	
             	var xrFace = fe_core.getCurrentFace();
             	var imgType = 'other';
                 var picture = $('#gui_image');
@@ -470,6 +478,7 @@ var fe_user = (function() {
                 			width: 345,
                 			height: 345                    		
                 		});
+                		$('#gui-frame').css('margin-bottom', '3.5%');
                 	}
                 	else
                 	{
@@ -478,16 +487,27 @@ var fe_user = (function() {
                 			height: 401                    		
                 		});	
                 		$('.modal-dialog').css('height', '60%');
-                		var styles = {
+                		var stylesDesk = {
                 			width: '95%',
-                			margin: '3.5% 2.5% 5.5% 2.5%'
-                		}
-                		$('#gui-frame').css( styles );
+                			margin: '0% 2.5% 5.5% 2.5%'
+                		};
+                		var stylesMob = {
+                			width: '95%',
+                			padding: '0px 10px 10px 10px !important'
+                		};
+                		
+                		if(fe_core.getCurrentFace() == 3) $('.modal-body').css( stylesDesk );
+                		else $('.modal-body').css( stylesMob );
+                		
+                		$('#gui-frame').css( stylesDesk );
+                		$('#gui-frame').css('margin-top', '3.5%');
                 		$('#controls').css('width', '95%');
                 	}
                 	
                 	picture.guillotine('fit');
-
+                	
+                	fe_core.hideLoader();
+                	
                 	$('#rotate_left').click(function(){ picture.guillotine('rotateLeft'); });
                 	$('#rotate_right').click(function(){ picture.guillotine('rotateRight'); });
                 	$('#fit').click(function(){ picture.guillotine('fit'); });
@@ -720,7 +740,7 @@ var fe_user = (function() {
                 var userId = $(this).data('id');
                 var theType = $(this).data('type');
                 var me = this;
-                fe_core.showLoader();
+                
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/toggleFav',
@@ -729,11 +749,12 @@ var fe_user = (function() {
                         theType: theType
                     },
                     success: function(response) {
+                    	fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
                         switch (response.state) {
                             case true:
                                 $(me).find('.active').show();
                                 $(me).find('.inactive').hide();
-                                $('.ajax-loader').hide(location.reload());
+//                                $('.ajax-loader').hide(location.reload());
                                 break;
                             case false:
                                 $(me).find('.inactive').show();
@@ -746,6 +767,7 @@ var fe_user = (function() {
                                 break;
                         }
                     }
+                    
                 });
             });
             $('.js-toggle-blocked').unbind('click');
@@ -754,7 +776,6 @@ var fe_user = (function() {
                 var userId = $(this).data('id');
                 var theType = $(this).data('type');
                 var me = this;
-                fe_core.showLoader();
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/toggleBlock',
@@ -763,6 +784,8 @@ var fe_user = (function() {
                         theType: theType
                     },
                     success: function(response) {
+                    	fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+
                         switch (response.state) {
                             case true:
                                 $(me).find('.active').show();
@@ -960,6 +983,7 @@ var fe_user = (function() {
         }
         this.registerUploadListeners = function() {
             var me = this;
+            
             try {
                 $('.add-image').bind('fileuploadsubmit', function(e, data) {
                     var type = $(this).data('type');
@@ -972,8 +996,9 @@ var fe_user = (function() {
                         p_id: top.P_ID
                     };
                 });
+            	
                 $('.add-image').fileupload({
-                    formData: {
+                	formData: {
                         fromFileupload: 'true',
                         p_id: top.P_ID
                     },
@@ -992,7 +1017,7 @@ var fe_user = (function() {
                         }
                     },
                     progressall: function(e, data) {
-                        fe_core.showLoader();
+                    	fe_core.showLoader();
                         var progress = parseInt(data.loaded / data.total * 100, 10);
                         if (me.type == 'profile') {
                             $('.add-image-profil .upload-progress-bar').animate({
@@ -1005,14 +1030,14 @@ var fe_user = (function() {
                         }
                     },
                     add: function(e, data) {
-                        fe_core.showLoader();
+                    	fe_core.showLoader();
                     	data.submit();
                     },
                     fail: function(e, data) {
                         fe_core.hideLoader();
                     },
                     done: function(e, data) {
-                        fe_core.hideLoader();
+                    	fe_core.showLoader();
                         $('.upload-progress-bar').css('height', '0px');
                         $('.upload-progress-bar').css('width', '0%');
                         if (data.result.success == true) {
@@ -1020,6 +1045,7 @@ var fe_user = (function() {
                             me.goToStep(1, data.result);
                         } else {}
                     }
+                
                 });
             } catch (e) {}
         }

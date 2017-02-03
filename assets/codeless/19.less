@@ -3,37 +3,51 @@
 body.modal-open {
     overflow: hidden;
 }
+
 .modal-dialog {
     top: 10px !important;
-    height: 80%;
 }
-
+.upload-image-modal .modal-dialog .modal-content {
+    height: 100%;
+    
+    // .modal-body {
+    //     padding: 0px 10px 10px 10px !important;
+    //     width: 95%;
+    // }
+}
 /*
     guillotine crop image css
 */
-    button, .button {
+    .button.guillotine {
         display: inline-block;
         padding: 5px;
         text-align: center;
         background: #04e0d7;
-        color: #fff;
+        color: @dark-grey;
         text-transform: uppercase;
         border: none;
+        
+        i.fa {
+            padding: 0 5px;
+        }
     }
     
     
     .button.save-gui-image.pull-right {
-        font-size: 25px;
+        font-size: 24px;
         background: none;
         padding: 0;
         margin: 0px 10px 0 0;
+        color: #fff;
     }
     
     .button.close-image-cropper.pull-left {
-        font-size: 25px;
+        font-size: 24px;
         background: none;
         padding: 0;
         margin: 0px 0px 0px 10px;
+        color: #fff;
+        
     }
     
     .frame {
@@ -53,10 +67,7 @@ body.modal-open {
         border-radius: 6px;
         margin:15px auto;
     }
-    
-    button > i.fa {
-        padding: 0 3px;    
-    }
+
 /*
     END guillotine crop image css
 */

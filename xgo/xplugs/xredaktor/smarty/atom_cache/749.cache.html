@@ -1,0 +1,30 @@
+<p class="no-results text-center">
+    
+    <span class="no-results-ente">
+        <%xr_imgWrapper s_id=790 w=100%>
+    </span>
+    
+    <%if $searchType == 'suche'%>
+    
+        <%if $resultsType == "FAVS"%>
+            <%xr_translate tag="Du hast noch keine"%><br /><%xr_translate tag="favorisierten Zimmer"%>
+        <%elseif $resultsType == "BLOCKED"%>
+            <%xr_translate tag="Du hast noch keine"%><br /><%xr_translate tag="blockierten Zimmer"%>    
+        <%else%>
+            <%xr_translate tag="Leider keine"%><br /><%xr_translate tag="Treffer zu deinen Suchkriterien"%>
+        <%/if%>
+    
+    
+    <%else%>
+    
+        <%if $resultsType == "FAVS"%>
+            <%xr_translate tag="Du hast noch keine"%><br /><%xr_translate tag="favorisierten User"%>
+        <%elseif $resultsType == "BLOCKED"%>
+            <%xr_translate tag="Du hast noch keine"%><br /><%xr_translate tag="blockierten User"%>    
+        <%else%>
+            <%xr_translate tag="Leider keine"%><br /><%xr_translate tag="Treffer zu deinen Suchkriterien"%>
+        <%/if%>
+
+    <%/if%>
+    
+</p>
