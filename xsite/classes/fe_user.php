@@ -3170,7 +3170,6 @@ class fe_user
 
 		$checkUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_EMAIL = '$EMAIL' AND wz_online = 'Y' AND wz_del = 'N'");
 
-
 		if($checkUser === false)
 		{
 			$searchData = array(
