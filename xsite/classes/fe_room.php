@@ -1221,7 +1221,7 @@ class fe_room
 
 		if ($roomId == 0) return array();
 
-		$ret 			= dbx::queryAll("select * from wizard_auto_810 where wz_ROOMID = $roomId and wz_del='N' ORDER BY wz_id DESC ");
+		$ret 			= dbx::queryAll("select * from wizard_auto_810 where wz_ROOMID = $roomId and wz_del='N' ORDER BY wz_id");
 
 		if ($ret === false) $ret = array();
 

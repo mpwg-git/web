@@ -2,6 +2,9 @@
 
 require_once(dirname(__FILE__).'/../_includes.php');
 
+ignore_user_abort(true);
+set_time_limit(0);
+
 $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
 //$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' and wz_id = '2066' ORDER BY wz_created DESC");
 
@@ -15,7 +18,7 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 	$roomData = json_decode($room['wz_json_cfg'], true);
 
 
-/////////// ABLÖSE / KAUTIONS
+/////////// ABLÃ–SE / KAUTIONS
 	$wz_abloese = intval(str_replace('-','',filter_var($roomData['angabenObjekt']['Kaution'], FILTER_SANITIZE_NUMBER_INT)));
 
 	if(is_int($wz_abloese) && $wz_abloese != 0){
@@ -77,9 +80,9 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 
 		'wz_GROESSE' 					=> intval($room['wz_size']),
 		'wz_MIETE'						=> intval($room['wz_total']),
-		'wz_BESCHREIBUNG'				=> preg_replace('/<br>\s+/', ' ', $beschreibung),
-		'wz_BESCHREIBUNG_PREMIUM'	=> preg_replace('/<br>\s+/', ' ', $beschreibung),
-		'wz_LAGE'						=> preg_replace('/<br>\s+/', ' ', $lage),
+		'wz_BESCHREIBUNG'				=> trim(preg_replace('/<br>\s+/', ' ', $beschreibung)),
+		'wz_BESCHREIBUNG_PREMIUM'	    => trim(preg_replace('/<br>\s+/', ' ', $beschreibung)),
+		'wz_LAGE'						=> trim(preg_replace('/<br>\s+/', ' ', $lage)),
 
 		'wz_ADRESSE' 					=> $roomData['search']['Adresse'],
 
@@ -110,8 +113,8 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 	// die();
 
 
-	// verfügbarkeit
-	preg_match_all('/(\d+\.\d+\.\d+)/', $roomData['search']['Verfügbarkeit'], $matches);
+	// verfÃ¼gbarkeit
+	preg_match_all('/(\d+\.\d+\.\d+)/', $roomData['search']['VerfÃ¼gbarkeit'], $matches);
 
 	if ($matches[0][0] != "") {
 		$db['wz_ZEITRAUM_VON'] = date('Y-m-d', strtotime($matches[0][0]));
