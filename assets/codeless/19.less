@@ -1,5 +1,111 @@
 @import "15.less";
 
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-dialog {
+    top: 10px !important;
+}
+.upload-image-modal .modal-dialog .modal-content {
+    height: 100%;
+    
+    // .modal-body {
+    //     padding: 0px 10px 10px 10px !important;
+    //     width: 95%;
+    // }
+}
+/*
+    guillotine crop image css
+*/
+    .button.guillotine {
+        display: inline-block;
+        padding: 5px;
+        text-align: center;
+        background: #04e0d7;
+        color: @dark-grey;
+        text-transform: uppercase;
+        border: none;
+        
+        i.fa {
+            padding: 0 5px;
+        }
+    }
+    
+    
+    .button.save-gui-image.pull-right {
+        font-size: 24px;
+        background: none;
+        padding: 0;
+        margin: 0px 10px 0 0;
+        color: #fff;
+    }
+    
+    .button.close-image-cropper.pull-left {
+        font-size: 24px;
+        background: none;
+        padding: 0;
+        margin: 0px 0px 0px 10px;
+        color: #fff;
+        
+    }
+    
+    .frame {
+        width: 100%;
+        margin-top: 10%;
+        box-shadow: 0px 0px 4px 2px #04e0d7;
+        -webkit-box-shadow: 0px 0px 4px 2px #04e0d7;
+        -moz-box-shadow: 0px 0px 4px 2px #04e0d7;
+    }
+    
+    #gui-frame img { width: 100%; }
+ 
+    #controls {
+        width: 100%;
+        background-color: #04e0d7;
+        border: 1px solid #04e0d7;
+        border-radius: 6px;
+        margin:15px auto;
+    }
+
+/*
+    END guillotine crop image css
+*/
+
+// #gui_container {
+//     width: 80%;
+//     margin: 25px auto;
+// }
+// #controls {
+//     font-size: 22px;
+//     text-align: center;
+
+//     background-color: #04e0d7;
+//     border: 1px solid #04e0d7;
+//     border-radius: 6px;
+
+// }
+// .close-image-cropper.pull-left {
+//     margin-left: 25px;
+//     padding: 5px;
+// }
+// .save-gui-image.pull-right {
+//     margin-right: 25px;
+//     padding: 5px;
+// }
+// div#controls > a {
+//   font-size: 18px;
+//   padding: 0 10px;
+// }
+
+
+.profil .wg-img-wrapper .image-slider .item .image {
+    width: 93%;
+    height: auto;
+    margin-left: 3.5%;
+}
+
+
 .icon-rel.icon-minus-rel:after {
     content: '-';
     top: -15px;

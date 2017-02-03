@@ -153,10 +153,13 @@ var simpleLogin = {
 		$(document).on('click', '.js-show-simple-login', function (e) {
 			e.preventDefault();
 			$(this).hide();
+			$('.js-simple-login').prop('disabled', false);
 			$('.js-simple-login').show();
 			$('#show-simple-login-form').slideDown();
+			$('input#VORNAME').focus();
 		});
 		$(document).on('click', '.js-simple-login', function (e) {
+			$('.js-simple-login').prop('disabled', true);
 			e.preventDefault();
 			simpleLogin.doSimpleLogin();
 		});
