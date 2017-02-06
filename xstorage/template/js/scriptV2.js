@@ -153,13 +153,13 @@ var simpleLogin = {
 		$(document).on('click', '.js-show-simple-login', function (e) {
 			e.preventDefault();
 			$(this).hide();
-			$('.js-simple-login').prop('disabled', false);
+//			$('.js-simple-login').prop('disabled', false);
 			$('.js-simple-login').show();
 			$('#show-simple-login-form').slideDown();
 			$('input#VORNAME').focus();
 		});
 		$(document).on('click', '.js-simple-login', function (e) {
-			$('.js-simple-login').prop('disabled', true);
+//			$('.js-simple-login').prop('disabled', true);
 			e.preventDefault();
 			simpleLogin.doSimpleLogin();
 		});
@@ -243,6 +243,8 @@ var simpleLogin = {
 		}
 	},
 	doSimpleLogin: function () {
+		
+		$('.js-simple-login').prop('disabled', false);
 		var checkboxError = false;
 		$('.checkbox-error').hide();
 		$(".hidden-fragen").each(function (i, o) {
@@ -293,8 +295,10 @@ var simpleLogin = {
 	doLoginCallback: function (state, cfg, data) {
 		console.info(state, cfg, data);
 		if (data.status == 'OK') {
+			$('.js-simple-login').prop('disabled', true);
 			window.location = data.redirect;
 		} else {
+			$('.js-simple-login').prop('disabled', false);
 			if (data.msg = 'PWD_ERROR') {
 				$('#v2_PASSWORT_wrong_error').show();
 			}

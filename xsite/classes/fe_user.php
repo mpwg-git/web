@@ -10,14 +10,14 @@ class fe_user
 	const table_room_fav 	= 'wizard_auto_846';
 	const table_room_block 	= 'wizard_auto_847';
 
-	const table_user_fav		= 'wizard_auto_767';
+	const table_user_fav	= 'wizard_auto_767';
 	const table_user_block	= 'wizard_auto_768';
 
 	const errorMessage_cant_deactivate_room_roomies_inside 	= '###cannot_deactivate_room_roomies_still_inside###';
-	const errorMessage_cant_delete_room_roomies_inside			= '###cannot_delete_room_roomies_still_inside###';
-	const message_room_deleted											= '###room_deleted###';
-	const message_room_activated										= '###room_activated###';
-	const message_room_deactivated									= '###room_deactivated###';
+	const errorMessage_cant_delete_room_roomies_inside		= '###cannot_delete_room_roomies_still_inside###';
+	const message_room_deleted								= '###room_deleted###';
+	const message_room_activated							= '###room_activated###';
+	const message_room_deactivated							= '###room_deactivated###';
 
 
 
@@ -518,10 +518,10 @@ class fe_user
 			fe_cookie::deleteLoginCookie();
 		}
 
-		if($user['wz_ACTIVE'] == 'N')
-		{
-			self::setEmailConfirmMsg();
-		}
+// 		if($user['wz_ACTIVE'] == 'N')
+// 		{
+// 			self::setEmailConfirmMsg();
+// 		}
 
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$userId));
 
@@ -2350,7 +2350,6 @@ class fe_user
 		$userId = intval($userId);
 		if ($userId == 0) return false;
 		dbx::update('wizard_auto_707', array('wz_active' => 'N'), array('wz_id' => $userId));
-
 
 		// DELETE ROOMS MITBEWOHNER n2n
 		dbx::query("DELETE FROM wizard_auto_SIMPLE_W2W_707_809 WHERE wz_id_low = $userId ");
