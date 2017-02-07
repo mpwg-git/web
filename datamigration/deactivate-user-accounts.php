@@ -1,133 +1,126 @@
 <?
-
 require_once(dirname(__FILE__).'/_includes.php');
 require_once(dirname(__FILE__).'/../xgo/xplugs/_includes.php');
 
 
-if(isset($_GET['printlist']))
-{
-	handelUserAccounts::printUserList();
-}
+$req = array_keys($_REQUEST);
 
-if(isset($_GET['deactivateuser']))
-{
-	handelUserAccounts::deactivateUsers();
-}
-
-if(isset($_GET['printlistemail']))
-{
-	handelUserAccounts::printUserListEmail();
-}
-
-if(isset($_GET['resendemailconfirm']))
-{
-	handelUserAccounts::resendEmailConfirm();
+switch($req[0]) {
+	case 'printlist':
+		handleUserAccounts::printUserList();
+		break;
+	case 'deactivateuser':
+		handleUserAccounts::deactivateUsers();
+		break;
+	case 'printlistemail':
+		handleUserAccounts::printUserListEmail();
+		break;
+	case 'resendemailconfirm':
+		handleUserAccounts::resendEmailConfirm();
+		break;
 }
 
 
-class handelUserAccounts
+class handleUserAccounts
 {
 
-	public static function printUserList()
-	{
-		$list = self::getUserList();
-		echo "<pre>";
-		print_r($list);
-		echo "</pre>";
+	public static $hostName = "wsfbeta";
 
-		die(' user list ');
-	}
-	public static function getUserList()
-	{
-		$str = $_SERVER;
-		
-		echo "<pre>";
-		print_r($str);
-		echo "</pre>";
-		
-		die();
-
-		$db = "wsfbeta";
-
-		$data = dbx::queryAll("SELECT wz_id, wz_del, wz_created, wz_LASTLOGIN, wz_EMAIL FROM `$db`.wizard_auto_707 WHERE `wz_del` =  'N' AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 12 WEEK) ORDER BY wz_LASTLOGIN DESC");
-
-		return $data;
-	}
-
-
-	public static function printUserListEmail()
-	{
-
-		$list = self::getEmailUserList();
-		echo "<pre>";
-		print_r($list);
-		echo "</pre>";
-
-		die(' email user list ');
-	}
-	public static function getEmailUserList()
-	{
-		$db = "wsfbeta";
-		
-		$data = dbx::queryAll("SELECT wz_id, wz_del, wz_USERDEL, wz_IS_TMP_USER, wz_online, wz_ACTIVE, wz_created, wz_LASTLOGIN, wz_EMAIL, wz_MAIL_CHECKED, wz_MAIL_TOKEN FROM `$db`.wizard_auto_707 WHERE `wz_del` = 'N' AND `wz_USERDEL` = 'N' AND `wz_online` = 'Y' AND `wz_EMAIL` != '' AND `wz_MAIL_CHECKED` = 'N' AND `wz_MAIL_TOKEN`!= '' AND `wz_created` > DATE_SUB(CURDATE(), INTERVAL 2 MONTH) AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 24 HOUR)");
-
-		return $data;
-	}
-
-
-	public static function resendEmailConfirm()
-	{
-
-		$list = self::getEmailUserList();
-
-
-		foreach ($list as $l)
-		{
-			$id = $l['wz_id'];
-			$mail = trim($l['wz_EMAIL']);
-				
-			print_r($id . ' ' . $mail);
-				
-			die( ' die before sending mail ' );
-
-			$res = fe_user::setUserInactive($id);
-			if($res)
-			{
-				echo "confirmation email sent to " . $mail . " userid: " . $id . " ";
-			}
+	/*
+	 public static function setDbName()
+	 {
+		if(preg_match('/\bbeta\b/', $_SERVER['HTTP_HOST']) == 1)
+			return self::$hostName = "wsfbeta";
+			elseif(preg_match('/\bpre\b/', $_SERVER['HTTP_HOST']) == 1)
+			return self::$hostName = "mpwg-pre";
 			else
-				echo "\n CAN NOT SEND EMAIL \n";
-		}
+				return self::$hostName = "wsfdev";
+				}
+				*/
 
-		echo "\n\n ALL DONE \n\n";
-	}
-
-
-	public static function deactivateUsers()
-	{
-
-		$list = self::getUserList();
-
-		echo "<pre>";
-		print_r($list);
-		echo "</pre>";
-
-		die(' check list ');
-
-		foreach ($list as $l)
-		{
-			$id = $l['wz_id'];
-				
-			$res = fe_user::setUserInactive($id);
-			if($res)
+			public static function printUserList()
 			{
-				echo "user " . $id . " deactivated";
+				// 		$db = self::setDbName();
+				$db = self::$hostName;
+
+				echo "!!!! LIST DATABASE ==> WSFBETA !!!!";
+
+				echo "<pre>";
+				print_r(self::getUserList());
+				echo "</pre>";
 			}
-			else
-				echo "\n DEACTIVATION ERROR \n";
-		}
+			public static function getUserList()
+			{
+				// 		$db = self::setDbName();
+				$db = self::$hostName;
 
-		echo "\n\n ALL DONE \n\n";
+				$data = dbx::queryAll("SELECT wz_id, wz_del, wz_created, wz_LASTLOGIN, wz_EMAIL FROM `$db`.wizard_auto_707 WHERE `wz_del` =  'N' AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 12 WEEK) ORDER BY wz_LASTLOGIN DESC");
+				return $data;
+			}
 
-	}
+
+			public static function printUserListEmail()
+			{
+				// 		$db = self::setDbName();
+				$db = self::$hostName;
+
+				echo "!!!! LIST DATABASE ==> WSFBETA !!!!";
+				
+				echo "<pre>";
+				print_r(self::getEmailUserList());
+				echo "</pre>";
+			}
+			public static function getEmailUserList()
+			{
+				$db = self::setDbName();
+				$data = dbx::queryAll("SELECT wz_id, wz_del, wz_USERDEL, wz_IS_TMP_USER, wz_online, wz_ACTIVE, wz_created, wz_LASTLOGIN, wz_EMAIL, wz_MAIL_CHECKED, wz_MAIL_TOKEN FROM `$db`.wizard_auto_707 WHERE `wz_del` = 'N' AND `wz_USERDEL` = 'N' AND `wz_online` = 'Y' AND `wz_EMAIL` != '' AND `wz_MAIL_CHECKED` = 'N' AND `wz_MAIL_TOKEN`!= '' AND `wz_created` > DATE_SUB(CURDATE(), INTERVAL 2 MONTH) AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 24 HOUR)");
+				return $data;
+			}
+
+
+			public static function deactivateUsers()
+			{
+				$list = self::getUserList();
+
+				foreach ($list as $l)
+				{
+					$id = $l['wz_id'];
+					$res = fe_user::setUserInactive($id);
+						
+					if($res)
+						echo "\nuser " . $id . " deactivated\n";
+						else
+							echo "\n DEACTIVATION ERROR \n";
+				}
+				echo "\n\n ALL DONE \n\n";
+			}
+
+
+			public static function resendEmailConfirm()
+			{
+				$list = self::getEmailUserList();
+
+				$params = array();
+				$params['triggerByVar'] = 'doResend';
+				$params['triggerByVal'] = '';
+
+				foreach ($list as $l)
+				{
+					$id = $l['wz_id'];
+					$mail = trim($l['wz_EMAIL']);
+						
+					$_REQUEST['feuser_email'] = $mail;
+						
+					$res = array();
+					$res = xredaktor_feUser::resendRegistration($params);
+						
+					if($res['status'] == 'RESEND')
+					{
+						echo " " . $mail . " userid: " . $id . " resend done";
+					}
+					else
+						echo "\n CAN NOT SEND EMAIL " . "userid: " . $id . "\n";
+				}
+				echo "\n --- END --- \n";
+			}
 }

@@ -5,9 +5,10 @@ require_once(dirname(__FILE__).'/../_includes.php');
 // ignore_user_abort(true);
 // set_time_limit(0);
 
+
 $links = array();
 
-for ($i=0;$i<=10;$i++)
+for ($i=0;$i<=5;$i++)
 {
 	$links[] = 	"http://www.wg-gesucht.de/wg-zimmer-in-Muenchen.90.0.0.$i.html";
 }

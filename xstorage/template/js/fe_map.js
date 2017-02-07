@@ -682,11 +682,17 @@ var fe_map = (function() {
                 }
             });
 
- 
-            var inputLat = $('input.location-lat').val();
-            var inputLng = $('input.location-lng').val();
+            // default Wien/Österreich
+            var inputLat = 48.2081743;
+            var inputLng = 16.37381890000006;
             
-//            var myLatLng = new google.maps.LatLng(48.2081743, 16.37381890000006);
+            // set if values != default
+            if(inputLat != $('input.location-lat').val())
+            	inputLat = $('input.location-lat').val();
+            
+            if(inputLng != $('input.location-lng').val())
+            	inputLng = $('input.location-lng').val();
+
             var myLatLng = new google.maps.LatLng(inputLat, inputLng);
             
             var myRadius = $("#umkreis-slider").data('value');
@@ -1001,8 +1007,3 @@ var fe_map = (function() {
 $(document).ready(function() {
     fe_map.init();
 });
-
-
-// $(window).load(function () {
-// 	fe_core.hideLoader();
-// });
