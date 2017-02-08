@@ -302,7 +302,7 @@ var fe_user = (function() {
                   } else {
 
                      $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
-                          top: ($('#ZEITRAUM_VON_error').offset().top - 100)
+                          top: ($('#ZEITRAUM_VON').offset().top + 275)
                      }, 800);
 
                   }
@@ -339,6 +339,9 @@ var fe_user = (function() {
                 	if(fe_core.getCurrentFace() == 3)
                 	{
                 		$('#VORNAME_error').show();
+                		$('input#vorname').keydown(function(){
+                    		$('#VORNAME_error').hide();
+                		});
                     	return;
                 	}
                 	else
@@ -358,6 +361,9 @@ var fe_user = (function() {
                 	if(fe_core.getCurrentFace() == 3)
                 	{
                     	$('#NACHNAME_error').show();
+                    	$('input#nachname').keydown(function(){
+                    		$('#NACHNAME_error').hide();
+                		});
                     	return;
                 	}
                 	else

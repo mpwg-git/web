@@ -1,0 +1,55 @@
+<head>
+    
+    <meta charset="utf-8">
+    
+    <%$CMS%>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<%$DESCRIPTION%>" />
+    <meta name="keywords" content="<%$KEYWORDS%>" />
+    <meta name="robots" content="noindex,nofollow" />
+        
+    <link rel="icon" href="/xstorage/template/img/favicon/favicon.ico">
+    <link rel="icon" sizes="196x196" href="/xstorage/template/img/favicon/favicon-196x196.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/xstorage/template/img/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/xstorage/template/img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/xstorage/template/img/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/xstorage/template/img/favicon/apple-touch-icon-144x144.png">
+
+    <!-- ATOMS IN USE -->
+    <%xr_atom a_id=683 return=1%>
+    
+    <%if $WTITLETAG !=''%>
+        <title><%$WTITLETAG%></title>
+    <%else%>
+        <%if $TITLETAG !=''%>
+            <title><%$TITLETAG%><%if $P_ID != '184'%><%/if%></title>
+        <%elseif $AHEADLINE!=''%>
+            <title><%$AHEADLINE%></title>
+        <%else%>
+            <title><%xr_translate tag='###SITE_TITLE###'%></title>
+        <%/if%>
+    <%/if%>
+    
+    <script type="text/javascript">
+        top.P_LANG='<%$P_LANG%>';
+        top.P_ID=<%$P_ID%>;
+    </script>
+    
+    <%xr_cssWrapperV2 s_ids='89,21' var="packedcss"%>
+   
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Custom styles for this template -->
+    <!--<link href="carousel.css" rel="stylesheet">-->
+</head>

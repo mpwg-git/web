@@ -512,6 +512,7 @@ class fe_room
 			'IMAGES'	=> $images
 		);
 
+
 		if ($itsMe == false)
 		{
 			$matchResult		= fe_matching::getMatchResultFromDbUser2Room($myUserId, $roomId);

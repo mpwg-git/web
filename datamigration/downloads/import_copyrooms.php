@@ -5,8 +5,9 @@ require_once(dirname(__FILE__).'/../_includes.php');
 ignore_user_abort(true);
 set_time_limit(0);
 
-$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' ORDER BY wz_created DESC");
-//$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' and wz_id = '2066' ORDER BY wz_created DESC");
+
+$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' AND wz_source_id =  '5947119'  ORDER BY wz_created DESC");
+//$copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt != '0' and wz_id = '2066' ORDER BY wz_created DESC");  
 
 
  foreach ($copyRooms as $room)
@@ -18,7 +19,7 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 	$roomData = json_decode($room['wz_json_cfg'], true);
 
 
-/////////// ABLÃ–SE / KAUTIONS
+/////////// ABLOESE / KAUTIONS
 	$wz_abloese = intval(str_replace('-','',filter_var($roomData['angabenObjekt']['Kaution'], FILTER_SANITIZE_NUMBER_INT)));
 
 	if(is_int($wz_abloese) && $wz_abloese != 0){
@@ -74,7 +75,13 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 	$beschreibung 	= preg_grep('/\bLage\b/', $textArray, PREG_GREP_INVERT);
 	$beschreibung 	= implode(" ", $beschreibung);
 
-
+// 	$imgCount = count($roomData['images']);
+// 	$imgCount--;
+	
+// 	echo $imgCount . ' ';
+// 	print_r($roomData['images'][$imgCount]);
+// 	die();
+	
 	$db = array(
 		'wz_FROM_IMPORT'				=> 'Y',
 
@@ -93,7 +100,7 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 		'wz_ABLOESE'					=> $wz_abloese,
 		'wz_GESCHLECHT_MITBEWOHNER' 	=> 'X',
 
-		'wz_PROFILBILD' 				=> intval($roomData['images'][0]),
+		'wz_PROFILBILD' 				=> reset($roomData['images']),
 		'wz_ACTIVE' 					=> 'N',
 		'wz_COUNT_MITBEWOHNER' 			=> intval($mann + $frau), //4,
 		'wz_COUNT_MITBEWOHNER_M' 		=> intval($mann), //2,
@@ -107,13 +114,16 @@ $copyRooms = dbx::queryAll("SELECT * FROM wizard_auto_858 WHERE wz_images_cnt !=
 		'wz_MITBEWOHNER_ALTER_BIS'		=> $alterBis
 	);
 
+
+// 	print_r($db['wz_PROFILBILD']);
+// 	die( ' wz_profilbild ' );
 	// echo $db['wz_BESCHREIBUNG'] . "<br><br>";
 	// echo $db['wz_LAGE'] . "<br><br>";
 	//
 	// die();
 
 
-	// verfÃ¼gbarkeit
+	// verfuegbarkeit
 	preg_match_all('/(\d+\.\d+\.\d+)/', $roomData['search']['VerfÃ¼gbarkeit'], $matches);
 
 	if ($matches[0][0] != "") {

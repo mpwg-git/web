@@ -104,6 +104,7 @@ img.img-height-responsive.avatarCrop.profile.cropperimage {
 
 
 
+
 .black-bg {
     background: @dark-grey !important;
 }
@@ -176,16 +177,16 @@ img.img-height-responsive.avatarCrop.profile.cropperimage {
 
 
 
-.modal.fade.in .modal-dialog.noQuestionModal {
+#noQuestionModal .modal-dialog.noQuestionModal {
         width: 100%;
         margin: 41px auto;
 
 }
-.modal-content.noQuestionModal {
+#noQuestionModal .modal-content.noQuestionModal {
             height: auto;
             background-color: @blue;
 }
-.modal-header.noQuestionModal {
+#noQuestionModal .modal-header {
                 height: 33.3333333%;
                 border: none;
                 text-align: center;
@@ -263,6 +264,10 @@ h1, h2, h3, h4 {
     // &::first-letter {
     //     letter-spacing: -0.099rem;
     // }
+}
+
+h1.white-heading > span.text {
+    font-size: 3.5rem;
 }
 
 .input-icon .icon-Map {
@@ -886,7 +891,9 @@ div#collapseChangePwd {
     padding-right: 5vw;
 }
 
-#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, #MIETE_error, #ZEITRAUM_VON_error, #NACHNAME_error, #VORNAME_error {
+#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, #MIETE_error, #ZEITRAUM_VON_error, #NACHNAME_error,
+#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div.checkbox-error , #agb-accept_error
+{
     display: none;
     font-family: 'HelveticaNeueW01-ThinCn_673383';
     background-color: #fff;
@@ -898,6 +905,7 @@ div#collapseChangePwd {
     letter-spacing: .1rem;
     border-radius: 4px;
     font-size: 14px;
+    font-weight: bold;
     
 }
 

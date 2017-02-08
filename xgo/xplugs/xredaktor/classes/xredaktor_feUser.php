@@ -411,8 +411,8 @@ class xredaktor_feUser
 		return md5($wz_id).''.$wz_id.'_'.md5(time());
 	}
 
-	private static function sendTokenMail($wz_id,$subject=false,$params=false) {
-
+	private static function sendTokenMail($wz_id,$subject=false,$params=false)
+	{
 		$u 			= self::getUserRecordById($wz_id);
 		$subject 	= self::$mailPage_welcomeWithToken_subject;
 		$token		= $u[self::$userField_userToken];
@@ -431,7 +431,7 @@ class xredaktor_feUser
 		if ($customerMail != "") {
 			$send2[] = $customerMail;
 		}
-
+		
 		$mailSettings = xredaktor_niceurl::getSiteConfigViaPageId(self::$mailPage_welcomeWithToken);
 
 		if (count($send2)>0)
@@ -817,9 +817,8 @@ class xredaktor_feUser
 		if ($_REQUEST[$params['triggerByVar']] != $params['triggerByVal']) 			return array('status'=>'NOT_ACTIVATED','user'=>false);
 
 		$email = $_REQUEST['feuser_email'];
-		
 		$email = strtolower($email);
-
+		
 		if (self::isEmailAlreadyRegistered($email))
 		{
 			$u = self::getUserRecordByEMail($email);
@@ -921,7 +920,8 @@ class xredaktor_feUser
 	
 	}
 	
-	
+
+	/*
 	public static function changeMail()
 	{
 		$t 		= trim($_REQUEST['t']);
@@ -946,8 +946,7 @@ class xredaktor_feUser
 		return array('status' => 'UPDATED', 'user' => $u);
 		
 	}
-	
-	
+
 	public static function sendConfirmMailChange($wz_id)
 	{
 		$uid 	= $wz_id;
@@ -979,7 +978,7 @@ class xredaktor_feUser
 		$html 			= "";
 		$send2 			= array();
 	
-		$customerMail	= trim($u[self::$userField_eMailOld]); //neue mail in wz_mail_alt temporär gesaved bis mail_checked == y
+		$customerMail	= trim($u[self::$userField_eMailOld]); //neue mail in wz_mail_alt temporï¿½r gesaved bis mail_checked == y
 	
 		if ($customerMail != "") {
 			$send2[] = $customerMail;
@@ -1064,6 +1063,6 @@ class xredaktor_feUser
 		}
 	
 	}
-	
+	*/
 
 }

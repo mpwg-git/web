@@ -1,0 +1,30 @@
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
+
+
+<form class="form-mein-profil" id="form-mein-profil">
+    <%******    
+    <h3><%xr_translate tag="Über Mich"%></h3>
+    <%xr_atom a_id=784 return=1 desc='userdaten'%> 
+    *******%>
+    
+    <h3><%xr_translate tag="Meine Daten"%></h3>
+    
+    <%*xr_atom a_id=734 return=1 desc='zeitraum'*%>
+    <%*xr_atom a_id=735 return=1 desc='miete'*%>
+    <%xr_atom a_id=736 return=1 desc='mitbewohner'%>
+    <%xr_atom a_id=737 return=1 desc='wggroesse'%>
+    <%xr_atom a_id=738 return=1 desc='zimmergroesse'%>
+    <%xr_atom a_id=739 return=1 desc='abloese'%>
+    
+    
+    <%xr_atom a_id=740 return=1 desc='raucher'%>
+    <%*xr_atom a_id=699 return=1 desc='sprachen'*%>
+    <%*xr_atom a_id=700 return=1 desc='adresse'*%>
+
+    <%xr_atom a_id=828 return=1 desc='haustiere'%>
+    <%xr_atom a_id=829 return=1 desc='veganer'%>
+    <%xr_atom a_id=869 return=1 showFace=0 desc='barrierefrei'%>
+    
+    <%xr_atom a_id=741 return=1 desc='submit'%>
+</form>
