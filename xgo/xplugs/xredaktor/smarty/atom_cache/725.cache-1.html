@@ -1,0 +1,21 @@
+<%xr_feUser action='finishExternalRegistration' var='fer'%>
+
+<div class="register default-container-padding">
+    
+    <%xr_atom a_id=723 return=1 desc="closer"%>
+    
+    <div class="register-inner">
+        <%if $fer.status == 'OK'%>
+            <h2><%xr_translate tag='Bestätigung erfolgreich'%></h2>
+        	<%xr_translate tag='Ihre Bestätigung war erfolgreich.'%> <%xr_translate tag='Sie können sich nun mit Ihren Benutzerdaten einloggen.'%>
+        	<br/><br/>
+            <a href="<%xr_genlink p_id=6%>" class="button" style="width:100%" target="_self" title="<%xr_translate tag='zum Login'%>"><%xr_translate tag='zum Login'%></a>
+        <%else%>
+            <h2><%xr_translate tag='Bestätigung fehlerhaft'%></h2>
+        	<%xr_translate tag='Ihre Bestätigung war leider fehlerhaft!'%><br />
+        	<%xr_translate tag='Evtl. haben Sie Ihr Konto bereits bestätigt ansonsten versuchen Sie es bitte erneut.'%>
+        	<br/><br/>
+            <a href="<%xr_genlink p_id=6%>" class="button" style="width:100%" target="_self" title="<%xr_translate tag='zum Login'%>"><%xr_translate tag='zum Login'%></a>
+        <%/if%>
+    </div>
+</div>
