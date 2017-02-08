@@ -54,7 +54,7 @@ class handleUserAccounts
 				// 		$db = self::setDbName();
 				$db = self::$hostName;
 
-				$data = dbx::queryAll("SELECT wz_id, wz_del, wz_created, wz_LASTLOGIN, wz_EMAIL FROM `$db`.wizard_auto_707 WHERE `wz_del` =  'N' AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 12 WEEK) ORDER BY wz_LASTLOGIN DESC");
+				$data = dbx::queryAll("SELECT wz_id, wz_del, wz_created, wz_LASTLOGIN, wz_EMAIL FROM `$db`.wizard_auto_707 WHERE `wz_del` =  'N' AND `wz_ACTIVE` = 'Y' AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 12 WEEK) AND `wz_created` < DATE_SUB(CURDATE(), INTERVAL 12 WEEK) ORDER BY wz_created DESC");
 				return $data;
 			}
 
@@ -72,7 +72,9 @@ class handleUserAccounts
 			}
 			public static function getEmailUserList()
 			{
-				$db = self::setDbName();
+				// 		 $db = self::setDbName();
+				$db = self::$hostName;
+
 				$data = dbx::queryAll("SELECT wz_id, wz_del, wz_USERDEL, wz_IS_TMP_USER, wz_online, wz_ACTIVE, wz_created, wz_LASTLOGIN, wz_EMAIL, wz_MAIL_CHECKED, wz_MAIL_TOKEN FROM `$db`.wizard_auto_707 WHERE `wz_del` = 'N' AND `wz_USERDEL` = 'N' AND `wz_online` = 'Y' AND `wz_EMAIL` != '' AND `wz_MAIL_CHECKED` = 'N' AND `wz_MAIL_TOKEN`!= '' AND `wz_created` > DATE_SUB(CURDATE(), INTERVAL 2 MONTH) AND `wz_LASTLOGIN` < DATE_SUB(CURDATE(), INTERVAL 24 HOUR)");
 				return $data;
 			}
@@ -80,11 +82,28 @@ class handleUserAccounts
 
 			public static function deactivateUsers()
 			{
+				$db = self::$hostName;
+
 				$list = self::getUserList();
+
+				// $wzAdmin = array();
 
 				foreach ($list as $l)
 				{
 					$id = $l['wz_id'];
+					/*
+					 $room = dbx::query("SELECT wz_id, wz_ADMIN, wz_del, wz_ACTIVE FROM `$db`.wizard_auto_809 WHERE wz_ADMIN = $id");
+					 if($room !== false){
+					 $wzAdmin = array (
+					 'userID' => $id,
+					 'wzAdmin' => $room['wz_ADMIN'],
+					 'roomID' => $room['wz_id']
+					 );
+					 }
+					 print_r($wzAdmin);
+					 die( ' -- x -- ' );
+					 */
+						
 					$res = fe_user::setUserInactive($id);
 						
 					if($res)

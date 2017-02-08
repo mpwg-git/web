@@ -56,7 +56,8 @@ var fe_map = (function() {
             if ($("#umkreis-slider").data('value') != '') {
                 valueRange = parseInt($("#umkreis-slider").data('value'), 10);
             }
-
+            
+            $('#umkreis-slider').unbind('click');
             $("#umkreis-slider").slider({
                 range: "min",
                 value: valueRange,
@@ -64,15 +65,21 @@ var fe_map = (function() {
                 max: 50,
                 slide: function(event, ui) {
                     $(".ui-slider-handle", "#umkreis-slider").first().html(ui.value);
-                    console.log('ui value ', ui.value);
                     if (me.searchMap.radius.shape != null) {
                         me.searchMap.radius.shape.setRadius(ui.value * 1000);
                     }
                 },
                 stop: function(event, ui) {
                     $("#umkreis-slider").data('value', ui.value);
-                    fe_map.refreshSearch(location.reload());
-
+                    
+                    fe_map.refreshSearch();
+                    
+                    if(currentFace == 3)
+                    {
+	                    setTimeout(function(){
+	                    	window.location.reload();                    	
+	                    }, 400);                    
+                    }
                 }
             });
             $(".ui-slider-handle:first", "#umkreis-slider").html($("#umkreis-slider").slider("value"));
@@ -85,11 +92,13 @@ var fe_map = (function() {
             if ($("#slider-range").data('valuebis') != '') {
                 valueBis = parseInt($("#slider-range").data('valuebis'), 10);
             }
-            console.log("valueab", valueAb);
-            console.log("valuebis", valueBis);
+            // console.log("valueab", valueAb);
+            // console.log("valuebis", valueBis);
 
+            
+            $('#slider-range').unbind('click');
             $("#slider-range").slider({
-                range: true,
+            	range: true,
                 min: 1,
                 max: 1000,
                 values: [valueAb, valueBis],
@@ -100,10 +109,10 @@ var fe_map = (function() {
                     if (diff < 1) {
                         return false;
                     }
-
+                    
                     $(".ui-slider-handle", "#slider-range").first().html("€ " + ui.values[0]);
                     $(".ui-slider-handle", "#slider-range").last().html("€ " + ui.values[1]);
-
+                    
                 },
                 stop: function(event, ui) {
 
@@ -112,16 +121,22 @@ var fe_map = (function() {
 
                     $("#slider-range").data('valueab', ui.values[0]);
                     $("#slider-range").data('valuebis', ui.values[1]);
-
-                    fe_map.refreshSearch(location.reload());
+                                        
+                    fe_map.refreshSearch();
+                    
+                    if(currentFace == 3)
+                    {
+	                    setTimeout(function(){
+	                    	window.location.reload();                    	
+	                    }, 600);                    
+                    }
                 }
             });
 
             $(".ui-slider-handle:first", "#slider-range").html("€ " + $("#slider-range").slider("values", 0));
             $(".ui-slider-handle:last", "#slider-range").html("€ " + $("#slider-range").slider("values", 1));
-
-
-
+            
+            
 
             // mobile only
             if ($(".search-slider").length > 0) {
@@ -319,7 +334,7 @@ var fe_map = (function() {
                 success: function(response) {
 
                     top.endOfResults = response.endOfResults;
-
+                    
                     fe_core.hideLoader();
                     if (response.success) {
                         if ($('.js-replacer-search').length > 0) {
@@ -343,9 +358,11 @@ var fe_map = (function() {
                         // handle results in map
                         me.updateMapWithResults(response.results);
                         me.registerListeners();
-
+                        
                         fe_user.registerListeners();
+                        
                     }
+                    
                 },
                 failure: function(response) {
                     fe_core.hideLoader();
@@ -507,7 +524,7 @@ var fe_map = (function() {
                 // was einfügen
                 content: function(i, p, d) {
 
-                    console.log("-------- cont", i, p, d);
+//                    console.log("-------- cont", i, p, d);
 
                     // ML: nur bei downscroll (== next) sachen laden
                     //if (d == 'next') {
