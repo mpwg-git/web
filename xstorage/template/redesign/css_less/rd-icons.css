@@ -1,0 +1,50 @@
+.header-icon-duck {
+    width: 30px;
+    width: 3rem;
+    vertical-align: top;
+    margin-right: 5px;
+    margin-right: .5rem;
+}
+.carousel-caption > .header-icon-duck {
+    width: 80px;
+    width: 8rem;	
+}
+
+.img-logo {
+    vertical-align: baseline;
+}
+
+.btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
+	width: 65px;
+	width: 6.5rem;
+}
+
+.btn-group-register {
+	display: -webkit-inline-flex;
+ 	display: inline-flex;
+}
+.circle {
+	margin: 2rem;
+	width: 16rem;
+	height: 16rem;
+	background-color: #04e0d7;
+	border: 0px solid #04e0d7;
+  	-webkit-border-radius: 50%;
+  	-moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.circle > img {
+    padding-top: 20px;
+}
+
+
+/* .circle-text { */
+/*   width: 10rem; */
+/*   height: 10rem; */
+/*   border-radius: 50%; */
+/*   font-size: 5rem; */
+/*   color: #fff; */
+/*   line-height: 10rem; */
+/*   text-align: center; */
+/*   background: #000 */
+/* } */
