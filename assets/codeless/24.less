@@ -20,11 +20,16 @@ img {
 	margin: 0;
 }
 .main-content {
-    position: absolute;
-    top: 7.9rem;
+    height: 100%;
+    margin-bottom: 20rem;
+    top: 6.5rem;
     right: 0;
     bottom: 0;
     left: 0;
+    
+    .container {
+        margin-bottom: 10rem;
+    }
 }
 .btn-default {
     font-family: @nunitoextrabold, sans-serif;
@@ -53,24 +58,26 @@ img {
 }
 
 /************* NAV *************/
-.nav-container div {
-    margin-top: 2.25rem;
-    &.header-logo { margin-left: 1rem; float:left; }
-    &.header-nav { margin-right: 1rem; float: right; }
-}
+
 .navbar-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 20;
 }
 .navbar-wrapper > .nav-container {
-  min-height: 7.9rem;
-  max-height: 7.9rem;
-  padding-right: 0;
-  padding-left: 0;
-  background-color: @turkis;
+    min-height: 6.5rem;
+    max-height: 6.5rem;
+    padding: 1.481481481vh 12.5vw;
+    background-color: @turkis;
+    
+    .header-logo {
+        float:left; 
+    }
+    .header-nav {
+        float: right; 
+    }
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;

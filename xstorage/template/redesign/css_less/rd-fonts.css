@@ -1,0 +1,14 @@
+h1 { line-height: 6.2002rem; }
+h4 { line-height: 3.85rem; }
+
+.mpwg-color {
+	color: rgb(4,224,215);
+}
+.nunito-light {
+	font-family: 'NunitoSans-light', sans-serif;
+}
+.fp-text {
+	font-size: 1.8rem;
+	line-height: 3.1rem;
+	margin: 2rem 0;
+}
