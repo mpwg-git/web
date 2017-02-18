@@ -584,11 +584,11 @@ class fe_search
 				switch($k)
 				{
 					case 'mitbewohner_von':
-						if (intval($v) > 0) $where[] = " ( wz_COUNT_MITBEWOHNER >= $v ) ";
+						if (intval($v) >= 0) $where[] = " ( wz_COUNT_MITBEWOHNER >= $v ) ";
 						break;
 	
 					case 'mitbewohner_bis':
-						if (intval($v) > 0) $where[] = " ( wz_COUNT_MITBEWOHNER <= $v ) ";
+						if (intval($v) >= 0) $where[] = " ( wz_COUNT_MITBEWOHNER <= $v ) ";
 						break;
 	
 					case 'geschlecht':
@@ -597,11 +597,11 @@ class fe_search
 						break;
 	
 					case 'zimmer_von':
-						if ($v > 0) $where[] = " ( wz_GROESSE >= $v )";
+						if ($v >= 0) $where[] = " ( wz_GROESSE >= $v )";
 						break;
 	
 					case 'zimmer_bis':
-						if ($v > 0) $where[] = " ( wz_GROESSE <= $v )";
+						if ($v >= 0) $where[] = " ( wz_GROESSE <= $v )";
 						break;
 	
 					case 'raucher':

@@ -1,5 +1,5 @@
 <?
-//error_reporting(E_PARSE);
+// error_reporting(E_ALL);
 
 class fe_user
 {
@@ -626,16 +626,18 @@ class fe_user
 
 	public static function getMyRoomData($params)
 	{
-
 		self::checkLoggedIn();
 
 		$userId			= xredaktor_feUser::getUserId();
 		$userId			= intval($userId);
-
+		
 		if ($userId == 0) return false;
 
 		//$myRoomId		= fe_room::getRoomIdByUserId($userId);
 		$myRoomId = intval($params['roomId']);
+		
+		$sex = 'F';
+		$sex = dbx::query("SELECT wz_GESCHLECHT FROM wizard_auto_707 WHERE wz_id = $userId");
 
 		if (isset($_REQUEST['createNew']) && $_REQUEST['createNew'] == 1)
 		{
@@ -649,9 +651,20 @@ class fe_user
 				);
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
-
+				
+				if($sex == 'M')
+				{
+					$insert['wz_COUNT_MITBEWOHNER_M'] = 1;
+					$insert['wz_COUNT_MITBEWOHNER'] = 1;
+				}
+				else 
+				{
+					$insert['wz_COUNT_MITBEWOHNER_F'] = 1;
+					$insert['wz_COUNT_MITBEWOHNER'] = 1;
+				}
+				
 				dbx::insert("wizard_auto_809", $insert);
-
+					
 				$myRoomId	= dbx::getLastInsertId();
 
 				fe_room::assignUser2Room($userId, $myRoomId);
@@ -667,9 +680,7 @@ class fe_user
 
 			}
 		}
-
 		return fe_room::getRoomData($myRoomId);
-
 	}
 
 

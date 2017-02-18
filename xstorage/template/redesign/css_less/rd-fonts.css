@@ -12,3 +12,7 @@ h4 { line-height: 3.85rem; }
 	line-height: 3.1rem;
 	margin: 2rem 0;
 }
+.fp-text-small {
+	font-size: 1.4rem;
+	margin: 3rem 3rem 5rem 3rem;
+}

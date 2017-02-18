@@ -16,18 +16,25 @@ img {
     max-width: 100%;
     height: auto;
 }
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+
 .page-wrapper {
 	margin: 0;
 }
 .main-content {
     height: 100%;
-    margin-bottom: 20rem;
+    margin-bottom: 12rem;
     top: 6.5rem;
     right: 0;
     bottom: 0;
     left: 0;
     
     .container {
+        margin-top: 3.5rem;
         margin-bottom: 10rem;
     }
 }
@@ -105,17 +112,26 @@ p.caption {
     word-wrap: normal;
     text-transform: uppercase;
 }
-// .carousel {
-//   margin: 7.9rem auto 5rem auto;
-// }
 .carousel-inner {
-    top: -75px;
-    top: -7.5rem;
+    max-height: 800px;
+    
+    .item {
+        max-height: 800px;
+    }
+    
+}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    width: 100%;
+    opacity: .7;
 }
 .carousel-caption {
     width: 100%;
     height: auto;
-    top: 25%;
+    top: 20%;
     left: 0;
     z-index: 10;
 }
@@ -155,14 +171,6 @@ p.caption {
 }
 .carousel-indicators li:last-child {
     margin-top: 1.2rem;
-}
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-    line-height: 1;
-    width: 100%;
-    opacity: .7;
 }
 
 .carousel-caption h1 { text-transform: uppercase; }

@@ -1,14 +1,15 @@
 #latest-news .col-md-4 {
 	margin-top: 7rem;
 }
-
-
 #latest-news {
 	background-color: rgb(4,224,215);
 }
 #latest-news h1 {
 	color: #fff;
 	float: right;
+}
+#latest-news h1:hover {
+	text-decoration: underline;
 }
 hr {
     margin-top: 20px;
@@ -17,12 +18,71 @@ hr {
     border-top: 11px solid #eee;
     width: 85px;
 }
-
 #und-los-gehts {
 	margin-top: 5.4rem;
 }
+#und-los-gehts h2 {
+	font-size: 24px;
+	font-size: 2.4rem;
+	color: rgb(100,100,100);
+	border-top: 2px solid #646464;
+	padding-top: 17rem;
+}
 
+.big-text-btn {
+	text-align: center;
+}
+.big-text-btn > .btn-icon-wgsuchtwg,
+.big-text-btn > .btn-icon-mitbewohner,
+.big-text-btn > .btn-icon-wgzimmer {
+	position: relative;
+    width: 7rem;
+    top: 15rem;
+}
+.btn-icons-reg {
+    font-family: 'Nunitosans-Black';
+    font-size: 14px; 
+    font-size: 1.4rem; 
+	background-color: #646464;
+    color: #fff;
+    line-height: 2;
+    border: none;
+    box-shadow: 0.126rem 0.126rem 0.126rem #646464;
+}
+footer {
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 #footer {
-	padding: 0;
+	min-height: 7rem;
+    max-height: 7rem;
+	background-color: #646464;
+    padding: 1.481481481vh 8vw;
 	margin: 0;
 }
+.footer-links {
+    position: relative;
+    bottom: 15px;
+    margin-bottom: -25px;
+}
+a {
+	font-family: 'NunitoSans-black', sans-serif;
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin: 0 .3rem;
+    color: #fff;
+}
+a:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+span.footer-text {
+	font-family: 'NunitoSans-regular', sans-serif;
+	font-size: 12px;
+	font-size: 1.2rem;
+	color: #fff;	
+	margin-left: 6rem;
+}
+
+
