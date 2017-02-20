@@ -1,1 +1,69 @@
+@import "23.less";
+
+html, body { width: 100%; height: 100%; }
+
+body { font-size: 1rem; text-size-adjust: auto; -webkit-text-size-adjust: auto; }
+
+*, *:before, *:after {
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+}
+::-webkit-scrollbar { display: none; }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+
+.page-wrapper {
+	margin: 0;
+}
+.main-content {
+    height: 100%;
+    margin-bottom: 12rem;
+    top: 6.5rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    .container {
+        margin-top: 3.5rem;
+        margin-bottom: 10rem;
+    }
+}
+.btn-default {
+    font-family: @nunitoextrabold, sans-serif;
+    font-size: 14px;
+    font-size: 1.4rem;
+    
+    &.btn-login {
+        font-family: @nunitoregular;
+        color: @darkgray;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        margin-right: 1.5rem;
+        
+        & + span .navlinks {
+            font-family: @nunitoregular;
+            font-size: 14px;
+            font-size: 1.4rem;
+            color: #fff;
+            
+            &.active {
+                font-family: @nunitoblack;
+            }
+        }
+    }
+
+}
+.navbar-wrapper, .header-logo, .header-icon-duck { 
+    min-height: 6rem; max-height: 6rem; 
+    background-color: @turkis;
+}
 

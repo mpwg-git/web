@@ -1,0 +1,401 @@
+@import "22.less"; 
+@import "23.less"; 
+
+/**
+ *
+ ******************* SETTINGS  ******************* 
+ *
+**/
+html {
+	font-size: 16px;
+}
+body {
+	font-size: 62.5%; /* 1em = 10px */
+}
+*, *:before, *:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+img,
+embed,
+object,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+blockquote, blockquote .small, blockquote footer, blockquote small {
+    border: none;
+    color: #fff;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.h1, .h2, .h3, h1, h2, h3 { margin: 20px 0; }
+h4 {  line-height: 2; }
+
+.error-div {
+    display: none;
+}
+
+
+/**
+ *
+ ******************* PAGE WRAPPER & MAIN ELEMENTS  ******************* 
+ *
+**/
+.page-wrapper {
+    margin: 0;
+    overflow-x: hidden;
+}
+#main-header {
+	position: fixed;
+	width: 100%;
+	height: 6em;
+	background-color: @turkis;
+    padding: 1.4em 6em 0 6em;
+	top: 0;
+	z-index: 999;
+}
+#main-content {
+    position: relative;
+    top: 0;
+	padding-bottom: 10em;
+}
+#main-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 7em;
+    background: @darkgray;
+}
+.header-logo {
+    background: url(/xstorage/template/img/redesign/mpwg-schriftzug.png) no-repeat;
+    background-position: 30px 0;
+}
+
+#so-einfach-gehts {
+    margin: 3em auto 6em auto;
+}
+#latest-news {
+    background-color: @turkis;
+    
+}
+#und-los-gehts {
+	margin: 5.4em auto;
+	
+	h2 {
+    	font-size: 24px;
+    	color: rgb(100,100,100);
+    	border-top: 2px solid #646464;
+    	padding-top: 17rem;
+	}
+	
+	h1.los-gehts {
+        margin-bottom: 25px;
+	}
+}
+
+
+footer {
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer-links {
+    position: relative;
+    left: 125px;
+    
+    a.inner-link {
+        position: relative;
+    	text-decoration: none;
+    	font-size: 1.4em;
+    	font-family: @nunitoextrabold;
+        
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+        &:hover {
+            background-color: transparent;
+            font-weight: bold;
+        }
+        &:hover:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+}
+span.footer-text {
+    font-family: 'NunitoSans-regular';
+    font-size: 14px;
+    font-size: 1.2em;
+    line-height: 1;
+    color: #fff;
+    margin-left: 71px;
+    display: block;
+    margin-top: -10px;
+}
+.footer-icon-fb {
+    width: 40px;
+    padding-top: 15px;
+    margin-right: 1em;
+}
+
+
+
+
+
+/**
+ *
+ ******************* NAV LINKS BUTTONS  ******************* 
+ *
+**/
+a, .navlinks {
+	font-family: @nunitolight;
+	font-size: 15px;
+	font-size: 1.5em;
+	margin: 0 .3em;
+    color: #fff;
+    // &:hover { font-family: @nunitoblack; }
+    &.active { font-family: @nunitoblack; }
+}
+a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+.btn.btn-default.btn-login {
+    padding: 3px 22px;
+    position: relative;
+    right: 2.2em;
+    width: 100px;
+    height: 30px;
+    color: @darkgray;
+    font-family: @nunitobold;
+    font-size: 1.4em;
+    border-color: transparent;
+    position: relative;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 2px;
+        bottom: 4px;
+        left: 20%;
+        background-color: @darkgray;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover {
+        background-color: #fff;
+        font-weight: bold;
+    }
+    &:hover:before {
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+}
+img.icon-duck {
+    width: 3em;
+}
+.big-text-btn {
+	text-align: center;
+	position: relative;
+    bottom: 60px;
+    cursor: pointer;
+}
+.big-text-btn > .btn-icon-wgsuchtwg,
+.big-text-btn > .btn-icon-mitbewohner,
+.big-text-btn > .btn-icon-wgzimmer {
+	position: relative;
+    width: 7rem;
+    top: 15rem;
+}
+.btn-icons-reg {
+    font-family: 'Nunitosans-Black';
+    font-size: 14px; 
+	background-color: #646464;
+    color: #fff;
+    line-height: 2;
+    border: none;
+    box-shadow: 0.126em 0.126em 0.126em #646464;
+}
+
+#form-login-submit, #fb-login-submit {
+    width: 100%;
+    height: 54px;
+    font-size: 14px;
+    font-family: @nunitoextrabold;
+    color: #fff;
+    background-color: @turkis;
+    border: none;
+    -webkit-border-radius: 4px;
+  	-moz-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: #646464 0px 0px 3px;
+    
+    &:hover {color: @darkgray; }
+}
+
+
+
+
+
+/**
+ *
+ ******************* SLIDER  ******************* 
+ *
+**/
+.carousel-inner > .item {
+    filter: brightness(60%);
+    img {
+        width: 100%;
+    }
+}
+.carousel-indicators {
+    max-width: 12px;
+    height: 6.25%;
+    left: 95%;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+}
+.carousel-indicators li {
+    display: block;
+    width: 10px;
+    height: 10px;
+    width: 1em;
+    height: 1em;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 0.1em solid #04e0d7;
+    border-radius: 1em;
+}
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #04e0d7;
+}
+.carousel-indicators li:first-child {
+    margin-bottom: 1.2em;
+}
+.carousel-indicators li:last-child {
+    margin-top: 1.2em;
+}
+.carousel-caption > .header-icon-duck {
+    width: 80px;
+    width: 8em;	
+}
+.carousel-caption {
+    top: 20%;
+}
+.img-logo {
+    vertical-align: baseline;
+}
+.btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
+	width: 65px;
+	width: 6.5em;
+}
+.btn-group-register {
+	display: -webkit-inline-flex;
+ 	display: inline-flex;
+}
+.circle {
+	margin: 2em;
+	width: 172px;
+	height: 172px;
+	background-color: #04e0d7;
+	border: 0px solid #04e0d7;
+  	-webkit-border-radius: 50%;
+  	-moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.circle > img {
+    padding-top: 20px;
+}
+.circle:hover {
+	transform: scale(1.05);
+}
+.caption-text {
+    font-size: 1.6em;
+    line-height: 1.4;
+    font-family: @nunitoblack;
+    padding: 10px 25px 0;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+
+
+
+
+
+/**
+ *
+ ******************* SPECIAL FONTS COLOR STYLES  ******************* 
+ *
+**/
+.mpwg-color {
+	color: rgb(4,224,215);
+}
+.nunito-light {
+	font-family: @nunitolight;
+}
+.fp-text {
+	font-size: 18px;
+	line-height: 31px;
+}
+.fp-text-small {
+	font-size: 14px;
+	margin: 30px 25px 50px 25px;
+}
+
+a > h1 { font-size: 3.6em; }
+.latest-news { margin-left: 30.10338362031892%; text-decoration: underline; }
+
+label {
+    font-size: 14px;
+    font-family: @nunitoextrabold;
+}
+.forgotpw { 
+    color: @turkis;
+    font-size: 14px;
+    font-family: @nunitolight;
+    margin: 0;
+    
+    &:hover {
+        color: @turkis;
+        text-decoration: underline;
+    }
+}
+
+
+
+
+	
+
+
