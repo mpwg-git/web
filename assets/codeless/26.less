@@ -81,6 +81,9 @@ h4 {  line-height: 2; }
 
 #so-einfach-gehts {
     margin: 3em auto 6em auto;
+    position: relative;
+    top: 6em;
+    padding-bottom: 6em;
 }
 #latest-news {
     background-color: @turkis;
@@ -267,6 +270,13 @@ img.icon-duck {
  ******************* SLIDER  ******************* 
  *
 **/
+.carousel {
+    top: 6em;
+    
+    .carousel-inner {
+        max-height: 650px;
+    }
+}
 .carousel-inner > .item {
     filter: brightness(60%);
     img {
@@ -312,6 +322,9 @@ img.icon-duck {
 }
 .carousel-caption {
     top: 20%;
+    width: 100%;
+    left: 0;
+    right: 0;
 }
 .img-logo {
     vertical-align: baseline;
@@ -347,6 +360,11 @@ img.icon-duck {
     padding: 10px 25px 0;
     text-transform: uppercase;
     margin: 0;
+}
+@media screen and (max-width: 1368px) {
+    .btn-group-register {
+        transform: scale(0.9);
+    }
 }
 
 
