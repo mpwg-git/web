@@ -1,12 +1,13 @@
-<div id="main-header" >
-    <div class="row">
-        <div class="col-md-6 col-xs-7" style="margin-right: -15px;">
+<div id="main-header" class="no-gutter">
+    <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-5 col-xs-7">
             <div class="header-logo">
-                <img class="icon-duck" src="/xstorage/template/redesign/svg/icon-duck-white.svg" alt="Icon" />
+                <img class="icon-duck" src="/xstorage/template/redesign/svg/icon-duck-white.svg" alt="Dr Duck" />
+                <img class="icon-font" src="/xstorage/template/img/redesign/mpwg-schriftzug.png" alt="Logo" />
             </div>
         </div>
-        <div class="no-gutter">
-            <div class="col-md-6 col-xs-5 text-right no-gutter">
+        <!--<div class="no-gutter">-->
+            <div class="col-md-5 col-xs-5 text-right no-gutter">
                 <a class="btn btn-default btn-login text-uppercase" data-toggle="collapse" href="#anmelden-inner">Login</a>
                 <%xr_atom a_id=955 return=1%>
                 <span class="nav-p-lang">
@@ -14,6 +15,6 @@
                     <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
                 </span>
             </div>
-        </div>
-    </div>
+    <div class="col-md-1">&nbsp;</div>
+        <!--</div>-->
 </div>

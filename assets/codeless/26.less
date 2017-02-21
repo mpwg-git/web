@@ -11,6 +11,9 @@ html {
 }
 body {
 	font-size: 62.5%; /* 1em = 10px */
+	vertical-align: baseline;
+    vertical-align: -webkit-baseline-middle;
+	
 }
 *, *:before, *:after {
 	box-sizing: border-box;
@@ -22,7 +25,6 @@ embed,
 object,
 video {
 	max-width: 100%;
-	height: auto;
 }
 
 blockquote, blockquote .small, blockquote footer, blockquote small {
@@ -36,8 +38,19 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     padding-right:0;
     padding-left:0;
 }
-.h1, .h2, .h3, h1, h2, h3 { margin: 1.7094017094017095% 0; }
-h4 {  line-height: 2; }
+.h1, .h2, .h3, h1, h2, h3 { 
+    margin: 20px 0;
+}
+
+a {
+    font-size: .9375em;
+    font-family: @nunitoextrabold;
+    color: white;
+    
+    &:hover {
+        color: #fff;
+    }
+}
 
 .error-div {
     display: none;
@@ -50,23 +63,201 @@ h4 {  line-height: 2; }
  *
 **/
 .page-wrapper {
+    font-size: 1.6em;
+    line-height: 1;
     margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 #main-header {
 	position: fixed;
 	width: 100%;
-	height: 6em;
+	height: 50px;
 	background-color: @turkis;
 	top: 0;
 	z-index: 999;
-    padding: 0.7291666666666666% 3.125%;
+	padding: 5px 0;
+	
+    .header-logo {
+        cursor: pointer;
+        
+        img.icon-duck {
+            width: 4.75%;
+        }
+        img.icon-font {
+            width: 22%;
+        }
+    }
+    
+    .btn.btn-default.btn-login {
+        width: 12.5%;
+        font-family: 'NunitoSans-bold';
+        font-size: .875em;
+        line-height: 1;
+        color: @darkgray;
+        border-color: transparent;
+        margin-right: 35px;
+        margin-top: 5px;
+        vertical-align: baseline;
+        
+        &:hover {
+        	text-decoration: none;
+        	background-color: @lightgray;
+        }
+    }
+    
+    #anmelden-inner {
+        width: 60%;
+        position: absolute;
+        right: 0px;
+        border: 1px solid transparent;
+        background-color: #fff;
+        box-shadow: #646464 0 0 10px;
+        border-radius: 4px;
+        padding: 20px 30px 35px;
+        margin-top: 16px;
+        
+        h3 {
+            margin: 0;
+        }
+        #form-login {
+            margin-top: 16px;
+        }
+    }
+    
+    .nav-p-lang {
+        .navlinks {
+            // float: right;
+        	font-family: @nunitolight;
+            font-size: 0.9375em;
+            margin: 0;
+            color: #fff;
+            
+            &.active {
+                font-family: @nunitoblack; 
+            }
+        }
+    }
 }
+
 #main-content {
     position: relative;
-    top: 0;
-	padding-bottom: 10em;
+	padding-bottom: 100px;
+	
+	.carousel {
+        position: relative;
+        top: 50px;
+        
+        .carousel-indicators {
+            max-width: 12px;
+            height: 6.25%;
+            left: 95%;
+            top: 50%;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                display: block;
+                width: 10px;
+                height: 10px;
+                width: 1em;
+                height: 1em;
+                text-indent: -999px;
+                cursor: pointer;
+                background-color: #fff;
+                border: 0.1em solid #04e0d7;
+                border-radius: 1em;
+                
+                &:first-child {
+                    margin-bottom: 1.2em;
+                }
+                &:last-child {
+                    margin-top: 1.2em;
+                }
+            }
+            
+            .active {
+                width: 12px;
+                height: 12px;
+                width: 1.2em;
+                height: 1.2em;
+                background-color: #04e0d7;
+            }
+        }
+
+        .carousel-inner {
+            max-height: 650px;
+            padding: 0;
+            
+            .carousel-caption {
+                top: 0;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                right: 0;
+                padding: 88px 0;    
+                
+                .header-icon-duck {
+                    width: 80px;	
+                }
+                
+                .hl-caption {
+                    font-family: @nunitolight;
+                }
+                
+                .btn-group-register {
+                 	width: 100%;
+                	display: -webkit-inline-flex;
+                 	display: inline-flex;
+                 	cursor: pointer;
+                }
+                .btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
+                	width: 65px;
+                	width: 6.5em;
+                }
+                .circle {
+                    width: 8.93970893970894%;
+                    width: 172px;
+                    height: 172px;
+                    margin: 2em;
+                    float: left;
+                    background-color: @turkis;
+                    border: 0 solid @turkis;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    
+                    img {
+                        padding-top: 20px;
+                    }
+                    
+                    &:hover {
+                	    transform: scale(1.05);
+                    }
+                    .caption-text {
+                        font-size: 1.6em;
+                        line-height: 1.4;
+                        font-family: @nunitoblack;
+                        padding: 10px 25px 0;
+                        text-transform: uppercase;
+                        margin: 0;
+                    }
+                
+                    
+                }
+
+            }
+            .item {
+                filter: brightness(60%);
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }   
 }
+
+
 #main-footer {
     position: fixed;
     width: 100%;
@@ -74,10 +265,44 @@ h4 {  line-height: 2; }
     height: 7em;
     background: @darkgray;
 }
-.header-logo {
-    background: url(/xstorage/template/img/redesign/mpwg-schriftzug.png) no-repeat;
-    background-position: 30px 0;
-    cursor: pointer;
+
+
+    
+    .label-use-cookie {
+        font-family: @nunitolight;
+    }
+
+label {
+    font-size: 14px;
+    font-family: @nunitoextrabold;
+}
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-Close:before {
+    content: "\e61c";
+}    
+input.form-control {
+    background-color: #efefef;
+    margin-bottom: 1em;
+    padding: 0 5px;
+    border: none;
+    font-family: 'NunitoSans-light';
+}
+
+.label-use-cookie {
+    font-family: 'NunitoSans-light';
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: middle;
 }
 
 #so-einfach-gehts {
@@ -171,6 +396,7 @@ span.footer-text {
  ******************* NAV LINKS BUTTONS  ******************* 
  *
 **/
+    /*
 a, .navlinks {
 	font-family: @nunitolight;
 	font-size: 15px;
@@ -185,7 +411,7 @@ a:hover {
 	color: #fff;
 }
 .btn.btn-default.btn-login {
-    padding: 3px 22px;
+    padding: 5px 0;
     position: relative;
     right: 2.2em;
     width: 100px;
@@ -195,14 +421,18 @@ a:hover {
     font-size: 1.4em;
     border-color: transparent;
     position: relative;
-    
+    &:hover {
+        background-color: #efefef;
+        font-weight: bold;
+    }
+
     &:before {
         content: "";
         position: absolute;
-        width: 60%;
+        width: 46%;
         height: 2px;
         bottom: 4px;
-        left: 20%;
+        left: 27%;
         background-color: @darkgray;
         visibility: hidden;
         -webkit-transform: scaleX(0);
@@ -219,10 +449,10 @@ a:hover {
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
     }
+
 }
-img.icon-duck {
-    width: 3em;
-}
+*/
+
 .big-text-btn {
 	text-align: center;
 	position: relative;
@@ -266,115 +496,22 @@ img.icon-duck {
 
 
 
-/**
- *
- ******************* SLIDER  ******************* 
- *
-**/
-.carousel {
-    top: 6em;
-    
-    .carousel-inner {
-        max-height: 650px;
-        padding: 0;
-    }
-}
-.carousel-inner > .item {
-    filter: brightness(60%);
-    img {
-        width: 100%;
-    }
-}
-.carousel-indicators {
-    max-width: 12px;
-    height: 6.25%;
-    left: 95%;
-    top: 50%;
-    margin: 0;
-    padding: 0;
-}
-.carousel-indicators li {
-    display: block;
-    width: 10px;
-    height: 10px;
-    width: 1em;
-    height: 1em;
-    text-indent: -999px;
-    cursor: pointer;
-    background-color: #fff;
-    border: 0.1em solid #04e0d7;
-    border-radius: 1em;
-}
-.carousel-indicators .active {
-    width: 12px;
-    height: 12px;
-    width: 1.2em;
-    height: 1.2em;
-    background-color: #04e0d7;
-}
-.carousel-indicators li:first-child {
-    margin-bottom: 1.2em;
-}
-.carousel-indicators li:last-child {
-    margin-top: 1.2em;
-}
-.carousel-caption > .header-icon-duck {
-    width: 4.158004158004158%;	
-}
-.carousel-caption {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    padding: 4.615384615384616% 0;
-}
+
 .img-logo {
     vertical-align: baseline;
 }
-.btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
-	width: 65px;
-	width: 6.5em;
-}
-.btn-group-register {
-	display: -webkit-inline-flex;
- 	display: inline-flex;
- 	cursor: pointer;
-}
-.circle {
-    width: 8.93970893970894%;
-    width: 172px;
-    height: 172px;
-    margin: 2em;
-    float: left;
-    background-color: @turkis;
-    border: 0 solid @turkis;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
 
-    
-}
-.circle > img {
-    padding-top: 20px;
-}
-.circle:hover {
-	transform: scale(1.05);
-}
-.caption-text {
-    font-size: 1.6em;
-    line-height: 1.4;
-    font-family: @nunitoblack;
-    padding: 10px 25px 0;
-    text-transform: uppercase;
-    margin: 0;
-}
+
+
+/*
 @media screen and (max-width: 1368px) {
     .btn-group-register {
-        transform: scale(0.9);
+        position: relative;
+        bottom: 20px;
+        transform: scale(0.75);
     }
 }
-
+*/
 
 
 
