@@ -732,8 +732,11 @@ class fe_search
 				}
 			}
 		}
-
-
+		
+		// keine zimmer anzeigen wenn wz_ADMIN mail_CHECKED = N
+		$where[] = " (SELECT wizard_auto_707.wz_MAIL_CHECKED FROM wizard_auto_707 WHERE wizard_auto_707.wz_id = wizard_auto_809.wz_ADMIN) = 'Y' ";
+		
+		
 		// allgemein: keine deaktivierten / gelöschten Räume in den suchergebnissen
 		$where[] = " wizard_auto_809.wz_ACTIVE != 'N' ";
 		$where[] = " wizard_auto_809.wz_del != 'Y' ";
@@ -763,6 +766,12 @@ class fe_search
 		if ($_REQUEST['x'] == 1)
 		{
 			die($sql);
+		}
+		
+
+		if(libx::isDeveloper()){
+			print_r($sql);
+			die(' --- ');
 		}
 
 		$results 	= dbx::queryAll($sql, true);
