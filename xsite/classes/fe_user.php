@@ -23,22 +23,22 @@ class fe_user
 
 	// defaults bei reg
 	public static $regDefaults = array(
-		'wz_LAND'			=> 1,	// österreich
+// 		'wz_LAND'			=> 1,	// österreich
 
-		'wz_HAUSTIERE' 	=> 'X',
+		'wz_HAUSTIERE' 		=> 'X',
 		'wz_VEGGIE' 		=> 'X',
 		'wz_ABLOESE' 		=> 'X',
 		'wz_MITBEWOHNER'	=> 'X',
 		'wz_RAUCHER'		=> 'X',
-		'wz_BARRIEREFREI' => 'X',
+		'wz_BARRIEREFREI' 	=> 'X',
 
-		'wz_ADRESSE'		=> 'Wien, Österreich',
-		'wz_ADRESSE_LAT' 	=> 48.2081743,
-		'wz_ADRESSE_LNG'	=> 16.3738189,
+// 		'wz_ADRESSE'		=> 'Wien, Österreich',
+// 		'wz_ADRESSE_LAT' 	=> 48.2081743,
+// 		'wz_ADRESSE_LNG'	=> 16.3738189,
 
-		'wz_MIETE_VON' 	=> 0,
-		'wz_MIETE_BIS' 	=> 1000,
-		'wz_UMKREIS'		=> 5,
+		'wz_MIETE_VON' 		=> 0,
+		'wz_MIETE_BIS' 		=> 1000,
+		'wz_UMKREIS'		=> 50,
 
 		//'wz_WGGROESSE_VON' => 1,
 		//'wz_WGGROESSE_BIS' => 10,
@@ -3011,12 +3011,12 @@ class fe_user
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
 
-				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_MIETE'] 				= $MIETE_BIS;
 				$insert['wz_ADRESSE']				= $ADRESSE;
 				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
 				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
 				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
-				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+				$insert['wz_ADRESSE_STADT']			= $ADRESSE_STADT;
 				$insert['wz_ADRESSE_LAND']			= intval($land);
 				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
 				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
@@ -3151,17 +3151,17 @@ class fe_user
 		}
 ////////
 
-		$VORNAME					= trim($_REQUEST['VORNAME']);
-		$NACHNAME				= trim($_REQUEST['NACHNAME']);
+		$VORNAME			= trim($_REQUEST['VORNAME']);
+		$NACHNAME			= trim($_REQUEST['NACHNAME']);
 
-		$ADRESSE					= trim($_REQUEST['ADRESSE']);
-		$ADRESSE_STRASSE		= trim($_REQUEST['ADRESSE_STRASSE']);
+		$ADRESSE			= trim($_REQUEST['ADRESSE']);
+		$ADRESSE_STRASSE	= trim($_REQUEST['ADRESSE_STRASSE']);
 		$ADRESSE_STRASSE_NR	= trim($_REQUEST['ADRESSE_STRASSE_NR']);
-		$ADRESSE_PLZ			= trim($_REQUEST['ADRESSE_PLZ']);
-		$ADRESSE_STADT			= trim($_REQUEST['ADRESSE_STADT']);
-		$ADRESSE_LAT			= trim($_REQUEST['ADRESSE_LAT']);
-		$ADRESSE_LNG			= trim($_REQUEST['ADRESSE_LNG']);
-		$AGB						= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
+		$ADRESSE_PLZ		= trim($_REQUEST['ADRESSE_PLZ']);
+		$ADRESSE_STADT		= trim($_REQUEST['ADRESSE_STADT']);
+		$ADRESSE_LAT		= trim($_REQUEST['ADRESSE_LAT']);
+		$ADRESSE_LNG		= trim($_REQUEST['ADRESSE_LNG']);
+		$AGB				= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
 
 
 		if($AGB == 'off')
@@ -3241,7 +3241,12 @@ class fe_user
 				$searchData['price_from'] = $MIETE_BIS;
 				$searchData['price_to'] = 1000;
 			}
-
+			
+			//TODO
+			
+			print_r($db_user);
+			die( ' checkUser === false ' );
+			
 			dbx::insert('wizard_auto_707',$db_user);
 
 			$_REQUEST['feuser_email'] = $EMAIL;
@@ -3298,7 +3303,11 @@ class fe_user
 		$feu_id = intval($presentUser['wz_id']);
 
 		$searchData = json_encode($searchData);
-
+		
+		// TODO
+		print_r($presentUser);
+		die( ' presentUser !== false ' );
+		
 		dbx::update('wizard_auto_707',array('wz_SEARCHDATA'=>$searchData,'wz_LASTLOGIN'=>'NOW()','wz_VORNAME'=>$VORNAME,'wz_NACHNAME'=>$NACHNAME,'wz_GESCHLECHT'=>$SEX,'wz_AGB_1'=>$AGB),array('wz_id'=>$feu_id));
 
 		// insert into matching cron
@@ -3351,12 +3360,12 @@ class fe_user
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
 		
-				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_MIETE'] 				= $MIETE_BIS;
 				$insert['wz_ADRESSE']				= $ADRESSE;
 				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
 				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
 				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
-				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+				$insert['wz_ADRESSE_STADT']			= $ADRESSE_STADT;
 				$insert['wz_ADRESSE_LAND']			= intval($land);
 				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
 				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;

@@ -1,26 +1,29 @@
-<%$adresseValue='Wien, Österreich'%>
+<%$adresseValue=''%>
 <%if $inForm == 1%>
     <%$adresseValue=$profileData['wz_ADRESSE']%>
 <%elseif isset($searchSession['adresse'])%>
     <%$adresseValue=$searchSession['adresse']%>
 <%else%>
-    <%$adresseValue=$adresseValue%>
+    <%$adresseValue=$value%>
 <%/if%>
-<%if $adresseValue==''%><%$adresseValue='Wien, Österreich'%><%/if%>
 
+<%*
+<%if $adresseValue==''%><%$adresseValue='Wien,Österreich'%><%/if%>
+*%>
 
-<div style="width:100%" class="input-icon search-input search-input-map <%if $inForm == 1%>small v-center<%/if%>">
-    <input class="form-control autocomplete-location <%if $inForm == 1%>in-form<%/if%>" <%if $inForm == 1%>id="ADRESSE" rel="required"<%/if%> name="ADRESSE" value="<%$adresseValue%>" placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
-    
-     
+<div class="input-icon search-input search-input-map <%if $inForm == 1%>small v-center<%/if%>">
+    <input class="form-control autocomplete-location <%$addClass%> <%if $inForm == 1%>in-form<%/if%>" <%if $inForm == 1%>id="ADRESSE" rel="required"<%/if%> name="ADRESSE" value="<%$adresseValue%>"  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
     
     <span class="icon-Map js-autocomplete-duck">
 	    <span class="path1"></span><span class="path2"></span>
 	</span>
 	
+	
+	
+	
 	<div class="location-hidden-container">
 	    
-	    <input type="hidden" name="ADRESSE_STRASSE" class="location-strasse route" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STRASSE']%>"<%elseif isset($searchSession)%>value="<%$searchSession['location']['ADRESSE_STRASSE']%>"<%/if%> />
+	   <input type="hidden" name="ADRESSE_STRASSE" class="location-strasse route" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STRASSE']%>"<%elseif isset($searchSession)%>value="<%$searchSession['location']['ADRESSE_STRASSE']%>"<%/if%> />
     	<input type="hidden" name="ADRESSE_STRASSE_NR" class="location-strasse-nr street_number" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STRASSE_NR']%>" <%elseif isset($searchSession)%>value="<%$searchSession['location']['ADRESSE_STRASSE_NR']%>"<%/if%>/>
     	<input type="hidden" name="ADRESSE_PLZ" class="location-plz postal_code" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_PLZ']%>"<%elseif isset($searchSession)%>value="<%$searchSession['location']['ADRESSE_PLZ']%>"<%/if%>  />
     	<input type="hidden" name="ADRESSE_STADT" class="location-stadt locality" <%if $inForm == 1%>value="<%$profileData['wz_ADRESSE_STADT']%>"<%elseif isset($searchSession)%>value="<%$searchSession['location']['ADRESSE_STADT']%>"<%/if%>  />
@@ -30,6 +33,7 @@
     	
     	<input type="hidden" class="administrative_area_level_1" />
     	
+    	
 	</div>
 	
 	<%if $inForm == 1%>
@@ -38,3 +42,7 @@
         </div>
     <%/if%>
 </div>
+
+
+
+
