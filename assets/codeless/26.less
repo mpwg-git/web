@@ -34,7 +34,7 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
 ::-webkit-scrollbar {
 	display: none;
 }
-.no-gutter > [class*='col-'] {
+.no-gutter, .no-gutter > [class*='col-'] {
     padding-right:0;
     padding-left:0;
 }
@@ -72,32 +72,34 @@ a {
 #main-header {
 	position: fixed;
 	width: 100%;
-	height: 50px;
+	height: 3.125em;
 	background-color: @turkis;
 	top: 0;
 	z-index: 999;
-	padding: 5px 0;
+	padding: 0;
 	
     .header-logo {
         cursor: pointer;
         
         img.icon-duck {
-            width: 4.75%;
+            width: 30px;
+            margin: 10px 0;
         }
         img.icon-font {
-            width: 22%;
+            width: 166px;
+            margin: 10px 0;
         }
     }
     
     .btn.btn-default.btn-login {
-        width: 12.5%;
+        width: 100px;
         font-family: 'NunitoSans-bold';
         font-size: .875em;
         line-height: 1;
         color: @darkgray;
         border-color: transparent;
-        margin-right: 35px;
-        margin-top: 5px;
+        margin-right: 20px;
+        margin-top: 10px;
         vertical-align: baseline;
         
         &:hover {
@@ -127,10 +129,10 @@ a {
     
     .nav-p-lang {
         .navlinks {
-            // float: right;
-        	font-family: @nunitolight;
+            display: inline-block;
+            font-family: @nunitolight;
             font-size: 0.9375em;
-            margin: 0;
+            margin-top: 15px;
             color: #fff;
             
             &.active {
@@ -140,28 +142,33 @@ a {
     }
 }
 
+
+/**
+    MAIN-CONTENT 
+**/
 #main-content {
     position: relative;
-	padding-bottom: 100px;
+    padding-bottom: 100px;
+    padding-top: 3.125em;
 	
+	/**
+	    FRONTPAGE 
+	**/
 	.carousel {
         position: relative;
-        top: 50px;
+        max-height: 650px;
+        overflow: hidden;
         
         .carousel-indicators {
-            max-width: 12px;
-            height: 6.25%;
-            left: 95%;
             top: 50%;
+            left: 95%;
             margin: 0;
             padding: 0;
             
             li {
                 display: block;
-                width: 10px;
-                height: 10px;
-                width: 1em;
-                height: 1em;
+                width: 0.625em;
+                height: 0.625em;
                 text-indent: -999px;
                 cursor: pointer;
                 background-color: #fff;
@@ -177,16 +184,13 @@ a {
             }
             
             .active {
-                width: 12px;
-                height: 12px;
-                width: 1.2em;
-                height: 1.2em;
+                width: 0.75em;
+                height: 0.75em;
                 background-color: #04e0d7;
             }
         }
 
         .carousel-inner {
-            max-height: 650px;
             padding: 0;
             
             .carousel-caption {
@@ -197,55 +201,55 @@ a {
                 right: 0;
                 padding: 88px 0;    
                 
+                h1.text-uppercase {
+                    color: #fff;
+                }
+                
                 .header-icon-duck {
-                    width: 80px;	
+                    width: 4.72972972972973%;
                 }
                 
                 .hl-caption {
                     font-family: @nunitolight;
+                    font-size: 1.2em;
                 }
                 
                 .btn-group-register {
-                 	width: 100%;
                 	display: -webkit-inline-flex;
                  	display: inline-flex;
                  	cursor: pointer;
                 }
                 .btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
-                	width: 65px;
-                	width: 6.5em;
+                    width: 40%;
                 }
                 .circle {
-                    width: 8.93970893970894%;
-                    width: 172px;
-                    height: 172px;
-                    margin: 2em;
-                    float: left;
+                    width: 170px;
+                    height: 170px;
+                    position: relative;
+	                float: left;
+                    margin: 0 0.625em;
                     background-color: @turkis;
-                    border: 0 solid @turkis;
+                    border-radius: 50%;
                     -webkit-border-radius: 50%;
                     -moz-border-radius: 50%;
-                    border-radius: 50%;
                     
                     img {
-                        padding-top: 20px;
+                        padding-top: 0;
+                        margin: 11.62790698% 0 7.813953% 0;
                     }
                     
                     &:hover {
                 	    transform: scale(1.05);
                     }
                     .caption-text {
-                        font-size: 1.6em;
-                        line-height: 1.4;
+                        width: 100%;
+                        position: absolute;
+                        font-size: 0.875em;
+                        line-height: 18px;
                         font-family: @nunitoblack;
-                        padding: 10px 25px 0;
                         text-transform: uppercase;
-                        margin: 0;
-                    }
-                
-                    
+                    }   
                 }
-
             }
             .item {
                 filter: brightness(60%);
@@ -254,23 +258,111 @@ a {
                 }
             }
         }
-    }   
+    }
+    /* END FRONTPAGE */
+    
+    /**
+        REGISTRIERUNGSPAGES 
+    **/
+    .register-fragen {
+        
+        .register-wunsch-wg, .register-fragebogen, .register-konto {
+            border-radius: 2px;
+            .box-shadow(0px 0px 0px 6px rgba(239,239,239,0.4));
+            h5 {
+                text-transform: uppercase;
+                line-height: 1.1428571428571428em;
+            }
+        }
+        .register-wunsch-wg {   
+            padding: 20px 25px;
+            margin: 50px 0 50px 130px;
+        }
+            
+    }
+    
+    /* END REGISTRIERUNGSPAGES */
+
 }
+/* END MAIN-CONTENT */
 
 
-#main-footer {
+
+
+footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    height: 7em;
+    padding: 10px 60px 10px 60px;
     background: @darkgray;
-}
 
+    #main-footer {
+        background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
+        background-position: 95% 50%;
+        background-size: 273px 37.53px;
+        
+        .footer-links {
+            position: relative;
+            left: 6.496881496881497%;
+            
+            .inner-link {
+                position: relative;
+            	font-size: 0.875em;
+                line-height: 29.75px;
+            	font-family: @nunitoextrabold;
+            	text-decoration: none;
+            	margin: 0 5px;
+                
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: #fff;
+                    visibility: hidden;
+                    -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+                    -webkit-transition: all 0.3s ease-in-out 0s;
+                    transition: all 0.3s ease-in-out 0s;
+                }
+                &:hover {
+                    background-color: transparent;
+                    font-weight: bold;
+                }
+                &:hover:before {
+                    visibility: visible;
+                    -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+                }
+            }
+            .inner-link-hr {
+                color: #fff;
+                font-size: 0.875em;
+                font-family: @nunitoextrabold;
+            }
+            .footer-text {
+                font-family: @nunitoregular;
+                font-size: .875em;
+                color: #fff;
+                margin-left: 63px;
+                margin-top: -10px;
+            }
+        }
 
-    
-    .label-use-cookie {
-        font-family: @nunitolight;
+        .footer-icon-fb {
+            width: 40px;
+            margin-right: 1em;
+            vertical-align: text-top;
+        }
     }
+}
+    
+
+.label-use-cookie {
+    font-family: @nunitolight;
+}
 
 label {
     font-size: 14px;
@@ -306,13 +398,15 @@ input.form-control {
 }
 
 #so-einfach-gehts {
-    margin: 3em auto 6em auto;
     position: relative;
-    top: 6em;
-    padding-bottom: 6em;
+    margin: 3em auto 6em auto;
 }
 #latest-news {
     background-color: @turkis;
+    
+    .blog-news {
+        margin-top: 6.5%;
+    }
     
 }
 #und-los-gehts {
@@ -328,137 +422,21 @@ input.form-control {
 	h1.los-gehts {
         margin-bottom: 25px;
 	}
+	.fp-text.los-gehts {
+	    width: 75%;
+	}
 }
 
-
-footer {
-	position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-.footer-links {
-    position: relative;
-    left: 6.496881496881497%;
-    
-    a.inner-link {
-        position: relative;
-    	text-decoration: none;
-    	font-size: 1.4em;
-    	font-family: @nunitoextrabold;
-        
-        &:before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            visibility: hidden;
-            -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-            -webkit-transition: all 0.3s ease-in-out 0s;
-            transition: all 0.3s ease-in-out 0s;
-        }
-        &:hover {
-            background-color: transparent;
-            font-weight: bold;
-        }
-        &:hover:before {
-            visibility: visible;
-            -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-        }
-    }
-}
-span.footer-text {
-    font-family: 'NunitoSans-regular';
-    font-size: 14px;
-    font-size: 1.2em;
-    line-height: 1;
-    color: #fff;
-    margin-left: 71px;
-    display: block;
-    margin-top: -10px;
-}
-.footer-icon-fb {
-    width: 40px;
-    padding-top: 15px;
-    margin-right: 1em;
-}
-
-
-
-
-
-/**
- *
- ******************* NAV LINKS BUTTONS  ******************* 
- *
-**/
-    /*
-a, .navlinks {
-	font-family: @nunitolight;
-	font-size: 15px;
-	font-size: 1.5em;
-	margin: 0 .3em;
-    color: #fff;
-    // &:hover { font-family: @nunitoblack; }
-    &.active { font-family: @nunitoblack; }
-}
-a:hover {
-	text-decoration: none;
-	color: #fff;
-}
-.btn.btn-default.btn-login {
-    padding: 5px 0;
-    position: relative;
-    right: 2.2em;
-    width: 100px;
-    height: 30px;
-    color: @darkgray;
-    font-family: @nunitobold;
-    font-size: 1.4em;
-    border-color: transparent;
-    position: relative;
-    &:hover {
-        background-color: #efefef;
-        font-weight: bold;
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        width: 46%;
-        height: 2px;
-        bottom: 4px;
-        left: 27%;
-        background-color: @darkgray;
-        visibility: hidden;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s;
-    }
-    &:hover {
-        background-color: #fff;
-        font-weight: bold;
-    }
-    &:hover:before {
-        visibility: visible;
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-    }
-
-}
-*/
 
 .big-text-btn {
 	text-align: center;
 	position: relative;
     bottom: 60px;
+}
+.big-text-btn > * {
     cursor: pointer;
 }
+
 .big-text-btn > .btn-icon-wgsuchtwg,
 .big-text-btn > .btn-icon-mitbewohner,
 .big-text-btn > .btn-icon-wgzimmer {
@@ -492,27 +470,9 @@ a:hover {
     &:hover {color: @darkgray; }
 }
 
-
-
-
-
-
 .img-logo {
     vertical-align: baseline;
 }
-
-
-
-/*
-@media screen and (max-width: 1368px) {
-    .btn-group-register {
-        position: relative;
-        bottom: 20px;
-        transform: scale(0.75);
-    }
-}
-*/
-
 
 
 
@@ -522,6 +482,14 @@ a:hover {
  ******************* SPECIAL FONTS COLOR STYLES  ******************* 
  *
 **/
+h1.mpwg-color.text-center {
+    font-size: 3.375em;
+    line-height: 1.1481851851851852em;
+}
+h4.nunito-light.text-uppercase.text-center {
+    font-size: 1.3125em;
+    line-height: 1.8333333333333333em;
+}
 .mpwg-color {
 	color: rgb(4,224,215);
 }
@@ -529,11 +497,14 @@ a:hover {
 	font-family: @nunitolight;
 }
 .fp-text {
-	font-size: 18px;
-	line-height: 31px;
+    font-size: 1.125em;
+    line-height: 1.7222222222222223em;
+    width: 100%;
+    margin: 0 auto;
 }
 .fp-text-small {
-	font-size: 14px;
+	font-size: 0.875em;
+	line-height: 1.5714285714285714em;
 	margin: 30px 25px 50px 25px;
 }
 

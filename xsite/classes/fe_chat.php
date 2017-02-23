@@ -203,8 +203,9 @@ class fe_chat
 			$fUserId	= $v['otherUser'];
 
 			$delAttr = dbx::queryAttribute("select wz_del from wizard_auto_707 where wz_id = $fUserId","wz_del");
+			$active = dbx::queryAttribute("select wz_ACTIVE from wizard_auto_707 where wz_id = $fUserId","wz_ACTIVE");
 
-			if(dbx::queryAttribute("select wz_del from wizard_auto_707 where wz_id = $fUserId","wz_del") == 'N')
+			if($delAttr == 'N' && $active == 'Y')
 			{
 				if (self::checkConversationHidden($userId, $fUserId) == false)
 				{

@@ -1,0 +1,21 @@
+<%xr_wz_fetch id=882 var=kategorien%>
+
+<span class="looklikeh1">
+    <%xr_translate tag="Blog"%>
+</span>
+<form id="blog-kategorie" class="blog-kategorie-form">
+    <ul class="blog-cat-list">
+        <li>
+            <input id="blog-kategorie-all" type="checkbox"/>
+            <div class="fake-checkbox"></div>
+            <label for="blog-kategorie-all"><%xr_translate tag="Alle Kategorien"%></label>    
+        </li>
+        <%foreach $kategorien as $k => $v%>
+            <li>
+                <input id="blog-kategorie-<%$v.wz_id%>" class="blog-menu-input" type="checkbox" value="<%$v.wz_id%>" name="blogcat-<%$v.wz_id%>"/>
+                <div class="fake-checkbox"></div>
+                <label for="blog-kategorie-<%$v.wz_id%>"><%$v.wz_KATEGORIE%></label>                
+            </li>
+        <%/foreach%>
+    </ul>
+</form>

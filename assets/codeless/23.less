@@ -10,31 +10,32 @@
 @nunitoitalic: 'NunitoSans-italic';
 
 /**
+ ************* COLORS
+**/
+@turkis: #04e0d7;
+@darkgray: #646464;
+@lightgray: #efefef;
+
+/**
  ************ HEADLINES
 **/
-h1 { font-family: @paytoneone, sans-serif; font-size: 54px; }
-h2 { font-family: @paytoneone, sans-serif; font-size: 38px; }
-h3 { font-family: @paytoneone, sans-serif; font-size: 28px; }
-h4 { font-family: @nunitoblack, sans-serif; font-size: 21px; }
-h5 { font-family: @nunitoblack, sans-serif; font-size: 14px; }
-h6 { font-family: @nunitoregular, sans-serif; font-size: 14px; }
+h1 { font-family: @paytoneone, sans-serif; font-size: 3.375em; }
+h2 { font-family: @paytoneone, sans-serif; font-size: 2.375em; }
+h3 { font-family: @paytoneone, sans-serif; font-size: 1.75em; }
+h4 { font-family: @nunitoblack, sans-serif; font-size: 1.3125em; }
+h5 { font-family: @nunitoblack, sans-serif;  font-size: 0.875em; }
+h6 { font-family: @nunitoregular, sans-serif;font-size: 0.875em; }
 
-
+h1,h2,h3 { color: @turkis; }
     
 /**
  * TEXTE
 */
 p { 
     font-family: @nunitolight;
-    font-size: 14px; 
+    font-size: 0.875em; 
 }
 
-/**
- ************* COLORS
-**/
-@turkis: #04e0d7;
-@darkgray: #646464;
-@lightgray: #efefef;
 
 /**
  ************* FLEXBOX LAYOUT
@@ -52,3 +53,8 @@ p {
 }
 
 
+.box-shadow (@string) {
+  -webkit-box-shadow: @string;
+  -moz-box-shadow:    @string;
+  box-shadow:         @string;
+}

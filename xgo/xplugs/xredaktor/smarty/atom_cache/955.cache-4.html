@@ -1,25 +1,26 @@
 <div id="anmelden-inner" class="panel-collapse collapse text-left">
-	<h3 class="mpwg-color">Anmelden</h3>
+	<h3 class="mpwg-color"><%xr_translate tag='fp_h3-login'%></h3>
+	<br>
+	<button class="button text-uppercase" id="fb-login-submit"><%xr_translate tag='Mit Facebook anmelden'%></button>
+	<br>
+	<hr>
 	<form role="form" action="/de/anmelden" id="form-login" method="post">
 		<div class="form-group">
 			<input type="hidden" name="doLogin" value="1">
-			<label for="wz_EMAIL" class="text-uppercase">Mail</label>
+			<label for="wz_EMAIL" class="text-uppercase">Email</label>
             <input id="wz_EMAIL" type="email" name="wz_EMAIL" class="form-control" rel="required_email">
-			<div class="error-div" id="wz_EMAIL_error">Bitte gültige E-Mail eingeben</div>
+			<div class="error-div" id="wz_EMAIL_error"><%xr_translate tag='error_email-notvalid'%></div>
 		</div>
 		<div class="form-group">
-			<label for="passwort" class="text-uppercase">Passwort</label>
+			<label for="passwort" class="text-uppercase"><%xr_translate tag='Passwort'%></label>
 			<input id="wz_PASSWORT" name="wz_PASSWORT" type="password" class="form-control" rel="required">
-			<div class="error-div" id="wz_PASSWORT_error">Bitte Passwort eingeben</div>
-			<a href="/de/passwort-vergessen" class="forgotpw">Passwort vergessen?</a>
+			<div class="error-div" id="wz_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
+			<a href="/de/passwort-vergessen" class="forgotpw"><%xr_translate tag='Passwort vergessen?'%></a>
 		</div>
 		<div class="form-group">
 		    <input type="checkbox" name="use_cookie" id="use-cookie"> 
-		    <label for="use-cookie" class="label-use-cookie">Angemeldet bleiben</label>
+		    <label for="use-cookie" class="label-use-cookie"><%xr_translate tag='Angemeldet bleiben'%></label>
 		</div>
-		<button class="button text-uppercase" id="form-login-submit">Anmelden</button>
-		<br>
-		<br>
-	    <button class="button text-uppercase" id="fb-login-submit">Mit Facebook anmelden</button>
+		<button class="button text-uppercase" id="form-login-submit"><%xr_translate tag='fp_h3-login'%></button>
 	</form>
 </div>
