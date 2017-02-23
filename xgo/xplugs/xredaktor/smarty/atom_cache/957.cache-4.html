@@ -8,7 +8,7 @@
                         
                             <h5><%xr_translate tag='reg_suche-h5-ort'%></h5>
                             <div class="input-icon search-input search-input-map">
-                                <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="" placeholder="Stadt, Ort, PLZ?" autocomplete="off">
+                                <input type="text" class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="" placeholder="Stadt, Ort, PLZ?" autocomplete="off">
                                 <span class="icon-Map js-autocomplete-duck">
                     	            <span class="path1"></span><span class="path2"></span>
                     	        </span>
@@ -49,8 +49,16 @@
                     <div class="col-md-3">         
                         <div class="register-konto">
                             <h3><%xr_translate tag='reg_suche-h3-konto'%></h3>
-                            <br>
+                            <h6 class="mpwg-color text-uppercase">Dann melde dich hier an!</h6>
+                            <button class="button text-uppercase" id="fb-login-submit">Mit Facebook anmelden</button>
+                            <button class="button text-uppercase" id="form-login-submit">Anmelden</button>
+                            <hr>
+  
                             <h3><%xr_translate tag='reg_suche-h3-keinKonto'%></h3>
+                            <h6 class="mpwg-color text-uppercase">Dann registriere dich gleich hier!</h6>
+                            <button class="button start-button text-uppercase js-fb-login" id="fb-reg-submit">Mit Facebook Registrieren</button>
+                            <button style="display:none;" class="button start-button text-uppercase js-simple-login" id="mail-reg-submit">Mit eMail adresse registrieren</button>
+                            <button class="button start-button text-uppercase js-show-simple-login" id="mail-reg-submit">Mit eMail adresse registrieren</button>
                         </div>
                     </div>
         </div>

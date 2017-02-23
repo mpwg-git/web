@@ -2,17 +2,16 @@
 	<h3 class="mpwg-color"><%xr_translate tag='fp_h3-login'%></h3>
 	<br>
 	<button class="button text-uppercase" id="fb-login-submit"><%xr_translate tag='Mit Facebook anmelden'%></button>
-	<br>
 	<hr>
 	<form role="form" action="/de/anmelden" id="form-login" method="post">
 		<div class="form-group">
 			<input type="hidden" name="doLogin" value="1">
-			<label for="wz_EMAIL" class="text-uppercase">Email</label>
+			<label for="wz_EMAIL" class="text-uppercase"><h5>Email</h5></label>
             <input id="wz_EMAIL" type="email" name="wz_EMAIL" class="form-control" rel="required_email">
 			<div class="error-div" id="wz_EMAIL_error"><%xr_translate tag='error_email-notvalid'%></div>
 		</div>
 		<div class="form-group">
-			<label for="passwort" class="text-uppercase"><%xr_translate tag='Passwort'%></label>
+			<label for="passwort" class="text-uppercase"><h5><%xr_translate tag='Passwort'%></h5></label>
 			<input id="wz_PASSWORT" name="wz_PASSWORT" type="password" class="form-control" rel="required">
 			<div class="error-div" id="wz_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
 			<a href="/de/passwort-vergessen" class="forgotpw"><%xr_translate tag='Passwort vergessen?'%></a>
