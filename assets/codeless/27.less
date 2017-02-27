@@ -1,10 +1,15 @@
 @media only screen and (max-width: 480px) {
     
     h3 { font-size: 1.3125em;  }
-    h5, #main-content .register-fragen .register-fragebogen .antwort-headline { font-size: 0.75em; }
-    p { font-size: 0.625em; }
+    h5, #main-content .register-fragen .register-fragebogen .antwort-headline {
+        font-size: .875em;
+        margin-bottom: 3px;
+        line-height: 1.1em;
+    }    
     
-    hr { margin: 10px 0; } 
+    p { font-size: 0.75em; }
+    
+    // hr { margin: 10px 0; } 
     
     #anmelden-inner {
         #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit {
@@ -152,14 +157,51 @@
     }
     
     #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
-        width: 1em;
-        height: 1em;
+        // width: 1em;
+        // height: 1em;
+        width: 28px;
+        height: 28px;
     }
     #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
-        min-height: .875em;
-        padding: 0 6px;
+        // min-height: .875em;
+        padding: 0 14px 40px 14px;
     }
     
+    .radio.radio-inline {
+        margin: 0;
+    }
+    
+    .toggle.btn {
+        min-width: 60px;
+        min-height: 28px;
+    }
+    .btn-default {
+        color: #fff;
+        background-color: #fff;
+        border-color: #04e0d7;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #04e0d7;
+        border-color: #04e0d7;
+    }
+    .btn {
+        display: inline-block;
+        padding: 6px 14px;
+        font-size: 10px;
+    }
+    label.btn.btn-primary.toggle-on, label.btn.btn-default.active.toggle-off {
+        font-size: 10px;
+    }
+    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+        color: #fff;
+        background-color: #04e0d7;
+        border-color: #04e0d7;
+    }
+
+    
+    
+    /*
     .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
         width: 60px !important;
         height: 25px !important;
@@ -176,6 +218,12 @@
         top: 0;
         left: 0;
     }
+    .radio.radio-inline {
+        margin-top: 0;
+        padding-left: 0;
+    }
+    */
+    
 }   
 
 
