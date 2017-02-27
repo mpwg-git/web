@@ -1,0 +1,70 @@
+<%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+
+<%xr_siteCall fn='xredaktor_feUser::getUserId' var='myUserId'%>
+<%xr_siteCall fn='fe_user::sc_is_active' userId=$myUserId var='iAmActive'%>
+<%xr_siteCall fn='fe_user::sc_is_active' userId=$smarty.request.id var='otherIsActive'%>
+
+
+<div class="chat js-chat-data" data-userid="<%$smarty.request.id%>">
+    
+    <div class="js-chatheader header clearfix">
+        
+        <a href="<%$data.USER.PROFILE_URL%>" title="<%$data['USER']['wz_VORNAME']%> <%$data['USER']['wz_NACHNAME']%>">
+            <%xr_imgWrapper s_id=$data.USER.wz_PROFILBILD w=190 h=200 rmode="cco" class="chatimage-top pull-left"%>
+        </a>
+        
+        <a href="<%$data.USER.PROFILE_URL%>" title="<%$data['USER']['wz_VORNAME']%> <%$data['USER']['wz_NACHNAME']%>">
+            <div class="name"><%$data['USER']['wz_VORNAME']%> <br/> <%$data['USER']['wz_NACHNAME']%></div>
+        </a>
+        
+        <div class="pull-right" style="padding-right:20px;padding-top:20px;color:#04e0d7;">
+            <%if $isLoggedIn === true%><a href="<%xr_genlink p_id=16%>"><%else%><a href="<%xr_genlink p_id=1%>"><%/if%>
+              <span class="icon-Close"></span>
+            </a>
+        </div>
+        
+        
+        <%*
+        <div class="controls">
+            <p class="control">
+                <%xr_translate tag="neue Nachricht"%><span class="icon-Plus"></span>
+            </p>
+            <p class="control"> <span class="icon-Melden"></span>
+                <%xr_translate tag="Benutzer melden"%> 
+            </p>
+        </div>
+        *%>
+        
+    </div>
+    
+    <%if !$otherIsActive%>
+        <div class="clearfix"><%xr_translate tag='Chatten nicht möglich, da das Konto des Chat-Empfängers zur Zeit deaktiviert ist!'%></div>
+    <%elseif !$iAmActive%>
+        <div class="clearfix"><%xr_translate tag='Du kannst nicht chatten, da dein Konto zur Zeit deaktiviert ist!'%></div>
+        
+        <script>
+            
+            var showEmailConfirmMsg = true;
+            
+        </script>
+        
+    <%/if%>
+    
+    <div class="js-chatwindow chatwindow <%$addClass%>">
+    </div>
+    
+    <input type="hidden" id="hiddenUserId" value="<%$myUserId%>">
+    
+    <%if $otherIsActive && $iAmActive%>
+    
+    <div class="js-chattext textwindow flex-container">
+        <textarea placeholder="<%xr_translate tag="dein text"%>"></textarea>
+        <button id="send-chat"><%xr_translate tag='Senden'%></button>
+    </div>
+    <%/if%>
+    
+
+    
+</div>
+

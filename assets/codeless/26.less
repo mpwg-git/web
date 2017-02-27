@@ -38,9 +38,9 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     padding-right:0;
     padding-left:0;
 }
-.h1, .h2, .h3, h1, h2, h3 { 
-    margin: 20px 0;
-}
+// .h1, .h2, .h3, h1, h2, h3 { 
+//     margin: 20px 0;
+// }
 
 a {
     font-size: .9375em;
@@ -110,12 +110,12 @@ a {
     }
     
     #anmelden-inner {
-        width: 60%;
+        width: 48%;
         position: absolute;
         right: 0px;
         border: 1px solid transparent;
         background-color: #fff;
-        box-shadow: #646464 0 0 10px;
+        .box-shadow(@darkgray 0 0 10px);
         border-radius: 4px;
         padding: 20px 30px 35px;
         margin-top: 16px;
@@ -267,6 +267,8 @@ a {
     **/
     .register-fragen {
         
+        height: 100vh;
+        
         .register-wunsch-wg, .register-fragebogen, .register-konto {
             border-radius: 2px;
             .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
@@ -275,9 +277,10 @@ a {
             
             h3 {
                 line-height: 1.1785714285714286em;
+                // text-align: center;
             }
             h5 {
-                margin: 40px 0 10px 1px;
+                margin: 0px 0 10px 0px;
                 text-transform: uppercase;
                 line-height: 1.1428571428571428em;
             }
@@ -286,20 +289,77 @@ a {
             }
         }
         .register-wunsch-wg {   
-            margin-left: 6.25em;
+            margin-left: 5.25em;
         }
         .register-konto {   
-            margin-right: 6.25em;
+            margin-right: 5.25em;
+            margin-bottom: 200px;
             
             h6 {
                 margin-bottom: 25px;
             }
         }
+        
+        .accordion-inner {
+            h5 {
+                margin: 0px 0 10px 0px;
+            }
+            
+            #wg-zimmer-finden > .form-group:last-of-type {
+                margin-bottom: 30px;
+            }
+            
+            .radio-inline h5 {
+                margin: 5px 0 0 0;
+            }    
+            
+        }
+       
+        .register-fragebogen {
+
+            .fragen-container {
+                margin: 45px 0;
+            }
+            
+            .frage-headline {
+                text-transform: uppercase;
+                text-align: right;
+            }
+            .antwort-headline {
+                font-size: 0.875em;
+                font-family: @nunitoextrabold;
+                line-height: 1.2857142857142858em;
+                text-transform: uppercase;
+            }
+
+            .radio.radio-inline {
+                position: relative;
+                display: inline-block;
+                font-weight: 400;
+                vertical-align: middle;
+                cursor: pointer;
+                
+                label {
+                    min-height: 20px;
+                    padding: 0 0.9375vw;
+                    margin-bottom: 0;
+                    font-weight: 400;
+                    cursor: pointer;
+                }
+                input {
+                    border: 0;
+                    width: 1.8229166666666667vw;
+                    height: 1.8229166666666667vw;
+                }
+            }
+
+                
+        }
     }
+}
     
     /* END REGISTRIERUNGSPAGES */
 
-}
 /* END MAIN-CONTENT */
 
 
@@ -389,6 +449,13 @@ footer {
     -moz-border-radius: 4px; border-radius: 4px; 
     .box-shadow(0.5px 0.5px 1px 1px rgba(100,100,100,0.15)); 
     
+    span.fb-f {
+        text-transform: none;
+        font-size: 1.7142857142857142em;
+        font-family: 'NunitoSans-black';
+        vertical-align: sub;
+    }
+        
     &:hover {
         color: @darkgray; 
     } 
@@ -525,7 +592,7 @@ h4.nunito-light.text-uppercase.text-center {
 }
 
 a > h1 { font-size: 3.6em; }
-.latest-news { margin-left: 30.10338362031892%; text-decoration: underline; }
+.latest-news { margin-left: 30.10338362031892%; text-decoration: underline; color: #fff; }
 
 label {
     font-size: .875em;
@@ -542,7 +609,6 @@ label {
         text-decoration: underline;
     }
 }
-
 
 
 

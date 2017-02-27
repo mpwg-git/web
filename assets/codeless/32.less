@@ -1,4 +1,6 @@
 @media only screen and (min-width:992px) and (max-width:1199px) {
+    
+    
     #main-content {
         h1 {
             font-size: 3em;
@@ -36,7 +38,25 @@
         .fp-text.los-gehts.text-center {
            width: 75%;
         }
+        
+        .register-fragen {
+            
+            h3 {font-size: 1.3125em;}
+            p {font-size: .75em;}
+        
+            .col-md-3:first-of-type {
+                padding: 0px 0px 0 10px;
+            }
+            .col-md-3:last-of-type {
+                padding: 0px 10px 0 0px;
+            }
+            
+            .register-fragebogen {
+                margin: 35px 0 120px 0;
+            }
+        }
     }
+    
     #main-header #anmelden-inner {
         width: 80%;
     }
@@ -45,4 +65,44 @@
         margin-left: 1.5em; 
         text-decoration: underline; 
     }
+    
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
+        width: 1.625em;
+        height: 1.625em;
+    }
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
+        min-height: 1em;
+        padding: 0 10px;
+    }
+    
+    
+    #main-content .register-fragen .register-fragebogen .frage-headline {
+        text-align: center;
+    }
+    
+    #main-content .register-fragen .register-wunsch-wg, #main-content .register-fragen .register-konto {
+        margin: 35px 0;
+        padding: 5px 20px 25px 20px;
+    }
+    #main-content .register-fragen .register-fragebogen {
+        padding: 10px 25px 50px 25px;
+    }
+    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+        width: 70px !important;
+        height: 30px !important;
+        margin-top: 4px;
+    }
+    span.toggle-handle.btn.btn-default {
+        height: 26px;
+        width: 27px;
+        top: 0px;
+        left: 0px;
+    }
+    
+    .toggle-important {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+        
 }

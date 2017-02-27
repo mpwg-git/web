@@ -4,11 +4,7 @@ require_once(dirname(__FILE__).'/_includes.php');
 require_once(dirname(__FILE__).'/../xgo/xplugs/_includes.php');
 
 
-$items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' GROUP BY wz_F_USERID");
-
-//$log_file = "cronlog.log";		
-//$date = "Date: " . date("d/m/Y H:i");
-//file_put_contents($log_file, $date, FILE_APPEND);
+$items = dbx::queryAll("SELECT wz_F_USERID, wz_USERID, max(wz_id) AS msgID FROM chatitems WHERE wz_SEEN = 'N' and wz_DELETED = 'N' and wz_id = 198 GROUP BY wz_F_USERID");
 
 
 echo "\n\n Start sending mails New Chat Message \n\n";
@@ -34,6 +30,14 @@ foreach ($items as $k => $i) {
 
 		$replacers = fe_chat::get_mail_replacers_for_fuser($fUserId);
 		
+		$link = "https://" . $_SERVER['HTTP_HOST'] . $replacers['###LINK###'];
+		
+		$replacers['###LINK###'] = trim($link);
+		
+// 		die($replacers['###LINK###']);
+		
+// 		die(' '.print_r($replacers));
+
 		if ($user['wz_EMAILBENACHRICHTIGUNG'] == 'DE' || $user['wz_EMAILBENACHRICHTIGUNG'] == '')
 		{
 			fe_user::burnMail(

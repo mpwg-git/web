@@ -3242,10 +3242,6 @@ class fe_user
 				$searchData['price_to'] = 1000;
 			}
 			
-			//TODO
-			
-			print_r($db_user);
-			die( ' checkUser === false ' );
 			
 			dbx::insert('wizard_auto_707',$db_user);
 
@@ -3304,9 +3300,6 @@ class fe_user
 
 		$searchData = json_encode($searchData);
 		
-		// TODO
-		print_r($presentUser);
-		die( ' presentUser !== false ' );
 		
 		dbx::update('wizard_auto_707',array('wz_SEARCHDATA'=>$searchData,'wz_LASTLOGIN'=>'NOW()','wz_VORNAME'=>$VORNAME,'wz_NACHNAME'=>$NACHNAME,'wz_GESCHLECHT'=>$SEX,'wz_AGB_1'=>$AGB),array('wz_id'=>$feu_id));
 

@@ -133,6 +133,17 @@ class fe_vanityurls
 		return $url;		
 	}
 	
+	
+	public static function genUrl_login()
+	{
+		$url = xredaktor_niceurl::genUrl(array(
+				'p_id' 		=> self::$page_login,
+		));
+	
+		return $url;
+	}
+	
+	
 	public static function genUrl_trefferliste()
 	{
 		$url = xredaktor_niceurl::genUrl(array(

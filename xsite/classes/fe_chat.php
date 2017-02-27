@@ -178,13 +178,12 @@ class fe_chat
 		if ($fUserId == 0) return array();
 
 		$user = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $fUserId ");
-		$lng = xredaktor_pages::getFrontEndLang();
-
+		
 		$replacers = array();
 
 		$replacers['###VORNAME###'] = $user['wz_VORNAME'];
 
-		$replacers['###LINK###']	= 'http://' . $_SERVER["SERVER_NAME"] . '/' . $lng . '/anmelden';
+		$replacers['###LINK###']	= fe_vanityurls::genUrl_login();
 
 		return $replacers;
 	}

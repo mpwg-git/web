@@ -1,9 +1,11 @@
 @media only screen and (max-width: 480px) {
     
-    h3 {
-        font-size: 1.3125em;
-        
-    }
+    h3 { font-size: 1.3125em;  }
+    h5, #main-content .register-fragen .register-fragebogen .antwort-headline { font-size: 0.75em; }
+    p { font-size: 0.625em; }
+    
+    hr { margin: 10px 0; } 
+    
     #anmelden-inner {
         #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit {
             margin: 0;
@@ -92,19 +94,21 @@
     footer {
         padding: 10px 0;
     }
+    
     footer #main-footer {
         background-size: 0;
+        padding: 0 5px;
     }
     footer #main-footer .footer-links {
         left: 0;
     }
     footer #main-footer .footer-icon-fb {
-        width: 30px;
-        margin-right: .5em;
+        width: 20px;
+        margin-right: .25em;
     }
     footer #main-footer .footer-links .inner-link {
         position: relative;
-        font-size: 0.8em;
+        font-size: 0.75em;
         line-height: 29.75px;
         text-decoration: none;
         margin: 0;
@@ -112,10 +116,67 @@
     footer #main-footer .footer-links .footer-text {
         font-size: .75em;
         color: #fff;
-        margin-left: 10.5%;
+        margin-left: 8.5%;
         margin-top: 0;
     }
-}
+    
+    
+    
+    // REGISTER 
+    #main-content .register-fragen { 
+        word-break: break-word; 
+    }
+    #main-content .register-fragen .register-wunsch-wg {
+        margin: 20px 0 0 0 ;
+    }
+    #main-content .register-fragen .register-konto {
+        margin: 0px 0 150px 0 ;
+    }
+    
+    #main-content .register-fragen .register-wunsch-wg, #main-content .register-fragen .register-fragebogen, #main-content .register-fragen .register-konto {
+        padding: 5px 10px 20px 10px;
+    }
+    
+    #main-content .register-fragen .register-fragebogen {
+        
+        h3 {text-align: center;}
+        
+        .frage-headline {
+            font-size: 1.125em;
+            text-align: center;
+        }
+    }
+    
+    #main-content .register-fragen .register-fragebogen .fragen-container {
+        margin: 20px 0;
+    }
+    
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
+        width: 1em;
+        height: 1em;
+    }
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
+        min-height: .875em;
+        padding: 0 6px;
+    }
+    
+    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+        width: 60px !important;
+        height: 25px !important;
+        margin-top: 7px;
+    }
+    span.toggle-handle.btn.btn-default {
+        height: 23px;
+        width: auto;
+        top: -1px;
+    }
+    
+    .toggle-important {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}   
 
 
 
