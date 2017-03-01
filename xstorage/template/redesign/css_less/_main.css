@@ -1,0 +1,126 @@
+/*#latest-news h1.latest-news {
+    text-align: center;
+}
+.blog-start {
+    padding: 0;
+}
+*/
+.header-wrapper {
+    font-size: 1.0666666666666667em;
+}
+.blog-start {
+    padding: 0;
+    margin: 10px 0;
+}
+.blog-start > [class*='col-'] {
+    padding: 0;
+}
+.blog-start > .col-xs-5 {
+    width: 47%
+}
+.blog-start img.image {
+    width: 100%;
+    height: auto;
+}
+h1.latest-news {
+    font-size: 2.125em;
+    color: #fff;
+    margin-left: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h3.latest-news {
+    margin: 5px 0 10px 0;
+    font-size: 15px;
+    line-height: 1.4375em;
+    font-family: 'NunitoSans-Extrabold';
+}
+.date {
+    font-size: .75em;
+    margin: 10px 0;
+    font-family: 'NunitoSans-Regular';
+}
+.blog-start-text {
+    color: rgb(100,100,100);
+    margin-bottom: 15px;
+    font-size: 0.75em;
+    line-height: 1.5em;
+}
+#und-los-gehts {
+    margin-top: 20px;
+}
+.more-news {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.25em;
+}
+p.blog-start-text.start-aussagen, .blog-start-text {
+    color: rgb(100,100,100);
+    font-family: 'NunitoSans-Regular';
+    line-height: 1.4166666666666667em;
+    font-size: 0.75em;
+    text-align: start;
+    margin-bottom: 1em;
+}
+.more-news.text-center > a.btn-icons-reg {
+    font-size: 14px;
+    font-family: 'NunitoSans-Extrabold';
+    padding: 4px 15px;
+}
+.fp-text {
+    font-size: 1em;
+    line-height: 1.72222222em;
+    width: 100%;
+    margin: 0 auto;
+}
+h4.nunito-light.text-uppercase.text-center {
+    font-size: 1em;
+}
+#main-header .header-logo {
+    margin-left: 5px;
+}
+#main-header .header-logo img.icon-font {
+    width: 128px;
+    margin: 14px 0;
+}
+span.nav-p-lang {
+    margin-right: 10px;
+}
+#main-header .btn.btn-default.btn-login {
+    width: 65px;
+    padding: 5px 10px;
+    margin-top: 0;
+    margin-right: 5px;
+    font-size: .75em;
+}
+hr {
+    margin: 10px 0;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #d9d9d9;
+}
+.col-xs-5.text-right.antwort-left p, .col-xs-5.text-left.antwort-right p {
+    font-size: .75em;
+}
+.fragen-container h5.antwort-headline {
+    font-size: .75em;
+}
+
+.hyphenate {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+
+
+
+
+
+
+
+/**/

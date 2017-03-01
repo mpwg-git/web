@@ -1,0 +1,23 @@
+<%xr_wz_fetch id=834 wz_online='Y' r_id=$smarty.request.blogId var='v'%>
+
+<div class="blog-page default-container-paddingtop">
+    <!-- <h1>FAQ</h1> -->
+    <div class="blog-item" id="post-<%$v.wz_id%>">
+    <%*xr_print_r val=$v*%>  
+        <div class="image-wrapper">
+            <%xr_imgWrapper s_id=$v['wz_BILD'] w=240 h=290 rmode="cco" class="image"%> 
+        </div>
+        <div class="content">
+            <div class="header-wrapper">
+                <h3 class="headline"><%$v['wz_HEADLINE']%></h3>
+                <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
+            </div>
+            <div class="text"><%$v['wz_TEXT']%></div>
+            <div class="reporter"><%$v['wz_REPORTER']%></div>
+            <br/>
+            <br/>
+            <a style="display:block;text-align:right" href="<%xr_genlink p_id=36%>"><%xr_translate tag="zurück zur Übersicht"%></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>    
+</div>

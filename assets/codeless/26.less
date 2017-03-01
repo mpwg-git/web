@@ -1,6 +1,8 @@
 @import "22.less"; 
 @import "23.less"; 
 @import "24.less";
+@import "../../xstorage/template/less/hover/hover.less";
+
 /**
  *
  ******************* SETTINGS  ******************* 
@@ -325,12 +327,19 @@ hr {
         }
        
         .register-fragebogen {
+            
+            
             h3:first-of-type {
                 margin: 0;
             }
 
             .fragen-container {
-                margin: 45px 0;
+                margin: 45px 0 110px 0;
+                
+                .btn-default {
+                    border-color: #04e0d7;
+                }
+
             }
             
             .frage-headline {
@@ -350,6 +359,7 @@ hr {
                 font-weight: 400;
                 vertical-align: middle;
                 cursor: pointer;
+                margin-bottom: 10px; 
                 
                 label {
                     min-height: 20px;
@@ -447,7 +457,7 @@ footer {
     }
 }
     
-#form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit {
+#form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #fragebogen-save {
     width: 100%; 
     height: 54px; 
     margin: 10px 0; 
@@ -472,7 +482,11 @@ footer {
         color: @darkgray; 
     } 
 }
-
+#fragebogen-save {
+    width: 70%;
+    height: auto;
+    margin: 39px 0 15px 0;
+}
 
 .label-use-cookie {
     font-family: @nunitolight;
@@ -518,7 +532,7 @@ label {
 }
 #und-los-gehts {
 	margin: 5.4em auto;
-	
+	r
 	h2 {
     	font-size: 24px;
     	color: rgb(100,100,100);
@@ -646,6 +660,8 @@ input.form-control {
     border: none;
 }
 
-	
+
+
+
 
 
