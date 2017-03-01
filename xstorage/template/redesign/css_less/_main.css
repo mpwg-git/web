@@ -105,16 +105,57 @@ hr {
 .fragen-container h5.antwort-headline {
     font-size: .75em;
 }
-
-.hyphenate {
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
+#main-content .register-fragen .register-fragebogen .fragen-container {
+    margin: 20px 0 70px 0;
 }
+#main-content .register-fragen .register-fragebogen .fragen-container:first-of-type {
+    margin-top: 0;
+}
+.toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+    max-width: 120px;
+    max-height: 30px;
+}
+label.btn.btn-primary.toggle-on {
+    margin: 0 0 0 -5px;
+    font-size: 10px;
+}
+label.btn.btn-default.active.toggle-off {
+    margin: 0 0 0 -7px;
+    font-size: 10px;
+}
+#main-content .register-fragen .register-fragebogen .frage-headline {
+    font-size: 1em;
+    padding: 0 40px;
+    line-height: 1.2em;
+}
+
+#mobile-register-btn {
+    margin-bottom: 65px;
+}
+#mobile-register-btn button {
+    font-size: 12px;
+    padding: 10px 0px;
+    line-height: 1.5;
+    width: 90%;
+    margin: 5%;
+}
+
+#mobile-register-btn .col-xs-4 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+
+
+#und-los-gehts h2 {
+    font-size: 24px;
+    color: #646464;
+    border-top: 2px solid #646464;
+    padding-top: 6.65em;
+}
+
 
 
 
