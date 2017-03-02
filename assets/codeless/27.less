@@ -9,8 +9,6 @@
         
     p { font-size: 0.875em; }
     
-    // hr { margin: 10px 0; } 
-    
     #anmelden-inner {
         #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit {
             margin: 0;
@@ -32,12 +30,41 @@
         // border-radius: 4px;
         // .box-shadow(0.5px 0.5px 1px 1px rgba(100,100,100,0.15));
     }
-    
-    #main-header #anmelden-inner {
-        width: 150%;
-        padding: 15px 30px 25px 30px;
-        margin-right: 10px;
+
+    #main-header {
+        #anmelden-inner {
+            width: 150%;
+            padding: 15px 30px 25px 30px;
+            margin-right: 10px;
+            
+            hr {
+                margin: 10px 0;
+                width: 100%;
+                border: 0;
+                border-top: 1px solid #d9d9d9;
+            }
+        }
+        .header-logo {
+            margin-left: 5px;
+            
+            img.icon-font {
+                width: 128px;
+                margin: 14px 0;
+            }
+        }
+        span.nav-p-lang {
+            margin-right: 10px;
+        }
+        .btn.btn-default.btn-login {
+            width: 65px;
+            padding: 5px 10px;
+            margin-top: 0;
+            margin-right: 5px;
+            font-size: .75em;
+        }
+        
     }
+    
     #main-header .header-logo img.icon-duck {
         width: 22px;
         margin: 14px 0;
@@ -92,36 +119,113 @@
         width: 130px;
         margin: 14px 0;
     }
-    #so-einfach-gehts, #und-los-gehts {
+    #so-einfach-gehts {
         margin: 1.5em auto 3em auto;
         
         h1 {
             font-size: 2.125em;
         }
+        h4.nunito-light.text-uppercase.text-center {
+            font-size: 1em;
+        }
+    }
+    
+    #latest-news {
+        h1.latest-news {
+            font-size: 2.125em;
+            color: #fff;
+            margin-left: 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .blog-start {
+            padding: 0;
+            margin: 10px 0;  
+            
+            [class*='col-'] {
+                padding: 0;
+            }
+            .col-xs-5 {
+                width: 47%
+            }
+            
+            p.blog-start-text.start-aussagen, .blog-start-text {
+                color: rgb(100,100,100);
+                font-family: 'NunitoSans-Regular';
+                line-height: 1.4166666666666667em;
+                font-size: 0.75em;
+                text-align: start;
+                margin-bottom: 1em;
+            }
+            
+            img.image {
+                width: 100%;
+                height: auto;
+            }
+            .header-wrapper {
+                font-size: 1.0666666666666667em;
+                .date {
+                    font-size: .75em;
+                    margin: 10px 0;
+                    font-family: 'NunitoSans-Regular';
+                }
+                h3.latest-news {
+                    margin: 5px 0 10px 0;
+                    font-size: 15px;
+                    line-height: 1.4375em;
+                    font-family: 'NunitoSans-Extrabold';
+                }
+            }
+            .blog-start-text {
+                color: rgb(100,100,100);
+                margin-bottom: 15px;
+                font-size: 0.75em;
+                line-height: 1.5em;
+            }
+        }
+        .more-news {
+            text-align: center;
+            margin-bottom: 20px;
+            
+            a.btn-icons-reg {
+                font-size: 0.875em;
+                font-family: 'NunitoSans-Extrabold';
+                padding: 4px 15px;
+            }
+        }
+    }
+    
+    #und-los-gehts {
+        margin: 1.25em auto 3em auto;
+        
+        h1 {
+            font-size: 2.125em;
+        }
+
         .fp-text.los-gehts {
             width: 90%;
-        }   
-    }
-    h4.nunito-light.text-uppercase.text-center {
-        font-size: 1.125em;
-    }
-    h1.latest-news {
-        font-size: 2.25em;
-        color: #fff;
-        margin-left: 0;
-    }
-    // #und-los-gehts  {
-    //     margin: 1.5em auto;
-
+        }          
+        h2 {
+            font-size: 24px;
+            color: #646464;
+            border-top: 2px solid #646464;
+            padding-top: 6.65em;
+        }
+        .big-text-btn>.btn-icon-wgsuchtwg, .big-text-btn>.btn-icon-mitbewohner, .big-text-btn>.btn-icon-wgzimmer {
+            position: relative;
+            width: 7em;
+            top: 11em;
+        }    
+        .big-text-btn {
+        	bottom: 35px;
+        }
         
-    //     h2 {
-    //         font-size: 1.5em;
-    //         padding-top: 8em;
-    //     }
-    //     .fp-text.los-gehts {
-    //         width: 90%;
-    //     }   
-    // }
+        #btn-wgzimmer, #btn-mitbewohner, #btn-wg {
+        	.fp-text-small {
+        		margin: 20px;		
+        	}
+        }
+    }
 
     footer {
         padding: 10px 0;
@@ -155,6 +259,7 @@
     
     
     // REGISTER 
+    
     #main-content .register-fragen { 
         word-break: break-word; 
     }
@@ -169,164 +274,124 @@
         padding: 5px 25px 20px 25px;
     }
     
-    #main-content .register-fragen .register-fragebogen {
-        
-        h3 {
-            text-align: center;
-            
-            &:first-of-type {
-                padding: 20px 0;
-            }
+    
+    #main-content {
+        .register-fragen { 
+            .register-fragebogen{
+                margin: 25px 0;
+                padding-bottom: 40px;
+                
+                p {
+                    font-size: .75em;
+                }
+                h3 {
+                    text-align: center;
+                    
+                    &:first-of-type {
+                        padding: 20px 0;
+                    }
+                }
+                .fragen-container {
+                    margin: 20px 0 70px 0;
+                    padding: 10px 0 5px;
+                    
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                    
+                    .frage-headline {
+                        font-size: 1em;
+                        padding: 0 40px;
+                        line-height: 1.2em;
+                    }
+                    .radio.radio-inline {
+                        padding-left: 0;
+                        margin-bottom: 5px;
+                        
+                        input {
+                            width: 24px;
+                            height: 24px;
+                            margin-left: 0px;
+                        }
+                        label {
+                            padding: 0px 24px 28px 0px;
+                            text-align: center;
+                        }
+                    }
+                    .antwort-headline {
+                        font-size: .75em;
+                        margin-bottom: 3px;
+                        line-height: 1.1em;
+                    }
+                    .antwort-left {
+                        padding-left: 9.65250965% !important;
+                        padding-right: 2.826255% !important;
+                        
+                    }
+                    .antwort-right {
+                        padding-right: 9.65250965% !important;
+                        padding-left: 2.826255% !important;            
+     
+                        p {
+                            font-size: .75em;
+                        }
+                    }
+                    
+                    .btn {
+                        display: inline-block;
+                        padding: 8px 14px;
+                        font-size: 10px;
+                    }
+                    .toggle.btn {
+                        min-width: 60px;
+                        min-height: 28px;
+                    }
+                    .btn-default {
+                        border-color: #04e0d7;
+                    }
+                    .btn-primary {
+                        color: #fff;
+                        background-color: #04e0d7;
+                        border-color: #04e0d7;
+                    }
+                    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+                        max-width: 120px;
+                        max-height: 30px;
+                    }
+                    label.btn.btn-default.active.toggle-off {
+                        font-size: 10px;
+                        margin: 0px 0 0 10px;
+                    }
+                    label.btn.btn-primary.toggle-on {
+                        font-size: 10px;
+                        margin: 0 0 0 -10px;
+                    }
+                    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, 
+                    .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+                        color: #fff;
+                        background-color: #04e0d7;
+                        border-color: #04e0d7;
+                    }
+                }
+            } 
         }
-        
-        .frage-headline {
-            font-size: 1.125em;
-            text-align: center;
-        }
-    }
-    
-    #main-content .register-fragen .register-fragebogen .fragen-container {
-        margin: 5px 0 20px 0;
-        padding: 10px 0 5px;    
-    }
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline {
-        padding-left: 0;
-        margin-bottom: 0px;
-    }
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
-        width: 28px;
-        height: 28px;
-        margin-left: 0px;
-    }
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
-        padding: 0 27px 32px 0;
-        text-align: center;
-    }
-    
-    .radio.radio-inline {
-        margin: 0;
-    }
-    
-    .toggle.btn {
-        min-width: 60px;
-        min-height: 28px;
-    }
-    .btn-default {
-        color: #fff;
-        background-color: #fff;
-        border-color: #04e0d7;
-    }
-    .btn-primary {
-        color: #fff;
-        background-color: #04e0d7;
-        border-color: #04e0d7;
-    }
-    .btn {
-        display: inline-block;
-        padding: 8px 14px;
-        font-size: 10px;
-    }
-    
-    label.btn.btn-primary.toggle-on, label.btn.btn-default.active.toggle-off {
-        font-size: 11px;
-        margin: 0px 0 0 -5px;
-    }
-    label.btn.btn-default.active.toggle-off {
-        margin: 0 0 0 -7px;
-    }
-    label.btn.btn-primary.toggle-on {
-        margin: 0 0 0 -10px;
-    }
-    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-        color: #fff;
-        background-color: #04e0d7;
-        border-color: #04e0d7;
     }
 
-    #main-content .register-fragen .register-fragebogen {
-        margin: 25px 0;
+    #mobile-register-btn {
+        margin-bottom: 65px;
     }
-    
-    .big-text-btn>.btn-icon-wgsuchtwg, .big-text-btn>.btn-icon-mitbewohner, .big-text-btn>.btn-icon-wgzimmer {
-        position: relative;
-        width: 7em;
-        top: 11em;
-    }    
-    .big-text-btn {
-    	bottom: 35px;
+    #mobile-register-btn button {
+        font-size: 12px;
+        padding: 10px 0px;
+        line-height: 1.5;
+        width: 90%;
+        margin: 5%;
     }
-    
-    #btn-wgzimmer, #btn-mitbewohner, #btn-wg {
-    	.fp-text-small {
-    		margin: 20px;		
-    	}
-    }
-    
-    
-    /*
-    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
-        width: 60px !important;
-        height: 25px !important;
-        margin-top: 7px;
-    }
-    span.toggle-handle.btn.btn-default {
-        height: 23px;
-        width: auto;
-        top: -1px;
-    }
-    
-    .toggle-important {
-        position: relative;
-        top: 0;
-        left: 0;
-    }
-    .radio.radio-inline {
-        margin-top: 0;
+    #mobile-register-btn .col-xs-4 {
         padding-left: 0;
+        padding-right: 0;
     }
-    */
-    
 }  
-
-    
-    .col-lg-5.col-md-5.col-sm-5.col-xs-5.text-right.antwort-left {
-        padding: 10px 20px 10px 0px;
-    }
-    
-    .col-lg-5.col-md-5.col-sm-5.col-xs-5.text-left.antwort-right {
-        padding: 10px 0 10px 20px;
-    }
-
-    
-    h5, #main-content .register-fragen .register-fragebogen .antwort-headline {
-        font-size: .75em;
-        margin-bottom: 3px;
-        line-height: 1.1em;
-    }
-    
-    p {
-        font-size: .75em;
-    }
-    
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline {
-        padding-left: 0;
-        margin-bottom: 5px;
-    }
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
-        width: 24px;
-        height: 24px;
-        margin-left: 0px;
-    }
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
-        padding: 0px 24px 28px 0px;
-        text-align: center;
-    }
-    
-    .radio.radio-inline {
-        margin: 0;
-    }
-    
-// } 
 
 
 

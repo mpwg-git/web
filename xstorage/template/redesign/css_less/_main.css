@@ -4,7 +4,7 @@
 .blog-start {
     padding: 0;
 }
-*/
+
 .header-wrapper {
     font-size: 1.0666666666666667em;
 }
@@ -22,6 +22,8 @@
     width: 100%;
     height: auto;
 }
+
+
 h1.latest-news {
     font-size: 2.125em;
     color: #fff;
@@ -46,14 +48,6 @@ h3.latest-news {
     font-size: 0.75em;
     line-height: 1.5em;
 }
-#und-los-gehts {
-    margin-top: 20px;
-}
-.more-news {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.25em;
-}
 p.blog-start-text.start-aussagen, .blog-start-text {
     color: rgb(100,100,100);
     font-family: 'NunitoSans-Regular';
@@ -62,19 +56,34 @@ p.blog-start-text.start-aussagen, .blog-start-text {
     text-align: start;
     margin-bottom: 1em;
 }
+.more-news {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.25em;
+}
+
 .more-news.text-center > a.btn-icons-reg {
     font-size: 14px;
     font-family: 'NunitoSans-Extrabold';
     padding: 4px 15px;
+}
+#und-los-gehts {
+    margin-top: 20px;
+}
+#und-los-gehts h2 {
+    font-size: 24px;
+    color: #646464;
+    border-top: 2px solid #646464;
+    padding-top: 6.65em;
+}
+h4.nunito-light.text-uppercase.text-center {
+    font-size: 1em;
 }
 .fp-text {
     font-size: 1em;
     line-height: 1.72222222em;
     width: 100%;
     margin: 0 auto;
-}
-h4.nunito-light.text-uppercase.text-center {
-    font-size: 1em;
 }
 #main-header .header-logo {
     margin-left: 5px;
@@ -99,6 +108,7 @@ hr {
     border: 0;
     border-top: 1px solid #d9d9d9;
 }
+
 .col-xs-5.text-right.antwort-left p, .col-xs-5.text-left.antwort-right p {
     font-size: .75em;
 }
@@ -147,14 +157,14 @@ label.btn.btn-default.active.toggle-off {
 
 
 
+*/
 
 
-#und-los-gehts h2 {
-    font-size: 24px;
-    color: #646464;
-    border-top: 2px solid #646464;
-    padding-top: 6.65em;
-}
+
+
+
+
+
 
 
 
