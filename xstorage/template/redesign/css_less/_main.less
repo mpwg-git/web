@@ -1,76 +1,26 @@
-html {
-	font-size: 16px;
+#mobile-register-btn {
+    margin: 15px 0;
+    text-align: center;
+}
+#mobile-register-btn button#mob-btn-wgzimmer, #mobile-register-btn button#mob-btn-mitbewohner {
+    width: 135px;
+    height: 50px;
+    margin: 0 5px;
+}
+#mobile-register-btn button#mob-btn-wgzimmer svg, #mobile-register-btn button#mob-btn-mitbewohner svg {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+#mobile-register-btn button#mob-btn-wgzimmer span, #mobile-register-btn button#mob-btn-mitbewohner span {
+	position: absolute;
+    top: 10px;
+    left: 45px;
+    font-size: 11px;
+    line-height: 1.4;
+    width: 87px;
+    text-align: left;
 }
 
-body {
-	font-size: 62.5%; /* 1em = 10px */
-}
-
-img,
-embed,
-object,
-video {
-	max-width: 100%;
-}
-
-
-
-
-/**
- *
- *	MAIN NAV
- *
- */
-
-#main-header, .header-logo {
-    height: 65px;
-	background-color: #04e0d7; 
-}
-img.icon-duck {
-    width: 32px;
-    height: 32px;
-}
-
-.header-logo {
-    background: url(/xstorage/template/img/redesign/mpwg-schriftzug.png) no-repeat;
-    height: 38px;
-    background-position: 50px 4px;
-}
-
-// .header-logo, .header-icon-duck { 
-//     img {
-//         height: 2.166666666666667%; 
-//         // background-color: @turkis;
-//     }
-// }
-
-a, .navlinks { 
-	font-size: 1.4em;
-	color: #fff;
-	
-	&.active {
-		font-weight: bold;	
-	}
-}
-
-
-.btn-login {
-	float: left;
-}
-
-
-.nav>li>a:focus, .nav>li>a:hover {
-    text-decoration: underline;
-    background-color: transparent;
-    color: #fff;
-}
-
-ul.nav.navbar-nav.navbar-right li {
-	 &:first-of-type {
-		border-right: 1px solid #fff;
-	}
-	
-	a {
-		padding: 0 15px;
-	}
-}

@@ -24,7 +24,7 @@ class fe_fragebogen
 	{
 		$fragen = array();
 
-		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' AND wz_INIT_FRAGE = 'Y' AND (wz_TYP = '$type' || wz_TYP = 'alle') ORDER BY wz_sort ASC");
+		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' AND wz_INIT_FRAGE = 'Y' ORDER BY wz_sort ASC");
 
 		if($fragen === false || $type === false)
 		{
