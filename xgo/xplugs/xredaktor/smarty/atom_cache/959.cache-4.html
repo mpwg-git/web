@@ -4,7 +4,11 @@
     <div class="fragen-container">
         <div class="row no-gutter">
             <div class="col-xs-12">
-                <h4 class="frage-headline"><%$k+1%>. <%$v['FRAGE']['wz_FRAGE']%></h4>
+                <%if $k < 7%>
+                    <h4 class="frage-headline"><%$k+1%>. <%if $P_LANG == 'de'%><%$v['FRAGE']['_DE_wz_FRAGE']%><%else%><%$v['FRAGE']['_EN_wz_FRAGE']%><%/if%></h4>
+                <%else%>
+                    <h4 class="frage-headline"><%$k+1%>. <%if $P_ID == 47%><%xr_translate tag='frage-hl-suchender'%><%/if%><%if $P_ID == 48%><%xr_translate tag='frage-hl-anbieter'%><%/if%></h4>
+                <%/if%>
                 <hr>
             </div>
         </div>
