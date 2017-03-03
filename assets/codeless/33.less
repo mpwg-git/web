@@ -1,8 +1,147 @@
+@import "22.less"; 
+@import "23.less"; 
+
 @media only screen and (min-width:75em) {
     
-    #main-content .carousel .carousel-inner .carousel-caption .header-icon-duck {
-        width: 5.72973%;
-        margin-top: 2em;
+    #main-content {
+        .carousel .carousel-inner .carousel-caption .header-icon-duck {
+            width: 5.72973%;
+            margin-top: 2em;
+        }
+        
+        #latest-news {
+            padding-top: 2em;
+        	padding-bottom: 0em;
+            
+            h1.latest-news {
+        	    font-size: 3em;
+        	    width: 20%;
+        	    text-align: left;
+        	    margin-left: 5%;
+        	    margin-bottom: 0.5416666666666666em;
+            }
+            .blog-start {
+                position: relative;
+                top: -125px;
+                padding: 0;
+                margin: 10px 0 0 0;  
+                
+                [class*='col-'] {
+                    padding: 0;
+                }
+                .col-md-3.col-sm-4.col-xs-5.startseiten-aussagen {
+                	width: 21%;
+                    margin-right: 2%;
+                    margin-left: 0%;
+                }
+                .col-md-3.col-sm-4.col-xs-5.blog-entry-1, .col-md-3.col-sm-4.col-xs-5.blog-entry-2 {
+                	width: 21%;
+                    margin-right: 2%;
+                    
+                }
+                
+                p.blog-start-text.start-aussagen, .blog-start-text {
+                    color: @darkgray;
+                    font-family: @nunitoregular;
+                    line-height: 1.4166666666666667em;
+                    font-size: 0.875em;
+                    text-align: start;
+                    margin-bottom: 1em;
+                }
+
+                .header-wrapper {
+                    font-size: 1.0666666666666667em;
+                    .date {
+                        font-size: .75em;
+                        margin: 10px 0;
+                        font-family: 'NunitoSans-Regular';
+                    }
+                    h3.latest-news {
+                        margin: 5px 0 10px 0;
+                        font-size: 0.9374999970703125em;
+                        line-height: 1.4375em;
+                        font-family: 'NunitoSans-Extrabold';
+                    }
+                }
+            }
+            .more-news {
+                text-align: center;
+                // margin-bottom: 20px;
+                padding: 5% 30% 0% 30%;
+                
+                a.btn {
+                    padding: 0.875em 6em;
+                }
+            }
+        }
+        
+        .register-fragen {
+            .register-fragebogen {
+                .fragen-container {
+                    // margin: 45px 0 110px 0;
+                    
+                    .radio.radio-inline {
+                        margin: 5px 0 15px 0;
+                        
+                        label {
+                            padding: 0 34px 38px 0;
+                            text-align: center;
+                        }
+                        input {
+                            width: 32px;
+                            height: 32px;
+                            margin-left: 0;
+                        }
+                    }
+                    
+                    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+                        width: 140px !important;
+                        height: 35px !important;
+                        margin-top: 5px;
+                    }
+                    label.btn.btn-primary.toggle-on {
+                        margin: 0;
+                        padding-left: 0;
+                    }
+                    label.btn.btn-default.active.toggle-off {
+                        margin: 0;
+                        padding-left: 20px;
+                    }
+                    span.toggle-handle.btn.btn-default {
+                        height: 33px;
+                        width: 33px;
+                        top: 0;
+                        left: 0;
+                    }
+                    .toggle-btn {
+                        color: #fff;
+                        background-color: #fff;
+                        border-color: #04e0d7;
+                    }
+                    .btn-primary {
+                        color: #fff;
+                        background-color: #04e0d7;
+                        border-color: #04e0d7;
+                    }
+                    .btn {
+                        display: inline-block;
+                        padding: 5px;
+                        font-size: .875em;
+                    }
+                    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+                        color: #fff;
+                        background-color: #04e0d7;
+                        border-color: #04e0d7;
+                    }
+                }
+            }
+            #fragebogen-save {
+                width: 50%;
+                height: auto;
+                margin: 39px 0 15px 0;
+                padding: 14px;
+            }
+        }
     }
 }
 
@@ -10,6 +149,75 @@
 @media only screen and (min-width:100em) {
 
     #main-content {
+
+        #latest-news {
+            padding-top: 2em;
+        	padding-bottom: 0em;
+            
+            h1.latest-news {
+        	    font-size: 3em;
+        	    width: 250px;
+        	    text-align: left;
+        	    margin-left: 10%;
+        	    margin-bottom: 0.5416666666666666em;
+            }
+            .blog-start {
+                position: relative;
+                top: -125px;
+                padding: 0;
+                margin: 10px 0 0 0;  
+                
+                [class*='col-'] {
+                    padding: 0;
+                }
+                .col-md-3.col-sm-4.col-xs-5.startseiten-aussagen {
+                    width: 250px;
+                    margin-right: 25px;
+                    margin-left: 80px;
+                }
+                .col-md-3.col-sm-4.col-xs-5.blog-entry-1, .col-md-3.col-sm-4.col-xs-5.blog-entry-2 {
+                    width: 250px;
+                    margin-right: 25px;
+                    margin-left: 0;
+                }
+                
+                p.blog-start-text.start-aussagen, .blog-start-text {
+                    width: 100%;
+                    text-align: justify;
+                    color: @darkgray;
+                    font-family: @nunitoregular;
+                    line-height: 1.4166666666666667em;
+                    font-size: 0.875em;
+                    margin-bottom: 1em;
+                }
+
+                .header-wrapper {
+                    font-size: 1.0666666666666667em;
+                    .date {
+                        font-size: .75em;
+                        margin: 10px 0;
+                        font-family: 'NunitoSans-Regular';
+                    }
+                    h3.latest-news {
+                        margin: 5px 0 10px 0;
+                        font-size: 0.9374999970703125em;
+                        line-height: 1.4375em;
+                        font-family: 'NunitoSans-Extrabold';
+                    }
+                }
+            }
+            .more-news {
+                text-align: center;
+                // margin-bottom: 20px;
+                // padding: 5% 30% 0% 30%;
+                padding: 5% 35% 0 35%;
+                
+                a.btn {
+                    padding: 0.875em 6em;
+                }
+            }
+        }
+        
         
         .register-fragen {
             
@@ -37,12 +245,75 @@
                         padding-right: 15.847302436962952%;
                         padding-left: 1.92365122%;
                     }
+                    .radio.radio-inline {
+                        margin: 5px 0 15px 0;
+                        
+                        label {
+                            padding: 0 34px 38px 0;
+                            text-align: center;
+                        }
+                        input {
+                            width: 32px;
+                            height: 32px;
+                            margin-left: 0;
+                        }
+                    }
+                    
+                    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+                        width: 140px !important;
+                        height: 35px !important;
+                        margin-top: 5px;
+                    }
+                    label.btn.btn-primary.toggle-on {
+                        margin: 0;
+                        padding-left: 0;
+                    }
+                    label.btn.btn-default.active.toggle-off {
+                        margin: 0;
+                        padding-left: 20px;
+                    }
+                    span.toggle-handle.btn.btn-default {
+                        height: 33px;
+                        width: 33px;
+                        top: 0;
+                        left: 0;
+                    }
+                    .toggle-btn {
+                        color: #fff;
+                        background-color: #fff;
+                        border-color: #04e0d7;
+                    }
+                    .btn-primary {
+                        color: #fff;
+                        background-color: #04e0d7;
+                        border-color: #04e0d7;
+                    }
+                    .btn {
+                        display: inline-block;
+                        padding: 5px;
+                        font-size: .875em;
+                    }
+                    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+                        color: #fff;
+                        background-color: #04e0d7;
+                        border-color: #04e0d7;
+                    }
+                    
                 }
             }
+            #fragebogen-save {
+                width: 50%;
+                height: auto;
+                margin: 39px 0 15px 0;
+                padding: 14px;
+            }
+        }
+        .register-konto {
+            padding: 1px 45px 25px 30px !important;
         }
     }
     
-    #main-content .register-fragen .register-wunsch-wg h5, #main-content .register-fragen .register-fragebogen h5, #main-content .register-fragen .register-konto h5 {
+    #main-content .register-fragen .register--wg h5, #main-content .register-fragen .register-fragebogen h5, #main-content .register-fragen .register-konto h5 {
         margin: 20px 0 10px 0;
         text-transform: uppercase;
         line-height: 1.14285714em;
@@ -61,7 +332,7 @@
     }
     
     #main-content .register-fragen .register-wunsch-wg {
-        margin: 35px 0 35px 0;
+        margin: 50px 0 35px 0;
         padding: 1px 45px 25px 30px;
     }
     
@@ -70,30 +341,3 @@
         margin-top: 4em;
     }
 }
-
-
-
-
-//     #main-content {
-//         .register-fragen {
-//             .register-wunsch-wg, .register-konto {
-//                 margin-left: 0;
-//                 margin-right: 0;
-//                 padding: 5px 15px 15px 15px;
-//             }
-//         }
-//     }
-    
-//     .toggle-important {
-//         position: relative;
-//         top: 0;
-//         left: -8%;
-//     }
-    
-//     #main-content .register-fragen {
-//         h3 {font-size: 1.625em;}
-//         h4 {font-size: 1em;}
-//     }
-    
-    
-// }

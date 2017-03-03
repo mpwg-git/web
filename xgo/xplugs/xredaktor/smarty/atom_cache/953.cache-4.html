@@ -4,28 +4,26 @@
 <div id="latest-news" class="container-fluid">
     <a href="<%xr_genlink p_id=36%>"><h1 class="latest-news">Latest News.</span></h1></a>
     <div class="col-xs-12 blog-start">
-        
+        <div class="row no-gutter">
         <%foreach $aussagen as $k => $v%>
             <%if $k==0%>
-            	<div class="col-xs-5" <%if $k==0%>style='margin-right: 6%;'<%/if%>">
-            		<div>
-                		<%xr_imgWrapper s_id=$v['wz_BILD'] rmode='cco' class="image"%>
-            		    <div class="header-wrapper">
-            		        <h3 class="latest-news start-aussagen text-uppercase"><%$v['wz_NAME']%></h3>
-            		    </div>
-            		</div>
-            		    <p class="blog-start-text start-aussagen">&bdquo;<%$v['wz_TEXT']%>&ldquo;</p>
+                <div class="col-md-3 hidden-sm hidden-xs"></div>
+            	<div class="col-md-3 col-sm-4 col-xs-5 startseiten-aussagen">
+                    <%xr_imgWrapper s_id=$v['wz_BILD'] rmode='cco' class="image"%>
+            		<div class="header-wrapper">
+            		    <h3 class="latest-news start-aussagen text-uppercase"><%$v['wz_NAME']%></h3>
+                    </div>
+            		<p class="blog-start-text start-aussagen">&bdquo;<%$v['wz_TEXT']%>&ldquo;</p>
             	</div>
-            	
             <%/if%>	
         <%/foreach%>
         <%foreach $blogdata as $k => $v%>
-            <div class="col-xs-5">
+            <div class="col-md-3 col-sm-4 col-xs-5 blog-entry-<%$k+1%>">
                 <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
                 <a href="<%$detailURL%>">
                     <div id="post-<%$v.wz_id%>">
                         <div>
-                            <%xr_imgWrapper s_id=$v['wz_BILD'] rmode="cco" class="image"%>
+                            <%xr_imgWrapper s_id=$v['wz_BILD'] w=254 h=254 rmode="cco" class="image"%>
                         </div>
                         <!--<div class="col-sm-12 col-md-12 col-xl-8 col-xxl-9">-->
                             <div class="header-wrapper">
@@ -39,13 +37,13 @@
                     </div>
                 </a>
             </div>
-            <%if $k==0%>
-                <div class="col-xs-2 "></div>
-            <%/if%>    
         <%/foreach%>
-    </div>
-    <div class="more-news text-center">
-        <a href="<%xr_genlink p_id=36%>" class="btn col-md-12 btn-icons-reg"><%xr_translate tag='fp_more-news'%></a>
+        </div>
+        <div class="row no-gutter">
+            <div class="more-news text-center">
+                <a href="<%xr_genlink p_id=36%>" class="btn btn-lg col-md-12 btn-icons-reg text-uppercase"><%xr_translate tag='fp_more-news'%></a>
+            </div>
+        </div>
     </div>
 </div>
 <div class="clearfix"></div>

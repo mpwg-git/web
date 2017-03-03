@@ -1,177 +1,65 @@
-/*#latest-news h1.latest-news {
-    text-align: center;
-}
-.blog-start {
-    padding: 0;
-}
+@media only screen and (max-width: 30em) {
 
-.header-wrapper {
-    font-size: 1.0666666666666667em;
-}
-.blog-start {
-    padding: 0;
-    margin: 10px 0;
-}
-.blog-start > [class*='col-'] {
-    padding: 0;
-}
-.blog-start > .col-xs-5 {
-    width: 47%
-}
-.blog-start img.image {
-    width: 100%;
-    height: auto;
-}
-
-
-h1.latest-news {
-    font-size: 2.125em;
-    color: #fff;
-    margin-left: 0;
-    text-align: center;
-    margin-bottom: 20px;
-}
-h3.latest-news {
-    margin: 5px 0 10px 0;
-    font-size: 15px;
-    line-height: 1.4375em;
-    font-family: 'NunitoSans-Extrabold';
-}
-.date {
-    font-size: .75em;
-    margin: 10px 0;
-    font-family: 'NunitoSans-Regular';
-}
-.blog-start-text {
-    color: rgb(100,100,100);
-    margin-bottom: 15px;
-    font-size: 0.75em;
-    line-height: 1.5em;
-}
-p.blog-start-text.start-aussagen, .blog-start-text {
-    color: rgb(100,100,100);
-    font-family: 'NunitoSans-Regular';
-    line-height: 1.4166666666666667em;
-    font-size: 0.75em;
-    text-align: start;
-    margin-bottom: 1em;
-}
-.more-news {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.25em;
-}
-
-.more-news.text-center > a.btn-icons-reg {
-    font-size: 14px;
-    font-family: 'NunitoSans-Extrabold';
-    padding: 4px 15px;
-}
-#und-los-gehts {
-    margin-top: 20px;
-}
-#und-los-gehts h2 {
-    font-size: 24px;
-    color: #646464;
-    border-top: 2px solid #646464;
-    padding-top: 6.65em;
-}
-h4.nunito-light.text-uppercase.text-center {
-    font-size: 1em;
-}
-.fp-text {
-    font-size: 1em;
-    line-height: 1.72222222em;
-    width: 100%;
-    margin: 0 auto;
-}
-#main-header .header-logo {
-    margin-left: 5px;
-}
-#main-header .header-logo img.icon-font {
-    width: 128px;
-    margin: 14px 0;
-}
-span.nav-p-lang {
-    margin-right: 10px;
-}
-#main-header .btn.btn-default.btn-login {
-    width: 65px;
-    padding: 5px 10px;
-    margin-top: 0;
-    margin-right: 5px;
-    font-size: .75em;
-}
-hr {
-    margin: 10px 0;
-    width: 100%;
-    border: 0;
-    border-top: 1px solid #d9d9d9;
-}
-
-.col-xs-5.text-right.antwort-left p, .col-xs-5.text-left.antwort-right p {
-    font-size: .75em;
-}
-.fragen-container h5.antwort-headline {
-    font-size: .75em;
-}
-#main-content .register-fragen .register-fragebogen .fragen-container {
-    margin: 20px 0 70px 0;
-}
-#main-content .register-fragen .register-fragebogen .fragen-container:first-of-type {
-    margin-top: 0;
-}
-.toggle.btn.btn-default.off, .toggle.btn.btn-primary {
-    max-width: 120px;
-    max-height: 30px;
-}
-label.btn.btn-primary.toggle-on {
-    margin: 0 0 0 -5px;
-    font-size: 10px;
-}
-label.btn.btn-default.active.toggle-off {
-    margin: 0 0 0 -7px;
-    font-size: 10px;
-}
-#main-content .register-fragen .register-fragebogen .frage-headline {
-    font-size: 1em;
-    padding: 0 40px;
-    line-height: 1.2em;
-}
-
-#mobile-register-btn {
-    margin-bottom: 65px;
-}
-#mobile-register-btn button {
-    font-size: 12px;
-    padding: 10px 0px;
-    line-height: 1.5;
-    width: 90%;
-    margin: 5%;
-}
-
-#mobile-register-btn .col-xs-4 {
-    padding-left: 0;
-    padding-right: 0;
+	#main-content .carousel .carousel-inner .carousel-caption .hl-caption {
+	    font-family: 'NunitoSans-light';
+	    font-size: 1em;
+	}
+	#main-content .carousel .carousel-inner .carousel-caption .header-icon-duck {
+    	width: 26px;
+	}
+	blockquote {
+	    margin-bottom: 10px;
+	}
+	#so-einfach-gehts h4.nunito-light.text-uppercase.text-center {
+	    font-size: 1.1875em;
+	}
+	#und-los-gehts #btn-wgzimmer .fp-text-small, #und-los-gehts #btn-mitbewohner .fp-text-small, #und-los-gehts #btn-wg .fp-text-small {
+    	margin: 20px;
+    	height: auto;
+	}
+	#und-los-gehts h2 {
+	    font-size: 24px;
+	    color: #646464;
+	    border-top: 2px solid #646464;
+	    padding-top: 8em;
+	}
 }
 
 
 
-*/
+@media only screen and (max-width: 47.9375em) and (min-width: 30em) {
+
+	#main-content .register-fragen .register-fragebogen .fragen-container .btn-default {
+	    border-color: #04e0d7;
+	    line-height: 1.75;
+	    max-height: 35px;
+	}
+	#main-content .register-fragen .register-fragebogen .fragen-container .antwort-left {
+    	padding-left: 8% !important;
+    	padding-right: 2% !important;
+	}
+	#mobile-register-btn {
+	    display: block;
+	    margin: 30px 0 0 0;
+	    text-align: center;
+	}
+	
+}
+	
+@media only screen and (max-width: 62em) and (min-width: 48em) {
+	#main-content .register-fragen .register-fragebogen .fragen-container .btn-default {
+	    border-color: #04e0d7;
+	    line-height: 2;
+	    min-height: 35px;
+	    
+	}
+}	
+
+@media only screen and (min-width: 62em) {
+
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/**/

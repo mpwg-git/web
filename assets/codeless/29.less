@@ -1,8 +1,10 @@
+@import "22.less"; 
+@import "23.less"; 
+
 @media only screen and (min-width:48em) and (max-width:62em) {
     
     h1 {
         margin: 10px 20px;
-        font-size: 2.25em;
     }
     #main-content .carousel .carousel-inner .carousel-caption .circle {
         width: 115px;
@@ -11,13 +13,17 @@
     #main-content .carousel .carousel-inner .carousel-caption {
         padding: 5% 0;
     }
+    #main-content .carousel .carousel-inner .carousel-caption h1.text-uppercase {
+        color: #fff;
+        font-size: 2.25em;
+    }
     #main-content .carousel .carousel-inner .carousel-caption .circle .caption-text {
         font-size: .75em;
         line-height: 15px;        
     }
     #main-content .carousel .carousel-inner .carousel-caption .hl-caption {
         font-family: 'NunitoSans-light';
-        font-size: 0.8em;
+        font-size: 1em;
     }
     blockquote {
         margin-bottom: 10px;
@@ -26,14 +32,65 @@
         width: 100%;
     }
     
-    #latest-news h1.latest-news {
-        margin-left: 0;
-        text-decoration: underline;
-        font-size: 2.25em;
-        padding-top: 40px;
-    }   
-    #latest-news .blog-news {
-	    transform: scale(.9);
+    #latest-news {
+        padding-top: 2em;
+    	padding-bottom: 3em;
+        
+        h1.latest-news {
+    	    font-size: 3em;
+    	    width: 100%;
+    	    text-align: center;
+    	    margin-left: 0;
+    	    margin-bottom: 0.5416666666666666em;
+        }
+        .blog-start {
+            padding: 0;
+            margin: 10px 0;  
+            
+            [class*='col-'] {
+                padding: 0;
+            }
+           .col-sm-4.col-xs-5.blog-entry-1, .col-sm-4.col-xs-5.blog-entry-2, .col-sm-4.col-xs-5.startseiten-aussagen {
+               width: 30%;
+               margin: 0 12px;
+           }
+            
+            p.blog-start-text.start-aussagen, .blog-start-text {
+                color: @darkgray;
+                font-family: @nunitoregular;
+                line-height: 1.4166666666666667em;
+                font-size: 0.875em;
+                text-align: start;
+                margin-bottom: 1em;
+            }
+            
+            img.image {
+                width: 100%;
+                height: auto;
+            }
+            .header-wrapper {
+                font-size: 1.0666666666666667em;
+                .date {
+                    font-size: .75em;
+                    margin: 10px 0;
+                    font-family: 'NunitoSans-Regular';
+                }
+                h3.latest-news {
+                    margin: 5px 0 10px 0;
+                    font-size: 0.9374999970703125em;
+                    line-height: 1.4375em;
+                    font-family: 'NunitoSans-Extrabold';
+                }
+            }
+        }
+        .more-news {
+            text-align: center;
+            margin-top: 50px;
+            
+            a.btn {
+                padding: 0.875em 6em;
+            }
+        }
     }
     
     footer {
@@ -150,12 +207,13 @@
         background-color: #04e0d7;
         border-color: #04e0d7;
     }
+    /*
     .btn {
         display: inline-block;
         padding: 8px 14px;
         font-size: 10px;
     }
-    
+    */
 
     
     .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
@@ -210,21 +268,17 @@
         background-color: #04e0d7;
         border-color: #04e0d7;
     }
-    .btn {
-        display: inline-block;
-        padding: 8px 14px;
-        font-size: 10px;
-    }
+
     
     label.btn.btn-primary.toggle-on, label.btn.btn-default.active.toggle-off {
         font-size: 12px;
         margin: 0px 0 0 0;
     }
     label.btn.btn-default.active.toggle-off {
-        margin: -1px 0 0 -3px;
+        margin: 0px 0 0 -3px;
     }
     label.btn.btn-primary.toggle-on {
-        margin: -1px 0 0 -5px;
+        margin: 0px 0 0 -5px;
     }
     .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
         color: #fff;

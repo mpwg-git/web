@@ -33,7 +33,7 @@ class fe_blog
 		$data = dbx::queryAll("SELECT blog.*, (SELECT GROUP_CONCAT(wz_id_high) FROM wizard_auto_SIMPLE_W2W_834_882 WHERE wz_id_low = blog.wz_id) AS categories
 			FROM " . self::table_blog . " AS blog
 			WHERE blog.wz_online = 'Y' AND blog.wz_del = 'N' AND blog.wz_MENU = 'Y'
-			ORDER BY blog.wz_sort DESC LIMIT 1
+			ORDER BY blog.wz_sort DESC LIMIT 2
 		");
 
 		// jetzt noch die categories exploden damit wir sie schön foreachen können im template...
