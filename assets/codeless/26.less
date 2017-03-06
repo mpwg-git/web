@@ -13,6 +13,7 @@ html {
 }
 body {
 	font-size: 62.5%; /* 1em = 10px */
+	height: 100%;
 	vertical-align: baseline;
     vertical-align: -webkit-baseline-middle;
 	
@@ -154,7 +155,7 @@ hr {
     MAIN-CONTENT 
 **/
 #main-content {
-    position: relative;
+    // position: relative;
     padding-bottom: 100px;
     padding-top: 3.125em;
 	
@@ -267,6 +268,39 @@ hr {
             }
         }
     }
+    
+    #so-einfach-gehts {
+        position: relative;
+        margin: 3em auto 6em auto;
+    }
+    
+    #latest-news {
+        background-color: @turkis;
+    
+        a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+    
+    #und-los-gehts {
+    	margin: 5.4em auto;
+    	
+    	h2 {
+        	font-size: 24px;
+        	color: rgb(100,100,100);
+        	border-top: 2px solid #646464;
+        	padding-top: 17rem;
+    	}
+    	
+    	h1.los-gehts {
+            margin-bottom: 25px;
+    	}
+    	.fp-text.los-gehts {
+    	    width: 75%;
+    	}
+    }
+    
     /* END FRONTPAGE */
     
     /**
@@ -296,11 +330,8 @@ hr {
                 
             }
         }
-        // .register-wunsch-wg {   
-        //     margin-left: 5.25em;
-        // }
+
         .register-konto {   
-            // margin-right: 5.25em;
             margin-bottom: 200px;
             
             h6 {
@@ -378,9 +409,92 @@ hr {
                 
         }
     }
+    /* END REGISTRIERUNGSPAGES */
+    
+    
+    /**
+      *
+      * IMPRESSUM, FAQ, AGB
+      *
+     **/
+    #impressum, #agb, #faq {
+        display:block;
+        overflow:auto;
+        
+        a {
+            color: @darkgray;
+            font-family: @nunitobold;
+            text-decoration: underline;
+        }
+        
+        .left-row, .right-row, .middle-row {
+            border-radius: 2px;
+            .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
+            margin: 50px 0;
+            padding: 20px 25px 50px 25px;
+        }
+        .left-row {
+            .icon-duck {
+                width: 15%;
+                height: auto;
+            }
+        }
+        h1 {
+            margin: 0;
+        }
+        h3 {
+            margin: 0;
+            font-size: 1.3125em;
+        }
+        .intro-text {
+            font-size: 1em;
+            font-family: @nunitoregular;
+            line-height: 1.5em;
+            color: @turkis;
+        }
+        .middle-row {
+            margin-bottom: 10em;
+            padding-left: 2.7940626169390046%;
+            padding-right: 2.7940626169390046%;
+            
+            h1 {
+                margin-top: 0;
+            }
+            h6 {
+                font-size: 1.375em;
+                color: @turkis;
+                line-height: 1.4090909090909092em;
+            }
+            h7 {
+                font-size: 1em;
+                // line-height: 2.857142857142857em;
+                line-height: 1.375em;
+                color: @darkgray;
+            }
+            p {
+                margin-bottom: 5px;
+                line-height: 1.4285714285714286em;
+            }
+        }
+        
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+            vertical-align: baseline;
+            border: none;
+        }
+        
+        .table {
+            tbody {
+                tr > td:first-child {
+                    width: 25%;
+                }
+            }
+        }
+        
+    }
+    /* END IMPRESSUMG, FAQ, AGB */
 }
     
-    /* END REGISTRIERUNGSPAGES */
+    
 
 /* END MAIN-CONTENT */
 
@@ -518,14 +632,10 @@ label {
     vertical-align: middle;
 }
 
-#so-einfach-gehts {
-    position: relative;
-    margin: 3em auto 6em auto;
-    
-}
-#latest-news {
-    background-color: @turkis;
-}
+
+
+
+
     
 //     .col-xs-12.blog-start > .col-xs-5{
 // 	    width: 48%;
@@ -545,24 +655,6 @@ label {
 //     }
     
 // }
-#und-los-gehts {
-	margin: 5.4em auto;
-	
-	h2 {
-    	font-size: 24px;
-    	color: rgb(100,100,100);
-    	border-top: 2px solid #646464;
-    	padding-top: 17rem;
-	}
-	
-	h1.los-gehts {
-        margin-bottom: 25px;
-	}
-	.fp-text.los-gehts {
-	    width: 75%;
-	}
-}
-
 
 .big-text-btn {
 	text-align: center;

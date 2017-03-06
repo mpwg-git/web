@@ -1,0 +1,20 @@
+<%xr_wz_fetch id=830 wz_online='Y' var='data'%>
+
+
+<div class="worumgehts default-container-padding">
+    <!-- <h1>FAQ</h1> -->
+    <span class="looklikeh1">
+            <%xr_translate tag="FAQ"%>
+    </span>
+    <br>
+    <br>
+
+    <%foreach $data as $k => $v%>
+
+       <%xr_atom a_id=831 faq=$v return=1%>
+
+    <%/foreach%>
+
+
+
+</div>

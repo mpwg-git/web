@@ -1,4 +1,3 @@
 User-agent:*
 Disallow: /
 
-Sitemap: https://www.meineperfektewg.com/sitemap.xml 
