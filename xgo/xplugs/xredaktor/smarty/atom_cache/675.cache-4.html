@@ -1,0 +1,13 @@
+<%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+
+<div class="searchlist-chat profil">
+    
+    <div class="col-xs-4 profil-links">
+        <%xr_atom a_id=682 showFace=3 data=$data return=1%>
+    </div>
+    
+    <div class="col-xs-8">
+        <%xr_atom a_id=660 showFace=3 addClass="fromsearch" data=$data return=1%>
+    </div>
+
+</div>
