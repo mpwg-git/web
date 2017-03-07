@@ -1,0 +1,30 @@
+<%if $dataViaAjax%>
+    <%$data = $dataViaAjax%>
+<%else%>
+    <%xr_siteCall fn='fe_blog::sc_get_all_blogentries' var='data'%>
+    <%*****xr_wz_fetch id=834 wz_online='Y' order='wz_created DESC' var='data'*****%>
+<%/if%>
+
+<div id="blog-page" class="blog-page">
+    <!-- <h1>FAQ</h1> -->
+    
+    <%foreach $data as $k => $v%>
+        <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
+        <div class="blog-item"  id="post-<%$v.wz_id%>">
+            <div class="image-wrapper">
+                <%xr_imgWrapper s_id=$v['wz_BILD'] w=500 h=320 rmode="cco" class="image"%> 
+            </div>
+            <div class="content">
+                <div class="header-wrapper">
+                    <a href="<%$detailURL%>">
+                        <h3 class="headline"><%$v['wz_HEADLINE']%></h3>
+                    </a>
+                    <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
+                </div>
+                <div class="text"><%$v['wz_TEASERTEXT']%></div>
+                <div class="reporter"><%$v['wz_REPORTER']%></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>    
+    <%/foreach%>
+</div>

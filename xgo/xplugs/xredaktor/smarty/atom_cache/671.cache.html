@@ -1,0 +1,37 @@
+<%xr_siteCall fn="fe_wgtest::sc_getFrage" var="data"%>
+<%xr_siteCall fn="fe_wgtest::sc_getWgTestState" userId=$smarty.session['xredaktor_feUser_wsf']['wz_id'] var=wgteststate%>
+<%xr_siteCall fn='fe_cookie::sc_checkFragencookie' var='showIntrotext'%>
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
+
+
+<div class="col-xs-12 default-container-paddingtop meinprofil-wgtest">
+    
+    <div class="pull-right" style="font-size: 14px;color:#04e0d7;">
+        <a class="show-introtext" data-toggle="collapse" href="#js-toggle-introtext">
+            <span id="info-sign" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+        </a>
+    </div> 
+    
+    <span class="looklikeh1" style="font-size: 9vw;">
+    <%xr_translate tag="WG-Leben"%>
+    </span>
+    
+    <p class="wgtest-beschreibung collapse <%if $data.frageId <= 1%>in<%else%>one<%/if%>" id="js-toggle-introtext">
+        <%xr_translate tag="Bitte nimm dir ein paar Minuten um die Fragen zu beantworten. Es gibt keine falschen oder richtigen Antworten, sei ehrlich über dich und deine Erwartungen und WhoShowersFirst hilft dir wirklich passende Mitbewohner zu finden."%>
+        <br>
+        <%xr_translate tag="Beantworte die Fragen wie du bist und wie du dir deine WG wünscht. Über Vergabe der Sterne entscheidest du wie wichtig dir dieses Thema ist. Null Sterne bedeutet es ist dir egal, 4 Sterne ist ein Muss."%>
+ 
+    </p>
+    
+    <div class="js-wgtest-replacer clearfix">    
+        
+        <%if $wgteststate==1 && $smarty.request.restart != 1 && !isset($smarty.request.frageId)%>
+            <%xr_atom a_id=779 return=1 desc='alle fragen beantworted'%>
+        <%else%>
+            <%xr_atom a_id=766 return=1%>
+        <%/if%>
+        
+    </div>
+    
+</div>

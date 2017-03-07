@@ -1,163 +1,150 @@
+/*
 @import "23.less";
-@import "25.less";
+@import url(/xstorage/template/bootstrap/css/bootstrap-toggle.min.css);
 
-html, body { width: 100%; height: 100%; }
-
-body { font-size: 1rem; text-size-adjust: auto; -webkit-text-size-adjust: auto; }
-
-*, *:before, *:after {
-   box-sizing: border-box;
-   -moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
+hr {
+    margin: 10px 5%;
+    width: 90%;
+    border: 0;
+    border-top: 1px solid rgb(217,217,217);
 }
-::-webkit-scrollbar { display: none; }
 
-img {
-    max-width: 100%;
-    height: auto;
+.antwort-value {text-align: center;}
+
+
+.form-control:focus {
+    border-color: @turkis;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(4, 224, 215,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(4, 224, 215,.6);
 }
-.page-wrapper {
-	margin: 0;
+input.form-control {
+    font-family: @nunitoextrabold;
+    color: @turkis;
+    background-color: @lightgray;
+    margin-bottom: 1em;
+    padding: 0 5px;
+    border: none;
 }
-.main-content {
-    position: absolute;
-    top: 7.9rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
+
+.toggle.btn {
+    min-width: 60px;
+    min-height: 28px;
 }
 .btn-default {
-    font-family: @nunitoextrabold, sans-serif;
-    font-size: 14px;
-    font-size: 1.4rem;
-    
-    &.btn-login {
-        font-family: @nunitoregular;
-        color: @darkgray;
-        text-transform: uppercase;
-        letter-spacing: 0.15rem;
-        margin-right: 1.5rem;
-        
-        & + span .navlinks {
-            font-family: @nunitoregular;
-            font-size: 14px;
-            font-size: 1.4rem;
-            color: #fff;
-            
-            &.active {
-                font-family: @nunitoblack;
-            }
-        }
-    }
-
-}
-
-/************* NAV *************/
-.nav-container div {
-    margin-top: 2.25rem;
-    &.header-logo { margin-left: 1rem; float:left; }
-    &.header-nav { margin-right: 1rem; float: right; }
-}
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
-.navbar-wrapper > .nav-container {
-  min-height: 7.9rem;
-  max-height: 7.9rem;
-  padding-right: 0;
-  padding-left: 0;
-  background-color: @turkis;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar {
-  width: auto;
-}
-
-/******** FRONTPAGE SLIDER *************/
-blockquote { border: none; }
-
-p.caption { 
-    font-family: @nunitobold; 
-    font-size: 21px; 
-    font-size: 2.1rem; 
-    
-    & span { font-family: @nunitoitalic; }
-}
-.caption-text {
-    margin: 1rem 2rem;
-    font-family: @nunitobold;
-    font-size: 1.6rem;
-    text-align: center;
-    word-wrap: normal;
-    text-transform: uppercase;
-}
-// .carousel {
-//   margin: 7.9rem auto 5rem auto;
-// }
-.carousel-inner {
-    top: -75px;
-    top: -7.5rem;
-}
-.carousel-caption {
-    width: 100%;
-    height: auto;
-    top: 25%;
-    left: 0;
-    z-index: 10;
-}
-.carousel .item {
-    height: auto;
-    background-color: #777;
-}
-.carousel-indicators {
-    max-width: 1.2rem;
-    height: 6.25%;
-    left: 95%;
-    top: 50%;
-    margin: 0;
-    padding: 0;
-}
-.carousel-indicators li {
-    display: block;
-    width: 10px;
-    height: 10px;
-    width: 1rem;
-    height: 1rem;
-    text-indent: -999px;
-    cursor: pointer;
+    color: #fff;
     background-color: #fff;
-    border: 0.1rem solid #04e0d7;
-    border-radius: 1rem;
+    border-color: #04e0d7;
 }
-.carousel-indicators .active {
-    width: 12px;
-    height: 12px;
-    width: 1.2rem;
-    height: 1.2rem;
+.btn-primary {
+    color: #fff;
     background-color: #04e0d7;
+    border-color: #04e0d7;
 }
-.carousel-indicators li:first-child {
-    margin-bottom: 1.2rem;
+.btn {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 10px;
 }
-.carousel-indicators li:last-child {
-    margin-top: 1.2rem;
+label.btn.btn-primary.toggle-on, label.btn.btn-default.active.toggle-off {
+    font-size: 10px;
 }
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-    line-height: 1;
-    width: 100%;
-    opacity: .7;
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: #04e0d7;
+    border-color: #04e0d7;
 }
 
-.carousel-caption h1 { text-transform: uppercase; }
+
+*/
+
+/*
+.toggle.btn {
+    min-width: 60px;
+    min-height: 25px;
+}
+.toggle.off .toggle-group {
+    left: -77%;
+}
+.toggle-group {
+    top:1px;
+    left: -23%;
+}
+.toggle.btn.btn-primary {
+    border-color: #04e0d7;
+    background-color: #04e0d7;
+    border-radius: 16px;
+    width: 70px !important;
+    height: 30px !important;
+}
+.toggle.btn.btn-default.off {
+    border-color: #04e0d7;
+    background-color: #04e0d7;
+    border-radius: 16px;
+    width: 70px !important;
+    height: 30px !important;
+}
+label.btn.btn-default.active.toggle-off {
+    background-color: #04e0d7;
+    border-color: #04e0d7;
+    color: transparent;
+}
+label.btn.btn-primary.toggle-on{
+    background-color: #04e0d7;
+    color: transparent;
+}
+span.toggle-handle.btn.btn-default {
+
+    border-radius: 16px;
+    width: 27px;
+    height: 26px;
+}
+.btn-default:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: transparent;
+}
+.toggle-important {
+    position: relative;
+    top: 0;
+    left: -15%;
+}
+*/
+/*
+.toggle.btn.btn-default {
+    background-color: @turkis;
+    border-color: @turkis;
+    border-radius: 16px;
+    
+    .toggle-group {
+        .toggle-handle, .toggle.btn.btn-primary {
+            width: 29px;
+            height: 29px;
+            top: 1px;
+            left: 17px;
+            padding: 0;
+            background-color: #fff;
+            border-radius: 14.5px;
+        }
+        
+    }
+}
+.btn-default.active {
+    
+}
+.toggle.btn {
+    width: 74px !important;
+    height: 30px !important;
+    border-color: #04e0d7;
+    border-radius: 16px;
+}
 
 
+.toggle-handle, .toggle.btn.btn-primary {
+    background-color: @turkis;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px;
+}
+*/

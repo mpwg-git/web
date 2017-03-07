@@ -178,13 +178,12 @@ class fe_chat
 		if ($fUserId == 0) return array();
 
 		$user = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_id = $fUserId ");
-		$lng = xredaktor_pages::getFrontEndLang();
-
+		
 		$replacers = array();
 
 		$replacers['###VORNAME###'] = $user['wz_VORNAME'];
 
-		$replacers['###LINK###']	= 'http://' . $_SERVER["SERVER_NAME"] . '/' . $lng . '/anmelden';
+		$replacers['###LINK###']	= fe_vanityurls::genUrl_login();
 
 		return $replacers;
 	}
@@ -203,8 +202,9 @@ class fe_chat
 			$fUserId	= $v['otherUser'];
 
 			$delAttr = dbx::queryAttribute("select wz_del from wizard_auto_707 where wz_id = $fUserId","wz_del");
+			$active = dbx::queryAttribute("select wz_ACTIVE from wizard_auto_707 where wz_id = $fUserId","wz_ACTIVE");
 
-			if(dbx::queryAttribute("select wz_del from wizard_auto_707 where wz_id = $fUserId","wz_del") == 'N')
+			if($delAttr == 'N' && $active == 'Y')
 			{
 				if (self::checkConversationHidden($userId, $fUserId) == false)
 				{

@@ -36,15 +36,12 @@
 .circle > img {
     padding-top: 20px;
 }
-
-
-/* .circle-text { */
-/*   width: 10rem; */
-/*   height: 10rem; */
-/*   border-radius: 50%; */
-/*   font-size: 5rem; */
-/*   color: #fff; */
-/*   line-height: 10rem; */
-/*   text-align: center; */
-/*   background: #000 */
-/* } */
+.circle:hover {
+	transform: scale(1.05);
+}
+.footer-icon-fb {
+    width: 40px;
+    width: 4rem;
+    padding-top: 15px;
+    margin-right: 1rem;
+}

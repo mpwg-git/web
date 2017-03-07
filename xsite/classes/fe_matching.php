@@ -2,7 +2,7 @@
 
 class fe_matching
 {
-
+	
 
 	public static function ajax_testMatch()
 	{
@@ -82,7 +82,6 @@ class fe_matching
 		$fragen1			= self::buildAnswersArray($userId1Answers);
 		$fragen2			= self::buildAnswersArray($userId2Answers);
 
-
 		$fragen1_by_cat = self::buildAnswersArrayByCat($userId1Answers);
 		$fragen2_by_cat = self::buildAnswersArrayByCat($userId2Answers);
 
@@ -127,7 +126,6 @@ class fe_matching
 		$matchKategorien	= array();
 
 		$matchGesamt		= round(100 * $pointsTotal / $pointsTotalPossible, 0);
-
 
 
 		foreach ($kategorien as $k => $v) {
@@ -543,6 +541,7 @@ class fe_matching
 	public static function doInstantMatching()
 	{
 		$matchDone = false;
+		
 		if($matchDone == false)
 		{
 			$command = $_SERVER['DOCUMENT_ROOT'] . "/datamigration/cronjob_matching.php";

@@ -7,7 +7,7 @@
     <%if (isset($smarty.request.h) && $addr != '')%>
         <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="<%$addr%>"  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
     <%else%>
-        <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="<%$adresseValue%>"  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
+        <input class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value=""  placeholder="<%xr_translate tag="Stadt, Ort, PLZ?"%>" />
     <%/if%>
     <span class="icon-Map js-autocomplete-duck">
 	    <span class="path1"></span><span class="path2"></span>
@@ -21,8 +21,8 @@
 	   <input type="hidden" name="ADRESSE_STRASSE" class="location-strasse route" value="" />
     	<input type="hidden" name="ADRESSE_STRASSE_NR" class="location-strasse-nr street_number" value="" />
     	<input type="hidden" name="ADRESSE_PLZ" class="location-plz postal_code" value="" />
-    	<input type="hidden" name="ADRESSE_STADT" class="location-stadt locality" value="Wien" />
-    	<input type="hidden" name="ADRESSE_LAND" class="location-land country" value="AT" />
+    	<input type="hidden" name="ADRESSE_STADT" class="location-stadt locality" value="" />
+    	<input type="hidden" name="ADRESSE_LAND" class="location-land country" value="" />
     	<input type="hidden" name="ADRESSE_LAT" class="location-lat" value="" />
     	<input type="hidden" name="ADRESSE_LNG" class="location-lng" value="" />
     	

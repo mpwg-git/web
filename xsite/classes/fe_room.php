@@ -1,4 +1,5 @@
 <?
+// error_reporting(E_ALL);
 
 class fe_room
 {
@@ -8,8 +9,8 @@ class fe_room
 
 	public static $regDefaults = array(
 // 		'wz_COUNT_MITBEWOHNER_M' 	=> NULL,
-// 		'wz_COUNT_MITBEWOHNER_F' 	=> NULL,
-// 		'wz_COUNT_MITBEWOHNER' 		=> NULL,
+		'wz_COUNT_MITBEWOHNER_F' 	=> 1,
+		'wz_COUNT_MITBEWOHNER' 		=> 1,
 // 		'wz_UNREG_M' 				=> NULL,
 // 		'wz_UNREG_F' 				=> NULL,
 		'wz_ADRESSE_LAT' 			=> 48.2081743,

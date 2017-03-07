@@ -1,0 +1,296 @@
+@import "22.less"; 
+@import "23.less"; 
+
+@media only screen and (min-width:48em) and (max-width:62em) {
+    
+    h1 {
+        margin: 10px 20px;
+    }
+    #main-content .carousel .carousel-inner .carousel-caption .circle {
+        width: 115px;
+        height: 115px;
+    }
+    #main-content .carousel .carousel-inner .carousel-caption {
+        padding: 5% 0;
+    }
+    #main-content .carousel .carousel-inner .carousel-caption h1.text-uppercase {
+        color: #fff;
+        font-size: 2.25em;
+    }
+    #main-content .carousel .carousel-inner .carousel-caption .circle .caption-text {
+        font-size: .75em;
+        line-height: 15px;        
+    }
+    #main-content .carousel .carousel-inner .carousel-caption .hl-caption {
+        font-family: 'NunitoSans-light';
+        font-size: 1em;
+    }
+    blockquote {
+        margin-bottom: 10px;
+    }
+    #main-header #anmelden-inner {
+        width: 100%;
+    }
+    
+    #latest-news {
+        padding-top: 2em;
+    	padding-bottom: 3em;
+        
+        h1.latest-news {
+    	    font-size: 3em;
+    	    width: 100%;
+    	    text-align: center;
+    	    margin-left: 0;
+    	    margin-bottom: 0.5416666666666666em;
+        }
+        .blog-start {
+            padding: 0;
+            margin: 10px 0;  
+            
+            [class*='col-'] {
+                padding: 0;
+            }
+           .col-sm-4.col-xs-5.blog-entry-1, .col-sm-4.col-xs-5.blog-entry-2, .col-sm-4.col-xs-5.startseiten-aussagen {
+               width: 30%;
+               margin: 0 12px;
+           }
+            
+            p.blog-start-text.start-aussagen, .blog-start-text {
+                color: @darkgray;
+                font-family: @nunitoregular;
+                line-height: 1.4166666666666667em;
+                font-size: 0.875em;
+                text-align: start;
+                margin-bottom: 1em;
+            }
+            
+            img.image {
+                width: 100%;
+                height: auto;
+            }
+            .header-wrapper {
+                font-size: 1.0666666666666667em;
+                .date {
+                    font-size: .75em;
+                    margin: 10px 0;
+                    font-family: 'NunitoSans-Regular';
+                }
+                h3.latest-news {
+                    margin: 5px 0 10px 0;
+                    font-size: 0.9374999970703125em;
+                    line-height: 1.4375em;
+                    font-family: 'NunitoSans-Extrabold';
+                }
+            }
+        }
+        .more-news {
+            text-align: center;
+            margin-top: 50px;
+            
+            a.btn {
+                padding: 0.875em 6em;
+            }
+        }
+    }
+    
+    footer {
+        padding: 10px 0;
+        
+        #main-footer {
+            background-size: 25%;
+            
+            .footer-links {
+                left: 0;
+            }
+        }
+    }
+    
+    // REGISTER 
+    #main-content .register-fragen { word-break: break-word; }
+
+    #main-content .register-fragen .register-wunsch-wg {
+        margin: 20px 0 0 0 ;
+    }
+    #main-content .register-fragen .register-konto {
+        margin: 0px 0 150px 0 ;
+    }
+    
+    // #main-content .register-fragen .register-wunsch-wg, #main-content .register-fragen .register-fragebogen, #main-content .register-fragen .register-konto {
+    //     margin: 25px 0 135px 0;
+    //     padding: 5px 20px 20px 20px;
+    // }
+    
+    #main-content .register-fragen .register-fragebogen .frage-headline {
+        font-size: 1.125em;
+        text-align: right;
+    }
+    
+    #main-content .register-fragen .register-fragebogen .fragen-container {
+        margin: 20px 0 105px 0;
+    }
+    #main-content .register-fragen .register-fragebogen {
+        
+        margin: 30px 0;
+        padding-bottom: 30px;
+        
+        h3 {text-align: center;}
+        
+        .frage-headline {
+            font-size: 1.3125em;
+            text-align: center;
+        }
+    }
+    
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
+        width: 1.625em;
+        height: 1.625em;
+    }
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
+        min-height: 1em;
+        padding: 0 10px;
+    }
+    
+    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+        width: 130px !important;
+        height: 30px !important;
+        margin-top: 0;
+    }
+    span.toggle-handle.btn.btn-default {
+        height: 27px;
+        width: 27px;
+        top: 0px;
+        left: 0px;
+    }
+    
+    .toggle-important {
+        position: relative;
+        top: 0;
+        left: -45px;
+    }
+    
+    
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
+        width: 28px;
+        height: 28px;
+        margin-left: 0px;
+    }
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
+        padding: 0 27px 32px 0;
+        text-align: center;
+    }
+    #main-content .register-fragen .register-fragebogen .antwort-headline {
+        font-size: .875em;
+        font-family: 'NunitoSans-extrabold';
+        line-height: 1.2em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    
+    .col-lg-6.col-md-4.col-sm-3.col-xs-6.text-right.antwort-left {
+        padding: 10px 45px 10px 0;
+    }
+    .col-lg-4.col-md-4.col-sm-3.col-xs-6.text-left.antwort-right {
+        padding: 10px 0px 10px 65px;    
+    }
+    
+    .toggle.btn {
+        min-width: 60px;
+        min-height: 28px;
+    }
+    .btn-default {
+        color: #fff;
+        background-color: #fff;
+        border-color: #04e0d7;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #04e0d7;
+        border-color: #04e0d7;
+    }
+    /*
+    .btn {
+        display: inline-block;
+        padding: 8px 14px;
+        font-size: 10px;
+    }
+    */
+
+    
+    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+        color: #fff;
+        background-color: #04e0d7;
+        border-color: #04e0d7;
+    }
+    
+    .toggle-important {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
+        width: 32px;
+        height: 32px;
+        margin-left: 0px;
+    }
+    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
+        padding: 0 34px 38px 0;
+        text-align: center;
+    }
+    #main-content .register-fragen .register-fragebogen .antwort-headline {
+        font-size: 1em;
+        font-family: 'NunitoSans-extrabold';
+        line-height: 1.2em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    
+    .antwort-left {
+        padding-left: 10.86956522% !important;
+        padding-right: 4.434783% !important;
+    }
+    .antwort-right {
+        padding-right: 10.86956522% !important;
+        padding-left: 4.434783% !important;
+    }
+    
+    .toggle.btn {
+        min-width: 60px;
+        min-height: 28px;
+    }
+    .btn-default {
+        color: #fff;
+        background-color: #fff;
+        border-color: #04e0d7;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #04e0d7;
+        border-color: #04e0d7;
+    }
+
+    
+    label.btn.btn-primary.toggle-on, label.btn.btn-default.active.toggle-off {
+        font-size: 12px;
+        margin: 0px 0 0 0;
+    }
+    label.btn.btn-default.active.toggle-off {
+        margin: 0px 0 0 -3px;
+    }
+    label.btn.btn-primary.toggle-on {
+        margin: 0px 0 0 -5px;
+    }
+    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+        color: #fff;
+        background-color: #04e0d7;
+        border-color: #04e0d7;
+    }
+    
+    .toggle-important {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
+

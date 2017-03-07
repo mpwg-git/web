@@ -52,21 +52,22 @@ $header = array(
 
 $roomData = array();
 
-foreach ($rooms as $key => $value)
+foreach($rooms as $key => $value)
 {
 	$ID = intval($value['wz_id']);
 	$land = '';
-	$LandID = intval($value['ADRESSE_LAND']);
-
-	$l = dbx::query("SELECT * FROM wizard_auto_716 WHERE wz_id = $LandID");
+	$LandID = intval($value['wz_ADRESSE_LAND']);
+	
+	if($LandID != 0)
+		$l = dbx::query("SELECT * FROM wizard_auto_716 WHERE wz_id = $LandID");
 
 	$l = xredaktor_wizards::mapLanguageFieldsToNormFields(716,$l);
 
-	if(trim($l['wz_label']) != '')
+	if(trim($l['wz_ISO2']) != '')
 	{
-		$land = trim($l['wz_label']);
+		$land = trim($l['wz_ISO2']);
 	}
-	
+
 	$PROFILBILD = (intval($value['wz_PROFILBILD']) == 0) ? 'Nein' : 'Ja';
 
 	$BILDER = dbx::queryAttribute("SELECT COUNT(wz_id) AS cntx FROM wizard_auto_810 WHERE wz_ROOMID = $ID AND wz_del = 'N'","cntx");
