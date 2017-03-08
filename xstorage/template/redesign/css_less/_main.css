@@ -46,6 +46,10 @@
 
 
 
+
+
+
+/*
 @media only screen and (min-width: 75em) {
 	#main-content .register-fragen .register-fragebogen .fragen-container label.btn.btn-primary.toggle-on {
     	margin: 0;
@@ -64,10 +68,6 @@
 	    left: 0;
 	}
 }
-
-
-
-/*
 @media only screen and (max-width: 30em) {
 
 	#main-content .carousel .carousel-inner .carousel-caption .hl-caption {

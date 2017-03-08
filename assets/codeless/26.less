@@ -1,7 +1,7 @@
 @import "22.less"; 
 @import "23.less"; 
-@import "24.less";
-@import "../../xstorage/template/less/hover/hover.less";
+// @import "24.less";
+
 
 /**
  *
@@ -34,21 +34,31 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     border: none;
     color: #fff;
 }
+
+/*
 ::-webkit-scrollbar {
 	display: none;
 }
+*/
+
 .no-gutter, .no-gutter > [class*='col-'] {
-    padding-right:0;
     padding-left:0;
+    padding-right:0;
 }
+.no-margin, .no-margin > [class*='col-'] {
+    margin-left:0;
+    margin-right:0;
+}
+
 
 a {
     font-size: 1em;
     font-family: @nunitoextrabold;
     color: white;
     
-    &:hover {
+    &:hover, &:focus {
         color: #fff;
+        text-decoration: underline;
     }
 }
 
@@ -58,7 +68,7 @@ a {
 }
 
 hr {
-    margin: 10px 5%;
+    margin: 10px 5% 5px;
     width: 90%;
     border: 0;
     border-top: 1px solid rgb(217,217,217);
@@ -99,9 +109,9 @@ hr {
         }
     }
     
-    .btn.btn-default.btn-login {
+    .btn.btn-default.btn-login, .btn.btn-default.btn-logout {
         width: 100px;
-        font-family: 'NunitoSans-bold';
+        font-family: @nunitobold;
         font-size: .875em;
         line-height: 1;
         color: @darkgray;
@@ -155,7 +165,7 @@ hr {
     MAIN-CONTENT 
 **/
 #main-content {
-    // position: relative;
+    position: absolute;
     padding-bottom: 100px;
     padding-top: 3.125em;
 	
@@ -180,7 +190,7 @@ hr {
                 text-indent: -999px;
                 cursor: pointer;
                 background-color: #fff;
-                border: 0.1em solid #04e0d7;
+                border: 0.1em solid @turkis;
                 border-radius: 1em;
                 
                 &:first-child {
@@ -194,7 +204,7 @@ hr {
             .active {
                 width: 0.75em;
                 height: 0.75em;
-                background-color: #04e0d7;
+                background-color: @turkis;
             }
         }
 
@@ -289,7 +299,7 @@ hr {
     	h2 {
         	font-size: 24px;
         	color: rgb(100,100,100);
-        	border-top: 2px solid #646464;
+        	border-top: 2px solid @darkgray;
         	padding-top: 17rem;
     	}
     	
@@ -365,17 +375,21 @@ hr {
                 margin: 45px 0 110px 0;
                 
                 .btn-default {
-                    border-color: #04e0d7;
+                    border-color: @turkis;
                     line-height: 2;
                 }
                 label.btn.btn-primary.toggle-on {
                     line-height: 2;
+                }
+                .toggle.btn {
+                    min-height: 20px !important;
                 }
             }
             
             .frage-headline {
                 text-transform: uppercase;
                 text-align: center;
+                font-size: 1.25em;
             }
             .antwort-headline {
                 font-size: 0.875em;
@@ -493,13 +507,6 @@ hr {
     }
     /* END IMPRESSUMG, FAQ, AGB */
 }
-    
-    
-
-/* END MAIN-CONTENT */
-
-
-
 
 footer {
     position: fixed;
@@ -532,7 +539,7 @@ footer {
                     height: 2px;
                     bottom: 0;
                     left: 0;
-                    background-color: #fff;
+                    background-color: @turkis;
                     visibility: hidden;
                     -webkit-transform: scaleX(0);
                     transform: scaleX(0);
@@ -540,6 +547,7 @@ footer {
                     transition: all 0.3s ease-in-out 0s;
                 }
                 &:hover {
+                    color: @turkis;
                     background-color: transparent;
                     font-weight: bold;
                 }
@@ -571,6 +579,13 @@ footer {
     }
 }
     
+
+/* END MAIN-CONTENT */
+
+
+
+
+    
 #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #fragebogen-save {
     width: 100%; 
     height: 54px; 
@@ -588,7 +603,7 @@ footer {
     span.fb-f {
         text-transform: none;
         font-size: 1.7142857142857142em;
-        font-family: 'NunitoSans-black';
+        font-family: @nunitoblack;
         vertical-align: sub;
     }
         
@@ -597,6 +612,7 @@ footer {
     } 
 }
 #fragebogen-save {
+    display: none;
     width: 70%;
     height: auto;
     margin: 39px 0 15px 0;
@@ -632,30 +648,6 @@ label {
     vertical-align: middle;
 }
 
-
-
-
-
-    
-//     .col-xs-12.blog-start > .col-xs-5{
-// 	    width: 48%;
-// 	    margin-right: 0;
-// 	   	padding: 0;
-// 	}
-// 	.col-xs-12.blog-start > .col-xs-5:first-of-type {
-// 	    margin-right: 4%;
-// 	}
-	
-//     #latest-news .blog-start p.blog-start-text.start-aussagen, #latest-news .blog-start .blog-start-text {
-//         color: #646464;
-//         font-family: 'NunitoSans-Regular';
-//         line-height: 1.41666667em;
-//         font-size: .75em;
-//         margin-bottom: 1em;
-//     }
-    
-// }
-
 .big-text-btn {
 	text-align: center;
 	position: relative;
@@ -665,8 +657,6 @@ label {
 a > .big-text-btn {
     color: #333;
 }
-
-
 
 .big-text-btn > .btn-icon-wgsuchtwg,
 .big-text-btn > .btn-icon-mitbewohner,
@@ -678,7 +668,7 @@ a > .big-text-btn {
 .btn-icons-reg {
     font-family: @nunitoblack;
     font-size: 14px; 
-	background-color: #646464;
+	background-color: @darkgray;
     color: #fff;
     line-height: 2;
     border: none;
@@ -759,9 +749,10 @@ label {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(4, 224, 215,.6);
 }
 input.form-control {
-    font-family: @nunitoextrabold;
+    font-family: @nunitobold;
+    font-size: 0.9375em;
     color: @turkis;
-    background-color: @lightgray;
+    background-color: rgba(239, 239, 239, 0.59);
     margin-bottom: 1em;
     padding: 0 5px;
     border: none;
@@ -771,6 +762,45 @@ input.form-control {
     display: none;
 }
 
+.errorNotification {
+    margin: 15px 0 -15px 0;
+    font-family: @nunitolight;
+    color: red;
+    b {
+        font-family: @nunitoextrabold;
+    }
+}
 
+#oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, #MIETE_error, #ZEITRAUM_VON_error, #NACHNAME_error,
+#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div.checkbox-error , #agb-accept_error
+{
+    display: none;
+    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    background-color: #fff;
+    border: 1px solid #f00;
+    margin-top: 1px;
+    padding: 5px;
+    color: #f00 !important;
+    text-transform: none;
+    letter-spacing: .1rem;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
 
+#changePasswd-success, #changeMail-success{
+    display: none;
+    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    background-color: #5cb85c;
+    border: 1px solid #4cae4c;
+    margin-top: 1px;
+    padding: 5px;
+    color: #fff !important;
+    text-transform: none;
+    letter-spacing: .1rem;
+}
+
+#changePwd > .alert.alert-danger, .alert.alert.success  {
+    margin-top: -15px;
+}
 

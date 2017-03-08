@@ -17,7 +17,12 @@
             
         <%foreach $v['OPTIONS'] as $i => $o%>
             <div class="row no-gutter fragenNR_<%$v['FRAGE']['wz_NR']%>_antworten">
-                <div class="col-xs-12 antwort-value">
+                <div class="col-lg-1 hidden-xs"></div>
+                <div class="col-lg-3 col-xs-3 text-right antwort-left">
+                    <h5 class="antwort-headline"><%$o['wz_TEXTHEADER_LEFT']%></h5>
+                    <p><%$o['wz_TEXT_LEFT']%></p>
+                </div>
+                <div class="col-lg-4 col-xs-6 antwort-value">
                     <div class="radio radio-inline">
                         <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="0" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
                         <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="1" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
@@ -25,19 +30,15 @@
                         <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="3" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
                         <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="4" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
                     </div>
+                <div class="" style="text-align: center;">
+                    <input type="checkbox" data-toggle="toggle" data-on="<%xr_translate tag='fp_Fragen-wichtig'%>" data-off="<%xr_translate tag='fp_Fragen-unwichtig'%>">
                 </div>
-                <div class="col-xs-5 text-right antwort-left">
-                    <h5 class="antwort-headline"><%$o['wz_TEXTHEADER_LEFT']%></h5>
-                    <p><%$o['wz_TEXT_LEFT']%></p>
                 </div>
-                <div class="col-xs-2 text-center"></div>
-                <div class="col-xs-5 text-left antwort-right">
+                <div class="col-lg-3 col-xs-3 text-left antwort-right">
                     <h5 class="antwort-headline"><%$o['wz_TEXTHEADER_RIGHT']%></h5>
                     <p><%$o['wz_TEXT_RIGHT']%></p>
                 </div>
-            </div>
-            <div class="col-xs-12" style="text-align: center;">
-                <input type="checkbox" data-toggle="toggle" data-on="<%xr_translate tag='fp_Fragen-wichtig'%>" data-off="<%xr_translate tag='fp_Fragen-unwichtig'%>">
+                <div class="col-lg-1 hidden-xs"></div>
             </div>
         <%/foreach%>
         </div>
