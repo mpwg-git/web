@@ -1,150 +1,40 @@
-/*
-@import "23.less";
-@import url(/xstorage/template/bootstrap/css/bootstrap-toggle.min.css);
+@import "23.less"; 
 
-hr {
-    margin: 10px 5%;
-    width: 90%;
-    border: 0;
-    border-top: 1px solid rgb(217,217,217);
+.all-rows-container-top {
+	position: absolute;
+	width: 100%;
 }
 
-.antwort-value {text-align: center;}
-
-
-.form-control:focus {
-    border-color: @turkis;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(4, 224, 215,.6);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(4, 224, 215,.6);
-}
-input.form-control {
-    font-family: @nunitoextrabold;
-    color: @turkis;
-    background-color: @lightgray;
-    margin-bottom: 1em;
-    padding: 0 5px;
-    border: none;
+.ajax-loader {
+	display: none;
 }
 
-.toggle.btn {
-    min-width: 60px;
-    min-height: 28px;
-}
-.btn-default {
-    color: #fff;
-    background-color: #fff;
-    border-color: #04e0d7;
-}
-.btn-primary {
-    color: #fff;
-    background-color: #04e0d7;
-    border-color: #04e0d7;
-}
-.btn {
-    display: inline-block;
-    padding: 6px 14px;
-    font-size: 10px;
-}
-label.btn.btn-primary.toggle-on, label.btn.btn-default.active.toggle-off {
-    font-size: 10px;
-}
-.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
-    color: #fff;
-    background-color: #04e0d7;
-    border-color: #04e0d7;
-}
-
-
-*/
-
-/*
-.toggle.btn {
-    min-width: 60px;
-    min-height: 25px;
-}
-.toggle.off .toggle-group {
-    left: -77%;
-}
-.toggle-group {
-    top:1px;
-    left: -23%;
-}
-.toggle.btn.btn-primary {
-    border-color: #04e0d7;
-    background-color: #04e0d7;
-    border-radius: 16px;
-    width: 70px !important;
-    height: 30px !important;
-}
-.toggle.btn.btn-default.off {
-    border-color: #04e0d7;
-    background-color: #04e0d7;
-    border-radius: 16px;
-    width: 70px !important;
-    height: 30px !important;
-}
-label.btn.btn-default.active.toggle-off {
-    background-color: #04e0d7;
-    border-color: #04e0d7;
-    color: transparent;
-}
-label.btn.btn-primary.toggle-on{
-    background-color: #04e0d7;
-    color: transparent;
-}
-span.toggle-handle.btn.btn-default {
-
-    border-radius: 16px;
-    width: 27px;
-    height: 26px;
-}
-.btn-default:hover {
-    background-color: #fff;
-    border-color: #fff;
-    color: transparent;
-}
-.toggle-important {
-    position: relative;
-    top: 0;
-    left: -15%;
-}
-*/
-/*
-.toggle.btn.btn-default {
-    background-color: @turkis;
-    border-color: @turkis;
-    border-radius: 16px;
+.cookie-warning-top{
+    background:@turkis;
+    bottom: 0;
+    color:#000;
+    display: none;
+    opacity:0;
+    padding: 25px 60px 10px 60px;
+    position: absolute;
+    width:100%;
+    z-index: 9999;
+    /* .translate(0,-100%); */
+    /* .transition(all 300ms ease); */
     
-    .toggle-group {
-        .toggle-handle, .toggle.btn.btn-primary {
-            width: 29px;
-            height: 29px;
-            top: 1px;
-            left: 17px;
-            padding: 0;
-            background-color: #fff;
-            border-radius: 14.5px;
-        }
-        
+    &.active{
+        /* .translate(0,0%); */
+        opacity:1;
+        display: block;
+    }
+
+    .text{
+        float:left;
+        width: calc(~"100% - 3vw");
+    }
+    .closing-icon{
+        float:right;
+        font-size: 1.3vw;
+        cursor:pointer;
     }
 }
-.btn-default.active {
-    
-}
-.toggle.btn {
-    width: 74px !important;
-    height: 30px !important;
-    border-color: #04e0d7;
-    border-radius: 16px;
-}
-
-
-.toggle-handle, .toggle.btn.btn-primary {
-    background-color: @turkis;
-    padding: 0;
-    width: 25px;
-    height: 25px;
-    border-radius: 12.5px;
-}
-*/

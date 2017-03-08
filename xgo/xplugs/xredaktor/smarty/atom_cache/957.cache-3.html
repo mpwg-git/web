@@ -1,0 +1,171 @@
+<div id="main-content">
+    <div class="register-fragen">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="register-wunsch-wg">
+                <h3><%xr_translate tag='reg_suche-h3-wunschWG'%></h3>
+
+                <h5><%xr_translate tag='reg_suche-h5-ort'%></h5>
+                <div class="input-icon search-input search-input-map">
+                    <input type="text" class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="" placeholder="<%xr_translate tag='Stadt, Ort, PLZ?'%>" autocomplete="off">
+                    <span class="icon-Map js-autocomplete-duck"><span class="path1"></span><span class="path2"></span></span>
+                </div>
+                <div class="location-hidden-container">
+                    <input type="hidden" name="ADRESSE_STRASSE" class="location-strasse route" value="">
+                    <input type="hidden" name="ADRESSE_STRASSE_NR" class="location-strasse-nr street_number" value="">
+                    <input type="hidden" name="ADRESSE_PLZ" class="location-plz postal_code" value="">
+                    <input type="hidden" name="ADRESSE_STADT" class="location-stadt locality" value="Wien">
+                    <input type="hidden" name="ADRESSE_LAND" class="location-land country" value="AT">
+                    <input type="hidden" name="ADRESSE_LAT" class="location-lat" value="">
+                    <input type="hidden" name="ADRESSE_LNG" class="location-lng" value="">
+                    <input type="hidden" class="administrative_area_level_1">
+                </div>
+                <div class="error-div" id="ADRESSE_error">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" style="display: none;"></span>
+                    <span class="error-message"><%xr_translate tag='error_adresse'%></span>
+                </div>
+
+                <h5><%xr_translate tag='reg_suche-h5-miete'%></h5>
+                <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" rel="required">
+                <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='error_miete'%></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            
+            <div class="register-fragebogen text-center">
+                <h3><%xr_translate tag='reg_suche-h3-fragebogen'%></h3>
+                    <%xr_atom a_id=959 return=1%>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+            <div id="sticky-register-konto" class="register-konto" <%*data-spy="affix" data-offset-top="60" data-offset-bottom="200"*%>>
+                <h3><%xr_translate tag='reg_suche-h3-konto'%></h3>
+                <h6 class="mpwg-color text-uppercase"><%xr_translate tag='reg_konto-info'%></h6>
+                <button class="button text-uppercase" id="fb-login-submit"><span class="fb-f">f </span><%xr_translate tag='Mit Facebook anmelden'%></button>
+
+
+                <div id="anmelden-inner-inner" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <form role="form" action="<%xr_genlink p_id=$P_ID%>" id="form-login" method="post">
+                            <div class="form-group">
+                                <input type='hidden' name='doLogin' value='1' />
+                                <%if isset($smarty.request.h)%>
+                                    <input type='hidden' name='h' value='<%$smarty.request.h%>' />
+                                    <input type='hidden' name='activate' value='1' />
+                                    <%/if%>
+                                        <label for="wz_EMAIL" class="text-uppercase"><h5>Email</h5></label>
+                                        <input id="wz_EMAIL" type="email" name="wz_EMAIL" class="form-control" rel="required_email">
+                                        <div class="error-div" id="wz_EMAIL_error">
+                                            <%xr_translate tag='error_email-notvalid'%>
+                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwort" class="text-uppercase"><h5><%xr_translate tag='Passwort'%></h5></label>
+                                <input id="wz_PASSWORT" name="wz_PASSWORT" type="password" class="form-control" rel="required">
+                                <div class="error-div" id="wz_PASSWORT_error">
+                                    <%xr_translate tag='error_pwd-enter'%>
+                                </div>
+                                <a href="<%xr_genlink p_id=25%>" class="forgotpw">
+                                    <%xr_translate tag="Passwort vergessen?"%>
+                                </a>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="use_cookie" id="use-cookie">
+                                <label for="use-cookie" class="label-use-cookie"><%xr_translate tag='Angemeldet bleiben'%></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <a data-toggle="collapse" href="#anmelden-inner-inner"><button class="button text-uppercase" id="form-login-submit"><%xr_translate tag='Anmelden'%></button></a>
+                <hr>
+
+                <h3><%xr_translate tag='reg_suche-h3-keinKonto'%></h3>
+                <h6 class="mpwg-color text-uppercase"><%xr_translate tag='reg_keinKonto-info'%></h6>
+                <div id="register-inner-inner" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <form method="post" id="wg-zimmer-finden">
+                            <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="optradio"><h5><%xr_translate tag='reg_sex-female'%></h5></label>
+                                <label class="radio-inline"><input type="radio" name="optradio"><h5><%xr_translate tag='reg_sex-male'%></h5></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="vorname"><h5><%xr_translate tag="Vorname?"%>*</h5></label>
+                                <input id="VORNAME" name="VORNAME" class="form-control" rel="required2" />
+                                <div class="error-div" id="VORNAME_error">
+                                    <%xr_translate tag='Bitte Vorname angeben'%>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nachname"><h5><%xr_translate tag="Nachname?"%>*</h5></label>
+                                <input id="NACHNAME" name="NACHNAME" class="form-control" rel="required2" />
+                                <div class="error-div" id="NACHNAME_error">
+                                    <%xr_translate tag='Bitte Nachname angeben'%>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!--<input type='hidden' name='doLogin' value='1' />-->
+                                <label for="v2_EMAIL"><h5>Email*</h5></label>
+                                <input id="v2_EMAIL" type="email" name="v2_EMAIL" class="form-control" />
+                                <div class="error-div" id="v2_EMAIL_error">
+                                    <%xr_translate tag='Bitte gültige E-Mail eingeben'%>
+                                </div>
+                                <div class="error-div" id="v2_PASSWORT_wrong_error">
+                                    <%xr_translate tag="Diese Emailadresse ist bereits registriert."%>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="v2_PASSWORT"><h5><%xr_translate tag="Passwort?"%>*</h5></label>
+                                <input id="v2_PASSWORT" name="v2_PASSWORT" type="password" class="form-control" rel="required2_minlength" data-minlength="6" required/>
+                                <div class="error-div" id="v2_PASSWORT_error">
+                                    <%xr_translate tag='Bitte Passwort eingeben'%>
+                                </div>
+                                <div class="error-div" id="v2_PASSWORT_minlength_error">
+                                    <%xr_translate tag='Mindestlänge: 6 Zeichen'%>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="v2_PASSWORT"><h5><%xr_translate tag='Passwort wiederholen'%>*</h5></label>
+                                <input id="v2_PASSWORT_confirm" name="v2_PASSWORT_confirm" type="password" class="form-control" title="<%xr_translate tag='Geben Sie hier das Passwort ein, das Sie für die Anmeldung benutzen wollen.'%>" required/>
+                                <div class="error-div" id="v2_PASSWORT_confirm_error">
+                                    <%xr_translate tag='Die Passwörter stimmen nicht überein'%>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="AGB" id="agb-accept" rel="required_check">
+                                <label for="use-cookie" class="label-use-cookie"><%xr_translate tag='ich akzeptiere die'%>
+                                    <a href="<%xr_genlink p_id=38%>" target="_blank" style="text-decoration:underline;color:#333;">
+                                        <%xr_translate tag="AGB"%>
+                                    </a>
+                                </label>
+                                <div class="error-div" id="agb-accept_error"><%xr_translate tag='Bitte akzeptieren Sie die AGB'%></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <a data-toggle="collapse" href="#register-inner-inner">
+                    <button class="button start-button text-uppercase js-fb-login" id="fb-reg-submit"><span class="fb-f">f </span><%xr_translate tag='Mit Facebook registrieren'%></button>
+                </a>
+                <!--<a data-toggle="collapse" href="#anmelden-inner-inner">-->
+                <!--    <button style="display:none;" class="button start-button text-uppercase js-simple-login" id="mail-reg-submit"><%xr_translate tag='Mit eMail adresse registrieren'%></button>-->
+                <!--</a>-->
+                <a data-toggle="collapse" href="#register-inner-inner">
+                    <button class="button start-button text-uppercase js-show-simple-login" id="mail-reg-submit"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

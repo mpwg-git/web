@@ -1,0 +1,17 @@
+<%xr_feUser action='finishInternalRegistration' userId=$newUserRecord.wz_id var='regState'%>
+
+<div class="register default-container-padding">
+    <%if $regState.status == 'MAIL_OK'%>
+        <h2><%xr_translate tag='Registrierung erfolgreich'%></h2>
+        <p>
+            <%xr_translate tag='Zur Bestätigung Ihrer Registrierung wird Ihnen eine E-Mail mit einem Bestätigungslink zugesendet.'%>
+            <b><%xr_translate tag='Erst nach dieser Bestätigung können Sie sich einloggen.'%></b>
+        </p>
+    
+    <%else%>
+        <h2><%xr_translate tag='Registrierung fehlerhaft'%></h2>
+        <p>
+    	    <%xr_translate tag='Ihre Registrierung war leider fehlerhaft, bitte versuchen Sie es erneut!'%>
+        </p>
+    <%/if%>
+</div>

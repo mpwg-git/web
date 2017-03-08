@@ -1,5 +1,5 @@
 
-<%xr_siteCall fn="fe_util::isV2" var="isV2"%>
+<%* xr_siteCall fn="fe_util::isV2" var="isV2" *%>
 	
 <%if $isV2 == 1%>
 
@@ -7,7 +7,7 @@
 
 <%else%>
 
-<div class="search-start">
+<div class="search-start" style="display: none;">
     <h2><%xr_translate tag="WO?"%></h2>
     <form>
         <%xr_atom a_id=764 addClass="location-start" return=1%>

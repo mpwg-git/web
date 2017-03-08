@@ -1,0 +1,48 @@
+<%xr_siteCall fn="fe_fragebogen::sc_getInitFragen" var="fragen"%>
+
+<form method="post" id="register-fragebogen">
+
+    <%foreach $fragen as $k => $v%>
+        <div class="fragen-container fragenNR_<%$v['FRAGE']['wz_NR']%>">
+            <div class="row no-gutter fragenNR_<%$v['FRAGE']['wz_NR']%>_headline">
+                <div class="col-xs-12">
+                    <%if $k < 7%>
+                        <h4 class="frage-headline"><%$k+1%>. <%if $P_LANG == 'de'%><%$v['FRAGE']['_DE_wz_FRAGE']%><%else%><%$v['FRAGE']['_EN_wz_FRAGE']%><%/if%></h4>
+                    <%else%>
+                        <h4 class="frage-headline"><%$k+1%>. <%if $P_ID == 47%><%xr_translate tag='frage-hl-suchender'%><%/if%><%if $P_ID == 48%><%xr_translate tag='frage-hl-anbieter'%><%/if%></h4>
+                    <%/if%>
+                    <hr>
+                </div>
+            </div>
+            
+        <%foreach $v['OPTIONS'] as $i => $o%>
+            <div class="row no-gutter fragenNR_<%$v['FRAGE']['wz_NR']%>_antworten">
+                <div class="col-xs-12 antwort-value">
+                    <div class="radio radio-inline">
+                        <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="0" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
+                        <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="1" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
+                        <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="2" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
+                        <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="3" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
+                        <label for="fragenNR_<%$v['FRAGE']['wz_NR']%>"><input type="radio" name="<%$v['FRAGE']['wz_NR']%>" value="4" data-frage="<%$v['FRAGE']['wz_id']%>"></label>
+                    </div>
+                </div>
+                <div class="col-xs-5 text-right antwort-left">
+                    <h5 class="antwort-headline"><%$o['wz_TEXTHEADER_LEFT']%></h5>
+                    <p><%$o['wz_TEXT_LEFT']%></p>
+                </div>
+                <div class="col-xs-2 text-center"></div>
+                <div class="col-xs-5 text-left antwort-right">
+                    <h5 class="antwort-headline"><%$o['wz_TEXTHEADER_RIGHT']%></h5>
+                    <p><%$o['wz_TEXT_RIGHT']%></p>
+                </div>
+            </div>
+            <div class="col-xs-12" style="text-align: center;">
+                <input type="checkbox" data-toggle="toggle" data-on="<%xr_translate tag='fp_Fragen-wichtig'%>" data-off="<%xr_translate tag='fp_Fragen-unwichtig'%>">
+            </div>
+        <%/foreach%>
+        </div>
+    <%/foreach%>
+    <div class="text-center" style="display: none;">
+        <button type="button" id="fragebogen-save" class="btn start-button text-uppercase save-fragebogen"><%xr_translate tag='Speichern'%></button>
+    </div>
+</form>
