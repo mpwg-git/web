@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-08 14:19:27
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 23:25:11
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/974.cache-4.html" */ ?>
 <?php /*%%SmartyHeaderCode:83279145758c004df54b327-38846433%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '7e0d98ac1d280b84a6c90a4f9fb19cc7277d2389' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/974.cache-4.html',
-      1 => 1488979167,
+      1 => 1489097011,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ if (!is_callable('smarty_function_xr_changeLang')) include '/srv/gitgo_daten/www
         </div>
     </div>
     <div class="col-md-5 col-sm-5 col-xs-6 text-right no-gutter">
-        <a class="btn btn-default btn-login text-uppercase" data-toggle="collapse" href="#anmelden-inner">Login</a>
+        <a class="btn btn-default btn-login text-uppercase" data-toggle="collapse" href="/de/anmelden#anmelden-inner">Login</a>
         <?php echo smarty_function_xr_atom(array('a_id'=>955,'return'=>1),$_smarty_tpl);?>
 
         <span class="nav-p-lang">

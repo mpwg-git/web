@@ -1,7 +1,7 @@
 <%xr_feUser action='doLogin' triggerByVar='doLogin' triggerByVal='1' var='info'%>
 
 
-<div id="anmelden-inner" class="panel-collapse collapse text-left <%if $info['state'] == 0 || $P_ID == 6%>in<%/if%>">
+<div id="anmelden-inner" class="panel-collapse collapse text-left <%if $info['state'] == 0%>in<%/if%>">
 	<h3 class="mpwg-color"><%xr_translate tag='fp_h3-login'%></h3>
 	<br>
 	<button class="button text-uppercase" id="fb-login-submit"><span class="fb-f">f </span><%xr_translate tag='Mit Facebook anmelden'%></button>

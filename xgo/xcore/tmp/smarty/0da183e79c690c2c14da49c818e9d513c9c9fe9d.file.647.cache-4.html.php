@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-08 22:48:03
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-10 00:12:27
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/647.cache-4.html" */ ?>
-<?php /*%%SmartyHeaderCode:157748486758c07c13d83f27-94624537%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32038196758c1e15b55af26-91952781%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0da183e79c690c2c14da49c818e9d513c9c9fe9d' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/647.cache-4.html',
-      1 => 1489009682,
+      1 => 1489101085,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '157748486758c07c13d83f27-94624537',
+  'nocache_hash' => '32038196758c1e15b55af26-91952781',
   'function' => 
   array (
   ),
@@ -81,10 +81,9 @@ if (!is_callable('smarty_function_xr_lessWrapper')) include '/srv/gitgo_daten/ww
  
     <link rel="stylesheet" href="/xstorage/template/redesign/css_less/bootstrap.min.css">
     <link rel="stylesheet" href="/xstorage/template/bootstrap/css/bootstrap-toggle.min.css">
-    
+
     <?php echo smarty_function_xr_lessWrapper(array('ids'=>'21,26,33,32,29,28,27'),$_smarty_tpl);?>
 
-    
     <!--main css-->
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

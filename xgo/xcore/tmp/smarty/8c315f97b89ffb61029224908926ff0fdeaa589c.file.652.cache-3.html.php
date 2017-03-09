@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 02:04:46
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 23:31:11
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/652.cache-3.html" */ ?>
 <?php /*%%SmartyHeaderCode:180895968058c0aa2e889b75-57050056%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '8c315f97b89ffb61029224908926ff0fdeaa589c' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/652.cache-3.html',
-      1 => 1489009682,
+      1 => 1489071588,
       2 => 'file',
     ),
   ),

@@ -1,6 +1,7 @@
 <%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
 
-<%if $isLoggedIn === true%>
+
+<%if $isLoggedIn === true && ($P_ID != 6 || $P_ID != 28)%>
     <%xr_atom a_id=973 return=1%>
 <%else%>
     <%xr_atom a_id=974 return=1%>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-07 14:30:10
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 23:21:49
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/973.cache-4.html" */ ?>
 <?php /*%%SmartyHeaderCode:18701015558beb5e2af43f8-59863204%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '8902d31bae5449003c2e5565e285245997c69fa9' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/973.cache-4.html',
-      1 => 1488893410,
+      1 => 1489096795,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,6 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_function_xr_genlink')) include '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_genlink.php';
 if (!is_callable('smarty_function_xr_translate')) include '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_translate.php';
-if (!is_callable('smarty_function_xr_atom')) include '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_atom.php';
 if (!is_callable('smarty_function_xr_changeLang')) include '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/function.xr_changeLang.php';
 ?><div id="main-header" class="no-gutter">
     <div class="col-md-1 col-sm-1 hidden-xs">&nbsp;</div>
@@ -36,12 +35,7 @@ if (!is_callable('smarty_function_xr_changeLang')) include '/srv/gitgo_daten/www
         <a class="navlinks btn btn-default btn-logout text-uppercase" href="<?php echo smarty_function_xr_genlink(array('p_id'=>28),$_smarty_tpl);?>
 "><?php echo smarty_function_xr_translate(array('tag'=>'Abmelden'),$_smarty_tpl);?>
 </a>
-        <!--<?php echo smarty_function_xr_atom(array('a_id'=>955,'return'=>1),$_smarty_tpl);?>
--->
         <span class="nav-p-lang">
-             <a href="<?php echo smarty_function_xr_genlink(array('p_id'=>28),$_smarty_tpl);?>
-" class="navlinks active"><?php echo smarty_function_xr_translate(array('tag'=>"Abmelden"),$_smarty_tpl);?>
-&nbsp;|&nbsp;</a>
             <a href="<?php echo smarty_function_xr_changeLang(array('lang'=>'de'),$_smarty_tpl);?>
 " class="navlinks<?php if ($_smarty_tpl->getVariable('P_LANG')->value=='de'){?> active<?php }?>">DE&nbsp;</a><span class="navlinks">|</span>
             <a href="<?php echo smarty_function_xr_changeLang(array('lang'=>'en'),$_smarty_tpl);?>

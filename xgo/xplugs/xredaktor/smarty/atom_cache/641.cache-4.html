@@ -3,43 +3,22 @@
     <%xr_atom a_id=647 return=1%>
     
     <body>
-        <%************
-            <div id="fb-root"></div>
-            <script>
-                window.fbAsyncInit = function() {
-                    FB.init({
-                      appId      : '1101804963210825',
-                      xfbml      : true,
-                      version    : 'v2.6'
-                    });
-                  };
-                (function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.6&appId=242558162535234";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-            </script>
-        ************%>
-            
-            <div class="page-wrapper">
-            <!-- HEADER ATOM -->
-            
+        <!-- HEADER ATOM -->
+        <div class="page-wrapper">
             <%xr_atom a_id=940 return=1%>
             
                 <%$CONTENT%>
             
+            <!-- FOOTER ATOM -->
             <%xr_atom a_id=943 return=1%>
+        </div>
             
-            </div>
         
         <%xr_atom a_id=761 return=1 desc="img upload modal"%>
             
 
         <%xr_atom a_id=794 return=1 desc='face in use'%>
             
-        <!-- FOOTER ATOM -->
         <%*xr_atom a_id=643 return=1*%>
         <%xr_atom a_id=899 return=1%>
             

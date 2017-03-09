@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 02:04:47
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 23:31:14
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/647.cache-3.html" */ ?>
 <?php /*%%SmartyHeaderCode:214587709258c0aa2f197834-26448644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'a4a85e1ee7e31d51b1dc837129572818eb7b7347' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/647.cache-3.html',
-      1 => 1489009682,
+      1 => 1489073932,
       2 => 'file',
     ),
   ),
@@ -26,13 +26,13 @@ if (!is_callable('smarty_function_xr_cssWrapper')) include '/srv/gitgo_daten/www
 ?><head>
 
     <!-- Google Tag Manager -->
-    <!--
+
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-52J8F5');</script>
-    -->
+
     <!-- End Google Tag Manager -->
     
     <meta charset="utf-8">
@@ -48,8 +48,7 @@ if (!is_callable('smarty_function_xr_cssWrapper')) include '/srv/gitgo_daten/www
 " />
     <meta name="keywords" content="<?php echo $_smarty_tpl->getVariable('KEYWORDS')->value;?>
 " />
-
-
+    
     <?php if ($_smarty_tpl->getVariable('ROBOTS')->value=='1'){?><meta name="robots" content="noindex" /><?php }?>
 
     <link rel="canonical" href="https://www.meineperfektewg.com">

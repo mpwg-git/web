@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 02:04:46
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-09 23:31:11
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/905.cache-3.html" */ ?>
 <?php /*%%SmartyHeaderCode:56998021558c0aa2e831ef6-28208653%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '0410996c4b27549764a55500d70896025a3c0a33' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/905.cache-3.html',
-      1 => 1489009682,
+      1 => 1489093999,
       2 => 'file',
     ),
   ),
@@ -29,9 +29,9 @@ $_smarty_tpl->decodeProperties(array (
         
        
         <div class="middle-row<?php if ($_smarty_tpl->getVariable('P_ID')->value!=1){?> darkgrey<?php }?> <?php echo $_smarty_tpl->getVariable('DESKTOP_EXTRACLASS_MIDDLE')->value;?>
- <?php if ($_smarty_tpl->getVariable('P_ID')->value!=11){?>mCustomScrollbar<?php }?>">
+ mCustomScrollbar">
        
-            <div class="<?php if ($_smarty_tpl->getVariable('P_ID')->value!=11){?>scrollbarfix<?php }?>">
+            <div class="scrollbarfixx">
                 <?php echo smarty_function_xr_atom(array('a_id'=>$_smarty_tpl->getVariable('DESKTOP_MIDDLEROW')->value,'return'=>1),$_smarty_tpl);?>
 
             </div>
