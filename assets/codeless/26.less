@@ -384,45 +384,116 @@ hr {
                 .toggle.btn {
                     min-height: 20px !important;
                 }
+                .frage-headline {
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-size: 1.25em;
+                }
+                .antwort-headline {
+                    font-size: 0.875em;
+                    font-family: @nunitoextrabold;
+                    line-height: 1.2857142857142858em;
+                    text-transform: uppercase;
+                }
+                .text-right.antwort-left {
+                    // padding-left: 15.847302436962952%;
+                    // padding-right: 1.92365122%;
+                    margin-right: 0 !important;
+                    padding-left:5% !important;
+                    padding-right: 0 !important;
+                }
+                .text-left.antwort-right {
+                    // padding-right: 15.847302436962952%;
+                    // padding-left: 1.92365122%;
+                    margin-left: 0 !important;
+                    padding-right:5% !important;
+                    padding-left: 0 !important;;
+                }
+                .radio.radio-inline {
+                    position: relative;
+                    display: inline-block;
+                    font-weight: 400;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    // margin-bottom: 10px; 
+                    margin: 5px 0 15px 0;
+                    
+                    // label {
+                    //     min-height: 20px;
+                    //     padding: 0 0.9375vw;
+                    //     margin-bottom: 0;
+                    //     font-weight: 400;
+                    //     cursor: pointer;
+                    // }
+                    // input {
+                    //     border: 0;
+                    //     width: 1.8229166666666667vw;
+                    //     height: 1.8229166666666667vw;
+                    // }
+                    label {
+                        padding: 0 30px 37px 0;
+                        text-align: center;
+                    }
+                    input {
+                        width: 30px;
+                        height: 30px;
+                        margin-left: 0;
+                    }
+                    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+                            width: 160px !important;
+                            height: 32px !important;
+                            margin-top: 3px;
+                        }
+                        label.btn.btn-primary.toggle-on {
+                            margin: 0;
+                            padding-right: 15px;
+                        }
+                        label.btn.btn-default.active.toggle-off {
+                            margin: 0;
+                            padding-left: 15px;
+                        }
+                        span.toggle-handle.btn.btn-default {
+                            height: 30px;
+                            width: 30px;
+                            top: 0;
+                            left: 0;
+                        }
+                        .toggle-btn {
+                            color: #fff;
+                            background-color: #fff;
+                            border-color: @turkis;
+                            min-width: 59px;
+                            min-height: 20px;
+                        }
+                        .btn-primary {
+                            color: #fff;
+                            background-color: @turkis;
+                            border-color: @turkis;
+                        }
+                        .btn {
+                            display: inline-block;
+                            padding: 4px;
+                            font-size: .875em;
+                        }
+                        .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, 
+                        .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, 
+                        .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, 
+                        .open>.dropdown-toggle.btn-primary:hover {
+                            color: #fff;
+                            background-color: @turkis;
+                            border-color: @turkis;
+                        }
             }
             
-            .frage-headline {
-                text-transform: uppercase;
-                text-align: center;
-                font-size: 1.25em;
-            }
-            .antwort-headline {
-                font-size: 0.875em;
-                font-family: @nunitoextrabold;
-                line-height: 1.2857142857142858em;
-                text-transform: uppercase;
-            }
-
-            .radio.radio-inline {
-                position: relative;
-                display: inline-block;
-                font-weight: 400;
-                vertical-align: middle;
-                cursor: pointer;
-                margin-bottom: 10px; 
+            }        
                 
-                label {
-                    min-height: 20px;
-                    padding: 0 0.9375vw;
-                    margin-bottom: 0;
-                    font-weight: 400;
-                    cursor: pointer;
-                }
-                input {
-                    border: 0;
-                    width: 1.8229166666666667vw;
-                    height: 1.8229166666666667vw;
-                }
+                
             }
 
                 
         }
-    }
+
+
     /* END REGISTRIERUNGSPAGES */
     
     

@@ -1,6 +1,7 @@
 @import "22.less"; 
 @import "23.less"; 
 
+/*min:480px max:767px*/
 @media only screen and (min-width: 30em) and (max-width:47.9375em) {
     
     h7 { font-size: 0.75em; }
@@ -231,13 +232,17 @@
             }
         }
         .fragen-container {
-            .antwort-left {
-                padding-left: 9.65250965% !important;
-                padding-right: 2.826255% !important;
+            .text-right.antwort-left {
+                // padding-left: 9.65250965% !important;
+                // padding-right: 2.826255% !important;
+                margin-right: 0;
+                padding-right: 10px;                
             }
-            .antwort-right {
-                padding-right: 9.65250965% !important;
-                padding-left: 2.826255% !important;            
+            .text-left.antwort-right {
+                // padding-right: 9.65250965% !important;
+                // padding-left: 2.826255% !important;
+                margin-left: 0;
+                padding-left: 10px;
             }
         }
         
@@ -266,12 +271,12 @@
     // }
     
     #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
-        width: 28px;
-        height: 28px;
+        width: 27px !important;
+        height: 27px !important;
         margin-left: 0px;
     }
     #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
-        padding: 0 27px 32px 0;
+        padding: 0 25px 32px 0 !important;
         text-align: center;
     }
     #main-content .register-fragen .register-fragebogen .antwort-headline {
@@ -336,4 +341,76 @@
         left: 0;
     }
     
+}
+.fragen-container {
+	margin: 45px 0 110px 0;
+	.text-right.antwort-left {
+		// padding-left: 15.847302436962952%;
+		// padding-right: 1.92365122%;
+		margin-right:0;
+		padding-left:0;
+	}
+	.text-left.antwort-right {
+		// padding-right: 15.847302436962952%;
+		// padding-left: 1.92365122%;
+		margin-left:0;
+		padding-left:0;
+	}
+	.radio.radio-inline {
+		margin: 5px 0;
+		label {
+			padding: 0 26px 37px 0;
+			text-align: center;
+		}
+		input {
+			width: 27px;
+			height: 27px;
+			margin-left: 0;
+		}
+	}
+	.toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+		width: 140px !important;
+		height: 30px !important;
+		margin-top: 5px;
+	}
+	label.btn.btn-primary.toggle-on {
+		margin: 0;
+		padding-left: 0;
+	}
+	label.btn.btn-default.active.toggle-off {
+		margin: 0;
+		padding-left: 20px;
+	}
+	span.toggle-handle.btn.btn-default {
+		height: 33px;
+		width: 33px;
+		top: 0;
+		left: 0;
+	}
+	.toggle-btn {
+		color: #fff;
+		background-color: #fff;
+		border-color: @turkis;
+	}
+	.btn-primary {
+		color: #fff;
+		background-color: @turkis;
+		border-color: @turkis;
+	}
+	.btn {
+		display: inline-block;
+		padding: 5px;
+		font-size: .875em;
+	}
+	.btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+		color: #fff;
+		background-color: @turkis;
+		border-color: @turkis;
+	}
+}
+
+.antwort-headline {
+	font-size: 1em;
+	margin: 0px 0 5px 0;
+	line-height: 1.2;
 }

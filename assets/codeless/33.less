@@ -1,6 +1,7 @@
 @import "22.less"; 
 @import "23.less"; 
 
+/*min:1200px*/
 @media only screen and (min-width:75em) {
     
     #main-content {
@@ -77,39 +78,54 @@
         
         .register-fragen {
             .register-fragebogen {
+    
                 .fragen-container {
-                    // margin: 45px 0 110px 0;
+                    margin: 35px 0 55px 0;
+                    
+                    .text-right.antwort-left {
+                        // padding-left: 15.847302436962952%;
+                        // padding-right: 1.92365122%;
+                        margin-right: 0;
+                        padding-right: 0;
+                    }
+                    
+                    .text-left.antwort-right {
+                        // padding-right: 15.847302436962952%;
+                        // padding-left: 1.92365122%;
+                        margin-left: 0;
+                        padding-left: 0;
+                    }
                     
                     .radio.radio-inline {
                         margin: 5px 0 15px 0;
                         
                         label {
-                            padding: 0 34px 38px 0;
+                            padding: 0 30px 37px 0;
                             text-align: center;
                         }
                         input {
-                            width: 32px;
-                            height: 32px;
+                            width: 30px;
+                            height: 30px;
                             margin-left: 0;
                         }
                     }
                     
                     .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
-                        width: 140px !important;
-                        height: 35px !important;
-                        margin-top: 5px;
+                        width: 160px !important;
+                        height: 32px !important;
+                        margin-top: 3px;
                     }
                     label.btn.btn-primary.toggle-on {
                         margin: 0;
-                        padding-left: 0;
+                        padding-right: 15px;
                     }
                     label.btn.btn-default.active.toggle-off {
                         margin: 0;
-                        padding-left: 20px;
+                        padding-left: 15px;
                     }
                     span.toggle-handle.btn.btn-default {
-                        height: 33px;
-                        width: 33px;
+                        height: 30px;
+                        width: 30px;
                         top: 0;
                         left: 0;
                     }
@@ -117,6 +133,8 @@
                         color: #fff;
                         background-color: #fff;
                         border-color: @turkis;
+                        min-width: 59px;
+                        min-height: 20px;
                     }
                     .btn-primary {
                         color: #fff;
@@ -125,7 +143,7 @@
                     }
                     .btn {
                         display: inline-block;
-                        padding: 5px;
+                        padding: 4px;
                         font-size: .875em;
                     }
                     .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
@@ -133,6 +151,7 @@
                         background-color: @turkis;
                         border-color: @turkis;
                     }
+                    
                 }
             }
             #fragebogen-save {
@@ -141,8 +160,76 @@
                 margin: 39px 0 15px 0;
                 padding: 14px;
             }
+            // .register-fragebogen {
+            //     .fragen-container {
+            //         // margin: 45px 0 110px 0;
+                    
+            //         .radio.radio-inline {
+            //             margin: 5px 0 15px 0;
+                        
+            //             label {
+            //                 padding: 0 34px 38px 0;
+            //                 text-align: center;
+            //             }
+            //             input {
+            //                 width: 32px;
+            //                 height: 32px;
+            //                 margin-left: 0;
+            //             }
+            //         }
+                    
+            //         .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+            //             width: 140px !important;
+            //             height: 35px !important;
+            //             margin-top: 5px;
+            //         }
+            //         label.btn.btn-primary.toggle-on {
+            //             margin: 0;
+            //             padding-left: 0;
+            //         }
+            //         label.btn.btn-default.active.toggle-off {
+            //             margin: 0;
+            //             padding-left: 20px;
+            //         }
+            //         span.toggle-handle.btn.btn-default {
+            //             height: 33px;
+            //             width: 33px;
+            //             top: 0;
+            //             left: 0;
+            //         }
+            //         .toggle-btn {
+            //             color: #fff;
+            //             background-color: #fff;
+            //             border-color: @turkis;
+            //         }
+            //         .btn-primary {
+            //             color: #fff;
+            //             background-color: @turkis;
+            //             border-color: @turkis;
+            //         }
+            //         .btn {
+            //             display: inline-block;
+            //             padding: 5px;
+            //             font-size: .875em;
+            //         }
+            //         .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, 
+            //         .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, 
+            //         .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, 
+            //         .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+            //             color: #fff;
+            //             background-color: @turkis;
+            //             border-color: @turkis;
+            //         }
+            //     }
+            // }
+            // #fragebogen-save {
+            //     width: 50%;
+            //     height: auto;
+            //     margin: 39px 0 15px 0;
+            //     padding: 14px;
+            // }
         }
-      
+
         #impressum, #agb, #faq {
             h1 {
                 font-size: 2.375em;
@@ -158,7 +245,7 @@
     }
 }
 
-
+/*min:1600px*/
 @media only screen and (min-width:100em) {
 
     #main-content {
