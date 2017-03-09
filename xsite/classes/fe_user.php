@@ -602,6 +602,9 @@ class fe_user
 				case 1:
 					return fe_vanityurls::genUrl_trefferliste();
 					break;
+				case 4:
+					return fe_vanityurls::genUrl_suche();
+					break;
 
 				default:
 					return fe_vanityurls::genUrl_suche();
