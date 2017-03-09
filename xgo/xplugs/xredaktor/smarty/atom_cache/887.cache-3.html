@@ -1,18 +1,18 @@
 
 <div class="all-rows-container-top">
     <div class="all-rows-container clearfix">
-        <div class="left-row <%$DESKTOP_EXTRACLASS_LEFT%> mCustomScrollbar">
+        <div class="left-row <%$DESKTOP_EXTRACLASS_LEFT%>">
             <%xr_atom a_id=$DESKTOP_LEFTROW return=1%>
         </div>
         
        
-        <div class="middle-row<%if $P_ID != 1%> darkgrey<%/if%> <%$DESKTOP_EXTRACLASS_MIDDLE%> mCustomScrollbar">
+        <div class="middle-row darkgrey <%$DESKTOP_EXTRACLASS_MIDDLE%>">
        
-            <div class="scrollbarfixx">
+            <div class="scrollbarfix">
                 <%xr_atom a_id=$DESKTOP_MIDDLEROW return=1%>
             </div>
         </div>
-        <div class="right-row <%$DESKTOP_EXTRACLASS_RIGHT%> mCustomScrollbar">
+        <div class="right-row <%$DESKTOP_EXTRACLASS_RIGHT%>">
             <div class="content">
                 
                 <%xr_atom a_id=$DESKTOP_RIGHTROW extraParams=$DESKTOP_RIGHTROW_PARAMS return=1%>

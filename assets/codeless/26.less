@@ -185,27 +185,45 @@ hr {
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
-	-o-transition: all 300ms ease
+	-o-transition: all 300ms ease;
+    
+    .active {
+    	-webkit-transform: translate(0, 0);
+    	-moz-transform: translate(0, 0);
+    	-ms-transform: translate(0, 0);
+    	-o-transform: translate(0, 0);
+    	opacity: 1;
+    }
+    .text {
+    	float: left;
+    	width: calc(100% - 3vw);
+    }
+    
+    // .closing-icon {
+    // 	float: right;
+    // 	font-size: 1.3vw;
+    // 	cursor: pointer;
+    // }
 }
+/*
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'add-icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-Close:before {
+    content: "\e61c";
+}    
+*/
 
-.cookie-warning-top.active {
-	-webkit-transform: translate(0, 0);
-	-moz-transform: translate(0, 0);
-	-ms-transform: translate(0, 0);
-	-o-transform: translate(0, 0);
-	opacity: 1
-}
 
-.cookie-warning-top .text {
-	float: left;
-	width: calc(100% - 3vw)
-}
 
-.cookie-warning-top .closing-icon {
-	float: right;
-	font-size: 1.3vw;
-	cursor: pointer
-}
 
 
 /**
@@ -740,20 +758,6 @@ label {
     font-size: .875em;
     font-family: @nunitoextrabold;
 }
-[class^="icon-"], [class*=" icon-"] {
-    font-family: 'icomoon';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.icon-Close:before {
-    content: "\e61c";
-}    
 
 .label-use-cookie {
     font-family: @nunitolight;

@@ -1,9 +1,21 @@
-<div id="anmelden-inner" class="panel-collapse collapse text-left">
+<%xr_feUser action='doLogin' triggerByVar='doLogin' triggerByVal='1' var='info'%>
+
+
+<div id="anmelden-inner" class="panel-collapse collapse text-left <%if $info['state'] == 0 || $P_ID == 6%>in<%/if%>">
 	<h3 class="mpwg-color"><%xr_translate tag='fp_h3-login'%></h3>
 	<br>
 	<button class="button text-uppercase" id="fb-login-submit"><span class="fb-f">f </span><%xr_translate tag='Mit Facebook anmelden'%></button>
 	<hr>
-    <form role="form" action="<%xr_genlink p_id=$P_ID%>" id="form-login" method="post">
+	<%if $info['state'] == 0%>
+        <div class="errorNotification">
+            <b><%xr_translate tag='Der eingegebene Benutzername oder das Passwort sind falsch.'%></b>
+            <br />
+            <%xr_translate tag='Bitte versuchen Sie es erneut, oder klicken Sie unten auf "Login-Daten vergessen?"'%>
+             <br /><br />
+        </div>
+    <%/if%>
+	
+    <form role="form" action="<%xr_genlink p_id=6%>" id="form-login" method="post">
         <div class="form-group">
     	    <input type='hidden' name='doLogin' value='1' />
             <%if isset($smarty.request.h)%>
@@ -15,10 +27,15 @@
     		<div class="error-div" id="wz_EMAIL_error"><%xr_translate tag='error_email-notvalid'%></div>
     	</div>
     	<div class="form-group">
-    		<label for="passwort" class="text-uppercase"><h5><%xr_translate tag='Passwort'%></h5></label>
+    		<label for="passwort" class="text-uppercase">
+    		    <h5><%xr_translate tag='Passwort'%></h5>
+            </label>
     		<input id="wz_PASSWORT" name="wz_PASSWORT" type="password" class="form-control" rel="required">
-    		<div class="error-div" id="wz_PASSWORT_error"><%xr_translate tag='Bitte Passwort eingeben'%></div>
-            <a href="<%xr_genlink p_id=25%>" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>		</div>
+    		<div class="error-div" id="wz_PASSWORT_error">
+    		    <%xr_translate tag='Bitte Passwort eingeben'%>
+    		</div>
+            <a href="<%xr_genlink p_id=25%>" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>		
+        </div>
     	<div class="form-group">
     	    <input type="checkbox" name="use_cookie" id="use-cookie"> 
     	    <label for="use-cookie" class="label-use-cookie"><%xr_translate tag='Angemeldet bleiben'%></label>
@@ -26,3 +43,13 @@
     	<button class="button text-uppercase" id="form-login-submit"><%xr_translate tag='fp_h3-login'%></button>
     </form>
 </div>
+
+<%*
+<script>
+    $(document).on('click', function (e) {
+        if ($(e.target).closest("#anmelden-inner").length === 0) {
+            $("#anmelden-inner").collapse('hide');
+        }
+    });
+</script>
+*%>
