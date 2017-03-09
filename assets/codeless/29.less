@@ -20,10 +20,10 @@
     }
     #main-content .carousel .carousel-inner .carousel-caption .circle .caption-text {
         font-size: .75em;
-        line-height: 15px;        
+        line-height: 15px;
     }
     #main-content .carousel .carousel-inner .carousel-caption .hl-caption {
-        font-family: 'NunitoSans-light';
+        font-family: @nunitolight;
         font-size: 1em;
     }
     blockquote {
@@ -74,13 +74,13 @@
                 .date {
                     font-size: .75em;
                     margin: 10px 0;
-                    font-family: 'NunitoSans-Regular';
+                    font-family: @nunitoregular;
                 }
                 h3.latest-news {
                     margin: 5px 0 10px 0;
                     font-size: 0.9374999970703125em;
                     line-height: 1.4375em;
-                    font-family: 'NunitoSans-Extrabold';
+                    font-family: @nunitoextrabold;
                 }
             }
         }
@@ -115,12 +115,6 @@
     #main-content .register-fragen .register-konto {
         margin: 0px 0 150px 0 ;
     }
-    
-    // #main-content .register-fragen .register-wunsch-wg, #main-content .register-fragen .register-fragebogen, #main-content .register-fragen .register-konto {
-    //     margin: 25px 0 135px 0;
-    //     padding: 5px 20px 20px 20px;
-    // }
-    
     #main-content .register-fragen .register-fragebogen .frage-headline {
         font-size: 1.125em;
         text-align: right;
@@ -152,23 +146,16 @@
     }
     
     .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
-        width: 130px !important;
-        height: 30px !important;
+        width: 130px;
+        height: 30px;
         margin-top: 0;
     }
-    span.toggle-handle.btn.btn-default {
-        height: 27px;
-        width: 27px;
-        top: 0px;
-        left: 0px;
-    }
-    
+
     .toggle-important {
         position: relative;
         top: 0;
         left: -45px;
     }
-    
     
     #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
         width: 28px;
@@ -181,7 +168,7 @@
     }
     #main-content .register-fragen .register-fragebogen .antwort-headline {
         font-size: .875em;
-        font-family: 'NunitoSans-extrabold';
+        font-family: @nunitoextrabold;
         line-height: 1.2em;
         text-transform: uppercase;
         margin-bottom: 5px;
@@ -201,26 +188,17 @@
     .btn-default {
         color: #fff;
         background-color: #fff;
-        border-color: #04e0d7;
+        border-color: @turkis;
     }
     .btn-primary {
         color: #fff;
-        background-color: #04e0d7;
-        border-color: #04e0d7;
+        background-color: @turkis;
+        border-color: @turkis;
     }
-    /*
-    .btn {
-        display: inline-block;
-        padding: 8px 14px;
-        font-size: 10px;
-    }
-    */
-
-    
     .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
         color: #fff;
-        background-color: #04e0d7;
-        border-color: #04e0d7;
+        background-color: @turkis;
+        border-color: @turkis;
     }
     
     .toggle-important {
@@ -228,32 +206,14 @@
         top: 0;
         left: 0;
     }
-    
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline input {
-        width: 32px;
-        height: 32px;
-        margin-left: 0px;
-    }
-    #main-content .register-fragen .register-fragebogen .radio.radio-inline label {
-        padding: 0 34px 38px 0;
-        text-align: center;
-    }
+
     #main-content .register-fragen .register-fragebogen .antwort-headline {
         font-size: 1em;
-        font-family: 'NunitoSans-extrabold';
+        font-family: @nunitoextrabold;
         line-height: 1.2em;
         text-transform: uppercase;
         margin: 10px 0 5px 0;
     }
-    
-    // .antwort-left {
-    //     padding-left: 10.86956522% !important;
-    //     padding-right: 4.434783% !important;
-    // }
-    // .antwort-right {
-    //     padding-right: 10.86956522% !important;
-    //     padding-left: 4.434783% !important;
-    // }
     
     .toggle.btn {
         min-width: 60px;
@@ -262,12 +222,12 @@
     .btn-default {
         color: #fff;
         background-color: #fff;
-        border-color: #04e0d7;
+        border-color: @turkis;
     }
     .btn-primary {
         color: #fff;
-        background-color: #04e0d7;
-        border-color: #04e0d7;
+        background-color: @turkis;
+        border-color: @turkis;
     }
 
     
@@ -283,8 +243,8 @@
     }
     .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
         color: #fff;
-        background-color: #04e0d7;
-        border-color: #04e0d7;
+        background-color: @turkis;
+        border-color: @turkis;
     }
     
     .toggle-important {
@@ -311,12 +271,12 @@
                         margin: 5px 0;
                         
                         label {
-                            padding: 0 26px 37px 0 !important; 
+                            padding: 0 26px 37px 0; 
                             text-align: center;
                         }
                         input {
-                            width: 28px !important;
-                            height: 28px !important;
+                            width: 28px;
+                            height: 28px;
                             margin-left: 0;
                         }
                     }
@@ -334,7 +294,7 @@
                         margin: 0;
                         padding-left: 20px;
                     }
-                    span.toggle-handle.btn.btn-default {
+                    .toggle-handle.btn.btn-default {
                         height: 33px;
                         width: 33px;
                         top: 0;
@@ -355,7 +315,9 @@
                         padding: 5px;
                         font-size: .875em;
                     }
-                    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+                    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, 
+                    .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus,
+                    .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
                         color: #fff;
                         background-color: @turkis;
                         border-color: @turkis;
