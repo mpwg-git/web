@@ -33,6 +33,8 @@ video {
 blockquote, blockquote .small, blockquote footer, blockquote small {
     border: none;
     color: #fff;
+    padding: 0;
+    margin: 10px 0;
 }
 
 /*
@@ -165,9 +167,10 @@ hr {
     MAIN-CONTENT 
 **/
 #main-content {
-    position: absolute;
     padding-bottom: 100px;
     padding-top: 3.125em;
+    position: absolute;
+    width: 100%;
 	
 	/**
 	    FRONTPAGE 
@@ -178,10 +181,13 @@ hr {
         overflow: hidden;
         
         .carousel-indicators {
-            top: 50%;
+            height: 15%;
             left: 95%;
             margin: 0;
             padding: 0;
+            position: absolute;
+            top: 50%;
+            width: 1%;
             
             li {
                 display: block;
@@ -212,20 +218,22 @@ hr {
             padding: 0;
             
             .carousel-caption {
-                top: 0;
+                top: 0px;
                 width: 100%;
                 height: 100%;
                 left: 0;
                 right: 0;
-                padding: 88px 0;    
+                padding: 0 !important;    
                 
                 h1.text-uppercase {
                     color: #fff;
+                    font-size: 3em;
+                    margin: 10px 0;
                 }
                 
                 .header-icon-duck {
-                    width: 4.72972972972973%;
-                    
+                    margin-top: 5%;
+                    width: 2.75em;
                 }
                 
                 .hl-caption {
@@ -233,24 +241,32 @@ hr {
                     font-size: 1.2em;
                 }
                 
-                .btn-group-register {
-                	display: -webkit-inline-flex;
-                 	display: inline-flex;
-                 	cursor: pointer;
-                }
-                .btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
-                    width: 40%;
+                .btn-wrapper {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 10%;
+                    
+                    .btn-group-register {
+                    	display: -webkit-inline-flex;
+                     	display: inline-flex;
+                     	cursor: pointer;
+                        
+                        .btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
+                            width: 40%;
+                        }
+                    }
                 }
                 .circle {
-                    width: 170px;
-                    height: 170px;
-                    position: relative;
-	                float: left;
-                    margin: 0 0.625em;
                     background-color: @turkis;
                     border-radius: 50%;
                     -webkit-border-radius: 50%;
                     -moz-border-radius: 50%;
+	                float: left;
+                    height: 140px;
+                    margin: 0 1.5em;
+                    opacity: .85;
+                    position: relative;
+                    width: 140px;
                     
                     img {
                         padding-top: 0;
@@ -259,6 +275,7 @@ hr {
                     
                     &:hover {
                 	    transform: scale(1.05);
+                	    opacity: 1;
                     }
                     .caption-text {
                         width: 100%;
@@ -271,7 +288,10 @@ hr {
                 }
             }
             .item {
-                filter: brightness(60%);
+                filter: brightness(65%);
+                max-height: 500px;
+                width: 100%;
+                
                 img {
                     width: 100%;
                 }
@@ -365,8 +385,8 @@ hr {
         }
        
         .register-fragebogen {
-            
-            
+            word-wrap: break-word;
+        
             h3:first-of-type {
                 margin: 0;
             }
@@ -396,18 +416,14 @@ hr {
                     text-transform: uppercase;
                 }
                 .text-right.antwort-left {
-                    // padding-left: 15.847302436962952%;
-                    // padding-right: 1.92365122%;
-                    margin-right: 0 !important;
-                    padding-left:5% !important;
-                    padding-right: 0 !important;
+                    margin-right: 0;
+                    padding-left:5%;
+                    padding-right: 0;
                 }
                 .text-left.antwort-right {
-                    // padding-right: 15.847302436962952%;
-                    // padding-left: 1.92365122%;
-                    margin-left: 0 !important;
-                    padding-right:5% !important;
-                    padding-left: 0 !important;;
+                    margin-left: 0;
+                    padding-right:5%;
+                    padding-left: 0;
                 }
                 .radio.radio-inline {
                     position: relative;
@@ -415,21 +431,8 @@ hr {
                     font-weight: 400;
                     vertical-align: middle;
                     cursor: pointer;
-                    // margin-bottom: 10px; 
                     margin: 5px 0 15px 0;
-                    
-                    // label {
-                    //     min-height: 20px;
-                    //     padding: 0 0.9375vw;
-                    //     margin-bottom: 0;
-                    //     font-weight: 400;
-                    //     cursor: pointer;
-                    // }
-                    // input {
-                    //     border: 0;
-                    //     width: 1.8229166666666667vw;
-                    //     height: 1.8229166666666667vw;
-                    // }
+                
                     label {
                         padding: 0 30px 37px 0;
                         text-align: center;

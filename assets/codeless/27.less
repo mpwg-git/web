@@ -74,158 +74,153 @@
     #main-header .nav-p-lang .navlinks {
         margin-top: 17.5px;
     }
-
-    #main-content .carousel .carousel-inner .carousel-caption {
-        padding: 6% 0;
-    }
-    #main-content .carousel .carousel-inner .carousel-caption .btn-group-register {
-        display: none;
-    }
-    #main-content .carousel .carousel-indicators {
-        top: 30%;
-    }
-    #main-content .carousel .carousel-inner .carousel-caption .header-icon-duck {
-        width: 6.72973%;
-    }
-    blockquote {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        font-size: 0.8em;
-    }
-    #main-content #frontpage-slider h1 {
-        margin: 5px 30px 0 30px;
-        font-size: 1.5em !important;
-    }
-    #main-header .header-logo {
-        margin-left: 3px;
-    }
-    #main-header .header-logo img.icon-duck {
-        width: 22px;
-        margin: 14px 0;
-    }
-    #main-header .header-logo img.icon-font {
-        width: 130px;
-        margin: 14px 0;
-    }
-    #so-einfach-gehts {
-        margin: 1.5em auto 3em auto;
-        
-        h1 {
-            font-size: 2.125em;
-        }
-        h4.nunito-light.text-uppercase.text-center {
-            font-size: 1.125em;
-        }
-    }
-    
-    #latest-news {
-        h1.latest-news {
-            font-size: 2.125em;
-            color: #fff;
-            margin-left: 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .blog-start {
-            padding: 0;
-            margin: 10px 0;  
-            
-            .blog-entry-2 {
-                display: none;
-            }
-            [class*='col-'] {
-                padding: 0;
-            }
-            .col-xs-5 {
-                width: 47%;
-                // &:first-of-type {
-                //     margin-right: 6%;
-                // }
-                &.startseiten-aussagen {
-                    margin: 0 2% 0 2%;
-                }
-            }
-            
-            
-            p.blog-start-text.start-aussagen, .blog-start-text {
-                color: rgb(100,100,100);
-                font-family: 'NunitoSans-Regular';
-                line-height: 1.4166666666666667em;
-                font-size: 0.75em;
-                text-align: start;
-                margin-bottom: 1em;
-            }
-            
-            img.image {
-                width: 100%;
-                height: auto;
-            }
-            .header-wrapper {
-                font-size: 1.0666666666666667em;
-                .date {
-                    font-size: .75em;
-                    margin: 10px 0;
-                    font-family: 'NunitoSans-Regular';
-                }
-                h3.latest-news {
-                    margin: 5px 0 10px 0;
-                    font-size: 0.9374999970703125em;
-                    line-height: 1.4375em;
-                    font-family: 'NunitoSans-Extrabold';
-                }
-            }
-            .blog-start-text {
-                color: rgb(100,100,100);
-                margin-bottom: 15px;
-                font-size: 0.75em;
-                line-height: 1.5em;
-            }
-        }
-        .more-news {
-            text-align: center;
-            margin-bottom: 20px;
-            
-            a.btn-icons-reg {
-                font-size: 0.875em;
-                font-family: 'NunitoSans-Extrabold';
-                padding: 4px 15px;
-            }
-        }
-    }
-    
-    #main-content > #und-los-gehts {
-        margin: 1.25em auto 3em auto;
-        
-        h1 {
-            font-size: 2.125em;
-        }
-
-        .fp-text.los-gehts {
-            width: 90%;
-        }          
-        h2 {
-            font-size: 24px;
-            color: #646464;
-            border-top: 2px solid #646464;
-            padding-top: 6.65em;
-        }
-        .big-text-btn>.btn-icon-wgsuchtwg, .big-text-btn>.btn-icon-mitbewohner, .big-text-btn>.btn-icon-wgzimmer {
-            position: relative;
-            width: 7em;
-            top: 11em;
-        }    
-        .big-text-btn {
-        	bottom: 35px;
-        }
-        
-        #btn-wgzimmer, #btn-mitbewohner, #btn-wg {
-        	.fp-text-small {
-        		margin: 20px;		
-        	}
-        }
-    }
     
     #main-content {
+        .carousel { 
+            .carousel-indicators {
+                top: 30%;
+            }
+            .carousel-inner {
+                .carousel-caption {
+                    .header-icon-duck {
+                        margin-top: 5%;
+                        width: 1.5em;
+                    }
+                    h1.text-uppercase {
+                        margin: 5px 30px 0 30px;
+                        font-size: 1.5em;
+                    }
+                    
+                    blockquote {
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                        font-size: 0.8em;
+                    }
+                    
+                    .btn-wrapper {
+                        .btn-group-register {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        #so-einfach-gehts {
+            margin: 1.5em auto 3em auto;
+            
+            h1 {
+                font-size: 2.125em;
+            }
+            h4.nunito-light.text-uppercase.text-center {
+                font-size: 1.125em;
+            }
+        }
+        
+        #latest-news {
+            h1.latest-news {
+                font-size: 2.125em;
+                color: #fff;
+                margin-left: 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .blog-start {
+                padding: 0;
+                margin: 10px 0;  
+                
+                .blog-entry-2 {
+                    display: none;
+                }
+                [class*='col-'] {
+                    padding: 0;
+                }
+                .col-xs-5 {
+                    width: 47%;
+                    &.startseiten-aussagen {
+                        margin: 0 2% 0 2%;
+                    }
+                }
+                
+                
+                p.blog-start-text.start-aussagen, .blog-start-text {
+                    color: rgb(100,100,100);
+                    font-family: 'NunitoSans-Regular';
+                    line-height: 1.4166666666666667em;
+                    font-size: 0.75em;
+                    text-align: start;
+                    margin-bottom: 1em;
+                }
+                
+                img.image {
+                    width: 100%;
+                    height: auto;
+                }
+                .header-wrapper {
+                    font-size: 1.0666666666666667em;
+                    .date {
+                        font-size: .75em;
+                        margin: 10px 0;
+                        font-family: 'NunitoSans-Regular';
+                    }
+                    h3.latest-news {
+                        margin: 5px 0 10px 0;
+                        font-size: 0.9374999970703125em;
+                        line-height: 1.4375em;
+                        font-family: 'NunitoSans-Extrabold';
+                    }
+                }
+                .blog-start-text {
+                    color: rgb(100,100,100);
+                    margin-bottom: 15px;
+                    font-size: 0.75em;
+                    line-height: 1.5em;
+                }
+            }
+            .more-news {
+                text-align: center;
+                margin-bottom: 20px;
+                
+                a.btn-icons-reg {
+                    font-size: 0.875em;
+                    font-family: 'NunitoSans-Extrabold';
+                    padding: 4px 15px;
+                }
+            }
+        }
+        
+        #und-los-gehts {
+            margin: 1.25em auto 3em auto;
+            
+            h1 {
+                font-size: 2.125em;
+            }
+    
+            .fp-text.los-gehts {
+                width: 90%;
+            }          
+            h2 {
+                font-size: 24px;
+                color: #646464;
+                border-top: 2px solid #646464;
+                padding-top: 6.65em;
+            }
+            .big-text-btn>.btn-icon-wgsuchtwg, .big-text-btn>.btn-icon-mitbewohner, .big-text-btn>.btn-icon-wgzimmer {
+                position: relative;
+                width: 7em;
+                top: 11em;
+            }    
+            .big-text-btn {
+            	bottom: 35px;
+            }
+            
+            #btn-wgzimmer, #btn-mitbewohner, #btn-wg {
+            	.fp-text-small {
+            		margin: 20px;		
+            	}
+            }
+        }
+        
         #impressum, #agb, #faq {
            h1 {
                 font-size: 2.375em;
@@ -244,7 +239,6 @@
                 
                 p {
                     margin-bottom: 5px;
-                    // line-height: 1.2857142857142858em;
                     line-height: 1.4285714285714286em;
                     margin-top: 5px;
                 }
@@ -253,6 +247,20 @@
         }
     }
 
+    #main-header .header-logo {
+        margin-left: 3px;
+    }
+    #main-header .header-logo img.icon-duck {
+        width: 22px;
+        margin: 14px 0;
+    }
+    #main-header .header-logo img.icon-font {
+        width: 130px;
+        margin: 14px 0;
+    }
+
+    
+  
     footer {
         padding: 10px 0;
     }
@@ -302,7 +310,7 @@
     
     
     #main-content {
-        padding-bottom: 0;
+
         
         .register-fragen { 
             .register-fragebogen{
@@ -319,13 +327,8 @@
                     }
                 }
                 .fragen-container {
-                    margin: 25px 0 40px 0;
+                    margin: 25px 0;
                     padding: 0;
-                    
-                    // .row.no-gutter.fragenNR_1_headline {
-                    //     margin-right: -20px;
-                    //     margin-left: -20px;
-                    // }
                     
                     &:first-of-type {
                         margin-top: 0;
@@ -341,20 +344,19 @@
                         margin-top: 0;
                         padding-left: 0;
                         
-                        input {
-                            height: 20px;
-                            margin-left: 0px;
-                            width: 20px;
-                        }
                         label {
-                            padding: 0px 18px 28px 0px;
+                            padding: 0px 18px 28px 0px !important;
                             text-align: center;
+                        }
+                        input {
+                            height: 20px !important;
+                            margin-left: 0px;
+                            width: 20px !important;
                         }
                     }
                     
                     .col-xs-4 {
                         &.text-right.antwort-left {
-                            // width: 33.33333333%;
                             width: 29%;
                         }
                         &.antwort-value {
@@ -404,20 +406,20 @@
                         border-color: @turkis;
                     }
                     .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
-                        height: 25px !important;
                         max-width: 110px !important;
                         max-height: 25px !important;
+                        height: 25px !important;
                         width: 110px !important;
                     }
                     label.btn.btn-default.active.toggle-off {
                         font-size: 9px;
                         margin: 0px 0 0 10px;
-                        padding-top: 4px;
+                        padding: 4px 0 0 5px;
                     }
                     label.btn.btn-primary.toggle-on {
                         font-size: 9px;
-                        margin: -2px 0 0 -10px;
-                        padding: 7px 25px 0 13px;
+                        margin: -3px 0 0 -10px;
+                        padding: 7px 15px 0 13px;
                     }
                     .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, 
                     .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
