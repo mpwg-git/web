@@ -10,10 +10,13 @@
         <%xr_translate tag='Durch Schließen dieses Hinweises, und/oder Weiterverwenden dieser Seiten, erklären Sie sich damit einverstanden, Cookies zu verwenden.'%>
     </div>
     
-    <div class="closing-icon">
-        <button type="button" class="close" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+    <div class="icon-Close closing-icon"></div>
     <div class="clearfix"></div>
 </div>
+<script>
+    $(document).on('click', '.cookie-warning-top .closing-icon', function () {
+        $.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function (response) {
+            $('.js-cookie-warning-top').removeClass('active');
+        });
+    });
+</script>
