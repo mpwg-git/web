@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2017-03-08 14:13:48
+<?php /* Smarty version Smarty-3.0.7, created on 2017-03-10 00:25:21
          compiled from "/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/693.cache-3.html" */ ?>
-<?php /*%%SmartyHeaderCode:171158162558c0038c878894-63394817%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:66512218758c1e461aa30f4-08432601%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7f825f71441e906728488ff48fb7bb91da84f46c' => 
     array (
       0 => '/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/xgo/xplugs/xredaktor/classes/../smarty/atom_cache/693.cache-3.html',
-      1 => 1488978812,
+      1 => 1489099561,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '171158162558c0038c878894-63394817',
+  'nocache_hash' => '66512218758c1e461aa30f4-08432601',
   'function' => 
   array (
   ),
@@ -103,9 +103,9 @@ if (!is_callable('smarty_function_xr_changeLang')) include '/srv/gitgo_daten/www
 
 	<?php if ($_smarty_tpl->getVariable('stillToDo')->value===true&&$_smarty_tpl->getVariable('wgteststate')->value==1&&$_smarty_tpl->getVariable('loginCount')->value!=0){?>
 		<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog noQuestionModal" role="document">
-				<div class="modal-content noQuestionModal" style="min-height: 170px;">
-					<div class="modal-header noQuestionModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="min-height: 170px;">
+					<div class="modal-header">
 						<div class="col-xs-6 col-md-4"></div>
 						<div class="col-xs-6 col-md-4">
 							<span class="icon-duck"></span>
@@ -147,9 +147,9 @@ if (!is_callable('smarty_function_xr_changeLang')) include '/srv/gitgo_daten/www
 		</div>
     <?php }elseif(($_smarty_tpl->getVariable('hasQuestionsAnswered')->value===false&&$_smarty_tpl->getVariable('hasQuestionsAnsweredInSession')->value&&$_smarty_tpl->getVariable('wgteststate')->value==0&&$_smarty_tpl->getVariable('loginCount')->value!==0)){?>
 	    <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog noQuestionModal" role="document">
-				<div class="modal-content noQuestionModal" style="min-height: 170px;">
-					<div class="modal-header noQuestionModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="min-height: 170px;">
+					<div class="modal-header">
 						<div class="col-xs-6 col-md-4"></div>
 						<div class="col-xs-6 col-md-4">
 							<span class="icon-duck"></span>
@@ -194,9 +194,9 @@ if (!is_callable('smarty_function_xr_changeLang')) include '/srv/gitgo_daten/www
 		</div>
 	<?php }elseif($_smarty_tpl->getVariable('hasQuestionsAnswered')->value===true&&$_smarty_tpl->getVariable('hasQuestionsAnsweredInSession')->value&&$_smarty_tpl->getVariable('wgteststate')->value==2&&$_smarty_tpl->getVariable('loginCount')->value!==0){?>
         <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog noQuestionModal" role="document">
-				<div class="modal-content noQuestionModal" style="min-height: 170px;">
-					<div class="modal-header noQuestionModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="min-height: 170px;">
+					<div class="modal-header">
 						<div class="col-xs-6 col-md-4"></div>
 						<div class="col-xs-6 col-md-4">
 							<span class="icon-duck"></span>
