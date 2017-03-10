@@ -120,7 +120,7 @@ hr {
     .btn.btn-default.btn-login, .btn.btn-default.btn-logout {
         width: 100px;
         font-family: @nunitobold;
-        font-size: .875em;
+        font-size: .75em;
         line-height: 1;
         color: @darkgray;
         border-color: transparent;
@@ -230,7 +230,7 @@ hr {
 	**/
 	.carousel {
         position: relative;
-        max-height: 650px;
+        max-height: 600px;
         overflow: hidden;
         
         .carousel-indicators {
@@ -278,31 +278,34 @@ hr {
                 right: 0;
                 padding: 0 !important;    
                 
+                .header-icon-duck {
+                    margin-top: 5%;
+                    width: 2.75em;
+                }
                 h1.text-uppercase {
                     color: #fff;
                     font-size: 3em;
                     margin: 10px 0;
                 }
-                
-                .header-icon-duck {
-                    margin-top: 5%;
-                    width: 2.75em;
+                blockquote {
+                    margin: 10px 0 20px;
+                    
+                    .hl-caption {
+                        font-family: @nunitolight;
+                        font-size: 1.2em;
+                    }
                 }
                 
-                .hl-caption {
-                    font-family: @nunitolight;
-                    font-size: 1.2em;
-                }
                 
                 .btn-wrapper {
                     position: absolute;
                     width: 100%;
-                    bottom: 10%;
                     
                     .btn-group-register {
                     	display: -webkit-inline-flex;
                      	display: inline-flex;
                      	cursor: pointer;
+                        margin: 45px 0 0;
                         
                         .btn-icon-wgzimmer, .btn-icon-mitbewohner, .btn-icon-wgsuchtwg {
                             width: 40%;
@@ -342,7 +345,7 @@ hr {
             }
             .item {
                 filter: brightness(65%);
-                max-height: 500px;
+                max-height: 600px;
                 width: 100%;
                 
                 img {
