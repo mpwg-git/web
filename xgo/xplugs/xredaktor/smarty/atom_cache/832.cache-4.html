@@ -1,21 +1,25 @@
 <%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
 <div class="chatcontacts js-chatcontacts default-container-paddingtop">
     
-    <span class="looklikeh1"><%xr_translate tag="Map"%></span>
-    <div class="searchform">
-        <div id="map" class="map"></div>
-    </div>        
-    <br/>
-    <span class="looklikeh1"><%xr_translate tag="Chat"%></span>
-    <form>
-        <div class="form-group">
-            <div class="input-icon">
-                <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
-                <span class="icon-Lupe"></span>
-    		</div>
-        </div>
-    </form>
+
+    <div class="shadow-box-right">
+        <h1 class="text-uppercase"><%xr_translate tag="Chat"%></h1>
+        <form>
+            <div class="form-group">
+                <div class="input-icon">
+                    <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
+                    <span class="icon-Lupe"></span>
+        		</div>
+            </div>
+        </form>
+    </div>
     
+    <div class="shadow-box-right">
+        <h1 class="text-uppercase"><%xr_translate tag="Map"%></h1>
+        <div class="searchform">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
     <div class="contacts-wrapper js-chatcontacts-replace">
        <%$html%>
     </div>

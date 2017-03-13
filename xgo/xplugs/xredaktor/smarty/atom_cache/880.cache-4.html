@@ -1,16 +1,15 @@
 <%xr_siteCall fn='fe_cookie::sc_showCookieUsageWarning' var='showCookieWarning'%>
 <div class="cookie-warning-top js-cookie-warning-top <%if $showCookieWarning%>active<%/if%>">
+    <div class="icon-Close closing-icon"></div>
     <div class="text">
-        <%xr_translate tag='Hinweis'%>:
-        <%xr_translate tag='Diese Webseite und Ihre Partner verwenden Cookies, die notwendig sind, damit die angebotenen Services zur Verfügung gestellt werden können.'%>
-        <%xr_translate tag='Details dazu sind in den'%> 
+        <%xr_translate tag='cookie_hinweis'%>:
+        <%xr_translate tag='cookie_text-1'%>
+        <%xr_translate tag='cookie_text-2'%> 
             <a href="<%xr_genlink p_id=38%>" style="text-decoration:underline">
-            <!--<a href="<%xr_genlink p_id=38%>">-->
-            <%xr_translate tag='AGB'%></a> <%xr_translate tag='aufgeführt.'%>
-        <%xr_translate tag='Durch Schließen dieses Hinweises, und/oder Weiterverwenden dieser Seiten, erklären Sie sich damit einverstanden, Cookies zu verwenden.'%>
+            <%xr_translate tag='AGB'%></a> <%xr_translate tag='cookie_text-3'%>
+        <%xr_translate tag='cookie_text-4'%>
     </div>
     
-    <div class="icon-Close closing-icon"></div>
     <div class="clearfix"></div>
 </div>
 <script>

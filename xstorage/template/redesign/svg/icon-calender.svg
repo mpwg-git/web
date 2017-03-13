@@ -1,0 +1,5 @@
+<svg id="icon-calender" data-name="Calender" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+	<defs><style>.cls-1{fill:#1d1d1b;}</style></defs>
+	<title>icon-calender</title>
+	<rect class="cls-1" x="6.87" y="31.01" width="15.77" height="12.62"/><rect class="cls-1" x="6.87" y="46.95" width="15.77" height="12.62"/><rect class="cls-1" x="27.38" y="31.01" width="15.77" height="12.62"/><rect class="cls-1" x="27.38" y="46.95" width="15.77" height="12.62"/><rect class="cls-1" x="47.43" y="31.01" width="15.77" height="12.62"/><rect class="cls-1" x="47.43" y="46.95" width="15.77" height="12.62"/><path class="cls-1" d="M70,22.43V8.11H58.47v8.65a2.78,2.78,0,0,1-2.84,2.84H45.53a2.78,2.78,0,0,1-2.84-2.84V8.11H26.39v8.65a2.78,2.78,0,0,1-2.84,2.84H13.45a2.78,2.78,0,0,1-2.84-2.84V8.11H0.08V22.43h0V66.38H70V22.43h0Zm-1.94,42H2V26.56h66V64.43Z"/><path class="cls-1" d="M14.92,17.82h7.16a2.68,2.68,0,0,0,2.73-2.73V6a2.68,2.68,0,0,0-2.73-2.73H14.92A2.68,2.68,0,0,0,12.19,6v9.1A2.68,2.68,0,0,0,14.92,17.82Z"/><path class="cls-1" d="M47,17.82h7.16a2.68,2.68,0,0,0,2.73-2.73V6a2.68,2.68,0,0,0-2.73-2.73H47A2.68,2.68,0,0,0,44.26,6v9.1A2.68,2.68,0,0,0,47,17.82Z"/>
+</svg>

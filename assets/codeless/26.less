@@ -10,6 +10,7 @@
 **/
 html {
 	font-size: 16px;
+	height: 100%;
 }
 body {
 	font-size: 62.5%; /* 1em = 10px */
@@ -37,11 +38,11 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     margin: 10px 0;
 }
 
-/*
+
 ::-webkit-scrollbar {
 	display: none;
 }
-*/
+
 
 .no-gutter, .no-gutter > [class*='col-'] {
     padding-left:0;
@@ -51,6 +52,13 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     margin-left:0;
     margin-right:0;
 }
+.no-margin-left {
+    margin-left: 0 !important;
+}
+.no-margin-right {
+    margin-right: 0 !important;
+}
+
 
 
 a {
@@ -118,13 +126,13 @@ hr {
     }
     
     .btn.btn-default.btn-login, .btn.btn-default.btn-logout {
-        width: 100px;
+        width: 90px;
         font-family: @nunitobold;
         font-size: .75em;
         line-height: 1;
         color: @darkgray;
         border-color: transparent;
-        margin-right: 20px;
+        margin-right: 10px;
         margin-top: 10px;
         vertical-align: baseline;
         
@@ -176,8 +184,8 @@ hr {
 .cookie-warning-top{
     background:@turkis;
     color:#333;
-    width:99%;
-    margin-left: 0.5%;
+    width:99.5%;
+    margin-left: 0.25%;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 20px;
@@ -185,21 +193,23 @@ hr {
     position: absolute;
     z-index: 2;
     opacity:0;
+    // .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
+    .border-radius(6px);
     .translate(0,-100%);
     .transition(all 300ms ease);
     
     &.active{
         .translate(0,0%);
         opacity:1;
-        bottom: 55px;
+        bottom: 5%;
     }
 
     .text {
         float: left;
-        width: calc(100% - 3vw);
-        padding: 0 2.25em;
+        width: 92%;
+        padding: 0.3125em;
         line-height: 1.25em;
-        font-family: @nunitoregular;
+        font-family: 'NunitoSans-regular';
         font-weight: bold;
         font-size: 1em;
     }
@@ -386,12 +396,13 @@ hr {
     	    width: 75%;
     	}
     }
-    
     /* END FRONTPAGE */
     
-    /**
-        REGISTRIERUNGSPAGES 
-    **/
+    
+    
+/**
+  *     REGISTRIERUNGSPAGES 
+  */
     .register-fragen {
         
         height: 100vh;
@@ -453,6 +464,10 @@ hr {
                 .btn-default {
                     border-color: @turkis;
                     line-height: 2;
+                    
+                    &:hover {
+                        background-color: #fff;
+                    }
                 }
                 label.btn.btn-primary.toggle-on {
                     line-height: 2;
@@ -546,16 +561,12 @@ hr {
             }        
         }
     }
-
-
-    /* END REGISTRIERUNGSPAGES */
+/* END REGISTRIERUNGSPAGES */
     
     
-    /**
-      *
-      * IMPRESSUM, FAQ, AGB
-      *
-     **/
+/**
+  *     IMPRESSUM, FAQ, AGB
+  */
     #impressum, #agb, #faq {
         display:block;
         overflow:auto;
@@ -630,24 +641,180 @@ hr {
         }
         
     }
-    /* END IMPRESSUMG, FAQ, AGB */
+/* END IMPRESSUMG, FAQ, AGB */
+
+    
+/**w
+  *     PAGES LOGGEDIN
+  */
+  /**
+  
+  .searchform {
+    
+  }
+  */
+  
+    /* SUCHE */
+    #search-page {
+        margin-top: 50px;
+        
+        .form-group {
+            .legend {
+                color: @turkis;
+            }
+        }
+        .shadow-box-left {
+            width: 80%;
+            margin: 0 0 0 15%;
+            padding: 1px 25px 25px 25px;
+            .border-radius(2px);
+            .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
+
+            .radio {
+                input {
+                    display: none;
+                }
+
+                label {
+                    padding-left: 0;
+                    
+                    .suche-cat.btn-icons-reg {
+                        display: inline-block;
+                        background-color: @lightgray;
+                        color: #999;
+                        margin: 10px 5px;
+                        padding: 5px 10px;
+                        .border-radius(6px);
+                        .box-shadow(0.126em 0.126em 0.126em rgba(170, 170, 170, 0.6));
+                    }
+                }
+                label input#typ-suche,
+                label input#typ-biete {
+                    &.active + span {
+                        background-color: @turkis;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        
+        .shadow-box-center {
+            width: 100%;
+            margin: 0;
+            .border-radius(2px);
+            .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
+
+                
+                .searchlist {
+                    .img-wrapper {
+                        width: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        .transition(all 300ms ease);
+                        
+                        &:before{
+                            content: "";
+                            display: block;
+                            padding-top: 106.5%;
+                        }
+                        .inner-wrapper{
+                            height:100%;
+                            width:100%;
+                            position:absolute;
+                            top:50%;
+                            left:50%;
+                            .translate(-50%, -50%);
+                            
+                            img{
+                                transform: translateZ(0);
+                                -moz-transform: translateZ(0);
+                                -webkit-transform: translateZ(0);
+                            }
+                        }
+                        .overlay-bg {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            height: 100%;
+                            width: 100%;
+                            background: rgba(0,0,0,0.5);
+                            .transition(all 300ms ease);
+                            opacity: 0;
+                            
+                            &:hover, &.active {
+                                .overlay-bg{
+                                    opacity: 1;
+                                    .overlay{
+                                        transform: scale(1);
+                                        opacity: 1;
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }
+        }
+        .shadow-box-right {
+            width: 80%;
+            margin: 0 25% 0 0;
+            padding: 1px 25px 25px 25px;
+            .border-radius(2px);
+            .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
+        }
+        
+        .chatcontacts {
+            > .shadow-box-right {
+                margin-bottom: 35px;
+                margin-left: 5%;
+            }
+        }
+    }
+    
+    /* END SUCHE */
+    
+/* END PAGES LOGGEDIN */
+            
+    .picture-col {
+        padding-left: 2px;
+        padding-right: 2px;
+        margin-bottom: 4px;
+        transform: translateZ(0);
+    }
+    
 }
 
+/* END MAIN-CONTENT */
+
+
+
+
+
+/**
+  *     MAIN FOOTER
+  */
 footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    padding: 10px 60px 10px 60px;
     background: @darkgray;
+    opacity: .975;
+    z-index: 999;
 
     #main-footer {
-        background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
-        background-position: 95% 50%;
-        background-size: 273px 37.53px;
+        padding: 15px 7.656250000000001%;
+        // background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
+        // background-position: 95% 50%;
+        // background-size: 273px 37.53px;
         
         .footer-links {
             position: relative;
-            left: 6.496881496881497%;
+            // left: 6.496881496881497%;
+            
+            background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
+            background-position: 100% 50%;
+            background-size: 273px 37.53px;
             
             .inner-link {
                 position: relative;
@@ -687,13 +854,13 @@ footer {
                 font-size: 0.875em;
                 font-family: @nunitoextrabold;
             }
-            .footer-text {
-                font-family: @nunitoregular;
-                font-size: .875em;
-                color: #fff;
-                margin-left: 63px;
-                margin-top: -10px;
-            }
+            // .footer-text {
+            //     font-family: @nunitoregular;
+            //     font-size: .875em;
+            //     color: #fff;
+            //     margin-left: 63px;
+            //     margin-top: -10px;
+            // }
         }
 
         .footer-icon-fb {
@@ -702,10 +869,16 @@ footer {
             vertical-align: text-top;
         }
     }
+    .footer-text {
+        font-family: @nunitoregular;
+        font-size: .875em;
+        color: #fff;
+        margin-left: 63px;
+        margin-top: -10px;
+    }
 }
-    
+/* END MAIN FOOTER */    
 
-/* END MAIN-CONTENT */
 
 
 
@@ -783,6 +956,7 @@ a > .big-text-btn {
     color: #fff;
     line-height: 2;
     border: none;
+    background-color: rgb(100, 100, 100);
     .box-shadow(0.126em 0.126em 0.126em @darkgray);
 }
 
@@ -806,9 +980,6 @@ h1.mpwg-color.text-center {
 h4.nunito-light.text-uppercase.text-center {
     font-size: 1.3125em;
     line-height: 1.8333333333333333em;
-}
-.mpwg-color {
-	color: rgb(4,224,215);
 }
 .nunito-light {
 	font-family: @nunitolight;

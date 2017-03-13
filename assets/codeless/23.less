@@ -141,7 +141,7 @@ label {
 .mpwg-color { 
     color: @turkis; 
 }
-.border-radius (@radius: 5px) {
+.border-radius (@radius) {
   -webkit-border-radius: @radius;
   -moz-border-radius:    @radius;
   border-radius:         @radius;
@@ -176,7 +176,11 @@ label {
     transition-duration: @duration;
 }
 
-
+.opacity (@opacity: 0.5) {
+  -webkit-opacity:  @opacity;
+  -moz-opacity:     @opacity;
+  opacity:    @opacity;
+}
 
 
 

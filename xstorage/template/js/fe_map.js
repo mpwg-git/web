@@ -200,14 +200,12 @@ var fe_map = (function() {
                     me.refreshMapAfterShow();
                 }
             });
-
-
+            
             $('input[type=radio][name=search-type]').unbind("change");
             $('input[type=radio][name=search-type]').change(function() {
                 $('input[type=radio][name=search-type]').removeClass("active");
                 me.refreshSearch();
             });
-
 
             $('.js-close-mobile-search').unbind("click");
             $('.js-close-mobile-search').click(function(e) {

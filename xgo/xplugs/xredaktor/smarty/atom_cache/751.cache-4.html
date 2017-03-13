@@ -1,0 +1,13 @@
+<%if $mitbewohner['F'] > 0%>
+    <%while $mitbewohner['F'] > 0%>
+        <span class="icon-frau_black"></span>
+        <%$mitbewohner['F'] = $mitbewohner['F']-1%>
+    <%/while%>
+<%/if%>
+
+<%if $mitbewohner['M'] > 0%>
+    <%while $mitbewohner['M'] > 0%>
+        <span class="icon-mann_black"></span>
+        <%$mitbewohner['M'] = $mitbewohner['M']-1%>
+    <%/while%>
+<%/if%>

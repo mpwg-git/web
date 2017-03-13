@@ -1,0 +1,64 @@
+<div class="col-xs-4 picture-col searchresult-single searchresult-single-biete">
+    
+    <a href="<%xr_genlink p_id=13 id=$data['ID'] m_suffix=$data['ID']%>">
+    <input type="hidden" id="hiddenRoomId" value="<%$data['ID']%>">
+    <div class="img-wrapper" data-userid="<%$data['ID']%>">
+        <div class="inner-wrapper">
+            <%xr_imgWrapper s_id=$data['IMG'] h=500 w=470 colorspace="gray" rmode="cco" class="img-responsive"%>
+            
+            <%xr_atom a_id=774 showFace=3 return=1 data=$data desc='map indicator'%>
+            
+            <div class="overlay-bg">
+                <div class="overlay">
+                    <p class="upper">
+                        <span class="pull-left drduck icon-duck"></span>
+                        <span class="pull-right">
+                            <span class="prozent"><%$data['MATCHPERCENT']%><%if $data['MATCHPERCENT'] == ""%>?<%/if%></span>
+                            <span class="match">match</span>
+                        </span>
+                    </p>
+                    <div style="clear:both"></div>
+                    <div class="infos">
+                        <p class="name"><%$data['NAME']%></p>
+                        <p class="zimmer">Zimmer für <%$data['PREIS']%> €</p>
+                        
+                        <%if $data['ALTERSDURCHSCHNITT'] > 0%>
+                        <p class="durchschnitt">Ø <%$data['ALTERSDURCHSCHNITT']%> Jahre</p>
+                        <%/if%>
+                        
+                        <p class="mitbewohner">
+                            <%xr_atom a_id=751 mitbewohner=$data['MITBEWOHNER'] return=1%>
+                        </p>
+                        
+                        
+                        <%xr_siteCall fn='fe_user::sc_getUser2RoomState' fUserId=$data['ID'] var='roomState'%>
+                        <div class="button-container-favblock clearfix">
+                            
+                            
+                            
+                            <div class="inner clearfix">
+                                <div class="item">
+                                    
+                                    <%$searchData = $smarty.request.searchData|json_decode:true%>
+                                    <%$from = $searchData.filter%>
+                                    
+                                    <%if $from='FAVS'%>
+                                        <%xr_atom a_id=769 showFace=3 theType='room' state=$roomState['FAV'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="fav icon"%>
+                                    <%else%>
+                                        <%xr_atom a_id=769 showFace=3 theType='room' state=$roomState['FAV'] userId=$data['ID'] return=1 desc="fav icon"%>
+                                    <%/if%>
+                                </div>
+                                <div class="item">
+                                    <!-- 685 desktop -->
+                                    <%xr_atom a_id=770 showFace=3 theType='room' state=$roomState['BLOCK'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="block icon"%>                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+</div>
