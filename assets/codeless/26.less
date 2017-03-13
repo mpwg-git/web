@@ -181,7 +181,7 @@ hr {
 /**
     COOKIE WARNING
 **/
-.cookie-warning-top{
+.cookie-warning-top {
     background:@turkis;
     color:#333;
     width:99.5%;
@@ -193,7 +193,6 @@ hr {
     position: absolute;
     z-index: 2;
     opacity:0;
-    // .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
     .border-radius(6px);
     .translate(0,-100%);
     .transition(all 300ms ease);
@@ -202,6 +201,7 @@ hr {
         .translate(0,0%);
         opacity:1;
         bottom: 5%;
+        z-index: 4;
     }
 
     .text {
@@ -209,9 +209,9 @@ hr {
         width: 92%;
         padding: 0.3125em;
         line-height: 1.25em;
-        font-family: 'NunitoSans-regular';
+        font-family: @nunitoregular;
         font-weight: bold;
-        font-size: 1em;
+        font-size: .875em;
     }
     .closing-icon {
         float: right;
@@ -800,17 +800,13 @@ footer {
     bottom: 0;
     background: @darkgray;
     opacity: .975;
-    z-index: 999;
+    z-index: 3;
 
     #main-footer {
         padding: 15px 7.656250000000001%;
-        // background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
-        // background-position: 95% 50%;
-        // background-size: 273px 37.53px;
         
         .footer-links {
             position: relative;
-            // left: 6.496881496881497%;
             
             background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
             background-position: 100% 50%;
@@ -854,13 +850,6 @@ footer {
                 font-size: 0.875em;
                 font-family: @nunitoextrabold;
             }
-            // .footer-text {
-            //     font-family: @nunitoregular;
-            //     font-size: .875em;
-            //     color: #fff;
-            //     margin-left: 63px;
-            //     margin-top: -10px;
-            // }
         }
 
         .footer-icon-fb {
