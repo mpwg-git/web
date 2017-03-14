@@ -16,7 +16,7 @@
             
             <%xr_imgWrapper s_id=$data['IMG'] h=500 w=470 colorspace="gray" rmode="cco" class="img-responsive"%>
             
-            <%xr_atom a_id=774 showFace=3 return=1 data=$data desc='map indicator'%>
+            <%xr_atom a_id=774 return=1 data=$data desc='map indicator'%>
             
             <div class="overlay-bg">
                 <div class="overlay">
@@ -49,12 +49,12 @@
                             <div class="inner clearfix">
                                 <div class="item">
                                     
-                                    <%xr_atom a_id=769 showFace=3 theType='user' state=$data['FAV'] userId=$data['ID'] return=1 desc="fav icon"%>
+                                    <%xr_atom a_id=769 theType='user' state=$data['FAV'] userId=$data['ID'] return=1 desc="fav icon"%>
                                     
                                 </div>
                                 <div class="item">
                                     <!-- 753 desktop -->
-                                    <%xr_atom a_id=770 showFace=3 theType='user' state=$data['BLOCK'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="block icon"%>
+                                    <%xr_atom a_id=770 theType='user' state=$data['BLOCK'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="block icon"%>
                                 </div>
                             </div>
                         </div>

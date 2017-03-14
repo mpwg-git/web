@@ -1,0 +1,21 @@
+
+<div class="js-toggle-favourite js-toggle-fade" <%if $data['USER']['wz_TYPE']=='biete'%>data-type="room"<%else%>data-type="<%$theType%>"<%/if%> data-id="<%$userId%>" <%if $addSpecialStyle==1%>style="position: relative;
+    z-index: 9; display: inline-block;
+    font-size: 2.31vw;"<%/if%>>
+    <div class="inactive" <%if $state == true%>style="display: none;"<%/if%>>
+        <span id="toggle-favourite" class="icon icon-Favourite_inaktiv"></span>
+        <%if $description != ''%>
+            <span class="icon-description"><%xr_translate tag=$description%></span>
+        <%/if%>    
+    </div>
+    
+    <div class="active" <%if $state == false%>style="display: none;"<%/if%>>
+        <span class="icon icon-Favourite_aktiv">
+		    <span class="path1"></span><span class="path2"></span>
+		</span>
+		<%if $description != ''%>
+            <span class="icon-description"><%xr_translate tag=$description%></span>
+        <%/if%>
+    </div>
+    
+</div>

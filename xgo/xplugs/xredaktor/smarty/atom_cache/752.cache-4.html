@@ -1,0 +1,16 @@
+
+<%if $mitbewohner['F'] > 0%>
+    <%while $mitbewohner['F'] > 0%>
+        <span class="icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+        <%$mitbewohner['F'] = $mitbewohner['F']-1%>
+    <%/while%>
+<%/if%>
+
+<%if $mitbewohner['M'] > 0%>
+    <%while $mitbewohner['M'] > 0%>
+        <span class="icon-mann"><span class="path1"></span><span class="path2"></span></span>
+        <%$mitbewohner['M'] = $mitbewohner['M']-1%>
+    <%/while%>
+<%/if%>
+
+

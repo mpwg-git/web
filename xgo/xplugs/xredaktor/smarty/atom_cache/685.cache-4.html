@@ -6,7 +6,7 @@
         <div class="inner-wrapper">
             <%xr_imgWrapper s_id=$data['IMG'] h=500 w=470 colorspace="gray" rmode="cco" class="img-responsive"%>
             
-            <%xr_atom a_id=774 showFace=3 return=1 data=$data desc='map indicator'%>
+            <%xr_atom a_id=774  return=1 data=$data desc='map indicator'%>
             
             <div class="overlay-bg">
                 <div class="overlay">
@@ -43,14 +43,14 @@
                                     <%$from = $searchData.filter%>
                                     
                                     <%if $from='FAVS'%>
-                                        <%xr_atom a_id=769 showFace=3 theType='room' state=$roomState['FAV'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="fav icon"%>
+                                        <%xr_atom a_id=769  theType='room' state=$roomState['FAV'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="fav icon"%>
                                     <%else%>
-                                        <%xr_atom a_id=769 showFace=3 theType='room' state=$roomState['FAV'] userId=$data['ID'] return=1 desc="fav icon"%>
+                                        <%xr_atom a_id=769  theType='room' state=$roomState['FAV'] userId=$data['ID'] return=1 desc="fav icon"%>
                                     <%/if%>
                                 </div>
                                 <div class="item">
                                     <!-- 685 desktop -->
-                                    <%xr_atom a_id=770 showFace=3 theType='room' state=$roomState['BLOCK'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="block icon"%>                                    
+                                    <%xr_atom a_id=770  theType='room' state=$roomState['BLOCK'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="block icon"%>                                    
                                 </div>
                             </div>
                         </div>

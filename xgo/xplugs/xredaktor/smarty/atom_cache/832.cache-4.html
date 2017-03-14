@@ -1,28 +1,47 @@
 <%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
 <div class="chatcontacts js-chatcontacts default-container-paddingtop">
-    
-
     <div class="shadow-box-right">
-        <h1 class="text-uppercase"><%xr_translate tag="Chat"%></h1>
-        <form>
-            <div class="form-group">
-                <div class="input-icon">
-                    <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
-                    <span class="icon-Lupe"></span>
-        		</div>
-            </div>
-        </form>
-    </div>
-    
-    <div class="shadow-box-right">
-        <h1 class="text-uppercase"><%xr_translate tag="Map"%></h1>
-        <div class="searchform">
-            <div id="map" class="map"></div>
+        <div class="aside-right-chat">
+            <a href="#chat-input-search" id="#collapse-map" class="icon-arrow-up-down-chat" data-toggle="collapse">
+                <h1 class="text-uppercase"><%xr_translate tag="Chat"%></h1>
+            </a>
+            <!--<button id="#collapse-chat" class="icon-arrow-up-down-chat" data-toggle="collapse" data-target="#chat-input-search"></button>-->
+            <div class="clearfix"></div>
+            <form>
+                <div class="form-group">
+                    <div id="chat-input-search" class="input-icon collapse in">
+                        <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
+                        <span class="icon-Lupe"></span>
+            		</div>
+                </div>
+            </form>
         </div>
     </div>
+    
+    <div class="shadow-box-right">
+        <div class="aside-right-map">        
+            <a href="#map" id="#collapse-map" class="icon-arrow-up-down-map" data-toggle="collapse">
+                <h1 class="text-uppercase"><%xr_translate tag="Map"%></h1>
+            </a>
+            <!--<button id="#collapse-map" class="icon-arrow-up-down-map" data-toggle="collapse" data-target="#map"></button>-->
+            <div class="searchform">    
+                <div id="map" class="map collapse in"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="contacts-wrapper js-chatcontacts-replace">
        <%$html%>
     </div>
-
+    
     
 </div>
+
+
+<%*
+<svg xmlns="http://www.w3.org/2000/svg" id="icon-arrow-down" data-name="Arrow down" width="30" height="30" viewBox="0 0 70 70">
+    <defs><style>.cls-1{fill:#04e0d7;}</style></defs>
+    <title>icon-arrow-down</title>
+    <polygon class="cls-1" points="34.82 53.1 0.05 21.16 3.48 17.42 34.81 46.2 66.51 16.9 69.95 20.63 34.82 53.1"/>
+</svg>
+*%>

@@ -5,6 +5,9 @@
 <%/if%>
 
 <%*xr_print_r val=$smarty.session*%>
+<%*xr_print_r val=$searchSession*%>
+
+
 
 <div class="searchform">
     <a href="<%xr_genlink p_id=11%>"><h1 class="text-uppercase"><%xr_translate tag="Suche"%></h1></a>
@@ -12,10 +15,12 @@
         <div class="form-group">
             <div class="radio">
                 <label for="typ-suche" class="searchform-typ-suche no-padding-left">
+                    <!--<input id="typ-suche" type="radio" name="search-type" value="suche" <%if $searchSession['type']=="suche" || ($searchSession['type'] == '' && $userType=="suche")%> class="active" <%/if%>>-->
                     <input id="typ-suche" type="radio" name="search-type" value="suche" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%> class="active" <%/if%>>
                     <span class="suche-cat btn-icons-reg text-uppercase no-margin-left"><%xr_translate tag="Room"%></span>
                 </label>
                 <label for="typ-biete" class="searchform-typ-biete">
+                    <!--<input id="typ-biete" type="radio" name="search-type" value="biete" <%if $searchSession['type']=="biete"  || ($searchSession['type'] == '' && $userType=="biete")%> class="active" <%/if%>>-->
                     <input id="typ-biete" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'biete'%> class="active" <%/if%>>
                     <span class="suche-cat btn-icons-reg text-uppercase"><%xr_translate tag="Roomie"%></span>
                 </label>

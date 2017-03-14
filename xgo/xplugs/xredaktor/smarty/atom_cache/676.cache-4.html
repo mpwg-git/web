@@ -1,0 +1,66 @@
+
+    <%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+    
+    <input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
+    <!--<%xr_print_r val=$data%>-->
+
+    
+    
+    <div class="profil">
+        <div class="col-xs-4 profil-links">
+            <%xr_atom a_id=682 data=$data return=1%>
+        </div>
+        <div class="col-xs-8 default-container-paddingtop">
+            <div class="profil">
+                
+                <div class="pull-right" style="padding-top:2px;padding-right:20px;color:#04e0d7;">
+                    <a href="javascript:history.back();">
+                        <span class="icon-Close"></span>
+                    </a>
+                </div>   
+                
+                <div class="maininfo">
+                    <span class="looklikeh1"><%$data['USER']['wz_VORNAME']%></h3>
+                    <p class="subinfo"><%$data['USER']['wz_NACHNAME']%><%if $data['USER']['ALTER'] > 0%> | <%$data['USER']['ALTER']%> Jahre<%/if%></p>
+                </div>
+                
+                <span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%></span>
+                
+                <div class="fakten clearfix">
+                    <%if $data.PROFILE.wz_GEBURTSDATUM != '0000-00-00' && $data.PROFILE.wz_GEBURTSDATUM != ''%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="Geburtstag"%></span><span class="info"><%$data.PROFILE.wz_GEBURTSDATUM|date_format:"%d.%m.%Y"%></span>
+                    </div>
+                    <%/if%>
+                    
+                    <%if $data.PROFILE.wz_TELEFON != ''%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="Telefonnummer"%></span><span class="info"><%$data.PROFILE.wz_TELEFON%></span>
+                    </div>
+                    <%/if%>
+                </div>
+                
+                <div class="profil-text">
+                    <%$data['USER']['wz_BESCHREIBUNG']%>
+                </div>
+                
+                <%xr_atom a_id=808 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%>
+                
+                <%if count($data['IMAGES']) > 0 && $data['USER']['wz_TYPE'] == 'suche'%>
+                    <div class="wg-img-wrapper" style="margin-top:2vw">
+                        <%xr_atom a_id=750 images=$data['IMAGES'] return=1%>
+                    </div>
+                <%/if%>
+                
+                <div class="clearfix"></div>
+                
+                <%if $data['PROFILE']['wz_TYPE'] == 'suche'%>
+                <div class="fakten">
+                    <h3 class="headline"><%xr_translate tag="Die Wunschliste"%></h3>
+                    <%xr_atom a_id=760 return=1%>
+                </div>
+                <%/if%>
+            </div>
+        </div>
+    </div>
+    

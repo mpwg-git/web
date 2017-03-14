@@ -600,7 +600,7 @@ class fe_user
 			switch ($_SESSION['XR_FACE'])
 			{
 				case 1:
-					return fe_vanityurls::genUrl_trefferliste();
+					return fe_vanityurls::genUrl_suche();
 					break;
 				case 4:
 					return fe_vanityurls::genUrl_suche();
