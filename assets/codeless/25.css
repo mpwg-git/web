@@ -1,5 +1,5 @@
-[31mNameError: .rotate is undefined[39m[31m in [39m/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/assets/codeless/25.less[90m on line 18, column 5:[39m
-[90m17 	padding: 0;[39m
-18     [7m[31m[1m.[22mrotate(180deg);[39m[27m
-[90m19 }[39m[0m[0m
+[31mNameError: variable @turkis is undefined[39m[31m in [39m/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/assets/codeless/25.less[90m on line 15, column 22:[39m
+[90m14     margin-top: -2.6vw;[39m
+15     border:1px solid [7m[31m[1m@[22mturkis;[39m[27m
+[90m16 }[39m[0m[0m
 

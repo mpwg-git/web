@@ -107,7 +107,78 @@ hr {
 	top: 0;
 	z-index: 999;
 	padding: 0;
-	
+    [class*='col-'] {
+        height: 3.125em;
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .profile-nav {
+            overflow: hidden;
+            position: relative;
+            margin-top: 10px;
+            .controls-wrapper{
+                float:left;
+                // margin-left: 15.653684210526315%;
+                .text{
+                    font-size: .9375em;
+                    vertical-align:middle;
+                    display:inline-block;
+                    font-family: @nunitoblack;
+                    padding-left: 5px;
+                }
+            }
+            .profile-image{
+                .height(30);
+                .width(30);
+            }
+            .main-item-wrapper{
+                .margin-right(15);
+                padding: 0.29vw 0.6vw;
+                &:last-of-type {
+                    margin-right: 0;
+                }
+                &.active{
+                    color:#000!important;
+                }
+                .main-item{
+                    display:inline-block;
+                    vertical-align: middle;
+                }
+            }
+            .logo-legend-section{
+                text-align:right;
+                .item{
+                    display: inline-block;
+                    margin-left: 5px;
+                    font-size: 15px;
+                    & > span{
+                        vertical-align:middle;
+                    }
+                    &.active{
+                        a{
+                            color:#000;
+                        }
+                        span{
+                            &:hover{
+                                color:#000;
+                            }
+                        }
+                    }
+                    span {
+                        .font-size(15);
+                        text-transform: uppercase;
+                        &[class*="icon-"], &[class^="icon-"]{
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
     .header-logo {
         cursor: pointer;
         
@@ -145,7 +216,7 @@ hr {
     }
     
     #anmelden-inner {
-        width: 48%;
+        width: 100%;
         position: absolute;
         right: 0px;
         border: 1px solid transparent;
@@ -225,6 +296,69 @@ hr {
             content: "X";
         }
     }
+}
+
+
+/**
+    QUESTION MODAL 
+**/
+#noQuestionModal {
+    overflow: hidden;
+    padding: 0 !important;
+    
+    .modal-backdrop {
+        height: 10000px !important;
+        
+        .modal-dialog.noQuestionModal {
+            width: 100%;
+            margin: 41px auto;
+            
+            .modal-content.noQuestionModal {
+                height: auto;
+                background-color: #04e0d7;
+                
+                .modal-header {
+                    height: 33.3333333%;
+                    border: none;
+                    text-align: center;
+                    
+                    .mheader-stoerer {
+                        background: url(/xstorage/template/img/sys/delete.svg) no-repeat transparent;
+                        width: 120px;
+                        height: 120px;
+                        display: inline-block;
+                        position: relative;
+                        text-align: center;
+                        
+                        span {
+                            font-family: 'jaapokkiregular';
+                            color: white;
+                            font-size: inherit;
+                            position: relative;
+                            top: 27%;
+                            text-transform: uppercase;
+                            line-height: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.modalh1, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.modalh1 {
+    color: #333;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-family: 'jaapokkiregular';
+    line-height: 1.25;
+}
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.icon-duck:before, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.icon-duck:before {
+    content: "\e61d";
+    padding-right: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    font-size: 3em;
+    display: inline-block;
 }
 
 
@@ -643,10 +777,10 @@ hr {
         }
         
     }
-/* END IMPRESSUMG, FAQ, AGB */
+    /* END IMPRESSUMG, FAQ, AGB */
 
     
-/**w
+/**
   *     PAGES LOGGEDIN
   */
   
@@ -659,7 +793,7 @@ hr {
   
     /* SUCHE */
     #search-page {
-        margin-top: 50px;
+        margin-top: 35px;
         
         .form-group {
             .legend {
@@ -771,36 +905,74 @@ hr {
             .shadow-box-right {
                 margin-bottom: 35px;
                 margin-left: 3%;
-                // padding-bottom: 35px;
+                
+                h1 {
+                    font-size: 3em;
+                }
+                
+                .aside-right-chat {
+                    min-height: 100px;
+                    padding-top: 24px;
+                    
+                    h1 { 
+                        margin:-4px 0 10px 0;
+                        width: 70%;
+                        float: left;
+                        
+                        &.chat {
+                            background: transparent;
+                            padding: 0;
+                        }
+                        
+                    }
+                    svg#chat-icon-arrow-down {
+                        height: 48px;
+                        .rotate(180deg);
+                    }
+                    .form-group {
+                        margin-bottom: 0;
+                    }
+                }
+                
+                .aside-right-map {
+                    min-height: 100px;
+                    padding-top: 24px;
+
+                    h1 { 
+                        margin:-4px 0 10px 0;
+                        width: 70%;
+                        float: left;
+                    }
+                    svg#map-icon-arrow-down {
+                        height: 48px;
+                        .rotate(180deg);
+                    }
+
+                    .form-group {
+                        margin-bottom: 0;
+                    }
+                }
                 
                 .input-icon .icon-Lupe {
                     &:before {
                         position: absolute;
                         content: "\e636";
                         top: -44px;
+                        color: #04e0d7;
+                        font-weight: bold;
                     }
-                }
-                &:first-of-type {
-                    // padding-bottom: 1px;
                 }
                 
-                h1 {
-                    font-size: 3em;
-                    width: 100%;
-                    cursor: pointer;
-                    float: left;
-                    
-                    &:last-of-type {
-                        // margin-bottom: 25px;
-                    }
-                }
-                svg#icon-arrow-down {
-                    width: 47px;
-                    height: 47px;
-                    margin: 34px 0 0 70px;
-                }
                 #chat-input-search {
                     padding-bottom: 15px;
+                    
+                    .contacts-wrapper {
+                        margin: 20px 0;
+                        
+                        .contact {
+                            margin: 5px 0px;
+                        }
+                    }
                 }
                 .searchform {
                     padding-bottom: 25px;
@@ -814,11 +986,21 @@ hr {
         }
     }
     .icon-Map.js-autocomplete-duck {
-        position: absolute;
+        position: relative;
         font-size: 27px;
-        bottom: 141px;
-        left: 82%;
+        bottom: 48px;
+        left: 88%;
     }
+    .icon-Map .path1:before {
+        content: "\e63c";
+        color: @turkis !important; 
+    }
+    .icon-Map .path2:before {
+        content: "\e63d";
+        margin-left: -1em;
+        color: #fff !important;
+    }
+        
     .icon-arrow-up-down-map, .icon-arrow-up-down-chat {
         border: none;
         background-color: transparent;
@@ -831,6 +1013,7 @@ hr {
         -ms-transform: rotate(180deg);
         -o-transform: rotate(180deg);
     }
+
     
     /* END SUCHE */
     
@@ -872,23 +1055,7 @@ hr {
     -moz-box-shadow: none;
     box-shadow: none;
 }
-.aside-right-chat, .aside-right-map {
-     min-height: 100px;
-}
-.aside-right-chat > a > h1, .aside-right-map > a > h1 {
-   
-    background-image: url(/xstorage/template/redesign/icons/icon-arrow-down.svg);
-    background-repeat: no-repeat;
-    background-position: 95% 30px;
-}
-.aside-right-chat > a > h1 {
-    background-position: 95% 20%;
-    background-size: 16%;
-}
-.aside-right-map > a > h1 {
-    background-position: 95% 7%;
-    background-size: 16%;
-}
+
 
 
 

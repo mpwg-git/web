@@ -4,6 +4,22 @@
 /*min:992px max:1200px */
 @media only screen and (min-width:62em) and (max-width: 75em) {
     
+    #main-header {
+        [class*='col-'] {
+            .profile-nav {
+                .controls-wrapper{
+                    .text{
+    					font-size: .875em;
+    				}
+    			}
+    			.main-item-wrapper{
+    				margin-right: 5px;
+    				padding: .29vw .5vw;
+    			}
+    		}
+    	}
+    }
+    
     #main-content {
         h1 {
             font-size: 3em;
@@ -235,5 +251,99 @@
                 margin: 30px 0;
             }
         }
+        
+        .searchform {
+            .form-group {
+                margin-top: 15px;
+                &:first-of-type {
+                    margin-top: 10px;
+                }
+            }
+        }
+        
+        
+        #search-page {
+            
+            input.form-control {
+                font-size: .875em;
+            }
+            .shadow-box-left, .shadow-box-right {
+                width: 100%;
+                margin: 0;
+                padding: 1px 10px 25px 10px;
+            }
+            .shadow-box-left {
+                .radio { 
+                    label { 
+                        .suche-cat.btn-icons-reg {
+                            margin: 0 3px;
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+            
+            .chatcontacts {
+                margin-bottom: 25px;
+                
+                .shadow-box-right {
+                    margin-left: 0;
+                    margin-bottom: 0;
+                    
+                    .aside-right-map {
+                        min-height: 65px;
+                        
+                        h1 {
+                            font-size: 2em;
+                        }
+            
+                        svg#map-icon-arrow-down {
+                            height: 28px;
+                            // transform: rotate(180deg);
+                            // padding-left: 15px;
+                        }
+                        
+                        .searchform {
+                            padding-bottom: 0;
+                        
+                            .map {
+                                height: 190px;    
+                            }
+                        }
+                    }
+                    
+                    
+                    .aside-right-chat {
+                        min-height: 65px;
+                        
+                        h1 {
+                            font-size: 2em;
+                            margin-top: -6px;
+                            &.chat {
+                                background: transparent;
+                                padding: 0;
+                            }
+                        }
+                        svg#chat-icon-arrow-down {
+                            height: 28px;
+                            // padding-left: 15px;
+                        }
+                    }
+                    
+                    .input-icon {
+                        .icon-Lupe:before {
+                            position: absolute;
+                            content: "\e636";
+                            top: -41px;
+                            color: #04e0d7;
+                            font-weight: bold;
+                            font-size: 14px;
+                            right: -10px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+

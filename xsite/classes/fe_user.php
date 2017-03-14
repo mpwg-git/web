@@ -602,10 +602,12 @@ class fe_user
 				case 1:
 					return fe_vanityurls::genUrl_suche();
 					break;
-				case 4:
+				case 3:
 					return fe_vanityurls::genUrl_suche();
 					break;
-
+				case 4:
+					return fe_vanityurls::genUrl_suche() . "?xr_face=4";
+					break;
 				default:
 					return fe_vanityurls::genUrl_suche();
 					break;

@@ -5,10 +5,6 @@
 <%xr_siteCall fn='fe_search::getLoginCounter' var='counter'%>
 <%xr_siteCall fn='fe_user::sc_getMyUserType' var='type'%>
 
-
-
-
-
 <input type="hidden" id="hiddenUserId" value="<%$id%>">
 <input type="hidden" id="hiddenLoginCounter" value="<%$counter%>">
 <input type="hidden" id="hiddenUserType" value="<%$type%>">
@@ -31,19 +27,6 @@
 					</div>
 					<div class="col-xs-6 col-md-4">
 						<div class="col-xs-6 col-md-3">
-							<!--<%if $P_LANG == 'de'%>-->
-					        <!--<a href="/de/mein-profil">-->
-						    <!--<div class="mheader-stoerer">-->
-							<!--<span style="font-size:2rem; top:28%;left:2%;"><%xr_translate tag='Mein <br>Profil'%></span>-->
-							<!--</div>-->
-						    <!--</a>-->
-                            <!--<%elseif $P_LANG == 'en'%>-->
-                            <!--<a href="/en/mein-profil">-->
-						    <!--<div class="mheader-stoerer">-->
-							<!--<span style="font-size:2rem; top:28%;left:2%;"><%xr_translate tag='Mein <br>Profil'%></span>-->
-							<!--</div>-->
-						    <!--</a>-->
-                            <!--<%/if%>-->
 						</div>
 						<div class="col-xs-6 col-md-9" style="padding-right:0;">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">

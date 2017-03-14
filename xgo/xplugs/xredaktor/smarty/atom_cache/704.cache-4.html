@@ -19,7 +19,6 @@
 <script src="/xstorage/template/Select-or-Die-master/_src/selectordie.min.js" type="text/javascript"></script>
 <script src="/xstorage/template/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/xstorage/template/swipebox/jquery.swipebox.min.js" type="text/javascript"></script>
-<script src="/xstorage/template/js/gmap3.min.js" type="text/javascript"></script>
 <script src="/xstorage/template/plugins/datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="/xstorage/template/Select-or-Die-master/_src/selectordie.js" type="text/javascript"></script>
 <script src="/xstorage/template/plugins/royalslider/jquery.royalslider.min.js" type="text/javascript"></script>
@@ -42,28 +41,30 @@
 <script src="/xstorage/template/plugins/mcustomscrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
 <script src="/xstorage/template/js/scriptV2.js" type="text/javascript"></script>
 <script src="/xstorage/template/plugins/guillotine/jquery.guillotine.js"></script>
+<script src="/xstorage/template/js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
 
-<%*
-<script>
-    $('.icon-arrow-up-down-chat').on('click', function() {
-        if($('#chat-input-search').hasClass('in'))
-        {
-            $('.chatcontacts > .shadow-box-right:first-of-type').css('padding-bottom', '0');
-            $('.icon-arrow-up-down-chat').css('transform', 'rotate(360deg)');
-        }
-        else
-        {
-            $('.chatcontacts > .shadow-box-right:first-of-type').css('padding-bottom', '1px');
-            $('.icon-arrow-up-down-chat').css('transform', 'rotate(180deg)');
-        }
-    })
-    
-    $('.icon-arrow-up-down-map').on('click', function() {
-        if($('#map').hasClass('in')) {
-            $('.icon-arrow-up-down-map').css('transform', 'rotate(360deg)');
-        } else {
-            $('.icon-arrow-up-down-map').css('transform', 'rotate(180deg)');
-        }
-    })
+<script src="/xstorage/template/js/gmap3.min.js" type="text/javascript"></script>
+
+<script src="/xstorage/template/redesign/js/jQueryRotate.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    $(function() {
+        $('#collapse-map').click(function() {
+            if($('#map').hasClass('collapse in')) {
+                $('#map-icon-arrow-down').rotate({angle:0});
+            } else {
+                $('#map-icon-arrow-down').rotate({angle:180});
+            }
+        });
+        
+        $('#collapse-chat').click(function() {
+            if($('#chat-input-search').hasClass('collapse in')) {
+                $('#chat-icon-arrow-down').rotate({angle:0});
+            } else {
+                $('#chat-icon-arrow-down').rotate({angle:180});
+            }
+        });
+    });
 </script>
-*%>
+
