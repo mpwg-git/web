@@ -3,14 +3,95 @@
 
 @media only screen and (min-width:48em) and (max-width:62em) {
 	
-	#main-header #anmelden-inner {
-        width: 100%;
-    }
-    
+	#main-header  {
+    	
+    	.header-logo {
+    	    margin-top: 15px;
+            margin-left: -35px;
+            
+            .icon-duck {
+                width: 20px;
+                margin: 0;
+            }
+            .icon-font {
+                width: 120px;
+                margin: 0;
+            }
+    	}
+        [class*='col-'] {
+            
+            .profile-nav {
+                width: 110%;
+                margin-top: 15px;
+                margin-left: -5.5%;
+                
+                .controls-wrapper {
+                    
+                    a {
+                        font-size: .9375em;
+                    }
+                    
+                    .main-item-wrapper {
+                        margin-right: 5px;
+                        padding: .29vw;
+                        
+                        .profile-image {
+                            .height(20);
+                            .width(20);
+                        }
+                        .main-item {
+                            font-size: .8em; 
+                        }
+                        .text {
+                            font-size: 0.8333333333333334em;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .btn.btn-default.btn-logout {
+            width: 80px;
+            font-size: .625em;
+            margin-top: 12px;
+            margin-right: 5px;
+        }
+        .nav-p-lang { 
+            .navlinks {
+                font-size: .875em;
+                
+                &.active {
+                    font-size: 0.8666666666666667em;
+                }
+            }
+        }
+        
+        
+        
+    	#anmelden-inner {
+            width: 100%;
+        }
+	}
+	
     footer {
         #main-footer {
-            padding: 10px 3.8281250000000004%;
+            padding: 6px 3.8281250000000004%;
+    
             .footer-links {
+                background-size: 220px 31.25px;
+                
+                .footer-icon-fb {
+                    width: 32px;
+                }
+                .inner-link span {
+                    font-size: 0.875em;
+                }
+            }
+            .footer-text {
+                font-size: .625em;
+                margin: -5px 0 0px 58px;
             }
         }
     }
@@ -19,7 +100,7 @@
     
 	#main-content {
 		h1 {
-			font-size: 3em;
+			font-size: 2.25em;
 		}
 
 		.carousel {
@@ -130,13 +211,7 @@
 	                padding: 0.875em 6em;
 	            }
 	        }
-	    }
-	
-
-//		.fp-text.los-gehts.text-center {
-//			width: 75%;
-//		}
-
+		}
 
 		.register-fragen {
 			word-break: break-word;
@@ -275,8 +350,116 @@
 				margin: 30px 0;
 			}
 		}
-	}
-	
-	
-}
+		
+		.searchform {
+            .form-group {
+                margin-top: 10px;
+                
+                &:first-of-type {
+                    margin-top: 20px;
+                }
+                
+                label {
+                    font-size: 0.75em;
+                }
+            }
+        }
+		
+		#search-page {
+            
+            input.form-control {
+                font-size: .75em;
+            }
+            .shadow-box-left, .shadow-box-right {
+                width: 100%;
+                margin: 0;
+                padding: 1px 10px 25px 10px;
+            }
+            .shadow-box-left {
+                .radio { 
+                    label { 
+                        .suche-cat.btn-icons-reg {
+                            font-size: 1em;
+                            margin: 0 5px;
+                            padding: 5px 7px;
+                            
+                        }
+                    }
+                }
+            }
+            
+            .chatcontacts {
+                margin-bottom: 25px;
+                
+                .shadow-box-right {
+                    margin-left: 0;
+                    margin-bottom: 0;
+                    
+                    .aside-right-map {
+                        min-height: 65px;
+                        
+                        h1 {
+                            width: 79%;
+                            font-size: 1.875em;
+                            margin: -5px 0 10px 0;
+                        }
+            
+                        svg#map-icon-arrow-down {
+                            height: 28px;
+                        }
+                        
+                        .searchform {
+                            padding-bottom: 0;
+                        
+                            .map {
+                                height: 190px;    
+                            }
+                        }
+                    }
+                    
+                    
+                    .aside-right-chat {
+                        min-height: 65px;
+                        
+                        h1 {
+                            font-size: 1.875em;
+                            margin: -5px 0 10px 0;
 
+                            &.chat {
+                                background: transparent;
+                                padding: 0;
+                            }
+                        }
+                        svg#chat-icon-arrow-down {
+                            height: 28px;
+                        }
+                    }
+                    
+                    .input-icon {
+                        .icon-Lupe:before {
+                            top: -36px;
+                            font-size: .75em;
+                            right: -8px;
+                        }
+                    }
+                }
+            }
+        }
+    	.icon-Map.js-autocomplete-duck {
+            position: relative;
+            font-size: 1.375em;
+            bottom: 44px;
+            left: 86%;
+        }
+        .icon-Map .path1:before {
+            content: "\e63c";
+            color: @turkis !important; 
+        }
+        .icon-Map .path2:before {
+            content: "\e63d";
+            margin-left: -1em;
+            color: #fff !important;
+        }
+	}
+}
+/**** ENDE @media ****/

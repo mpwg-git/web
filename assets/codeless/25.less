@@ -17,7 +17,6 @@
 
 .chatcontacts{
     input{
-        // .margin-bottom(45);
     }
     .input-icon{
         span[class*=icon]{
@@ -32,8 +31,6 @@
     }
     .contacts-wrapper{
         .contact{
-            // width: 75%;
-            // margin-left: 6.25%;
             
             p {
                 color: #333 !important;
@@ -324,3 +321,93 @@
         }
     }
 }
+
+
+
+// <link rel="stylesheet" href="/xstorage/template/css/jquery-ui.min.css">
+
+
+.ui-widget {
+    font-size: 1em;
+}
+.fakeline {
+    margin-top: 1.32vw;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+.ui-widget-header {
+    background: #04e0d7;
+}
+#slider-range, #umkreis-slider {
+    height: 1px !important;
+}
+#slider-range {
+    margin-left: 24px;
+    margin-right: 22px;
+}
+#umkreis-slider {
+    margin-left: 24px;
+    margin-right: 22px;
+}
+.ui-widget-content {
+    border: none;
+    height: 2px;
+    background: #04e0d7;
+    margin-top: 23px;
+    margin-bottom: 30px;
+}
+#slider-range .ui-slider-range {
+    display: none !important;
+}
+.ui-widget-content .ui-slider-range {
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0,0,0,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+.ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    white-space: nowrap;
+    width: 44px;
+    height: 44px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    cursor: pointer;
+    background: #04e0d7;
+    border: none;
+    margin-top: -17px;
+    margin-left: -21px;
+    font-family: 'NunitoSans-bold';
+    font-size: .75em;
+    color: #fff;
+    text-align: center;
+    padding-top: 16px;
+    
+    @media only screen and (min-width:48em) and (max-width:62em) {
+        width: 40px;
+        height: 40px;
+        font-size: .625em;
+    } 
+}
+
+
+p.legend {
+    font-size: 0.75em;
+    font-family: @nunitoregular;
+    margin: 0 12px;
+}
+
+
+
+

@@ -1,211 +1,172 @@
 <header class="clearfix">
-<div id="main-header" class="no-gutter">
-    <!--<div class="col-sm-1 hidden-xs">&nbsp;</div>-->
-    <div class="col-xs-3 text-center">
-        <div class="header-logo">
-            <a href="<%xr_genlink p_id=1%>">
-                <img class="icon-duck" src="/xstorage/template/redesign/svg/icon-duck-white.svg" alt="Dr Duck" />
-                <img class="icon-font" src="/xstorage/template/img/redesign/mpwg-schriftzug.png" alt="Logo" />
-            </a>
+    <div id="main-header" class="no-gutter">
+        <div class="col-sm-3 col-xs-6 text-center">
+            <div class="header-logo">
+                <a href="<%xr_genlink p_id=1%>">
+                    <img class="icon-duck" src="/xstorage/template/redesign/svg/icon-duck-white.svg" alt="Dr Duck" />
+                    <img class="icon-font" src="/xstorage/template/img/redesign/mpwg-schriftzug.png" alt="Logo" />
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 hidden-xs">
+            <div class="profile-nav">
+        	    <div class="controls-wrapper">
+        		    <a href="<%xr_genlink p_id=7%>" class="main-item-wrapper <%if $P_ID == 7%>active<%/if%>">
+        			    <%xr_siteCall fn="fe_user::getMyProfileImage" var='profImg'%>
+            				<%if $profImg != false%>
+        	    				<%xr_img s_id=$profImg w=44 h=44 rmode="cco" colorspace="gray" var="profileImg"%>
+        		    		<%else%>
+        			    		<%xr_img s_id=161 w=44 h=44 rmode="cco" colorspace="gray" var="profileImg"%>
+        					<%/if%>
+        					<img src="<%$profileImg['src']%>" class="main-item profile-image img-circle">
+                            <span class="text text-uppercase"><%xr_translate tag="Profil"%></span>
+        			</a>
+        			<a href="<%xr_genlink p_id=11%>" class="main-item-wrapper <%if $P_ID == 11%>active<%/if%>">
+        				<span class="main-item icon-Lupe"></span>
+        				<span class="text text-uppercase"><%xr_translate tag="Treffer"%></span>
+        			</a>
+        			<a href="/de/suche/favourites" class="main-item-wrapper">
+                        <span class="main-item icon-Favourite_inaktiv"></span>
+                        <span class="text text-uppercase">Bewerberliste</span>
+                    </a>
+        			<a href="/de/suche/blocked"  class="main-item-wrapper">
+                        <span class="main-item icon-Blocked_inaktiv"></span>
+                        <span class="text text-uppercase">Blockierte</span>
+                    </a>
+        		</div>
+        		<%*
+        		<div class="logo-legend-section">
+        		    <%xr_atom a_id=782 showFace=0 return=1 desc='icons block / fav'%>
+        		</div>
+        		*%>
+        	</div>
+        </div>
+        <div class="col-sm-3 col-xs-6 text-center no-gutter">
+            <a class="navlinks btn btn-default btn-logout text-uppercase" href="<%xr_genlink p_id=28%>"><%xr_translate tag='Abmelden'%></a>
+            <span class="nav-p-lang">
+                <a href="<%xr_changeLang lang='de'%>" class="navlinks<%if $P_LANG == 'de'%> active<%/if%>">DE&nbsp;</a><span class="navlinks">|</span>
+                <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
+            </span>
+            <div class="clearfix"></div>
         </div>
     </div>
-    <div class="col-xs-6">
-        <div class="profile-nav">
-    	    <div class="controls-wrapper">
-    		    <a href="<%xr_genlink p_id=7%>" class="main-item-wrapper <%if $P_ID == 7%>active<%/if%>">
-    			    <%xr_siteCall fn="fe_user::getMyProfileImage" var='profImg'%>
-        				<%if $profImg != false%>
-    	    				<%xr_img s_id=$profImg w=44 h=44 rmode="cco" colorspace="gray" var="profileImg"%>
-    		    		<%else%>
-    			    		<%xr_img s_id=161 w=44 h=44 rmode="cco" colorspace="gray" var="profileImg"%>
-    					<%/if%>
-    					<img src="<%$profileImg['src']%>" class="main-item profile-image img-circle">
-                        <span class="text text-uppercase"><%xr_translate tag="Profil"%></span>
-    			</a>
-    			<a href="<%xr_genlink p_id=11%>" class="main-item-wrapper <%if $P_ID == 11%>active<%/if%>">
-    				<span class="main-item icon-Lupe"></span>
-    				<span class="text text-uppercase"><%xr_translate tag="Treffer"%></span>
-    			</a>
-    			<a href="/de/suche/favourites" class="main-item-wrapper">
-                    <span class="main-item icon-Favourite_inaktiv"></span>
-                    <span class="text text-uppercase">Bewerberliste</span>
-                </a>
-    			<a href="/de/suche/blocked"  class="main-item-wrapper">
-                    <span class="main-item icon-Blocked_inaktiv"></span>
-                    <span class="text text-uppercase">Blockierte</span>
-                </a>
+    <%if $P_ID==11%>
+    	<%xr_siteCall fn='fe_matching::sc_checkIfUserHasAnyQuestionAnswered' var='hasQuestionsAnswered'%>
+    	<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
+    	<%xr_siteCall fn='fe_cookie::checkFragenSession' var='hasQuestionsAnsweredInSession'%>
+        <%xr_siteCall fn="fe_wgtest::sc_getWgTestState" userId=$smarty.session['xredaktor_feUser_wsf']['wz_id'] var=wgteststate%>
+        <%xr_siteCall fn="fe_user::sc_getLoginCount" var='loginCount'%>
+    
+    	<%if $stillToDo===true && $wgteststate==1 && $loginCount != 0%>
+    		<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+    			<div class="modal-dialog noQuestionModal" role="document">
+    				<div class="modal-content noQuestionModal" style="min-height: 170px;">
+    					<div class="modal-header noQuestionModal">
+    						<div class="col-xs-6 col-md-4"></div>
+    						<div class="col-xs-6 col-md-4">
+    							<span class="icon-duck"></span>
+    							<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+    							<br>
+    							<p>
+    								<%xr_translate tag='Dr. Duck vergleicht dich gerade mit weiteren Profilen und ist noch mit der Auswertung beschäftigt.'%>
+    							</p>
+    						</div>
+    						<div class="col-xs-6 col-md-4">
+    							<div class="col-xs-6 col-md-3">
+    							</div>
+    							<div class="col-xs-6 col-md-9" style="padding-right:0;">
+    								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    									<span aria-hidden="true">×</span>
+    								</button>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
     		</div>
-    		<%*
-    		<div class="logo-legend-section">
-    		    <%xr_atom a_id=782 showFace=0 return=1 desc='icons block / fav'%>
+        <%elseif ($hasQuestionsAnswered === false && $hasQuestionsAnsweredInSession && $wgteststate==0 && $loginCount !== 0)%>
+    	    <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+    			<div class="modal-dialog noQuestionModal" role="document">
+    				<div class="modal-content noQuestionModal" style="min-height: 170px;">
+    					<div class="modal-header noQuestionModal">
+    						<div class="col-xs-6 col-md-4"></div>
+    						<div class="col-xs-6 col-md-4">
+    							<span class="icon-duck"></span>
+    							<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+    							<br>
+    							<p>
+    								<%xr_translate tag='Du hast noch keine Fragen vom WG-Test beantwortet!'%>
+    								<br>
+    								<%xr_translate tag='Dr. Duck kann dir deswegen nicht sagen, wer am besten zu dir passt!'%>
+    							</p>
+    						</div>
+    						<div class="col-xs-6 col-md-4">
+    							<div class="col-xs-6 col-md-3">
+    							<%if $P_LANG == 'de'%>
+    						   	<a href="/de/mein-profil/wg-test">
+    									<div class="mheader-stoerer">
+    										<span><%xr_translate tag='Zu den Fragen'%></span>
+    									</div>
+    								</a>
+                         <%elseif $P_LANG == 'en'%>
+                             <a href="/en/mein-profil/wg-test">
+    							    	<div class="mheader-stoerer">
+    										<span><%xr_translate tag='Zu den Fragen'%></span>
+    									</div>
+    							   </a>
+                         <%/if%>
+    						</div>
+    							<div class="col-xs-6 col-md-9">
+    								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    									<span aria-hidden="true">×</span>
+    								</button>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
     		</div>
-    		*%>
-    	</div>
-    </div>
-    <div class="col-xs-3 text-center no-gutter">
-        <a class="navlinks btn btn-default btn-logout text-uppercase" href="<%xr_genlink p_id=28%>"><%xr_translate tag='Abmelden'%></a>
-        <span class="nav-p-lang">
-            <a href="<%xr_changeLang lang='de'%>" class="navlinks<%if $P_LANG == 'de'%> active<%/if%>">DE&nbsp;</a><span class="navlinks">|</span>
-            <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
-        </span>
-        <div class="clearfix"></div>
-    </div>
-    <!--<div class="col-sm-1 hidden-xs">&nbsp;</div>-->
-</div>
-<%if $P_ID==11%>
-	<%xr_siteCall fn='fe_matching::sc_checkIfUserHasAnyQuestionAnswered' var='hasQuestionsAnswered'%>
-	<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
-	<%xr_siteCall fn='fe_cookie::checkFragenSession' var='hasQuestionsAnsweredInSession'%>
-    <%xr_siteCall fn="fe_wgtest::sc_getWgTestState" userId=$smarty.session['xredaktor_feUser_wsf']['wz_id'] var=wgteststate%>
-    <%xr_siteCall fn="fe_user::sc_getLoginCount" var='loginCount'%>
-
-	<%if $stillToDo===true && $wgteststate==1 && $loginCount != 0%>
-		<div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog noQuestionModal" role="document">
-				<div class="modal-content noQuestionModal" style="min-height: 170px;">
-					<div class="modal-header noQuestionModal">
-						<div class="col-xs-6 col-md-4"></div>
-						<div class="col-xs-6 col-md-4">
-							<span class="icon-duck"></span>
-							<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
-							<br>
-							<p>
-								<%xr_translate tag='Dr. Duck vergleicht dich gerade mit weiteren Profilen und ist noch mit der Auswertung beschäftigt.'%>
-							</p>
-						</div>
-						<div class="col-xs-6 col-md-4">
-							<div class="col-xs-6 col-md-3">
-								<!--<%if $P_LANG == 'de'%>-->
-						        <!--<a href="/de/mein-profil">-->
-							    <!--<div class="mheader-stoerer">-->
-								<!--<span style="font-size:2rem; top:28%;left:2%;"><%xr_translate tag='Mein <br>Profil'%></span>-->
-								<!--</div>-->
-							    <!--</a>-->
-                                <!--<%elseif $P_LANG == 'en'%>-->
-                                <!--<a href="/en/mein-profil">-->
-							    <!--<div class="mheader-stoerer">-->
-								<!--<span style="font-size:2rem; top:28%;left:2%;"><%xr_translate tag='Mein <br>Profil'%></span>-->
-								<!--</div>-->
-							    <!--</a>-->
-                                <!--<%/if%>-->
-							</div>
-							<div class="col-xs-6 col-md-9" style="padding-right:0;">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    <%elseif ($hasQuestionsAnswered === false && $hasQuestionsAnsweredInSession && $wgteststate==0 && $loginCount !== 0)%>
-	    <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog noQuestionModal" role="document">
-				<div class="modal-content noQuestionModal" style="min-height: 170px;">
-					<div class="modal-header noQuestionModal">
-						<div class="col-xs-6 col-md-4"></div>
-						<div class="col-xs-6 col-md-4">
-							<span class="icon-duck"></span>
-							<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
-							<br>
-							<p>
-								<%xr_translate tag='Du hast noch keine Fragen vom WG-Test beantwortet!'%>
-								<br>
-								<%xr_translate tag='Dr. Duck kann dir deswegen nicht sagen, wer am besten zu dir passt!'%>
-							</p>
-						</div>
-						<div class="col-xs-6 col-md-4">
-							<div class="col-xs-6 col-md-3">
-							<%if $P_LANG == 'de'%>
-						   	<a href="/de/mein-profil/wg-test">
-									<div class="mheader-stoerer">
-										<span><%xr_translate tag='Zu den Fragen'%></span>
-									</div>
-								</a>
-                     <%elseif $P_LANG == 'en'%>
-                         <a href="/en/mein-profil/wg-test">
-							    	<div class="mheader-stoerer">
-										<span><%xr_translate tag='Zu den Fragen'%></span>
-									</div>
-							   </a>
-                     <%/if%>
-						</div>
-							<div class="col-xs-6 col-md-9">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<%elseif $hasQuestionsAnswered === true && $hasQuestionsAnsweredInSession && $wgteststate==2 && $loginCount !== 0%>
-        <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog noQuestionModal" role="document">
-				<div class="modal-content noQuestionModal" style="min-height: 170px;">
-					<div class="modal-header noQuestionModal">
-						<div class="col-xs-6 col-md-4"></div>
-						<div class="col-xs-6 col-md-4">
-							<span class="icon-duck"></span>
-							<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
-							<br>
-							<p>
-								<%xr_translate tag='Du hast noch nicht alle Fragen vom WG-Test beantwortet. Nimm dir kurz Zeit, damit dich Dr. Duck noch besser matchen kann!'%>
-							</p>
-						</div>
-						<div class="col-xs-6 col-md-4">
-							<div class="col-xs-6 col-md-3">
-							<%if $P_LANG == 'de'%>
-						        <a href="/de/mein-profil/wg-test">
-							        <div class="mheader-stoerer">
-									    <span><%xr_translate tag='Zu den Fragen'%></span>
-									</div>
-							    </a>
-                            <%elseif $P_LANG == 'en'%>
-                                <a href="/en/mein-profil/wg-test">
-							    	<div class="mheader-stoerer">
-								    	<span><%xr_translate tag='Zu den Fragen'%></span>
-								    </div>
-							    </a>
-                            <%/if%>
-							</div>
-							<div class="col-xs-6 col-md-9">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<%/if%>
-<%/if%>
+    	<%elseif $hasQuestionsAnswered === true && $hasQuestionsAnsweredInSession && $wgteststate==2 && $loginCount !== 0%>
+            <div class="modal fade" id="noQuestionModal" tabindex="-1" role="dialog">
+    			<div class="modal-dialog noQuestionModal" role="document">
+    				<div class="modal-content noQuestionModal" style="min-height: 170px;">
+    					<div class="modal-header noQuestionModal">
+    						<div class="col-xs-6 col-md-4"></div>
+    						<div class="col-xs-6 col-md-4">
+    							<span class="icon-duck"></span>
+    							<span class="modalh1"><%xr_translate tag='Hallo!'%></span>
+    							<br>
+    							<p>
+    								<%xr_translate tag='Du hast noch nicht alle Fragen vom WG-Test beantwortet. Nimm dir kurz Zeit, damit dich Dr. Duck noch besser matchen kann!'%>
+    							</p>
+    						</div>
+    						<div class="col-xs-6 col-md-4">
+    							<div class="col-xs-6 col-md-3">
+    							<%if $P_LANG == 'de'%>
+    						        <a href="/de/mein-profil/wg-test">
+    							        <div class="mheader-stoerer">
+    									    <span><%xr_translate tag='Zu den Fragen'%></span>
+    									</div>
+    							    </a>
+                                <%elseif $P_LANG == 'en'%>
+                                    <a href="/en/mein-profil/wg-test">
+    							    	<div class="mheader-stoerer">
+    								    	<span><%xr_translate tag='Zu den Fragen'%></span>
+    								    </div>
+    							    </a>
+                                <%/if%>
+    							</div>
+    							<div class="col-xs-6 col-md-9">
+    								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    									<span aria-hidden="true">×</span>
+    								</button>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	<%/if%>
+    <%/if%>
 </header>
 
-
-
-
-<%*
-<div id="main-header" class="no-gutter">
-    <div class="col-md-1 col-sm-1 hidden-xs">&nbsp;</div>
-    <div class="col-md-5 col-sm-5 col-xs-6">
-        <div class="header-logo">
-            <a href="<%xr_genlink p_id=1%>">
-                <img class="icon-duck" src="/xstorage/template/redesign/svg/icon-duck-white.svg" alt="Dr Duck" />
-                <img class="icon-font" src="/xstorage/template/img/redesign/mpwg-schriftzug.png" alt="Logo" />
-            </a>
-        </div>
-    </div>
-    <div class="col-md-5 col-sm-5 col-xs-6 text-right no-gutter">
-        <a class="navlinks btn btn-default btn-logout text-uppercase" href="<%xr_genlink p_id=28%>"><%xr_translate tag='Abmelden'%></a>
-        <span class="nav-p-lang">
-            <a href="<%xr_changeLang lang='de'%>" class="navlinks<%if $P_LANG == 'de'%> active<%/if%>">DE&nbsp;</a><span class="navlinks">|</span>
-            <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
-        </span>
-    </div>
-    <div class="col-md-1 col-sm-1 hidden-xs">&nbsp;</div>
-</div>
-*%>

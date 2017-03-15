@@ -8,63 +8,88 @@
 <%*xr_print_r val=$searchSession*%>
 
 
-
-<div class="searchform">
-    <a href="<%xr_genlink p_id=11%>"><h1 class="text-uppercase"><%xr_translate tag="Suche"%></h1></a>
-    <form>
-        <div class="form-group">
-            <div class="radio">
-                <label for="typ-suche" class="searchform-typ-suche no-padding-left">
-                    <!--<input id="typ-suche" type="radio" name="search-type" value="suche" <%if $searchSession['type']=="suche" || ($searchSession['type'] == '' && $userType=="suche")%> class="active" <%/if%>>-->
-                    <input id="typ-suche" type="radio" name="search-type" value="suche" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%> class="active" <%/if%>>
-                    <span class="suche-cat btn-icons-reg text-uppercase no-margin-left"><%xr_translate tag="Room"%></span>
-                </label>
-                <label for="typ-biete" class="searchform-typ-biete">
-                    <!--<input id="typ-biete" type="radio" name="search-type" value="biete" <%if $searchSession['type']=="biete"  || ($searchSession['type'] == '' && $userType=="biete")%> class="active" <%/if%>>-->
-                    <input id="typ-biete" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'biete'%> class="active" <%/if%>>
-                    <span class="suche-cat btn-icons-reg text-uppercase"><%xr_translate tag="Roomie"%></span>
-                </label>
+<div class="aside-left-search">
+    <div class="searchform">
+        <a href="#search-criteria" id="collapse-search-criteria" class="icon-arrow-up-down-search" data-toggle="collapse">
+        <!--<a href="#map" id="collapse-map" class="icon-arrow-up-down-map" data-toggle="collapse">    -->
+            <h1 class="text-uppercase"><%xr_translate tag="Suche"%></h1>
+            <svg xmlns="http://www.w3.org/2000/svg" id="search-icon-arrow-down" viewBox="0 0 70 70" data-name="Arrow down" style="transform: rotate(0deg); transform-origin: 50% 50% 0px;" class="hidden-sm hidden-md hidden-lg">
+                <defs>
+                    <style>.cls-1{fill:#04e0d7;}</style>
+                </defs>
+                <title>icon-arrow-down</title>
+                <polygon points="34.82 53.1 0.05 21.16 3.48 17.42 34.81 46.2 66.51 16.9 69.95 20.63" class="cls-1"></polygon>
+            </svg>
+        </a>
+        <div class="clearfix"></div>
+        <div id="search-criteria" class="collapse in">
+            <form>
+                <div class="form-group">
+                    <div class="radio">
+                        <label for="typ-suche" class="searchform-typ-suche no-padding-left">
+                            <!--<input id="typ-suche" type="radio" name="search-type" value="suche" <%if $searchSession['type']=="suche" || ($searchSession['type'] == '' && $userType=="suche")%> class="active" <%/if%>>-->
+                            <input id="typ-suche" type="radio" name="search-type" value="suche" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%> class="active" <%/if%>>
+                            <span class="suche-cat btn-icons-reg text-uppercase no-margin-left"><%xr_translate tag="Room"%></span>
+                        </label>
+                        <label for="typ-biete" class="searchform-typ-biete">
+                            <!--<input id="typ-biete" type="radio" name="search-type" value="biete" <%if $searchSession['type']=="biete"  || ($searchSession['type'] == '' && $userType=="biete")%> class="active" <%/if%>>-->
+                            <input id="typ-biete" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'biete'%> class="active" <%/if%>>
+                            <span class="suche-cat btn-icons-reg text-uppercase"><%xr_translate tag="Roomie"%></span>
+                        </label>
+                        
+                        <%*
+                        <label for="typ-wg" >
+                            <input id="typ-wg" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'wg'%> class="active" <%/if%>>
+                            <span class="suche-cat btn-icons-reg text-uppercase">WG</span>
+                        </label>
+                        *%>
+                        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date" class="text-uppercase"><%xr_translate tag="Wann"%></label>
+                    <div class="input-icon hasDatePicker">
+                        <input class="form-control search-date datepicker" name="search-date" placeholder="<%xr_translate tag='ab'%>" <%if $searchSession != false%>value="<%$searchSession['date']%>"<%/if%>/>
+                        <span class="add-on"><i class="icon-calendar"></i></span>
+            		</div>
+                </div>
+               
+                <%xr_atom a_id=780 return=1 desc='slider preis'%>
+                
+                <div class="form-group">
+                    <label for="location" class="text-uppercase"><%xr_translate tag="Wo"%></label>
+                    <%xr_atom a_id=764 return=1 desc='location autocomplete'%>
+                    <!--<small class="small"><%xr_translate tag='Dieser Ort wird auch verwendet, um von Anbietern gefunden zu werden.'%></small>-->
+                </div>
+                
+                <%xr_atom a_id=781 return=1 desc='slider umkreis'%>
+                
+                <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%>
+                    <div class="">
+                        <a href="<%xr_genlink p_id=8%>" class="blue-link"><%xr_translate tag="Weitere Suchkriterien"%></a>
+                    </div>
+                    <br/>
+                <%/if%>
+                
+                <%xr_atom a_id=778 return=1 desc='hidden filter field'%>
                 
                 <%*
-                <label for="typ-wg" >
-                    <input id="typ-wg" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'wg'%> class="active" <%/if%>>
-                    <span class="suche-cat btn-icons-reg text-uppercase">WG</span>
-                </label>
+                <div id="map" class="map"></div>
                 *%>
                 
-            </div>
+            </form>
         </div>
-        
-        <div class="form-group">
-            <label for="date" class="text-uppercase"><%xr_translate tag="Wann"%></label>
-            <div class="input-icon hasDatePicker">
-                <input class="form-control search-date datepicker" name="search-date" placeholder="<%xr_translate tag='ab'%>" <%if $searchSession != false%>value="<%$searchSession['date']%>"<%/if%>/>
-                <span class="add-on"><i class="icon-calendar"></i></span>
-    		</div>
-        </div>
-       
-        <%xr_atom a_id=780 return=1 desc='slider preis'%>
-        
-        <div class="form-group">
-            <label for="location" class="text-uppercase"><%xr_translate tag="Wo"%></label>
-            <%xr_atom a_id=764 return=1 desc='location autocomplete'%>
-            <!--<small class="small"><%xr_translate tag='Dieser Ort wird auch verwendet, um von Anbietern gefunden zu werden.'%></small>-->
-        </div>
-        
-        <%xr_atom a_id=781 return=1 desc='slider umkreis'%>
-        
-        <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%>
-            <div class="">
-                <a href="<%xr_genlink p_id=8%>" class="blue-link"><%xr_translate tag="Weitere Suchkriterien"%></a>
-            </div>
-            <br/>
-        <%/if%>
-        
-        <%xr_atom a_id=778 return=1 desc='hidden filter field'%>
-        
-        <%*
-        <div id="map" class="map"></div>
-        *%>
-        
-    </form>
+    </div>
 </div>
+
+<script>
+    window.onload = function(){
+        // code here
+    }
+    
+</script>
+
+
+
+
