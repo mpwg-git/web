@@ -308,6 +308,99 @@ hr {
 /**
     QUESTION MODAL 
 **/
+@media only screen and (max-width: 991px) {
+    .modal-dialog.noQuestionModal {
+        display: none;
+    }
+} 
+
+#noQuestionModal {
+    overflow: hidden;
+    padding: 0 !important;
+}
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+    height: 10000px !important;
+}
+#noQuestionModal .modal-dialog.noQuestionModal {
+    width: 100%;
+    margin: 41px auto;
+    z-index: 1040;
+}
+
+#noQuestionModal .modal-content.noQuestionModal {
+    height: auto;
+    background-color: @darkgray;
+}
+#noQuestionModal .modal-header {
+    height: 33.3333333%;
+    border: none;
+    text-align: center;
+    
+    .close {
+        font-size: 2.75em;
+        color: #04e0d7;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .6;
+
+    }
+    .icon-duck {
+        font-size: 1.9375em;
+        margin: 0 15px 0 -15px;
+        color: @turkis;
+    }
+    
+    p {
+        color: @turkis;
+        font-size: 1.125em;
+        font-family: @nunitobold;
+        line-height: 1.375em;
+        margin: 10px 0;
+    }
+}
+.modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.modalh1, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.modalh1 {
+    color: @turkis;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-family: @nunitoextrabold;
+    line-height: 1.25;
+}
+.mheader-stoerer {
+    background: url(/xstorage/template/img/sys/delete.svg) no-repeat transparent;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.mheader-stoerer span {
+    font-family: @nunitoregular;
+    color: @turkis;
+    font-size: inherit;
+    position: relative;
+    top: 27%;
+    text-transform: uppercase;
+    line-height: 0;
+}
+
+button, .button {
+    display: inline-block;
+    font-size: 16px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    text-align: center;
+    background: @darkgray;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+}
+
+button {
+    outline: 0 !important;
+}
+
+/*
 #noQuestionModal {
     overflow: hidden;
     padding: 0 !important;
@@ -366,7 +459,7 @@ hr {
     font-size: 3em;
     display: inline-block;
 }
-
+*/
 
 /**
     MAIN-CONTENT 
