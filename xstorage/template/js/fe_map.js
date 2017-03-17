@@ -279,10 +279,12 @@ var fe_map = (function() {
             }
 
             // fix for mobile
-            if (currentFace != 1) {
-                fe_core.showLoader();
-            }
+//            if (currentFace != 1) {
+//                fe_core.showLoader();
+//            }
 
+            fe_core.showLoader();
+            
             var searchData = new Object;
 
             if (typeof showAll == "undefined") {

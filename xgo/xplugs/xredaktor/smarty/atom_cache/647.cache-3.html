@@ -51,7 +51,7 @@
     
     <script type="text/javascript">
         top.P_LANG='<%$P_LANG%>';
-        top.P_ID=<%$P_ID%>;
+        top.P_ID='<%$P_ID%>';
         top.str_yes = '<%xr_translate tag="Ja"%>';
         top.str_no = '<%xr_translate tag="Nein"%>';
         top.delete_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
@@ -94,6 +94,8 @@
 	<![endif]-->
 
 	<%xr_atom a_id=890 return=1 desc="og stuff"%>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 
     <%if $P_ID == 1%>
     	<style>

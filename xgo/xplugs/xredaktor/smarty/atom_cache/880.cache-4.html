@@ -12,10 +12,3 @@
     
     <div class="clearfix"></div>
 </div>
-<script>
-    $(document).on('click', '.cookie-warning-top .closing-icon', function () {
-        $.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function (response) {
-            $('.js-cookie-warning-top').removeClass('active');
-        });
-    });
-</script>

@@ -1,12 +1,20 @@
 <style>
-@media only screen and (max-width: 767px) {
-    #main-header {
-        /*height: 6.25em;*/
-    }
     #main-header .header-logo {
-        float: left !important;
+        padding: 10px 10px;
+        margin: 0;
+        text-align: center;
     }
-}
+    #main-header .header-logo .icon-duck {
+        width: 28px;
+        margin: 0;
+        padding: 0;
+        margin-right: 8px;
+    }
+    #main-header .header-logo .icon-font {
+        width: 174px;
+        margin: 0;
+        padding: 0;
+    }
 </style>
 
 <header class="clearfix">
@@ -72,7 +80,7 @@
             </i>
         </div>
         <%xr_atom a_id=978 return=1%>
-        <div class="mob-sub-nav hidden-sm hidden-md hidden-lg">
+        <div class="mob-sub-nav <%if $P_ID != 11%>hidden-xs<%/if%> hidden-sm hidden-md hidden-lg">
             <%xr_atom a_id=980 return=1%>
         </div>
     </div>

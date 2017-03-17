@@ -362,9 +362,11 @@ class xredaktor_niceurl
 			return $url;
 		}
 
-
-
 		$finalUrl = self::cache_update($p_id,$lang,$cfg,$url,$urlClash);
+		
+		if($_SESSION['XR_FACE'] == 4)
+			$finalUrl .= "?xr_face=4";
+
 		return $finalUrl;
 	}
 

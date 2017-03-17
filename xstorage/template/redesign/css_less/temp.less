@@ -1,6 +1,119 @@
-@media only screen and (max-width: 480px) {
+header {
+	position: fixed;
+    z-index: 20;
+}
+
+footer {
+    position: fixed;
+}
+ 
+.fixfixed .header { 
+    position: absolute; 
+}  
+.fixfixed .footer { 
+    position: absolute;
+	
+} 
+.ui-widget-content.autocomplete-user-ul {
+    list-style-type: none;
+    background-color: rgba(100,100,100, .75);
+    height: auto;
+    margin: 0;
+    padding: 4px;
+    padding-left: 10px;
+    position: absolute !important;
+}
+.ui-widget-content.autocomplete-user-ul li.autocomplete-user-result {
+    color: #04e0d7;
+}
+.ui-widget-content.autocomplete-user-ul li a {
+    color: #fff;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+.ui-widget-content.autocomplete-user-ul {
+    
+    list-style-type: none;
+    background: #eee;
+    height: auto;
+    margin: 0;
+    padding: 4px;
+    padding-left: 10px;
+    position: absolute !important;
+    
+    li {
+        
+        a {
+            color: #04e0d7;
+            text-transform: uppercase;
+        }
+        
+        &.ui-state-focus {
+            background: #eee;
+            border: 0;
+            color: #04e0d7;
+            
+            a {
+                color: #04e0d7;
+                text-transform: uppercase;
+            }
+            
+        }
+        
+        &.autocomplete-user-result {
+            
+            color: #04e0d7;
+            
+            &.autocomplete-user-not-found {
+                
+            }
+            
+            &.autocomplete-user-found {
+                
+            }
+            
+            
+        }
+        
+    }
+}
+
+@media only screen and (max-width: 767px) {
 	
 	#main-header { 
+		.header-logo {
+			padding: 14px 0;
+			margin: 0 auto;
+			text-align: center;
+			
+			.icon-duck {
+		        width: 22px;
+		        margin: 0;
+		        padding: 0;
+		    }
+		    .icon-font {
+		        width: 132px;
+		        margin: 0;
+		        padding: 0;
+		    }
+		}
+
+		.nav-p-lang {
+	         margin-right: 10px;
+
+			.navlinks {
+		        margin-top: 17.5px;
+
+	         }
+	    }
+		
+		.btn.btn-default.btn-login {
+	    	width: 65px;
+	        padding: 7px 10px;
+	        margin-top: 0;
+	        margin-right: 5px;
+	    }
+
 		#anmelden-inner {
 		    width: 170%;
 		    padding: 15px 20px 20px 20px;

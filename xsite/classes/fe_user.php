@@ -593,11 +593,12 @@ class fe_user
 				return fe_vanityurls::genUrl_invitationsOverview();
 			}
 			*/
+			
 			$_SESSION[$feUserSessionKey]['useCookie'] = 'N';
-
-			//return fe_vanityurls::genUrl_myprofile();
-
-			return fe_vanityurls::genUrl_suche();
+			
+			$redirectUrl = fe_vanityurls::genUrl_suche();
+			
+			return $redirectUrl;
 			
 			
 			switch ($_SESSION['XR_FACE'])
@@ -615,6 +616,7 @@ class fe_user
  					return fe_vanityurls::genUrl_suche() . "?xr_face=4";
 					break;
 			}
+			
 		}
 	}
 

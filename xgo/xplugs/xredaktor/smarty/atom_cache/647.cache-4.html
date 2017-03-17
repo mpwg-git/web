@@ -13,7 +13,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1"/> <!--320-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
     
@@ -42,14 +42,7 @@
             <title><%xr_translate tag='###SITE_TITLE###'%></title>
         <%/if%>
     <%/if%>
-        
-    <script type="text/javascript">
-        top.P_LANG='<%$P_LANG%>';
-        top.P_ID=<%$P_ID%>;
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
- 
+   
     <link rel="stylesheet" href="/xstorage/template/redesign/css_less/bootstrap.min.css">
     <link rel="stylesheet" href="/xstorage/template/bootstrap/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" href="/xstorage/template/en-icomoon/style.css">
@@ -59,14 +52,18 @@
     <link rel="stylesheet" href="/xstorage/template/plugins/guillotine/jquery.guillotine.css"/>
     <link rel="stylesheet" href="/xstorage/template/css/jquery-ui.min.css">
     
-
-    <%*xr_lessWrapper ids='24'*%>
-    <%*xr_cssWrapperV2 s_ids='89,15,178,11998,76,39,26,402,408,321,422,13331,426,461,76' var="packedcss"*%>
-
-
     <%xr_lessWrapper ids='21,26,33,32,29,28,27'%>
     <link rel="stylesheet" href="/xstorage/template/redesign/css_less/rd-icons.css">
     <link rel="stylesheet" href="/xstorage/template/redesign/css_less/temp.css">
     
+     
+    <script type="text/javascript">
+        top.P_LANG='<%$P_LANG%>';
+        top.P_ID='<%$P_ID%>';
+    </script>
 
+    <script src="/xstorage/template/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC8wi58RIMPGI379eTvxC7e6khEM5s898E&libraries=places"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8wi58RIMPGI379eTvxC7e6khEM5s898E&libraries=places" async defer></script>-->
+ 
 </head>
