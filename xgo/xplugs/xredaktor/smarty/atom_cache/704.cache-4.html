@@ -50,6 +50,41 @@
 
 <script type="text/javascript">
     $(function() {
+        if ('ontouchstart' in window) {
+                /* cache dom references */ 
+            var $body = $('body'); 
+
+                /* bind events */
+            $('header')
+            .on('focus', 'input', function() {
+                $body.addClass('fixfixed');
+                $body.css('overflow', 'hidden');
+            })
+            .on('blur', 'input', function() {
+                $body.removeClass('fixfixed');
+                $body.css('overflow', 'visible');
+            });
+        }
+        
+        var $body = $('body'); 
+        
+        $('header').on('click', 'a.btn-login', function() {
+            console.log('btn-login');
+            $('body').toggleClass('no-scroll');
+            /*
+            if ($('#anmelden-inner').attr("aria-expanded") == true) {
+                console.log('aria-exp true');
+                $('body').css('overflow', 'hidden');
+            } else if ($('#anmelden-inner').attr("aria-expanded") == false) {
+                console.log('aria-exp true');
+                $('body').css('overflow', 'visible');
+            }
+            */
+            
+        });
+        
+        
+        
         $('#collapse-map').click(function() {
             if($('#map').hasClass('collapse in')) {
                 $('#map-icon-arrow-down').rotate({angle:0});

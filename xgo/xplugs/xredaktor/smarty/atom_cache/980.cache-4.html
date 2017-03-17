@@ -1,0 +1,29 @@
+<section class="hidden-sm hidden-md hidden-lg">
+    <div class="col-xs-4 hidden-sm hidden-md hidden-lg">
+        <button id="show-map" class="btn-subnav-map">
+            <img width="26" src="/xstorage/template/redesign/icons/icon-map.svg" />
+            <%xr_translate tag="MAP"%>
+        </button>
+    </div>
+    <div class="col-xs-3"></div>
+    <div class="col-xs-5 hidden-sm hidden-md hidden-lg">
+        <button id="show-filter" class="btn-subnav-filter">
+            <img width="26" src="/xstorage/template/redesign/icons/icon-filter.svg" />
+            <%xr_translate tag="FILTER"%>
+        </button>
+    </div>
+    
+    <script>
+    $(function() {
+        $('.btn-subnav-filter').click(function() {
+            $('#aside-left-search').toggle();
+        });
+        
+        $('.btn-subnav-map').click(function() {
+            $('#aside-left-search').toggle();
+        });
+        
+    });
+    </script>
+
+</section>

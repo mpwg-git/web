@@ -18,6 +18,9 @@ body {
 	vertical-align: baseline;
     vertical-align: -webkit-baseline-middle;
 	
+	&.no-scroll {
+	    overflow: hidden;
+	}
 }
 *, *:before, *:after {
 	box-sizing: border-box;
@@ -60,7 +63,9 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
 }
 
 
-
+a, a:hover, a:active, a:focus {
+    outline: 0 !important;
+}
 a {
     font-size: 1em;
     font-family: @nunitoextrabold;
@@ -74,9 +79,8 @@ a {
     &.footer-icon:hover{
         text-decoration: none;
     }
-    
-    
 }
+
 button:focus {
     outline: none;
 }

@@ -1,0 +1,89 @@
+header {
+	position: fixed;
+    z-index: 20;
+}
+
+footer {
+    position: fixed;
+}
+ 
+.fixfixed .header { 
+    position: absolute; 
+}  
+.fixfixed .footer { 
+    position: absolute;
+	
+} 
+.ui-widget-content.autocomplete-user-ul {
+    list-style-type: none;
+    background-color: rgba(100,100,100, .75);
+    height: auto;
+    margin: 0;
+    padding: 4px;
+    padding-left: 10px;
+    position: absolute !important;
+}
+.ui-widget-content.autocomplete-user-ul li.autocomplete-user-result {
+    color: #04e0d7;
+}
+.ui-widget-content.autocomplete-user-ul li a {
+    color: #fff;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+.ui-widget-content.autocomplete-user-ul {
+    
+    list-style-type: none;
+    background: #eee;
+    height: auto;
+    margin: 0;
+    padding: 4px;
+    padding-left: 10px;
+    position: absolute !important;
+    
+    li {
+        
+        a {
+            color: #04e0d7;
+            text-transform: uppercase;
+        }
+        
+        &.ui-state-focus {
+            background: #eee;
+            border: 0;
+            color: #04e0d7;
+            
+            a {
+                color: #04e0d7;
+                text-transform: uppercase;
+            }
+            
+        }
+        
+        &.autocomplete-user-result {
+            
+            color: #04e0d7;
+            
+            &.autocomplete-user-not-found {
+                
+            }
+            
+            &.autocomplete-user-found {
+                
+            }
+            
+            
+        }
+        
+    }
+}
+
+@media only screen and (max-width: 480px) {
+  #main-header #anmelden-inner {
+    width: 170%;
+    padding: 15px 20px 20px 20px;
+    margin-right: 10px;
+    max-height: calc(100vh - 120px);
+	overflow-y: scroll;
+  }
+}
