@@ -600,8 +600,16 @@
 		
 		#search-page {
 		    position: relative;
-		    margin-top: 75px;
+		    margin-top: 55px;
 		    margin-bottom: 50px;
+		    
+		    #search-filter, #search-map-chat .mapcontacts, #search-map-chat .chatcontacts  {
+		        position: relative;
+		        display: none;
+		        width: 100%;
+		        margin-bottom: 20px;
+		    }
+
 		    
 		  //  > .col-xs-12 {
 		  //      &:first-child {
@@ -612,6 +620,7 @@
             .col-xs-12.no-gutter {
                 padding-left: 15px;
                 padding-right: 15px;
+                margin: 15px 0;
             }
             input.form-control {
                 font-size: .75em;
@@ -629,10 +638,8 @@
                 margin: 0;
             }
             .shadow-box-left {
-                // display: none;
                 
                 #aside-left-search {
-                    display: none;
                 }
                 .aside-left-search {
                     min-height: 85px;
@@ -676,20 +683,26 @@
                 }
             }
             
-            .chatcontacts {
+            .chatcontacts, .mapcontacts {
                 
                 .shadow-box-right {
-                    margin-bottom: 25px;
+                    margin-bottom: 0;
+                    margin-left: 0;
 
                     .aside-right-map {
                         min-height: 85px;
                         padding: 25px 15px 5px 15px;
                         
+                        a#collapse-map {
+                            pointer-events: none;
+                            cursor: default;
+                        }
+                        
                         h1 {
                             font-size: 2.75em;
                             width: 70%;
                             float: left;
-                            margin: -9px 15px 0 0;
+                            margin: -15px 15px 10px 0;
                         }
             
                         svg#map-icon-arrow-down {
@@ -711,6 +724,11 @@
                     .aside-right-chat {
                         min-height: 85px;
                         padding: 25px 15px 20px 15px;
+                        
+                        a#collapse-chat {
+                            pointer-events: none;
+                            cursor: default;
+                        }
                         
                         h1 {
                             font-size: 2.75em;
