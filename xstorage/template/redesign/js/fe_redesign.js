@@ -73,6 +73,7 @@ var fe_redesign = (function() {
             /* end */
 
 
+            
             /* 
              * disable scroll when login form collapsed in
              */
@@ -82,6 +83,7 @@ var fe_redesign = (function() {
                 $('body').toggleClass('no-scroll');
             });
             /* end */
+            
             
             
             /*
@@ -94,7 +96,6 @@ var fe_redesign = (function() {
                     $('#map-icon-arrow-down').rotate({angle:180});
                 }
             });
-            
             $('#collapse-chat').click(function() {
                 if($('#chat-input-search').hasClass('collapse in')) {
                     $('#chat-icon-arrow-down').rotate({angle:0});
@@ -108,57 +109,73 @@ var fe_redesign = (function() {
             /*
              * mobile subnavi btn actions 
              */
-            $('.btn-subnav-filter').click(function() {
-                if($('#search-filter').attr("trigger") === "0") {
-                    $('#search-filter').css("display", "block");
-                    $('#search-filter').attr("trigger","1");
-                }
-                else {
-                    $('#search-filter').css("display", "none");
-                    $('#search-filter').attr("trigger","0");
-                }
+            var $filter 	=  $('#search-filter');
+            var $treffer 	=  $('#search-hits');
+            var $map	 	=  $('#search-map-chat .mapcontacts');
+            var $chat	 	=  $('#search-map-chat .chatcontacts');
+            var $pos		=  0;
+            
+            $(document).on('click', '.btn-subnav-filter', function() {
+            	if($filter.attr("trigger") === "0") {
+            		$treffer.css("top", "0");
+            		$filter.css({"display": "block", "top": "0"}).attr("trigger","1");
+            		$map.hide().attr("trigger","0");
+            		$chat.hide().attr("trigger","0");
+            	}
+            	else {
+            		$filter.hide().attr("trigger","0");
+                	$treffer.css("top", "0");
+            	}
             });
             
-            $('.btn-subnav-map').click(function () {
-                var newMapPos = (($('#search-hits').height() + 30) * -1);
-                var newSearchListPos = $('#search-map-chat .mapcontacts').height();
-                var origSearchListPos = $('#search-hits').position().top;
-                if($('#search-map-chat .mapcontacts').attr("trigger") === "0") {
-                    $('#search-hits').css("top", newSearchListPos);
-                    $('#search-map-chat .mapcontacts').css({"display": "block", "top": newMapPos});
-                    $('#search-map-chat .mapcontacts').attr("trigger","1");
-                }
-                else {
-                    $('#search-hits').css("top", "0");
-                    $('#search-map-chat .mapcontacts').css("display", "none");
-                    $('#search-map-chat .mapcontacts').attr("trigger","0");
-                }
+            
+            $(document).on('click', '.btn-subnav-map', function() {
+            	if($map.attr("trigger") === "0") {
+            		$pos = (($treffer.height() + 35) * -1);
+            		$treffer.css("top",  $map.height());
+            		$map.css({"display": "block", "top": $pos}).attr("trigger","1");
+            		$filter.hide().attr("trigger","0");
+            		$chat.hide().attr("trigger","0");
+            	}
+            	else {
+            		$map.hide().attr("trigger","0");
+                	$treffer.css("top", "0");
+            	}
             });
             
-            $('.btn-subnav-chatsearch').click(function () {
-                var newChatPos = $('#search-hits').offset().top;
-                var newSearchListPos = $('#search-map-chat .chatcontacts').height();
-                var origSearchListPos = $('#search-hits').position().top;
-                if($('#search-map-chat .chatcontacts').attr("trigger") === "0") {
-                    $('#search-hits').css("top", newSearchListPos);
-                    $('#search-map-chat .chatcontacts').css({"display": "block", "top": newMapPos});
-                    $('#search-map-chat .chatcontacts').attr("trigger","1");
-                }
-                else {
-                    $('#search-hits').css("top", "0");
-                    $('#search-map-chat .chatcontacts').css("display", "none");
-                    $('#search-map-chat .chatcontacts').attr("trigger","0");
-                }
-            }); 
             
-            /* end */
+            $(document).on('click', '.btn-subnav-chatsearch', function() {
+            	if($chat.attr("trigger") === "0") {
+            		$pos = (($treffer.height() + 35) * -1);
+            		$treffer.css("top",  $chat.height());
+            		$chat.css({"display": "block", "top": $pos}).attr("trigger","1");
+            		$filter.hide().attr("trigger","0");
+            		$map.hide().attr("trigger","0");
+            	}
+            	else {
+            		$chat.hide().attr("trigger","0");
+                	$treffer.css("top", "0");
+            	}
+            });
+            
+            
+            $(document).on('click', '.suche-cat', function() {
+            	$filter.toggle().attr("trigger","0");
+            	
+            	if($('input#typ-biete').hasClass("active")) {
+            		$('input#typ-biete').removeClass("active");
+            		$('input#typ-suche').addClass("active");
+            	}
+            	else {
+            		$('input#typ-biete').addClass("active");
+            		$('input#typ-suche').removeClass("active");        
+            	}
+            });
         }
-        
     }   
 })();
 
 $(document).ready(function() {
-	console.log('rd init');
     fe_redesign.init();
 });
     /* END */    
