@@ -1,10 +1,9 @@
+
 var fe_redesign = (function() {
     return new function() {
         this.init = function() {
         	var me = this;
         	
-
-            
             $('.cookie-warning-top .closing-icon').on('click', function () {
                 $.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function (response) {
                     $('.js-cookie-warning-top').removeClass('active');
@@ -54,7 +53,9 @@ var fe_redesign = (function() {
                 });
             /** end **/
 
-            
+                
+                
+                
             /*
              *    fixFixed header/footer on focus input field 
              */        
@@ -109,73 +110,77 @@ var fe_redesign = (function() {
             /*
              * mobile subnavi btn actions 
              */
-            var $filter 	=  $('#search-filter');
-            var $treffer 	=  $('#search-hits');
-            var $map	 	=  $('#search-map-chat .mapcontacts');
-            var $chat	 	=  $('#search-map-chat .chatcontacts');
-            var $pos		=  0;
+            if($(window).width() <= 767) {
             
-            $(document).on('click', '.btn-subnav-filter', function() {
-            	if($filter.attr("trigger") === "0") {
-            		$treffer.css("top", "0");
-            		$filter.css({"display": "block", "top": "0"}).attr("trigger","1");
-            		$map.hide().attr("trigger","0");
-            		$chat.hide().attr("trigger","0");
-            	}
-            	else {
-            		$filter.hide().attr("trigger","0");
-                	$treffer.css("top", "0");
-            	}
-            });
-            
-            
-            $(document).on('click', '.btn-subnav-map', function() {
-            	if($map.attr("trigger") === "0") {
-            		$pos = (($treffer.height() + 35) * -1);
-            		$treffer.css("top",  $map.height());
-            		$map.css({"display": "block", "top": $pos}).attr("trigger","1");
-            		$filter.hide().attr("trigger","0");
-            		$chat.hide().attr("trigger","0");
-            	}
-            	else {
-            		$map.hide().attr("trigger","0");
-                	$treffer.css("top", "0");
-            	}
-            });
-            
-            
-            $(document).on('click', '.btn-subnav-chatsearch', function() {
-            	if($chat.attr("trigger") === "0") {
-            		$pos = (($treffer.height() + 35) * -1);
-            		$treffer.css("top",  $chat.height());
-            		$chat.css({"display": "block", "top": $pos}).attr("trigger","1");
-            		$filter.hide().attr("trigger","0");
-            		$map.hide().attr("trigger","0");
-            	}
-            	else {
-            		$chat.hide().attr("trigger","0");
-                	$treffer.css("top", "0");
-            	}
-            });
-            
-            
-            $(document).on('click', '.suche-cat', function() {
-            	$filter.toggle().attr("trigger","0");
-            	
-            	if($('input#typ-biete').hasClass("active")) {
-            		$('input#typ-biete').removeClass("active");
-            		$('input#typ-suche').addClass("active");
-            	}
-            	else {
-            		$('input#typ-biete').addClass("active");
-            		$('input#typ-suche').removeClass("active");        
-            	}
-            });
+	            var $filter 	=  $('#search-filter');
+	            var $treffer 	=  $('#search-hits');
+	            var $map	 	=  $('#search-map-chat .mapcontacts');
+	            var $chat	 	=  $('#search-map-chat .chatcontacts');
+	            var $pos		=  0;
+	            
+	            $(document).on('click', '.btn-subnav-filter', function() {
+	            	if($filter.attr("trigger") === "0") {
+	            		$treffer.css("top", "0");
+	            		$filter.css({"display": "block", "top": "0"}).attr("trigger","1");
+	            		$map.hide().attr("trigger","0");
+	            		$chat.hide().attr("trigger","0");
+	            	}
+	            	else {
+	            		$filter.hide().attr("trigger","0");
+	                	$treffer.css("top", "0");
+	            	}
+	            });
+	            
+	            
+	            $(document).on('click', '.btn-subnav-map', function() {
+	            	if($map.attr("trigger") === "0") {
+	            		$pos = (($treffer.height() + 35) * -1);
+	            		$treffer.css("top",  $map.height());
+	            		$map.css({"display": "block", "top": $pos}).attr("trigger","1");
+	            		$filter.hide().attr("trigger","0");
+	            		$chat.hide().attr("trigger","0");
+	            	}
+	            	else {
+	            		$map.hide().attr("trigger","0");
+	                	$treffer.css("top", "0");
+	            	}
+	            });
+	            
+	            
+	            $(document).on('click', '.btn-subnav-chatsearch', function() {
+	            	if($chat.attr("trigger") === "0") {
+	            		$pos = (($treffer.height() + 35) * -1);
+	            		$treffer.css("top",  $chat.height());
+	            		$chat.css({"display": "block", "top": $pos}).attr("trigger","1");
+	            		$filter.hide().attr("trigger","0");
+	            		$map.hide().attr("trigger","0");
+	            	}
+	            	else {
+	            		$chat.hide().attr("trigger","0");
+	                	$treffer.css("top", "0");
+	            	}
+	            });
+	            
+	            
+	            $(document).on('click', '.suche-cat', function() {
+	            	$filter.toggle().attr("trigger","0");
+	            	
+	            	if($('input#typ-biete').hasClass("active")) {
+	            		$('input#typ-biete').removeClass("active");
+	            		$('input#typ-suche').addClass("active");
+	            	}
+	            	else {
+	            		$('input#typ-biete').addClass("active");
+	            		$('input#typ-suche').removeClass("active");        
+	            	}
+	            });
+	        }
         }
     }   
 })();
 
 $(document).ready(function() {
+	
     fe_redesign.init();
 });
-    /* END */    
+/* END */    

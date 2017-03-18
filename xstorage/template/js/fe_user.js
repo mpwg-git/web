@@ -412,7 +412,9 @@ var fe_user = (function() {
             $('#form-login-submit').unbind("click");
             $('#form-login-submit').click(function(e) {
                 e.preventDefault();
-                return fe_core.submitWithValidation('form-login')
+                var ret = fe_core.submitWithValidation('form-login');
+                console.log(ret);
+                
             });
             $('#form-register-submit').unbind("click");
             $('#form-register-submit').click(function(e) {

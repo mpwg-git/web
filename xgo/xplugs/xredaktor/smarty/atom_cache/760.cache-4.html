@@ -111,9 +111,9 @@
 </div>
 
 <%if $data['PROFILE']['WGGROESSE'] != ''%>
-<div class="fakt clearfix">
-    <span class="aufzaehlung"><%xr_translate tag="WG-Größe"%>?</span><span class="info"><%$data['PROFILE']['WGGROESSE']%> Personen</span>
-</div>
+    <div class="fakt clearfix">
+        <span class="aufzaehlung"><%xr_translate tag="WG-Größe"%>?</span><span class="info"><%$data['PROFILE']['WGGROESSE']%> Personen</span>
+    </div>
 <%/if%>
 
 <div class="fakt clearfix">
@@ -125,37 +125,7 @@
 </div>
 
 <%if $data['PROFILE']['wz_SPRACHEN'] != ''%>
-<div class="fakt clearfix">
-    <span class="aufzaehlung"><%xr_translate tag="Sprachen"%>?</span><span class="info"><%$data['PROFILE']['SPRACHEN']%></span>
-</div>
+    <div class="fakt clearfix">
+        <span class="aufzaehlung"><%xr_translate tag="Sprachen"%>?</span><span class="info"><%$data['PROFILE']['SPRACHEN']%></span>
+    </div>
 <%/if%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%***********
-
-    <%if $data['PROFILE']['wz_ADRESSE'] != ''%>
-    <div class="fakt clearfix">
-        <span class="aufzaehlung"><%xr_translate tag="Wunschadresse"%>?</span><span class="info"><%$data['PROFILE']['wz_ADRESSE']%></span>
-    </div>
-    <%/if%>
-    
-    <%if $data['PROFILE']['wz_UMKREIS'] != '0' && $data['PROFILE']['wz_UMKREIS'] != ''%>
-    <div class="fakt clearfix">
-        <span class="aufzaehlung"><%xr_translate tag="Umkreis"%>?</span><span class="info"><%$data['PROFILE']['wz_UMKREIS']%> KM</span>
-    </div>
-    <%/if%>
-
-*************%>

@@ -1,5 +1,5 @@
-[31mNameError: variable @turkis is undefined[39m[31m in [39m/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/assets/codeless/25.less[90m on line 192, column 22:[39m
-[90m191     margin-top: -2.6vw;[39m
-192     border:1px solid [7m[31m[1m@[22mturkis;[39m[27m
-[90m193 }[39m[0m[0m
+[31mNameError: variable @turkis is undefined[39m[31m in [39m/srv/gitgo_daten/www/wsfbeta.xgodev.com/web/assets/codeless/25.less[90m on line 44, column 26:[39m
+[90m43 .nav-side-menu li .active {[39m
+44   border-left: 3px solid [7m[31m[1m@[22mturkis;[39m[27m
+[90m45   background-color: @bluegray;[39m[0m[0m
 

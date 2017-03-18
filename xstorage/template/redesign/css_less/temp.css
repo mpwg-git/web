@@ -1,3 +1,20 @@
+.left-row .meinprofil-erklaerung ol {
+	list-style-type: none;
+}
+
+.left-row .meinprofil-erklaerung ol li.legend-nr1 {
+	background: url(/xstorage/template/redesign/svg/icon-nr-1.svg) no-repeat;	
+}
+.left-row .meinprofil-erklaerung ol li.legend-nr2 {
+	background: url(/xstorage/template/redesign/svg/icon-nr-2.svg) no-repeat;	
+}
+.left-row .meinprofil-erklaerung ol li.legend-nr3 {
+	background: url(/xstorage/template/redesign/svg/icon-nr-3.svg) no-repeat;	
+}
+
+
+
+/*
 header {
   position: fixed;
   z-index: 20;
@@ -59,3 +76,4 @@ footer {
 .ui-widget-content.autocomplete-user-ul li.autocomplete-user-result {
   color: #04e0d7;
 }
+*/
