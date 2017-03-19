@@ -1,20 +1,3 @@
-.left-row .meinprofil-erklaerung ol {
-	list-style-type: none;
-}
-
-.left-row .meinprofil-erklaerung ol li.legend-nr1 {
-	background: url(/xstorage/template/redesign/svg/icon-nr-1.svg) no-repeat;	
-}
-.left-row .meinprofil-erklaerung ol li.legend-nr2 {
-	background: url(/xstorage/template/redesign/svg/icon-nr-2.svg) no-repeat;	
-}
-.left-row .meinprofil-erklaerung ol li.legend-nr3 {
-	background: url(/xstorage/template/redesign/svg/icon-nr-3.svg) no-repeat;	
-}
-
-
-
-/*
 header {
   position: fixed;
   z-index: 20;
@@ -27,6 +10,46 @@ footer {
 }
 .fixfixed .footer {
   position: absolute;
+}
+.overlay-fav {
+  display: none;
+}
+#main-content .left-row .meinprofil-erklaerung .line-1 {
+  font-family: 'PaytoneOne';
+  font-size: 1.375em;
+  line-height: 2.8181818181818183em;
+  text-transform: uppercase;
+  color: #04e0d7;
+}
+
+#main-content .left-row .meinprofil-erklaerung ol li a {
+	font-size: .875em;
+	font-family: 'NunitoSans-extrabold';
+	line-height: 1.2857142857142858em;
+	text-decoration: none;	
+}
+
+#main-content .left-row .meinprofil-erklaerung ol {
+  list-style-type: none;
+}
+#main-content .left-row .meinprofil-erklaerung ol li.legend-nr1 {
+  background: url(/xstorage/template/redesign/icons/icon-nr-1.svg) no-repeat;
+}
+#main-content .left-row .meinprofil-erklaerung ol li.legend-nr2 {
+  background: url(/xstorage/template/redesign/icons/icon-nr-2.svg) no-repeat;
+}
+#main-content .left-row .meinprofil-erklaerung ol li.legend-nr3 {
+  background: url(/xstorage/template/redesign/icons/icon-nr-3.svg) no-repeat;
+}
+#main-content #search-page #search-hits .shadow-box-left {
+  display: inline-block;
+}
+#main-content #search-page #search-hits .shadow-box-left .profil {
+  display: block;
+}
+#main-content #search-page #search-hits .shadow-box-left .profil .profil-links .profil.suche .profil-inner a > .profileimage {
+  width: 354px;
+  height: auto;
 }
 .ui-widget-content.autocomplete-user-ul {
   list-style-type: none;
@@ -41,19 +64,10 @@ footer {
   color: #04e0d7;
 }
 .ui-widget-content.autocomplete-user-ul li a {
-  color: #04e0d7;
+  color: #fff;
   font-size: 1.8em;
   text-transform: uppercase;
 }
-@media screen and (max-width: 480px) {
-  .ui-widget-content.autocomplete-user-ul li a {
-    font-size: 1.25em;
-  }
-  .ui-widget-content.autocomplete-user-ul li a:hover {
-    
-  }
-}
-
 .ui-widget-content.autocomplete-user-ul {
   list-style-type: none;
   background: #eee;
@@ -63,7 +77,10 @@ footer {
   padding-left: 10px;
   position: absolute !important;
 }
-
+.ui-widget-content.autocomplete-user-ul li a {
+  color: #04e0d7;
+  text-transform: uppercase;
+}
 .ui-widget-content.autocomplete-user-ul li.ui-state-focus {
   background: #eee;
   border: 0;
@@ -76,4 +93,32 @@ footer {
 .ui-widget-content.autocomplete-user-ul li.autocomplete-user-result {
   color: #04e0d7;
 }
-*/
+@media only screen and (max-width: 767px) {
+  #main-header .header-logo {
+    padding: 14px 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #main-header .header-logo .icon-duck {
+    width: 22px;
+    margin: 0;
+    padding: 0;
+  }
+  #main-header .header-logo .icon-font {
+    width: 132px;
+    margin: 0;
+    padding: 0;
+  }
+  #main-header .nav-p-lang {
+    margin-right: 10px;
+  }
+  #main-header .nav-p-lang .navlinks {
+    margin-top: 17.5px;
+  }
+  #main-header .btn.btn-default.btn-login {
+    width: 65px;
+    padding: 7px 10px;
+    margin-top: 0;
+    margin-right: 5px;
+  }
+}

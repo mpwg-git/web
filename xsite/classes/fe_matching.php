@@ -403,7 +403,7 @@ class fe_matching
 		$userId2			= intval($matchA['userId2']);
 
 		$result	= array(
-			'matchGesamt' 						=> $matchGesamt,
+			'matchGesamt' 						=> trim($matchGesamt),
 			'matchKategorien'					=> $matchKategorien
 		);
 

@@ -132,7 +132,7 @@ hr {
             position: relative;
             margin-top: 10px;
             .controls-wrapper{
-                float:left;
+                // float:left;
                 // margin-left: 15.653684210526315%;
                 .text{
                     font-size: .9375em;
@@ -289,7 +289,7 @@ hr {
         bottom: 53px;
         opacity:1;
         z-index: 4;
-        box-shadow: 0px -5px 55px 0px #646464;
+        box-shadow: 0px -5px 55px 0px @darkgray;
     }
 
     .text {
@@ -349,7 +349,7 @@ hr {
     
     .close {
         font-size: 2.75em;
-        color: #04e0d7;
+        color: @turkis;
         text-shadow: 0 1px 0 #fff;
         opacity: .6;
 
@@ -423,7 +423,7 @@ button {
             
             .modal-content.noQuestionModal {
                 height: auto;
-                background-color: #04e0d7;
+                background-color: @turkis;
                 
                 .modal-header {
                     height: 33.3333333%;
@@ -836,6 +836,37 @@ button {
                     content: " ";    
                 }
             }
+            .meinprofil-erklaerung {
+    			ol {
+    				list-style-type: none;
+    				padding: 0;
+    				margin: 30px 0 10px 0;
+    				
+    				li {
+    				    padding-left: 55px;
+                        padding-bottom: 25px;
+                        padding-top: 8px;
+    				    
+    					&.legend-nr1 {
+                            background: url(/xstorage/template/redesign/icons/icon-nr-1.svg) no-repeat;    					
+    					}
+    					&.legend-nr2 {
+                            background: url(/xstorage/template/redesign/icons/icon-nr-2.svg) no-repeat;
+    					}
+    					&.legend-nr3 {
+                            background: url(/xstorage/template/redesign/icons/icon-nr-3.svg) no-repeat;
+    					}
+    					
+    					a {
+    						font-size: .875em;
+    						font-family: @nunitoextrabold;
+    						line-height: 1.2857142857142858em;
+    						text-decoration: none;
+    						text-transform: uppercase;
+    					}
+    				}
+    			}
+    		}
         }
         h1 {
             margin: 0;
@@ -952,59 +983,197 @@ button {
             margin: 0;
             .border-radius(2px);
             .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
-
-                
-                .searchlist {
-                    .img-wrapper {
-                        width: 100%;
-                        overflow: hidden;
-                        position: relative;
-                        .transition(all 300ms ease);
+            
+            .searchlist {
+                .img-wrapper {
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    .transition(all 300ms ease);
+                    
+                    &:before{
+                        content: "";
+                        display: block;
+                        padding-top: 106.5%;
+                    }
+                    .inner-wrapper{
+                        height:100%;
+                        width:100%;
+                        position:absolute;
+                        top:50%;
+                        left:50%;
+                        .translate(-50%, -50%);
                         
-                        &:before{
-                            content: "";
-                            display: block;
-                            padding-top: 106.5%;
+                        img{
+                            transform: translateZ(0);
+                            -moz-transform: translateZ(0);
+                            -webkit-transform: translateZ(0);
                         }
-                        .inner-wrapper{
-                            height:100%;
-                            width:100%;
-                            position:absolute;
-                            top:50%;
-                            left:50%;
-                            .translate(-50%, -50%);
-                            
-                            img{
-                                transform: translateZ(0);
-                                -moz-transform: translateZ(0);
-                                -webkit-transform: translateZ(0);
-                            }
-                        }
-                        .overlay-bg {
-                            position: absolute;
-                            top: 0;
-                            bottom: 0;
-                            left: 0;
-                            right: 0;
-                            height: 100%;
-                            width: 100%;
-                            background: rgba(0,0,0,0.5);
-                            .transition(all 300ms ease);
-                            opacity: 0;
-                            
-                            &:hover, &.active {
-                                .overlay-bg{
+                    }
+                    .overlay-bg {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        height: 100%;
+                        width: 100%;
+                        background: rgba(0,0,0,0.5);
+                        .transition(all 300ms ease);
+                        opacity: 0;
+                        
+                        &:hover, &.active {
+                            .overlay-bg{
+                                opacity: 1;
+                                .overlay{
+                                    transform: scale(1);
                                     opacity: 1;
-                                    .overlay{
-                                        transform: scale(1);
-                                        opacity: 1;
-                                    }
-                                }   
-                            }
+                                }
+                            }   
                         }
                     }
                 }
+            }
+                
+            .profil {
+                display: inline-block;
+                width: 100%;
+                
+                .icon-close-profile {
+                    padding-top: 20px;
+                    padding-right: 25px;
+                    color: @turkis;
+                }
+                .profileimage {
+                    width: 310px;
+                    height: auto;
+                    margin: 30px 20px 30px 35px;
+                    padding: 10px;
+                    border: 2px solid @turkis;
+                    border-radius: 6px;
+                }
+                
+                .icon-Close:before {
+                    content: "X";
+                    color: @turkis;
+                    font-family: @nunitobold;
+                    font-size: 1.3125em;
+                }
+                .maininfo {
+                    margin-top: 30px;
+                    margin-bottom: 5px;
+                    
+                    h1 {
+                        font-size: 3.4375em;
+                        margin: 0 0 5px 0;
+                        text-transform: uppercase;
+                        line-height: 0.9454545454545454em;
+                    }
+                    h3 {
+                        font-size: 1.375em;
+                        margin: 0;
+                        text-transform: uppercase;
+                    }
+                }
+                .subheadline {
+                    font-family: @nunitoregular;
+                    line-height: 2.2142857142857144em;
+                    color: @turkis;
+                    text-transform: uppercase;
+                        
+                    &.whoiam {
+                        font-family: @nunitoregular;
+                        line-height: 2.2142857142857144em;
+                        color: @turkis;
+                        text-transform: uppercase;
+                    }
+                }
+                
+                .profil-inner-padding {
+                    padding: 0 20px 25px 0;
+                }
+                
+                .matchinginfos {
+                    float: none;
+                    width: auto;
+                    text-align: left;
+                    
+                    .prozent, .match  {
+                        font-size: 1.375em;
+                        font-family: @nunitoregular;
+                        line-height: 1.4090909090909092em;
+                        color: @turkis;
+                        text-transform: uppercase;
+                        
+                    }
+                    .prozent {
+
+                        &:after {
+                            content:'%';
+                            margin-left: -5px;
+                        }
+                        
+                        
+                    }
+                }
+                .btn-wrapper {
+                    width: 45%;
+                    position: absolute;
+                    top: 100%;
+                    
+                    a .btn-icons-reg.text-uppercase.icon-chat-svg {
+                        background: url(/xstorage/template/redesign/icons/icon-chat.svg) no-repeat @turkis;
+                        background-position: 8% 55%;
+                    }
+                        
+                        .icons.btn-lg {
+                            width: 100%;
+                            background-color: @turkis;
+                            color: #fff;
+                            margin-top: 8px;
+                            line-height: 1.1428571428571428em;
+                            padding: 14px 0 16px;
+                            box-shadow: 0 0 0px 2px rgba(100,100,100,0.1);
+                            
+                            .icon-Favourite_inaktiv:before {
+                                content: "\e620";
+                                // position: absolute;
+                                // font-size: 1.625em;
+                                // font-weight: bold;
+                                // left: 18px;
+                                // top: 45%;
+                                position: absolute;
+                                font-size: 20px;
+                                font-weight: bold;
+                                left: 18px;
+                            }
+                            .icon-Blocked_inaktiv:before  {
+                                content: "\e611";
+                                position: absolute;
+                                font-size: 20px;
+                                font-weight: bold;
+                                left: 18px;
+                            }
+                            
+                            a, .icon-description {
+                                position: relative;
+                                top: 2px;
+                                left: 20%;
+                                font-family: @nunitoblack;
+                                color: #fff;
+                                text-transform: uppercase;
+                                
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    
+                }
+            }
         }
+
+
         .shadow-box-right {
             width: 80%;
             margin: 0 25% 0 0;
@@ -1070,7 +1239,7 @@ button {
                         position: absolute;
                         content: "\e636";
                         top: -44px;
-                        color: #04e0d7;
+                        color: @turkis;
                         font-weight: bold;
                     }
                 }

@@ -12,9 +12,9 @@
                 </svg>
             </div>
             
-            <p class="line-1">dr duck says:</p>
-            <span class="line-2 looklikeh1">hello</span>
-            <p class="line-1"><%$smarty.session['xredaktor_feUser_wsf']['wz_VORNAME']%></p>
+            <h3 class="text-uppercase">dr duck says:</h3>
+            <h1 class="text-uppercase">hello</h1>
+            <h3 class="text-uppercase"><%$smarty.session['xredaktor_feUser_wsf']['wz_VORNAME']%></h3>
             
             <ol>
                 <li class="legend-nr1" <%if $P_ID == 7 || $P_ID == 8 || $P_ID == 30%>class="active"<%/if%>>
@@ -29,9 +29,9 @@
                         <a href="<%xr_genlink p_id=10 restart=1%>"><%xr_translate tag="Du hast bereits alle WG-Test Fragen beantwortet."%> <%xr_translate tag="Klicke hier, um deine Antworten zu ändern"%></a>
                     <%else if $wgteststate == 2%>
                         <!--<a href="<%xr_genlink p_id=10 restart=0%>"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> <%xr_translate tag="WG-Test fortsetzen"%></a>-->
-                        <a href="<%xr_genlink p_id=10 restart=0%>" style="display:inline-block; line-height: 1.5;vertical-align:middle;"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> </a>
+                        <a href="<%xr_genlink p_id=10 restart=0%>"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> </a>
                     <%else%>
-                         <a href="<%xr_genlink p_id=10 restart=0%>" style="display:inline-block; line-height: 1.5;vertical-align:middle;"><%xr_translate tag="Beantworte die Fragen, lorem ipsum dolor sit sed. Etiam in nonullum."%></a>
+                         <a href="<%xr_genlink p_id=10 restart=0%>"><%xr_translate tag="Beantworte die Fragen, lorem ipsum dolor sit sed. Etiam in nonullum."%></a>
                     <%/if%>
                 </li>
                 

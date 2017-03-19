@@ -1,0 +1,78 @@
+<%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+<%xr_siteCall fn="fe_user::getMyData" var="mydata"%>
+<%$user = $data['USER']%>
+<%$matching = $data['MATCHING']%>
+
+<input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
+
+<div class="profil no-gutter">
+    <div class="col-xs-5">
+        <%if $user['wz_PROFILBILD'] == 0%>
+            <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
+        <%else%>
+            <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%></a>
+        <%/if%>
+    </div>
+    
+    <div class="col-xs-7">
+        <div class="profil-inner-padding">
+            <div class="icon-close-profile pull-right">
+                <a href="javascript:history.back();">
+                    <span class="icon-Close"></span>
+                </a>
+            </div>   
+            
+            <div class="maininfo">
+                <h3><%$data['USER']['wz_VORNAME']%></h3>
+                <h1><%$data['USER']['wz_NACHNAME']%></h1>
+            </div>
+            <!--<span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%></span>-->
+        
+            <div class="matchinginfos">
+                <span class="prozent">
+                    <%if $user['wz_id'] == $mydata['USER']['wz_id']%>
+                        <style>
+                            .matchinginfos .prozent:after {
+                                content: '100%';
+                                font-size: 1.375em;
+                            }
+                            .matchinginfos .prozent{
+                                margin-bottom: 0.75vw;
+                            }
+                            .profil .match-text {
+                                display: none;
+                            }
+                        </style>
+                    <%else%>
+                        <%$matching['RESULT']['matchGesamt']%>
+                    <%/if%>
+                </span>
+                <span class="match">match</span>
+               
+                <%******* 3 sätze... bei räumen nicht anzeigen
+                <span><%xr_atom a_id=833 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%></span>
+                *********%>
+                    
+                <div class="clearfix"></div>
+                
+            </div>
+        </div>     
+        <div class="btn-wrapper">
+            <a class="" href="<%xr_genlink p_id=12 id=$user['wz_id'] m_suffix=$user['wz_id']%>">
+                <div class="icons btn-lg btn-icons-reg text-uppercase icon-chat-svg">
+                    <span class="icon-description"><%xr_translate tag="Nachricht schreiben"%></span>
+                </div>
+            </a>
+            <a class="" href="<%xr_genlink p_id=12 id=$user['wz_id'] m_suffix=$user['wz_id']%>">
+                <div class="icons btn-lg btn-icons-reg text-uppercase">
+                    <%xr_atom a_id=769 userId=$user['wz_id'] state=$user['STATE_FAV'] description="<%xr_translate tag='Favourite'%>" return=1%>
+                </div>
+            </a>
+            <a class="" href="<%xr_genlink p_id=12 id=$user['wz_id'] m_suffix=$user['wz_id']%>">
+                <div class="icons btn-lg btn-icons-reg text-uppercase">
+                    <%xr_atom a_id=770 userId=$user['wz_id'] state=$user['STATE_BLOCK'] description="<%xr_translate tag='Block'%>" return=1%>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
