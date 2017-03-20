@@ -14,6 +14,16 @@ footer {
 .overlay-fav {
   display: none;
 }
+.form-control.js-search-personen.ui-autocomplete-input {
+	font-size: .75em;
+    width: 100%;
+    margin-bottom: 0;
+    background: url(/xstorage/template/redesign/icons/icon-lupe.svg) no-repeat rgba(239, 239, 239, 0.88);
+    background-position: 95% 50%;
+    background-size: 5%;
+}
+
+
 #main-content .left-row .meinprofil-erklaerung .line-1 {
   font-family: 'PaytoneOne';
   font-size: 1.375em;

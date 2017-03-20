@@ -757,12 +757,14 @@ var fe_user = (function() {
                         theType: theType
                     },
                     success: function(response) {
-                    	fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
-                        switch (response.state) {
+                    	
+                    	/*fe_core.showLoader(location.reload(true, fe_core.hideLoader()));*/
+                        
+                    	switch (response.state) {
                             case true:
                                 $(me).find('.active').show();
                                 $(me).find('.inactive').hide();
-//                                $('.ajax-loader').hide(location.reload());
+                                /*$('.ajax-loader').hide(location.reload());*/
                                 break;
                             case false:
                                 $(me).find('.inactive').show();
@@ -792,7 +794,7 @@ var fe_user = (function() {
                         theType: theType
                     },
                     success: function(response) {
-                    	fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+                    	/*fe_core.showLoader(location.reload(true, fe_core.hideLoader()));*/
 
                         switch (response.state) {
                             case true:
@@ -801,7 +803,7 @@ var fe_user = (function() {
                                 if ($(me).hasClass('js-toggle-fade')) {
                                     $(me).closest('.searchresult-single').fadeOut();
                                 }
-                                $('.ajax-loader').hide(location.reload());
+                                /*$('.ajax-loader').hide(location.reload());*/
                                 break;
                             case false:
                                 $(me).find('.inactive').show();

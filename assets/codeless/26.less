@@ -27,6 +27,23 @@ body {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
+
+header {
+	position: fixed;
+    z-index: 20;
+}
+
+footer {
+    position: fixed;
+}
+ 
+.fixfixed .header { 
+    position: absolute; 
+}  
+.fixfixed .footer { 
+    position: absolute;
+}
+
 img,
 embed,
 object,
@@ -94,6 +111,22 @@ hr {
     width: 90%;
     border: 0;
     border-top: 1px solid rgb(217,217,217);
+    
+    &.full-width {
+        width: 100%;
+        margin: 15px 0;
+    }
+}
+
+.col-count-2 {
+    column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+}
+.col-count-1 {
+    column-count: 1;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
 }
 
 
@@ -1039,15 +1072,50 @@ button {
                 display: inline-block;
                 width: 100%;
                 
+                
+                
+                .userinfos {
+                    .userinfos-left {
+                        width: 30%;
+                        margin: 2.5%;
+                        
+                        .wg-img-wrapper {
+                            margin-top: 5px;
+                        }
+                    }
+                    
+                    .userinfos-right  {
+                        width: 60%;
+                        margin-top: 2.5%;
+                        
+                        .maininfo {
+                            // margin-top: 20px;
+                            // margin-bottom: 5px;
+                            
+                            h1 {
+                                font-size: 3.4375em;
+                                margin: 0;
+                                text-transform: uppercase;
+                                line-height: 0.9454545454545454em;
+                            }
+                            h3 {
+                                font-size: 1.375em;
+                                margin: 0;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+                
                 .icon-close-profile {
                     padding-top: 20px;
                     padding-right: 25px;
                     color: @turkis;
                 }
                 .profileimage {
-                    width: 310px;
+                    width: 100%;
                     height: auto;
-                    margin: 30px 20px 30px 35px;
+                    // margin: 20px 0 54px 10px;
                     padding: 10px;
                     border: 2px solid @turkis;
                     border-radius: 6px;
@@ -1058,22 +1126,6 @@ button {
                     color: @turkis;
                     font-family: @nunitobold;
                     font-size: 1.3125em;
-                }
-                .maininfo {
-                    margin-top: 30px;
-                    margin-bottom: 5px;
-                    
-                    h1 {
-                        font-size: 3.4375em;
-                        margin: 0 0 5px 0;
-                        text-transform: uppercase;
-                        line-height: 0.9454545454545454em;
-                    }
-                    h3 {
-                        font-size: 1.375em;
-                        margin: 0;
-                        text-transform: uppercase;
-                    }
                 }
                 .subheadline {
                     font-family: @nunitoregular;
@@ -1090,7 +1142,8 @@ button {
                 }
                 
                 .profil-inner-padding {
-                    padding: 0 20px 25px 0;
+                    padding: 0;
+                    margin-bottom: 15px;
                 }
                 
                 .matchinginfos {
@@ -1112,63 +1165,177 @@ button {
                             content:'%';
                             margin-left: -5px;
                         }
-                        
-                        
                     }
                 }
                 .btn-wrapper {
-                    width: 45%;
-                    position: absolute;
-                    top: 100%;
-                    
-                    a .btn-icons-reg.text-uppercase.icon-chat-svg {
-                        background: url(/xstorage/template/redesign/icons/icon-chat.svg) no-repeat @turkis;
-                        background-position: 8% 55%;
+                    width: 100%;
+                    a {
+                        &:hover { 
+                           text-decoration: none;
+                        }
                     }
+
+                    .svg-btn-icons {
+                        width: 55%;
+                        margin-top: 10px;
+                        box-shadow: 0 0 0 2px @turkis;
+                        line-height: 0;
+                        border-radius: 6px;
+                        background-repeat: no-repeat;
+                        text-decoration: none;
+                        padding: 0;
+
                         
-                        .icons.btn-lg {
-                            width: 100%;
+                        &.svg-chatnachricht {
+                            background-image: url(/xstorage/template/redesign/icons/icon-chat.svg);
+                            background-position: 7% 60%;
                             background-color: @turkis;
+                            background-size: 8%;
+                            padding: 12px 0;
+                            
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                        
+                        &.btn-share-fb {
+                            background-image: url(/xstorage/template/redesign/svg/icon-fb-white.svg);
+                            background-position: 7% 60%;
+                            background-color: @turkis;
+                            background-size: 8%;
+                            padding: 12px 0;
+                        }
+                        
+                        .icon-description {
+                            position: relative;
+                            top: 0;
+                            left: 20%;
+                            letter-spacing: .25px;
+                            font-family: @nunitoblack;
+                            font-size: .875em;
                             color: #fff;
-                            margin-top: 8px;
-                            line-height: 1.1428571428571428em;
-                            padding: 14px 0 16px;
-                            box-shadow: 0 0 0px 2px rgba(100,100,100,0.1);
+                            text-transform: uppercase;
                             
-                            .icon-Favourite_inaktiv:before {
-                                content: "\e620";
-                                // position: absolute;
-                                // font-size: 1.625em;
-                                // font-weight: bold;
-                                // left: 18px;
-                                // top: 45%;
-                                position: absolute;
-                                font-size: 20px;
-                                font-weight: bold;
-                                left: 18px;
+                            &:hover, &:focus {
+                                text-decoration: none;
                             }
-                            .icon-Blocked_inaktiv:before  {
-                                content: "\e611";
-                                position: absolute;
-                                font-size: 20px;
-                                font-weight: bold;
-                                left: 18px;
+                            &:active, &:visited {
+                                text-decoration: none;
+                                color: @turkis;
                             }
-                            
-                            a, .icon-description {
-                                position: relative;
-                                top: 2px;
-                                left: 20%;
-                                font-family: @nunitoblack;
-                                color: #fff;
-                                text-transform: uppercase;
+                        }
+                        
+                        .js-toggle-favourite {
+                            .svg-merkliste {    
+                                background-size: 8%;
+                                background-position: 7% 40%;
+                                background-repeat: no-repeat;
+                                background-color: @turkis;
+                                padding: 12px 0;
                                 
-                                &:hover {
-                                    text-decoration: none;
+                                &.inactive {
+                                    background-image: url(/xstorage/template/redesign/icons/icon-merkliste.svg);
+                                }
+                                &.active {
+                                    background-image: url(/xstorage/template/redesign/icons/icon-merkliste-active.svg);
+                                    
+                                    .icon-description { 
+                                        text-decoration: none;
+                                        // color: @darkgray;
+                                        
+                                    }
                                 }
                             }
                         }
+                        .js-toggle-blocked {    
+                            .svg-blockliste {    
+                                background-size: 8%;
+                                background-position: 7% 40%;
+                                background-repeat: no-repeat;
+                                background-color: @turkis;
+                                padding: 12px 0;
+
+                                &.inactive {
+                                    background-image: url(/xstorage/template/redesign/icons/icon-blockliste.svg);   
+                                }
+                                &.active {
+                                    background-image: url(/xstorage/template/redesign/icons/icon-blockliste-active.svg);
+                                    
+                                   .icon-description { 
+                                        text-decoration: none;
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+                h4.headline {
+                    color: #646464;
+                    font-size: 1.3125em;
+                    line-height: 1.3125em;
+                }
+
+            .matching-infos-detail, .profil-container {
+                position: relative;
+                width: 90%;
+                margin-left: 2.5%;
+                margin-bottom: 54px;
+                
+                
+                h4.headline {
+                    color: #646464;
+                    font-size: 1.3125em;
+                    line-height: 1.3125em;
+                }
+                .matching-text {
+                    font-size: 0.875em;
+                    font-family: @nunitolight;
+                    line-height: 1.5714285714285714em;
+                }
                     
+                .fakt {
+                    color: @darkgray;
+                    display: inline;
+                    // width: 50%;
+                    // float: left;
+                    overflow: hidden;
+                    
+                    .aufzaehlung {
+                        width: 50%;
+                        float: left;
+                        font-family: @nunitoextrabold;
+                        font-size: .875em;
+                        line-height: 2.857142857142857em;
+                        text-transform: uppercase;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    .info {
+                        font-size: .875em;
+                        font-family: @nunitolight;
+                        width:50%;
+                        padding: 0;
+                        margin: 0;
+                            
+                        &.full-width {
+                            width: 100%;
+                        }
+        
+                    }
+                }
+            }
+            .kurzbeschreibung {
+                .profil-container {
+                    .fakt {
+                        .aufzaehlung {
+                            width: 25%;
+                        }
+                        .info {
+                            width: auto;
+                        }
+                    }
                 }
             }
         }
@@ -1246,6 +1413,7 @@ button {
                 
                 #chat-input-search {
                     padding-bottom: 15px;
+                    margin-bottom: 10px;
                     
                     .contacts-wrapper {
                         margin: 20px 0;
@@ -1263,8 +1431,27 @@ button {
                         
                     }
                 }
+
             }
         }
+    }
+    
+    input.form-control.js-search-personen {
+    	font-size: .9375em;
+        width: 100%;
+        margin-bottom: 10px;
+        background: url(/xstorage/template/redesign/icons/icon-lupe.svg) no-repeat rgba(239, 239, 239, 0.88);
+        background-position: 95% 50%;
+        background-size: 5%;
+    }
+    
+    input.form-control.svg-map-duck.autocomplete-location {
+    	font-size: .9375em;
+        width: 100%;
+        margin-bottom: 10px;
+        background: url(/xstorage/template/redesign/icons/icon-map-duck.svg) no-repeat rgba(239, 239, 239, 0.88);
+        background-position: 95% 50%;
+        background-size: 8%;
     }
     .icon-Map.js-autocomplete-duck {
         position: relative;
@@ -1360,7 +1547,7 @@ footer {
             position: relative;
             
             background: url(/xstorage/template/img/redesign/wsf-icons.png) no-repeat;
-            background-position: 100% 50%;
+            background-position: 95% 50%;
             background-size: 273px 37.53px;
             
             .inner-link {
@@ -1597,7 +1784,7 @@ input.form-control {
 #VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div.checkbox-error , #agb-accept_error
 {
     display: none;
-    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    font-family: @nunitolight;
     background-color: #fff;
     border: 1px solid #f00;
     margin-top: 1px;
@@ -1606,7 +1793,7 @@ input.form-control {
     text-transform: none;
     letter-spacing: .1rem;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: .875em;
     font-weight: bold;
 }
 

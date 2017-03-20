@@ -142,8 +142,13 @@
             button {
                 padding-top: 8.5px;
                 padding-bottom: 8.5px;
-
             }
+            
+            svg#icon-chat, svg#icon-map, svg#icon-filter {
+                vertical-align: text-bottom;
+                margin-right: 5px;
+            }
+            
                 
             .btn-subnav-chatsearch, .btn-subnav-map, .btn-subnav-filter {
                 font-family: @nunitoextrabold;
@@ -720,7 +725,112 @@
                 padding: 0;
                 
                 .searchlist {
-                    /* display: none; */
+                    
+                    .profil { 
+                        .userinfos {
+                            
+                            .userinfos-left, .userinfos-right {
+                                &.pull-left {
+                                    float: none !important;
+                                }
+                            }
+                            
+                            .btn-wrapper {
+                                width: 100%;
+                                a {
+                                    &:hover { 
+                                       text-decoration: none;
+                                    }
+                                }
+            
+                                .svg-btn-icons {
+                                    width: 100%;
+                                    margin-top: 15px;
+                                    box-shadow: 0 0 0 2px @turkis;
+                                    line-height: 0;
+                                    border-radius: 6px;
+                                    background-repeat: no-repeat;
+                                    text-decoration: none;
+                                    padding: 0;
+            
+                                    
+                                    &.svg-chatnachricht {
+                                        background-image: url(/xstorage/template/redesign/icons/icon-chat.svg);
+                                        background-position: 7% 60%;
+                                        background-color: @turkis;
+                                        background-size: 8%;
+                                        padding: 12px 0;
+                                        
+                                        &:hover {
+                                            
+                                        }
+                                    }
+                                    .icon-description {
+                                        position: relative;
+                                        top: 0;
+                                        left: 20%;
+                                        letter-spacing: .25px;
+                                        font-family: @nunitoblack;
+                                        font-size: .75em;
+                                        color: #fff;
+                                        text-transform: uppercase;
+                                        
+                                        &:hover, &:focus {
+                                            text-decoration: none;
+                                        }
+                                        &:active, &:visited {
+                                            text-decoration: none;
+                                            color: @turkis;
+                                        }
+                                    }
+                                    
+                                    .js-toggle-favourite {
+                                        .svg-merkliste {    
+                                            background-size: 8%;
+                                            background-position: 7% 40%;
+                                            background-repeat: no-repeat;
+                                            background-color: @turkis;
+                                            padding: 12px 0;
+                                            
+                                            &.inactive {
+                                                background-image: url(/xstorage/template/redesign/icons/icon-merkliste.svg);
+                                            }
+                                            &.active {
+                                                background-image: url(/xstorage/template/redesign/icons/icon-merkliste-active.svg);
+                                                
+                                                .icon-description { 
+                                                    text-decoration: none;
+                                                    // color: @darkgray;
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .js-toggle-blocked {    
+                                        .svg-blockliste {    
+                                            background-size: 8%;
+                                            background-position: 7% 40%;
+                                            background-repeat: no-repeat;
+                                            background-color: @turkis;
+                                            padding: 12px 0;
+            
+                                            &.inactive {
+                                                background-image: url(/xstorage/template/redesign/icons/icon-blockliste.svg);   
+                                            }
+                                            &.active {
+                                                background-image: url(/xstorage/template/redesign/icons/icon-blockliste-active.svg);
+                                                
+                                               .icon-description { 
+                                                    text-decoration: none;
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             

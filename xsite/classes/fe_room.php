@@ -355,6 +355,13 @@ class fe_room
 
 			$ret['MATCHING'] 	= $matching;
 		}
+		else {
+			$matching 			= array(
+					'RESULT'		=> 100,
+			);
+			
+			$ret['MATCHING'] 	= $matching;
+		}
 
 		return $ret;
 	}

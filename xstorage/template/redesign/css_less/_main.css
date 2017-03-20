@@ -1,3 +1,40 @@
+.image-slider {
+    position: relative;
+}
+.profil .wg-img-wrapper .image-slider .item {
+    width: 100%;
+}
+.image-slider .rsBullets {
+    position: absolute;
+    background: transparent;
+    bottom: 10px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+}
+.image-slider .rsBullet {
+    display: inline-block;
+    margin-right: 5px;
+    height: 14px;
+}
+.image-slider .rsBullet.rsNavSelected span {
+    background-color: #04e0d7;
+}
+.image-slider .rsBullet span {
+    background-color: rgba(50,220,205,0.5);
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    width: 8px;
+    height: 8px;
+}
+
 /*
 
 #main-content #latest-news .more-news {

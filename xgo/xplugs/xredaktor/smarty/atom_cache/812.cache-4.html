@@ -19,7 +19,8 @@
 </div>
 
 <div class="row">
-    <%foreach $mitbewohner as $k => $v%>
-        <%xr_atom a_id=813 single=$v return=1 desc='roomie single'%>
-    <%/foreach%>
+        <%foreach $mitbewohner as $k => $v%>
+            <%*xr_atom a_id=813 single=$v return=1 desc='roomie single'*%>
+                <%xr_print_r val=$single%>
+        <%/foreach%>
 </div>

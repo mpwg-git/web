@@ -1,0 +1,45 @@
+<div class="row no-margin kurzbeschreibung">
+    <div class="col-xs-12 profil-container">
+        
+        <h4 class="headline text-uppercase"><%xr_translate tag='room_detailview-h4-kurzbeschreibung'%></h4>
+        <hr class="full-width">
+        
+        <div class="col-count-1">
+            <%if $data['ROOM']['wz_LAGE'] != ''%> 
+                <div class="fakt clearfix">
+                    <span class="aufzaehlung"><%xr_translate tag="Lage"%></span><span class="info full-width"><%$data.ROOM.wz_LAGE|nl2br%></span>
+                </div>
+            <%/if%>
+                                
+            <%if $data['ROOM']['wz_AUSSTATTUNG'] != ''%>
+                <div class="fakt clearfix">
+                <span class="aufzaehlung"><%xr_translate tag="Ausstattung"%></span><span class="info full-width"><%$data.ROOM.wz_AUSSTATTUNG|nl2br%></span>
+                </div>
+            <%/if%>
+                    
+            <%if $data['ROOM']['wz_BESCHREIBUNG'] != ''%>
+                <div class="fakt clearfix">
+                <span class="aufzaehlung"><%xr_translate tag="Beschreibung"%></span><span class="info full-width"><%$data.ROOM.wz_BESCHREIBUNG|nl2br%></span>
+                </div>
+            <%/if%>
+                                
+            <%if $data['ROOM']['wz_ADRESSE'] != ''%>
+                <div class="fakt clearfix">
+                <span class="aufzaehlung"><%xr_translate tag="Adresse"%></span><span class="info"><%$data['ROOM']['wz_ADRESSE']%></span>
+                </div>
+            <%/if%>
+        </div>   
+        
+        <%if $data['ROOM']['wz_ADRESSE'] != ''%>
+            <script>
+                top.showOnMap2 = {
+                'lat':"<%$data.ROOM.wz_ADRESSE_LAT%>",
+                'lng':"<%$data.ROOM.wz_ADRESSE_LNG%>",
+                'el' : '.map2'
+                };
+            </script>
+            
+            <div id="map" class="map2" style="height:20vw"></div>
+        <%/if%>
+    </div>
+</div>

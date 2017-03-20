@@ -1,3 +1,9 @@
+<%xr_siteCall fn="fe_user::sc_getUserData" var="data"%>
+<%xr_siteCall fn="fe_user::getMyData" var="mydata"%>
+<%$user = $data['USER']%>
+<%$matching = $data['MATCHING']%>
+
+
 <div id="main-content">
     <div id="search-page">
         <div id="search-filter" class="col-lg-3 col-md-3 col-sm-4 col-xs-12" trigger="0">

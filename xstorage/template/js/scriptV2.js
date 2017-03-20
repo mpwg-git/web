@@ -152,17 +152,17 @@ var simpleLogin = {
 	init: function () {
 		$(document).on('click', '.js-show-simple-login', function (e) {
 			e.preventDefault();
-			$(this).hide();
+//			$(this).hide();
 //			$('.js-simple-login').prop('disabled', false);
 			$('.js-simple-login').show();
 			$('#show-simple-login-form').slideDown();
 			$('input#VORNAME').focus();
 		});
-		$(document).on('click', '.js-simple-login', function (e) {
+//		$(document).on('click', '.js-simple-login', function (e) {
 //			$('.js-simple-login').prop('disabled', true);
-			e.preventDefault();
-			simpleLogin.doSimpleLogin();
-		});
+//			e.preventDefault();
+//			simpleLogin.doSimpleLogin();
+//		});
 		$(document).on('click', '#sendEmailConfirmationAgain', function (e) {
 			e.preventDefault();
 			simpleLogin.sendEmailConfirmationAgain();
