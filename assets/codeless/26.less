@@ -693,39 +693,53 @@ button {
             
             h3 {
                 line-height: 1.1785714285714286em;
-                // text-align: center;
             }
             h5 {
                 margin: 0px 0 10px 0px;
                 text-transform: uppercase;
                 line-height: 1.1428571428571428em;
             }
-            h6 {
-                
+            .icon-Map.js-autocomplete-duck {
+                display: none;
             }
         }
-
+            
+        
         .register-konto {   
-            margin-bottom: 200px;
+            margin: 50px 0 25px 0;
             
             h6 {
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+            }
+            svg#icon-arrow-up-down {
+                vertical-align: middle;
+                position: relative;
+                left: 20px;
             }
         }
         
         .accordion-inner {
-            h5 {
-                margin: 0px 0 10px 0px;
+            #wg-zimmer-finden {
+                .form-group {
+                    font-size: .875em;
+                    margin: 10px 0 5px 0;
+                    
+                    &:first-of-type {
+                        margin-top: 25px;
+                        margin-bottom: 25px;
+                    }
+                    label > h5 {
+                        margin: 0;
+                    }
+
+                    &:last-of-type {
+                        margin-bottom: 15px;    
+                    }
+                }
             }
-            
-            #wg-zimmer-finden > .form-group:last-of-type {
-                margin-bottom: 30px;
-            }
-            
             .radio-inline h5 {
                 margin: 5px 0 0 0;
             }    
-            
         }
        
         .register-fragebogen {
@@ -1642,7 +1656,7 @@ footer {
 
 
     
-#form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #fragebogen-save {
+#form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #saveFragebogenBtn, .js-show-reg-form {
     width: 100%; 
     height: 54px; 
     margin: 10px 0; 
@@ -1812,9 +1826,10 @@ input.form-control {
 }
 
 #oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, #MIETE_error, #ZEITRAUM_VON_error, #NACHNAME_error,
-#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div.checkbox-error , #agb-accept_error
+#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div, .checkbox-error , #agb-accept_error
 {
     display: none;
+    width: 35%;
     font-family: @nunitolight;
     background-color: #fff;
     border: 1px solid #f00;
@@ -1826,6 +1841,16 @@ input.form-control {
     border-radius: 4px;
     font-size: .875em;
     font-weight: bold;
+    
+    @media @xs {
+        width: 75%;
+        font-size: .625em;
+    }
+    @media @sm {
+        width: 75%;
+        font-size: .75em;
+    }
+    
 }
 
 #changePasswd-success, #changeMail-success{

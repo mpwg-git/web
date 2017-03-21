@@ -1,10 +1,57 @@
 <%xr_siteCall fn="fe_fragebogen::sc_getInitFragen" var="fragen"%>
 
 <form class="form" id="register-fragebogen" name="register-fragebogen">
-    <%xr_wzActionInvisibleCaptcha%>    
+    
     <%xr_atom a_id=976 return=1%>
     
-    <div class="text-center">
-        <button type="button" class="btn start-button text-uppercase save-fragebogen"><%xr_translate tag='Speichern'%></button>
-    </div>
+    <!--<button type="button" id="saveFragebogenBtn" class="btn start-button text-uppercase text-center"><%xr_translate tag='Speichern'%></button>-->
 </form>
+
+<!--<div id="fbValues"></div>-->
+
+
+<%*  
+
+<script>
+	$(function() {
+	    console.log( "ready!" );
+
+
+		var formdata = "";
+
+		$("#saveFragebogenBtn").click(function(){
+
+		    formdata = $("#register-fragebogen").serializeArray();
+            
+            console.log(formdata);		
+            
+			$("#fbValues").text(formdata);
+
+		});
+	});
+</script>
+      
+		var $antworten = [];
+
+		var getFormVal = function () {
+			// $('input:radio').each(function() {
+			$('#register-fragebogen .antwort-value input[type=radio]').each(function() {
+				var $this = $(this),
+				id = $this.attr('id'),
+				delta = $this.val();
+
+			  	if($(this).is(':checked')) {
+					$antworten.push('id: ' + id, 'delta: ' + delta);
+				}
+			});
+
+			$("#fbValues").text($antworten);
+		};
+		
+		$("#saveFragebogenBtn").click(function(){
+
+			getFormVal();
+		    // $("#fbValues").text($("#register-fragebogen").serialize());
+            
+		});
+*%>

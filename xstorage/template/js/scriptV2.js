@@ -397,7 +397,5 @@ $(document).ready(function () {
 			$('#EmailConfirmModal').modal('show');
 		}
 	}
-});
-$(document).ready(function () {
 	$('#noQuestionModal').modal('show');
 });

@@ -1,3 +1,4 @@
+
 <%if $P_ID == 47%>
     <div class="register-wunsch-wg">
         <h3>Meine Wunsch WG</h3>
@@ -55,3 +56,58 @@
         <div class="error-div" id="MIETEMAX_error">error_miete</div>
         </div>
 <%/if%>
+
+
+<div id="register-konto" class="register-konto">
+    <h3>
+        <%xr_translate tag='reg_suche-h3-konto'%>
+    </h3>
+    <a data-toggle="collapse" href="#btn-anmeldung-inner">
+        <h6 class="mpwg-color text-uppercase">
+            <%xr_translate tag='reg_konto-info'%>
+            <svg xmlns="http://www.w3.org/2000/svg" id="icon-arrow-up-down" width="40px" height="40px" viewBox="0 0 70 70" data-name="Arrow down" class="hidden-xs">
+                <defs>
+                    <style>.arrow-up-down{fill:#04e0d7;}</style>
+                </defs>
+                <title>icon-arrow-down</title>
+                <polygon points="34.82 53.1 0.05 21.16 3.48 17.42 34.81 46.2 66.51 16.9 69.95 20.63" class="arrow-up-down"/>
+            </svg>
+        </h6>
+    </a>
+    <div id="btn-anmeldung-inner" class="collapse">
+        <button class="button text-uppercase" id="fb-login-submit"><span class="fb-f">f </span><%xr_translate tag='Mit Facebook anmelden'%></button>
+        <div id="anmelden-inner-inner" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <form role="form" action="<%xr_genlink p_id=$P_ID%>" id="form-login" method="post">
+                    <div class="form-group">
+                        <input type='hidden' name='doLogin' value='1' />
+                        <%if isset($smarty.request.h)%>
+                            <input type='hidden' name='h' value='<%$smarty.request.h%>' />
+                            <input type='hidden' name='activate' value='1' />
+                            <%/if%>
+                                <label for="wz_EMAIL" class="text-uppercase"><h5>Email</h5></label>
+                                <input id="wz_EMAIL" type="email" name="wz_EMAIL" class="form-control" rel="required_email">
+                                <div class="error-div" id="wz_EMAIL_error">
+                                    <%xr_translate tag='error_email-notvalid'%>
+                                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwort" class="text-uppercase"><h5><%xr_translate tag='Passwort'%></h5></label>
+                        <input id="wz_PASSWORT" name="wz_PASSWORT" type="password" class="form-control" rel="required">
+                        <div class="error-div" id="wz_PASSWORT_error">
+                            <%xr_translate tag='error_pwd-enter'%>
+                        </div>
+                        <a href="<%xr_genlink p_id=25%>" class="forgotpw">
+                            <%xr_translate tag="Passwort vergessen?"%>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="use_cookie" id="use-cookie">
+                        <label for="use-cookie" class="label-use-cookie"><%xr_translate tag='Angemeldet bleiben'%></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a data-toggle="collapse" href="#anmelden-inner-inner"><button class="button text-uppercase" id="form-login-submit"><%xr_translate tag='Anmelden'%></button></a>
+    </div>    
+</div>

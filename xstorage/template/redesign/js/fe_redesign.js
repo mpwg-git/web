@@ -179,7 +179,6 @@ var fe_redesign = (function() {
 })();
 
 $(document).ready(function() {
-
     fe_redesign.init();
 });
 /* END */
