@@ -1,10 +1,10 @@
 <%xr_siteCall fn="fe_fragebogen::sc_getInitFragen" var="fragen"%>
 
-<form method="post" id="register-fragebogen">
-    
+<form class="form" id="register-fragebogen" name="register-fragebogen">
+    <%xr_wzActionInvisibleCaptcha%>    
     <%xr_atom a_id=976 return=1%>
     
-    <div class="text-center hidden">
-        <button type="button" id="fragebogen-save" class="btn start-button text-uppercase save-fragebogen"><%xr_translate tag='Speichern'%></button>
+    <div class="text-center">
+        <button type="button" class="btn start-button text-uppercase save-fragebogen"><%xr_translate tag='Speichern'%></button>
     </div>
 </form>

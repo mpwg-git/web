@@ -158,11 +158,11 @@ var simpleLogin = {
 			$('#show-simple-login-form').slideDown();
 			$('input#VORNAME').focus();
 		});
-//		$(document).on('click', '.js-simple-login', function (e) {
-//			$('.js-simple-login').prop('disabled', true);
-//			e.preventDefault();
-//			simpleLogin.doSimpleLogin();
-//		});
+		$(document).on('click', '.js-simple-login', function (e) {
+			$('.js-simple-login').prop('disabled', true);
+			e.preventDefault();
+			simpleLogin.doSimpleLogin();
+		});
 		$(document).on('click', '#sendEmailConfirmationAgain', function (e) {
 			e.preventDefault();
 			simpleLogin.sendEmailConfirmationAgain();
@@ -239,11 +239,11 @@ var simpleLogin = {
 		} else {
 		    div_error.hide();
 		    input_error.removeClass("error");
-		    return false; 
+		    return false;
 		}
 	},
 	doSimpleLogin: function () {
-		
+
 		$('.js-simple-login').prop('disabled', false);
 		var checkboxError = false;
 		$('.checkbox-error').hide();
