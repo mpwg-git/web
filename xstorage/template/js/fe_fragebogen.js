@@ -16,17 +16,32 @@ var fe_fragebogen = (function() {
 					console.log("undefined OR !false");
 					return false;
 				}
-				$('#register-fragebogen .antwort-value input[type=radio]').each(function(index) {
-					var $this = $(this),
-					id = $this.attr('id'),
-					delta = $this.val(),
-					superwichtig = $('input[type=checkbox]#'+id).is(':checked');
+				$('#register-fragebogen .hidden-fragen').each(function(i, o) {
+					
+//					console.log('i',i);
+//					console.log('o',o);
 
-					$allData =  {id:id, delta:delta, superwichtig:superwichtig};
+					var id = $(o).val();
+					
+					var delta = $('input:radio[data-frage="' + id + '"]:checked').length;
+					
+					var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
 
-					if($(this).is(':checked')) {
-						$antwortenArray[index] = $allData;
+					var toArr =  {id:id, delta:delta, superwichtig:superwichtig};
+					
+					if(delta != 0) {
+						$antwortenArray[i] = toArr;
 					}
+					else {
+						return;
+					}
+					
+//					console.log($allData);
+//					console.log('array',$antwortenArray);
+					
+//					if($(this).is(':checked')) {
+//						$antwortenArray[index] = $allData;
+//					}
 				});
 
 

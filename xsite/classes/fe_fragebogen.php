@@ -53,25 +53,8 @@ class fe_fragebogen
 	{
 
 		$antworten = $_REQUEST['frage'];
-		$max = sizeof($antworten);
-		die('max: '.$max);
 
-		for($i = 0; $i < $max; $i++)
-		{
-
-		}
-
-		foreach($antworten as $key => $link)
-		{
-		    if($link !== '')
-		    {
-				$array[$key] = $link;
-				// unset($antworten[$key]);
-		    }
-		}
-
-
-		print_r($array);
+		print_r($antworten);
 
 		die( ' xxx ' );
 
