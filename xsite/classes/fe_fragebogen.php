@@ -51,12 +51,29 @@ class fe_fragebogen
 
 	public static function ajax_collectAnswer()
 	{
-		
-		$antworten = $_REQUEST;
 
-		print_r($antworten);
+		$antworten = $_REQUEST['frage'];
+		$max = sizeof($antworten);
+		die('max: '.$max);
 
-		die( ' collectAnswerV2 ' );
+		for($i = 0; $i < $max; $i++)
+		{
+
+		}
+
+		foreach($antworten as $key => $link)
+		{
+		    if($link !== '')
+		    {
+				$array[$key] = $link;
+				// unset($antworten[$key]);
+		    }
+		}
+
+
+		print_r($array);
+
+		die( ' xxx ' );
 
 
 		$userId				= intval(xredaktor_feUser::getUserId());

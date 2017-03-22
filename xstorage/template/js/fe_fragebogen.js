@@ -1,3 +1,5 @@
+// 'use strict';
+
 var fe_fragebogen = (function() {
     return new function() {
         this.init = function() {
@@ -6,29 +8,34 @@ var fe_fragebogen = (function() {
         this.registerListeners = function() {
             var me = this;
 
-            var collectFragebogen = function() {
-                var $form = $("#register-fragebogen");
-                var $formdata = $form.serializeObject();
 
-                return $formdata;
-            };
+			var getFragebogenValues = function () {
+				var $antwortenArray = [];
+				var $ok = checkFragebogen();
+				if ((typeof $ok != "undefined" && $ok == false)) {
+					console.log("undefined OR !false");
+					return false;
+				}
+				$('#register-fragebogen .antwort-value input[type=radio]').each(function(index) {
+					var $this = $(this),
+					id = $this.attr('id'),
+					delta = $this.val(),
+					superwichtig = $('input[type=checkbox]#'+id).is(':checked');
+
+					$allData =  {id:id, delta:delta, superwichtig:superwichtig};
+
+					if($(this).is(':checked')) {
+						$antwortenArray[index] = $allData;
+					}
+				});
 
 
-            $(".js-show-reg-form").unbind("click");
-            $(".js-show-reg-form").click(function(e) {
-                e.preventDefault();
-                $(".js-show-reg-form").hide();
-                $("#saveFragebogenBtn").show();
-            });
+				return $antwortenArray;
+			};
 
 
-            $("#saveFragebogenBtn").unbind("click");
-            $("#saveFragebogenBtn").click(function(e){
-                e.preventDefault();
-                var antworten = $("#register-fragebogen").serialize();
-                // console.log(antworten);
-
-                var checkboxError = false;
+			var checkFragebogen = function () {
+				var checkboxError = false;
         		$('.checkbox-error').hide();
         		$(".hidden-fragen").each(function (i, o) {
         			var frageId = $(o).val();
@@ -38,27 +45,62 @@ var fe_fragebogen = (function() {
         				checkboxError = true;
         			}
         		})
+				/*if(checkboxError === true) {
+					console.log('checkboxError '+checkboxError);
+					return false;
+				}
+				else {
+					console.log('checkboxError '+checkboxError);
+					return true;
+				}*/
+			};
 
-                if(!checkboxError) {
-                    console.log(checkboxError, 'ajax call');
+			$("#saveFragebogenBtn").unbind("click");
+			$("#saveFragebogenBtn").click(function(e){
+				e.preventDefault();
+
+				var $collection = getFragebogenValues();
+
+				if((typeof $collection != "undefined" && $collection != false)) {
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_fragebogen/collectAnswer',
-                        data: antworten,
-
-                        succes: function(data) {
-                            console.log('collectAnswerV2 success');
-                        }
+                        data: {frage:$collection}
                     });
-                }
+				}
                 else {
-                    console.log('checkbox_error active');
                 }
-		    });
+/*
+				var ok = fe_core.jsFormValidation('wg-zimmer-finden');
+
+				var ok = fe_core.jsFormValidation2('wg-zimmer-finden');
+
+				if (ok) {
+					ok = simpleLogin.checkEMail('v2_EMAIL', $('#v2_EMAIL').val()) ? false : true;
+				}
+				if (ok) {
+					ok = simpleLogin.checkVal('v2_PASSWORT', $('#v2_PASSWORT').val()) ? false : true;
+				}
+				if (ok) {
+				    	ok = simpleLogin.checkEqual('v2_PASSWORT_confirm', $('#v2_PASSWORT').val(), $('#v2_PASSWORT_confirm').val()) ? false : true;
+				}
+
+				if (ok != true) {
+					return false;
+				}
+*/
+			});
+
+            $(".js-show-reg-form").unbind("click");
+            $(".js-show-reg-form").click(function(e) {
+                e.preventDefault();
+                $(".js-show-reg-form").hide();
+                $("#saveFragebogenBtn").show();
+            });
+
         }
     }
 })();
 $(document).ready(function() {
-    // console.log('init js fe_fragebogen');
     fe_fragebogen.init();
 });

@@ -9,6 +9,9 @@ var fe_redesign = (function() {
                 });
             });
 
+			
+
+
             /*
              *    frontpage #und-los-gehts mouseover/out button states
              */
@@ -104,6 +107,8 @@ var fe_redesign = (function() {
                 }
             });
             /* end */
+
+
 
 
             /*
