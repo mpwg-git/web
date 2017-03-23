@@ -1,0 +1,63 @@
+<input type="hidden" id="hiddenRoomId" value="<%$room.ROOM.wz_id%>">
+
+<%foreach $roomdataNew as $room name="roomloop"%>
+    <%if $smarty.request.dev==1%>
+        <%xr_print_r val=$room%>
+    <%/if%>
+    
+    <div class="room-settings <%if $room.ROOM.wz_ACTIVE != 'Y'%>room-not-active<%/if%>">
+        <a class="room-edit" href="<%xr_genlink p_id=30 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>">
+            <span class="room-number">
+                <%xr_translate tag='Raum'%> <%$smarty.foreach.roomloop.iteration%>
+            </span>
+            <span class="room-name" style="padding-left:50px;">
+                <%$room.ROOM.wz_BESCHRIFTUNG_INTERN%> 
+            </span>
+        </a>
+        
+        <%$onclick = ''%>
+        <%if $room.ROOM.wz_ACTIVE == 'N'%>
+            <%assign var='activateStr' value="<%xr_translate tag='Aktivieren'%>"%>
+            <%assign var='jsclass' value="js-activate-room"%>
+            <%assign var='iconclass' value="inactive"%>
+        <%else%>
+            <%assign var='activateStr' value="<%xr_translate tag='Deaktivieren'%>"%>
+            <%assign var='jsclass' value="js-deactivate-room"%>
+            <%assign var='iconclass' value="active"%>
+        <%/if%>
+        
+        
+        <%*********************
+        <a  title="<%$activateStr%>" 
+            class="<%$jsclass%> room-edit-icon icon-status <%$iconclass%>" 
+            data-room="<%$room.ROOM.wz_id%>" 
+            href="<%xr_genlink p_id=32 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>">
+            <span>&nbsp;</span>
+            <span class="add-edit"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+        </a>
+        *********************%>
+        
+        <%*********************
+        <a  title="<%xr_translate tag="User einladen"%>" 
+            class="room-edit-icon icon-invite" 
+            href="<%xr_genlink p_id=31 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>">
+            <span>&nbsp;</span>
+            <span class="add-add"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+        </a>
+        *****************%>
+        
+        
+        <a  title="<%xr_translate tag="Raum löschen"%>" 
+            class="js-delete-room-popup room-edit-icon icon-delete pull-right" 
+            style="display:inline-block; cursor:pointer;"
+            data-room="<%$room.ROOM.wz_id%>" >
+            
+            <span class="add-xdelete edit-icon"><span class="path1"></span><span class="path2"></span></span>
+        </a>
+        <%if $room.ROOM.wz_ACTIVE != 'Y'%>
+            <a class="room-edit-icon pull-right" style="margin-top:-2px">
+                <span class="icon-Blocked_inaktiv"></span>
+            </a>
+        <%/if%>
+    </div>
+<%/foreach%>

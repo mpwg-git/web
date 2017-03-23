@@ -498,7 +498,7 @@ button, .button {
     display: inline-block;
     font-size: 16px;
     padding-top: 11px;
-    padding-bottom: 11px;
+    padding-bottom: 10px;
     text-align: center;
     background: @darkgray;
     color: #fff;
@@ -1140,13 +1140,13 @@ button {
                         opacity: 0;
 
                         &:hover, &.active {
-                            .overlay-bg{
+                            // .overlay-bg{
                                 opacity: 1;
                                 .overlay{
                                     transform: scale(1);
                                     opacity: 1;
                                 }
-                            }
+                            // }
                         }
                     }
                 }
@@ -1265,7 +1265,7 @@ button {
 
                         &.svg-chatnachricht {
                             background-image: url(/xstorage/template/redesign/icons/icon-chat.svg);
-                            background-position: 7% 60%;
+                            background-position: 7% 50%;
                             background-color: @turkis;
                             background-size: 8%;
                             padding: 12px 0;
@@ -1279,7 +1279,7 @@ button {
 
                         &.btn-share-fb {
                             background-image: url(/xstorage/template/redesign/svg/icon-fb-white.svg);
-                            background-position: 7% 60%;
+                            background-position: 7% 50%;
                             background-color: @turkis;
                             background-size: 8%;
                             padding: 12px 0;
@@ -1308,7 +1308,7 @@ button {
                         .js-toggle-favourite {
                             .svg-merkliste {
                                 background-size: 8%;
-                                background-position: 7% 40%;
+                                background-position: 7% 50%;
                                 background-repeat: no-repeat;
                                 background-color: @turkis;
                                 padding: 12px 0;
@@ -1325,7 +1325,7 @@ button {
                         .js-toggle-blocked {
                             .svg-blockliste {
                                 background-size: 8%;
-                                background-position: 7% 40%;
+                                background-position: 7% 50%;
                                 background-repeat: no-repeat;
                                 background-color: @turkis;
                                 padding: 12px 0;
@@ -1350,50 +1350,65 @@ button {
 
             .matching-infos-detail, .profil-container {
                 position: relative;
-                width: 90%;
-                margin-left: 2.5%;
-                margin-bottom: 54px;
+                width: 94%;
+                margin: 0 3% 42px;
 
 
                 h4.headline {
                     color: #646464;
                     font-size: 1.3125em;
                     line-height: 1.3125em;
+                    padding: 0 10px;
                 }
                 .matching-text {
+                    display: block;
                     font-size: 0.875em;
                     font-family: @nunitolight;
                     line-height: 1.5714285714285714em;
+                    padding: 0 0 0 5px;
                 }
 
                 .fakt {
                     color: @darkgray;
-                    display: inline;
-                    // width: 50%;
-                    // float: left;
                     overflow: hidden;
-
+                    font-size: .875em;
+                    padding: 13px 5px;
+                    
                     .aufzaehlung {
-                        width: 50%;
+                        width: 100%;
                         float: left;
                         font-family: @nunitoextrabold;
-                        font-size: .875em;
-                        line-height: 2.857142857142857em;
                         text-transform: uppercase;
-                        padding: 0;
-                        margin: 0;
+                        line-height: 1.3571428571428572em;
                     }
                     .info {
-                        font-size: .875em;
                         font-family: @nunitolight;
-                        width:50%;
-                        padding: 0;
-                        margin: 0;
-
+                        
                         &.full-width {
                             width: 100%;
                         }
-
+                        .svg-icon-mann:after {
+                            content: " ";
+                            width: 32px;
+                            height: 32px;
+                            display: block;
+                            background-image: url(/xstorage/template/redesign/icons/icon-profil-mann-circle.svg);
+                            background-repeat: no-repeat;
+                            background-position: 54% 90%;
+                            background-size: 90%;
+                            margin: -10px 0;
+                        }
+                        .svg-icon-frau:after {
+                            content: " ";
+                            width: 30px;
+                            height: 30px;
+                            display: block;
+                            background-image: url(/xstorage/template/redesign/icons/icon-profil-frau-circle.svg);
+                            background-repeat: no-repeat;
+                            background-position: 60% 90%;
+                            background-size: 90%;
+                            margin: -10px 0;
+                        }
                     }
                 }
             }
@@ -1568,18 +1583,20 @@ button {
 
     #search-page .shadow-box-center {
         .meinprofil-container .profil {
-
+            
+            .button {
+                margin-top: 0;
+            }        
             .userinfos {
-                // margin: 5px 0 20px 5px;
 
                 .userinfos-left {
-                    // width: 25%;
                 }
             }
             .meinprofil-options {
-                    a, a:hover, a:focus {
-                        color: #04e0d7;
-                    }
+                a, a:hover, a:focus {
+                    color: @turkis;
+                }
+                
             }
         }
     }
@@ -1589,9 +1606,46 @@ button {
         	margin:0;
         }
     }
-
+    
+    .profil-container {
+        ul li {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+    }
 }
 /* END MAIN-CONTENT */
+
+#profileRoom {
+    position: relative;
+    
+    .room-settings {
+        padding: 16px 0 15px 25px;
+        background-color: #efefef;
+        width: 90%;
+        margin-left: 10px;
+        margin-right: 15px;
+        .border-radius(6px);
+        float: left;
+    }
+    #svg-icon-trash {
+        width: auto;
+        height: 26px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.meinprofil-add-room {
+    margin-top: 35px;
+}
+
+
+
+
+
+
 
 /* LIGHTBOX */
 .thumbnail {
@@ -1601,9 +1655,6 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     border: none;
     text-decoration: underline;
 }
-
-
-
 
 .input-icon [class*=icon] {
     position: relative;
@@ -1750,9 +1801,9 @@ footer {
 
 
 
-.button, #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #saveFragebogenBtn, .js-show-reg-form {
+.button, #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #saveFragebogenBtn, .js-show-reg-form, #changePwd-link {
     width: 100%;
-    height: 54px;
+    height: 50px;
     margin: 10px 0;
     font-size: 0.875em;
     line-height: 1.4285714285714286em;

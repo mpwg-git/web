@@ -1,0 +1,29 @@
+<%xr_siteCall fn="fe_user::checkLoggedIn" var="loggedin"%>
+<%xr_siteCall fn="fe_room::sc_getMyRoomState" var="roomState" roomId=$smarty.request.roomId%>
+
+<div class="meinprofil-container meinraum-container">
+    
+    
+    <div class="col-xs-12 default-container-paddingtop">
+        
+        <div class="pull-right" style="padding-top:20px;color:#04e0d7;">
+                            <a href="<%xr_genlink p_id=7%>">
+                                <span class="icon-Close"></span>
+                            </a>
+        </div>
+
+        <h2><%xr_translate tag="Raum Status ändern"%></h2>
+        
+        <div class="button-joinroom-container">
+            
+            <%if $roomState == 1%>
+                <%xr_atom a_id=826 return=1%>
+            <%else%>
+                <%xr_atom a_id=827 return=1%>
+            <%/if%>
+            
+            
+        </div>
+        
+    </div>
+</div>
