@@ -9,7 +9,7 @@ var fe_redesign = (function() {
                 });
             });
 
-			
+            
 
 
             /*
@@ -179,6 +179,7 @@ var fe_redesign = (function() {
 	            	}
 	            });
 	        }
+
         }
     }
 })();

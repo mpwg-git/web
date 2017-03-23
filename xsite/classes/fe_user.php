@@ -3318,6 +3318,7 @@ class fe_user
 
 		xredaktor_feUser::refreshUserdata($feu_id);
 
+		/*
 		foreach ($_REQUEST['frage'] as $key => $value) {
 			$key 	= intval($key);
 			$value 	= intval($value);
@@ -3345,6 +3346,8 @@ class fe_user
 
 			}
 		}
+		*/
+
 
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 

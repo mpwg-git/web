@@ -1,3 +1,33 @@
+
+
+.userinfos-left {
+    padding: 35px 25px;
+}
+
+
+.userinfos-right h1, .userinfos-right h3 {
+	margin:0;
+}
+
+#mein-profil .userinfos-right .member-state {
+	font-size: 0.875em;
+	line-height: 1.5em;
+	font-family: 'NunitoSans-bold';
+	color: #646464;
+	margin-top: 40px;
+}
+
+.member-state > .current {
+    /*background-color: #04e0d7;*/
+	font-size: 1.2857142857142858em; //1.5em;
+	line-height: 1em;
+	font-family: 'NunitoSans-black';
+}
+
+
+
+
+/*
 header {
   position: fixed;
   z-index: 20;
@@ -21,35 +51,6 @@ footer {
     background: url(/xstorage/template/redesign/icons/icon-lupe.svg) no-repeat rgba(239, 239, 239, 0.88);
     background-position: 95% 50%;
     background-size: 5%;
-}
-
-
-#main-content .left-row .meinprofil-erklaerung .line-1 {
-  font-family: 'PaytoneOne';
-  font-size: 1.375em;
-  line-height: 2.8181818181818183em;
-  text-transform: uppercase;
-  color: #04e0d7;
-}
-
-#main-content .left-row .meinprofil-erklaerung ol li a {
-	font-size: .875em;
-	font-family: 'NunitoSans-extrabold';
-	line-height: 1.2857142857142858em;
-	text-decoration: none;	
-}
-
-#main-content .left-row .meinprofil-erklaerung ol {
-  list-style-type: none;
-}
-#main-content .left-row .meinprofil-erklaerung ol li.legend-nr1 {
-  background: url(/xstorage/template/redesign/icons/icon-nr-1.svg) no-repeat;
-}
-#main-content .left-row .meinprofil-erklaerung ol li.legend-nr2 {
-  background: url(/xstorage/template/redesign/icons/icon-nr-2.svg) no-repeat;
-}
-#main-content .left-row .meinprofil-erklaerung ol li.legend-nr3 {
-  background: url(/xstorage/template/redesign/icons/icon-nr-3.svg) no-repeat;
 }
 #main-content #search-page #search-hits .shadow-box-left {
   display: inline-block;
@@ -132,3 +133,4 @@ footer {
     margin-right: 5px;
   }
 }
+*/

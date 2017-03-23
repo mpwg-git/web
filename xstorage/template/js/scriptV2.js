@@ -249,7 +249,8 @@ var simpleLogin = {
 		$('.checkbox-error').hide();
 		$(".hidden-fragen").each(function (i, o) {
 			var frageId = $(o).val();
-			var checkedChecker = $('input:checkbox[data-frage="' + frageId + '"]:checked').length;
+//			var checkedChecker = $('input:checkbox[data-frage="' + frageId + '"]:checked').length;
+			var checkedChecker = $('input:radio[name=FR'+frageId+']:checked').length;
 			if (checkedChecker == 0) {
 				$('#FRAGE_' + frageId + '_error').show();
 				checkboxError = true;
@@ -258,14 +259,16 @@ var simpleLogin = {
 		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
 		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
 			$('.scrollbarfix', '.middle-row').animate({
-				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+//				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+				scrollTop:0
 			}, 500);
 			return false;
 		}
 		ok = fe_core.jsFormValidation2('wg-zimmer-finden');
 		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
 			$('.scrollbarfix', '.middle-row').animate({
-				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+//				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+				scrollTop:0
 			}, 500);
 			return false;
 		}

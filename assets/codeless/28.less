@@ -2,10 +2,9 @@
 @import "23.less"; 
 
 
-
 /*min:481px max:767px*/
 // @media only screen and (min-width: 30.125em) and (max-width: 47.9375em) {
-@media only screen and (min-width: 481px) and (max-width: 47.9375em) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
     
     #chat-application {
         right: -10px !important;
@@ -27,17 +26,21 @@
         // padding: 0 10px;
         
         .header-logo {
-            margin-top: 15px;
-            float: left !important;
+            padding: 10px 10px;
+            margin: 0;
+            text-align: center;
         
             .icon-duck {
-                width: 20px;
+                width: 28px;
                 margin: 0;
+                padding: 0;
+                margin-right: 8px;
             }
         
             .icon-font {
-                width: 120px;
+                width: 174px;
                 margin: 0;
+                padding: 0;
             }
         }
         [class*='col-'] {
@@ -709,6 +712,9 @@
     
     
     footer {
+        &.footer {
+            display: none !important;
+        }
         #main-footer {
             padding: 10px 3.8281250000000004%;
             .footer-links {

@@ -17,31 +17,19 @@ var fe_fragebogen = (function() {
 					return false;
 				}
 				$('#register-fragebogen .hidden-fragen').each(function(i, o) {
-					
-//					console.log('i',i);
-//					console.log('o',o);
 
 					var id = $(o).val();
-					
-					var delta = $('input:radio[data-frage="' + id + '"]:checked').length;
-					
+
+					var delta = $('input:radio[name="FR' + id + '"]:checked').val();
+
 					var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
 
-					var toArr =  {id:id, delta:delta, superwichtig:superwichtig};
-					
-					if(delta != 0) {
-						$antwortenArray[i] = toArr;
+					if((typeof delta != "undefined" || delta !== false)) {
+						$antwortenArray[i] = {id, delta, superwichtig};
 					}
 					else {
 						return;
 					}
-					
-//					console.log($allData);
-//					console.log('array',$antwortenArray);
-					
-//					if($(this).is(':checked')) {
-//						$antwortenArray[index] = $allData;
-//					}
 				});
 
 
@@ -60,31 +48,30 @@ var fe_fragebogen = (function() {
         				checkboxError = true;
         			}
         		})
-				/*if(checkboxError === true) {
-					console.log('checkboxError '+checkboxError);
-					return false;
-				}
-				else {
-					console.log('checkboxError '+checkboxError);
-					return true;
-				}*/
 			};
 
-			$("#saveFragebogenBtn").unbind("click");
-			$("#saveFragebogenBtn").click(function(e){
+			$("#ID").unbind("click");
+			$("#ID").click(function(e){
 				e.preventDefault();
 
 				var $collection = getFragebogenValues();
-
+				var $formdata = $('#wg-zimmer-finden').serializeArray();
+				
+				var adresse = $('input#ADRESSE.form-control.autocomplete-location-v2').val();
+				var mietemax = $('input#MIETEMAX.form-control').val();
+				
 				if((typeof $collection != "undefined" && $collection != false)) {
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_fragebogen/collectAnswer',
-                        data: {frage:$collection}
-                    });
-				}
-                else {
-                }
+                        data: {
+                        	frage:$collection,
+                        	adresse: adresse,
+                        	mietemax:mietemax
+                        	}
+                        })
+                    }
+				});
 /*
 				var ok = fe_core.jsFormValidation('wg-zimmer-finden');
 
@@ -104,7 +91,6 @@ var fe_fragebogen = (function() {
 					return false;
 				}
 */
-			});
 
             $(".js-show-reg-form").unbind("click");
             $(".js-show-reg-form").click(function(e) {

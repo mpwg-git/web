@@ -1,4 +1,6 @@
 <%xr_siteCall fn="fe_fragebogen::sc_getInitFragen" var="fragen"%>
+<form class="form" id="register-fragebogen" name="register-fragebogen">
+
 
 <%foreach $fragen as $k => $v%>
         <div class="fragen-container fragenNR_<%$v['FRAGE']['wz_NR']%>">
@@ -26,55 +28,27 @@
             	    	<div class="radio radio-inline">
             	    	    <%* xr_print_r val=$v *%>
             	    	    <label for="delta1">
-            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" data-frage="<%$v['FRAGE']['wz_id']%>" value="1" >
+            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" value="1" >
             				</label>
             
             				<label for="delta2">
-            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" data-frage="<%$v['FRAGE']['wz_id']%>" value="2" >
+            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" value="2" >
             		        </label>
             
             				<label for="delta3">
-            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" data-frage="<%$v['FRAGE']['wz_id']%>" value="3" >
+            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" value="3" >
             		        </label>
             
             				<label for="delta4">
-            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" data-frage="<%$v['FRAGE']['wz_id']%>" value="4" >
+            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" value="4" >
             		        </label>
             
             				<label for="delta5">
-            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" data-frage="<%$v['FRAGE']['wz_id']%>" value="5" >
+            		        	<input type="radio" id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%>" value="5" >
             				</label>
-
-<%*
-                            <label for="delta1">
-                                <input type="radio" name="frage[<%$v['FRAGE']['wz_id']%>]" class="checkboxV2" value="d1" data-frage="<%$v['FRAGE']['wz_id']%>">
-                            </label>
-                            
-                            <label for="delta2">
-                                <input type="radio" name="frage[<%$v['FRAGE']['wz_id']%>]" class="checkboxV2" value="d2" data-frage="<%$v['FRAGE']['wz_id']%>">
-                            </label>
-                            
-                            <label for="delta3">
-                                <input type="radio" name="frage[<%$v['FRAGE']['wz_id']%>]" class="checkboxV2" value="d3" data-frage="<%$v['FRAGE']['wz_id']%>">
-                            </label>
-                            
-                            <label for="delta4">
-                                <input type="radio" name="frage[<%$v['FRAGE']['wz_id']%>]" class="checkboxV2" value="d4" data-frage="<%$v['FRAGE']['wz_id']%>">
-                            </label>
-                            
-                            <label for="delta5">
-                                <input type="radio" name="frage[<%$v['FRAGE']['wz_id']%>]" class="checkboxV2" value="d5" data-frage="<%$v['FRAGE']['wz_id']%>">
-                            </label>
-*%>
-
             			</div>
             		    <div class="toggle-superwichtig" style="text-align: center;">
             		        <input type="checkbox" data-frage="<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" data-toggle="toggle" data-on="<%xr_translate tag='fp_Fragen-wichtig'%>" data-off="<%xr_translate tag='fp_Fragen-unwichtig'%>">
-
-
-<%*            		        <input type="checkbox" name="frage[<%$v['FRAGE']['wz_id']%>]" data-frage="<%$v['FRAGE']['wz_id']%>" data-toggle="toggle" data-on="<%xr_translate tag='fp_Fragen-wichtig'%>" data-off="<%xr_translate tag='fp_Fragen-unwichtig'%>">
-*%>            		    
-
             		    </div>
             		</div>
             	</div>
@@ -87,3 +61,4 @@
         <div class="error-div checkbox-error center-block" id="FRAGE_<%$v['FRAGE']['wz_id']%>_error"><%xr_translate tag='Bitte Auswahl treffen'%></div>
         </div>
     <%/foreach%>
+</form>
