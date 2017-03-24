@@ -10,21 +10,35 @@
         
 @media only screen and (max-width: 479px) {
     
-    h3 { font-size: 1.3125em;  }
+    // h3 { font-size: 1.3125em;  }
     h5, #main-content .register-fragen .register-fragebogen .antwort-headline {
         font-size: .875em;
         margin-bottom: 3px;
         line-height: 1.1em;
     } 
-        
-    p { font-size: 0.875em; }
+
   
     #chat-application {
         right: -10px !important;
         height: 32px !important;
         bottom: -6px !important;
     }
-  
+    .mob-no-gutter, .mob-no-gutter > [class*='col-'] {
+            padding-left:0;
+            padding-right:0;
+        }
+        .mob-no-margin, .mob-no-margin > [class*='col-'] {
+            margin-left:0;
+            margin-right:0;
+        }
+        .mob-no-margin-left {
+            margin-left: 0 !important;
+        }
+        .mob-no-margin-right {
+            margin-right: 0 !important;
+    }
+    
+    
     #main-header {
         /*
         height: 3.125em;
@@ -146,8 +160,9 @@
             
             
             button {
-                padding-top: 8.5px;
+                padding-top: 5px;
                 padding-bottom: 8.5px;
+                padding-right: 10px;
             }
             
             svg#icon-chat, svg#icon-map, svg#icon-filter {
@@ -207,7 +222,7 @@
     }
     
     #main-content {
-        // padding-top: 0px;
+        padding-bottom: 40px;
         
         .carousel { 
             .carousel-indicators {
@@ -635,7 +650,6 @@
     
     // SUCHE 
     #main-content {
-        padding-bottom: 25px;
         .searchform {
             .form-group {
                 margin-top: 10px;
@@ -662,13 +676,6 @@
 		        margin-bottom: 20px;
 		    }
 
-		    
-		  //  > .col-xs-12 {
-		  //      &:first-child {
-		  //          margin-bottom: 20px;
-		  //      }
-		  //  }
-		    
             .col-xs-12.no-gutter {
                 padding-left: 15px;
                 padding-right: 15px;
@@ -907,7 +914,7 @@
                             padding: 15px 0;
                             
                             .contacts-wrapper.js-chatcontacts-replace {
-                                margin: 0 !important;
+                                margin: 15px 0 0 0 !important;
                             }
                         }
                     }
@@ -917,6 +924,120 @@
                             top: -26px;
                             font-size: 1em;
                             right: -20px;
+                        }
+                    }
+                }
+            }
+            
+            #mein-profil {
+                margin: -30px 0 0 0;
+                
+                .shadow-box-center {
+                    
+                    .profil {
+                        .row {
+                            &:first-child { margin-bottom: 10px; }
+                            margin: 10px 0;
+                        }
+                        .profil-container {
+                            width: 100%;
+                            margin: 7px 0px;
+                            padding: 0 10px;
+                            
+                            .headline {
+                                font-size: 1.125em;
+                            }
+                            
+                            .button {
+                                height: 40px;
+                                font-size: 0.8125em;
+                            }
+                            
+                            .meinprofil-uebermich-inner, .meinprofil-meinkonto-collapse {
+                                width: 88%;
+                                
+                                #form-mein-user {
+                                    margin-top: 15px;
+                                    padding: 10px;
+                                }
+                                
+                                .form-mein-user.col-count-2 {
+                                    column-count: 1;
+                                    -webkit-column-count: 1;
+                                    -moz-column-count: 1;
+                                }
+                                .form-group {
+                                    margin-bottom: 7px;
+                                    
+                                    label {
+                                        font-size: .75em;
+                                    }
+                                    input.form-control {
+                                        font-size: .875em;
+                                        width: 100%;
+                                        margin-bottom: 0;
+                                        height: 30px;
+                                    }
+                                }
+                                .submitbutton-container {
+                                    .button {
+                                        height: 36px;
+                                        font-size: .8125em;
+                                        margin-top: 10px;
+                                        width: 99%;
+                                        margin-left: 0.5%;
+                                    }
+                                }
+                                
+                                #emailbenachrichtigung {
+                                    height: 30px;
+                                    font-size: .75em;
+                                }
+                            }
+                        }
+
+                        
+                        .member-state, .member-state.mob-member-state {
+                        	font-size: 0.75em;
+                        	line-height: 1.125em;
+                        	font-family: @nunitobold;
+                        	color: @darkgray;
+                        	padding-bottom: 20px;
+                            
+                            > .current {
+                                font-size: 0.9375em;
+                            	line-height: 1.125em;
+                            	font-family: @nunitoblack;
+                            }
+                        }
+                        
+                        .userinfos-left {
+                            width: 100%;
+                            margin: 10px 0 0 10px;
+                            
+                            .profileimage {
+                                padding: 5px;
+                            }
+                        }
+                        .userinfos-right {
+                            .maininfo {
+                                padding-bottom: 10px;
+                                
+                                h1 { font-size: 2.125em; line-height: 0.8235294117647058em; }
+                                h3 { margin: 0; font-size: 1.375em; }
+                            }
+                        }
+
+                        .subheadline, .subheadline.whoiam {
+                            line-height: 1.1428571428571428em;
+                            font-size: 0.875em;
+                        }
+                        
+                        .profil-inner-padding {
+                            padding-left: 30px;
+                            padding-right: 15px;
+                            padding-top: 15px;
+                            padding-bottom: 0;
                         }
                     }
                 }
@@ -974,4 +1095,3 @@
         }
     }
 }
-

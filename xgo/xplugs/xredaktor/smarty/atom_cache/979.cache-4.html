@@ -1,5 +1,11 @@
 <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out">
+        <li class="<%if $P_ID == 7%>active<%/if%> text-uppercase">
+            <a href="<%xr_genlink p_id=7%>">
+                <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-profil-mann.svg" /></i>
+                <%xr_translate tag="Mein Profil"%>
+            </a>
+        </li>
         <li class="<%if $P_ID == 11%>active<%/if%>">
             <a href="<%xr_genlink p_id=11%>">
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-lupe.svg" /></i>

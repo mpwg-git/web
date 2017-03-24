@@ -138,8 +138,8 @@ var fe_redesign = (function() {
 
 	            $(document).on('click', '.btn-subnav-map', function() {
 	            	if($map.attr("trigger") === "0") {
-	            		$pos = (($treffer.height() + 35) * -1);
-	            		$treffer.css("top",  $map.height());
+	            		$pos = (($treffer.height() + 30) * -1);
+	            		$treffer.css("top",  $map.height() + 20);
 	            		$map.css({"display": "block", "top": $pos}).attr("trigger","1");
 	            		$filter.hide().attr("trigger","0");
 	            		$chat.hide().attr("trigger","0");
@@ -153,8 +153,8 @@ var fe_redesign = (function() {
 
 	            $(document).on('click', '.btn-subnav-chatsearch', function() {
 	            	if($chat.attr("trigger") === "0") {
-	            		$pos = (($treffer.height() + 35) * -1);
-	            		$treffer.css("top",  $chat.height());
+	            		$pos = (($treffer.height() + 30) * -1);
+	            		$treffer.css("top",  $chat.height() + 20);
 	            		$chat.css({"display": "block", "top": $pos}).attr("trigger","1");
 	            		$filter.hide().attr("trigger","0");
 	            		$map.hide().attr("trigger","0");

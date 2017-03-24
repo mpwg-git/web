@@ -66,6 +66,9 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
 .no-gutter, .no-gutter > [class*='col-'] {
     padding-left:0;
     padding-right:0;
+    // @media @xs {
+    //     .padding-left-right(15);
+    // }
 }
 .no-margin, .no-margin > [class*='col-'] {
     margin-left:0;
@@ -77,6 +80,7 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
 .no-margin-right {
     margin-right: 0 !important;
 }
+
 .profil-inner-padding{
     .padding-left-right(20);
     .padding-top-bottom(30);
@@ -177,6 +181,34 @@ span.wirklich {
     margin: 50px 0;
     padding: 20px 25px 50px 25px;
 }
+
+/*
+.icon-svg {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  
+  mask: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/heart.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/heart.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  
+}
+.icon-red { background-color: red; }
+
+.icon-svg {
+    // display: inline-block;
+    width: 32px;
+    height: 32px;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    
+    .legend-nr1 {
+        mask: url(/xstorage/template/redesign/svg/icon-nr-1.svg) no-repeat 50% 50%;
+    }
+}
+*/
+
 .left-row {
     .meinprofil-erklaerung {
         padding-top: 20px;
@@ -204,15 +236,29 @@ span.wirklich {
                 padding: 15px 15px 15px 55px;
                 background-position: 0 50%;
                 background-repeat: no-repeat;
+                background-size: 44px;
+
 
                 &.legend-nr1 {
-                    background-image: url(/xstorage/template/redesign/icons/icon-nr-1.svg);
+                    background-image: url(/xstorage/template/redesign/svg/icon-nr-1.svg);
+                    &.active {
+                        background-image: url(/xstorage/template/redesign/icons/icon-nr-1.svg);
+                        a { color: @turkis; }
+                    }
                 }
                 &.legend-nr2 {
-                    background-image: url(/xstorage/template/redesign/icons/icon-nr-2.svg);
+                    background-image: url(/xstorage/template/redesign/svg/icon-nr-2.svg);
+                    &.active {
+                        background-image: url(/xstorage/template/redesign/icons/icon-nr-1.svg);
+                        a { color: @turkis; }
+                    }
                 }
                 &.legend-nr3 {
-                    background-image: url(/xstorage/template/redesign/icons/icon-nr-3.svg);
+                    background-image: url(/xstorage/template/redesign/svg/icon-nr-3.svg);
+                    &.active {
+                        background-image: url(/xstorage/template/redesign/icons/icon-nr-1.svg);
+                        a { color: @turkis; }
+                    }
                 }
                 a {
                     font-size: .875em;
@@ -221,6 +267,8 @@ span.wirklich {
                     line-height: 1.2857142857142858em;
                     text-transform: uppercase;
                 }
+                
+                
             }
         }
         .line-3 {
@@ -256,10 +304,10 @@ span.wirklich {
 
     [class*='col-'] {
         height: 3.125em;
-        a {
-            &:hover {
-            }
+        @media @xs {
+            height: 100%;
         }
+
         .profile-nav {
             overflow: hidden;
             position: relative;
@@ -525,6 +573,8 @@ span.wirklich {
 }
 
 button, .button {
+    width: 100%;
+    margin: 5px 0;
     display: inline-block;
     font-size: 16px;
     padding-top: 11px;
@@ -1083,7 +1133,10 @@ button {
     /* SUCHE */
     #search-page {
         margin-top: 35px;
-
+        
+        @media @xs {
+            margin-top: 20px;
+        }
 
         .form-group {
             .legend {
@@ -1188,9 +1241,8 @@ button {
 
                 .userinfos {
                     .userinfos-left {
-                        // width: 30%;
-                        // margin: 2.5%;
-
+                        width: 75%;
+                        margin: 30px 15% 65px 15%;
 
                         .wg-img-wrapper {
                             margin-top: 5px;
@@ -1385,8 +1437,7 @@ button {
             .matching-infos-detail, .profil-container {
                 position: relative;
                 width: 94%;
-                margin: 0 3% 35px;
-
+                margin: 10px 3% 10px;
 
                 h4.headline {
                     color: #646464;
@@ -1618,16 +1669,13 @@ button {
 
     #search-page .shadow-box-center {
         .meinprofil-container .profil {
-            
-            .button {
-                margin-top: 0;
-                width: 94.5%;
-                margin: 5px 0 5px 12px;
-            }        
-            .userinfos {
 
-                .userinfos-left {
-                }
+            .userinfos {
+    
+                // .userinfos-left {
+                //     width: 60%;
+                //     margin: 2.5%;
+                // }
             }
             .meinprofil-options {
                 a, a:hover, a:focus {
@@ -1651,7 +1699,7 @@ button {
             list-style-type: none;
         }
         hr.full-width {
-            width: 98%;
+            width: 100%;
             margin: 5px 0;
         }
         #changePwd-btn {
@@ -1663,7 +1711,7 @@ button {
         }
         
         #collapseChangePwd {
-            width: 60%;
+            width: 50%;
             margin-right: auto;
             margin-left: auto;
             margin-top: 20px;
@@ -1691,6 +1739,13 @@ button {
 }
 /* END MAIN-CONTENT */
 
+.profil-container .button {
+    width: 98% !important;
+    margin-left: 1% !important;
+}
+
+
+
 
 //profileRoom {
 .meinprofil-submenu {    
@@ -1702,8 +1757,8 @@ button {
         position: relative;
         padding: 14px 0 13px 25px;
         background-color: #efefef;
-        width: 94.5%;
-        margin: 5px 15px 5px 10px;
+        width: 96%;
+        margin: 0px 0 6px 2%;
         .border-radius(6px);
         float: left;
         background-image: url(/xstorage/template/redesign/icons/icon-trash.svg);
@@ -1765,27 +1820,27 @@ button {
 }
 
 #collapseUeberMich {
-    width: 90%;
+    width: 100%;
+    position: relative;
+    left:5.731381606850147%;
 }
 
 .meinprofil-uebermich-inner, .meinprofil-meinkonto-collapse {
-    width: 87.5%;
-    margin: 0 auto;
+    width: 80%;
+    // margin: 0 auto;
 
     #form-mein-user {
         margin-top: 15px;
-        padding: 20px 15px 20px 30px;
-        // border: 1px solid @turkis;
+        padding: 20px;
         .border-radius();
         .box-shadow(0 0 0.25em @turkis);
     }
     
     #form-mein-profil-save-user {
-        margin: 17px 0 10px 0 !important;
-        width: 94% !important;
+        margin-top: 23px;
         padding-top: 0;
         padding-bottom: 0;
-        height: 40px;
+        height: 36px;
     }
     
     .geschlecht-chooser.geschlecht {
@@ -1805,7 +1860,7 @@ button {
         }
         .form-control {
             display: block;
-            width: 94%;
+            width: 100%;
             height: 36px;
             font-size: .875em;
             line-height: 1.42857143;
@@ -1990,7 +2045,7 @@ footer {
 .button, #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #saveFragebogenBtn, .js-show-reg-form, #changePwd-link {
     width: 100%;
     height: 50px;
-    margin: 10px 0;
+    margin: 5px 0;
     font-size: 0.875em;
     line-height: 1.4285714285714286em;
     font-family: @nunitoextrabold;
@@ -2162,7 +2217,7 @@ input.form-control {
 #VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div, .checkbox-error , #agb-accept_error
 {
     display: none;
-    width: 30%;
+    width: 100%;
     font-family: @nunitolight;
     background-color: #fff;
     border: 1px solid #f00;
@@ -2204,6 +2259,27 @@ input.form-control {
 #changePwd > .alert.alert-danger, .alert.alert.success  {
     margin-top: -15px;
 }
+
+
+.userinfos-right h1, .userinfos-right h3 {
+	margin:0;
+}
+
+#mein-profil .userinfos-right .member-state {
+	font-size: 0.875em;
+	line-height: 1.5em;
+	font-family: @nunitobold;
+	color: @darkgray;
+	margin-top: 40px;
+}
+
+.member-state > .current {
+	font-size: 1.2857142857142858em; //1.5em;
+	line-height: 1em;
+	font-family: @nunitoblack;
+}
+
+
 
 
 

@@ -1,9 +1,5 @@
 
-
-.userinfos-left {
-    padding: 35px 25px;
-}
-
+/*
 
 .userinfos-right h1, .userinfos-right h3 {
 	margin:0;
@@ -18,16 +14,15 @@
 }
 
 .member-state > .current {
-    /*background-color: #04e0d7;*/
 	font-size: 1.2857142857142858em; //1.5em;
 	line-height: 1em;
 	font-family: 'NunitoSans-black';
 }
-
-
+*/
 
 
 /*
+
 header {
   position: fixed;
   z-index: 20;

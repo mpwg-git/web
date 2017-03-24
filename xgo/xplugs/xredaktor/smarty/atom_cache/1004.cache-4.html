@@ -4,9 +4,9 @@
 <%xr_siteCall fn="fe_wgtest::sc_getAllQuestionsAndState" var="wgtestdata"%>
 <input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
 <div class="meinprofil-container center-block">
-    <div class="profil no-gutter">
+    <div class="profil no-gutter mob-no-gutter">
         <div class="row no-margin">
-            <div class="userinfos col-xs-5 pull-left no-margin">
+            <div class="userinfos col-sm-5 col-xs-4 pull-left no-margin mob-no-gutter">
                 <div class="userinfos-left">
                     <%if $user['wz_PROFILBILD'] == 0%>
                         <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
@@ -15,22 +15,35 @@
                     <%/if%>
                 </div>
             </div>
-            <div class="userinfos-right pull-left col-xs-7 no-margin">
+            
+            
+            <div class="userinfos-right pull-left col-sm-7 col-xs-8 no-margin mob-no-gutter">
                 <div class="profil-inner-padding">
                     <div class="maininfo">
                         <h3><%$data['USER']['wz_VORNAME']%></h3>
                         <h1><%$data['USER']['wz_NACHNAME']%></h1>
                     </div>
                     <span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%> - ID <%$data.USER.wz_id%></span>
-                    <div class="member-state text-left">
+                    <div class="member-state text-left hidden-xs">
                         <span class="text-uppercase"><%xr_translate tag='mein-profil_memeber-state'%>:</span>
                         <span class="text-uppercase current">free</span>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!--member state mobile-->
+        <div class="row hidden-sm hidden-md- hidden-lg no-margin">
+            <div class="col-xs-12">
+                <div class="member-state mob-member-state text-left">
+                    <span class="text-uppercase"><%xr_translate tag='mein-profil_memeber-state'%>:</span>
+                    <span class="text-uppercase current">free</span>
+                </div>
+            </div>
+        </div>
       
-        <div class="row no-margin">
+      
+        <div class="row no-margin no-gutter">
             <div class="col-xs-12">
                 <div class="profil-container">
                     <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-idealerMB'%></h4>
@@ -43,8 +56,10 @@
                 </div>
             </div>
         </div>
+        
+        
         <%if $data['USER']['wz_TYPE'] != 'suche'%>
-            <div class="row no-margin">
+            <div class="row no-margin no-gutter">
                 <div class="col-xs-12 profil-container">
                     <ul class="meinprofil-options no-gutter no-margin">
                         <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meineZimmer'%></h4>
@@ -61,13 +76,26 @@
                 </div>
             </div>
         <%/if%>
+        
+        
         <%if $data['USER']['wz_TYPE'] == 'suche'%>
-            
+            <div class="row no-margin no-gutter">
+                <div class="col-xs-12 profil-container">
+                    <ul class="meinprofil-options no-gutter no-margin">
+                        <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_mein-ideales-zimmer'%></h4>
+                        <hr class="full-width">
+                        <button class="button" data-toggle="collapse" data-target="#collapseIdealesZimmer">
+                        	<%xr_translate tag='mein-profil_btn-ideales-zimmer'%>
+                        </button>
+                        <%xr_atom a_id=1016 return=1%>
+                    </ul>
+                </div>
+            </div>    
         <%/if%>
         
         
         <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
-            <div class="row no-margin">
+            <div class="row no-margin no-gutter">
                 <div class="col-xs-12 profil-container">
                     <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meinKonto'%></h4>
                     <hr class="full-width">
@@ -97,8 +125,9 @@
             <!--./ende row-->
         <%/if%>
         
+        
         <!--DATEN VERWALTEN-->
-        <div class="row no-margin">
+        <div class="row no-margin no-gutter">
             <div class="col-xs-12 profil-container">
                 <a id="collapseUeberMich-link" data-toggle="collapse" href="#collapseUeberMich">
                     <h5 class="daten-verwalten text-uppercase"><%xr_translate tag='mein-profil_h4-datenverwalten'%></h5>
@@ -108,7 +137,6 @@
             </div>
         </div>
         <!-- ./ende row --> 
-        
         
         
     </div>

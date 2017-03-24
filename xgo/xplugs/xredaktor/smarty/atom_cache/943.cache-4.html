@@ -1,4 +1,6 @@
-<footer class="footer">
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+
+<footer class="footer <%if $isLoggedIn === true%>hidden-xs<%/if%>" >
     <div id="main-footer" class="container-fluid">
         <div class="footer-links">
             <a class="text-uppercase footer-icon" href="https://www.facebook.com/meineperfektewg" target="_blank">
