@@ -605,7 +605,8 @@ button {
     MAIN-CONTENT
 **/
 #main-content {
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
+    padding-bottom: 160px;
     padding-top: 3.125em;
     position: absolute;
     width: 100%;
@@ -1653,13 +1654,22 @@ button {
             width: 98%;
             margin: 5px 0;
         }
+        #changePwd-btn {
+            
+            &:hover {
+                background-color: #646464;
+                color: #fff;
+            }
+        }
+        
         #collapseChangePwd {
             width: 60%;
             margin-right: auto;
             margin-left: auto;
+            margin-top: 20px;
             margin-bottom: 35px;
             
-            form#changePwd {
+            #changePwd {
                 padding: 20px 30px;
             }
             .shadow-box {
@@ -1674,6 +1684,7 @@ button {
             padding: 10px 0 9px 33px;
             margin-left: 15px;
             margin-top: -15px;
+            color: #646464;
         }
         
     }
@@ -1704,7 +1715,8 @@ button {
             color: @darkgray !important;
             text-decoration: none;
         }
-        a#icon-trash-del-room {
+        
+        #icon-trash-del-room {
             position: absolute;
             top: 15%;
             left: 94%;
@@ -1750,6 +1762,69 @@ button {
         float: left;
         cursor: pointer;
     }
+}
+
+#collapseUeberMich {
+    width: 90%;
+}
+
+.meinprofil-uebermich-inner, .meinprofil-meinkonto-collapse {
+    width: 87.5%;
+    margin: 0 auto;
+
+    #form-mein-user {
+        margin-top: 15px;
+        padding: 20px 15px 20px 30px;
+        // border: 1px solid @turkis;
+        .border-radius();
+        .box-shadow(0 0 0.25em @turkis);
+    }
+    
+    #form-mein-profil-save-user {
+        margin: 17px 0 10px 0 !important;
+        width: 94% !important;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 40px;
+    }
+    
+    .geschlecht-chooser.geschlecht {
+        height: 72px;
+    }
+    
+    select#emailbenachrichtigung {
+        height: 34px;
+    }
+    
+    .form-group{
+        label {
+            font-size: .875em;
+            font-family: @nunitoregular;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        .form-control {
+            display: block;
+            width: 94%;
+            height: 36px;
+            font-size: .875em;
+            line-height: 1.42857143;
+            color:@turkis;
+            font-family: @nunitobold;
+            background-color: @lightgray;
+            background-image: none;
+            .border-radius(0);
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+        textarea {
+            resize:vertical;
+        }
+    } 
 }
 
 
@@ -1934,7 +2009,9 @@ footer {
     }
 
     &:hover {
-        color: @darkgray;
+        background-color: @darkgray;
+        color: #fff;
+        text-decoration: none;
     }
 }
 #fragebogen-save {

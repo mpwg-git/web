@@ -100,7 +100,11 @@
         <!--DATEN VERWALTEN-->
         <div class="row no-margin">
             <div class="col-xs-12 profil-container">
-                <h5 class="daten-verwalten text-uppercase"><%xr_translate tag='mein-profil_h4-datenverwalten'%></h5>
+                <a id="collapseUeberMich-link" data-toggle="collapse" href="#collapseUeberMich">
+                    <h5 class="daten-verwalten text-uppercase"><%xr_translate tag='mein-profil_h4-datenverwalten'%></h5>
+                </a>
+                <!-- UEBER MICH -->
+                <%xr_atom a_id=678 showFace=3 return=1%>
             </div>
         </div>
         <!-- ./ende row --> 
