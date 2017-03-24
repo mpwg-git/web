@@ -4,207 +4,113 @@
 <%xr_siteCall fn="fe_wgtest::sc_getAllQuestionsAndState" var="wgtestdata"%>
 <input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
 <div class="meinprofil-container center-block">
-   <div class="profil no-gutter">
-      <div class="row no-margin">
-         <div class="userinfos col-xs-5 pull-left no-margin">
-            <div class="userinfos-left">
-               <%if $user['wz_PROFILBILD'] == 0%>
-               <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
-               <%else%>
-               <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%></a>
-               <%/if%>
+    <div class="profil no-gutter">
+        <div class="row no-margin">
+            <div class="userinfos col-xs-5 pull-left no-margin">
+                <div class="userinfos-left">
+                    <%if $user['wz_PROFILBILD'] == 0%>
+                        <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
+                    <%else%>
+                        <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%></a>
+                    <%/if%>
+                </div>
             </div>
-         </div>
-         <div class="userinfos-right pull-left col-xs-7 no-margin">
-            <div class="profil-inner-padding">
-               <div class="maininfo">
-                  <h3><%$data['USER']['wz_VORNAME']%></h3>
-                  <h1><%$data['USER']['wz_NACHNAME']%></h1>
-               </div>
-               <span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%> - ID <%$data.USER.wz_id%></span>
-               <div class="member-state text-left">
-                  <span class="text-uppercase"><%xr_translate tag='mein-profil_memeber-state'%>:</span>
-                  <span class="text-uppercase current">free</span>
-               </div>
+            <div class="userinfos-right pull-left col-xs-7 no-margin">
+                <div class="profil-inner-padding">
+                    <div class="maininfo">
+                        <h3><%$data['USER']['wz_VORNAME']%></h3>
+                        <h1><%$data['USER']['wz_NACHNAME']%></h1>
+                    </div>
+                    <span class="subheadline whoiam"><%if $data['USER']['wz_TYPE'] == 'suche'%><%xr_translate tag="Suchender"%><%else%><%xr_translate tag="Anbieter"%><%/if%> - ID <%$data.USER.wz_id%></span>
+                    <div class="member-state text-left">
+                        <span class="text-uppercase"><%xr_translate tag='mein-profil_memeber-state'%>:</span>
+                        <span class="text-uppercase current">free</span>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
       
-      
-      
-      <div class="row no-margin">
-         <div class="col-xs-12">
-            <div class="profil-container">
-               <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-idealerMB'%></h4>
-               <hr class="full-width">
-               <a data-fancybox data-src="#hidden-content" href="javascript:;">
-               <button id="fragebogenModal" class="button start-button text-uppercase">
-               <%xr_translate tag='mein-profil_btn_zumFragebogen'%>
-               </button>
-               </a>
-            </div>
-         </div>
-      </div>
-      
-      
-      
-      <div class="row no-margin">
-         <div class="col-xs-12 profil-container">
-            <ul class="meinprofil-options no-gutter no-margin">
-               <%if $data['USER']['wz_TYPE'] != 'suche'%>
-                    <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meineZimmer'%></h4>
+        <div class="row no-margin">
+            <div class="col-xs-12">
+                <div class="profil-container">
+                    <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-idealerMB'%></h4>
                     <hr class="full-width">
-                    <div class="meinprofil-submenu" id="profileRoom">
-                        <%***** Raumverwaltung *****%>
-                            <%xr_atom a_id=1006 roomdataNew=$roomdataNew return=1%>
-                        <img class="svg-icon" id="svg-icon-trash" src="/xstorage/template/redesign/icons/icon-trash.svg" alt="Icon Papierkorb">
-                        <div class="clearfix"></div>
-                    </div>
-                    
-                    <div class="meinprofil-add-room">
-                    <%***** Neuen Raum anlegen *****%>
-                        <%xr_atom a_id=852 return=1 showFace=0%>
-                    </div>
-                    
-                <%/if%>
-                <%if $data['USER']['wz_TYPE'] == 'suche'%>
-                    <button class="button" href="<%xr_genlink p_id=8%>">
-                        <%xr_translate tag="Meine Daten"%>
-                    </buttons>
-               <%/if%>
-            </ul>
-         </div>
-      </div>
-      
-      
-      
-      <div class="row no-margin">
-         <div class="col-xs-12 profil-container">
-            <ul class="meinprofil-options no-gutter no-margin">
-               <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meinKonto'%></h4>
-               <hr class="full-width">
-
-               <li>
-                  <!--<a data-toggle="collapse" href="#collapseProfileKonto">-->
-                  <!--<%xr_translate tag="Mein Konto"%>-->
-                  <!--</a>-->
-                  <div class="meinprofil-meinkonto" id="profilKonto">
-                     <%***************
-                        <p><b><%xr_translate tag="Kostenlos"%>
-                     </b>
-                     <%xr_translate tag="bis 1.2.2016"%><br />(
-                     <%xr_translate tag="Danach entstehende Kosten: nur nach expliziter Zustimmung"%>).</p>
-                     <p>
-                        <%xr_translate tag="Mitgliedschaft seit"%>:
-                        <%$data['USER']['wz_created']|date_format:"%d.%m.%Y"%>
-                     </p>
-                     **************%>
-
-                     <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
-
-
-<%**********
-    <!--CHANGE MAIL-->
-                        <%if $data.USER.wz_EMAIL != ''%>
-                     <a data-toggle="collapse" href="#collapseChangeMail" class="submitbutton-container button link-zu-wgtest">
-                     <%xr_translate tag='EMailadresse ändern'%>
-                     </a>
-                     <div class="meinprofil-meinkonto-collapse changeMail-collapse collapse" id="collapseChangeMail">
-                        <form id="changeMail" name="changeMail" method="post" action="#">
-                           <div class="form-group">
-                              <label for="email_neu"><%xr_translate tag='Neue Emailadresse'%></label>
-                              <input id="email_neu" name="email_neu" type="email" class="form-control" placeholder="<%xr_translate tag='Neue E-Mail eingeben'%>" required>
-                           </div>
-                           <div id="email-error-1" class="alert alert-danger" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></span>
-                           </div>
-                           <div class="form-group">
-                              <label for="email_neu_confirm"><%xr_translate tag='Neue Emailadresse wiederholen'%></label>
-                              <input id="email_neu_confirm" name="email_neu_confirm" type="email" class="form-control" placeholder="<%xr_translate tag='Neue E-Mail wiederholen'%>">
-                           </div>
-                           <div id="email-error-2" class="alert alert-danger" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag='E-Mailadressen stimmen nicht überein'%></span>
-                           </div>
-                           <div id="email-error-3" class="alert alert-danger" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag="Diese Emailadresse ist bereits registriert."%></span>
-                           </div>
-                           <div id="changeMail-success" class="alert alert-success" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag='Änderungen gespeichert'%></span>
-                           </div>
-                           <button type="submit" id="changeMail-btn" name="submit" class="btn btn-primary btn-block"><%xr_translate tag="Änderung bestätigen"%></button>
-                        </form>
-                     </div>
-                     <!--END CHANGE MAIL-->
-                     <%/if%>
-**********%>
-
-
-                     <!--CHANGE PASSWORD-->
-                     <!--<a id="changePwd-link" data-toggle="collapse" href="#collapseChangePwd" class="submitbutton-container button link-zu-wgtest">-->
-                     <button id="changePwd-link" class="button" data-toggle="collapse" data-target="#collapseChangePwd">
-                        <%xr_translate tag='Passwort ändern'%>
-                     </button>
-                     <!--</a>-->
-                     <div class="meinprofil-meinkonto-collapse changePwd-collapse collapse" id="collapseChangePwd">
-                        <form id="changePwd" name="changePwd" method="post" action="#">
-                           <div class="form-group">
-                              <label for="oldPasswd"><%xr_translate tag='Aktuelles Passwort'%></label>
-                              <input type="password" id="oldPasswd" name="oldPasswd" required class="form-control" value="" placeholder="<%xr_translate tag='Aktuelles Passwort'%>">
-                           </div>
-                           <!--error-div-->
-                           <div id="oldPasswd-error" class="alert alert-danger" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message error-message-1"><%xr_translate tag='Bitte Passwort eingeben'%></span>
-                              <span class="error-message error-message-2"><%xr_translate tag='Aktuelles Passwort ist falsch'%></span>
-                           </div>
-                           <!--END error-div-->
-                           <div class="form-group">
-                              <label for="newPasswd"><%xr_translate tag='Neues Passwort'%></label>
-                              <input type="password" id="newPasswd" name="newPasswd" required data-minlength="6" class="form-control" value="" placeholder="<%xr_translate tag='Neues Passwort'%>">
-                           </div>
-                           <!--error-div-->
-                           <div id="newPasswd-error" class="alert alert-danger" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag='Mindestens 6 Zeichen'%></span>
-                           </div>
-                           <!--END error-div-->
-                           <div class="form-group">
-                              <label for="newPasswdConfirm"><%xr_translate tag='Neues Passwort wiederholen'%></label>
-                              <input type="password" id="newPasswdConfirm" name="newPasswdConfirm" class="form-control" value="" placeholder="<%xr_translate tag='Neues Passwort wiederholen'%>">
-                           </div>
-                           <!--error-div-->
-                           <div id="newPasswdConfirm-error" class="alert alert-danger" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag='Die Passwörter stimmen nicht überein'%></span>
-                           </div>
-                           <!--END error-div-->
-                           <div id="changePasswd-success" class="alert alert-success" role="alert">
-                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                              <span class="error-message"><%xr_translate tag='Änderungen gespeichert'%></span>
-                           </div>
-                           <button type="submit" id="changePwd-btn" name="submit" class="btn btn-primary btn-block"><%xr_translate tag="Speichern"%></button>
-                        </form>
-                     </div>
-                     <!--END CHANGE PASSWORD-->
-                     <div class="submitbutton-container">
-                        <button id="<%if $data.USER.wz_ACTIVE == 'Y'%>form-deactivate-account<%else%>form-reactivate-account<%/if%>" class="button link-zu-wgtest">
-                        <%if $data.USER.wz_ACTIVE == 'Y'%>
-                        <%xr_translate tag="Account deaktivieren"%>
-                        <%else%>
-                        <%xr_translate tag="Account wieder aktivieren"%>
-                        <%/if%>
+                    <a data-fancybox data-src="#hidden-content" href="javascript:;">
+                        <button id="fragebogenModal" class="button start-button text-uppercase">
+                            <%xr_translate tag='mein-profil_btn_zumFragebogen'%>
                         </button>
-                     </div>
-                     <%/if%>
-                  </div>
-               </li>
-            </ul>
-         </div>
-      </div>
-      <%****END <ul>meinprofil-options*****%>
-   </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <%if $data['USER']['wz_TYPE'] != 'suche'%>
+            <div class="row no-margin">
+                <div class="col-xs-12 profil-container">
+                    <ul class="meinprofil-options no-gutter no-margin">
+                        <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meineZimmer'%></h4>
+                        <hr class="full-width">
+                        <div class="meinprofil-submenu" id="profileRoom">
+                                <%xr_atom a_id=1006 roomdataNew=$roomdataNew return=1%>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="meinprofil-add-room">
+                            <%xr_atom a_id=1007 return=1%>
+                            <img class="svg-icon" id="svg-icon-add" src="/xstorage/template/redesign/icons/icon-add-plus.svg" alt="Icon Add" />
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        <%/if%>
+        <%if $data['USER']['wz_TYPE'] == 'suche'%>
+            
+        <%/if%>
+        
+        
+        <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
+            <div class="row no-margin">
+                <div class="col-xs-12 profil-container">
+                    <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meinKonto'%></h4>
+                    <hr class="full-width">
+                    
+                    <!--CHANGE PASSWORD-->
+                    <%xr_atom a_id=1009 return=1%>
+                    
+                    <!-- ACTIVATE/DEACTIVATE ACCOUNT -->
+                    <div class="submitbutton-container">
+                        <button id="<%if $data.USER.wz_ACTIVE == 'Y'%>form-deactivate-account<%else%>form-reactivate-account<%/if%>" class="button link-zu-wgtest">
+                            <%if $data.USER.wz_ACTIVE == 'Y'%>
+                                <%xr_translate tag="Account deaktivieren"%>
+                            <%else%>
+                                <%xr_translate tag="Account wieder aktivieren"%>
+                            <%/if%>
+                        </button>
+                    </div>
+                    
+                    <!--DELETE ACCOUNT-->
+                    <div class="submitbutton-container">
+                        <button id="form-del-account" class="button link-zu-wgtest"><%xr_translate tag="Account löschen"%></button>
+                    </div>
+                    <!--./end submitcontainer-->
+                </div>
+                <!--./ende profil-container-->
+            </div>    
+            <!--./ende row-->
+        <%/if%>
+        
+        <!--DATEN VERWALTEN-->
+        <div class="row no-margin">
+            <div class="col-xs-12 profil-container">
+                <h5 class="daten-verwalten text-uppercase"><%xr_translate tag='mein-profil_h4-datenverwalten'%></h5>
+            </div>
+        </div>
+        <!-- ./ende row --> 
+        
+        
+        
+    </div>
+    <!-- ./end profil -->
 </div>
+<!-- ./end meinprofil-container -->
+
+
+

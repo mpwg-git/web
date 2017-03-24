@@ -14,6 +14,7 @@
                 <%$room.ROOM.wz_BESCHRIFTUNG_INTERN%> 
             </span>
         </a>
+
         
         <%$onclick = ''%>
         <%if $room.ROOM.wz_ACTIVE == 'N'%>
@@ -28,10 +29,9 @@
         
         
         <%*********************
-        <a  title="<%$activateStr%>" 
-            class="<%$jsclass%> room-edit-icon icon-status <%$iconclass%>" 
-            data-room="<%$room.ROOM.wz_id%>" 
-            href="<%xr_genlink p_id=32 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>">
+        <a title="<%$activateStr%>" 
+        class="<%$jsclass%> room-edit-icon icon-status <%$iconclass%>" 
+        data-room="<%$room.ROOM.wz_id%>" href="<%xr_genlink p_id=32 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>">
             <span>&nbsp;</span>
             <span class="add-edit"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
         </a>
@@ -47,12 +47,9 @@
         *****************%>
         
         
-        <a  title="<%xr_translate tag="Raum löschen"%>" 
+        <a  id="icon-trash-del-room" title="<%xr_translate tag='Raum löschen'%>" 
             class="js-delete-room-popup room-edit-icon icon-delete pull-right" 
-            style="display:inline-block; cursor:pointer;"
-            data-room="<%$room.ROOM.wz_id%>" >
-            
-            <span class="add-xdelete edit-icon"><span class="path1"></span><span class="path2"></span></span>
+            data-room="<%$room.ROOM.wz_id%>" href="#">
         </a>
         <%if $room.ROOM.wz_ACTIVE != 'Y'%>
             <a class="room-edit-icon pull-right" style="margin-top:-2px">
@@ -60,4 +57,5 @@
             </a>
         <%/if%>
     </div>
+
 <%/foreach%>

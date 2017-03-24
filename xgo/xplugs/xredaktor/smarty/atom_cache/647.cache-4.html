@@ -58,11 +58,30 @@
     
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
      
-     
+    
     <script type="text/javascript">
         top.P_LANG='<%$P_LANG%>';
         top.P_ID='<%$P_ID%>';
+        top.str_yes = '<%xr_translate tag="Ja"%>';
+        top.str_no = '<%xr_translate tag="Nein"%>';
+        top.delete_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+        top.delete_word2 = '<%xr_translate tag="###loeschen_wort2###"%>';
+        top.deactivate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+        top.deactivate_word2 = '<%xr_translate tag="deaktivieren"%>';
+        top.activate_word1 = '<%xr_translate tag="###loeschen_wort1###"%>';
+        top.activate_word2 = '<%xr_translate tag="aktivieren"%>';
     </script>
+
+    <style>
+    	.smooth_zoom_preloader {
+    		background-image: url(/xstorage/template/img/preloader.gif);
+    	}
+    	.smooth_zoom_icons {
+    		background-image: url(/xstorage/template/img/icons.png);
+    	}
+    </style>
+
+
 
     <script src="/xstorage/template/js/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC8wi58RIMPGI379eTvxC7e6khEM5s898E&libraries=places"></script>

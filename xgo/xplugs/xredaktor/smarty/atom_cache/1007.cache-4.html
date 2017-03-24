@@ -1,0 +1,15 @@
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<input type="hidden" id="hiddenUserId" value="<%$id%>">
+
+<div class="room-settings">    
+    <a id="neues-zimmer-anlegen" class="new-room" href="<%xr_genlink p_id=30 createNew=1%>">
+        <span id="neues-zimmer-anlegen" class="new-room room-name no-padding-left room-new" >
+            <%xr_translate tag="Neuen Raum anlegen"%>
+        </span>
+    </a>
+    <a id="neues-zimmer-anlegen" title="<%xr_translate tag="Neuen Raum anlegen"%>" class="room-edit-icon icon-new pull-right" href="<%xr_genlink p_id=30 createNew=1%>">
+        <%*<span><%xr_translate tag="Neuen Raum anlegen"%></span>*%>
+        <span></span>
+        <span id="neues-zimmer-anlegen" class="new-room add-add"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+    </a>
+</div>
