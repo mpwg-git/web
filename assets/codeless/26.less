@@ -178,32 +178,17 @@ span.wirklich {
     padding: 20px 25px 50px 25px;
 }
 
-/*
-.icon-svg {
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  
-  mask: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/heart.svg) no-repeat 50% 50%;
-  mask-size: cover;
-  -webkit-mask: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/heart.svg) no-repeat 50% 50%;
-  -webkit-mask-size: cover;
-  
+.ajax-loader {
+    z-index: 9999;
+    display: none;
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-.icon-red { background-color: red; }
-
-.icon-svg {
-    // display: inline-block;
-    width: 32px;
-    height: 32px;
-    mask-size: cover;
-    -webkit-mask-size: cover;
-    
-    .legend-nr1 {
-        mask: url(/xstorage/template/redesign/svg/icon-nr-1.svg) no-repeat 50% 50%;
-    }
-}
-*/
 
 .left-row {
     .meinprofil-erklaerung {
@@ -528,6 +513,7 @@ span.wirklich {
     filter: alpha(opacity=50);
     opacity: .5;
     height: 10000px !important;
+    z-index: inherit;
 }
 #noQuestionModal .modal-dialog.noQuestionModal {
     width: 100%;
