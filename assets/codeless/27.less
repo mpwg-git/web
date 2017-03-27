@@ -439,11 +439,17 @@
         word-break: break-word; 
     }
     #main-content .register-fragen .register-wunsch-wg {
-        margin: 20px 0 0 0 ;
+        margin: 20px 0 25px 0 ;
     }
     #main-content .register-fragen .register-konto {
-        margin: 0px 0 150px 0 ;
+        margin: 0px 0 20px 0 ;
     }
+    
+    #main-content .register-fragen .register-konto-sticky {
+        width: 100%;
+        margin:0;
+    }
+    
     
     #main-content .register-fragen .register-wunsch-wg, #main-content .register-fragen .register-fragebogen, #main-content .register-fragen .register-konto {
         padding: 5px 25px 20px 25px;
@@ -453,7 +459,7 @@
     #main-content {
         .register-fragen { 
             .register-fragebogen{
-                margin: 25px 0;
+                margin: 5px 0 25px 0;
                 
                 p {
                     font-size: .75em;
@@ -737,7 +743,7 @@
             
             .shadow-box-center {
                 padding: 0;
-                
+                     
                 .searchlist {
                     
                     .profil { 
@@ -1038,6 +1044,42 @@
                         
                         .profil-inner-padding {
                             padding: 5px 10px 0 0;
+                        }
+                        
+                        &.searchlist-chat {
+                            .chat {
+                                margin: 0;
+                                padding: 15px 25px 15px 15px;
+                                
+                                .header {
+                                    margin: 0;
+                                    
+                                    h1 {
+                                        font-size: 3em;
+                                        margin: 0;
+                                    }
+                                }
+                                .chatwindow .item {
+                                    padding: 10px 0;
+                                    
+                                    .text-wrapper {
+                                        .name {
+                                            font-size: 1em;
+                                        }
+                                        .text {
+                                            font-size: 1em;
+                                        }
+                                    }
+                                }
+                                textarea {
+                                    width: 70% !important;
+                                }
+                                #send-chat {
+                                    width: 35%;
+                                }
+                                
+                                
+                            }
                         }
                     }
                     

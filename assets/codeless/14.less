@@ -1416,53 +1416,67 @@ label{
     .transition(all 300ms ease);
     .opacity(0);
     .overlay{
-      position:relative;
-      text-align:center;
-      padding:10px;
-      background:rgba(4,224,215,0.8);
-      color:#000;
-      height:100%;
-      .scale(0.5);
-      .opacity(0);
-      .transition(all 300ms ease);
-      /*font-size: 3.5vw;*/
-      /*line-height: 3.8vw;*/
-      .font-size(16);
-      .line-height(20);
+        position:relative;
+        text-align:center;
+        padding:10px;
+        background:rgba(4,224,215,0.8);
+        color:#000;
+        height:100%;
+        .scale(0.5);
+        .opacity(0);
+        .transition(all 300ms ease);
+        /*font-size: 3.5vw;*/
+        /*line-height: 3.8vw;*/
+        .font-size(16);
+        .line-height(20);
+        
+        .overlay{
+            position:relative;
+            text-align:center;
+            padding:10px;
+            background:rgba(4,224,215,0.8);
+            color:#000;
+            height:100%;
+            .scale(0.5);
+            .opacity(0);
+            .transition(all 300ms ease);
+            .font-size(16);
+            .line-height(20);
+        }
 
-      @media @md{
+    @media @md{
         /*
         line-height: 1.8vw;
         font-size: 1.5vw;
         */
-      }
+    }
 
-      @media @lg{
+    @media @lg{
         .font-size(18);
         .line-height(22);
-      }
+    }
 
-      @media @xl{
+    @media @xl{
         .font-size(22);
         .line-height(26);
-      }
+    }
 
-      @media @xxl{
+    @media @xxl{
         .font-size(27);
         .line-height(32);
-      }
+    }
 
-      .upper{
+    .upper{
         font-family:@japoki!important;
         margin-bottom:5vw;
         &~p{
             font-family:@japoki!important;
-          position:absolute;
-          top: 50%;
-          left:0px;
-          width:100%;
-          padding:10px;
-          .translate(0,-50%);
+            position:absolute;
+            top: 50%;
+            left:0px;
+            width:100%;
+            padding:10px;
+            .translate(0,-50%);
         }
         .drduck{
           background:transparent;
@@ -1664,7 +1678,7 @@ label{
 
 
                 @media @xl{
-                    .font-size(23);
+                    .font-size(22);
                 }
             }
         }
@@ -1861,7 +1875,7 @@ label{
     .padding-top(0);
     .padding-right(12);
     h1, .looklikeh1 {
-        .font-size(66);
+        .font-size(60);
         text-transform:uppercase;
         .margin-bottom(25);
 
@@ -2183,6 +2197,7 @@ label{
     .profileimage{
         width:100%;
         height:auto;
+        padding: 0;
     }
     .profil-inner{
          .icon-Blocked_aktiv .path1:before {
@@ -2556,7 +2571,7 @@ label{
         line-height: 1;
 
     }
-    .geschlecht{
+    .geschlecht {
         label {
             .font-size(16);
             padding-left:0;
@@ -2586,7 +2601,7 @@ label{
                     color: #000000;
                 }
                 .path2:before, .path3:before, .path4:before, .path5:before, .path6:before{
-                    color: @blue;
+                    color: #fff;
                 }
             }
             .icon-mann_outline{
@@ -2713,6 +2728,16 @@ label{
         .font-size(14);
         .margin-bottom(40);
     }
+}
+.upload-image {
+    border: 1px solid #04e0d7;
+    width: 110px;
+    height: 120px;
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+    float: left;
+    margin-right: 10px;
 }
 
 // .upload-image{

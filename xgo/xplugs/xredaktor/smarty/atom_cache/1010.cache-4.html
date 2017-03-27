@@ -1,4 +1,13 @@
-
+<style type="text/less">
+    .icon-frau, .icon-mann, .icon-mann_outline, .icon-frau_outline {
+        font-size: 2em;
+    }
+    
+    .meinprofil-uebermich-inner .geschlecht input[type=radio] {
+        display: none;
+    }
+    
+</style>
 
 <%if !$user%>
     <%xr_siteCall fn="fe_user::getMyData" var="data"%>
@@ -30,6 +39,7 @@
                 <div class="geschlecht-chooser geschlecht">
                     <div class="form-group">
                         <div class="radio">
+                            <label for="geschlecht" style="display: block; padding-left: 0;"><%xr_translate tag="Geschlecht"%></label>
                             <label for="female">
                                 <input id="female" type="radio" name="GESCHLECHT" value="F" <%if ($user['wz_GESCHLECHT'] == 'F')%>checked="checked"<%/if%>>
                                 <span class="icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
