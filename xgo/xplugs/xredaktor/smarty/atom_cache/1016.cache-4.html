@@ -1,7 +1,120 @@
+<style>
+    input#ZEITRAUM_VON, input#MIETE_VON, input#MIETE_BIS,
+    input#WGGROESSE_VON,input#WGGROESSE_BIS, input#ZIMMERGROESSE_VON,
+    input#ZIMMERGROESSE_BIS {
+        width: 40%;
+        float:left;
+        margin: 0 20px 20px 0;
+    }
+    .devider.v-center {
+        width: 5%;
+        float: left;
+        position: relative;
+        top: 10px;
+    }
+
+    .radio.special-label {
+        margin: 0px 5px 0px 5px;
+        cursor: pointer;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    .radio input {
+        display: none;
+    }
+    .radio input[type="radio"]~.checked {
+        display: inline-block;
+    }
+    .radio input[type="radio"]~.unchecked {
+        display: inline-block;
+    }
+    .form-group .circle {
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    font-family: 'NunitoSans-bold';
+    font-size: .875em;
+    text-transform: none;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #04e0d7;
+}
+    .form-group .circle-filled {
+        background: #04e0d7;
+        color: #000;
+    }
+
+    label .svg-icon-mann {
+        margin-right: 5px;
+        margin-left: 10px;
+    }
+    label.mitbew-egal {
+        position: absolute;
+    }
+    .svg-icon-frau, .svg-icon-mann {
+        cursor: pointer;
+    }
+    
+    .svg-icon-frau-circle .checked, .svg-icon-mann-circle .checked {
+        fill: #04e0d7;
+    }
+</style>
+
+<%xr_siteCall fn="fe_user::getMyData" var="data"%>
+<%$profile=$data['PROFILE']%>
+
 <div class="meinprofil-ideales-zimmer collapse" id="collapseIdealesZimmer">
-    <form id="" class="shadow-box" name="" method="post" action="#">
-        <div class="form-group">
-            test
-        </div>
-    </form>
+    <div class="meinprofil-uebermich-inner">
+        <form class="form-mein-user col-count-2" id="form-mein-profil">
+                <div class="col-count-1">
+                    <%xr_atom a_id=734 return=1 desc='zeitraum'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=735 return=1 desc='miete'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=736 return=1 desc='mitbewohner'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=737 return=1 desc='wggroesse'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=738 return=1 desc='zimmergroesse'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=739 return=1 desc='abloese'%>
+                    <div class="clearfix"></div>
+                    
+                </div>
+                <div class="col-count-1">
+                    <%xr_atom a_id=740 return=1 desc='raucher'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=700 return=1 desc='adresse'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=828 return=1  desc='haustiere'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=829 return=1  desc='veganer'%>
+                    <div class="clearfix"></div>
+                    
+                    <%xr_atom a_id=869 return=1 desc='barrierefrei'%>
+                    <div class="clearfix"></div>
+                    
+                    <div class="submitbutton-container">
+                        <button class="button" data-toggle="collapse" data-target="#collapseIdealesZimmer" id="form-mein-profil-save" data-redirect="<%xr_genlink p_id=11%>"><%xr_translate tag="SPEICHERN"%></button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+        </form>
+    </div>
 </div>
+
+
+

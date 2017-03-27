@@ -1,7 +1,14 @@
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+<%xr_siteCall fn="fe_user::checkLoggedIn" var="checkLogin"%>
+
 <%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
 
+<%* FIX FOR ROOM SHARING *%>
 
-<div class="mapcontacts <%if $P_ID == 7%>hidden<%/if%>" trigger="0" >
+
+
+
+<div class="mapcontacts <%if $P_ID == 7 || $P_ID == 12%>hidden<%/if%>" trigger="0" >
     <div class="shadow-box-right">
         <div class="aside-right-map">
             <a href="#map" id="collapse-map" class="icon-arrow-up-down-map" data-toggle="collapse">
@@ -21,7 +28,7 @@
     </div>
 </div>
 
-
+<%if $isLoggedIn%>
 <div class="chatcontacts js-chatcontacts default-container-paddingtop" trigger="0">
     <div class="shadow-box-right">
         <div class="aside-right-chat">
@@ -35,27 +42,18 @@
                     <polygon points="34.82 53.1 0.05 21.16 3.48 17.42 34.81 46.2 66.51 16.9 69.95 20.63" class="cls-1"/>
                 </svg>
             </a>
-            <div class="clearfix"></div>
             <form>
                 <div class="form-group">
                     <div id="chat-input-search" class="input-icon collapse in">
                         <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
                         <!--<span class="icon-Lupe"></span>-->
-                        <div class="contacts-wrapper js-chatcontacts-replace">
-                            <%$html%>
-                        </div>
             		</div>
                 </div>
             </form>
         </div>
+        <div class="contacts-wrapper js-chatcontacts-replace">
+            <%$html%>
+        </div>
     </div>
 </div>
-
-
-   
-
-
-
-
-
-
+<%/if%>

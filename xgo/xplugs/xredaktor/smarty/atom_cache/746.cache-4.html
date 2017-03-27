@@ -1,0 +1,24 @@
+ <div id="content">
+
+
+    <div id="gui-frame" class="frame">
+        <img id="gui_image" src="<%$image['src']%>">
+      
+        <input type="hidden" id="origW" name="origW" value="<%$image['trueW']%>" />
+        <input type="hidden" id="origH" name="origH" value="<%$image['trueH']%>" />
+
+    	<input type="hidden" id="s_id" name="s_id" value="<%$image['s_id']%>" />
+    	<input type="hidden" id="new_s_id" name="new_s_id" value="" />
+    	<input type="hidden" id="type" name="type" value="<%$type%>" />
+    	<input type="hidden" id="refid" name="refid" value="<%$refid%>" />
+      
+    </div>
+
+    <div id="controls">
+        <button id="rotate_left" class="button guillotine" title="Rotate left"><i class="fa fa-rotate-left"></i></button>
+        <button id="zoom_out" class="button guillotine"title="Zoom out"><i class="fa fa-search-minus"></i></button>
+        <button id="zoom_in" class="button guillotine" title="Zoom in"><i class="fa fa-search-plus"></i></button>
+        <button id="rotate_right" class="button guillotine" title="Rotate right"><i class="fa fa-rotate-right"></i></button>
+        <button id="close-image-cropper" class="button guillotine close-image-cropper pull-left" title="Close"><i class="fa fa-times"></i></button>
+        <button id="save-gui-image" class="button guillotine save-gui-image pull-right" title="Save image"><i class="fa fa-floppy-o"></i></button>
+    </div>

@@ -4,57 +4,78 @@
     <%xr_siteCall fn="fe_user::getMyRoomData" roomId=$smarty.request.roomId var="data" redirect=true%>
 <%/if%>
 
-
 <%if $smarty.request.dev == 1%>
     <%xr_print_r val=$data%>
 <%/if%>
-
 <%xr_siteCall fn='fe_search::getUserId' var='id'%>
 <input type="hidden" id="hiddenUserId" value="<%$id%>">
 <input type="hidden" id="hiddenRoomId" value="<%$smarty.request.roomId%>">
-    <div class="col-xs-12 meinprofil-meinedaten meinprofil-biete">
-        <div class="pull-right" style="font-size: 0.924vw; padding-top:5px; color:#04e0d7;">
-            <a href="<%xr_genlink p_id=7%>">
-                <span class="icon-Close"></span>
-            </a>
-        </div>  
-        <h1><%xr_translate tag="Mein Raum"%></h1>
+
+
+<div id="main-content">
+    <div id="search-page">
+        <div class="col-md-3 col-sm-4 hidden-xs hidden-sm">
+            <%xr_atom a_id=982 return=1%>
+        </div>
         
-        <%**Session Messages**%>
-        <%xr_atom a_id=851 return=1 showFace=0%>
-                
-        <%if $data.ROOM.wz_ACTIVE == 'Y'%>
-            <button id="deactivate-room" class="js-deactivate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Deaktivieren'%></button>
-        <%else%>
-            <button class="js-activate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Aktivieren'%></button>
-        <%/if%>
-                
-        <button id="delete-room-popup" class="js-delete-room-popup" data-room="<%$data.ROOM.wz_id%>" style="margin-right: 10px;">
-            <%xr_translate tag="Raum löschen"%>
-        </button>
-                
-        <%xr_siteCall fn="fe_util::isV2" var="isV2"%>
-                
-        <%if $isV2 == 1%>
-            <%xr_siteCall fn="fe_vanityurls::getFacebookShare" var="fbShareUrl"%>
-            <%if $fbShareUrl != ''%>
-                <a href="<%$fbShareUrl%>?utm_source=FB&utm_medium=usershare&utm_campaign=own" target="_blank">
-                    <!--<%xr_imgWrapper s_id=18489 w=150 ext='png'%>-->
-                    <%xr_imgWrapper s_id=27725 h=28 ext='png'%>
-                </a>
-            <%/if%>
-        <%/if%>
-                
-        <%*****************
-            <a href="<%xr_genlink p_id=31 m_suffix="`$data.ROOM.wz_id`/`$data.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$data.ROOM.wz_id%>"><button class=""><%xr_translate tag='Einladen'%></button></a>
-        ****************%>
-                
-        <%*<h2><%$data.ROOM.wz_BESCHRIFTUNG_INTERN%></h2>*%>
-                
-        <%xr_atom a_id=748 images=$data['IMAGES'] fromRoom=1 refid=$smarty.request.roomId return=1%>
-                
-        <div class="clearfix"></div>
+        <div id="mein-profil-biete" class="col-md-6 col-sm-5 col-xs-12 no-gutter mob-no-gutter">
+            <div class="shadow-box-center">
+                <div class="meinprofil-meinedaten meinprofil-biete">
+                    <div class="pull-right" style="font-size: 0.924vw; padding-top:5px; color:#04e0d7;">
+                        <a href="<%xr_genlink p_id=7%>">
+                            <span class="icon-Close"></span>
+                        </a>
+                    </div>  
+                    <h1><%xr_translate tag="Mein Raum"%></h1>
                     
-        <%xr_atom a_id=732 profile=$data['ROOM'] return=1%>
+                    <%**Session Messages**%>
+                    <%xr_atom a_id=851 return=1%>
+                                
+                    <%if $data.ROOM.wz_ACTIVE == 'Y'%>
+                        <button id="deactivate-room" class="button js-deactivate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Deaktivieren'%></button>
+                    <%else%>
+                        <button class="button js-activate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Aktivieren'%></button>
+                    <%/if%>
+                            
+                    <button id="delete-room-popup" class="button js-delete-room-popup" data-room="<%$data.ROOM.wz_id%>" style="margin-right: 10px;">
+                        <%xr_translate tag="Raum löschen"%>
+                    </button>
+                            
+                    <!--<%xr_siteCall fn="fe_util::isV2" var="isV2"%>-->
+                        
+                    <!--<%if $isV2 == 1%>-->
+                        <%xr_siteCall fn="fe_vanityurls::getFacebookShare" var="fbShareUrl"%>
+                        <%if $fbShareUrl != ''%>
+                            <a href="<%$fbShareUrl%>?utm_source=FB&utm_medium=usershare&utm_campaign=own" target="_blank">
+                                <!--<%xr_imgWrapper s_id=18489 w=150 ext='png'%>-->
+                                <%xr_imgWrapper s_id=27725 h=28 ext='png'%>
+                            </a>
+                        <%/if%>
+                    <!--<%/if%>-->
+                                
+                    <%*****************
+                        <a href="<%xr_genlink p_id=31 m_suffix="`$data.ROOM.wz_id`/`$data.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$data.ROOM.wz_id%>"><button class=""><%xr_translate tag='Einladen'%></button></a>
+                    ****************%>
+                        
+                    <%*<h2><%$data.ROOM.wz_BESCHRIFTUNG_INTERN%></h2>*%>
+                            
+                    <%xr_atom a_id=748 images=$data['IMAGES'] fromRoom=1 refid=$smarty.request.roomId return=1%>
+                            
+                    <div class="clearfix"></div>
+                                
+                    <%xr_atom a_id=1011 profile=$data['ROOM'] return=1%>
+                </div>
+            </div>
+        </div>
+        <div id="search-map-chat" class="col-md-3 col-sm-3">
+            <!--chat contacts-->
+            <%xr_atom a_id=832 return=1%>
+        </div>
     </div>
+</div>
+
+
+
+
+
 

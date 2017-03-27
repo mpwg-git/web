@@ -66,9 +66,6 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
 .no-gutter, .no-gutter > [class*='col-'] {
     padding-left:0;
     padding-right:0;
-    // @media @xs {
-    //     .padding-left-right(15);
-    // }
 }
 .no-margin, .no-margin > [class*='col-'] {
     margin-left:0;
@@ -83,7 +80,7 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
 
 .profil-inner-padding{
     .padding-left-right(20);
-    .padding-top-bottom(30);
+    .padding-top-bottom(35);
 }
 
 a, a:hover, a:active, a:focus {
@@ -97,7 +94,6 @@ a {
 
     &:hover, &:focus {
         color: #fff;
-        // text-decoration: underline;
     }
 
     &.footer-icon:hover{
@@ -330,17 +326,39 @@ span.wirklich {
             .main-item-wrapper{
                 .margin-right(15);
                 padding: 0.29vw 0.6vw;
+                
+                svg#icon-blockliste, svg#icon-merkliste {
+                    width: 16px;
+                    height: auto;
+                    position: relative;
+                    top: 3px;
+                    color: #fff;
+                }
+                
                 &:last-of-type {
                     margin-right: 0;
                 }
                 &.active{
-                    color:#000!important;
+                    color:#333!important;
+                    
+                    .svg-blockliste, .svg-merkliste {
+                        fill: #333;
+                    }
                 }
                 .main-item{
                     display:inline-block;
                     vertical-align: middle;
+                    
                 }
+
             }
+            .icon-fav:before {
+                content: "\e61e";
+            }
+            .icon-block:before {
+                content: "\e611";
+            }
+            
             .logo-legend-section{
                 text-align:right;
                 .item{
@@ -1238,11 +1256,12 @@ button {
             .profil  {
                 display: inline-block;
                 width: 100%;
-
+                padding-bottom: 50px;
+                
                 .userinfos {
                     .userinfos-left {
-                        width: 75%;
-                        margin: 30px 15% 65px 15%;
+                        width: 85%;
+                        margin: 35px 0 70px 45px;
 
                         .wg-img-wrapper {
                             margin-top: 5px;
@@ -1473,27 +1492,15 @@ button {
                         &.full-width {
                             width: 100%;
                         }
-                        .svg-icon-mann:after {
-                            content: " ";
-                            width: 32px;
-                            height: 32px;
-                            display: block;
-                            background-image: url(/xstorage/template/redesign/icons/icon-profil-mann-circle.svg);
-                            background-repeat: no-repeat;
-                            background-position: 54% 90%;
-                            background-size: 90%;
-                            margin: -10px 0;
+                        .svg-icon-mann {
+                            position: absolute;
+                            bottom: -22px;
+                            left: 56%;
                         }
-                        .svg-icon-frau:after {
-                            content: " ";
-                            width: 30px;
-                            height: 30px;
-                            display: block;
-                            background-image: url(/xstorage/template/redesign/icons/icon-profil-frau-circle.svg);
-                            background-repeat: no-repeat;
-                            background-position: 60% 90%;
-                            background-size: 90%;
-                            margin: -10px 0;
+                        .svg-icon-frau {
+                            position: absolute;
+                            bottom: -22px;
+                            left: 52%;
                         }
                     }
                 }
@@ -1524,6 +1531,7 @@ button {
             .shadow-box-right {
                 margin-bottom: 35px;
                 margin-left: 3%;
+                padding-bottom: 35px;
 
                 h1 {
                     font-size: 3em;
@@ -1541,6 +1549,7 @@ button {
                         &.chat {
                             background: transparent;
                             padding: 0;
+                            border: none;
                         }
 
                     }
@@ -1736,6 +1745,53 @@ button {
         }
         
     }
+    
+    .chat {
+        position: relative;
+        color: #04e0d7;
+        margin: 2.5% 10% 0% 10%;
+        background: #efefef;
+        height: 100%;
+        border: 1px solid #04e0d7;
+        .border-radius(6px);
+        
+        .chatwindow {
+            margin-top: 0;
+            
+            .item {
+                &:nth-child(odd){
+                    
+                }
+            }
+        }
+        
+            
+        .textwindow textarea {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 13px;
+            padding-bottom: 1px;
+            background: #efefef;
+            resize: none;
+            color: #333;
+            height: 44px;
+            border: 1px solid #04e0d7;
+            border-radius: 6px;
+        }
+        
+        button#send-chat {
+            vertical-align: top;
+            width: 20%;
+            height: 44px;
+            margin: 0;
+            border: 1px solid @turkis;
+            background-color: #fff;
+            color: @turkis;
+            font-family: @nunitobold;
+            .border-radius(6px);
+        }
+    }
+    
 }
 /* END MAIN-CONTENT */
 
@@ -1819,7 +1875,7 @@ button {
     }
 }
 
-#collapseUeberMich {
+#collapseUeberMich, #collapseIdealesZimmer {
     width: 100%;
     position: relative;
     left:5.731381606850147%;
@@ -1829,14 +1885,14 @@ button {
     width: 80%;
     // margin: 0 auto;
 
-    #form-mein-user {
+    #form-mein-user, #form-mein-profil {
         margin-top: 15px;
         padding: 20px;
         .border-radius();
         .box-shadow(0 0 0.25em @turkis);
     }
     
-    #form-mein-profil-save-user {
+    #form-mein-profil-save-user, #form-mein-profil-save {
         margin-top: 23px;
         padding-top: 0;
         padding-bottom: 0;

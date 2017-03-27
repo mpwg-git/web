@@ -201,8 +201,6 @@ var fe_map = (function() {
                 }
             });
             
-            
-            
             $('input[type=radio][name=search-type]').unbind("change");
             $('input[type=radio][name=search-type]').change(function() {
                 $('input[type=radio][name=search-type]').removeClass("active");

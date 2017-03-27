@@ -1,3 +1,6 @@
+<%$p_id_favsblocked = 11%>
+
+
 <header class="clearfix">
     <div id="main-header" class="no-gutter">
         <div class="col-sm-3 col-xs-9 text-center">
@@ -25,13 +28,13 @@
         				<span class="main-item icon-Lupe"></span>
         				<span class="text text-uppercase"><%xr_translate tag="Treffer"%></span>
         			</a>
-        			<a href="/de/suche/favourites" class="main-item-wrapper">
-                        <span class="main-item icon-Favourite_inaktiv"></span>
-                        <span class="text text-uppercase">Bewerberliste</span>
+        			<a href="<%xr_genlink p_id=$p_id_favsblocked filter='FAVS' m_suffix="favourites"%>" class="main-item-wrapper <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>active<%/if%>">
+                        <%xr_atom a_id=1021 return=1%>
+                        <span class="text text-uppercase"><%xr_translate tag='nav-loggedin_bewerberliste'%></span>
                     </a>
-        			<a href="/de/suche/blocked"  class="main-item-wrapper">
-                        <span class="main-item icon-Blocked_inaktiv"></span>
-                        <span class="text text-uppercase">Blockierte</span>
+        			<a href="<%xr_genlink p_id=$p_id_favsblocked filter='BLOCKED' m_suffix="blocked"%>" class="main-item-wrapper <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'BLOCKED'%>active<%/if%>">
+                        <%xr_atom a_id=1022 return=1%>
+                        <span class="text text-uppercase"><%xr_translate tag='nav-loggedin_blockliste'%></span>
                     </a>
         		</div>
         		<%*
@@ -51,17 +54,12 @@
         </div>
         <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
             <i class="toggle-btn" data-toggle="collapse" data-target="#menu-content">
-                <svg height="32px" id="icon-mob-sidenav" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <defs>
-                    <style>.cls-2{fill:#fff;}</style>
-                    </defs>
-                    <title>icons_meineperfektewg</title>
-                    <path class="cls-2" d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
-                </svg>
+                <%xr_atom a_id=1023 return=1%>
             </i>
         </div>
         <%xr_atom a_id=978 return=1%>
-        <div class="mob-sub-nav hidden-sm hidden-md hidden-lg" style="<%if $P_ID != 11%>visibility: hidden;<%/if%>">
+        <!--<div class="mob-sub-nav hidden-sm hidden-md hidden-lg" style="<%if $P_ID != 11%>visibility: hidden;<%/if%>">-->
+        <div class="mob-sub-nav hidden-sm hidden-md hidden-lg">
             <%xr_atom a_id=980 return=1%>
         </div>
     </div>

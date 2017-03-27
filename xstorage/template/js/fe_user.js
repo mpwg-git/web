@@ -251,6 +251,35 @@ var fe_user = (function() {
                 });
                 $me.popover('show');
             });
+            
+
+            
+            
+            $('#icon-mann-circle').unbind("click");
+            $('#icon-mann-circle').click(function(e) {
+                e.preventDefault();
+
+            	if($('path.svg-icon-mann-circle').css('fill') == 'rgb(100, 100, 100)') {
+            		$('path.svg-icon-mann-circle').css({fill: 'rgb(4, 224, 215)'});
+	            }
+	            else {
+	        		$('path.svg-icon-mann-circle').css({fill: 'rgb(100, 100, 100)'});
+	            }
+            });
+            $('#icon-frau-circle').unbind("click");
+            $('#icon-frau-circle').click(function(e) {
+                e.preventDefault();
+
+            	if($('path.svg-icon-frau-circle').css('fill') == 'rgb(100, 100, 100)') {
+            		$('path.svg-icon-frau-circle').css({fill: 'rgb(4, 224, 215)'});
+	            }
+	            else {
+	        		$('path.svg-icon-frau-circle').css({fill: 'rgb(100, 100, 100)'});
+	            }
+            });
+            
+            
+            
 
             $('.form-mein-profil').unbind("submit");
             $('.form-mein-profil').submit(function(e) {
@@ -265,7 +294,9 @@ var fe_user = (function() {
                     url: '/xsite/call/fe_user/profileSave',
                     data: data,
                     success: function(data) {
-                        window.location.href = $('#form-mein-profil-save').data('redirect');
+//                        window.location.href = $('#form-mein-profil-save').data('redirect');
+                    	location.reload();
+
                     }
                 });
             });
@@ -406,7 +437,7 @@ var fe_user = (function() {
             });
             $('#form-mein-profil-save').unbind("click");
             $('#form-mein-profil-save').click(function(e) {
-                e.preventDefault();
+                e.preventDefault();                
                 return fe_core.submitWithValidation('form-mein-profil')
             });
             $('#form-login-submit').unbind("click");

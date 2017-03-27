@@ -1,0 +1,18 @@
+<div class="form-group">
+    <label><%xr_translate tag="Zeitraum?"%>*</label>
+    <div class="column-input v-center hasDatePicker">
+        <input class="form-control datepicker" name="ZEITRAUM_VON" value="<%$profile['wz_ZEITRAUM_VON']%>" id="ZEITRAUM_VON" placeholder="<%xr_translate tag='ab'%>?" rel="required" />
+        <span class="add-on"><i class="icon-calendar"></i></span>
+    </div>
+    <div class="devider v-center">
+        -
+    </div>
+    <div class="column-input v-center hasDatePicker">
+        <input class="form-control datepicker" name="ZEITRAUM_BIS" value="<%$profile['wz_ZEITRAUM_BIS']%>" id="ZEITRAUM_VON" placeholder="<%xr_translate tag='bis'%>?" />
+         <span class="add-on"><i class="icon-calendar"></i></span>
+    </div>
+    <div class="error-div" id="ZEITRAUM_VON_error">
+        <!--<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
+        <span class="error-message"><%xr_translate tag="Bitte Zeitraum angeben"%></span>
+    </div>
+</div>

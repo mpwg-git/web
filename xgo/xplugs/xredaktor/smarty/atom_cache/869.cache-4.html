@@ -1,0 +1,35 @@
+<div class="form-group">
+    <label class="show"><%xr_translate tag="Barrierefrei?"%></label>
+    <!--<div class="column-input v-center">-->
+        <label for="barrierefrei-ja" class="radio special-label">
+            <input id="barrierefrei-ja" type="radio" name="BARRIEREFREI" value="Y"/>
+             <%if $profile['wz_BARRIEREFREI'] == 'Y'%>
+                 <span class="checked circle circle-filled"><%xr_translate tag='ja'%></span>
+            <%else%>
+                <span class="unchecked circle circle-plain"><%xr_translate tag='ja'%></span>
+            <%/if%>
+        </label>
+    <!--</div>-->
+    <!--<div class="column-input v-center">-->
+    <label for="barrierefrei-nein" class="radio special-label">
+        <input id="barrierefrei-nein" type="radio" name="BARRIEREFREI" value="N"/>
+         <%if $profile['wz_BARRIEREFREI'] == 'N'%>
+            <span class="checked circle circle-filled"><%xr_translate tag='nein'%></span>
+        <%else%>
+            <span class="unchecked circle circle-plain"><%xr_translate tag='nein'%></span>
+        <%/if%>
+    </label>
+    <!--</div>-->
+    <%if !isset($noEgal)%>
+    <!--<div class="column-input v-center">-->
+    <label for="barrierefrei-egal" class="radio special-label">
+        <input id="barrierefrei-egal" type="radio" name="BARRIEREFREI" value="X"/>
+        <%if $profile['wz_BARRIEREFREI'] == 'X'%>
+            <span class="checked circle circle-filled"><%xr_translate tag='egal'%></span>
+        <%else%>
+            <span class="unchecked circle circle-plain"><%xr_translate tag='egal'%></span>
+        <%/if%>
+    </label>
+    <%/if%>
+    <!--</div>-->
+</div>

@@ -6,9 +6,9 @@
         
         <a href="<%$data.USER.PROFILE_URL%>" title="<%$data['USER']['wz_VORNAME']%> <%$data['USER']['wz_NACHNAME']%>">
             
-            <span class="looklikeh1"><%$data['USER']['wz_VORNAME']%>
-                <p class="subinfo"><%$data['USER']['wz_NACHNAME']%></p>
-            </span>
+            <h1><%$data['USER']['wz_VORNAME']%>
+                <h3 class="subinfo"><%$data['USER']['wz_NACHNAME']%></h3>
+            </h1>
         </a>
         <div class="pull-right" style="padding-top:20px;color:#04e0d7;">
             <%if $isLoggedIn === true%><a href="<%xr_genlink p_id=7%>"><%else%><a href="<%xr_genlink p_id=1%>"><%/if%>
@@ -38,8 +38,8 @@
     <%if $otherIsActive && $iAmActive%>
     <input type="hidden" id="hiddenUserId" value="<%$myUserId%>">
     <div class="js-chattext textwindow" style="white-space:nowrap;">
-        <textarea placeholder="<%xr_translate tag="dein text"%>" style="width: 24.6vw;"></textarea><!--
-        --><button id="send-chat" style="vertical-align:top"><%xr_translate tag='Senden'%></button>
+        <textarea placeholder="<%xr_translate tag="dein text"%>" style="width: 24.6vw;"></textarea>
+       <button id="send-chat">Senden</button>
     </div>
     <%elseif !$otherIsActive%>
         <%xr_translate tag='Chatten nicht möglich, da das Konto des Chat-Empfängers zur Zeit deaktiviert ist!'%>
