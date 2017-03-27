@@ -9,8 +9,12 @@
         <div class="accordion-inner">
             <form method="post" id="wg-zimmer-finden">
                 <div class="form-group">
-                    <label class="radio-inline"><input type="radio" name="optradio"><h5><%xr_translate tag='reg_sex-female'%></h5></label>
-                    <label class="radio-inline"><input type="radio" name="optradio"><h5><%xr_translate tag='reg_sex-male'%></h5></label>
+                    <label class="radio-inline">
+                        <input type="radio" id="FEMALE" name="FEMALE" required><h5><%xr_translate tag='reg_sex-female'%></h5>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" id="MALE" name="MALE" required><h5><%xr_translate tag='reg_sex-male'%></h5>
+                    </label>
                 </div>
                 <div class="form-group">
                     <label for="vorname"><h5><%xr_translate tag="Vorname?"%>*</h5></label>
@@ -70,7 +74,7 @@
         </div>
     </div>
     <a data-toggle="collapse" href="#show-simple-login-form">
-        <button class="button start-button text-uppercase <%*js-fb-login*%>" id="fb-reg-submit">
+        <button class="button start-button text-uppercase js-fb-login" id="fb-reg-submit">
             <span class="fb-f">f </span><%xr_translate tag='Mit Facebook registrieren'%>
         </button>
     </a>

@@ -3,12 +3,52 @@
 var fe_fragebogen = (function() {
     return new function() {
         this.init = function() {
-            this.registerListeners();
+            // this.registerListeners();
+
+			this.getFragebogenValues = function() {
+				var $antwortenArray = [];
+				var $ok = checkFragebogen();
+				if ((typeof $ok != "undefined" && $ok == false)) {
+					console.log("undefined OR !false");
+					return false;
+				}
+				$('#register-fragebogen .hidden-fragen').each(function(i, o) {
+
+					var id = $(o).val();
+
+					var delta = $('input:radio[name="FR' + id + '"]:checked').val();
+
+					var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
+
+					if((typeof delta != "undefined" || delta !== false)) {
+						$antwortenArray[i] = {id, delta, superwichtig};
+					}
+					else {
+						return false;
+					}
+				});
+				return $antwortenArray;
+			};
+
+
+			this.checkFragebogen = function () {
+				var checkboxError = false;
+        		$('.checkbox-error').hide();
+        		$(".hidden-fragen").each(function (i, o) {
+        			var frageId = $(o).val();
+        			var checkedChecker = $('input:radio[name=FR'+frageId+']:checked').length;
+        			if (checkedChecker == 0) {
+        				$('#FRAGE_' + frageId + '_error').show();
+        				checkboxError = true;
+        			}
+        		})
+			};
         }
-        this.registerListeners = function() {
-            var me = this;
 
+        // this.registerListeners = function() {
+        //     var me = this;
 
+/*
 			var getFragebogenValues = function () {
 				var $antwortenArray = [];
 				var $ok = checkFragebogen();
@@ -35,20 +75,9 @@ var fe_fragebogen = (function() {
 
 				return $antwortenArray;
 			};
+*/
 
 
-			var checkFragebogen = function () {
-				var checkboxError = false;
-        		$('.checkbox-error').hide();
-        		$(".hidden-fragen").each(function (i, o) {
-        			var frageId = $(o).val();
-        			var checkedChecker = $('input:radio[name=FR'+frageId+']:checked').length;
-        			if (checkedChecker == 0) {
-        				$('#FRAGE_' + frageId + '_error').show();
-        				checkboxError = true;
-        			}
-        		})
-			};
 
 			$("#ID").unbind("click");
 			$("#ID").click(function(e){
@@ -56,10 +85,10 @@ var fe_fragebogen = (function() {
 
 				var $collection = getFragebogenValues();
 				var $formdata = $('#wg-zimmer-finden').serializeArray();
-				
+
 				var adresse = $('input#ADRESSE.form-control.autocomplete-location-v2').val();
 				var mietemax = $('input#MIETEMAX.form-control').val();
-				
+
 				if((typeof $collection != "undefined" && $collection != false)) {
                     $.ajax({
                         type: 'POST',
@@ -99,9 +128,10 @@ var fe_fragebogen = (function() {
                 $("#saveFragebogenBtn").show();
             });
 
-        }
+        // }
     }
 })();
+
 $(document).ready(function() {
     fe_fragebogen.init();
 });

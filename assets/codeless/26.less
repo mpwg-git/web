@@ -859,6 +859,7 @@ button {
 
         .register-konto {
             margin: 50px 0 25px 0;
+            padding-bottom: 20px;
 
             h6 {
                 margin-bottom: 20px;
@@ -868,6 +869,11 @@ button {
                 position: relative;
                 left: 20px;
             }
+        }
+        
+        #sticky-register-konto {
+            width: 100%;
+            margin: 50px 0 0 0;
         }
 
         .accordion-inner {
@@ -1248,10 +1254,16 @@ button {
                     .userinfos-left {
                         width: 85%;
                         margin: 35px 0 70px 45px;
+                        
+                         .profileimage {
+                            width: 100%;
+                            height: auto;
+                            // margin: 20px 0 54px 10px;
+                            padding: 10px;
+                            border: 2px solid @turkis;
+                            border-radius: 6px;
+                        }   
 
-                        .wg-img-wrapper {
-                            margin-top: 5px;
-                        }
                     }
 
                     .userinfos-right  {
@@ -1280,14 +1292,7 @@ button {
                     padding-right: 25px;
                     color: @turkis;
                 }
-                .profileimage {
-                    width: 100%;
-                    height: auto;
-                    // margin: 20px 0 54px 10px;
-                    padding: 10px;
-                    border: 2px solid @turkis;
-                    border-radius: 6px;
-                }
+  
 
                 .icon-Close:before {
                     content: "X";
@@ -1432,7 +1437,10 @@ button {
                         }
                     }
                 }
+                
+                
             }
+            
             h4.headline {
                 color: #646464;
                 font-size: 1.3125em;
@@ -1602,6 +1610,49 @@ button {
         }
     }
     /* END SEARCHPAGE */
+    
+    #search-hits {
+        .shadow-box-center {
+            .profil.profil-room {
+                .roominfos {
+                    margin-bottom: 55px;
+                    h1, h2, h3 {
+                        margin: 0;
+                    }
+                    .roominfos-left {
+                        top: 35px;
+                        
+                        .wg-img-wrapper {
+                            width: 100%;
+                            height: auto;
+                            padding: 10px;
+                            border: 2px solid #04e0d7;
+                            border-radius: 6px;
+                            
+                            .profileimage  {                                
+                                border: none;
+                            }
+                            
+                            /*
+                            img.rsImg {
+                                max-width: 320px !important; 
+                                max-height: 320px !important;
+                            }
+                            */
+                        }
+                    }
+                    .roominfos-right {
+                        top: 0px;
+                        
+                        .btn-wrapper {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 
 
 
@@ -1665,18 +1716,63 @@ button {
     #search-page .shadow-box-center {
         .meinprofil-container .profil {
 
-            .userinfos {
-    
-                // .userinfos-left {
-                //     width: 60%;
-                //     margin: 2.5%;
-                // }
+            .userinfos-left {
+                .meinprofil-profilbild {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                }
             }
             .meinprofil-options {
                 a, a:hover, a:focus {
                     color: @turkis;
                 }
                 
+            }
+            
+            .meinprofil-profilbild.add-image {
+                .add-image-profil {
+                    position: absolute;
+                    bottom: .5%;
+                    width: 99%;
+                    text-align: center;
+                    color: #04e0d7;
+                    font-family: 'NunitoSans-bold';
+                    font-size: .875em;
+                    text-transform: uppercase;
+                    -khtml-opacity: .75;
+                    -moz-opacity: .75;
+                    -ms-filter: "alpha(opacity=75)";
+                    filter: alpha(opacity=75);
+                    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=.75);
+                    opacity: .75;
+                    background: #646464;
+                    padding: 5px 0 4px 0;
+                    border-radius: 0 0 6px 6px;
+                    margin: 0 1px;             
+                }
+                #svg-icon-add {
+                    width: 22px;
+                    height: auto;
+                    vertical-align: text-bottom;
+                }
+                .profilbild-hochladen {
+                    padding-left: 10px;
+
+                }
+            }
+        }
+        .meinprofil-meinedaten.meinprofil-biete {
+            padding: 15px 20px;
+            
+            h1 { font-size: 3em; margin: 0; }
+            a {
+                color: @turkis;
+            }
+            .button {
+                width: ;
+                height: 40px;
+                font-size: .8125em;
             }
         }
     }
@@ -2305,7 +2401,7 @@ input.form-control {
     font-size: 0.9375em;
     color: @turkis;
     background-color: rgba(239, 239, 239, 0.59);
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     padding: 0 5px;
     border: none;
 }

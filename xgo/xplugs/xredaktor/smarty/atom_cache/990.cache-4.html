@@ -11,83 +11,85 @@
         <%*xr_print_r val=$data['MATCHING']*%>
     <%*/if*%>
 
-    <div class="profil no-gutter">
+    <div class="profil profil-room no-gutter">
     
         <div class="row no-margin userinfos">
-            
-            <div class="userinfos-left pull-left">
-                <%if count($data['IMAGES']) > 0%>
-                    <div class="wg-img-wrapper">
-                        <%xr_atom a_id=991 images=$data['IMAGES'] return=1%>
-                    </div>
-                <%/if%>   
-            </div>
-            <div class="userinfos-right pull-left">
-                <div class="profil-inner-padding">
-                    <div class="icon-close-profile pull-right">
-                        <a href="javascript:history.back();">
-                            <span class="icon-Close"></span>
-                        </a>
-                    </div>   
-
-                    <div class="maininfo">
-                        <h3>Helles freundliches <span class="text-lowercase">17m²</span></h3>
-                        <h1 class="headline">WG-Zimmer</h1>
-                    </div>
-
-                    <div class="matchinginfos">
-                        <span class="prozent">
-                            <%if $data['USER']['wz_id'] == $room['wz_ADMIN']%>
-                                <style>
-                                    .matchinginfos .prozent:after {
-                                        content: '100%' !important;
-                                        font-size: 1.375em;
-                                    }
-                                    .matchinginfos .prozent{
-                                        margin-bottom: 0.75vw;
-                                    }
-                                    .profil .match-text {
-                                        display: none;
-                                    }
-                                </style>
-                            <%else%>
-                                <%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%>
-                            <%/if%>
-                        </span>
-                        <span class="match">match</span>
-                       
-                        <%******* 3 sätze... bei räumen nicht anzeigen
-                        <span><%xr_atom a_id=833 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%></span>
-                        *********%>
-                            
-                        <div class="clearfix"></div>
-                        
-                    </div>
+            <div class="roominfos col-xs-12">
+                <div class="roominfos-left col-xs-6">
+                    <%if count($data['IMAGES']) > 0%>
+                        <div class="wg-img-wrapper">
+                            <%xr_atom a_id=991 images=$data['IMAGES'] return=1%>
+                        </div>
+                    <%/if%>   
                 </div>
-                <div class="btn-wrapper">
-                    <a class="" href="<%xr_genlink p_id=12 id=$room['wz_ADMIN'] m_suffix="room/`$room['wz_id']`"%>">
-                        <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase svg-chatnachricht">
-                            <span class="icon-description"><%xr_translate tag="Nachricht schreiben"%></span>
+                <div class="roominfos-right col-xs-6 no-margin">
+                    <div class="profil-inner-padding">
+                        <div class="icon-close-profile pull-right">
+                            <a href="javascript:history.back();">
+                                <span class="icon-Close"></span>
+                            </a>
+                        </div>   
+    
+                        <div class="maininfo">
+                            <h3>Helles freundliches <span class="text-lowercase">17m²</span></h3>
+                            <h1 class="headline">WG-Zimmer</h1>
                         </div>
-                    </a>
-                    <a class="" href="">
-                        <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase svg-merkliste">
-                            <!--<%xr_atom a_id=985 userId=$user['wz_id'] state=$user['STATE_FAV'] description="<%xr_translate tag='Favourite'%>" return=1%>-->
-                            <%xr_atom a_id=985 theType="room" userId=$room['wz_id'] state=$roomState['FAV'] description="<%xr_translate tag='Favourite'%>" return=1%>
+    
+                        <div class="matchinginfos">
+                            <span class="prozent">
+                                <%if $data['USER']['wz_id'] == $room['wz_ADMIN']%>
+                                    <style>
+                                        .matchinginfos .prozent:after {
+                                            content: '100%' !important;
+                                            font-size: 1.375em;
+                                        }
+                                        .matchinginfos .prozent{
+                                            margin-bottom: 0.75vw;
+                                        }
+                                        .profil .match-text {
+                                            display: none;
+                                        }
+                                    </style>
+                                <%else%>
+                                    <%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%>
+                                <%/if%>
+                            </span>
+                            <span class="match">match</span>
+                           
+                            <%******* 3 sätze... bei räumen nicht anzeigen
+                            <span><%xr_atom a_id=833 matching=$data['MATCHING'] return=1 desc='matchinginfos detail'%></span>
+                            *********%>
+                                
+                            <div class="clearfix"></div>
+                            
                         </div>
-                    </a>
-                    <a class="" href="">
-                        <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase svg-blockliste">
-                            <!--<%xr_atom a_id=986 userId=$user['wz_id'] state=$user['STATE_BLOCK'] description="<%xr_translate tag='Block'%>" return=1%>-->
-                            <%xr_atom a_id=986 theType="room" userId=$room['wz_id'] state=$roomState['BLOCK'] description="<%xr_translate tag='Block'%>" return=1%>
+                    
+                        <div class="btn-wrapper">
+                            <a class="" href="<%xr_genlink p_id=12 id=$room['wz_ADMIN'] m_suffix="room/`$room['wz_id']`"%>">
+                                <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase svg-chatnachricht">
+                                    <span class="icon-description"><%xr_translate tag="Nachricht schreiben"%></span>
+                                </div>
+                            </a>
+                            <a class="" href="">
+                                <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase svg-merkliste">
+                                    <!--<%xr_atom a_id=985 userId=$user['wz_id'] state=$user['STATE_FAV'] description="<%xr_translate tag='Favourite'%>" return=1%>-->
+                                    <%xr_atom a_id=985 theType="room" userId=$room['wz_id'] state=$roomState['FAV'] description="<%xr_translate tag='Favourite'%>" return=1%>
+                                </div>
+                            </a>
+                            <a class="" href="">
+                                <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase svg-blockliste">
+                                    <!--<%xr_atom a_id=986 userId=$user['wz_id'] state=$user['STATE_BLOCK'] description="<%xr_translate tag='Block'%>" return=1%>-->
+                                    <%xr_atom a_id=986 theType="room" userId=$room['wz_id'] state=$roomState['BLOCK'] description="<%xr_translate tag='Block'%>" return=1%>
+                                </div>
+                            </a>
+                            <a class="" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.meineperfektewg.com%2F%2Fde%2Froom%2F12923?utm_source=FB&utm_medium=usershare&utm_campaign=other">
+                                <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase btn-share-fb">
+                                    <span class="icon-description"><%xr_translate tag="btn_share-on-fb"%></span>
+                                    <!--<span class="fb-f text-lowercase">f </span><span class="text-uppercase">Share on Facebook</span>-->
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                    <a class="" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.meineperfektewg.com%2F%2Fde%2Froom%2F12923?utm_source=FB&utm_medium=usershare&utm_campaign=other">
-                        <div class="svg-btn-icons btn-lg btn-xs btn-block text-uppercase btn-share-fb">
-                            <span class="icon-description"><%xr_translate tag="btn_share-on-fb"%></span>
-                            <!--<span class="fb-f text-lowercase">f </span><span class="text-uppercase">Share on Facebook</span>-->
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

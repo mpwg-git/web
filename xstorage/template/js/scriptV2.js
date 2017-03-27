@@ -279,17 +279,33 @@ var simpleLogin = {
 			ok = simpleLogin.checkVal('v2_PASSWORT', $('#v2_PASSWORT').val()) ? false : true;
 		}
 		if (ok) {
-		    	ok = simpleLogin.checkEqual('v2_PASSWORT_confirm', $('#v2_PASSWORT').val(), $('#v2_PASSWORT_confirm').val()) ? false : true;
+		    ok = simpleLogin.checkEqual('v2_PASSWORT_confirm', $('#v2_PASSWORT').val(), $('#v2_PASSWORT_confirm').val()) ? false : true;
+		}
+		if (ok) {
+			ok = simpleLogin.checkVal('ADRESSE', $('input#ADRESSE').val()) ? false : true;
+		}
+		if (ok) {
+			ok = simpleLogin.checkVal('MIETEMAX', $('input#MIETEMAX').val()) ? false : true;
 		}
 
 		if (ok != true) {
 			return false;
 		}
+
+		var adresse = $('input#ADRESSE').val();
+		var miete = $('#MIETEMAX').val();
+		var fragebogen = $('#register-fragebogen').serializeObject();
 		var formdata = $('#wg-zimmer-finden').serializeObject();
+
 		var cfg = {
 			be_scope: 'fe_user',
 			be_fn: 'doSimpleLogin',
-			data: formdata,
+			data: {
+				fragebogen: fragebogen,
+				formdata: formdata,
+				adresse: adresse,
+				miete: miete
+			},
 			scope: this,
 			cb: simpleLogin.doLoginCallback
 		}

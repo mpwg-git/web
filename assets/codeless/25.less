@@ -77,6 +77,14 @@
     background: @turkis;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 8px;
+    margin-top: 15%;
+    z-index: 20;
+    
+    @media @xs {
+        width: 95%;   
+        margin: 30% 0 0 2.5% !important;
+    }
+    
 }
 
 .cropImg {
@@ -629,7 +637,8 @@ ul#menu-content li:first-child {
     padding: 11px 5px 14px 5px;
 }
 .icon-sidenav > img {
-    margin-top: -5px;
+    margin-top: 3px;
+    vertical-align: middle;
 }
 .icon-agb {
     font-size: 1.75em;
@@ -1185,7 +1194,7 @@ label{
     .circle{
         width: 28px;
         height: 28px;
-        line-height: 28px; 
+        line-height: 26px; 
         font-family: @nunitoregular;
         font-size: 14px;
         text-transform: none;

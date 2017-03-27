@@ -13,15 +13,18 @@
         <div class="row no-margin">
             <div class="userinfos col-sm-5 col-xs-6 pull-left no-margin mob-no-gutter">
                 <div class="userinfos-left">
-                    <div class="meinprofil-profilbild add-image add-image-profil" data-type="profile">
+                    <div class="meinprofil-profilbild add-image" data-type="profile">
                         <%if $user['wz_PROFILBILD'] == 0%>
-                            <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
+                            <%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%>
                         <%else%>
-                            <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%></a>
+                            <!--<a href="<%$user['PROFILE_URL']%>">-->
+                                <%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%>
+                            <!--</a>-->
                         <%/if%>
-                        <span class="icon-plus"></span>
-                        <span class="profilbild-hochladen"><%xr_translate tag="Profilbild hochladen"%></span>
-                            
+                        <div class="add-image-profil">
+                            <img class="svg-icon" id="svg-icon-add" src="/xstorage/template/redesign/icons/icon-add-plus.svg" alt="Icon Add">
+                            <span class="profilbild-hochladen"><%xr_translate tag="Profilbild hochladen"%></span>
+                        </div>
                         <div class="img-upload-label-container">
                             <label class="img-upload-label">
                                 <input type="file" id="file" class="fileupload add-image-file" name="add-image-file" data-filename-placement="inside" title="Datei wählen">

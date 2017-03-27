@@ -4,28 +4,15 @@
         <h3>Meine Wunsch WG</h3>
     
         <h5>Ort</h5>
-        <div class="input-icon search-input search-input-map">
-            <input type="text" class="form-control autocomplete-location-v2" id="ADRESSE" rel="required" name="ADRESSE" value="" placeholder="Stadt, Ort, PLZ?" autocomplete="off">
-            <span class="icon-Map js-autocomplete-duck"><span class="path1"></span><span class="path2"></span></span>
-        </div>
-        <div class="location-hidden-container">
-            <input type="hidden" name="ADRESSE_STRASSE" class="location-strasse route" value="">
-            <input type="hidden" name="ADRESSE_STRASSE_NR" class="location-strasse-nr street_number" value="">
-            <input type="hidden" name="ADRESSE_PLZ" class="location-plz postal_code" value="">
-            <input type="hidden" name="ADRESSE_STADT" class="location-stadt locality" value="Wien">
-            <input type="hidden" name="ADRESSE_LAND" class="location-land country" value="AT">
-            <input type="hidden" name="ADRESSE_LAT" class="location-lat" value="">
-            <input type="hidden" name="ADRESSE_LNG" class="location-lng" value="">
-            <input type="hidden" class="administrative_area_level_1">
-        </div>
-        <div class="error-div" id="ADRESSE_error">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" style="display: none;"></span>
-            <span class="error-message">error_adresse</span>
-        </div>
+        <form>
+            <%xr_atom a_id=898 addClass="location-start" return=1%>
+        </form>
+    
+    
     
         <h5>Miete maximal</h5>
         <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" rel="required">
-        <div class="error-div" id="MIETEMAX_error">error_miete</div>
+        <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='reg_error-miete'%></div>
     </div>
 <%elseif $P_ID == 48%>
     <div class="register-wunsch-wg">
@@ -48,12 +35,12 @@
         </div>
         <div class="error-div" id="ADRESSE_error">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" style="display: none;"></span>
-            <span class="error-message">error_adresse</span>
+            <span class="error-message"><%xr_translate tag='reg_error-adresse'%></span>
         </div>
         
         <h5>Miete</h5>
         <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" rel="required">
-        <div class="error-div" id="MIETEMAX_error">error_miete</div>
+        <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='reg_error-miete'%></div>
         </div>
 <%/if%>
 
