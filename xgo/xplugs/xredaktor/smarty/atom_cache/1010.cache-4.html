@@ -36,7 +36,7 @@
                         <span class="error-message"><%xr_translate tag="Bitte Nachname eingeben"%></span>
                     </div>
                 </div>
-                <div class="geschlecht-chooser geschlecht">
+                <div class="geschlecht-chooser geschlecht" style="margin-left: -10px;">
                     <div class="form-group">
                         <div class="radio">
                             <label for="geschlecht" style="display: block; padding-left: 0;"><%xr_translate tag="Geschlecht"%></label>
@@ -100,7 +100,7 @@
                 
                 <%*if $P_ID != 8*%>
                     <div class="submitbutton-container">
-                        <button id="form-mein-profil-save-user" class="button"><%xr_translate tag="speichern"%></button>
+                        <button id="form-mein-profil-save-user" class="button" data-toggle="collapse" data-target="#collapseUeberMich"><%xr_translate tag="speichern"%></button>
                     </div>
                 <%*/if*%>
             </div>

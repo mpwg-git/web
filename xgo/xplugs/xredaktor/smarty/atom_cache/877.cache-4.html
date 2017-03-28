@@ -1,0 +1,18 @@
+<div class="form-group">
+    <label><%xr_translate tag="Alter der Mitbewohner?"%></label>
+    <div class="column-input v-center">
+    <%if $profile.ROOM.wz_lastChanged == $profile.ROOM.wz_created%>
+        <input class="form-control" name="MITBEWOHNER_ALTER_VON" value="" id="MITBEWOHNER_ALTER_VON" placeholder="<%xr_translate tag='von'%>?" />
+    <%else%>
+        <input class="form-control" name="MITBEWOHNER_ALTER_VON" value="<%$profile['wz_MITBEWOHNER_ALTER_VON']%>" id="MITBEWOHNER_ALTER_VON" placeholder="<%xr_translate tag='von'%>?" />
+    <%/if%>
+    </div><!--
+    --><div class="devider v-center">-</div><!--
+    --><div class="column-input v-center">
+    <%if $profile.ROOM.wz_lastChanged == $profile.ROOM.wz_created%>
+        <input class="form-control" name="MITBEWOHNER_ALTER_BIS" value="" id="MITBEWOHNER_ALTER_BIS" placeholder="<%xr_translate tag='bis'%>?" />
+    <%else%>
+        <input class="form-control" name="MITBEWOHNER_ALTER_BIS" value="<%$profile['wz_MITBEWOHNER_ALTER_BIS']%>" id="MITBEWOHNER_ALTER_BIS" placeholder="<%xr_translate tag='bis'%>?" />
+    <%/if%>
+    </div>
+</div>

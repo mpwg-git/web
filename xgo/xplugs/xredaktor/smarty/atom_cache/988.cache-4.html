@@ -4,152 +4,105 @@
         <h4 class="headline text-uppercase">Wunschliste</h4>
         <hr class="full-width">
         
-        <div class="col-count-2">
-            <div class="col-count-1">
-            <%if $data['PROFILE']['ZEITRAUM'] != ''%>
-            <div class="fakt clearfix">
-                <span class="aufzaehlung"><%xr_translate tag="Zeitraum"%></span><span class="info"><%$data['PROFILE']['ZEITRAUM']%></span>
-            </div>
-            <%/if%>
-            
-            <%***
-            <%if $data['PROFILE']['MIETE'] != ''%>
-            <div class="fakt clearfix">
-                <span class="aufzaehlung"><%xr_translate tag="Miete"%></span><span class="info"><%$data['PROFILE']['MIETE']%> €</span>
-            </div>
-            <%/if%>
-            ***%>
-            <%if $data['USER']['wz_MIETE_VON'] != '' || $data['USER']['wz_MIETE_BIS'] != ''%>
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="Miete"%></span>
-                    <span class="info">
-                        <%if $data['USER']['wz_MIETE_VON'] != ''%> 
-                                <%if !$data['USER']['wz_MIETE_BIS']%>
-                                    <%xr_translate tag='von'%>
-                                <%/if%>
-                                € <%$data.USER.wz_MIETE_VON%>
-                                
-                                <%if $data['USER']['wz_MIETE_VON'] && $data['USER']['wz_MIETE_BIS']%>
-                                    &nbsp;-&nbsp;
-                                <%/if%>
-                                
-                        <%/if%>
-                        <%if $data['USER']['wz_MIETE_BIS'] != ''%>
-                                <%if !$data['USER']['wz_MIETE_VON']%>
-                                    <%xr_translate tag='bis'%>
-                                <%/if%>
-                                € <%$data['USER']['wz_MIETE_BIS']%>
-                            <!--</span>-->
-                        <%/if%>
-                    </span>
-                </div>
-            <%/if%>
-            
-<%*****************
-            <%if $data.USER.wz_ADRESSE != ''%>
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="Gesuchte Adresse"%></span><span class="info"><%$data.USER.wz_ADRESSE%></span>
-                </div>
-            
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="Umkreis"%></span><span class="info"><%$data.USER.wz_UMKREIS%></span>
-                </div>
-            <%/if%>
-        
-            
-            <%if $data.USER.wz_ZEITRAUM_VON != '0000-00-00' && $data.USER.wz_ZEITRAUM_VON != ''%>
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="Suche ab"%></span><span class="info"><%$data.USER.wz_ZEITRAUM_VON|date_format:"%d.%m.%Y"%></span>
-                </div>
-            <%/if%>
-            
-            <%if $data.USER.wz_WGGROESSE_VON > 0 || $data.USER.wz_WGGROESSE_BIS > 0%>
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="WG - Größe"%></span>
-                    <%if $data['USER']['wz_WGGROESSE_VON'] != ''%> 
-                        <span class="info">
-                            <%if !$data['USER']['wz_WGGROESSE_BIS']%>
-                                <%xr_translate tag='von'%>
-                            <%/if%>
-                            <%$data.USER.wz_WGGROESSE_VON%>
-                        </span>
-                    <%/if%>
-                    <%if $data['USER']['wz_WGGROESSE_VON'] && $data['USER']['wz_WGGROESSE_BIS']%>
-                        <span class="info">&nbsp;-&nbsp;</span>
-                    <%/if%>
-                    <%if $data['USER']['wz_WGGROESSE_BIS'] != ''%>
-                        <span class="info">
-                            <%if !$data['USER']['wz_WGGROESSE_VON']%>
-                                <%xr_translate tag='bis'%>
-                            <%/if%>
-                            <%$data['USER']['wz_WGGROESSE_BIS']%>
-                        </span>
-                    <%/if%>
-                </div>
-            <%/if%>
-*****************%>
-        
-        
-            <%if $data.USER.wz_ZIMMERGROESSE_VON > 0 && $data.USER.wz_ZIMMERGROESSE_BIS > 0%>
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse_von-bis"%></span><span class="info"><%$data.USER.wz_ZIMMERGROESSE_VON%>m² - <%$data.USER.wz_ZIMMERGROESSE_BIS%>m²</span>
-                </div>
-            <%else%>
-                <%if $data.USER.wz_ZIMMERGROESSE_VON > 0%>
+        <div class="col-count-2" style="width: 80%; padding-left: 5px;">
+            <div class="col-count-1" style="height: 220px;">
+                
+                <%if $data['PROFILE']['ZEITRAUM'] != ''%>
                     <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse"%></span><span class="info"><%xr_translate tag='profil-user_zimmergroesse-ab'%> <%$data.USER.wz_ZIMMERGROESSE_VON%>m²</span>
+                        <span class="aufzaehlung"><%xr_translate tag="Zeitraum"%></span><span class="info"><%$data['PROFILE']['ZEITRAUM']%></span>
                     </div>
                 <%/if%>
-                
-                <%if $data.USER.wz_ZIMMERGROESSE_BIS > 0%>
-                    <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse"%></span><span class="info"><%xr_translate tag='profil-user_zimmergroesse-bis'%> <%$data.USER.wz_ZIMMERGROESSE_BIS%>m²</span>
-                    </div>
-                <%/if%>
-            <%/if%>
-            <div class="fakt clearfix">
-                <span class="aufzaehlung"><%xr_translate tag="profil-user_kaution"%></span><span class="info"><%$data['PROFILE']['ABLOESE']%></span>
-            </div>
-            </div>
-            <div class="col-count-1">
-            <div class="fakt clearfix">
-                <span class="aufzaehlung"><%xr_translate tag="Raucher"%></span><span class="info"><%$data['PROFILE']['RAUCHER']%></span>
-            </div>
-            
-            <div class="fakt clearfix">
-                <span class="aufzaehlung"><%xr_translate tag="Haustiere"%></span>
-                <span class="info"><%if $data.USER.wz_HAUSTIERE== 'Y'%><%xr_translate tag="Ja"%><%elseif $data.USER.wz_HAUSTIERE == 'N'%><%xr_translate tag="Nein"%><%else%><%xr_translate tag="Egal"%><%/if%></span>
-            </div>
-            
-            <div class="fakt clearfix">
-                <span class="aufzaehlung"><%xr_translate tag="profil-user_veggie"%></span>
-                <span class="info"><%if $data.USER.wz_VEGGIE== 'Y'%><%xr_translate tag="Ja"%><%elseif $data.USER.wz_VEGGIE == 'N'%><%xr_translate tag="Nein"%><%else%><%xr_translate tag="Egal"%><%/if%></span>
-            </div>
-                
-            <div class="fakt clearfix gewuenschter-mitbewohner">
-                <span class="aufzaehlung"><%xr_translate tag="Mitbewohner"%></span>
-                <span class="info">
-                    <span class="svg-icon-frau" <%if $data['PROFILE']['wz_MITBEWOHNER'] == 'F'%>style="display:none;"<%/if%>>
-                        <%xr_atom a_id=1019 return=1%>
-                    </span>
-                    <span class="svg-icon-mann" <%if $data['PROFILE']['wz_MITBEWOHNER'] == 'M'%>style="display:none;"<%/if%>>
-                        <%xr_atom a_id=1018 return=1%>
-                    </span>
-                </span>
-            </div>
-            
-            <%if $data['PROFILE']['WGGROESSE'] != ''%>
-                <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="WG-Größe"%></span><span class="info"><%$data['PROFILE']['WGGROESSE']%> Personen</span>
-                </div>
-            <%/if%>
 
+                <%if $data['USER']['wz_MIETE_VON'] != '' || $data['USER']['wz_MIETE_BIS'] != ''%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="Miete"%></span>
+                        <span class="info">
+                            <%if $data['USER']['wz_MIETE_VON'] != ''%> 
+                                    <%if !$data['USER']['wz_MIETE_BIS']%>
+                                        <%xr_translate tag='von'%>
+                                    <%/if%>
+                                    € <%$data.USER.wz_MIETE_VON%>
+                                    
+                                    <%if $data['USER']['wz_MIETE_VON'] && $data['USER']['wz_MIETE_BIS']%>
+                                        &nbsp;-&nbsp;
+                                    <%/if%>
+                                    
+                            <%/if%>
+                            <%if $data['USER']['wz_MIETE_BIS'] != ''%>
+                                    <%if !$data['USER']['wz_MIETE_VON']%>
+                                        <%xr_translate tag='bis'%>
+                                    <%/if%>
+                                    € <%$data['USER']['wz_MIETE_BIS']%>
+                                <!--</span>-->
+                            <%/if%>
+                        </span>
+                    </div>
+                <%/if%>
+    
             
-            <%if $data['PROFILE']['wz_SPRACHEN'] != ''%>
+                <%if $data.USER.wz_ZIMMERGROESSE_VON > 0 && $data.USER.wz_ZIMMERGROESSE_BIS > 0%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse_von-bis"%></span><span class="info"><%$data.USER.wz_ZIMMERGROESSE_VON%>m² - <%$data.USER.wz_ZIMMERGROESSE_BIS%>m²</span>
+                    </div>
+                <%else%>
+                    <%if $data.USER.wz_ZIMMERGROESSE_VON > 0%>
+                        <div class="fakt clearfix">
+                            <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse"%></span><span class="info"><%xr_translate tag='profil-user_zimmergroesse-ab'%> <%$data.USER.wz_ZIMMERGROESSE_VON%>m²</span>
+                        </div>
+                    <%/if%>
+                    
+                    <%if $data.USER.wz_ZIMMERGROESSE_BIS > 0%>
+                        <div class="fakt clearfix">
+                            <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse"%></span><span class="info"><%xr_translate tag='profil-user_zimmergroesse-bis'%> <%$data.USER.wz_ZIMMERGROESSE_BIS%>m²</span>
+                        </div>
+                    <%/if%>
+                <%/if%>
+                
                 <div class="fakt clearfix">
-                    <span class="aufzaehlung"><%xr_translate tag="Sprachen"%></span><span class="info"><%$data['PROFILE']['SPRACHEN']%></span>
+                    <span class="aufzaehlung"><%xr_translate tag="profil-user_kaution"%></span><span class="info"><%$data['PROFILE']['ABLOESE']%></span>
                 </div>
-            <%/if%>
+                
+                <div class="fakt clearfix">
+                    <span class="aufzaehlung"><%xr_translate tag="Raucher"%></span><span class="info"><%$data['PROFILE']['RAUCHER']%></span>
+                </div>
+            </div>
+            
+            
+            <div class="col-count-1" style="height: 220px;">
+                <div class="fakt clearfix">
+                    <span class="aufzaehlung"><%xr_translate tag="Haustiere"%></span>
+                    <span class="info"><%if $data.USER.wz_HAUSTIERE== 'Y'%><%xr_translate tag="Ja"%><%elseif $data.USER.wz_HAUSTIERE == 'N'%><%xr_translate tag="Nein"%><%else%><%xr_translate tag="Egal"%><%/if%></span>
+                </div>
+                
+                <div class="fakt clearfix">
+                    <span class="aufzaehlung"><%xr_translate tag="profil-user_veggie"%></span>
+                    <span class="info"><%if $data.USER.wz_VEGGIE== 'Y'%><%xr_translate tag="Ja"%><%elseif $data.USER.wz_VEGGIE == 'N'%><%xr_translate tag="Nein"%><%else%><%xr_translate tag="Egal"%><%/if%></span>
+                </div>
+                    
+                <div class="fakt clearfix gewuenschter-mitbewohner">
+                    <span class="aufzaehlung"><%xr_translate tag="Mitbewohner"%></span>
+                    <span class="info">
+                        <span class="svg-icon-frau" <%if $data['PROFILE']['wz_MITBEWOHNER'] == 'F'%>style="display:none;"<%/if%>>
+                            <%xr_atom a_id=1019 return=1%>
+                        </span>
+                        <span class="svg-icon-mann" <%if $data['PROFILE']['wz_MITBEWOHNER'] == 'M'%>style="display:none;"<%/if%>>
+                            <%xr_atom a_id=1018 return=1%>
+                        </span>
+                    </span>
+                </div>
+                
+                <%if $data['PROFILE']['WGGROESSE'] != ''%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="WG-Größe"%></span><span class="info"><%$data['PROFILE']['WGGROESSE']%> Personen</span>
+                    </div>
+                <%/if%>
+    
+                
+                <%if $data['PROFILE']['wz_SPRACHEN'] != ''%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="Sprachen"%></span><span class="info"><%$data['PROFILE']['SPRACHEN']%></span>
+                    </div>
+                <%/if%>
             </div>
         </div>
     </div>

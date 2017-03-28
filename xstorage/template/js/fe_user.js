@@ -254,7 +254,7 @@ var fe_user = (function() {
             
 
             
-            
+            /*
             $('#icon-mann-circle').unbind("click");
             $('#icon-mann-circle').click(function(e) {
                 e.preventDefault();
@@ -277,8 +277,7 @@ var fe_user = (function() {
 	        		$('path.svg-icon-frau-circle').css({fill: 'rgb(100, 100, 100)'});
 	            }
             });
-            
-            
+            */
             
 
             $('.form-mein-profil').unbind("submit");

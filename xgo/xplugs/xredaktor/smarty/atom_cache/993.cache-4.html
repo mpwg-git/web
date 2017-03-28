@@ -4,12 +4,12 @@
         <h4 class="headline text-uppercase"><%xr_translate tag='room_detailview-h4'%></h4>
         <hr class="full-width">
         
-        <div class="col-count-2">
+        <div class="col-count-2" style="margin-bottom: 40px;">
                     <%if $data['ROOM']['wz_ZEITRAUM_VON'] != '' || $data['ROOM']['wz_ZEITRAUM_BIS'] != ''%>
                         <div class="fakt clearfix">
-                            <span class="aufzaehlung" style="width: 60%"><%xr_translate tag="Zeitraum"%></spans>
-                            <%if $data['ROOM']['wz_ZEITRAUM_VON'] != ''%> 
+                            <span class="aufzaehlung"><%xr_translate tag="Zeitraum"%></span>
                                 <span class="info">
+                            <%if $data['ROOM']['wz_ZEITRAUM_VON'] != ''%> 
                                     <%if !$data['ROOM']['wz_ZEITRAUM_BIS']%>
                                         <%xr_translate tag='von'%>
                                     <%/if%>
@@ -24,8 +24,8 @@
                                         <%xr_translate tag='bis'%>
                                     <%/if%>
                                     <%$data['ROOM']['wz_ZEITRAUM_BIS']%>
-                                </span>
                             <%/if%>
+                                </span>
                         </div>
                     <%/if%>
                     
@@ -53,7 +53,6 @@
                         <span class="aufzaehlung"><%xr_translate tag="Zusatzkosten"%></span><span class="info"><%$data['ROOM']['ZUSATZKOSTEN']%> €</span>
                     </div>
                     <%/if%>
-                    
                     <%if $data['ROOM']['RAUCHER'] != ''%>
                     <div class="fakt clearfix">
                         <span class="aufzaehlung"><%xr_translate tag="Raucher"%></span><span class="info"><%$data['ROOM']['RAUCHER']%></span>
@@ -75,9 +74,22 @@
                     
                     <%if $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] != ''%>
                         <div class="fakt clearfix gewuenschter-mitbewohner">
-                            <span class="aufzaehlung"><%xr_translate tag="Mitbewohner"%></span><span class="info">
-                                <span class="icon-frau" <%if $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] == 'M'%>style="display:none;"<%/if%>><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
-                                <span class="icon-mann" <%if $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] == 'F'%>style="display:none;"<%/if%>><span class="path1"></span><span class="path2"></span></span>
+                            <span class="aufzaehlung"><%xr_translate tag="Mitbewohner"%></span>
+                            <span class="info">
+                                
+                                <%if $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] == 'M' || $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] == 'X'%>
+                                    <span class="checked icon-frau"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+                                <%else%>
+                                    <span class="unchecked icon-frau_outline"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+                                <%/if%>
+
+                                
+                                <%if $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] == 'F' || $data['ROOM']['wz_GESCHLECHT_MITBEWOHNER'] == 'X'%>
+                                    <span class="checked icon-mann"><span class="path1"></span><span class="path2"></span></span>
+                                <%else%>
+                                    <span class="unchecked icon-mann_outline"><span class="path1"></span><span class="path2"></span></span>
+                                <%/if%>
+                                
                             </span>
                         </div>
                     <%/if%>
@@ -87,50 +99,6 @@
                         <span class="aufzaehlung"><%xr_translate tag="Barrierefrei"%></span><span class="info"><%$data['ROOM']['BARRIEREFREI']%></span>
                     </div>
                     <%/if%>
-                    
-
-                <%*
-                    <%if $data['ROOM']['SPRACHEN'] != ''%>
-                    <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="Sprachen"%></span><span class="info"><%$data['ROOM']['SPRACHEN']%></span>
-                    </div>
-                    <%/if%>
-                    
-                    <%if $data['ROOM']['wz_LAGE'] != ''%>
-                    <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="Lage"%></span><span class="info full-width"><%$data.ROOM.wz_LAGE|nl2br%></span>
-                    </div>
-                    <%/if%>
-                    
-                    <%if $data['ROOM']['wz_AUSSTATTUNG'] != ''%>
-                    <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="Ausstattung"%></span><span class="info full-width"><%$data.ROOM.wz_AUSSTATTUNG|nl2br%></span>
-                    </div>
-                    <%/if%>
-                    
-                    <%if $data['ROOM']['wz_BESCHREIBUNG'] != ''%>
-                    <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="Beschreibung"%></span><span class="info full-width"><%$data.ROOM.wz_BESCHREIBUNG|nl2br%></span>
-                    </div>
-                    <%/if%>
-                    
-                    <%if $data['ROOM']['wz_ADRESSE'] != ''%>
-                    <div class="fakt clearfix">
-                        <span class="aufzaehlung"><%xr_translate tag="Adresse"%></span><span class="info"><%$data['ROOM']['wz_ADRESSE']%></span>
-                    </div>
-                    <%/if%>
-                    
-                    <%if $data['ROOM']['wz_ADRESSE'] != ''%>
-                        <script>
-                            top.showOnMap2 = {
-                                'lat':"<%$data.ROOM.wz_ADRESSE_LAT%>",
-                                'lng':"<%$data.ROOM.wz_ADRESSE_LNG%>",
-                                'el' : '.map2'
-                            };
-                        </script>
-                        <div id="map" class="map2" style="height:20vw"></div>
-                    <%/if%>
-                *%>        
         </div>
     </div>
 </div>

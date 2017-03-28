@@ -1288,9 +1288,11 @@ button {
                 }
 
                 .icon-close-profile {
-                    padding-top: 20px;
-                    padding-right: 25px;
+                    position: absolute;
+                    top: 15px;
+                    right: 5px;
                     color: @turkis;
+                    
                 }
   
 
@@ -1320,19 +1322,20 @@ button {
                     text-align: left;
 
                     .prozent, .match  {
-                        font-size: 1.375em;
+                        font-size: 1.25em !important;
                         font-family: @nunitoregular;
-                        line-height: 1.4090909090909092em;
+                        line-height: 1.5;
                         color: @turkis;
                         text-transform: uppercase;
 
                     }
                     .prozent {
-
+                        
+                        /*
                         &:after {
-                            content:'%';
-                            margin-left: -5px;
+                            content:'100%';
                         }
+                        */
                     }
                 }
                 .btn-wrapper {
@@ -1345,22 +1348,21 @@ button {
                     }
 
                     .svg-btn-icons {
-                        width: 55%;
-                        margin-top: 10px;
+                        margin: 10px 0;
                         box-shadow: 0 0 0 2px @turkis;
                         line-height: 0;
                         border-radius: 6px;
                         background-repeat: no-repeat;
                         text-decoration: none;
                         padding: 0;
-
+                        width: 80%;
 
                         &.svg-chatnachricht {
                             background-image: url(/xstorage/template/redesign/icons/icon-chat.svg);
                             background-position: 7% 50%;
                             background-color: @turkis;
                             background-size: 8%;
-                            padding: 12px 0;
+                            padding: 10px 0;
                             text-decoration: none; 
 
                             &:hover {
@@ -1375,7 +1377,7 @@ button {
                             background-position: 7% 50%;
                             background-color: @turkis;
                             background-size: 8%;
-                            padding: 12px 0;
+                            padding: 10px 0;
                         }
 
                         .icon-description {
@@ -1384,7 +1386,7 @@ button {
                             left: 20%;
                             letter-spacing: .25px;
                             font-family: @nunitoblack;
-                            font-size: .875em;
+                            font-size: 1.125em;
                             color: #fff;
                             text-transform: uppercase;
                             text-decoration: none; 
@@ -1405,7 +1407,7 @@ button {
                                 background-position: 7% 50%;
                                 background-repeat: no-repeat;
                                 background-color: @turkis;
-                                padding: 12px 0;
+                                padding: 10px 0;
 
                                 &.inactive {
                                     background-image: url(/xstorage/template/redesign/icons/icon-merkliste.svg);
@@ -1423,7 +1425,7 @@ button {
                                 background-position: 7% 50%;
                                 background-repeat: no-repeat;
                                 background-color: @turkis;
-                                padding: 12px 0;
+                                padding: 10px 0;
 
                                 &.inactive {
                                     background-image: url(/xstorage/template/redesign/icons/icon-blockliste.svg);
@@ -1471,7 +1473,7 @@ button {
                     color: @darkgray;
                     overflow: hidden;
                     font-size: .875em;
-                    padding: 13px 5px;
+                    padding: 10px;
                     
                     .aufzaehlung {
                         width: 100%;
@@ -1479,6 +1481,7 @@ button {
                         font-family: @nunitoextrabold;
                         text-transform: uppercase;
                         line-height: 1.3571428571428572em;
+                        padding-bottom: 2px;
                     }
                     .info {
                         font-family: @nunitolight;
@@ -1486,15 +1489,20 @@ button {
                         &.full-width {
                             width: 100%;
                         }
-                        .svg-icon-mann {
-                            position: absolute;
-                            bottom: -22px;
-                            left: 56%;
-                        }
                         .svg-icon-frau {
+                            padding-right: 5px;
+                            /*
                             position: absolute;
                             bottom: -22px;
                             left: 52%;
+                            */
+                        }
+                        .svg-icon-mann {
+                            /*
+                            position: absolute;
+                            bottom: -22px;
+                            left: 56%;
+                            */
                         }
                     }
                 }
@@ -1508,6 +1516,13 @@ button {
                         .info {
                             width: auto;
                         }
+                    }
+                    .map2 {
+                        width: 96%;
+                        display: block;
+                        margin: 10px auto;
+                        border: 3px solid #04e0d7;
+                        border-radius: 6px;
                     }
                 }
             }
@@ -1615,12 +1630,12 @@ button {
         .shadow-box-center {
             .profil.profil-room {
                 .roominfos {
-                    margin-bottom: 55px;
+                    margin-bottom: 25px;
                     h1, h2, h3 {
                         margin: 0;
                     }
                     .roominfos-left {
-                        top: 35px;
+                        top: 40px;
                         
                         .wg-img-wrapper {
                             width: 100%;
@@ -1632,21 +1647,29 @@ button {
                             .profileimage  {                                
                                 border: none;
                             }
-                            
-                            /*
-                            img.rsImg {
-                                max-width: 320px !important; 
-                                max-height: 320px !important;
-                            }
-                            */
                         }
                     }
                     .roominfos-right {
                         top: 0px;
                         
                         .btn-wrapper {
-                            padding: 0;
+                            padding-top: 5px;
                         }
+                        
+                        .profil-inner-padding {
+                            padding-left: 0;
+                            padding-right: 0;
+                            .maininfo {
+                                h3 {font-size: 1.9375em; }
+                            }
+                            .matchinginfos {
+                                padding: 5px 0;
+                                .match, .prozent {
+                                    font-size: .9375em;
+                                }
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -1987,7 +2010,7 @@ button {
     }
     
     .geschlecht-chooser.geschlecht, .geschlecht-container {
-        height: 72px;
+        // height: 72px;
             .radio+.radio {
                 margin-top: 0px;
             }

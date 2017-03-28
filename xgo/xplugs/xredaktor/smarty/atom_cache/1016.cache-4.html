@@ -1,6 +1,5 @@
 <style>
- 
- /*
+
     input#ZEITRAUM_VON, input#MIETE_VON, input#MIETE_BIS,
     input#WGGROESSE_VON,input#WGGROESSE_BIS, input#ZIMMERGROESSE_VON,
     input#ZIMMERGROESSE_BIS {
@@ -14,7 +13,7 @@
         position: relative;
         top: 10px;
     }
-
+ /*
     .radio.special-label {
         margin: 0px 5px 0px 5px;
         cursor: pointer;
@@ -65,7 +64,7 @@
     .svg-icon-frau-circle .checked, .svg-icon-mann-circle .checked {
         fill: #04e0d7;
     }
-    */
+*/
 </style>
 
 <%xr_siteCall fn="fe_user::getMyData" var="data"%>
@@ -87,24 +86,12 @@
                     <%xr_atom a_id=737 return=1 desc='wggroesse'%>
                     <div class="clearfix"></div>
                     
+                </div>
+                <div class="col-count-1" style="margin-top: -15px;">
                     <%xr_atom a_id=738 return=1 desc='zimmergroesse'%>
                     <div class="clearfix"></div>
                     
-                    <%xr_atom a_id=739 return=1 desc='abloese'%>
-                    <div class="clearfix"></div>
-                    
-                </div>
-                <div class="col-count-1">
-                    <%xr_atom a_id=740 return=1 desc='raucher'%>
-                    <div class="clearfix"></div>
-                    
                     <%xr_atom a_id=700 return=1 desc='adresse'%>
-                    <div class="clearfix"></div>
-                    
-                    <%xr_atom a_id=828 return=1  desc='haustiere'%>
-                    <div class="clearfix"></div>
-                    
-                    <%xr_atom a_id=829 return=1  desc='veganer'%>
                     <div class="clearfix"></div>
                     
                     <%xr_atom a_id=869 return=1 desc='barrierefrei'%>

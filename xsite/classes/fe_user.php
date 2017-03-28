@@ -981,9 +981,12 @@ class fe_user
 	public static function getAgeByBirthday($date)
 	{
 		if ($date == '0000-00-00') return false;
+		
+		$newDate = date("Y-m-d", strtotime($date));
+		
+		$age = date_diff(date_create($newDate), date_create('today'))->y;
 
-		$age = date_create($date)->diff(date_create('today'))->y;
-		return $age;
+		return $age;		
 	}
 
 	public static function getUserImages($user)
@@ -2254,17 +2257,20 @@ class fe_user
 	public static function getUsersByRoomId($roomId, $genderCountOnly = false)
 	{
 
-		$roomId 		= intval($roomId);
-		if ($roomId == 0) return array();
+// 		$roomId 		= intval($roomId);
 
+				
+		if ($roomId == 0) return array();
+		
 		$user 	= array();
 
 		//$admin 				= dbx::queryAttribute("select * from wizard_auto_809 where wz_id = $roomId", "wz_ADMIN");
 		//$user[]				= $admin;
 		$mitbewohner		= dbx::queryAll("select * from wizard_auto_SIMPLE_W2W_707_809 where wz_id_high = $roomId");
 
+		
 		foreach ($mitbewohner as $k => $v) {
-			$user[]			= $v['wz_id_low'];
+			$user[] = $v['wz_id_low'];
 		}
 
 		if ($genderCountOnly === true)

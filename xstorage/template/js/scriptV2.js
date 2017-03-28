@@ -292,14 +292,16 @@ var simpleLogin = {
 			return false;
 		}
 
-		var adresse = $('input#ADRESSE').val();
+		var adresse = $('#register-adresse').serializeObject();
 		var miete = $('#MIETEMAX').val();
 		var fragebogen = $('#register-fragebogen').serializeObject();
 		var formdata = $('#wg-zimmer-finden').serializeObject();
 
+
 		var cfg = {
 			be_scope: 'fe_user',
 			be_fn: 'doSimpleLogin',
+
 			data: {
 				fragebogen: fragebogen,
 				formdata: formdata,

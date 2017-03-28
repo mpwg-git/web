@@ -1273,6 +1273,7 @@ class fe_room
 	public static function getAdminOfRoomByRoomId($roomId)
 	{
 		$roomId = intval($roomId);
+
 		if ($roomId == 0) return false;
 
 		return intval(dbx::queryAttribute("SELECT wz_ADMIN FROM wizard_auto_809 WHERE wz_id = $roomId", 'wz_ADMIN'));

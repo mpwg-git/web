@@ -4,6 +4,9 @@
 <%if $isLoggedIn%>
 
     <%xr_siteCall fn="fe_room::sc_getRoomData" var="data"%>
+    
+    <%$room=$data['ROOM']%>
+    <%$matching = $data['MATCHING']%>
 
     <%xr_set FBOG_DATA=$data.ROOM override=0%>
 
@@ -15,14 +18,14 @@
     
         <div class="row no-margin userinfos">
             <div class="roominfos col-xs-12">
-                <div class="roominfos-left col-xs-6">
+                <div class="roominfos-left col-xs-7">
                     <%if count($data['IMAGES']) > 0%>
                         <div class="wg-img-wrapper">
                             <%xr_atom a_id=991 images=$data['IMAGES'] return=1%>
                         </div>
                     <%/if%>   
                 </div>
-                <div class="roominfos-right col-xs-6 no-margin">
+                <div class="roominfos-right col-xs-5 no-margin">
                     <div class="profil-inner-padding">
                         <div class="icon-close-profile pull-right">
                             <a href="javascript:history.back();">
@@ -30,9 +33,8 @@
                             </a>
                         </div>   
     
-                        <div class="maininfo">
-                            <h3>Helles freundliches <span class="text-lowercase">17m²</span></h3>
-                            <h1 class="headline">WG-Zimmer</h1>
+                        <div class="maininfo wzBeschreibung">
+                            <h3><%$room.wz_BESCHREIBUNG%></h3>
                         </div>
     
                         <div class="matchinginfos">
@@ -41,17 +43,16 @@
                                     <style>
                                         .matchinginfos .prozent:after {
                                             content: '100%' !important;
-                                            font-size: 1.375em;
                                         }
                                         .matchinginfos .prozent{
-                                            margin-bottom: 0.75vw;
+                                            /*margin-bottom: 0.75vw;*/
                                         }
                                         .profil .match-text {
                                             display: none;
                                         }
                                     </style>
                                 <%else%>
-                                    <%$data['MATCHING']['RESULT']['MATCHROOM']['matchGesamt']%>
+                                    <%$matching['RESULT']['MATCHROOM']['matchGesamt']%>
                                 <%/if%>
                             </span>
                             <span class="match">match</span>
@@ -93,10 +94,10 @@
                 </div>
             </div>
         </div>
-                
+        
         <!--matchingdetails-->
         <%xr_atom a_id=996 return=1%>
-
+        
         <!--fakten-->
         <%xr_atom a_id=993 return=1%>
         

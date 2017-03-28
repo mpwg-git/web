@@ -84,7 +84,7 @@ var fe_map = (function() {
             });
             $(".ui-slider-handle:first", "#umkreis-slider").html($("#umkreis-slider").slider("value"));
 
-            var valueAb = 75;
+            var valueAb = 0;
             var valueBis = 400;
             if ($("#slider-range").data('valueab') != '') {
                 valueAb = parseInt($("#slider-range").data('valueab'), 10);
@@ -99,7 +99,7 @@ var fe_map = (function() {
             $('#slider-range').unbind('click');
             $("#slider-range").slider({
             	range: true,
-                min: 1,
+                min: 0,
                 max: 1000,
                 values: [valueAb, valueBis],
                 slide: function(event, ui) {
