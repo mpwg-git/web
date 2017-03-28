@@ -1,14 +1,9 @@
 @import "22.less"; 
 @import "23.less"; 
 
-@media only screen and (max-width: 347px) {
-    .btn-subnav-chatsearch, .btn-subnav-map, .btn-subnav-filter { 
-        font-size: .75em !Important;
-    }
-}
         
         
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 480px) {
     
     // h3 { font-size: 1.3125em;  }
     h5, #main-content .register-fragen .register-fragebogen .antwort-headline {
@@ -38,6 +33,11 @@
             margin-right: 0 !important;
     }
     
+    .col-count-xs-1 {
+        column-count: 1;
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+    }
     
     #main-header {
         /*
@@ -49,9 +49,9 @@
         z-index: 20;
         
         .header-logo {
-			padding: 14px 0;
-			margin: 0 auto;
-			text-align: center;
+			padding: 14px 4px; // 14px 0;
+			margin: 0; // auto;
+			text-align: left;
 			
 			.icon-duck {
 		        width: 22px;
@@ -59,9 +59,12 @@
 		        padding: 0;
 		    }
 		    .icon-font {
-		        width: 132px;
+		        width: 138px;
 		        margin: 0;
 		        padding: 0;
+		        &.in-page {
+		            
+		        }
 		    }
 		}
 		.btn.btn-default.btn-login {
@@ -116,7 +119,8 @@
             
         }
         .nav-p-lang {
-            margin-right: 10px;
+            padding-right: 4px;
+            display: inline-block;
             
             .navlinks {
                 margin-top: 17.5px;
@@ -221,6 +225,14 @@
         
     }
     
+    
+    
+    
+    
+/**
+    MAIN CONTENT 
+**/
+
     #main-content {
         // padding-bottom: 40px;
         
@@ -689,7 +701,7 @@
                 margin: 15px 0;
             }
             input.form-control {
-                font-size: .75em;
+                font-size: .875em;
                 width: 100%;
                 margin-bottom: 0;
             }
@@ -1144,7 +1156,7 @@
                     
                     
                     .meinprofil-meinedaten.meinprofil-biete {
-                        padding: 15px 20px;
+                        padding: 15px 0 25px 5px;
                         
                         h1 { font-size: 2.125em; margin: 0; }
                         a {
@@ -1153,6 +1165,30 @@
                         .button {
                             height: 40px;
                             font-size: .8125em;
+                        }
+                        
+                        .row:first-of-type {
+                            margin: 0 10px 35px 10px !important;    
+                        }
+                        
+                        #form-mein-raum {
+                            padding: 15px 10px 35px 10px;
+                            
+                            .form-group {
+                                margin-bottom: 20px;
+                                
+                                label {
+                                    font-size: .75em;
+                                    font-family: @nunitobold;
+                                }
+                                
+                                .column-input.v-center {
+                                    width: 40%;
+                                    float: left;
+                                    margin-right: 7px;
+                                    margin-bottom: 20px;
+                                }
+                            }
                         }
                     }
                 }
@@ -1210,5 +1246,20 @@
             }
         }
     }
-    
 }
+
+
+
+
+@media only screen and (max-width: 347px) {
+    .btn-subnav-chatsearch, .btn-subnav-map, .btn-subnav-filter { 
+        font-size: .75em !Important;
+    }
+
+    #main-content #search-page #mein-profil-biete .shadow-box-center .meinprofil-meinedaten.meinprofil-biete #form-mein-raum .form-group label {
+        font-size: .6875em;
+    }
+}
+
+
+

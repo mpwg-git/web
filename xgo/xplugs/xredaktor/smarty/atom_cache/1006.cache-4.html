@@ -1,7 +1,4 @@
 <input type="hidden" id="hiddenRoomId" value="<%$room.ROOM.wz_id%>">
-
-<p>zimmerverwaltung 1006</p>
-
 <%foreach $roomdataNew as $room name="roomloop"%>
     <%if $smarty.request.dev==1%>
         <%xr_print_r val=$room%>
@@ -17,7 +14,6 @@
             </span>
         </a>
 
-        
         <%$onclick = ''%>
         <%if $room.ROOM.wz_ACTIVE == 'N'%>
             <%assign var='activateStr' value="<%xr_translate tag='Aktivieren'%>"%>

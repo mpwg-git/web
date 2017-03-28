@@ -1,4 +1,58 @@
 <style>
+    .upload-image.add-image:after {
+        color: #000;
+        text-align: center;
+        content: '+';
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        background: #04e0d7;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        font-size: 30px;
+        line-height: 16px;
+        pointer-events: none;
+        line-height: .7;
+    }
+    .icon-minus-rel:after {
+        color: #000;
+        text-align: center;
+        content: '-';
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        background: #04e0d7;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        font-size: 30px;
+        line-height: 16px;
+        line-height: .35;
+    }
+    
+    
+    
     #form-mein-raum .form-group {
         margin-bottom: 25px;
     }
@@ -8,26 +62,69 @@
     .devider.v-center {
         display: none;
     }
-    .col-count-2 .form-group label {
+    .col-count-2 .form-group label, input#BESCHRIFTUNG_INTERN {
         width: 100%;
-        
+    }
+    .column-input.v-center {
+        width: 80%;
+    }
+    .column-input.v-center > input {
+        width: 85%;
+    }
+    label.radio.special-label {
+        width: 28px;
+    }
+    input#MITBEWOHNER_ALTER_VON, input#ZEITRAUM_VON  {
+        width: 40%;
+        float: left;
+        margin-right: 15px;
+    }
+    
+    input#MITBEWOHNER_ALTER_BIS, input#ZEITRAUM_BIS, input#MIETE, #ROOMSIZE, input#zusatzkosten-val {
+        width: 40%;
+    }
+    input#UNREG_F, input#UNREG_M {
+        width: 25%;
+    }
+    textarea#BESCHREIBUNG {
+        height: 40px !important;
+        width: 80%;
+    }
+    textarea#LAGE, textarea#AUSSTATTUNG {
+        width: 100%;
+        height: 100px;
+    } 
+    #main-content input.form-control.svg-map-duck.autocomplete-location, button#form-mein-raum-save {
+        width: 100%;
+    }
+    input.form-control {
+        font-size: 0.875em;
+    }
+    .dummy {
+        display: inline-block;
+        margin-bottom: 60px;
+        width: 100%;
+    }
+    form#form-mein-raum {
+        padding: 15px;
     }
 </style>
 
 <input type="hidden" name="id" value="<%$data.ROOM.wz_id%>" />
 
-<div class="row no-margin">
+<div class="row "  style="margin: 15px 0 0 20px;">
     <h1><%xr_translate tag='Mein Raum'%></h1>
     <%xr_atom a_id=748 images=$data['IMAGES'] fromRoom=1 refid=$smarty.request.roomId return=1%>
 </div>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<p class="hidden-xs hidden-sm">&nbsp;</p>
+<p class="hidden-xs hidden-sm">&nbsp;</p>
 
 <div class="row no-margin">
+    <div class="col-lg-10 col-lg-offset-2 mob-no-gutter">
     <form class="form-mein-raum" id="form-mein-raum">
         
-        <div class="col-count-1">
+        <div class="col-count-2 col-count-xs-1">
             
             <%xr_atom a_id=848 return=1 desc='interne beschriftung'%>
             <%xr_atom a_id=854 return=1 desc='beschreibung'%>
@@ -52,7 +149,7 @@
                 </label>
             </div>
             
-            <div class="col-count-2">
+            <div class="col-count-2" style="width: 80%;">
                 <%xr_atom a_id=856 return=1 desc='unreg mitbewohner F'%>
                 <%xr_atom a_id=855 return=1 desc='unreg mitbewohner M'%>
             </div>
@@ -61,27 +158,28 @@
             
             <%xr_atom a_id=734 return=1 desc='zeitraum'%>
             <%xr_atom a_id=816 return=1 desc='miete'%>
-            <%xr_atom a_id=817 return=1 desc='zimmergroesse'%>
-            <%xr_atom a_id=740 return=1 desc='raucher' noEgal=1%>
+            <%xr_atom a_id=872 return=1 desc='zusatzkosten'%>
             <%xr_atom a_id=739 return=1 noEgal=1 desc='abloese'%>
             
-            <%xr_atom a_id=872 return=1 desc='zusatzkosten'%>
+            <div class="dummy hidden-xs hidden-sm"></div>
+            <%xr_atom a_id=817 return=1 desc='zimmergroesse'%>
+            
+            
+            <%xr_atom a_id=740 return=1 desc='raucher' noEgal=1%>
             <%xr_atom a_id=828 return=1 desc='haustiere' noEgal=1%>
             <%xr_atom a_id=829 return=1 desc='veggie' noEgal=1%>
             <%xr_atom a_id=869 return=1 noEgal=1 desc='barrierefrei'%>
-            
             <%xr_atom a_id=874 return=1 desc='lage'%>
             <%xr_atom a_id=873 return=1 desc='ausstattung'%>
             <%xr_atom a_id=819 return=1 desc='adresse'%>
                 
             
-            
-            <p>&nbsp;</p>
             <div class="submitbutton-container">
                 <button id="form-mein-raum-save" class="button" data-redirect="<%xr_genlink p_id=7%>"><%xr_translate tag="SPEICHERN"%></button>
             </div>
         </div>
     
     </form>
+    </div>
 </div>
     
