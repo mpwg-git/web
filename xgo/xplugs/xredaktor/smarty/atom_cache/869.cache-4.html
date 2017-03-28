@@ -1,17 +1,17 @@
 <div class="form-group">
-    <label class="show"><%xr_translate tag="Barrierefrei?"%></label>
-    <label for="barrierefrei-ja" class="radio special-label">
+    <label class="d-inline-block"><%xr_translate tag="Barrierefrei?"%></label>
+    <label for="barrierefrei-ja" class="radio special-label label-barrierefrei">
         <input id="barrierefrei-ja" type="radio" name="BARRIEREFREI" value="Y" <%if $profile['wz_BARRIEREFREI'] == 'Y'%>checked="checked"<%/if%>/>
         <span style="font-size: 12px;" class="checked circle circle-filled"><%xr_translate tag='ja'%></span>
         <span style="font-size: 12px;" class="unchecked circle circle-plain"><%xr_translate tag='ja'%></span>
     </label>
-    <label for="barrierefrei-nein" class="radio special-label">
+    <label for="barrierefrei-nein" class="radio special-label label-barrierefrei">
         <input id="barrierefrei-nein" type="radio" name="BARRIEREFREI" value="N" <%if $profile['wz_BARRIEREFREI'] == 'N'%>checked="checked"<%/if%>/>
         <span style="font-size: 12px;" class="checked circle circle-filled"><%xr_translate tag='nein'%></span>
         <span style="font-size: 12px;" class="unchecked circle circle-plain"><%xr_translate tag='nein'%></span>
     </label>
     <%if !isset($noEgal)%>
-    <label for="barrierefrei-egal" class="radio special-label">
+    <label for="barrierefrei-egal" class="radio special-label label-barrierefrei">
         <input id="barrierefrei-egal" type="radio" name="BARRIEREFREI" value="X" <%if $profile['wz_BARRIEREFREI'] == 'X'%>checked="checked"<%/if%>/>
         <span style="font-size: 12px;" class="checked circle circle-filled"><%xr_translate tag='egal'%></span>
         <span style="font-size: 12px;" class="unchecked circle circle-plain"><%xr_translate tag='egal'%></span>

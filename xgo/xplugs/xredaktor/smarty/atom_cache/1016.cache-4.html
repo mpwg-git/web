@@ -3,68 +3,55 @@
     input#ZEITRAUM_VON, input#MIETE_VON, input#MIETE_BIS,
     input#WGGROESSE_VON,input#WGGROESSE_BIS, input#ZIMMERGROESSE_VON,
     input#ZIMMERGROESSE_BIS {
-        width: 40%;
-        float:left;
-        margin: 0 20px 20px 0;
+        width: 45%;
+        margin: 0 10px 0 0;
+        float: left;
     }
     .devider.v-center {
+        display: none;
         width: 5%;
         float: left;
         position: relative;
         top: 10px;
     }
- /*
-    .radio.special-label {
-        margin: 0px 5px 0px 5px;
-        cursor: pointer;
-        vertical-align: middle;
-        display: inline-block;
+    .form-group {
+        margin: 0 0 15px 0;
+        height: 52px;
     }
-    .radio input {
-        display: none;
+    label {
+        width: 100%;
+        margin: 0;
     }
-    .radio input[type="radio"]~.checked {
-        display: inline-block;
+    .label-mitbew, .label-barrierefrei {
+        width: 8.5%;
     }
-    .radio input[type="radio"]~.unchecked {
-        display: inline-block;
-    }
-    .form-group .circle {
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    font-family: 'NunitoSans-bold';
-    font-size: .875em;
-    text-transform: none;
-    text-align: center;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid #04e0d7;
-}
-    .form-group .circle-filled {
-        background: #04e0d7;
-        color: #000;
+    label.radio.special-label.mitbew-egal.label-mitbew {
+        margin-top: 5px;
+    }   
+    label.radio.special-label.label-barrierefrei {
+        padding-top: 5px;
+        margin: 0 5px 0;
     }
 
-    label .svg-icon-mann {
-        margin-right: 5px;
-        margin-left: 10px;
+    #main-content input.form-control.svg-map-duck.autocomplete-location {
+        width: 93%;
+        margin: 0;
     }
-    label.mitbew-egal {
-        position: absolute;
+    #form-mein-profil-save  {
+        height: 36px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
-    .svg-icon-frau, .svg-icon-mann {
-        cursor: pointer;
+    #form-mein-profil-save-user {
+        margin-top: 16px;
     }
     
-    .svg-icon-frau-circle .checked, .svg-icon-mann-circle .checked {
-        fill: #04e0d7;
+    
+    .geschlecht-chooser.geschlecht  .form-group label {
+        width: 28px;
+        margin: 0 5px 0;
     }
-*/
+   
 </style>
 
 <%xr_siteCall fn="fe_user::getMyData" var="data"%>
@@ -72,35 +59,25 @@
 
 <div class="meinprofil-ideales-zimmer collapse" id="collapseIdealesZimmer">
     <div class="meinprofil-uebermich-inner">
-        <form class="form-mein-user col-count-2" id="form-mein-profil">
-                <div class="col-count-1">
+        <form class="form-mein-user" id="form-mein-profil">
+                <div class="col-count-2">
                     <%xr_atom a_id=734 return=1 desc='zeitraum'%>
-                    <div class="clearfix"></div>
-                    
+
                     <%xr_atom a_id=735 return=1 desc='miete'%>
-                    <div class="clearfix"></div>
-                    
+
                     <%xr_atom a_id=736 return=1 desc='mitbewohner'%>
-                    <div class="clearfix"></div>
-                    
+
                     <%xr_atom a_id=737 return=1 desc='wggroesse'%>
-                    <div class="clearfix"></div>
-                    
-                </div>
-                <div class="col-count-1" style="margin-top: -15px;">
+
                     <%xr_atom a_id=738 return=1 desc='zimmergroesse'%>
-                    <div class="clearfix"></div>
-                    
+
                     <%xr_atom a_id=700 return=1 desc='adresse'%>
-                    <div class="clearfix"></div>
-                    
+
                     <%xr_atom a_id=869 return=1 desc='barrierefrei'%>
-                    <div class="clearfix"></div>
-                    
-                    <div class="submitbutton-container">
+
+                    <div class="submitbutton-container" style="height: 52px;position: relative;top: 15px;">
                         <button class="button" data-toggle="collapse" data-target="#collapseIdealesZimmer" id="form-mein-profil-save" data-redirect="<%xr_genlink p_id=11%>"><%xr_translate tag="SPEICHERN"%></button>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
         </form>
     </div>

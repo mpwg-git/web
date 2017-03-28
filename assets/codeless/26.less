@@ -154,9 +154,16 @@ span.wirklich {
 
 
 .col-count-2 {
-    column-count: 2;
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
+    // column-count: 2;
+    // -webkit-column-count: 2;
+    // -moz-column-count: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    
+    -webkit-column-fill: balance;
+    -moz-column-fill: balance;
+    column-fill: balance;
 }
 .col-count-1 {
     column-count: 1;
@@ -1991,7 +1998,17 @@ button {
     // margin: 0 auto;
     
     .meinprofil-uebermich-inner {
-        
+        #form-mein-user {
+            .col-count-2 {
+                -webkit-column-fill: balance;
+                -moz-column-fill: balance;
+                column-fill: balance;
+                margin-bottom: 1em;
+                height: 60px;
+                
+                .form-group .column-input.v-center { display: none; }
+            }
+        }
     }
     
 
