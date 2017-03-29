@@ -86,9 +86,11 @@
     input#UNREG_F, input#UNREG_M {
         width: 25%;
     }
-    textarea#BESCHREIBUNG {
-        height: 40px !important;
-        width: 80%;
+    @media only screen and (min-width: 992px) {
+        textarea#BESCHREIBUNG {
+            height: 40px !important;
+            width: 80%;
+        }
     }
     textarea#LAGE, textarea#AUSSTATTUNG {
         width: 100%;

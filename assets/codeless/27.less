@@ -951,13 +951,25 @@
             #mein-profil, #mein-profil-biete {
                 // margin: -30px 0 0 0;
                 position: absolute;
+
+                .form-control {
+                    font-size: 14px;
+                    //line-height: 1.25;
+                    height: 34px;
+                    
+                    &.textarea-beschreibung {
+                        width: 80%;
+                        height: 65px;
+                        font-size: 0.8125em;
+                    }
+                }
                 
                 .shadow-box-center {
                     
                     .meinprofil-container .profil {     
                         .userinfos-left {
                             width: 90%;
-                            margin: 0px 0 10px 10px;
+                            margin: 0px 0 20px 5px;
                         }
                         .meinprofil-profilbild.add-image {
                             .add-image-profil {
@@ -980,7 +992,7 @@
                     
                     .profil {
                         .row {
-                            &:first-child { margin-bottom: 10px; }
+                            &:first-child { margin: 5px 0 10px 0; }
                             margin: 10px 0;
                         }
                         .profil-container {
@@ -996,9 +1008,23 @@
                                 height: 40px;
                                 font-size: 0.8125em;
                             }
-                            
+                            .meinprofil-submenu {
+                                font-size: 0.75em;
+                            }
+                            .meinprofil-add-room {
+                                padding: 0 0 0 10px;
+                                margin: 7px 0 0 0;
+                                
+                                .room-settings {
+                                    padding: 1px 0 0 5px;
+                                    font-size: 0.875em;
+                                }
+                                #svg-icon-add {
+                                    height: 18px;
+                                }
+                            }
                             .meinprofil-uebermich-inner, .meinprofil-meinkonto-collapse {
-                                width: 88%;
+                                width: 90%;
                                 
                                 #form-mein-user {
                                     margin-top: 15px;
@@ -1006,6 +1032,9 @@
                                 }
                                 
                                 #form-mein-profil {
+                                    margin-top: 15px;
+                                    padding: 10px;
+                                    
                                     .form-group {
                                         margin: 10px 0;
                                         
@@ -1018,7 +1047,7 @@
                                         }
                                         
                                        label.mitbew-egal {
-                                            margin-top: 5px;
+                                            margin-top: 0px;
                                         }
                                         
                                         input#ADRESSE {
@@ -1072,19 +1101,29 @@
                                     font-size: .75em;
                                 }
                             }
+                            
+                            #collapseUeberMich, #collapseIdealesZimmer {
+                                width: 100%;
+                                position: relative;
+                                left: 2.5%;
+                                
+                                .meinprofil-uebermich-inner {
+                                    width: 95%;
+                                }
+                            }
                         }
 
                         
                         .member-state, .member-state.mob-member-state {
-                        	font-size: 0.75em;
+                        	font-size: 0.6875em;
                         	line-height: 1.125em;
                         	font-family: @nunitobold;
                         	color: @darkgray;
                         	padding: 10px 0;
-                            margin-top: 10px;
+                            margin-top: 5px;
                             
                             > .current {
-                                font-size: 0.9375em;
+                                font-size: 0.875em;
                             	line-height: 1.125em;
                             	font-family: @nunitoblack;
                             }
@@ -1100,20 +1139,20 @@
                         }
                         .userinfos-right {
                             .maininfo {
-                                padding-bottom: 10px;
+                                padding-bottom: 15px;
                                 
-                                h1 { font-size: 2.125em; line-height: 0.625em; }
-                                h3 { margin: 0; font-size: 1.375em; }
+                                h1 { font-size: 2em; line-height: 0.625em; }
+                                h3 { margin: 0; font-size: 1.125em; }
                             }
                         }
 
                         .subheadline, .subheadline.whoiam {
                             line-height: 1.1428571428571428em;
-                            font-size: 0.875em;
+                            font-size: 0.8125em;
                         }
                         
                         .profil-inner-padding {
-                            padding: 5px 10px 0 0;
+                            padding: 0 10px 0 0;
                         }
                         
                         &.searchlist-chat {
@@ -1171,22 +1210,65 @@
                             margin: 0 10px 35px 10px !important;    
                         }
                         
+                        .meinprofil-images-container {
+                            .upload-image {
+                                &.hasImage {
+                                    width: 70px;
+                                    height: auto;
+                                }
+                                &.add-image, &.add-image-other {
+                                    width: 70px;
+                                    height: 75px;
+                                }
+                            }
+                            .popover, .popover-del {
+                                width: 50vw;
+                                
+                                .popover-content {
+                                    .wirklich {
+                                        br {
+                                            display: none;
+                                        }
+                                        .loeschen:before {
+                                            content: " ";
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                        
+                        
                         #form-mein-raum {
-                            padding: 15px 10px 35px 10px;
+                            padding: 0 10px 35px 10px;
                             
                             .form-group {
                                 margin-bottom: 20px;
+                                
+                                &:first-child > .column-input.v-center {
+                                    width: 80%;
+                                    
+                                }
+                                
+                                .input-icon.search-input.search-input-map.small.v-center {
+                                    width: 80%;
+                                }
                                 
                                 label {
                                     font-size: .75em;
                                     font-family: @nunitobold;
                                 }
-                                
                                 .column-input.v-center {
                                     width: 40%;
                                     float: left;
                                     margin-right: 7px;
                                     margin-bottom: 20px;
+                                }
+                                
+                                .radio {
+                                    .icon-mann, .icon-mann_outline, .icon-frau, .icon-frau_outline {
+                                        font-size: 28px;
+                                    }
                                 }
                             }
                         }
