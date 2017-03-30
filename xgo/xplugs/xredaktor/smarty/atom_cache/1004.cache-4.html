@@ -3,9 +3,11 @@
 <%xr_siteCall fn="fe_user::getMyRooms" var="roomdataNew"%>
 <%xr_siteCall fn="fe_wgtest::sc_getAllQuestionsAndState" var="wgtestdata"%>
 
+
 <%if !$user%>
     <%$user = $data['USER']%>
 <%/if%>
+
 
 <input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
 <div class="meinprofil-container center-block">
@@ -65,11 +67,16 @@
                 <div class="profil-container">
                     <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-idealerMB'%></h4>
                     <hr class="full-width">
-                    <a data-fancybox data-src="#hidden-content" href="javascript:;">
+                    <a data-fancybox data-src="#mein-fragebogen" href="javascript:;">
+                    <!--<a href="<%xr_genlink p_id=10%>">-->
+                    <!--<a id="inline" href="#data">-->
                         <button id="fragebogenModal" class="button start-button text-uppercase">
                             <%xr_translate tag='mein-profil_btn_zumFragebogen'%>
                         </button>
+                    <!--</a>-->
+                    <!--</a>-->
                     </a>
+                    <%xr_atom a_id=1024 type=$data['USER']['wz_TYPE'] return=1%>
                 </div>
             </div>
         </div>

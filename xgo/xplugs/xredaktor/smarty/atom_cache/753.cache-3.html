@@ -31,15 +31,17 @@
                     <div class="infos">
                         <!--
                         <%xr_print_r val=$data%>
-                        
                         -->
+                        <%****
                         <%if $data['GESCHLECHT'] == 'M'%>
                             <span class="icon-mann_black"></span>
                         <%else%>
                             <span class="icon-frau_black"></span>
                         <%/if%>
+                        ****%>
                         
-                        <p class="name"><%$data['NAME']%></p>
+                        <p class="last-name"><%$data['USER']['NACHNAME']%></p>
+                        <p class="first-name"><%$data['USER']['VORNAME']%></p>
                         
                         <%if $data['ALTER'] != ''%>
                             <p class="durchschnitt"><%$data['ALTER']%> Jahre</p>

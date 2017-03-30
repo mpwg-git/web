@@ -6,6 +6,7 @@
     <div class="img-wrapper" data-userid="<%$data['ID']%>">
         <div class="inner-wrapper">
             
+            <%****
             <%if $data['FAV'] == 1%>
                 <span class="overlay-fav">
                     <span class="overlay-fav-inner">
@@ -13,6 +14,7 @@
                     </span>
                 </span>
             <%/if%>
+            ****%>
             
             <%xr_imgWrapper s_id=$data['IMG'] h=500 w=470 colorspace="gray" rmode="cco" class="img-responsive"%>
             
@@ -24,29 +26,25 @@
                         <span class="pull-left drduck icon-duck"></span>
                         <span class="pull-right">
                             <span class="prozent"><%$data['MATCHPERCENT']%><%if $data['MATCHPERCENT'] == ""%>?<%/if%></span>
-                            <span class="match">match</span>
+                            <span class="match pull-right">match</span>
                         </span>
                     </p>
                     <div style="clear:both"></div>
                     <div class="infos">
-                        <!--
-                        <%xr_print_r val=$data%>
+                         <!--<%xr_print_r val=$data%> -->
+                        <div class="name">
+                            <span class="lastname text-uppercase center-block"><%$data['LASTNAME']%></span>
+                            <span class="firstname text-uppercase center-block"><%$data['FIRSTNAME']%></span>
+                        </div>
                         
-                        -->
-                        <%if $data['GESCHLECHT'] == 'M'%>
-                            <span class="icon-mann_black"></span>
-                        <%else%>
-                            <span class="icon-frau_black"></span>
-                        <%/if%>
-                        
-                        <p class="name"><%$data['NAME']%></p>
-                        
+                    <%*****
                         <%if $data['ALTER'] != ''%>
                             <p class="durchschnitt"><%$data['ALTER']%> Jahre</p>
                         <%/if%>
-                        
+                    ****%>
                         <div class="button-container-favblock clearfix">
                             <div class="inner clearfix">
+                                <%***
                                 <div class="item">
                                     
                                     <%xr_atom a_id=769 theType='user' state=$data['FAV'] userId=$data['ID'] return=1 desc="fav icon"%>
@@ -56,6 +54,7 @@
                                     <!-- 753 desktop -->
                                     <%xr_atom a_id=770 theType='user' state=$data['BLOCK'] userId=$data['ID'] addClass="js-toggle-fade" return=1 desc="block icon"%>
                                 </div>
+                                ***%>
                             </div>
                         </div>
                     </div>

@@ -165,6 +165,56 @@ var fe_redesign = (function() {
 	            	}
 	            });
 
+	            
+	            
+	            /** TRANSITIONS MIT TRANSFORM TRANSLATE MOBILE // 27.less Line 690 **/
+	            /*
+	            $(document).on('click', '.btn-subnav-filter', function() {
+	            	if($filter.attr("trigger") === "0") {
+	            		
+	            		$filter.addClass("active").attr("trigger","1");
+	            		$treffer.addClass("active-filter");
+	            		$map.removeClass("active").attr("trigger","0");
+	            		$chat.removeClass("active").attr("trigger","0");
+	            	}
+	            	else {
+	            		$filter.removeClass("active").attr("trigger","0");
+	                	$treffer.removeClass("active-filter");
+	            	}
+	            });
+
+
+	            $(document).on('click', '.btn-subnav-map', function() {
+	            	if($map.attr("trigger") === "0") {
+//	            		$pos = -($('#search-hits').height() + $(window).height());
+	            		
+	            		$map.addClass("active").attr("trigger","1");
+	            		$treffer.addClass("active-map");
+	            		$filter.removeClass("active").attr("trigger","0");
+	            		$chat.removeClass("active").attr("trigger","0");
+	            		
+	            	}
+	            	else {
+	            		$map.removeClass("active","0");
+	                	$treffer.removeClass("active-map");
+	            	}
+	            });
+
+
+	            $(document).on('click', '.btn-subnav-chatsearch', function() {
+	            	if($chat.attr("trigger") === "0") {
+            		
+	            		$chat.addClass("active").attr("trigger","1");
+	            		$treffer.addClass("active-chat");
+	            		$filter.removeClass("active").attr("trigger","0");
+	            		$map.removeClass("active").attr("trigger","0");
+	            	}
+	            	else {
+	            		$chat.removeClass("active").attr("trigger","0");
+	                	$treffer.removeClass("active-chat");	            		
+	            	}
+	            });
+*/
 
 	            $(document).on('click', '.suche-cat', function() {
 	            	$filter.toggle().attr("trigger","0");

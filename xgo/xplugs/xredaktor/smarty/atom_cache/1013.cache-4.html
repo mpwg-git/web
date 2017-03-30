@@ -1,0 +1,55 @@
+<%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
+
+<div class="chatcontacts js-chatcontacts default-container-paddingtop" trigger="0">
+    <div class="shadow-box-right">
+        <div class="aside-right-chat">
+            <a href="#chat-input-search" id="collapse-chat" class="icon-arrow-up-down-chat" data-toggle="collapse">
+                <h1 class="text-uppercase chat"><%xr_translate tag="Chat"%></h1>
+                <svg xmlns="http://www.w3.org/2000/svg" id="chat-icon-arrow-down" viewBox="0 0 70 70" data-name="Arrow down" class="hidden-xs">
+                    <defs>
+                        <style>.cls-1{fill:#04e0d7;}</style>
+                    </defs>
+                    <title>icon-arrow-down</title>
+                    <polygon points="34.82 53.1 0.05 21.16 3.48 17.42 34.81 46.2 66.51 16.9 69.95 20.63" class="cls-1"/>
+                </svg>
+            </a>
+            <div class="clearfix"></div>
+            <form>
+                <div class="form-group">
+                    <div id="chat-input-search" class="input-icon collapse in">
+                        <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
+                        <div class="contacts-wrapper js-chatcontacts-replace">
+                            <%$html%>
+                        </div>
+            		</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--<a href="<%xr_genlink p_id=12 id=$data['USER']['wz_id'] m_suffix=$data['USER']['wz_id']%>" class="chat-conversation-container" data-userid="<%$data['USER']['wz_id']%>">-->
+
+<!--    <div class="contact">-->
+<!--        <%if $data['NOTSEEN'] > 0%>-->
+<!--        <div class="new-message-counter"><%$data['NOTSEEN']%></div>-->
+<!--        <%/if%>-->
+<!--        <div class="image-wrapper">-->
+<!--            <%xr_imgWrapper s_id=$data['USER']['PROFILEIMAGE'] h=56 w=53 rmode="cco" colorspace="gray" class="image"%>-->
+<!--        </div>-->
+<!--        <div class="teaser-wrapper">-->
+<!--            <p class="name"><%$data['USER']['wz_VORNAME']%> <%$data['USER']['wz_NACHNAME']%></p>-->
+<!--            <p class="teaser-text"><%$data['MESSAGE']['wz_MESSAGE']%></p>-->
+<!--        </div>-->
+<!--        <div class="controls-wrapper">-->
+<!--            <p class="timestamp"><%$data['MESSAGE']['wz_TIME']|date_format:'%d.%m.%Y'%></p>-->
+<!--            <div class="close">-->
+<!--                <span class="icon-Close js-hide-conversation" data-messageid="<%$data['MESSAGE']['wz_id']%>" data-userid="<%$data['USER']['wz_id']%>"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</a>-->
+<!--<div class="clearfix"></div>-->
+
+

@@ -18,23 +18,28 @@
     
         <div class="row no-margin userinfos">
             <div class="roominfos col-xs-12">
-                <div class="roominfos-left col-xs-7">
+                <div class="roominfos-left col-sm-7 col-xs-12 mob-no-gutter">
+                    <div class="icon-close-profile pull-right visible-xs-block">
+                        <a href="javascript:history.back();">
+                            <span class="icon-Close"></span>
+                        </a>
+                    </div>
                     <%if count($data['IMAGES']) > 0%>
                         <div class="wg-img-wrapper">
                             <%xr_atom a_id=991 images=$data['IMAGES'] return=1%>
                         </div>
                     <%/if%>   
                 </div>
-                <div class="roominfos-right col-xs-5 no-margin">
+                <div class="roominfos-right col-sm-5 col-xs-12 no-margin no-gutter mob-no-gutter">
                     <div class="profil-inner-padding">
-                        <div class="icon-close-profile pull-right">
+                        <div class="icon-close-profile pull-right hidden-xs">
                             <a href="javascript:history.back();">
                                 <span class="icon-Close"></span>
                             </a>
                         </div>   
     
                         <div class="maininfo wzBeschreibung">
-                            <h3><%$room.wz_BESCHREIBUNG%></h3>
+                            <h3><%$room.wz_BESCHRIFTUNG_INTERN%></h3>
                         </div>
     
                         <div class="matchinginfos">

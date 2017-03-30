@@ -19,12 +19,16 @@
                     </p>
                     <div style="clear:both"></div>
                     <div class="infos">
-                        <p class="name"><%$data['NAME']%></p>
-                        <p class="zimmer">Zimmer für <%$data['PREIS']%> €</p>
-                        
+                        <div class="name">
+                            <p class="zimmer-name text-uppercase"><%xr_translate tag='suche_itemBiete-mietpreisHeadline'%><%*$data['NAME']*%></p>
+                            <p class="zimmer"><%$data['PREIS']%> €</p>
+                            <p class="button btn-zimmer-details">Details</p>
+                        </div>
+                    <%****
                         <%if $data['ALTERSDURCHSCHNITT'] > 0%>
-                        <p class="durchschnitt">Ø <%$data['ALTERSDURCHSCHNITT']%> Jahre</p>
+                            <p class="durchschnitt">Ø <%$data['ALTERSDURCHSCHNITT']%> Jahre</p>
                         <%/if%>
+                    ***%>
                         
                         <p class="mitbewohner">
                             <%xr_atom a_id=751 mitbewohner=$data['MITBEWOHNER'] return=1%>
@@ -32,10 +36,8 @@
                         
                         
                         <%xr_siteCall fn='fe_user::sc_getUser2RoomState' fUserId=$data['ID'] var='roomState'%>
+                    <%*****
                         <div class="button-container-favblock clearfix">
-                            
-                            
-                            
                             <div class="inner clearfix">
                                 <div class="item">
                                     
@@ -54,6 +56,7 @@
                                 </div>
                             </div>
                         </div>
+                    ****%>
                     </div>
                 </div>
             </div>

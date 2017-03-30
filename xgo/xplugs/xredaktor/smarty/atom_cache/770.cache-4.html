@@ -3,6 +3,8 @@
     
     <div class="inactive" <%if $state == true%>style="display: none;"<%/if%>>
         <span id="toggle-block" class="icon icon-Blocked_inaktiv"></span>
+        <%*xr_atom a_id=1022 return=1*%>
+
         <%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>    
@@ -12,6 +14,8 @@
         <span class="icon icon-Blocked_aktiv">
 		    <span class="path1"></span><span class="path2"></span><span class="path3"></span>
 		</span>
+        <%*xr_atom a_id=1022 return=1*%>
+
 		<%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>

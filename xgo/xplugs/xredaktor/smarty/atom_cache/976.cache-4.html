@@ -1,8 +1,7 @@
 <%xr_siteCall fn="fe_fragebogen::sc_getInitFragen" var="fragen"%>
+
 <form class="form" id="register-fragebogen" name="register-fragebogen">
-
-
-<%foreach $fragen as $k => $v%>
+    <%foreach $fragen as $k => $v%>
         <div class="fragen-container fragenNR_<%$v['FRAGE']['wz_NR']%>">
             <div class="row no-gutter fragenNR_<%$v['FRAGE']['wz_NR']%>_headline">
                 <hr>

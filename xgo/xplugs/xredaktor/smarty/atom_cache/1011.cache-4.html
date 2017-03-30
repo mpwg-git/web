@@ -51,8 +51,6 @@
         line-height: .35;
     }
     
-    
-    
     #form-mein-raum .form-group {
         margin-bottom: 25px;
     }
@@ -79,12 +77,15 @@
         float: left;
         margin-right: 15px;
     }
-    
+    input#ZEITRAUM_VON {
+        margin-bottom: 25px;
+    }
     input#MITBEWOHNER_ALTER_BIS, input#ZEITRAUM_BIS, input#MIETE, #ROOMSIZE, input#zusatzkosten-val {
         width: 40%;
     }
     input#UNREG_F, input#UNREG_M {
-        width: 25%;
+        width: 31%;
+        padding: 0 0 0 10px;
     }
     @media only screen and (min-width: 992px) {
         textarea#BESCHREIBUNG {
@@ -100,7 +101,7 @@
         width: 100%;
     }
     input.form-control {
-        font-size: 0.875em;
+        font-size: 0.8125em;
     }
     .dummy {
         display: inline-block;
@@ -109,6 +110,9 @@
     }
     form#form-mein-raum {
         padding: 15px;
+    }
+    .form-group.unreg-mitbew > .col-count-2 {
+        width: 92%;
     }
 </style>
 
@@ -151,9 +155,11 @@
                 </label>
             </div>
             
-            <div class="col-count-2" style="width: 80%;">
-                <%xr_atom a_id=856 return=1 desc='unreg mitbewohner F'%>
-                <%xr_atom a_id=855 return=1 desc='unreg mitbewohner M'%>
+            <div class="form-group unreg-mitbew">
+                <div class="col-count-2">
+                    <%xr_atom a_id=856 return=1 desc='unreg mitbewohner F'%>
+                    <%xr_atom a_id=855 return=1 desc='unreg mitbewohner M'%>
+                </div>
             </div>
             
             <%xr_atom a_id=877 return=1 desc='alter der mitbewohner von bis'%>

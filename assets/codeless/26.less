@@ -237,14 +237,14 @@ span.wirklich {
                 &.legend-nr2 {
                     background-image: url(/xstorage/template/redesign/svg/icon-nr-2.svg);
                     &.active {
-                        background-image: url(/xstorage/template/redesign/icons/icon-nr-1.svg);
+                        background-image: url(/xstorage/template/redesign/icons/icon-nr-2.svg);
                         a { color: @turkis; }
                     }
                 }
                 &.legend-nr3 {
                     background-image: url(/xstorage/template/redesign/svg/icon-nr-3.svg);
                     &.active {
-                        background-image: url(/xstorage/template/redesign/icons/icon-nr-1.svg);
+                        background-image: url(/xstorage/template/redesign/icons/icon-nr-3.svg);
                         a { color: @turkis; }
                     }
                 }
@@ -1235,18 +1235,75 @@ button {
                         right: 0;
                         height: 100%;
                         width: 100%;
-                        background: rgba(0,0,0,0.5);
+                        background: rgba(4,224,215,.7);
                         .transition(all 300ms ease);
                         opacity: 0;
-
+                        
                         &:hover, &.active {
-                            // .overlay-bg{
                                 opacity: 1;
                                 .overlay{
                                     transform: scale(1);
                                     opacity: 1;
                                 }
-                            // }
+                        }
+                        .overlay { width: 100%; height: 100%; }
+                        .upper, .upper.is-suche {
+                            padding: 15px 20px 0;
+                            // height: 0;
+                            
+                            .icon-duck:before{
+                                font-size: 36px;
+                            }
+                            .prozent {
+                                display: block;
+                                font-family: 'PaytoneOne';
+                                font-size: 2.4285714285714284em;
+                            }
+                            .match {
+                                font-family: 'NunitoSans-Regular';
+                                font-size: 1.1428571428571428em;
+                                line-height: 1.125em;
+                                text-transform: uppercase;
+                            }
+                        }
+                        .infos {
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            top: -16.5%;
+                            text-align: center;
+                            
+                            .name {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                            }
+                            span {
+                                font-family: @paytoneone;
+                                margin: 0;
+                                
+                                &.lastname { font-size: 18px; line-height: 24px; }
+                                &.firstname { font-size: 28px; line-height: 27px; }
+                            }
+                            p {
+                                font-family: @paytoneone;
+                                margin: 0;
+                                &.zimmer-name { font-size: 21px; line-height: 27px; }
+                                &.zimmer { font-size: 53px; line-height: 46px; }
+                                &.btn-zimmer-details{
+                                    width: 75%;
+                                    height: 35px;
+                                    margin-top: 20px !important;
+                                    background-color: white;
+                                    font-size: 13px;
+                                    font-family: @nunitobold;
+                                    color: @turkis;
+                                    text-transform: uppercase;
+                                    letter-spacing: .8px;
+                                    line-height: 1.25;
+                                }
+                            }
                         }
                     }
                 }
@@ -1283,7 +1340,7 @@ button {
                                 font-size: 3.4375em;
                                 margin: 0;
                                 text-transform: uppercase;
-                                line-height: 0.9454545454545454em;
+                                line-height: 1.9454545454545454em;
                             }
                             h3 {
                                 font-size: 1.375em;
@@ -1297,7 +1354,7 @@ button {
                 .icon-close-profile {
                     position: absolute;
                     top: 15px;
-                    right: 5px;
+                    right: 20px;
                     color: @turkis;
                     
                 }
@@ -1327,6 +1384,7 @@ button {
                     float: none;
                     width: auto;
                     text-align: left;
+                    padding-top: 5px;
 
                     .prozent, .match  {
                         font-size: 1.25em !important;
@@ -1337,12 +1395,12 @@ button {
 
                     }
                     .prozent {
-                        
-                        /*
                         &:after {
-                            content:'100%';
+                            content:'%';
+                            margin-left: -4px;
+                            margin-right: 2px;
                         }
-                        */
+
                     }
                 }
                 .btn-wrapper {
@@ -1362,14 +1420,14 @@ button {
                         background-repeat: no-repeat;
                         text-decoration: none;
                         padding: 0;
-                        width: 80%;
+                        width: 65%;
 
                         &.svg-chatnachricht {
                             background-image: url(/xstorage/template/redesign/icons/icon-chat.svg);
                             background-position: 7% 50%;
                             background-color: @turkis;
-                            background-size: 8%;
-                            padding: 10px 0;
+                            background-size: 7%;
+                            padding: 14px 0;
                             text-decoration: none; 
 
                             &:hover {
@@ -1383,14 +1441,14 @@ button {
                             background-image: url(/xstorage/template/redesign/svg/icon-fb-white.svg);
                             background-position: 7% 50%;
                             background-color: @turkis;
-                            background-size: 8%;
-                            padding: 10px 0;
+                            background-size: 7%;
+                            padding: 14px 0;
                         }
 
                         .icon-description {
                             position: relative;
                             top: 0;
-                            left: 20%;
+                            left: 17%;
                             letter-spacing: .25px;
                             font-family: @nunitoblack;
                             font-size: 1.125em;
@@ -1410,11 +1468,11 @@ button {
 
                         .js-toggle-favourite {
                             .svg-merkliste {
-                                background-size: 8%;
-                                background-position: 7% 50%;
+                                background-size: 7%;
+                                background-position: 7% 47%;
                                 background-repeat: no-repeat;
                                 background-color: @turkis;
-                                padding: 10px 0;
+                                padding: 14px 0;
 
                                 &.inactive {
                                     background-image: url(/xstorage/template/redesign/icons/icon-merkliste.svg);
@@ -1428,11 +1486,11 @@ button {
                         }
                         .js-toggle-blocked {
                             .svg-blockliste {
-                                background-size: 8%;
+                                background-size: 7%;
                                 background-position: 7% 50%;
                                 background-repeat: no-repeat;
                                 background-color: @turkis;
-                                padding: 10px 0;
+                                padding: 14px 0;
 
                                 &.inactive {
                                     background-image: url(/xstorage/template/redesign/icons/icon-blockliste.svg);
@@ -1451,7 +1509,7 @@ button {
             }
             
             h4.headline {
-                color: #646464;
+                color: @darkgray;
                 font-size: 1.3125em;
                 line-height: 1.3125em;
             }
@@ -1462,7 +1520,7 @@ button {
                 margin: 10px 3% 10px;
 
                 h4.headline {
-                    color: #646464;
+                    color: @darkgray;
                     font-size: 1.3125em;
                     line-height: 1.3125em;
                     padding: 0 10px;
@@ -1470,10 +1528,10 @@ button {
                 }
                 .matching-text {
                     display: block;
-                    font-size: 0.875em;
-                    font-family: @nunitolight;
-                    line-height: 1.5714285714285714em;
-                    padding: 0 0 0 5px;
+                    font-size: .875em;
+                    font-family: 'NunitoSans-regular';
+                    line-height: 1.57142857em;
+                    padding: 5px 0 0 15px;
                 }
 
                 .fakt {
@@ -1512,6 +1570,23 @@ button {
                             */
                         }
                     }
+                    &.gewuenschter-mitbewohner {
+                        padding: 4px 10px 5px 10px !important;
+                        
+                        .info [class*=" icon-"] {
+                            display: inline;
+                            font-size: 25px;
+                            
+                            &:first-child {
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+                }
+                .dummy {
+                    @media @lg {
+                        height: 56px;
+                    }
                 }
             }
             .kurzbeschreibung {
@@ -1528,7 +1603,7 @@ button {
                         width: 96%;
                         display: block;
                         margin: 10px auto;
-                        border: 3px solid #04e0d7;
+                        border: 3px solid @turkis;
                         border-radius: 6px;
                     }
                 }
@@ -1637,18 +1712,20 @@ button {
         .shadow-box-center {
             .profil.profil-room {
                 .roominfos {
-                    margin-bottom: 25px;
+                    padding-bottom: 35px;
+                    margin-bottom: 35px;
+                    
                     h1, h2, h3 {
                         margin: 0;
                     }
                     .roominfos-left {
-                        top: 40px;
+                        top: 30px;
                         
                         .wg-img-wrapper {
                             width: 100%;
                             height: auto;
                             padding: 10px;
-                            border: 2px solid #04e0d7;
+                            border: 2px solid @turkis;
                             border-radius: 6px;
                             
                             .profileimage  {                                
@@ -1660,23 +1737,69 @@ button {
                         top: 0px;
                         
                         .btn-wrapper {
-                            padding-top: 5px;
+                            padding-top: 10px;
+                            padding-left: 5px;
+                            
                         }
                         
                         .profil-inner-padding {
-                            padding-left: 0;
-                            padding-right: 0;
+                            // padding-left: 20px;
+                            // padding-right: 20px;
+                            padding-top: 30px;
+                            padding-bottom: 30px;
+
                             .maininfo {
                                 h3 {font-size: 1.9375em; }
                             }
                             .matchinginfos {
-                                padding: 5px 0;
+                                padding: 5px;
                                 .match, .prozent {
                                     font-size: .9375em;
                                 }
                             }
+                            .svg-btn-icons {
+                                &.svg-chatnachricht, &.btn-share-fb {
+                                    padding: 12px 0;
+                                }
+                                .svg-blockliste, .svg-merkliste {
+                                    padding: 12px 0;
+                                }
+                            }
                         }
-                        
+                    }
+                }
+                
+                .roomies {
+                    .profil-container {
+                        .room-roomie {
+                            width: 96%;
+                            display: block;
+                            margin: 10px auto;
+                            
+                            .img-responsive {
+                                border: 2px solid @turkis;
+                                border-radius: 6px;
+                                display: inline-block;
+                            }
+                            
+                            .roomie-single {
+                                .roomie-matching-name {
+                                    color:@turkis; 
+                                    font-family: 'NunitoSans-extrabold';
+                                    font-size: .875em;
+                                    display:block;
+                                    margin-top: 10px;
+                                }
+                                .roomie-matching-age {
+                                    color:@turkis; 
+                                    font-family: 'NunitoSans-regular';
+                                    font-size: .875em;
+                                }
+                                .roomie-matching-info {
+                                    color:@turkis;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1741,6 +1864,19 @@ button {
         padding-right: 2px;
         margin-bottom: 4px;
         transform: translateZ(0);
+        
+        .overlay-fav {
+            display: none;
+        }
+        .button-container-favblock {
+            display: none;
+        }
+        .prozent {
+            &:after {
+                content: "%";
+                // margin-left: -4px;
+            }
+        }
     }
 
     #search-page .shadow-box-center {
@@ -1766,7 +1902,7 @@ button {
                     bottom: .5%;
                     width: 99%;
                     text-align: center;
-                    color: #04e0d7;
+                    color: @turkis;
                     font-family: 'NunitoSans-bold';
                     font-size: .875em;
                     text-transform: uppercase;
@@ -1776,7 +1912,7 @@ button {
                     filter: alpha(opacity=75);
                     filter: progid:DXImageTransform.Microsoft.Alpha(opacity=.75);
                     opacity: .75;
-                    background: #646464;
+                    background: @darkgray;
                     padding: 5px 0 4px 0;
                     border-radius: 0 0 6px 6px;
                     margin: 0 1px;             
@@ -1804,12 +1940,55 @@ button {
                 height: 40px;
                 font-size: .8125em;
             }
+            
+            .meinprofil-images-container {
+                padding-top: 15px;
+                
+                .upload-image {
+                    &.hasImage {
+                        .icon-minus-rel:after {
+                            content: " ";
+                            background: url(/xstorage/template/redesign/icons/icon-del-minus.svg) 50% no-repeat;
+                            visibility: hidden;
+                        }
+                        &:hover, &:focus {
+                            .icon-minus-rel:after {
+                                visibility: visible;
+                            }
+                        }
+                    }
+                    // &.add-image, &.add-image-other {
+                    //     width: 70px;
+                    //     height: 75px;
+                    // }
+                    &.add-image:after {
+                        content: " ";
+                        background: transparent url(/xstorage/template/redesign/icons/icon-add-plus.svg) 50% no-repeat;
+                    }
+                }
+                            
+                .popover, .popover-del {
+                    width: 50vw;
+                        
+                    .popover-content {
+                        .wirklich {
+                            br {
+                                display: none;
+                            }
+                            .loeschen:before {
+                                content: " ";
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     
     .profil {
         .userinfos-right h1, .userinfos-right h3 {
         	margin:0;
+        	line-height: 1em;
         }
     }
     
@@ -1826,7 +2005,7 @@ button {
         #changePwd-btn {
             
             &:hover {
-                background-color: #646464;
+                background-color: @darkgray;
                 color: #fff;
             }
         }
@@ -1853,18 +2032,18 @@ button {
             padding: 10px 0 9px 33px;
             margin-left: 15px;
             margin-top: -15px;
-            color: #646464;
+            color: @darkgray;
         }
         
     }
     
     .chat {
         position: relative;
-        color: #04e0d7;
+        color: @turkis;
         margin: 2.5% 10% 0% 10%;
-        background: #efefef;
+        background: @lightgray;
         height: 100%;
-        border: 1px solid #04e0d7;
+        border: 1px solid @turkis;
         .border-radius(6px);
         
         .chatwindow {
@@ -1883,11 +2062,11 @@ button {
             padding-right: 10px;
             padding-top: 13px;
             padding-bottom: 1px;
-            background: #efefef;
+            background: @lightgray;
             resize: none;
             color: #333;
             height: 44px;
-            border: 1px solid #04e0d7;
+            border: 1px solid @turkis;
             border-radius: 6px;
         }
         
@@ -1929,7 +2108,7 @@ button {
     .room-settings {
         position: relative;
         padding: 14px 0 13px 25px;
-        background-color: #efefef;
+        background-color: @lightgray;
         width: 96%;
         margin: 0px 0 6px 2%;
         .border-radius(6px);
@@ -2532,7 +2711,13 @@ input.form-control {
 	font-family: @nunitoblack;
 }
 
-
+.fancybox-slide > #mein-fragebogen {
+    width: 35vw;
+    height: 89vh;
+    bottom: 1vh;
+    padding: 0;
+    margin: 0;
+}
 
 
 

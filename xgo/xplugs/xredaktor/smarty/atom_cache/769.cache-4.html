@@ -3,15 +3,18 @@
     z-index: 9; display: inline-block;
     font-size: 2.31vw;"<%/if%>>
     <div class="svg-merkliste" <%if $state == true%>style="display: none;"<%/if%>>
-        <!--<span id="toggle-favourite" class="icon icon-Favourite_inaktiv"></span>-->
+        <span id="toggle-favourite" class="icon icon-Favourite_inaktiv"></span>
+        <%*xr_atom a_id=1021 return=1*%>
         <%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>    
     </div>
     
     <div class="svg-merkliste-active" <%if $state == false%>style="display: none;"<%/if%>>
-    <!--<span class="icon icon-Favourite_aktiv">-->
-	<!--</span>-->
+    <span class="icon icon-Favourite_aktiv">
+	</span>
+        <%*xr_atom a_id=1021 return=1*%>
+
 		<%if $description != ''%>
             <span class="icon-description"><%xr_translate tag=$description%></span>
         <%/if%>

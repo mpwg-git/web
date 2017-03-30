@@ -348,6 +348,7 @@ label {
   -moz-transition:    @transition;
   -ms-transition:     @transition; 
   -o-transition:      @transition;  
+  transition:         @transition;
 }
 .transition-duration(@duration){
     -webkit-transition-duration: @duration;
@@ -360,6 +361,7 @@ label {
   -moz-transform:    @string;
   -ms-transform:     @string;
   -o-transform:      @string;
+  transform:         @string;
 }
 .scale (@factor) {
   -webkit-transform: scale(@factor);
@@ -381,10 +383,11 @@ label {
   -o-transform:      skew(@deg, @deg2);
 }
 .translate (@x, @y:0) {
-  -webkit-transform:       translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
   -moz-transform:    translate(@x, @y);
   -ms-transform:     translate(@x, @y);
   -o-transform:      translate(@x, @y);
+  transform:         translate(@x, @y);
 }
 .translate3d (@x, @y: 0, @z: 0) {
   -webkit-transform:       translate3d(@x, @y, @z);

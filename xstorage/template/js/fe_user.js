@@ -521,13 +521,19 @@ var fe_user = (function() {
                 	else
                 	{
                 		picture.guillotine({
-                			width: 761,
-                			height: 401                    		
+//                			width: 761,
+//                			width: 765,
+                			width: 500,
+                			height: 326                    		
+//                			height: 500                    		
+//                			height: 401                    		
                 		});	
                 		$('.modal-dialog').css('height', '60%');
+                		
+                		/*
                 		var stylesDesk = {
                 			width: '95%',
-                			margin: '0% 2.5% 5.5% 2.5%'
+                			margin: '4.5% 5.5% 5.5%'
                 		};
                 		var stylesMob = {
                 			width: '95%',
@@ -539,6 +545,7 @@ var fe_user = (function() {
                 		
                 		$('#gui-frame').css( stylesDesk );
                 		$('#gui-frame').css('margin-top', '3.5%');
+                		*/
                 		$('#controls').css('width', '95%');
                 	}
                 	
