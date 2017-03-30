@@ -3,6 +3,11 @@ var deactAccountOnce = false;
 var base64Img = false;
 var glltFormData = false;
 var glltCropData = false;
+
+var media_xs = window.matchMedia("(max-width: 480px)");
+var media_lg = window.matchMedia("(min-width: 992px)");
+
+
 var fe_user = (function() {
     return new function() {
         this.init = function() {
@@ -12,6 +17,8 @@ var fe_user = (function() {
         }
         this.registerListeners = function() {
             var me = this;
+            
+            
             $('.js-accept-join').unbind("click");
             $('.js-accept-join').click(function(e) {
                 e.preventDefault();
@@ -184,6 +191,7 @@ var fe_user = (function() {
             $('#form-mein-profil-save').unbind("click");
             $('#form-mein-profil-save').click(function(e) {
                 e.preventDefault();
+                fe_core.showLoader();
                 return fe_core.submitWithValidation('form-mein-profil');
             });
             $('#form-raum-einladen-save').unbind("click");
@@ -279,13 +287,13 @@ var fe_user = (function() {
             });
             */
             
-
-            $('.form-mein-profil').unbind("submit");
-            $('.form-mein-profil').submit(function(e) {
+            $('#form-mein-profil-save').unbind("click");            
+            $('#form-mein-profil').unbind("submit");
+            $('#form-mein-profil').submit(function(e) {
                 e.preventDefault();
                 var data = {};
-                data.user = $('.form-mein-user').serialize();
-                data.profile = $('.form-mein-profil').serialize();
+                data.user = $('#form-mein-user').serialize();
+                data.profile = $('#form-mein-profil').serialize();
 
                 $('.ajax-loader').show();
                 $.ajax({
@@ -300,45 +308,60 @@ var fe_user = (function() {
                 });
             });
 
-            $('.form-mein-raum-save').unbind("click");
-            $('.form-mein-raum').unbind("submit");
-            $('.form-mein-raum').submit(function(e) {
+//            $('#form-mein-raum-save').unbind("click");
+//            $('#form-mein-raum-save').click(function(e) {
+//            	$('.ajax-loader').show();
+//            });
+            
+            $('#form-mein-raum').unbind("submit");
+            $('#form-mein-raum').submit(function(e) {
                 e.preventDefault();
+                $('.ajax-loader').show();
                 var ok = fe_core.jsFormValidation('form-mein-raum');
-
+                
+                console.log('submit MEIN RAUM');
+                console.log('ok?: ', ok)
+                
                 if (typeof ok != "undefined" && ok == true) {
-                    $('.ajax-loader').show();
-                    var data = {};
-                    data.room = $('.form-mein-raum').serialize();
 
-                    if(fe_core.getCurrentFace() == 3) {
-                    	data.ueberMich = $('.form-mein-user').serialize();
-                	}
+                	console.log('FORM OK');
+
+                	var data = {};
+                    data.room = $('#form-mein-raum').serialize();
+                	console.log(data.room);
+
+//                    if(fe_core.getCurrentFace() == 3) {
+//                    	data.ueberMich = $('#form-mein-user').serialize();
+//                	}
+
+//                    data.ueberMich = $('#form-mein-user').serialize();
+                    
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_room/profileSave',
                         data: data,
                         success: function(data) {
-                            window.location.href = $('#form-mein-raum-save').data('redirect');
+                        	$('.ajax-loader').hide();
+//                            window.location.href = $('#form-mein-raum-save').data('redirect');
+                        	var redirectTo = $('#form-mein-raum-save').data('redirect');
+                            if (redirectTo != "") {
+                                window.location.href = redirectTo;
+                                return;
+                            }
                         }
                     });
                 } else if (!ok) {
-                  if (fe_core.getCurrentFace() == 1)
-                  {
-                          $('.profilerstellen').animate({
-                              top: 1150
-                          }, 600);
+                	
+                	$('.ajax-loader').hide();
+                	
+                	$('.profilerstellen').animate({
+            			top: 1150
+            		}, 600);
 
-                  } else {
-
-                     $('#mCSB_2_container, #mCSB_2_dragger_vertical').animate({
-                          top: ($('#ZEITRAUM_VON').offset().top + 275)
-                     }, 800);
-
-                  }
+                	return false;
                 }
-                return false;
             });
+            
             $('.form-raum-einladen').unbind("submit");
             $('.form-raum-einladen').submit(function(e) {
                 e.preventDefault();
@@ -355,8 +378,8 @@ var fe_user = (function() {
                     }
                 });
             });
-            $('.form-mein-user').unbind("submit");
-            $('.form-mein-user').submit(function(e) {
+            $('#form-mein-user').unbind("submit");
+            $('#form-mein-user').submit(function(e) {
                 e.preventDefault();
 
                 $('#VORNAME_error, #NACHNAME_error').hide();
@@ -411,14 +434,14 @@ var fe_user = (function() {
                 
                 
                 var data = {
-                    user: $('.form-mein-user').serialize()
+                    user: $('#form-mein-user').serialize()
                 };
                 // hiddenRoomId != false oder leer type == biete
                 if(fe_core.getCurrentFace() == 3) {
                     var checkType = $('#hiddenRoomId').val();
 
                 	if(checkType != false || checkType != '') {
-                		data.room = $('.form-mein-raum').serialize();
+                		data.room = $('#form-mein-raum').serialize();
                 	}
                 }
                 $.ajax({
@@ -521,12 +544,8 @@ var fe_user = (function() {
                 	else
                 	{
                 		picture.guillotine({
-//                			width: 761,
-//                			width: 765,
                 			width: 500,
-                			height: 326                    		
-//                			height: 500                    		
-//                			height: 401                    		
+                			height: 326                    		              		
                 		});	
                 		$('.modal-dialog').css('height', '60%');
                 		

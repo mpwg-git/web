@@ -12,9 +12,9 @@
 <input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
 <div class="meinprofil-container center-block">
     <div class="profil no-gutter mob-no-gutter">
-        <div class="row no-margin">
-            <div class="userinfos col-sm-5 col-xs-6 pull-left no-margin mob-no-gutter">
-                <div class="userinfos-left">
+        <div class="row userinfos no-margin">
+            <div class="userinfos-left col-xs-6 pull-left no-margin no-gutter mob-no-gutter">
+                <!--<div class="userinfos-left">-->
                     <div class="meinprofil-profilbild add-image" data-type="profile">
                         <%if $user['wz_PROFILBILD'] == 0%>
                             <%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%>
@@ -34,9 +34,9 @@
                             </label>        
                         </div>
                     </div>
-                </div>
+                <!--</div>-->
             </div>
-            <div class="userinfos-right pull-left col-sm-7 col-xs-6 no-margin mob-no-gutter">
+            <div class="userinfos-right pull-left col-xs-6 no-margin mob-no-gutter">
                 <div class="profil-inner-padding">
                     <div class="maininfo">
                         <h3><%$data['USER']['wz_VORNAME']%></h3>

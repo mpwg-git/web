@@ -5,23 +5,25 @@
 
 <input type="hidden" id="hiddenUserId" value="<%$data['USER']['wz_id']%>">
 
-<div class="profil center-block no-gutter">
-
-    <div class="row no-margin">
-    
-        <div class="userinfos col-xs-5 pull-left no-margin">
-            <div class="userinfos-left">
-                <%if $user['wz_PROFILBILD'] == 0%>
-                    <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
-                <%else%>
-                    <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%></a>
-                <%/if%>
-            </div>
+<div class="profil profil-user center-block no-gutter">
+    <div class="icon-close-profile pull-right visible-xs-block">
+        <a href="javascript:history.back();">
+            <span class="icon-Close"></span>
+        </a>
+    </div>
+        
+    <div class="row userinfos no-margin">
+        <div class="userinfos-left col-xs-6 pull-left no-margin text-center">
+            <%if $user['wz_PROFILBILD'] == 0%>
+                <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
+            <%else%>
+                <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=$user['wz_PROFILBILD'] w=320 h=320 rmode="cco" class="profileimage"%></a>
+            <%/if%>
         </div>
 
-        <div class="userinfos-right pull-left col-xs-7 no-margin">
+        <div class="userinfos-right pull-left col-xs-6 no-margin">
             <div class="profil-inner-padding">
-                <div class="icon-close-profile pull-right">
+                <div class="icon-close-profile pull-right hidden-xs">
                     <a href="javascript:history.back();">
                         <span class="icon-Close"></span>
                     </a>

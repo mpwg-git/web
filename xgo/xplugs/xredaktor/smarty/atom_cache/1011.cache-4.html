@@ -116,7 +116,6 @@
     }
 </style>
 
-<input type="hidden" name="id" value="<%$data.ROOM.wz_id%>" />
 
 <div class="row "  style="margin: 15px 0 0 20px;">
     <h1><%xr_translate tag='Mein Raum'%></h1>
@@ -128,11 +127,13 @@
 
 <div class="row no-margin">
     <div class="col-lg-10 col-lg-offset-2 mob-no-gutter">
-    <form class="form-mein-raum" id="form-mein-raum">
-        
+        <form class="form-mein-raum" id="form-mein-raum">
+    
+        <input type="hidden" name="id" value="<%$data.ROOM.wz_id%>" />
         <div class="col-count-2 col-count-xs-1">
             
             <%xr_atom a_id=848 return=1 desc='interne beschriftung'%>
+            
             <%xr_atom a_id=854 return=1 desc='beschreibung'%>
             
             <div class="form-group geschlecht-container">

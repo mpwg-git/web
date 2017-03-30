@@ -38,7 +38,7 @@
         -webkit-column-count: 1;
         -moz-column-count: 1;
     }
-    
+                    
     #main-header {
 
         z-index: 20;
@@ -193,7 +193,7 @@
     .modal-header {
         .close {
             font-size: 2.75em;
-            color: #04e0d7;
+            color: @turkis;
             text-shadow: 0 1px 0 #fff;
             opacity: .6;
             position: relative;
@@ -748,8 +748,6 @@
 		    }
 **/
 
-
-		    
             .col-xs-12.no-gutter {
                 padding-left: 15px;
                 padding-right: 15px;
@@ -812,7 +810,7 @@
                 padding: 0;
                      
                 .searchlist {
-                    
+
                     .profil { 
                         .userinfos {
                             
@@ -913,6 +911,93 @@
                                                 }
                                             }
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // .picture-row .picture-col a#no-action-xs {
+                    //      touch-action: none;
+                    //      pointer-events: none;
+                    //  }
+                    
+                    .img-wrapper {
+                        .overlay-bg {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            height: 100%;
+                            width: 100%;
+                            color: #fff;
+                            background: rgba(4,224,215,.85);
+                            .transition(all 300ms ease);
+                            opacity: 0;
+                            
+                            
+                            &:hover, &.active {
+                                    opacity: 1;
+                                    .overlay{
+                                        transform: scale(1);
+                                        opacity: 1;
+                                    }
+                            }
+                            .overlay { width: 100%; height: 100%; }
+                            .upper, .upper.is-suche {
+                                padding: 7px 7px 0 7px;
+                                height: 0;
+                                margin: 0;
+                                
+                                .drduck.icon-duck {
+                                    padding: 5px 0 0 15px;
+                                    &:before { font-size: 150%; }
+                                    
+                                    & + .pull-right {
+                                        padding: 0 15px 0 0;
+                                    }
+                                }
+                                .prozent {
+                                    font-size: 150%;
+                                    &:after { font-size: 90%; }
+                                }
+                                .match {
+                                    font-size: 85%;
+                                }
+                            }
+                            .infos {
+                                width: 100%;
+                                height: auto;
+                                position: relative;
+                                top: 15px;
+                                text-align: center;
+                                
+                                .name {
+                                    width: 100%;
+                                    top:0;
+                                    left:0;
+                                    transform: none;
+                                }
+                                span {
+                                    font-family: @paytoneone;
+                                    margin: 0;
+                                    
+                                    &.lastname { font-size: 18px; line-height: 24px; }
+                                    &.firstname { font-size: 28px; line-height: 27px; margin-bottom: 20px;}
+                                }
+                                p {
+                                    font-family: @paytoneone;
+                                    margin: 0;
+                                    &.zimmer-name { font-size: 95%; line-height: 1.1; }
+                                    &.zimmer { font-size: 200%; line-height: 1; margin-bottom: 10px; }
+                                    &.btn-detail-view {
+                                        width: 45%;
+                                        height: 0;
+                                        margin-top: 0 !important;
+                                        font-size: 12px;
+                                        padding: 13px 0;
+                                        line-height: 0;
                                     }
                                 }
                             }
@@ -1350,6 +1435,148 @@
                 }
             }
         }
+        
+        
+        
+/**
+  * PROFILE ROOM
+  *
+  **/
+        #search-hits {
+        .shadow-box-center {
+            .profil.profil-room {
+                padding-bottom: 30px;
+                
+                .icon-close-profile {
+                    position: relative;
+                    top: 2px;
+                    right: 2px;
+                    color: @turkis;
+                    font-size: .75em;
+                }
+                .roominfos {
+                    padding: 0 20px 0 10px;
+                    margin-bottom: 0;
+                    margin-top: -20px;
+                    
+                    h1, h2, h3 {
+                        margin: 0;
+                    }
+                    .roominfos-left {
+                        top: 15px;
+                        
+                        .wg-img-wrapper {
+                            width: 100%;
+                            height: auto;
+                            padding: 10px;
+                            border: 2px solid @turkis;
+                            border-radius: 6px;
+                            
+                            .image-slider {
+                                overflow: hidden;
+                            }
+                            .profileimage  {                                
+                                border: none;
+                            }
+                        }
+                    }
+                    .roominfos-right {
+                        top: 0px;
+                        padding: 0;
+                        margin-bottom: 0;
+                        
+                        .btn-wrapper {
+                            padding-top: 0;
+                            padding-left: 5px;
+                        }
+                        
+                        .profil-inner-padding {
+                            padding: 15px 5px 15px 5px;
+
+                            .maininfo {
+                                h3 {font-size: 1.9375em; }
+                            }
+                            .matchinginfos {
+                                padding: 5px;
+                                .match, .prozent {
+                                    font-size: .9375em;
+                                }
+                            }
+                            .svg-btn-icons {
+                                width: 80%;
+                                
+                                &.svg-chatnachricht, &.btn-share-fb {
+                                    padding: 10px 0;
+                                    background-size: 8%;
+                                }
+                                .svg-blockliste, .svg-merkliste {
+                                    padding: 10px 0;
+                                    background-size: 8%;
+                                }
+                                .icon-description {
+                                    font-size: 1em;
+                                    left: 20%;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .profil-container .headline {
+                    font-size: 1.125em;
+                    line-height: 1.2222222222222223em;
+                }
+
+                .matchingdetails {
+                    .matching-text {
+                        padding: 5px 0 0 10px;
+                    }
+                }
+                .fakten, .kurzbeschreibung {
+                    padding: 0;
+                    
+                    .fakt { padding: 7px 10px; }
+                    .aufzaehlung { width: 100%;}
+                    .info { font-size: 0.9285714285714286em; }
+                    .profil-container .col-count-xs-1 { margin-bottom: 0 !important; }
+                        
+                    #map {
+                        &.map2 {
+                            height: 40vh;
+                            margin: 30px auto 10px auto;
+                        }
+                    }
+                }
+                
+                .roomies {
+                    .profil-container {
+                        .room-roomie {
+                            width: 96%;
+                            display: block;
+                            margin: 5px 15px;
+                            
+                            .img-responsive {
+                                width: 25%;
+                            }
+                            
+                            .roomie-single {
+                                .roomie-matching-name {
+                                    font-size: .875em;
+
+                                }
+                                .roomie-matching-age {
+                                    font-size: .75em;
+                                }
+                                .roomie-matching-info {
+                                    color:@turkis;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     	.icon-Map.js-autocomplete-duck {
             position: relative;

@@ -1202,6 +1202,9 @@ button {
             .box-shadow(0 0 5px 5px rgba(100,100,100,0.1));
 
             .searchlist {
+                // .picture-row .picture-col a#no-action-xs {
+                //     touch-action: none;
+                // }
                 .img-wrapper {
                     width: 100%;
                     overflow: hidden;
@@ -1236,10 +1239,11 @@ button {
                         height: 100%;
                         width: 100%;
                         background: rgba(4,224,215,.7);
+                        color: #fff;
                         .transition(all 300ms ease);
                         opacity: 0;
                         
-                        &:hover, &.active {
+                        &:hover, &:active, &.active {
                                 opacity: 1;
                                 .overlay{
                                     transform: scale(1);
@@ -1248,11 +1252,15 @@ button {
                         }
                         .overlay { width: 100%; height: 100%; }
                         .upper, .upper.is-suche {
-                            padding: 15px 20px 0;
-                            // height: 0;
+                            padding: 0;
                             
-                            .icon-duck:before{
-                                font-size: 36px;
+                            .drduck.icon-duck {
+                                padding: 5px 0 0 15px;
+                                &:before { font-size: 2.5714285714285716em; }
+                                
+                                & + .pull-right {
+                                    padding: 0 15px 0 0;
+                                }
                             }
                             .prozent {
                                 display: block;
@@ -1275,6 +1283,7 @@ button {
                             
                             .name {
                                 position: absolute;
+                                width: 100%;
                                 top: 50%;
                                 left: 50%;
                                 transform: translate(-50%,-50%);
@@ -1291,8 +1300,8 @@ button {
                                 margin: 0;
                                 &.zimmer-name { font-size: 21px; line-height: 27px; }
                                 &.zimmer { font-size: 53px; line-height: 46px; }
-                                &.btn-zimmer-details{
-                                    width: 75%;
+                                &.btn-detail-view{
+                                    width: 45%;
                                     height: 35px;
                                     margin-top: 20px !important;
                                     background-color: white;
@@ -1315,14 +1324,14 @@ button {
                 padding-bottom: 50px;
                 
                 .userinfos {
+                    margin-bottom: 25px;
+                    // text-align: left;
+                    
                     .userinfos-left {
-                        width: 85%;
-                        margin: 35px 0 70px 45px;
-                        
+                        margin: 25px auto;
                          .profileimage {
-                            width: 100%;
+                            width: 90%;
                             height: auto;
-                            // margin: 20px 0 54px 10px;
                             padding: 10px;
                             border: 2px solid @turkis;
                             border-radius: 6px;
@@ -1340,7 +1349,7 @@ button {
                                 font-size: 3.4375em;
                                 margin: 0;
                                 text-transform: uppercase;
-                                line-height: 1.9454545454545454em;
+                                line-height: 1;
                             }
                             h3 {
                                 font-size: 1.375em;
@@ -1368,15 +1377,18 @@ button {
                 }
                 .subheadline {
                     font-family: @nunitoregular;
-                    line-height: 2.2142857142857144em;
+                    line-height: 1.2;
                     color: @turkis;
                     text-transform: uppercase;
 
                     &.whoiam {
                         font-family: @nunitoregular;
-                        line-height: 2.2142857142857144em;
+                        line-height: 1.2;
                         color: @turkis;
                         text-transform: uppercase;
+                        margin-top: 15px;
+                        display: block;
+                        font-size: 1.125em;
                     }
                 }
 
@@ -1516,8 +1528,10 @@ button {
 
             .matching-infos-detail, .profil-container {
                 position: relative;
-                width: 94%;
-                margin: 10px 3% 10px;
+                // width: 94%;
+                // margin: 10px 3% 10px;
+                width: 92%;
+                margin: 10px 4% 10px 4%;
 
                 h4.headline {
                     color: @darkgray;
@@ -1710,6 +1724,35 @@ button {
     
     #search-hits {
         .shadow-box-center {
+            
+            .profil.profil-user {
+                
+                .userinfos {
+                    
+                    .userinfos-left {
+                        
+                    }
+                    
+                    .userinfos-right {
+                        
+                        .profil-inner-padding {
+                            .btn-wrapper {
+                                padding-top: 15px;
+                                padding-left: 5px;    
+                            }
+                            .svg-btn-icons {
+                                &.svg-chatnachricht, &.btn-share-fb {
+                                    padding: 12px 0;
+                                }
+                                .svg-blockliste, .svg-merkliste {
+                                    padding: 12px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
             .profil.profil-room {
                 .roominfos {
                     padding-bottom: 35px;
@@ -1884,9 +1927,8 @@ button {
 
             .userinfos-left {
                 .meinprofil-profilbild {
-                    position: relative;
-                    width: 100%;
-                    height: auto;
+                    width: 85%;
+                    margin-left: 7.5%;
                 }
             }
             .meinprofil-options {
@@ -1897,11 +1939,13 @@ button {
             }
             
             .meinprofil-profilbild.add-image {
+                text-align: center;
+                
                 .add-image-profil {
                     position: absolute;
                     bottom: .5%;
-                    width: 99%;
-                    text-align: center;
+                    width: 90%;
+                    margin-left: 5%;
                     color: @turkis;
                     font-family: 'NunitoSans-bold';
                     font-size: .875em;
@@ -1914,8 +1958,7 @@ button {
                     opacity: .75;
                     background: @darkgray;
                     padding: 5px 0 4px 0;
-                    border-radius: 0 0 6px 6px;
-                    margin: 0 1px;             
+                    border-radius: 0 0 6px 6px; 
                 }
                 #svg-icon-add {
                     width: 22px;
@@ -2113,22 +2156,42 @@ button {
         margin: 0px 0 6px 2%;
         .border-radius(6px);
         float: left;
-        background-image: url(/xstorage/template/redesign/icons/icon-trash.svg);
-        background-repeat: no-repeat;
-        background-position: 98% 50%;
-        background-size: 24px;
-        
+        background-image: url(/xstorage/template/redesign/icons/icon-deactivate.svg), url(/xstorage/template/redesign/icons/icon-trash.svg);
+        background-repeat: no-repeat, no-repeat;
+        background-position: 93% 56%, 98% 50%;
+        background-size: 24px, 24px;
+        .room-edit {
+            .room-number, .room-name {
+                color: @turkis;
+            }
+            &:hover { color: @darkgray; }
+        }
         a:hover {
             color: @darkgray !important;
             text-decoration: none;
         }
         
-        #icon-trash-del-room {
+        #activate-room, #deactivate-room, #icon-trash-del-room {
             position: absolute;
             top: 15%;
-            left: 94%;
             padding: 23px 35px 9px 5px;
         }
+        #activate-room, #deactivate-room { left: 89.5%; }
+        #icon-trash-del-room { left: 94%; } 
+        
+        &.room-not-active { 
+            background-image: url(/xstorage/template/redesign/icons/icon-activate.svg), url(/xstorage/template/redesign/icons/icon-trash.svg); 
+            
+            .room-edit {
+                .room-number, .room-name {
+                    color: @darkgray;
+                }
+                &:hover { color: @turkis; }
+            }
+            
+            
+        }
+        
     }
     #svg-icon-trash {
         width: auto;
@@ -2360,6 +2423,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 /**
   *     CHATBOT APPLICATION
   */
+   #chat-application {display: none !important; }
 /*@media only screen and (min-width: 993px) {
     #chat-application {
         bottom: 68px !important;
@@ -2702,7 +2766,7 @@ input.form-control {
 	line-height: 1.5em;
 	font-family: @nunitobold;
 	color: @darkgray;
-	margin-top: 40px;
+	margin-top: 25px;
 }
 
 .member-state > .current {

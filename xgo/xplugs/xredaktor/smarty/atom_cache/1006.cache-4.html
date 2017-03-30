@@ -5,7 +5,7 @@
     <%/if%>
     
     <div class="room-settings <%if $room.ROOM.wz_ACTIVE != 'Y'%>room-not-active<%/if%>">
-        <a class="room-edit" href="<%xr_genlink p_id=30 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>">
+        <a class="room-edit" href="<%xr_genlink p_id=30 m_suffix="`$room.ROOM.wz_id`/`$room.ROOM.wz_BESCHRIFTUNG_INTERN`" roomId=$room.ROOM.wz_id%>" title="<%xr_translate tag='mein-profil_btn-ideales-zimmer'%>">
             <span class="room-number">
                 <%xr_translate tag='Raum'%> <%$smarty.foreach.roomloop.iteration%>
             </span>
@@ -44,16 +44,24 @@
         </a>
         *****************%>
         
+        <%if $room.ROOM.wz_ACTIVE == 'Y'%>
+            <!--<button class="js-deactivate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Deaktivieren'%></button>-->
+            <a id="deactivate-room" title="<%xr_translate tag='Möchtest du deinen Raum wirklich deaktivieren? Er wird dann für andere Benutzer nicht mehr in der Suche aufscheinen!'%>"
+            class="room-edit-icon pull-right js-deactivate-room" 
+                data-room="<%$room.ROOM.wz_id%>" href="#">
+            </a>
+        <%else%>
+            <!--<button class="js-activate-room" data-room="<%$data.ROOM.wz_id%>"><%xr_translate tag='Aktivieren'%></button>-->
+            <a id="activate-room" title="<%xr_translate tag='mein-profil-mein-raum_activate'%>" 
+                class="room-edit-icon pull-right js-activate-room" 
+                data-room="<%$room.ROOM.wz_id%>" href="#">
+            </a>
+        <%/if%>
         
-        <a  id="icon-trash-del-room" title="<%xr_translate tag='Raum löschen'%>" 
+        <a id="icon-trash-del-room" title="<%xr_translate tag='Raum löschen'%>" 
             class="js-delete-room-popup room-edit-icon icon-delete pull-right" 
             data-room="<%$room.ROOM.wz_id%>" href="#">
         </a>
-        <%if $room.ROOM.wz_ACTIVE != 'Y'%>
-            <a class="room-edit-icon pull-right" style="margin-top:-2px">
-                <span class="icon-Blocked_inaktiv"></span>
-            </a>
-        <%/if%>
     </div>
 
 <%/foreach%>

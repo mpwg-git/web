@@ -15,15 +15,15 @@
     <%*/if*%>
 
     <div class="profil profil-room no-gutter">
+        <div class="icon-close-profile pull-right visible-xs-block">
+            <a href="javascript:history.back();">
+                <span class="icon-Close"></span>
+            </a>
+        </div>
     
-        <div class="row no-margin userinfos">
-            <div class="roominfos col-xs-12">
+        <div class="row no-margin roominfos mob-no-gutter">
+            <div class="col-xs-12">
                 <div class="roominfos-left col-sm-7 col-xs-12 mob-no-gutter">
-                    <div class="icon-close-profile pull-right visible-xs-block">
-                        <a href="javascript:history.back();">
-                            <span class="icon-Close"></span>
-                        </a>
-                    </div>
                     <%if count($data['IMAGES']) > 0%>
                         <div class="wg-img-wrapper">
                             <%xr_atom a_id=991 images=$data['IMAGES'] return=1%>
