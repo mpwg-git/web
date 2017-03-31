@@ -2,26 +2,15 @@ var fe_redesign = (function() {
     return new function() {
         this.init = function() {
         	var me = this;
-        	
-        	/*
-        	 * creating media query list
-        	 * 	
-        	 * var media_xs = window.matchMedia("(max-width: 480px)");
-        	 * var media_lg = window.matchMedia("(min-width: 992px)");
-        	 *
-        	 * useage:
-        	 * 
-        	 *  	if (media_xs.matches) {
-        	 * 			//code...
-        	 *  	}
-        	 *  
-        	 */
-        	
+
             $('.cookie-warning-top .closing-icon').on('click', function () {
                 $.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function (response) {
                     $('.js-cookie-warning-top').removeClass('active');
                 });
             });
+
+            
+
 
             /*
              *    frontpage #und-los-gehts mouseover/out button states
@@ -73,10 +62,9 @@ var fe_redesign = (function() {
              *    fixFixed header/footer on focus input field
              */
             if ('ontouchstart' in window) {
-                
-            	var $body = $('body');
-                
-                $('header').on('focus', 'input', function() {
+                var $body = $('body');
+                $('header')
+                .on('focus', 'input', function() {
                     $body.addClass('fixfixed');
                     $body.css('overflow', 'hidden');
                 })
@@ -84,14 +72,10 @@ var fe_redesign = (function() {
                     $body.removeClass('fixfixed');
                     $body.css('overflow', 'visible');
                 });
-                
             }
             /* end */
-            
 
-            
-      	
-            
+
 
             /*
              * disable scroll when login form collapsed in
@@ -130,8 +114,8 @@ var fe_redesign = (function() {
             /*
              * mobile subnavi btn actions
              */
-            if($(window).width() <= 767) {
-            	
+            if($(window).width() <= 768) {
+
 	            var $filter 	=  $('#search-filter');
 	            var $treffer 	=  $('#search-hits');
 	            var $map	 	=  $('#search-map-chat .mapcontacts');
@@ -181,57 +165,7 @@ var fe_redesign = (function() {
 	            	}
 	            });
 
-	            /** TRANSITIONS MIT TRANSFORM TRANSLATE MOBILE // 27.less Line 690 **/
-	            /*
-	            $(document).on('click', '.btn-subnav-filter', function() {
-	            	if($filter.attr("trigger") === "0") {
-	            		
-	            		$filter.addClass("active").attr("trigger","1");
-	            		$treffer.addClass("active-filter");
-	            		$map.removeClass("active").attr("trigger","0");
-	            		$chat.removeClass("active").attr("trigger","0");
-	            	}
-	            	else {
-	            		$filter.removeClass("active").attr("trigger","0");
-	                	$treffer.removeClass("active-filter");
-	            	}
-	            });
 
-
-	            $(document).on('click', '.btn-subnav-map', function() {
-	            	if($map.attr("trigger") === "0") {
-//	            		$pos = -($('#search-hits').height() + $(window).height());
-	            		
-	            		$map.addClass("active").attr("trigger","1");
-	            		$treffer.addClass("active-map");
-	            		$filter.removeClass("active").attr("trigger","0");
-	            		$chat.removeClass("active").attr("trigger","0");
-	            		
-	            	}
-	            	else {
-	            		$map.removeClass("active","0");
-	                	$treffer.removeClass("active-map");
-	            	}
-	            });
-
-
-	            $(document).on('click', '.btn-subnav-chatsearch', function() {
-	            	if($chat.attr("trigger") === "0") {
-            		
-	            		$chat.addClass("active").attr("trigger","1");
-	            		$treffer.addClass("active-chat");
-	            		$filter.removeClass("active").attr("trigger","0");
-	            		$map.removeClass("active").attr("trigger","0");
-	            	}
-	            	else {
-	            		$chat.removeClass("active").attr("trigger","0");
-	                	$treffer.removeClass("active-chat");	            		
-	            	}
-	            });
-*/
-
-                
-                
 	            $(document).on('click', '.suche-cat', function() {
 	            	$filter.toggle().attr("trigger","0");
 
@@ -251,7 +185,6 @@ var fe_redesign = (function() {
 })();
 
 $(document).ready(function() {
-		
     fe_redesign.init();
 });
-/* END */
+/* END */ 

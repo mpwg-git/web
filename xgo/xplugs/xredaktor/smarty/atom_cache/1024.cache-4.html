@@ -1,14 +1,15 @@
 <%xr_siteCall fn="fe_fragebogen::sc_getAllFragen" var="fragen"%>
 
-
 <div id="mein-fragebogen" style="display: none">
-    <div class="col-xs-12">
+    <div class="col-xs-12 mob-no-gutter">
         <div class="register-fragebogen text-center">
             <form class="form" id="register-fragebogen" name="register-fragebogen">
                 <%foreach $fragen as $k => $v%>
                     <div class="fragen-container fragenNR_<%$v['FRAGE']['wz_NR']%>">
                         <div class="row no-gutter fragenNR_<%$v['FRAGE']['wz_NR']%>_headline">
-                            <hr>
+                            <%if $v['FRAGE']['wz_NR'] != 1%>
+                                <hr>
+                            <%/if%>
                             <div class="col-xs-12">
                                 <%if $k < 7%>
                                     <h4 class="frage-headline"><%$k+1%>. <%if $P_LANG == 'de'%><%$v['FRAGE']['_DE_wz_FRAGE']%><%else%><%$v['FRAGE']['_EN_wz_FRAGE']%><%/if%></h4>
@@ -68,5 +69,3 @@
         </div>
     </div>
 </div>
-<!--    </div>-->
-<!--</div>-->

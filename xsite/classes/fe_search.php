@@ -452,7 +452,7 @@ class fe_search
 		$type					= 'suche';
 		$profileTableId 		= 717;
 
-		$resultLimit			= 30; //18;
+		$resultLimit			= 18; //18;
 
 		if(intval($_REQUEST['xr_face']) == "1") $resultLimit = 99;
 
@@ -885,7 +885,7 @@ class fe_search
 		$userId			= intval(xredaktor_feUser::getUserId());
 		$type				= fe_user::getUserType($userId);
 
-		$resultLimit	= 30; //18;
+		$resultLimit	= 18; //18;
 		if(intval($_REQUEST['xr_face']) == "1") $resultLimit = 99;
 
 

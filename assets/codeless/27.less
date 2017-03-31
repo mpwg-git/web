@@ -116,6 +116,8 @@
         .nav-p-lang {
             padding-right: 4px;
             display: inline-block;
+            // position: absolute;
+            // right: 20%;
             
             .navlinks {
                 margin-top: 17.5px;
@@ -165,13 +167,17 @@
                 padding-right: 10px;
             }
             
-            svg#icon-chat, svg#icon-map, svg#icon-filter {
+            svg#icon-chat, svg#icon-map, svg#icon-filter, svg#icon-lupe-icon-lupe {
                 vertical-align: text-bottom;
                 margin-right: 5px;
             }
+            svg#icon-lupe-icon-lupe {
+                width: 20px;
+                height: 20px;
+            }
             
                 
-            .btn-subnav-chatsearch, .btn-subnav-map, .btn-subnav-filter {
+            .btn-subnav-chatsearch, .btn-subnav-map, .btn-subnav-filter, .btn-subnav-searchlist {
                 font-family: @nunitoextrabold;
                 font-size: 0.875em;
                 background-color: transparent;
@@ -460,7 +466,20 @@
         width: 100%;
         margin:0;
     }
-    
+    #main-content .register-fragen #sticky-register-konto {
+        width: 100%;
+        margin: 5px 0 100px 0;
+    }
+    #main-content .register-fragen {
+        .col-xs-12:first-of-type {
+            display: flex;
+            flex-direction: column;
+            
+            .register-konto { margin: 70px 0 5px 0; order: 1; }
+            .register-wunsch-wg { order: 2; } 
+        }
+        
+    }
     
     #main-content .register-fragen .register-wunsch-wg, #main-content .register-fragen .register-fragebogen, #main-content .register-fragen .register-konto {
         padding: 5px 25px 20px 25px;
@@ -686,8 +705,16 @@
 		#search-page {
 		    margin-top: 100px;
             
+            #search-filter, #search-map-chat .mapcontacts, #search-map-chat .chatcontacts  {
+		        position: relative;
+		        display: none;
+		        width: 100%;
+		        margin-bottom: 20px;
+		    }
+            
             #search-hits {
-                position: absolute;
+                // position: absolute;
+                position: relative;
                 
                 .shadow-box-center {
             
@@ -778,14 +805,15 @@
                 }
             }
             
+            
+/** TRANSITIONS MIT TRANSFORM TRANSLATE **/
+/****            
             #search-filter, #search-map-chat .mapcontacts, #search-map-chat .chatcontacts  {
 		        position: absolute;
-		        display: none;
+		      //  display: none;
 		        width: 100%;
 		        margin-bottom: 20px;
 		    }
-/** TRANSITIONS MIT TRANSFORM TRANSLATE **/
-/**
             #search-filter, #search-map-chat .chatcontacts, #search-map-chat .mapcontacts {
                 position: absolute;
                 .transition(all .5s .4s);
@@ -815,12 +843,12 @@
 		        .transform(translateX(100vw));
 		      
 		        &.active {
-		            
+		            transform: translateX(0);
 		        }
 		    }
 		    #search-map-chat {
 		        .chatcontacts {
-		            .transform(translateX(-100vw));
+		            .transform(translateX(-150vw));
 		          
                     &.active {
                         
@@ -834,7 +862,7 @@
                     }
 		        }
 		    }
-**/
+*****/
 
             .col-xs-12.no-gutter {
                 padding-left: 15px;
@@ -1094,8 +1122,10 @@
             }
             
             .chatcontacts, .mapcontacts {
-                position: absolute;
-                width: 90%;
+                // position: absolute;
+                position: relative;
+                width: 100%;
+                margin-bottom: 35px;
                 
                 .shadow-box-right {
                     margin-bottom: 0;

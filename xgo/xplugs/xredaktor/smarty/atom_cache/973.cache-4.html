@@ -3,7 +3,7 @@
 
 <header class="clearfix">
     <div id="main-header" class="no-gutter">
-        <div class="col-sm-3 col-xs-9 text-center">
+        <div class="col-sm-3 col-xs-8 text-center">
             <div class="header-logo">
                 <a href="<%xr_genlink p_id=1%>">
                     <img class="icon-duck" src="/xstorage/template/redesign/svg/icon-duck-white.svg" alt="Dr Duck" />
@@ -45,14 +45,18 @@
         	</div>
         </div>
         <div class="col-sm-3 hidden-xs text-center no-gutter">
-            <a class="navlinks btn btn-default btn-logout text-uppercase" href="<%xr_genlink p_id=28%>"><%xr_translate tag='Abmelden'%></a>
+            <a class="navlinks btn btn-default btn-logout text-uppercase hidden-xs" href="<%xr_genlink p_id=28%>"><%xr_translate tag='Abmelden'%></a>
             <span class="nav-p-lang">
                 <a href="<%xr_changeLang lang='de'%>" class="navlinks<%if $P_LANG == 'de'%> active<%/if%>">DE&nbsp;</a><span class="navlinks">|</span>
                 <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
             </span>
             <div class="clearfix"></div>
         </div>
-        <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
+        <div class="col-xs-4 hidden-sm hidden-md hidden-lg">
+            <span class="nav-p-lang">
+                <a href="<%xr_changeLang lang='de'%>" class="navlinks<%if $P_LANG == 'de'%> active<%/if%>">DE&nbsp;</a><span class="navlinks">|</span>
+                <a href="<%xr_changeLang lang='en'%>" class="navlinks<%if $P_LANG == 'en'%> active<%/if%>">EN</a>
+            </span>
             <i class="toggle-btn" data-toggle="collapse" data-target="#menu-content">
                 <%xr_atom a_id=1023 return=1%>
             </i>

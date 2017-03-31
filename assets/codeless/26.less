@@ -675,7 +675,7 @@ button {
     padding-top: 3.125em;
     position: absolute;
     width: 100%;
-
+    
 	/**
 	    FRONTPAGE
 	**/
@@ -843,6 +843,14 @@ button {
 /**
   *     REGISTRIERUNGSPAGES
   */
+    #anmelden-inner-inner {
+        #form-login {
+            margin-top: 15px;
+      
+            h5 { margin: 0; }
+      }
+  }
+  
     .register-fragen {
 
         height: 100vh;
@@ -2548,7 +2556,7 @@ footer {
     height: 50px;
     margin: 5px 0;
     font-size: 0.875em;
-    line-height: 1.4285714285714286em;
+    line-height: 1.2; /* 1.4285714285714286em; */
     font-family: @nunitoextrabold;
     color: #fff;
     background-color: @turkis;
@@ -2570,6 +2578,7 @@ footer {
         text-decoration: none;
     }
 }
+
 #fragebogen-save {
     display: none;
     width: 70%;
@@ -2787,7 +2796,135 @@ input.form-control {
     padding: 0;
     margin: 0;
 }
+/**
+  *     MEIN FRAGEBOGEN
+  *
+  */
+.fancybox-slide #mein-fragebogen {
 
+        width: 40%;
+        height: 70%;
+        bottom: 3%;
+        padding: 0;
+        margin: 0;
+        transform: scale(1.25);
+        @media @xs { 
+            width: 100%;
+            height: 85%;
+            transform: scale(.85);
+        }
+        
+        .fragenNR_1_headline > hr {display: none;}
+        
+        .register-fragebogen {
+            
+            word-wrap: break-word;
+
+
+            .fragen-container {
+                margin: 10px 0;
+
+                .btn-default {
+                    border-color: @turkis;
+                    line-height: 2;
+
+                    &:hover {
+                        // background-color: #fff;
+                    }
+                }
+                label.btn.btn-primary.toggle-on {
+                    line-height: 2;
+                }
+                .toggle.btn {
+                    min-height: 20px !important;
+                }
+                .frage-headline {
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-size: 1.25em;
+                }
+                .antwort-headline {
+                    font-size: 0.875em;
+                    font-family: @nunitoextrabold;
+                    line-height: 1.2857142857142858em;
+                    text-transform: uppercase;
+                }
+                .text-right.antwort-left {
+                    margin-right: 0;
+                    padding-left:5%;
+                    padding-right: 0;
+                }
+                .text-left.antwort-right {
+                    margin-left: 0;
+                    padding-right:5%;
+                    padding-left: 0;
+                }
+                .radio.radio-inline {
+                    position: relative;
+                    display: inline-block;
+                    font-weight: 400;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    margin: 5px 0 15px 0;
+
+                    label {
+                        padding: 0 13px 35px;
+                        text-align: center;
+                        width: auto;
+                    }
+                    input {
+                        width: 26px;
+                        height: 100%;
+                        margin: 0 0px 0 -12px;
+                    }
+                    .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
+                        width: 160px;
+                        height: 32px;
+                        margin-top: 3px;
+                    }
+                    label.btn.btn-primary.toggle-on {
+                        margin: 0;
+                        padding-right: 15px;
+                    }
+                    label.btn.btn-default.active.toggle-off {
+                        margin: 0;
+                        padding-left: 15px;
+                    }
+                    span.toggle-handle.btn.btn-default {
+                        height: 30px;
+                        width: 30px;
+                        top: 0;
+                        left: 0;
+                    }
+                    .toggle-btn {
+                        color: #fff;
+                        background-color: #fff;
+                        border-color: @turkis;
+                        min-width: 59px;
+                        min-height: 20px;
+                    }
+                    .btn-primary {
+                        color: #fff;
+                        background-color: @turkis;
+                        border-color: @turkis;
+                    }
+                    .btn {
+                        display: inline-block;
+                        padding: 4px;
+                        font-size: .875em;
+                    }
+                    .btn-primary:hover, .btn-primary.active.focus, .btn-primary.active:focus,
+                    .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus,
+                    .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus,
+                    .open>.dropdown-toggle.btn-primary:hover {
+                        color: #fff;
+                        background-color: @turkis;
+                        border-color: @turkis;
+                    }
+                }
+            }
+        }
+    }
 
 
 // CHAT | ui-slider preis | ui-autocomplete (search chatcontacts)
