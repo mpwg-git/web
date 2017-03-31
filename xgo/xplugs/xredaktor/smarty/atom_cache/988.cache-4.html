@@ -4,8 +4,8 @@
         <h4 class="headline text-uppercase">Wunschliste</h4>
         <hr class="full-width">
         
-        <div class="col-count-2" style="width: 80%; padding-left: 5px;">
-            <div class="col-count-1" style="height: 220px;">
+        <div class="col-count-2 col-count-xs-1" style="width: 80%; padding-left: 5px;">
+            <!--<div class="col-count-1" style="height: 220px;">-->
                 
                 <%if $data['PROFILE']['ZEITRAUM'] != ''%>
                     <div class="fakt clearfix">
@@ -65,10 +65,10 @@
                 <div class="fakt clearfix">
                     <span class="aufzaehlung"><%xr_translate tag="Raucher"%></span><span class="info"><%$data['PROFILE']['RAUCHER']%></span>
                 </div>
-            </div>
+            <!--</div>-->
             
             
-            <div class="col-count-1" style="height: 220px;">
+            <!--<div class="col-count-1" style="height: 220px;">-->
                 <div class="fakt clearfix">
                     <span class="aufzaehlung"><%xr_translate tag="Haustiere"%></span>
                     <span class="info"><%if $data.USER.wz_HAUSTIERE== 'Y'%><%xr_translate tag="Ja"%><%elseif $data.USER.wz_HAUSTIERE == 'N'%><%xr_translate tag="Nein"%><%else%><%xr_translate tag="Egal"%><%/if%></span>
@@ -103,7 +103,7 @@
                         <span class="aufzaehlung"><%xr_translate tag="Sprachen"%></span><span class="info"><%$data['PROFILE']['SPRACHEN']%></span>
                     </div>
                 <%/if%>
-            </div>
+            <!--</div>-->
         </div>
     </div>
 </div>

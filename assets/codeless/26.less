@@ -118,6 +118,9 @@ hr {
     &.full-width {
         width: 100%;
         margin: 15px 0;
+        @media @xs {
+            margin: 5px 0;
+        }
     }
 }
 .popover.top {
@@ -494,8 +497,9 @@ span.wirklich {
         float: right;
         font-size: 1.5em;
         font-family: @nunitolight;
+        z-index: 30;
         cursor: pointer;
-
+        
         &.icon-Close:before {
             content: "X";
         }
@@ -1365,6 +1369,7 @@ button {
                     top: 15px;
                     right: 20px;
                     color: @turkis;
+                    z-index: 5;
                     
                 }
   
@@ -1570,18 +1575,14 @@ button {
                         }
                         .svg-icon-frau {
                             padding-right: 5px;
-                            /*
-                            position: absolute;
-                            bottom: -22px;
-                            left: 52%;
-                            */
                         }
-                        .svg-icon-mann {
-                            /*
+                        svg#icon-mann-circle, svg#icon-frau-circle {
+                            height: 26px;
+                            width: auto;
                             position: absolute;
-                            bottom: -22px;
-                            left: 56%;
-                            */
+                        }
+                        svg#icon-mann-circle {
+                            left: 20%;
                         }
                     }
                     &.gewuenschter-mitbewohner {
@@ -1730,7 +1731,7 @@ button {
                 .userinfos {
                     
                     .userinfos-left {
-                        
+                        text-align: center;
                     }
                     
                     .userinfos-right {
@@ -1747,6 +1748,10 @@ button {
                                 .svg-blockliste, .svg-merkliste {
                                     padding: 12px 0;
                                 }
+                            }
+                            
+                            h1 {
+                                line-height: 1.2;
                             }
                         }
                     }

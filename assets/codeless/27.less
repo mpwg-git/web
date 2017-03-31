@@ -41,7 +41,7 @@
                     
     #main-header {
 
-        z-index: 20;
+        z-index: 40;
         
         .header-logo {
 			padding: 14px 4px;
@@ -130,6 +130,7 @@
         }
         
         .nav-side-menu {
+            z-index: 30;
             ul {
                  
             }
@@ -687,15 +688,102 @@
             
             #search-hits {
                 position: absolute;
+                
+                .shadow-box-center {
+            
+                    .profil.profil-user {
+                        .icon-close-profile {
+                            top: 5px;
+                        }
+                        .userinfos {
+                            
+                            .userinfos-left {
+                                margin: 5px 0 10px 0;
+                                text-align: left;
+                                // margin: 10px auto;
+                                
+                                .profileimage {
+                                    padding: 5px; 
+                                    margin-top: 5px;
+                                    margin-left: 5px;
+                                }
+                            }
+                            
+                            .userinfos-right {
+                                
+                                .profil-inner-padding {
+                                    padding: 10px 0 10px 5px; //10px 0 10px 5px
+                                    
+                                    .btn-wrapper {
+                                        padding-top: 0;
+                                        padding-left: 0;
+                                        width: 95%;
+                                    }
+                                    .svg-btn-icons {
+                                        width: 100%;
+                                        margin: 7px 0;
+                                        
+                                        &.svg-chatnachricht, &.btn-share-fb {
+                                            padding: 7px 0;
+                                            background-size: 8%;
+                                            background-position: 4% 50%;
+                                        }
+                                        .svg-blockliste, .svg-merkliste {
+                                            padding: 7px 0;
+                                            background-size: 8%;
+                                            background-position: 4% 47%;
+                                            
+                                            
+                                            &.active {
+                                                .icon-description {
+                                                    color: @darkgray;
+                                                }
+                                            }
+                                        }
+                                        .icon-description {
+                                            position: relative;
+                                            top: 0;
+                                            left: 15%;
+                                            // letter-spacing: .25px;
+                                            font-family: @nunitoblack;
+                                            font-size: .8125em;
+                                            color: #fff;
+                                            text-transform: uppercase;
+                                            
+                                            &:hover, &:focus {
+                                                text-decoration: none;
+                                            }
+                                            &:active, &:visited {
+                                                text-decoration: none;
+                                                color: @turkis;
+                                            }
+                                        }
+                                    }
+                                    h1 { font-size: 1.3125em; line-height: 1.2; }
+                                    h3 { font-size: .625em; }
+                                    
+                                    .matchinginfos {
+                                        .prozent, .match {
+                                            font-size: .75em !important;
+                                            line-height: 1.2;
+                                        }
+                                        .prozent:after {
+                                            content: "%";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
+            
             #search-filter, #search-map-chat .mapcontacts, #search-map-chat .chatcontacts  {
 		        position: absolute;
 		        display: none;
 		        width: 100%;
 		        margin-bottom: 20px;
 		    }
-		    
-		    
 /** TRANSITIONS MIT TRANSFORM TRANSLATE **/
 /**
             #search-filter, #search-map-chat .chatcontacts, #search-map-chat .mapcontacts {
@@ -885,7 +973,7 @@
                                                 
                                                 .icon-description { 
                                                     text-decoration: none;
-                                                    // color: @darkgray;
+                                                    color: @darkgray;
                                                     
                                                 }
                                             }
@@ -907,7 +995,6 @@
                                                 
                                                .icon-description { 
                                                     text-decoration: none;
-                                                    
                                                 }
                                             }
                                         }
@@ -1108,33 +1195,55 @@
                 
                 .shadow-box-center {
                     
-                    .meinprofil-container .profil {     
-                        .userinfos-left {
-                            width: 90%;
-                            margin: 0px 0 20px 5px;
-                        }
-                        .meinprofil-profilbild.add-image {
-                            .add-image-profil {
-                                width: 99%;
-                                font-size: .625em;
-                                margin-left: 1%;
-                                bottom: 1%;
-                                padding: 3px 0 3px 0;
-                                border-radius: 0px 0px 6px 6px;
+                    .meinprofil-container  {
+                        .profil {
+                            .userinfos {
+                                margin: 5px 0 25px 0;
                             }
-                            #svg-icon-add {
-                                width: 16px;
+                            .userinfos-left {
+                                margin: 0;
+                            
+                                .meinprofil-profilbild.add-image {
+                                    width: 90%;
+                                    margin: 5px 0 0 5%;
+                                    text-align: left;
+                                    
+                                    .profileimage {
+                                        width: 100%;
+                                    }
+                                    
+                                    .add-image-profil {
+                                        width: 98%;
+                                        font-size: .625em;
+                                        margin-left: 1%;
+                                        bottom: 1%;
+                                        padding: 3px 0 3px 0;
+                                        border-radius: 0px 0px 6px 6px;
+                                        text-align: center;
+                                    }
+                                    #svg-icon-add {
+                                        width: 16px;
+                                    }
+                                    .profilbild-hochladen {
+                                        padding-left: 0px;
+                    
+                                    }
+                                }
                             }
-                            .profilbild-hochladen {
-                                padding-left: 0px;
-            
+                            .userinfos-right {
+                                .profil-inner-padding {
+                                    padding: 5px 10px 5px 3px;
+                                    
+                                    h1 { font-size: 1.9375em; line-height: 1.1; }
+                                    h3 { font-size: 1em; line-height: 1.1; }
+                                }
                             }
                         }
                     }
                     
                     .profil {
                         .row {
-                            &:first-child { margin: 5px 0 10px 0; }
+                            &:first-child { margin: 5px 0 25px 0; }
                             margin: 10px 0;
                         }
                         .profil-container {
@@ -1152,6 +1261,52 @@
                             }
                             .meinprofil-submenu {
                                 font-size: 0.75em;
+                                .room-settings {
+                                    background-position: 88% 60%,98% 50%;
+                                    background-size: 18px;
+                                    
+                            		
+                            		.room-edit {
+                            			.room-number , .room-name {
+                            			}
+                            		}
+                            
+                            		#activate-room , #deactivate-room , #icon-trash-del-room {
+                            			position: absolute;
+                            			top: 15%;
+                                        padding: 14px;
+                            		}
+                            
+                            		#activate-room , #deactivate-room {
+                            			left: 82%;
+                            		}
+                            
+                            		#icon-trash-del-room {
+                            			left: 91%;
+                            		}
+                            
+                            		&.room-not-active {
+                            			background-image: url(/xstorage/template/redesign/icons/icon-activate.svg), url(/xstorage/template/redesign/icons/icon-trash.svg);
+                            			.room-edit {
+                            				.room-number , .room-name {
+                            					color: @darkgray;
+                            				}
+                            
+                            				&:hover {
+                            					color: @turkis;
+                            				}
+                            			}
+                            		}
+                            	}
+                            	#svg-icon-trash {
+                            		width: auto;
+                            		height: 46px;
+                            		position: absolute;
+                            		top: 50%;
+                            		left: 94%;
+                            		transform: translateY(-50%);
+                            		cursor: pointer;
+                            	}
                             }
                             .meinprofil-add-room {
                                 padding: 0 0 0 10px;
@@ -1160,6 +1315,7 @@
                                 .room-settings {
                                     padding: 1px 0 0 5px;
                                     font-size: 0.875em;
+                                    background-position: 87% 59%,98% 50%;
                                 }
                                 #svg-icon-add {
                                     height: 18px;
@@ -1254,7 +1410,7 @@
                                 }
                             }
                         }
-
+                        
                         
                         .member-state, .member-state.mob-member-state {
                         	font-size: 0.6875em;
@@ -1272,8 +1428,8 @@
                         }
                         
                         .userinfos-left {
-                            width: 85%;
-                            margin: 5px 0 5px 15px;
+                            // width: 85%;
+                            // margin: 5px 0 5px 15px;
                             
                             .profileimage {
                                 padding: 5px;
@@ -1288,9 +1444,15 @@
                             }
                         }
 
-                        .subheadline, .subheadline.whoiam {
+                        .subheadline {
                             line-height: 1.1428571428571428em;
                             font-size: 0.8125em;
+                        }
+                        .subheadline.whoiam {
+                            line-height: 1.2;
+                            font-size: .8125em;
+                            padding: 0 5px 0 0;
+                            margin: 0;
                         }
                         
                         .profil-inner-padding {
@@ -1443,132 +1605,133 @@
   *
   **/
         #search-hits {
-        .shadow-box-center {
-            .profil.profil-room {
-                padding-bottom: 30px;
-                
-                .icon-close-profile {
-                    position: relative;
-                    top: 2px;
-                    right: 2px;
-                    color: @turkis;
-                    font-size: .75em;
-                }
-                .roominfos {
-                    padding: 0 20px 0 10px;
-                    margin-bottom: 0;
-                    margin-top: -20px;
+            .shadow-box-center {
+                .profil.profil-room {
+                    padding-bottom: 30px;
                     
-                    h1, h2, h3 {
-                        margin: 0;
+                    .icon-close-profile {
+                        position: relative;
+                        top: 2px;
+                        right: 2px;
+                        color: @turkis;
+                        font-size: .75em;
                     }
-                    .roominfos-left {
-                        top: 15px;
-                        
-                        .wg-img-wrapper {
-                            width: 100%;
-                            height: auto;
-                            padding: 10px;
-                            border: 2px solid @turkis;
-                            border-radius: 6px;
-                            
-                            .image-slider {
-                                overflow: hidden;
-                            }
-                            .profileimage  {                                
-                                border: none;
-                            }
-                        }
-                    }
-                    .roominfos-right {
-                        top: 0px;
-                        padding: 0;
+                    .roominfos {
+                        padding: 0 20px 0 10px;
                         margin-bottom: 0;
+                        margin-top: -20px;
                         
-                        .btn-wrapper {
-                            padding-top: 0;
-                            padding-left: 5px;
+                        h1, h2, h3 {
+                            margin: 0;
                         }
-                        
-                        .profil-inner-padding {
-                            padding: 15px 5px 15px 5px;
-
-                            .maininfo {
-                                h3 {font-size: 1.9375em; }
-                            }
-                            .matchinginfos {
-                                padding: 5px;
-                                .match, .prozent {
-                                    font-size: .9375em;
-                                }
-                            }
-                            .svg-btn-icons {
-                                width: 80%;
+                        .roominfos-left {
+                            top: 15px;
+                            
+                            .wg-img-wrapper {
+                                width: 100%;
+                                height: auto;
+                                padding: 10px;
+                                border: 2px solid @turkis;
+                                border-radius: 6px;
                                 
-                                &.svg-chatnachricht, &.btn-share-fb {
-                                    padding: 10px 0;
-                                    background-size: 8%;
+                                .image-slider {
+                                    overflow: hidden;
                                 }
-                                .svg-blockliste, .svg-merkliste {
-                                    padding: 10px 0;
-                                    background-size: 8%;
+                                .profileimage  {                                
+                                    border: none;
                                 }
-                                .icon-description {
-                                    font-size: 1em;
-                                    left: 20%;
+                            }
+                        }
+                        .roominfos-right {
+                            top: 0px;
+                            padding: 0;
+                            margin-bottom: 0;
+                            
+                            .btn-wrapper {
+                                padding-top: 0;
+                                padding-left: 5px;
+                            }
+                            
+                            .profil-inner-padding {
+                                padding: 15px 5px 15px 5px;
+    
+                                .maininfo {
+                                    h3 {font-size: 1.9375em; }
+                                }
+                                .matchinginfos {
+                                    padding: 5px;
+                                    .match, .prozent {
+                                        font-size: .9375em;
+                                    }
+                                }
+                                .svg-btn-icons {
+                                    width: 80%;
+                                    
+                                    &.svg-chatnachricht, &.btn-share-fb {
+                                        padding: 10px 0;
+                                        background-size: 8%;
+                                    }
+                                    .svg-blockliste, .svg-merkliste {
+                                        padding: 10px 0;
+                                        background-size: 8%;
+                                    }
+                                    .icon-description {
+                                        font-size: 1em;
+                                        left: 20%;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                
-                .profil-container .headline {
-                    font-size: 1.125em;
-                    line-height: 1.2222222222222223em;
-                }
-
-                .matchingdetails {
-                    .matching-text {
-                        padding: 5px 0 0 10px;
-                    }
-                }
-                .fakten, .kurzbeschreibung {
-                    padding: 0;
                     
-                    .fakt { padding: 7px 10px; }
-                    .aufzaehlung { width: 100%;}
-                    .info { font-size: 0.9285714285714286em; }
-                    .profil-container .col-count-xs-1 { margin-bottom: 0 !important; }
-                        
-                    #map {
-                        &.map2 {
-                            height: 40vh;
-                            margin: 30px auto 10px auto;
+                    .profil-container .headline {
+                        font-size: 1.125em;
+                        line-height: 1.2222222222222223em;
+                    }
+    
+                    .matchingdetails {
+                        .matching-text {
+                            padding: 5px 0 0 10px;
                         }
                     }
-                }
-                
-                .roomies {
-                    .profil-container {
-                        .room-roomie {
-                            width: 96%;
-                            display: block;
-                            margin: 5px 15px;
+                    .fakten, .kurzbeschreibung {
+                        padding: 0;
+                        
+                        .fakt { padding: 7px 10px; }
+                        .aufzaehlung { width: 100%;}
+                        .info { font-size: 0.9285714285714286em; }
+                        .profil-container .col-count-xs-1 { margin-bottom: 0 !important; }
                             
-                            .img-responsive {
-                                width: 25%;
+                        #map {
+                            &.map2 {
+                                height: 40vh;
+                                margin: 30px auto 10px auto;
                             }
-                            
-                            .roomie-single {
-                                .roomie-matching-name {
-                                    font-size: .875em;
-
+                        }
+                    }
+                    
+                    .roomies {
+                        .profil-container {
+                            .room-roomie {
+                                width: 96%;
+                                display: block;
+                                margin: 5px 15px;
+                                
+                                .img-responsive {
+                                    width: 25%;
                                 }
-                                .roomie-matching-age {
-                                    font-size: .75em;
-                                }
-                                .roomie-matching-info {
-                                    color:@turkis;
+                                
+                                .roomie-single {
+                                    .roomie-matching-name {
+                                        font-size: .875em;
+    
+                                    }
+                                    .roomie-matching-age {
+                                        font-size: .75em;
+                                    }
+                                    .roomie-matching-info {
+                                        color:@turkis;
+                                    }
                                 }
                             }
                         }
@@ -1576,7 +1739,6 @@
                 }
             }
         }
-    }
 
     	.icon-Map.js-autocomplete-duck {
             position: relative;

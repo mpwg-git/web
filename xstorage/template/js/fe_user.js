@@ -804,6 +804,8 @@ var fe_user = (function() {
                 var userId = $(this).data('id');
                 var theType = $(this).data('type');
                 var me = this;
+                var toggleBlock = $('.js-toggle-blocked');
+                
                 
                 $.ajax({
                     type: 'POST',
@@ -814,22 +816,37 @@ var fe_user = (function() {
                     },
                     success: function(response) {
                     	
-                    	/*fe_core.showLoader(location.reload(true, fe_core.hideLoader()));*/
+                    	fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
                         
                     	switch (response.state) {
                             case true:
                                 $(me).find('.active').show();
                                 $(me).find('.inactive').hide();
+                                
+                                toggleBlock.find('.active').hide();
+                                toggleBlock.find('.inactive').show();
+                                
+                                fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
                                 /*$('.ajax-loader').hide(location.reload());*/
+                                
                                 break;
                             case false:
+                            	$(me).find('.active').hide();
                                 $(me).find('.inactive').show();
-                                $(me).find('.active').hide();
-                                if ($(me).hasClass('js-toggle-fade')) {
-                                    $(me).closest('.searchresult-single').fadeOut();
-                                }
+                                
+                                toggleBlock.find('.active').show();
+                                toggleBlock.find('.inactive').hide();
+                                
+//                                if($(me).hasClass('js-toggle-fade')) {
+//                                    $(me).closest('.searchresult-single').fadeOut();
+//                                }
+                                
+                                fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+                                /*$('.ajax-loader').hide(location.reload());*/
+                                
                                 break;
                             default:
+                            	toggleBlock.find('.inactive').show();
                                 break;
                         }
                     }
@@ -842,6 +859,9 @@ var fe_user = (function() {
                 var userId = $(this).data('id');
                 var theType = $(this).data('type');
                 var me = this;
+                
+                var toggleFav = $('.js-toggle-favourite');
+                
                 $.ajax({
                     type: 'POST',
                     url: '/xsite/call/fe_user/toggleBlock',
@@ -850,20 +870,33 @@ var fe_user = (function() {
                         theType: theType
                     },
                     success: function(response) {
-                    	/*fe_core.showLoader(location.reload(true, fe_core.hideLoader()));*/
+                    	
 
                         switch (response.state) {
                             case true:
                                 $(me).find('.active').show();
                                 $(me).find('.inactive').hide();
+                                
+                                toggleFav.find('.inactive').show();
+                                toggleFav.find('.active').hide();
+                                
                                 if ($(me).hasClass('js-toggle-fade')) {
                                     $(me).closest('.searchresult-single').fadeOut();
                                 }
+                                
+                                fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
                                 /*$('.ajax-loader').hide(location.reload());*/
+                                
                                 break;
                             case false:
                                 $(me).find('.inactive').show();
                                 $(me).find('.active').hide();
+                                
+                                toggleFav.find('.active').show();
+                                toggleFav.find('.inactive').hide();
+
+                                fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+
                                 break;
                             default:
                                 break;

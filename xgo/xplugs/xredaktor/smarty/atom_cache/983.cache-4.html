@@ -13,7 +13,7 @@
     </div>
         
     <div class="row userinfos no-margin">
-        <div class="userinfos-left col-xs-6 pull-left no-margin text-center">
+        <div class="userinfos-left col-xs-6 pull-left no-margin mob-no-gutter">
             <%if $user['wz_PROFILBILD'] == 0%>
                 <a href="<%$user['PROFILE_URL']%>"><%xr_imgWrapper s_id=540 w=320 h=320 rmode="cco" class="profileimage"%></a>
             <%else%>
@@ -21,7 +21,7 @@
             <%/if%>
         </div>
 
-        <div class="userinfos-right pull-left col-xs-6 no-margin">
+        <div class="userinfos-right pull-left col-xs-6 mob-no-gutter no-margin">
             <div class="profil-inner-padding">
                 <div class="icon-close-profile pull-right hidden-xs">
                     <a href="javascript:history.back();">
@@ -40,14 +40,15 @@
                         <%if $user['wz_id'] == $mydata['USER']['wz_id']%>
                             <style>
                                 .matchinginfos .prozent:after {
-                                    content: '100%';
+                                    content: '100%' !important;
                                     font-size: 1.375em;
+                                    color: #04e0d7;
                                 }
                                 .matchinginfos .prozent{
                                     margin-bottom: 0.75vw;
                                 }
                                 .profil .match-text {
-                                    /*display: none;*/
+                                    display: none;
                                 }
                             </style>
                         <%else%>

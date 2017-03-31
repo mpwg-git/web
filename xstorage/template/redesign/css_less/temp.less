@@ -1,195 +1,96 @@
-/*
-header {
-	position: fixed;
-    z-index: 20;
-}
-
-footer {
-    position: fixed;
-}
- 
-.fixfixed .header { 
-    position: absolute; 
-}  
-.fixfixed .footer { 
-    position: absolute;
-}
-*/
-
-overlay-fav {
-	display: none;
-}
-
-
-#main-content {
-	.left-row {
-		.meinprofil-erklaerung {
-			ol {
-				list-style-type: none;
-				marign: 0;
-				padding: 0;
-				
-				li {
-					&.legend-nr1 {
-						background: url(/xstorage/template/redesign/svg/icon-nr-1.svg) no-repeat;
-					}
-					&.legend-nr2 {
-						background: url(/xstorage/template/redesign/svg/icon-nr-2.svg) no-repeat;
-					}
-					&.legend-nr3 {
-						background: url(/xstorage/template/redesign/svg/icon-nr-3.svg) no-repeat;	
-					}
-					
-					> a {
-						font-size: .875em;
-						font-family: 'NunitoSans-extrabold';
-						line-height: 1.2857142857142858em;
-						text-decoration: none;
-					}
-				}
+.meinprofil-submenu {
+	.room-settings {
+		.room-edit {
+			.room-number , .room-name {
 			}
 		}
 	}
 }
 
 
-#main-content {
-	#search-page {
-		
-		#search-filter {
-			 
+
+
+/*
+.profil.profil-user {
+	.icon-close-profile {
+		top: 5px;
+	}
+
+	.userinfos {
+		.userinfos-left {
+			margin: 5px 0 10px 0;
+			text-align: left;
+			.profileimage {
+				padding: 5px;
+				margin-top: 5px;
+				margin-left: 5px;
+			}
 		}
 
-		#search-hits {
-			.shadow-box-left {
-				display: inline-block;
-				.profil {
-					display: block;
-					
-					.profil-links {
-						.profil.suche {
-							.profil-inner {
-								a > .profileimage {
-									width: 354px;
-									height: auto;
-								}
-							}
+		.userinfos-right {
+			.profil-inner-padding {
+				padding: 10px 0 10px 5px;
+				.btn-wrapper {
+					padding-top: 0;
+					padding-left: 0;
+					width: 95%;
+				}
+
+				.svg-btn-icons {
+					width: 100%;
+					margin: 7px 0;
+					&.svg-chatnachricht , &.btn-share-fb {
+						padding: 7px 0;
+						background-size: 8%;
+						background-position: 4% 50%;
+					}
+
+					.svg-blockliste , .svg-merkliste {
+						padding: 7px 0;
+						background-size: 8%;
+						background-position: 4% 47%;
+					}
+
+					.icon-description {
+						position: relative;
+						top: 0;
+						left: 15%;
+						font-family: @nunitoblack;
+						font-size: .8125em;
+						color: #fff;
+						text-transform: uppercase;
+						&:hover , &:focus {
+							text-decoration: none;
+						}
+
+						&:active , &:visited {
+							text-decoration: none;
+							color: @turkis;
 						}
 					}
 				}
+
+				h1 {
+					font-size: 1.3125em;
+					line-height: 1.2;
+				}
+
+				h3 {
+					font-size: .625em;
+				}
+
+				.matchinginfos {
+					.prozent , .match {
+						font-size: .75em ! important;
+						line-height: 1.2;
+					}
+
+					.prozent:after {
+						content: "%";
+					}
+				}
 			}
 		}
 	}
 }
-
- 
-.ui-widget-content.autocomplete-user-ul {
-    list-style-type: none;
-    background-color: rgba(100,100,100, .75);
-    height: auto;
-    margin: 0;
-    padding: 4px;
-    padding-left: 10px;
-    position: absolute !important;
-}
-.ui-widget-content.autocomplete-user-ul li.autocomplete-user-result {
-    color: #04e0d7;
-}
-.ui-widget-content.autocomplete-user-ul li a {
-    color: #fff;
-    font-size: 1.8em;
-    text-transform: uppercase;
-}
-.ui-widget-content.autocomplete-user-ul {
-    
-    list-style-type: none;
-    background: #eee;
-    height: auto;
-    margin: 0;
-    padding: 4px;
-    padding-left: 10px;
-    position: absolute !important;
-    
-    li {
-        
-        a {
-            color: #04e0d7;
-            text-transform: uppercase;
-        }
-        
-        &.ui-state-focus {
-            background: #eee;
-            border: 0;
-            color: #04e0d7;
-            
-            a {
-                color: #04e0d7;
-                text-transform: uppercase;
-            }
-            
-        }
-        
-        &.autocomplete-user-result {
-            
-            color: #04e0d7;
-            
-            &.autocomplete-user-not-found {
-                
-            }
-            
-            &.autocomplete-user-found {
-                
-            }
-            
-            
-        }
-        
-    }
-}
-
-@media only screen and (max-width: 767px) {
-	
-	#main-header { 
-		.header-logo {
-			padding: 14px 0;
-			margin: 0 auto;
-			text-align: center;
-			
-			.icon-duck {
-		        width: 22px;
-		        margin: 0;
-		        padding: 0;
-		    }
-		    .icon-font {
-		        width: 132px;
-		        margin: 0;
-		        padding: 0;
-		    }
-		}
-
-		.nav-p-lang {
-	         margin-right: 10px;
-
-			.navlinks {
-		        margin-top: 17.5px;
-
-	         }
-	    }
-		
-		.btn.btn-default.btn-login {
-	    	width: 65px;
-	        padding: 7px 10px;
-	        margin-top: 0;
-	        margin-right: 5px;
-	    }
-
-		#anmelden-inner {
-		    width: 170%;
-		    padding: 15px 20px 20px 20px;
-		    margin-right: 10px;
-		    max-height: calc(100vh - 80px);
-		    overflow-y: initial !important;
-		    overflow: scroll;
-		}
-	}
-}
+ */
