@@ -33,10 +33,12 @@ class xredaktor_render
 				switch ($deviceType)
 				{
 					case 'phone':
-						$f_id = 1;
+						/* $f_id = 1; */
+						$f_id = 4;
 						break;
 					case 'computer':
-						$f_id = 3;
+						/* $f_id = 3; */
+						$f_id = 4;
 						break;
 					case 'tablet':
 					default: 

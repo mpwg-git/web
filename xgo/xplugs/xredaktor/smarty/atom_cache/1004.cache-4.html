@@ -114,7 +114,6 @@
         <%/if%>
         
         
-        <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
             <div class="row no-margin no-gutter">
                 <div class="col-xs-12 profil-container">
                     <h4 class="headline text-uppercase"><%xr_translate tag='mein-profil_h4-meinKonto'%></h4>
@@ -123,6 +122,7 @@
                     <!--CHANGE PASSWORD-->
                     <%xr_atom a_id=1009 return=1%>
                     
+                <%if $data.USER.wz_MAIL_CHECKED == 'Y'%>
                     <!-- ACTIVATE/DEACTIVATE ACCOUNT -->
                     <div class="submitbutton-container">
                         <button id="<%if $data.USER.wz_ACTIVE == 'Y'%>form-deactivate-account<%else%>form-reactivate-account<%/if%>" class="button link-zu-wgtest">
@@ -133,6 +133,7 @@
                             <%/if%>
                         </button>
                     </div>
+                <%/if%>
                     
                     <!--DELETE ACCOUNT-->
                     <div class="submitbutton-container">
@@ -143,7 +144,6 @@
                 <!--./ende profil-container-->
             </div>    
             <!--./ende row-->
-        <%/if%>
         
         
         <!--DATEN VERWALTEN-->

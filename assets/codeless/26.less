@@ -105,9 +105,9 @@ button:focus {
     outline: none;
 }
 
-.error-div {
-    display: none;
-}
+// .error-div {
+//     display: none;
+// }
 
 hr {
     margin: 10px 5% 5px;
@@ -157,16 +157,17 @@ span.wirklich {
 
 
 .col-count-2 {
-    // column-count: 2;
-    // -webkit-column-count: 2;
-    // -moz-column-count: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    columns: 2;
+    column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
     
-    -webkit-column-fill: balance;
-    -moz-column-fill: balance;
-    column-fill: balance;
+    // -webkit-columns: 2;
+    // -moz-columns: 2;
+    // columns: 2;
+    
+    // -webkit-column-fill: balance;
+    // -moz-column-fill: balance;
+    // column-fill: balance;
 }
 .col-count-1 {
     column-count: 1;
@@ -188,17 +189,17 @@ span.wirklich {
     padding: 20px 25px 50px 25px;
 }
 
-.ajax-loader {
-    z-index: 9999;
-    display: none;
-    background: rgba(0,0,0,0.8);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
+// .ajax-loader {
+//     z-index: 9999;
+//     display: none;
+//     background: rgba(0,0,0,0.8);
+//     width: 100%;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+// }
 
 .left-row {
     .meinprofil-erklaerung {
@@ -1645,6 +1646,10 @@ button {
                     overflow: hidden;
                     font-size: .875em;
                     padding: 10px;
+                    height: 60px;
+                    break-inside: avoid-column;
+                    -moz-break-inside: avoid-column;
+                    -webkit-break-inside: avoid-column;
                     
                     .aufzaehlung {
                         width: 100%;
@@ -1669,7 +1674,7 @@ button {
                             position: absolute;
                         }
                         svg#icon-mann-circle {
-                            left: 20%;
+                            padding-left: 30px;
                         }
                     }
                     &.gewuenschter-mitbewohner {
@@ -1694,8 +1699,11 @@ button {
             .kurzbeschreibung {
                 .profil-container {
                     .fakt {
+                        margin-left: 1%;
+                        line-height: 1.2;
+                        
                         .aufzaehlung {
-                            width: 25%;
+                            width: 100%;
                         }
                         .info {
                             width: auto;
@@ -1971,6 +1979,7 @@ button {
     .icon-Map .path1:before {
         content: "\e63c";
         color: @turkis !important;
+        visibility: hidden;
     }
     .icon-Map .path2:before {
         content: "\e63d";
@@ -2331,6 +2340,13 @@ button {
     width: 100%;
     position: relative;
     left:5.731381606850147%;
+    
+    .error-div {
+        display: inline-block;
+        width: 93%;
+        margin-top: 0;
+        padding: 0px 5px;
+    }
 }
 
 .meinprofil-uebermich-inner, .meinprofil-meinkonto-collapse {
@@ -2631,7 +2647,7 @@ footer {
     margin-left: 1%;    // !important;
 }
 
-.button, #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #saveFragebogenBtn, .js-show-reg-form {
+.button, #form-login-submit, #fb-login-submit, #mail-reg-submit, #fb-reg-submit, #saveFragebogenBtn, .js-show-reg-form, #save-reg-fragebogen {
     width: 100%;
     height: 50px;
     margin: 5px 0;
@@ -2650,6 +2666,7 @@ footer {
         font-size: 1.7142857142857142em;
         font-family: @nunitoblack;
         vertical-align: sub;
+        line-height: .3;
     }
 
     &:hover {
@@ -2658,7 +2675,9 @@ footer {
         text-decoration: none;
     }
 }
-
+#save-reg-fragebogen {
+    display: none;
+}
 #fragebogen-save {
     width: 50%;
     height: auto;
@@ -2763,6 +2782,12 @@ label {
         color: @turkis;
         text-decoration: underline;
     }
+    &:focus {
+        color: @turkis;
+        text-decoration: none;
+        outline: 0;
+    }
+    
 }
 
 
@@ -2804,7 +2829,7 @@ input.form-control {
 }
 
 #oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, #MIETE_error, #ZEITRAUM_VON_error, #NACHNAME_error,
-#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div, .checkbox-error , #agb-accept_error
+#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div, .checkbox-error , #agb-accept_error, #UNREG_MB_error, #UNREG_MB_error
 {
     display: none;
     width: 100%;
@@ -2938,7 +2963,7 @@ input.form-control {
         }
 
         
-        .register-fragebogen {
+        .profile-fragebogen {
             
             word-wrap: break-word;
             
@@ -3016,6 +3041,7 @@ input.form-control {
                 label.btn.btn-primary.toggle-on {
                     line-height: 1.5;
                     font-size: 12px;
+                    width: 50%;
 
                     @media @xs {
                         line-height: 1.75;
@@ -3028,6 +3054,10 @@ input.form-control {
                         padding: 6px 20px 6px 6px;
                     }
                 }
+                label.btn.btn-default.active.toggle-off {
+                    width: 50%;
+                }
+                
                 .toggle-handle.btn.btn-default {
                     height: 32px;
                     width: 30px;
@@ -3156,6 +3186,16 @@ input.form-control {
                         border-color: @turkis;
                     }
                 }
+                .checkbox-error {
+                    font-size:12px;
+                }
+            }
+            .button.save-profil-fragebogen {
+                height: 35px;
+                width: 35%;
+                font-size: 14px;
+                line-height: 1;
+                margin: 25px 0 50px 0;
             }
         }
     }

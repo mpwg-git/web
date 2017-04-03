@@ -507,6 +507,8 @@ class xredaktor_feUser
 				{
 					return true;
 				}
+				
+				return true;
 			}
 		}
 

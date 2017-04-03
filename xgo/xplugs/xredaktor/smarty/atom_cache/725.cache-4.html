@@ -1,4 +1,21 @@
 <%xr_feUser action='finishExternalRegistration' var='fer'%>
+<%xr_siteCall fn='fe_user::getLoginStatus' var='status'%>
+
+<style>
+    .register {
+        width: 50%;
+        position: absolute;
+        top: 1%;
+        left: 25%;
+        text-align: center;
+        line-height: 1.5;
+    }
+    .register-inner .button {
+        width: 35%;
+        margin: 1% 5%;
+        height: 35px;
+    }
+</style>
 
 <div class="register">
      
@@ -11,7 +28,13 @@
         <%if $fer.status == 'OK'%>
             <h2><%xr_translate tag='Bestätigung erfolgreich'%></h2>
         	<%xr_translate tag='Ihre Bestätigung war erfolgreich.'%> <%xr_translate tag='Sie können sich nun mit Ihren Benutzerdaten einloggen.'%>
-            <a href="<%xr_genlink p_id=6%>" class="button" target="_self" title="<%xr_translate tag='zum Login'%>"><%xr_translate tag='zum Login'%></a>
+            
+            <%if $status == '1'%>
+                <a href="<%xr_genlink p_id=11%>" class="button" target="_self" title="<%xr_translate tag='Mein Profil'%>"><%xr_translate tag='Mein Profil'%></a>
+            <%else%>
+                <a href="<%xr_genlink p_id=6%>" class="button" target="_self" title="<%xr_translate tag='zum Login'%>"><%xr_translate tag='zum Login'%></a>
+            <%/if%>
+            
         <%else%>
             <h2><%xr_translate tag='Bestätigung fehlerhaft'%></h2>
         	<%xr_translate tag='Ihre Bestätigung war leider fehlerhaft!'%><br />

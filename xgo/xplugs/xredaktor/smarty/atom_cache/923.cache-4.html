@@ -1,0 +1,11 @@
+<style>
+    .page-wrapper {
+        margin-top: 60px;
+    }
+</style>
+<%xr_siteCall fn="fe_mapping_fragen::sc_getDeltas" var="delta"%>
+<%xr_siteCall fn='fe_search::getUserId' var='id'%>
+<%xr_siteCall fn='fe_fragebogen::sc_getAllFragen' var='fragen'%>
+<%xr_siteCall fn='fe_fragebogen::sc_getAntworten' var='antworten'%>
+
+<%xr_print_r val=$antworten[0]['wz_DELTA']%>

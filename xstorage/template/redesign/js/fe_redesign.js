@@ -15,7 +15,6 @@ var fe_redesign = (function() {
             	$('#pw-vergessen').css('height', leftRowHeight);
             	$('#main-content .left-row').css('padding-bottom', '100px');
             }
-            
 
 
             /*

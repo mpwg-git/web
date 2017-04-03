@@ -1,137 +1,123 @@
-// 'use strict';
-
 var fe_fragebogen = (function() {
     return new function() {
         this.init = function() {
-            // this.registerListeners();
-
-			this.getFragebogenValues = function() {
-				var $antwortenArray = [];
-				var $ok = checkFragebogen();
-				if ((typeof $ok != "undefined" && $ok == false)) {
-					console.log("undefined OR !false");
-					return false;
-				}
-				$('#register-fragebogen .hidden-fragen').each(function(i, o) {
-
-					var id = $(o).val();
-
-					var delta = $('input:radio[name="FR' + id + '"]:checked').val();
-
-					var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
-
-					if((typeof delta != "undefined" || delta !== false)) {
-						$antwortenArray[i] = {id, delta, superwichtig};
-					}
-					else {
-						return false;
-					}
-				});
-				return $antwortenArray;
-			};
-
-
-			this.checkFragebogen = function () {
-				var checkboxError = false;
-        		$('.checkbox-error').hide();
-        		$(".hidden-fragen").each(function (i, o) {
-        			var frageId = $(o).val();
-        			var checkedChecker = $('input:radio[name=FR'+frageId+']:checked').length;
-        			if (checkedChecker == 0) {
-        				$('#FRAGE_' + frageId + '_error').show();
-        				checkboxError = true;
-        			}
-        		})
-			};
+            this.registerListeners();
         }
+        this.registerListeners = function() {
+            	
+            $(".save-profil-fragebogen").unbind("click");
+            $(".save-profil-fragebogen").click(function(e) {
+                e.preventDefault();
 
-        // this.registerListeners = function() {
-        //     var me = this;
-
-/*
-			var getFragebogenValues = function () {
-				var $antwortenArray = [];
-				var $ok = checkFragebogen();
-				if ((typeof $ok != "undefined" && $ok == false)) {
-					console.log("undefined OR !false");
-					return false;
-				}
-				$('#register-fragebogen .hidden-fragen').each(function(i, o) {
-
-					var id = $(o).val();
-
-					var delta = $('input:radio[name="FR' + id + '"]:checked').val();
-
-					var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
-
-					if((typeof delta != "undefined" || delta !== false)) {
-						$antwortenArray[i] = {id, delta, superwichtig};
-					}
-					else {
-						return;
-					}
-				});
+                $('.ajax-loader').show();
+                
+                var redirectTo = $(this).data('redirect');
+                var $collection = [];
+                
+                var $checkboxError = false;
+                $('.checkbox-error').hide();
+                $(".hidden-fragen").each(function(i, o) {
+                    var frageId = $(o).val();
+                    var checkedChecker = $('input:radio[name=FR' + frageId + ']:checked').length;
+                    if ($checkboxError == 0) {
+                        $('#FRAGE_' + frageId + '_error').show();
+                        $checkboxError = true;
+                    }
+                })
 
 
-				return $antwortenArray;
-			};
-*/
+                $('#profile-fragebogen .hidden-fragen').each(function(i, o) {
 
+                    var id = $(o).val();
 
+                    var delta = $('input:radio[name="FR' + id + '"]:checked').val();
 
-			$("#ID").unbind("click");
-			$("#ID").click(function(e){
-				e.preventDefault();
+                    var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
 
-				var $collection = getFragebogenValues();
-				var $formdata = $('#wg-zimmer-finden').serializeArray();
+                    if ((typeof delta != "undefined" || delta !== false)) {
+                    	$collection[i] = { id, delta, superwichtig };
+                    } else {
+                        return false;
+                    }
+                });                
+                    
 
-				var adresse = $('input#ADRESSE.form-control.autocomplete-location-v2').val();
-				var mietemax = $('input#MIETEMAX.form-control').val();
-
-				if((typeof $collection != "undefined" && $collection != false)) {
+                if ((typeof $collection != "undefined" && $collection != false)) {
+                	console.log('ajax call collectAnswer')
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_fragebogen/collectAnswer',
-                        data: {
-                        	frage:$collection,
-                        	adresse: adresse,
-                        	mietemax:mietemax
-                        	}
-                        })
-                    }
-				});
-/*
-				var ok = fe_core.jsFormValidation('wg-zimmer-finden');
-
-				var ok = fe_core.jsFormValidation2('wg-zimmer-finden');
-
-				if (ok) {
-					ok = simpleLogin.checkEMail('v2_EMAIL', $('#v2_EMAIL').val()) ? false : true;
-				}
-				if (ok) {
-					ok = simpleLogin.checkVal('v2_PASSWORT', $('#v2_PASSWORT').val()) ? false : true;
-				}
-				if (ok) {
-				    	ok = simpleLogin.checkEqual('v2_PASSWORT_confirm', $('#v2_PASSWORT').val(), $('#v2_PASSWORT_confirm').val()) ? false : true;
-				}
-
-				if (ok != true) {
-					return false;
-				}
-*/
+                        data:  {
+                        	collection: $collection
+                        },
+                        success: function() {
+                        	console.log('wgtest saved');
+                        	var redirectTo = $('.save-profil-fragebogen').data('redirect');
+                            if (redirectTo != "") {
+                                window.location.href = redirectTo;
+                                return;
+                            }	                    
+                        }
+                    })
+                }
+                else {
+                    return false;
+                }
+            });
 
             $(".js-show-reg-form").unbind("click");
             $(".js-show-reg-form").click(function(e) {
                 e.preventDefault();
                 $(".js-show-reg-form").hide();
-                $("#saveFragebogenBtn").show();
+                $("#save-reg-fragebogen").show();
             });
 
-        // }
+        }
+        
+        /*
+        this.getFragebogenValues = function() {
+            var $antwortenArray = [];
+//            var $ok = checkFragebogen();
+//            if ((typeof $ok != "undefined" && $ok == false)) {
+//                return false;
+//            }
+            $('#profile-fragebogen .hidden-fragen').each(function(i, o) {
+
+                var id = $(o).val();
+
+                var delta = $('input:radio[name="FR' + id + '"]:checked').val();
+
+                var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
+
+                if ((typeof delta != "undefined" || delta !== false)) {
+                    $antwortenArray[i] = { id, delta, superwichtig };
+                } else {
+                    return;
+                }
+            });
+                        
+            return $antwortenArray;
+        }
+
+        this.checkFragebogen = function() {
+            var checkboxError = false;
+            $('.checkbox-error').hide();
+            $(".hidden-fragen").each(function(i, o) {
+                var frageId = $(o).val();
+                var checkedChecker = $('input:radio[name=FR' + frageId + ']:checked').length;
+                if (checkedChecker == 0) {
+                    $('#FRAGE_' + frageId + '_error').show();
+                    checkboxError = true;
+                }
+            })
+
+        }
+        */
+
     }
 })();
 
 $(document).ready(function() {
+
     fe_fragebogen.init();
 });

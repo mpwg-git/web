@@ -319,12 +319,12 @@ var fe_user = (function() {
                 $('.ajax-loader').show();
                 var ok = fe_core.jsFormValidation('form-mein-raum');
                 
-                console.log('submit MEIN RAUM');
-                console.log('ok?: ', ok)
+//                console.log('submit MEIN RAUM');
+//                console.log('ok?: ', ok)
                 
                 if (typeof ok != "undefined" && ok == true) {
 
-                	console.log('FORM OK');
+//                	console.log('FORM OK');
 
                 	var data = {};
                     data.room = $('#form-mein-raum').serialize();

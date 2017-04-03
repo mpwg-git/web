@@ -2,18 +2,7 @@
 
 class fe_matchingNeu
 {
-
-	
-	public static $delta = array(
-			'0' => 10,
-			'1' => 8,
-			'2' => 4,
-			'3' => 1,
-			'4' => 0
-	);
-	
-	public static $gewichtung = array('0' => 1, '1' => 5);
-	
+		
 	public static function ajax_testMatch()
 	{
 		$id1	= intval($_REQUEST['id1']);
@@ -80,8 +69,8 @@ class fe_matchingNeu
 		$pointsTotalKategorie			= array();
 		$pointsTotalKategoriePossible	= array();
 
-		$userId1Answers		= "Fragenbogen Antowrot / USerID2";
-		$userId2Answers		= "Fragenbogen Antowrot / USerID2";
+		$userId1Answers		= "Fragenbogen Antwort / UserID1";
+		$userId2Answers		= "Fragenbogen Antwort / USerID2";
 
 		$fragen1			= self::buildAnswersArray($userId1Answers);
 		$fragen2			= self::buildAnswersArray($userId2Answers);

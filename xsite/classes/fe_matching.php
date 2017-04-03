@@ -519,8 +519,9 @@ class fe_matching
 
         // clear user match results
 		dbx::query("delete from wizard_auto_773 where (wz_USERID1 = $userId OR wz_USERID2 = $userId)");
+		
 		// clear matching results room
-      dbx::query("delete from wizard_auto_844 where wz_USERID = $userId");
+      	dbx::query("delete from wizard_auto_844 where wz_USERID = $userId");
 
 		// insert in matching todo for cron
 		dbx::insert("wizard_auto_845", array('wz_USERID' => $userId, 'wz_STATUS' => 'TODO'));

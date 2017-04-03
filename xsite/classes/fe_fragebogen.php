@@ -2,6 +2,31 @@
 
 class fe_fragebogen
 {
+	
+	
+	public static function sc_get_fragen_count($params)
+	{
+		$countFragen = dbx::queryAttribute("select count(wz_id) as cnt from wizard_auto_755 where wz_del = 'N' and wz_online = 'Y'", "cnt");
+		return intval($countFragen);
+	}
+	
+	
+	public static function sc_getAntworten()
+	{
+		
+		$userId = intval(xredaktor_feUser::getUserId());
+		
+		if($userId === false || $userId < 0)
+		{
+			return false;
+		}
+		
+		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_DELTA, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId");
+		
+		return $res;
+	}
+	
+	
 	public static function sc_getAllFragen($type)
 	{
 
@@ -12,6 +37,8 @@ class fe_fragebogen
 		
 		return self::getAllFragen($type);
 	}
+	
+	
 	public static function getAllFragen($type)
 	{
 		$fragen = array();
@@ -62,7 +89,7 @@ class fe_fragebogen
 	{
 		$fragen = array();
 
-		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' AND wz_INIT_FRAGE = 'Y' ORDER BY wz_sort ASC Limit 3");
+		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' AND wz_INIT_FRAGE = 'Y' ORDER BY wz_sort ASC");
 
 		if($fragen === false || $type === false)
 		{
@@ -91,34 +118,41 @@ class fe_fragebogen
 	{		
 		$collection 		= $_REQUEST['collection'];
 		$userId				= intval(xredaktor_feUser::getUserId());
-		$fragenId			= intval($_REQUEST['collection']['id']);
-		$delta				= intval($_REQUEST['collection']['delta']);
-		$superwichtig		= intval($_REQUEST['collection']['superwichtig']);
 		
-		print_r($collection);
-		die();
+		if($collection !== false && is_Array($collection))
+		{
+			foreach ($collection as $k => $v) {
 				
-		foreach($collection as $k => $v) {
-			
-			$update = array (
-				'wz_USERID'				=> $userId,
-				'wz_FRAGEID'			=> $v['id'], 
-				'wz_DELTA'				=> $v['delta'],
-				'wz_SUPERWICHTIG'		=> $v['superwichtig']
-			);
-			echo $k;
-			echo $v;
-
-			$present = dbx::query("select * from wizard_auto_1002 where wz_USERID = $userId and wz_FRAGEID = $fragenId");
-			
-			print_r($present);
-			
-			if ($present !== false) {
-			
-				dbx::query("delete from wizard_auto_1002 where wz_USERID = $userId and wz_FRAGEID = $fragenId AND wz_del = 'N' limit 1");
+				if($userId > 0)
+				{
+					$wz_FRAGEID 	 = intval($v['id']);
+					$wz_USERID 		 = intval($userId);
+					$wz_DELTA 		 = intval($v['delta']);
+					$wz_SUPERWICHTIG = intval($v['superwichtig']);
+					
+					$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $wz_USERID");
+					
+					if($check == false)
+					{
+						dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_DELTA, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_DELTA, $wz_SUPERWICHTIG)");
+					}
+					else
+					{
+						$wz_id = intval($check['wz_id']);
+						
+						dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_DELTA` = '$wz_DELTA',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
+					}
+				}
 			}
-	
-			dbx::insert("wizard_auto_1002", $update);
+			
+			return true;
 		}
+		else 
+		{
+			return false;
+		}
+		
 	}
 }
+
+
