@@ -292,12 +292,11 @@ var simpleLogin = {
 			return false;
 		}
 
-		var adresse = $('#register-adresse').serializeObject();
-		var miete = $('#MIETEMAX').val();
-		var fragebogen = $('#register-fragebogen').serializeObject();
-		var formdata = $('#wg-zimmer-finden').serializeObject();
-
-
+		var adresse 	= $('#register-adresse').serializeObject();
+		var miete 		= $('#MIETEMAX').val();
+		var fragebogen 	= $('#register-fragebogen').serializeObject();
+		var formdata 	= $('#wg-zimmer-finden').serializeObject();
+		
 		var cfg = {
 			be_scope: 'fe_user',
 			be_fn: 'doSimpleLogin',

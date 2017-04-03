@@ -34,7 +34,12 @@
     		<div class="error-div" id="wz_PASSWORT_error">
     		    <%xr_translate tag='Bitte Passwort eingeben'%>
     		</div>
+            
+            <!--<a data-toggle="collapse" href="#pw-vergessen" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>		-->
             <a href="<%xr_genlink p_id=25%>" class="forgotpw"><%xr_translate tag="Passwort vergessen?"%></a>		
+            <!--<%xr_atom a_id=1027 return=1%>-->
+
+
         </div>
     	<div class="form-group">
     	    <input type="checkbox" name="use_cookie" id="use-cookie"> 
@@ -44,7 +49,16 @@
     </form>
 </div>
 
-<%*
+
+  <%*        
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('a.fancybox').fancybox();
+
+    });
+</script>
+            
 <script>
     $(document).on('click', function (e) {
         if ($(e.target).closest("#anmelden-inner").length === 0) {

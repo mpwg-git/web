@@ -475,7 +475,7 @@ var fe_user = (function() {
                 return fe_core.submitWithValidation('form-register')
             });
             $('#form-pw-submit').unbind("click");
-            $('#form-pw-submit').click(function(e) {
+            $('#form-pw-submit').one('click', function(e) {
                 e.preventDefault();
                 return fe_core.submitWithValidation('wz_form-login')
             });
@@ -530,7 +530,8 @@ var fe_user = (function() {
             	var imgType = 'other';
                 var picture = $('#gui_image');
                 
-                picture.one('load', function(e){
+//                picture.one('load', function(e){
+               	picture.on('load', function(e){
                 	if($('#gui-frame > input#type').val() != 'other')
                 		imgType = $('#gui-frame > input#type').val();
                 	

@@ -8,7 +8,13 @@ var fe_redesign = (function() {
                     $('.js-cookie-warning-top').removeClass('active');
                 });
             });
-
+            
+            
+            if(P_ID == 25) {
+            	var leftRowHeight = $('#main-content .left-row').height() + 50;
+            	$('#pw-vergessen').css('height', leftRowHeight);
+            	$('#main-content .left-row').css('padding-bottom', '100px');
+            }
             
 
 

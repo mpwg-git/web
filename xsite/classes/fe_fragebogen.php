@@ -88,78 +88,37 @@ class fe_fragebogen
 
 
 	public static function ajax_collectAnswer()
-	{
-
-		$antworten = $_REQUEST['frage'];
-
-		print_r($antworten);
-
-		die( ' xxx ' );
-
-
+	{		
+		$collection 		= $_REQUEST['collection'];
 		$userId				= intval(xredaktor_feUser::getUserId());
-		$frage				= intval($_REQUEST['frage']);
-		$antwort_bin		= intval($_REQUEST['antwort_bin']);
-		$antwort_suche		= intval($_REQUEST['antwort_suche']);
-		$antwort_wichtig	= intval($_REQUEST['antwort_wichtig']);
-
-
-
-		$lng 				= dbx::escape($_REQUEST['lang']);
-
-		$from_restart		= intval($_REQUEST['from_restart']);
-
-		$update				= array(
+		$fragenId			= intval($_REQUEST['collection']['id']);
+		$delta				= intval($_REQUEST['collection']['delta']);
+		$superwichtig		= intval($_REQUEST['collection']['superwichtig']);
+		
+		print_r($collection);
+		die();
+				
+		foreach($collection as $k => $v) {
+			
+			$update = array (
 				'wz_USERID'				=> $userId,
-				'wz_FRAGE_ID'			=> $frage,
-				'wz_ANTWORT_BIN'		=> $antwort_bin,
-				'wz_ANTWORT_SUCHE'		=> $antwort_suche,
-				'wz_ANTWORT_WICHTIG'	=> $antwort_wichtig
-		);
+				'wz_FRAGEID'			=> $v['id'], 
+				'wz_DELTA'				=> $v['delta'],
+				'wz_SUPERWICHTIG'		=> $v['superwichtig']
+			);
+			echo $k;
+			echo $v;
 
-		$present = dbx::query("select * from wizard_auto_765 where wz_USERID = $userId and wz_FRAGE_ID = $frage");
-		if ($present !== false)
-		{
-			dbx::query("delete from wizard_auto_765 where wz_USERID = $userId and wz_FRAGE_ID = $frage AND wz_del = 'N' limit 1");
+			$present = dbx::query("select * from wizard_auto_1002 where wz_USERID = $userId and wz_FRAGEID = $fragenId");
+			
+			print_r($present);
+			
+			if ($present !== false) {
+			
+				dbx::query("delete from wizard_auto_1002 where wz_USERID = $userId and wz_FRAGEID = $fragenId AND wz_del = 'N' limit 1");
+			}
+	
+			dbx::insert("wizard_auto_1002", $update);
 		}
-
-		dbx::insert("wizard_auto_765", $update);
-
-		// clear previous matching results
-		fe_matching::clearMatchingResults($userId);
-
-
-		//$nextQuestion	= self::sc_getFrage($frage+1);
-		$nextQuestion = self::getNextFrage($frage, $from_restart);
-
-		$assign 		= array('data' => $nextQuestion, 'lang' => $lng, 'from_restart' => $from_restart);
-		$questionAtom	= 766;
-
-		$lastQuestion	= 0;
-		$profileUrl		= '';
-
-		$nextQuestionId = intval($nextQuestion['FRAGE']['wz_id']);
-
-		$currentIsLastQuestion = self::sc_is_frage_last_frage(array('frageId' => $frage));
-		if ($currentIsLastQuestion) {
-			$lastQuestion	= 1;
-		}
-
-
-		// all questions already answered
-		if ($nextQuestion === false)
-		{
-			$lastQuestion	= 1;
-			$profileUrl 		= fe_vanityurls::genUrl_myprofile();
-		}
-
-		$html 			= xredaktor_render::renderSoloAtom($questionAtom, $assign);
-
-		frontcontrollerx::json_success(array('html' => $html, 'lastQuestion' => $lastQuestion, 'nextQuestionId' => $nextQuestionId, 'profileUrl' => $profileUrl));
-
-
-		// 		include ('../../datamigration/cronjob_matching.php');
-
 	}
-
 }

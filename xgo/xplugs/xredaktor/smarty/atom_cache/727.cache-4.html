@@ -14,7 +14,7 @@
 
             <%if $result.status == 'NOT_ACTIVATED'%>
                 
-                <p class="text"><%xr_translate tag="Passwort vergessen?"%></span>
+                <p class="text"><%xr_translate tag="pw_vergessen_request-link"%></p>
                 
                 <div class="passwort-vergessen-text">
                     <%$PW_VERGESSEN_TEXT%>
@@ -27,7 +27,7 @@
             	        <label><%xr_translate tag='E-Mail'%>:*</label>
             	        <input name="feuser_email" id="feuser_email" class="form-control" type="text" value="" rel="required_email" />
             	        <div class="error-div" id="feuser_email_error"><%xr_translate tag='Bitte gültige E-Mail eingeben'%></div>
-            	        <button id="form-pw-submit" class="pull-right" style="margin-top:25px;" type="submit" title="<%xr_translate tag='Absenden'%>"><%xr_translate tag='Absenden'%></button>
+            	        <button id="form-pw-submit" class="button pull-right"  type="submit" title="<%xr_translate tag='Absenden'%>"><%xr_translate tag='Absenden'%></button>
             	    </div>
                     <div class="clear"></div>
                 </form>

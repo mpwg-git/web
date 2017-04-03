@@ -9,11 +9,11 @@
         <div class="accordion-inner">
             <form method="post" id="wg-zimmer-finden">
                 <div class="form-group">
-                    <label class="radio-inline">
-                        <input type="radio" id="FEMALE" name="FEMALE" required><h5><%xr_translate tag='reg_sex-female'%></h5>
+                    <label class="radio-inline female">
+                        <input type="radio" id="FEMALE" name="GENDER" value="female" required><h5><%xr_translate tag='reg_sex-female'%></h5>
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" id="MALE" name="MALE" required><h5><%xr_translate tag='reg_sex-male'%></h5>
+                    <label class="radio-inline male">
+                        <input type="radio" id="MALE" name="GENDER" value="male" required><h5><%xr_translate tag='reg_sex-male'%></h5>
                     </label>
                 </div>
                 <div class="form-group">
@@ -81,7 +81,7 @@
     <a data-toggle="collapse" href="#show-simple-login-form">
         <button class="button start-button text-uppercase js-show-reg-form"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
     </a>
-    <button style="display:none;" class="button start-button text-uppercase js-simple-login" id="saveFragebogenBtn" style="width: 100%; height: 54px; margin: 10px 0; font-size: .875em; line-height: 1.42857143em; font-family: 'NunitoSans-extrabold'; color: #fff; background-color: #04e0d7; border: none; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: 0.5px 0.5px 1px 1px rgba(100,100,100,0.15); -moz-box-shadow: .5px .5px 1px 1px rgba(100,100,100,0.15); box-shadow: 0.5px 0.5px 1px 1px rgba(100,100,100,0.15); ">
+    <button style="display:none;" class="button start-button text-uppercase js-simple-login" style="width: 100%; height: 54px; margin: 10px 0; font-size: .875em; line-height: 1.42857143em; font-family: 'NunitoSans-extrabold'; color: #fff; background-color: #04e0d7; border: none; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: 0.5px 0.5px 1px 1px rgba(100,100,100,0.15); -moz-box-shadow: .5px .5px 1px 1px rgba(100,100,100,0.15); box-shadow: 0.5px 0.5px 1px 1px rgba(100,100,100,0.15); ">
         <%xr_translate tag='Mit eMail adresse registrieren'%>
     </button>
 </div>

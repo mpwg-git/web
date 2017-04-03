@@ -291,8 +291,9 @@ span.wirklich {
 	z-index: 999;
 	padding: 0;
     box-shadow: 0px -2px 15px 0px @turkis;
-
-
+    
+    
+    
     [class*='col-'] {
         height: 3.125em;
         @media @xs {
@@ -676,6 +677,73 @@ button {
     position: absolute;
     width: 100%;
     
+    .left-row {
+                    h1 {
+                margin:0;
+            }
+            
+            h3 {
+                margin:0;
+                font-size: 1.3125em;
+            }
+    }
+    
+    #pw-vergessen {
+        
+        .register {
+            width: 25%;
+            position: relative;
+            left: 5%;
+        }
+        .pw-vergessen-form {
+            height: auto;
+            margin: 0 0 45px 0;
+            // width: 100%;
+        }
+        .text { 
+            font-size: 18px;
+            float: left;
+            width: 100%;
+            text-align: left;            
+            font-family: @nunitobold;
+            color: @turkis;
+        }
+        #feuser_email {
+            font-size: 16px;
+            padding-left: 15px;
+        }
+        label {
+            font-size: 12px;
+            float: left;
+            margin: 10px 0 0 0;
+        }
+        #form-pw-submit {
+            font-size: 14px;
+            height: 35px;
+            margin-top: 10px;
+        }
+        .close {
+            text-shadow: none;
+            opacity: 1;
+            .icon-Close {
+                color: @turkis;
+                text-shadow: none;
+                opacity: 1;
+                font-weight: bold;
+                &:before {
+                    font-size: 12px;
+                }
+            }
+        }
+        .register-inner {
+            
+            .button, .backLink, #reset-password-btn {
+                height: 35px;
+            }
+        }
+    }
+    
+    
 	/**
 	    FRONTPAGE
 	**/
@@ -849,8 +917,18 @@ button {
       
             h5 { margin: 0; }
       }
-  }
-  
+    }
+    .left-row {
+            .icon-duck {
+                width: 15%;
+                height: auto;
+            &:before {
+                content: " ";
+            }
+        
+        }
+    }
+    
     .register-fragen {
 
         height: 100vh;
@@ -973,7 +1051,7 @@ button {
                     margin: 5px 0 15px 0;
 
                     label {
-                        padding: 0 25px 37px 0;
+                        padding: 0 16px 28px;
                         text-align: center;
                     }
                     input {
@@ -1038,6 +1116,7 @@ button {
     #impressum, #agb, #faq {
         display:block;
         overflow:auto;
+        marging-top: 50px;
 
         a {
             color: @darkgray;
@@ -1624,6 +1703,7 @@ button {
                     }
                     .map2 {
                         width: 96%;
+                        height: 300px;
                         display: block;
                         margin: 10px auto;
                         border: 3px solid @turkis;
@@ -2800,7 +2880,8 @@ input.form-control {
   *     MEIN FRAGEBOGEN
   *
   */
-.fancybox-slide #mein-fragebogen {
+.fancybox-slide {
+    #mein-fragebogen {
         width: 40%;
         height: 80%;
         bottom: 3%;
@@ -2820,6 +2901,11 @@ input.form-control {
             height: 85%;
             bottom: 0;
         }
+        @media @sm { 
+            width: 90%;
+            height: 85%;
+            bottom: 0;
+        }
         
         .fancybox-close-small { 
             position: fixed; 
@@ -2833,6 +2919,11 @@ input.form-control {
                 font-family: @nunitobold;
                 
                 @media @xs {     
+                    font-size: 26px;
+                    background-color: transparent;
+                    color: @turkis;
+                }
+                @media @sm {     
                     font-size: 26px;
                     background-color: transparent;
                     color: @turkis;
@@ -2855,6 +2946,9 @@ input.form-control {
                 @media @xs {
                     margin-bottom: 0;
                 }
+                @media @sm {
+                    margin-bottom: 0;
+                }
             }
             
             .fragen-container {
@@ -2862,10 +2956,17 @@ input.form-control {
                 @media @xs {
                     margin: 5px 0;
                 }
+                @media @sm {
+                    margin: 5px 0;
+                }
                 
                 p { 
                     font-size: 1.4em; 
                     @media @xs {
+                        font-size: 12px;
+                        line-height: 1.2;
+                    }
+                    @media @sm {
                         font-size: 12px;
                         line-height: 1.2;
                     }
@@ -2881,9 +2982,11 @@ input.form-control {
                     width: 136px !important;
                     height: 32px !important;
                     margin-top: 0;
-                    
-                       
                     @media @xs {
+                        width: 100px !important;
+                        height: 25px !important;
+                    }
+                    @media @sm {
                         width: 100px !important;
                         height: 25px !important;
                     }
@@ -2892,12 +2995,19 @@ input.form-control {
                     border-color: @turkis;
                     line-height: 1.5;
                     font-size: 1.1em;
+                    // padding: 7px 115px 0 0;
                     
                     @media @xs {
                         line-height: 1.75;
                         font-size: 8px;
                         padding: 6px 6px 6px 20px;
                     }
+                    @media @sm {
+                        line-height: 1.75;
+                        font-size: 8px;
+                        padding: 6px 6px 6px 20px;
+                    }
+
 
                     &:hover {
                         // background-color: #fff;
@@ -2906,11 +3016,23 @@ input.form-control {
                 label.btn.btn-primary.toggle-on {
                     line-height: 1.5;
                     font-size: 12px;
+
                     @media @xs {
                         line-height: 1.75;
                         font-size: 8px;
                         padding: 6px 20px 6px 6px;
                     }
+                    @media @sm {
+                        line-height: 1.75;
+                        font-size: 8px;
+                        padding: 6px 20px 6px 6px;
+                    }
+                }
+                .toggle-handle.btn.btn-default {
+                    height: 32px;
+                    width: 30px;
+                    top: 0;                        
+                    left: 0;
                 }
                 .toggle.btn {
                     min-height: 20px !important;
@@ -2924,7 +3046,10 @@ input.form-control {
                         font-size: 14px;
                         margin: 8px 0 2px 0;
                     }
-                    
+                    @media @sm {
+                        font-size: 14px;
+                        margin: 8px 0 2px 0;
+                    }
                 }
                 .antwort-headline {
                     font-size: 1.3em;
@@ -2933,6 +3058,10 @@ input.form-control {
                     text-transform: uppercase;
                     margin: 13px 0px 3px 0;
                     @media @xs {
+                        font-size: 12px;
+                        margin: 10px 0 0 0;
+                    }
+                    @media @sm {
                         font-size: 12px;
                         margin: 10px 0 0 0;
                     }
@@ -2964,6 +3093,9 @@ input.form-control {
                         @media @xs {
                             padding: 0 10px 25px;
                         }
+                        @media @sm {
+                            padding: 0 10px 25px;
+                        }
                     }
                     input {
                         width: 30px;
@@ -2971,6 +3103,10 @@ input.form-control {
                         margin: 0 0px 0 -12px;
                         
                         @media @xs {
+                            width: 22px;
+                            height: 22px;
+                        }
+                        @media @sm {
                             width: 22px;
                             height: 22px;
                         }
@@ -2988,7 +3124,7 @@ input.form-control {
                         margin: 0;
                         padding-left: 15px;
                     }
-                    span.toggle-handle.btn.btn-default {
+                    .toggle-handle.btn.btn-default {
                         height: 30px;
                         width: 30px;
                         top: 0;
@@ -3023,7 +3159,13 @@ input.form-control {
             }
         }
     }
+}  
 
 
 // CHAT | ui-slider preis | ui-autocomplete (search chatcontacts)
 @import "25.less";
+
+
+
+
+/* */
