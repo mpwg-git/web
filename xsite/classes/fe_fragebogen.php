@@ -6,7 +6,7 @@ class fe_fragebogen
 	
 	public static function sc_get_fragen_count($params)
 	{
-		$countFragen = dbx::queryAttribute("select count(wz_id) as cnt from wizard_auto_755 where wz_del = 'N' and wz_online = 'Y'", "cnt");
+		$countFragen = dbx::queryAttribute("select count(wz_id) as cnt from wizard_auto_961 where wz_del = 'N' and wz_online = 'Y'", "cnt");
 		return intval($countFragen);
 	}
 	
@@ -21,7 +21,7 @@ class fe_fragebogen
 			return false;
 		}
 		
-		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_DELTA, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId");
+		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_DELTA, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId ORDER BY wz_id");
 		
 		return $res;
 	}
@@ -118,7 +118,7 @@ class fe_fragebogen
 	{		
 		$collection 		= $_REQUEST['collection'];
 		$userId				= intval(xredaktor_feUser::getUserId());
-		
+
 		if($collection !== false && is_Array($collection))
 		{
 			foreach ($collection as $k => $v) {
