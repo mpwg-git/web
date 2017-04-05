@@ -42,7 +42,7 @@ class fe_matchingNeu
 			if (!isset($ret[$kat])) {
 				$ret[$kat] = array();
 			}
-			$ret[$kat][$frage['wz_FRAGE_ID']] = $frage;
+			$ret[$kat][$frage['wz_FRAGEID']] = $frage;
 		}
 		return $ret;
 	}
@@ -53,28 +53,30 @@ class fe_matchingNeu
 		$userId1 	= intval($userId1);
 		$userId2 	= intval($userId2);
 
+
 		if ($userId1 == 0 || $userId1 == 0) return false;
-
 		$result					= 0;
-		
-		$kategorien				= dbx::queryAll("select wz_id from wizard_auto_772 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
 
+		// 967 -> Fragen Kat. 
+		$kategorien	= dbx::queryAll("select wz_id from wizard_auto_776 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
 
-// 		$gewichtungDb			= dbx::query("select * from wizard_auto_771 where wz_online = 'Y' and wz_del = 'N' order by wz_id desc limit 1");
-// 		$gewichtung 			= array($gewichtungDb['wz_GEWICHTUNG_1'], $gewichtungDb['wz_GEWICHTUNG_2'], $gewichtungDb['wz_GEWICHTUNG_3'], $gewichtungDb['wz_GEWICHTUNG_4']);
+		// 964 -> Match settings	
+		$deltaPointsDb 	= dbx::query("select * from wizard_auto_964 where wz_online = 'Y' and wz_del = 'N' order by wz_id desc limit 1");
+		$deltaPoints	= array($deltaPointsDb['wz_DELTA_0'], $deltaPointsDb['wz_DELTA_1'], $deltaPointsDb['wz_DELTA_2'], $deltaPointsDb['wz_DELTA_3'], $deltaPointsDb['wz_DELTA_4'], $deltaPointsDb['wz_SUPERWICHTIG']);
 		
+
 		$pointsTotal 			= 0;
 		$pointsTotalPossible	= 0;
 
 		$pointsTotalKategorie			= array();
 		$pointsTotalKategoriePossible	= array();
 
-		$userId1Answers		= "Fragenbogen Antwort / UserID1";
-		$userId2Answers		= "Fragenbogen Antwort / USerID2";
-
+		$userId1Answers		= dbx::queryAll("SELECT wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG, wz_KATEGORIE FROM wizard_auto_1002 AS ergebnis, wizard_auto_961 AS frage WHERE frage.wz_id = ergebnis.wz_FRAGEID AND wz_USERID = $userId1 ORDER BY wz_FRAGEID ASC ");
+		
+		$userId2Answers		= dbx::queryAll("SELECT wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG, wz_KATEGORIE FROM wizard_auto_1002 AS ergebnis, wizard_auto_961 AS frage WHERE frage.wz_id = ergebnis.wz_FRAGEID AND wz_USERID = $userId2 ORDER BY wz_FRAGEID ASC ");
+		
 		$fragen1			= self::buildAnswersArray($userId1Answers);
 		$fragen2			= self::buildAnswersArray($userId2Answers);
-
 
 		$fragen1_by_cat = self::buildAnswersArrayByCat($userId1Answers);
 		$fragen2_by_cat = self::buildAnswersArrayByCat($userId2Answers);
@@ -90,7 +92,7 @@ class fe_matchingNeu
 			$varname = 'have_kat_'.$katId;
 			foreach ($answers as $answer)
 			{
-				if (isset($fragen2_by_cat[$katId][$answer['wz_FRAGE_ID']]))
+				if (isset($fragen2_by_cat[$katId][$answer['wz_FRAGEID']]))
 				{
 					$$varname = true;
 					break; // kat abgearbeitet
@@ -106,25 +108,28 @@ class fe_matchingNeu
 				continue;
 			}
 			
-			$pointsTotalPossible 								+= $gewichtung[$v['wz_WICHTIG']] * $delta['0'];
-			
-			$pointsTotalKategoriePossible[$v['wz_KATEGORIE']] 	+= $gewichtung[$v['wz_WICHTIG']] * $delta['0']; 
+			// 1 od. 5 
+			$powerFaktor = pow($deltaPoints[5], $v['wz_SUPERWICHTIG']);	
+		
+			$pointsTotalPossible 								+= $powerFaktor * $deltaPoints[0];
+			$pointsTotalKategoriePossible[$v['wz_KATEGORIE']] 	+= $powerFaktor * $deltaPoints[0];
 
-			$del = "abs(Fragen1AntwortUser1 - Fragen2AntwortUser2)"; //delta der Antworten 0-4
+			//delta der Antworten 0-4
+			$delta = abs($v['wz_ANTWORT'] - $fragen2[$k]['wz_ANTWORT']);
 			
-			$points = $delta[$del] * $gewichtung[$v['wz_WICHTIG']];
+			$points = $deltaPoints[$delta] * $powerFaktor;
 			
 			$pointsTotal									+= $points;
 			$pointsTotalKategorie[$v['wz_KATEGORIE']] 		+= $points;
 
+			$user2 = $fragen2[$k]['wz_ANTWORT']; 
+			
 		}
 
 		$matchGesamt 		= 0;
 		$matchKategorien	= array();
 
 		$matchGesamt		= round(100 * $pointsTotal / $pointsTotalPossible, 0);
-
-
 
 		foreach ($kategorien as $k => $v) {
 			$katId			= $v['wz_id'];
@@ -144,7 +149,7 @@ class fe_matchingNeu
 			'matchGesamt' 			=> $matchGesamt,
 			'matchKategorien'		=> $matchKategorien
 		);
-
+		
 		return $result;
 	}
 
@@ -356,7 +361,7 @@ class fe_matchingNeu
 		$userId = intval($userId);
 		if ($userId === false) return false;
 
-		$answersPresent		= dbx::queryAll("select wz_FRAGE_ID, wz_USERID, wz_ANTWORT_BIN, wz_ANTWORT_SUCHE, wz_ANTWORT_WICHTIG, wz_KATEGORIE from wizard_auto_765 as ergebnis, wizard_auto_755 as frage where frage.wz_id = ergebnis.wz_FRAGE_ID and wz_USERID = $userId order by wz_FRAGE_ID ASC");
+		$answersPresent		= dbx::queryAll("select wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG, wz_KATEGORIE from wizard_auto_1002 as ergebnis, wizard_auto_961 as frage where frage.wz_id = ergebnis.wz_FRAGEID and wz_USERID = $userId order by wz_FRAGEID ASC");
 
 		if ($answersPresent === false) return true;
 
@@ -377,7 +382,7 @@ class fe_matchingNeu
 
 	public static function combineMatch($matchA, $matchB)
 	{
-		$kategorien				= dbx::queryAll("select wz_id from wizard_auto_772 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
+		$kategorien				= dbx::queryAll("select wz_id from wizard_auto_967 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
 
 		$matchGesamt 		= 0;
 		$matchKategorien	= array();
@@ -596,7 +601,7 @@ class fe_matchingNeu
 	{
 		$userId 	= intval(xredaktor_feUser::getUserId());
 
-		$present 	= dbx::query("select * from wizard_auto_765 where wz_USERID = $userId");
+		$present 	= dbx::query("select * from wizard_auto_1002 where wz_USERID = $userId");
 
 		if ($present === false)
 		{
@@ -794,7 +799,7 @@ class fe_matchingNeu
 
 		foreach ($data as $k => $v)
 		{
-			$fragen[$v['wz_FRAGE_ID']] = $v;
+			$fragen[$v['wz_FRAGEID']] = $v;
 		}
 
 		return $fragen;
@@ -824,7 +829,7 @@ class fe_matchingNeu
 		$userId = intval($userId);
 		if ($userId == 0) return false;
 
-		$exists = dbx::queryAll("SELECT * FROM wizard_auto_765 WHERE wz_USERID = $userId ");
+		$exists = dbx::queryAll("SELECT * FROM wizard_auto_1002 WHERE wz_USERID = $userId ");
 		if ($exists !== false) {
 			return true;
 		}

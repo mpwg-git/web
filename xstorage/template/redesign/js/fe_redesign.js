@@ -183,6 +183,14 @@ var fe_redesign = (function() {
 	            		$('input#typ-suche').removeClass("active");
 	            	}
 	            });
+	            
+//	            icon-svg legend-nr2
+	            $('#fragebogenModal').click(function(e) {
+	            	e.preventDefault();
+	            	$('.icon-svg.legend-nr1').toggleClass('active');
+	            	$('.icon-svg.legend-nr2').toggleClass('active');
+	            	
+	            });
 	        }
 
         }
