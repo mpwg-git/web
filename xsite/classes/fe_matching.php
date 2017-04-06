@@ -2,11 +2,9 @@
 
 class fe_matching
 {
-	
-
+		
 	public static function ajax_testMatch()
 	{
-
 		$id1	= intval($_REQUEST['id1']);
 		$id2	= intval($_REQUEST['id2']);
 
@@ -17,14 +15,12 @@ class fe_matching
 
 		print_r($result);
 		die('end of ajax_testMatch');
-
 		// return $result; // wozu? ist eh die() drin
 	}
 
 
 	public static function ajax_testMatchRoom()
 	{
-
 		$id1	= intval($_REQUEST['id1']);
 		$id2	= intval($_REQUEST['id2']);
 
@@ -32,9 +28,6 @@ class fe_matching
 		if ($id2 == 0) die("please provide id2 = room param");
 
 		$result = self::matchUser2Room($id1,$id2, false, true);
-
-
-
 
 		print_r($result);
 		die('end of ajax_testMatchRoom');
@@ -49,25 +42,28 @@ class fe_matching
 			if (!isset($ret[$kat])) {
 				$ret[$kat] = array();
 			}
-			$ret[$kat][$frage['wz_FRAGE_ID']] = $frage;
+			$ret[$kat][$frage['wz_FRAGEID']] = $frage;
 		}
 		return $ret;
 	}
 
+	
 	public static function doMatch($userId1, $userId2)
 	{
-
 		$userId1 	= intval($userId1);
 		$userId2 	= intval($userId2);
 
-		if ($userId1 == 0 || $userId1 == 0) return false;
 
+		if ($userId1 == 0 || $userId1 == 0) return false;
 		$result					= 0;
 
-		$gewichtungDb			= dbx::query("select * from wizard_auto_771 where wz_online = 'Y' and wz_del = 'N' order by wz_id desc limit 1");
-		$gewichtung 			= array($gewichtungDb['wz_GEWICHTUNG_1'], $gewichtungDb['wz_GEWICHTUNG_2'], $gewichtungDb['wz_GEWICHTUNG_3'], $gewichtungDb['wz_GEWICHTUNG_4']);
+		// 967 -> Fragen Kat. 
+		$kategorien	= dbx::queryAll("select wz_id from wizard_auto_776 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
 
-		$kategorien				= dbx::queryAll("select wz_id from wizard_auto_772 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
+		// 964 -> Match settings	
+		$deltaPointsDb 	= dbx::query("select * from wizard_auto_964 where wz_online = 'Y' and wz_del = 'N' order by wz_id desc limit 1");
+		$deltaPoints	= array($deltaPointsDb['wz_DELTA_0'], $deltaPointsDb['wz_DELTA_1'], $deltaPointsDb['wz_DELTA_2'], $deltaPointsDb['wz_DELTA_3'], $deltaPointsDb['wz_DELTA_4'], $deltaPointsDb['wz_SUPERWICHTIG']);
+		
 
 		$pointsTotal 			= 0;
 		$pointsTotalPossible	= 0;
@@ -75,10 +71,10 @@ class fe_matching
 		$pointsTotalKategorie			= array();
 		$pointsTotalKategoriePossible	= array();
 
-
-		$userId1Answers		= dbx::queryAll("select wz_FRAGE_ID, wz_USERID, wz_ANTWORT_BIN, wz_ANTWORT_SUCHE, wz_ANTWORT_WICHTIG, wz_KATEGORIE from wizard_auto_765 as ergebnis, wizard_auto_755 as frage where frage.wz_id = ergebnis.wz_FRAGE_ID and wz_USERID = $userId1 order by wz_FRAGE_ID ASC");
-		$userId2Answers		= dbx::queryAll("select wz_FRAGE_ID, wz_USERID, wz_ANTWORT_BIN, wz_ANTWORT_SUCHE, wz_ANTWORT_WICHTIG, wz_KATEGORIE from wizard_auto_765 as ergebnis, wizard_auto_755 as frage where frage.wz_id = ergebnis.wz_FRAGE_ID and wz_USERID = $userId2 order by wz_FRAGE_ID ASC");
-
+		$userId1Answers		= dbx::queryAll("SELECT wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG, wz_KATEGORIE FROM wizard_auto_1002 AS ergebnis, wizard_auto_961 AS frage WHERE frage.wz_id = ergebnis.wz_FRAGEID AND wz_USERID = $userId1 ORDER BY wz_FRAGEID ASC ");
+		
+		$userId2Answers		= dbx::queryAll("SELECT wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG, wz_KATEGORIE FROM wizard_auto_1002 AS ergebnis, wizard_auto_961 AS frage WHERE frage.wz_id = ergebnis.wz_FRAGEID AND wz_USERID = $userId2 ORDER BY wz_FRAGEID ASC ");
+		
 		$fragen1			= self::buildAnswersArray($userId1Answers);
 		$fragen2			= self::buildAnswersArray($userId2Answers);
 
@@ -96,7 +92,7 @@ class fe_matching
 			$varname = 'have_kat_'.$katId;
 			foreach ($answers as $answer)
 			{
-				if (isset($fragen2_by_cat[$katId][$answer['wz_FRAGE_ID']]))
+				if (isset($fragen2_by_cat[$katId][$answer['wz_FRAGEID']]))
 				{
 					$$varname = true;
 					break; // kat abgearbeitet
@@ -111,22 +107,29 @@ class fe_matching
 			{
 				continue;
 			}
+			
+			// 1 od. 5 
+			$powerFaktor = pow($deltaPoints[5], $v['wz_SUPERWICHTIG']);	
+		
+			$pointsTotalPossible 								+= $powerFaktor * $deltaPoints[0];
+			$pointsTotalKategoriePossible[$v['wz_KATEGORIE']] 	+= $powerFaktor * $deltaPoints[0];
 
-			$pointsTotalPossible 								+= $gewichtung[$v['wz_ANTWORT_WICHTIG']];
-			$pointsTotalKategoriePossible[$v['wz_KATEGORIE']] 	+= $gewichtung[$v['wz_ANTWORT_WICHTIG']];
+			//delta der Antworten 0-4
+			$delta = abs($v['wz_ANTWORT'] - $fragen2[$k]['wz_ANTWORT']);
+			
+			$points = $deltaPoints[$delta] * $powerFaktor;
+			
+			$pointsTotal									+= $points;
+			$pointsTotalKategorie[$v['wz_KATEGORIE']] 		+= $points;
 
-			if ($v['wz_ANTWORT_SUCHE'] == $fragen2[$k]['wz_ANTWORT_BIN'])
-			{
-				$pointsTotal									+= $gewichtung[$v['wz_ANTWORT_WICHTIG']];
-				$pointsTotalKategorie[$v['wz_KATEGORIE']] 		+= $gewichtung[$v['wz_ANTWORT_WICHTIG']];
-			}
+			$user2 = $fragen2[$k]['wz_ANTWORT']; 
+			
 		}
 
 		$matchGesamt 		= 0;
 		$matchKategorien	= array();
 
 		$matchGesamt		= round(100 * $pointsTotal / $pointsTotalPossible, 0);
-
 
 		foreach ($kategorien as $k => $v) {
 			$katId			= $v['wz_id'];
@@ -146,7 +149,7 @@ class fe_matching
 			'matchGesamt' 			=> $matchGesamt,
 			'matchKategorien'		=> $matchKategorien
 		);
-
+		
 		return $result;
 	}
 
@@ -321,8 +324,6 @@ class fe_matching
 
 	public static function matchUsers($userId1, $userId2, $justReturnPresent=false, $forceRecalculate=false)
 	{
-
-
 		$userId1 	= intval($userId1);
 		$userId2 	= intval($userId2);
 
@@ -360,7 +361,7 @@ class fe_matching
 		$userId = intval($userId);
 		if ($userId === false) return false;
 
-		$answersPresent		= dbx::queryAll("select wz_FRAGE_ID, wz_USERID, wz_ANTWORT_BIN, wz_ANTWORT_SUCHE, wz_ANTWORT_WICHTIG, wz_KATEGORIE from wizard_auto_765 as ergebnis, wizard_auto_755 as frage where frage.wz_id = ergebnis.wz_FRAGE_ID and wz_USERID = $userId order by wz_FRAGE_ID ASC");
+		$answersPresent		= dbx::queryAll("select wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG, wz_KATEGORIE from wizard_auto_1002 as ergebnis, wizard_auto_961 as frage where frage.wz_id = ergebnis.wz_FRAGEID and wz_USERID = $userId order by wz_FRAGEID ASC");
 
 		if ($answersPresent === false) return true;
 
@@ -381,7 +382,7 @@ class fe_matching
 
 	public static function combineMatch($matchA, $matchB)
 	{
-		$kategorien				= dbx::queryAll("select wz_id from wizard_auto_772 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
+		$kategorien				= dbx::queryAll("select wz_id from wizard_auto_967 where wz_online = 'Y' and wz_del = 'N' order by wz_id asc");
 
 		$matchGesamt 		= 0;
 		$matchKategorien	= array();
@@ -403,7 +404,7 @@ class fe_matching
 		$userId2			= intval($matchA['userId2']);
 
 		$result	= array(
-			'matchGesamt' 						=> trim($matchGesamt),
+			'matchGesamt' 						=> $matchGesamt,
 			'matchKategorien'					=> $matchKategorien
 		);
 
@@ -519,7 +520,6 @@ class fe_matching
 
         // clear user match results
 		dbx::query("delete from wizard_auto_773 where (wz_USERID1 = $userId OR wz_USERID2 = $userId)");
-		
 		// clear matching results room
       	dbx::query("delete from wizard_auto_844 where wz_USERID = $userId");
 
@@ -539,10 +539,29 @@ class fe_matching
 
 
 // sofort matchen wenn wg-test frage beantwortet wurde
-	public static function doInstantMatching()
+	public static function doInstantMatching($userId)
 	{
-		$matchDone = false;
+		$userId	= intval($userId);
 		
+		if ($userId == 0) return false;
+		
+		$ok = false;
+		$ok = self::clearMatchingResults($userId);
+		
+		if($ok)
+		{
+			self::matchUser2AllUsers($userId);
+			self::matchUser2AllRooms($userId);
+			return true;
+		}
+		else
+		{
+			return false;	
+		}
+		
+		
+		/*
+		$matchDone = false;
 		if($matchDone == false)
 		{
 			$command = $_SERVER['DOCUMENT_ROOT'] . "/datamigration/cronjob_matching.php";
@@ -557,6 +576,7 @@ class fe_matching
 				return false;
 			}
 		}
+		*/
 	}
 
 
@@ -601,7 +621,7 @@ class fe_matching
 	{
 		$userId 	= intval(xredaktor_feUser::getUserId());
 
-		$present 	= dbx::query("select * from wizard_auto_765 where wz_USERID = $userId");
+		$present 	= dbx::query("select * from wizard_auto_1002 where wz_USERID = $userId");
 
 		if ($present === false)
 		{
@@ -799,7 +819,7 @@ class fe_matching
 
 		foreach ($data as $k => $v)
 		{
-			$fragen[$v['wz_FRAGE_ID']] = $v;
+			$fragen[$v['wz_FRAGEID']] = $v;
 		}
 
 		return $fragen;
@@ -829,7 +849,7 @@ class fe_matching
 		$userId = intval($userId);
 		if ($userId == 0) return false;
 
-		$exists = dbx::queryAll("SELECT * FROM wizard_auto_765 WHERE wz_USERID = $userId ");
+		$exists = dbx::queryAll("SELECT * FROM wizard_auto_1002 WHERE wz_USERID = $userId ");
 		if ($exists !== false) {
 			return true;
 		}
@@ -842,41 +862,5 @@ class fe_matching
 		$userId	= xredaktor_feUser::getUserId();
 		return self::checkIfUserHasAnyQuestionAnswered($userId);
 	}
-
-
-	/*
-	public static function checkIfUserHasAnsweredAllQuestions($userId)
-	{
-		$userId = intval($userId);
-		if ($userId == 0) return false;
-
-		$state = null;
-		echo $state;
-
-		if(fe_wgtest::answeredQuestionsState($userId) == 1){
-			$state = 1;
-			echo $state;
-			return true;
-		}
-		else
-		{
-			$state = 0;
-			echo $state;
-			return false;
-		}
-
-
-	}
-
-	public static function sc_checkIfUserHasAnsweredAllQuestions($params)
-	{
-		$userId	= xredaktor_feUser::getUserId();
-		return self::checkIfUserHasAnsweredAllQuestions($userId);
-	}
-
-	*/
-
-
-
-
+	
 }

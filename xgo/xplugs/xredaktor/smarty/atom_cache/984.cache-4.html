@@ -1,20 +1,14 @@
-<!--<%xr_siteCall fn="fe_fragebogen::sc_getAllFragen" var="fragen"%>-->
-
-
-<!--<div id="main-content">-->
-<!--    <div id="search-page">-->
-<!--        <div class="col-md-3 col-sm-4 hidden-xs hidden-sm">-->
-<!--            <%xr_atom a_id=982 return=1%>-->
-<!--        </div>-->
-<!--        <div class="register-fragen col-md-6 col-sm-5 col-xs-12">-->
-<!--            <div class="register-fragebogen text-center">-->
-<!--                <h3><%xr_translate tag='reg_suche-h3-fragebogen'%></h3>-->
-<!--                <%xr_atom a_id=1024 return=1%>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div id="search-map-chat" class="col-md-3 col-sm-3 hidden-xs hidden-sm">-->
-            <!--chat contacts-->
-<!--            <%xr_atom a_id=832 return=1%>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<%*
+<div id="main-content">
+    <div class="col-md-3 col-sm-4 hidden-xs hidden-sm">
+        <!--<%xr_atom a_id=982 return=1%>-->
+    </div>
+    <div class="col-md-6 col-sm-5 col-xs-12 text-center">
+        <h3><%xr_translate tag='reg_suche-h3-fragebogen'%></h3>
+        <%xr_atom a_id=1024 type=$data['USER']['wz_TYPE'] return=1%>
+    </div>
+    <div class="col-md-3 col-sm-3 hidden-xs hidden-sm">
+        <!--<%xr_atom a_id=832 return=1%>-->
+    </div>
+</div>
+*%>

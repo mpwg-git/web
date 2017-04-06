@@ -56,7 +56,7 @@ var fe_map = (function() {
             if ($("#umkreis-slider").data('value') != '') {
                 valueRange = parseInt($("#umkreis-slider").data('value'), 10);
             }
-            
+
             $('#umkreis-slider').unbind('click');
             $("#umkreis-slider").slider({
                 range: "min",
@@ -71,14 +71,14 @@ var fe_map = (function() {
                 },
                 stop: function(event, ui) {
                     $("#umkreis-slider").data('value', ui.value);
-                    
+
                     fe_map.refreshSearch();
-                    
+
                     if(currentFace == 3)
                     {
 	                    setTimeout(function(){
-	                    	window.location.reload();                    	
-	                    }, 400);                    
+	                    	window.location.reload();
+	                    }, 400);
                     }
                 }
             });
@@ -95,7 +95,7 @@ var fe_map = (function() {
             // console.log("valueab", valueAb);
             // console.log("valuebis", valueBis);
 
-            
+
             $('#slider-range').unbind('click');
             $("#slider-range").slider({
             	range: true,
@@ -109,10 +109,10 @@ var fe_map = (function() {
                     if (diff < 1) {
                         return false;
                     }
-                    
+
                     $(".ui-slider-handle", "#slider-range").first().html("€ " + ui.values[0]);
                     $(".ui-slider-handle", "#slider-range").last().html("€ " + ui.values[1]);
-                    
+
                 },
                 stop: function(event, ui) {
 
@@ -121,22 +121,22 @@ var fe_map = (function() {
 
                     $("#slider-range").data('valueab', ui.values[0]);
                     $("#slider-range").data('valuebis', ui.values[1]);
-                                        
+
                     fe_map.refreshSearch();
-                    
+
                     if(currentFace == 3)
                     {
 	                    setTimeout(function(){
-	                    	window.location.reload();                    	
-	                    }, 600);                    
+	                    	window.location.reload();
+	                    }, 600);
                     }
                 }
             });
 
             $(".ui-slider-handle:first", "#slider-range").html("€ " + $("#slider-range").slider("values", 0));
             $(".ui-slider-handle:last", "#slider-range").html("€ " + $("#slider-range").slider("values", 1));
-            
-            
+
+
 
             // mobile only
             if ($(".search-slider").length > 0) {
@@ -200,11 +200,14 @@ var fe_map = (function() {
                     me.refreshMapAfterShow();
                 }
             });
-            
+
             $('input[type=radio][name=search-type]').unbind("change");
             $('input[type=radio][name=search-type]').change(function() {
                 $('input[type=radio][name=search-type]').removeClass("active");
-                me.refreshSearch();
+
+// fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
+                me.refreshSearch(window.location.reload());
+
             });
 
             $('.js-close-mobile-search').unbind("click");
@@ -216,14 +219,14 @@ var fe_map = (function() {
                     $('.map-container').removeClass("active");
                 }
             });
-            
+
             $('.searchlist .img-wrapper.searchresult-wrapper-js').unbind('click');
             $('.searchlist .img-wrapper.searchresult-wrapper-js').click(function(e) {
             	e.preventDefault();
                 $('.overlay-bg').toggleClass('active');
             });
 
-            
+
 
             $('.searchlist .img-wrapper, .pictures-start .img-wrapper').unbind("click");
             $('.searchlist .img-wrapper, .pictures-start .img-wrapper').click(function(e) {
@@ -231,7 +234,7 @@ var fe_map = (function() {
                 //e.preventDefault();
                 $(this).toggleClass("active");
             });
-            
+
             return;
         }
 
@@ -290,8 +293,16 @@ var fe_map = (function() {
 //                fe_core.showLoader();
 //            }
 
-            fe_core.showLoader();
-            
+//            fe_core.showLoader();
+
+            var loader = $('.ajax-loader').css('display');
+
+            if(loader == 'none') {
+            	fe_core.showLoader();
+            }
+
+
+
             var searchData = new Object;
 
             if (typeof showAll == "undefined") {
@@ -343,7 +354,7 @@ var fe_map = (function() {
                 success: function(response) {
 
                     top.endOfResults = response.endOfResults;
-                    
+
                     fe_core.hideLoader();
                     if (response.success) {
                         if ($('.js-replacer-search').length > 0) {
@@ -367,11 +378,11 @@ var fe_map = (function() {
                         // handle results in map
                         me.updateMapWithResults(response.results);
                         me.registerListeners();
-                        
+
                         fe_user.registerListeners();
-                        
+
                     }
-                    
+
                 },
                 failure: function(response) {
                     fe_core.hideLoader();
@@ -711,18 +722,18 @@ var fe_map = (function() {
             // default Wien/Österreich
             var inputLat = 48.2081743;
             var inputLng = 16.37381890000006;
-            
+
             // set if values != default
             if(inputLat != $('input.location-lat').val())
             	inputLat = $('input.location-lat').val();
-            
+
             if(inputLng != $('input.location-lng').val())
             	inputLng = $('input.location-lng').val();
 
             var myLatLng = new google.maps.LatLng(inputLat, inputLng);
-            
+
             var myRadius = $("#umkreis-slider").data('value');
-            
+
             this.searchMap.map = $el.gmap3('get');
 
             this.searchMap.map.setCenter(myLatLng);

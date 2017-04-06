@@ -105,10 +105,6 @@ button:focus {
     outline: none;
 }
 
-// .error-div {
-//     display: none;
-// }
-
 hr {
     margin: 10px 5% 5px;
     width: 90%;
@@ -531,7 +527,7 @@ span.wirklich {
 #noQuestionModal .modal-dialog.noQuestionModal {
     width: 100%;
     margin: 41px auto;
-    z-index: 1040;
+    z-index: 9999;
 }
 
 #noQuestionModal .modal-content.noQuestionModal {
@@ -2342,7 +2338,7 @@ button {
     left:5.731381606850147%;
     
     .error-div {
-        display: inline-block;
+        display: none;
         width: 93%;
         margin-top: 0;
         padding: 0px 5px;
@@ -2829,7 +2825,7 @@ input.form-control {
 }
 
 #oldPasswd-error, #newPasswd-error, #newPasswdConfirm-error, #email-error-1, #email-error-2, #email-error-3, #MIETE_error, #ZEITRAUM_VON_error, #NACHNAME_error,
-#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .error-div, .checkbox-error , #agb-accept_error, #UNREG_MB_error, #UNREG_MB_error
+#VORNAME_error, #v2_PASSWORT_confirm_error, #GESCHLECHT_error, #MIETEMAX_error, .checkbox-error , #agb-accept_error, #UNREG_MB_error, #UNREG_MB_error, #fb-login-error, .error-div
 {
     display: none;
     width: 100%;
@@ -2855,13 +2851,30 @@ input.form-control {
     }
 }
 #VORNAME_error, #NACHNAME_error, #v2_PASSWORT_minlength_error, #agb-accept_error {
+    display: none;
     width: 100%;
 }
-
+.agb-accept-cbox {
+    font-size: 16px;
+    margin-top: 20px;
+    
+    a {
+        text-decoration:underline !important;
+        color:#333;
+    }
+    
+    label {
+        vertical-align: middle;
+    }
+    input#agb-accept {
+        width: 14px;
+        height: 16px;
+    }
+}
 
 #changePasswd-success, #changeMail-success{
     display: none;
-    font-family: 'HelveticaNeueW01-ThinCn_673383';
+    font-family: @nunitolight;
     background-color: #5cb85c;
     border: 1px solid #4cae4c;
     margin-top: 1px;

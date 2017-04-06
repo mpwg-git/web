@@ -24,11 +24,13 @@
         <div class="row no-margin roominfos mob-no-gutter">
             <div class="col-xs-12">
                 <div class="roominfos-left col-sm-7 col-xs-12 mob-no-gutter">
-                    <%if count($data['IMAGES']) > 0%>
-                        <div class="wg-img-wrapper">
+                    <div class="wg-img-wrapper">
+                        <%if count($data['IMAGES']) > 0%>
                             <%xr_atom a_id=991 images=$data['IMAGES'] return=1%>
-                        </div>
-                    <%/if%>   
+                        <%else%>
+                            <%xr_imgWrapper s_id=490 w=320 h=320 rmode="cco" class="profileimage"%>
+                        <%/if%>   
+                    </div>
                 </div>
                 <div class="roominfos-right col-sm-5 col-xs-12 no-margin no-gutter mob-no-gutter">
                     <div class="profil-inner-padding">

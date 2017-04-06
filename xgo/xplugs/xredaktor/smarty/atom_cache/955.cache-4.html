@@ -4,6 +4,7 @@
 <div id="anmelden-inner" class="panel-collapse collapse text-left <%if $info['state'] == 0%>in<%/if%>">
 	<h3 class="mpwg-color"><%xr_translate tag='fp_h3-login'%></h3>
 	<br>
+	<div class="error-div" id="fb-login-error"><%xr_translate tag='Der eingegebene Benutzername oder das Passwort sind falsch.'%></div>
 	<button class="button text-uppercase" id="fb-login-submit"><span class="fb-f">f </span><%xr_translate tag='Mit Facebook anmelden'%></button>
 	<hr>
 	<%if $info['state'] == 0%>

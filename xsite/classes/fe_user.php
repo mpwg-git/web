@@ -2814,11 +2814,11 @@ class fe_user
 	public static function ajax_doFacebookLogin()
 	{
 		
+		$formdata 	= $_REQUEST['formdata'];
 		$fragebogen = $_REQUEST['fragebogen'];
-		$formdata = $_REQUEST['formdata'];
-		$adresse = $_REQUEST['adresse'];
-		$miete = intval($_REQUEST['miete']);
-		
+		$adresse 	= $_REQUEST['adresse'];
+		$miete 		= intval($_REQUEST['miete']);
+
 		$fbAuth = self::checkFacebookAuth($formdata['accessToken']);
 
 		$FACEBOOK_ID 	= trim($formdata['id']);
@@ -2830,10 +2830,10 @@ class fe_user
 		}
 			
 		$FACEBOOK_ID 		= dbx::escape($FACEBOOK_ID);
-		$EMAIL				= trim($_REQUEST['email']);
+		$EMAIL				= trim($formdata['email']);
 
-		$VORNAME			= trim($_REQUEST['first_name']);
-		$NACHNAME			= trim($_REQUEST['last_name']);
+		$VORNAME			= trim($formdata['first_name']);
+		$NACHNAME			= trim($formdata['last_name']);
 
 		$ADRESSE			= trim($adresse['ADRESSE']);
 		$ADRESSE_STRASSE	= trim($adresse['ADRESSE_STRASSE']);
@@ -2854,7 +2854,7 @@ class fe_user
 
 		$MIETE_BIS 	= $miete;
 
-		$GESCHLECHT = trim($_REQUEST['gender']);
+		$GESCHLECHT = trim($formdata['gender']);
 		
 		$SEX		= (trim($formdata['GENDER']) == 'male') ? 'M' : 'F';
 
@@ -2999,20 +2999,20 @@ class fe_user
 					{
 						$wz_FRAGEID 	 = intval($value['id']);
 						$wz_USERID 		 = $feu_id;
-						$wz_DELTA 		 = intval($value['delta']);
+						$wz_ANTWORT		 = intval($value['antwort']);
 						$wz_SUPERWICHTIG = intval($value['superwichtig']);
 						
 						$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $feu_id");
 						
 						if($check == false)
 						{
-							dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_DELTA, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_DELTA, $wz_SUPERWICHTIG)");
+							dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 						}
 						else
 						{
 							$wz_id = intval($check['wz_id']);
 							
-							dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_DELTA` = '$wz_DELTA',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
+							dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 						}
 					}
 				}
@@ -3132,20 +3132,20 @@ class fe_user
 			{
 				$wz_FRAGEID 	 = intval($value['id']);
 				$wz_USERID 		 = $feu_id;
-				$wz_DELTA 		 = intval($value['delta']);
+				$wz_ANTWORT		 = intval($value['antwort']);
 				$wz_SUPERWICHTIG = intval($value['superwichtig']);
 				
 				$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $feu_id");
 				
 				if($check == false)
 				{
-					dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_DELTA, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_DELTA, $wz_SUPERWICHTIG)");
+					dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 				}
 				else
 				{
 					$wz_id = intval($check['wz_id']);
 					
-					dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_DELTA` = '$wz_DELTA',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
+					dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 				}
 			}
 		}
@@ -3399,20 +3399,20 @@ class fe_user
 			{
 				$wz_FRAGEID 	 = intval($value['id']);
 				$wz_USERID 		 = intval($feu_id);
-				$wz_DELTA 		 = intval($value['delta']);
+				$wz_ANTWORT		 = intval($value['antwort']);
 				$wz_SUPERWICHTIG = intval($value['superwichtig']);
 				
 				$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $feu_id");
 				
 				if($check == false)
 				{
-					dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_DELTA, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_DELTA, $wz_SUPERWICHTIG)");
+					dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 				}
 				else
 				{
 					$wz_id = intval($check['wz_id']);
 					
-					dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_DELTA` = '$wz_DELTA',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
+					dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 				}
 			}
 		}

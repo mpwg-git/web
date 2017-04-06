@@ -1,3 +1,4 @@
+<%xr_siteCall fn="fe_user::sc_getMyUserType" var="type"%>
 <%if isset($smarty.session['xredaktor_feUser_wsf']['SEARCH']['SEARCH_ARRAY'])%> 
     <%$searchSession = $smarty.session['xredaktor_feUser_wsf']['SEARCH']['SEARCH_ARRAY']%>
 <%else%>
@@ -7,23 +8,22 @@
 <%*xr_print_r val=$smarty.session*%>
 <%*xr_print_r val=$searchSession*%>
 
-
 <div id="aside-left-search" class="aside-left-search">
     <div class="searchform">
         <h1 class="text-uppercase"><%xr_translate tag="Suche"%></h1>
         <div class="clearfix"></div>
         <div id="search-criteria" class="collapse in">
-            <form>
+            <form> 
                 <div class="form-group">
                     <div class="radio">
                         <label for="typ-suche" class="searchform-typ-suche no-padding-left">
-                            <!--<input id="typ-suche" type="radio" name="search-type" value="suche" <%if $searchSession['type']=="suche" || ($searchSession['type'] == '' && $userType=="suche")%> class="active" <%/if%>>-->
-                            <input id="typ-suche" type="radio" name="search-type" value="suche" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%> class="active" <%/if%>>
+                            <input id="typ-suche" type="radio" name="search-type" value="suche" <%if $searchSession['type']=="suche" || ($searchSession['type'] == '' && $type =="suche")%> class="active" <%/if%>>
+                            <!--<input id="typ-suche" type="radio" name="search-type" value="suche" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'suche'%> class="active" <%/if%>>-->
                             <span class="suche-cat btn-icons-reg text-uppercase no-margin-left"><%xr_translate tag="Room"%></span>
                         </label>
                         <label for="typ-biete" class="searchform-typ-biete">
-                            <!--<input id="typ-biete" type="radio" name="search-type" value="biete" <%if $searchSession['type']=="biete"  || ($searchSession['type'] == '' && $userType=="biete")%> class="active" <%/if%>>-->
-                            <input id="typ-biete" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'biete'%> class="active" <%/if%>>
+                            <input id="typ-biete" type="radio" name="search-type" value="biete" <%if $searchSession['type']=="biete"  || ($searchSession['type'] == '' && $type =="biete")%> class="active" <%/if%>>
+                            <!--<input id="typ-biete" type="radio" name="search-type" value="biete" <%if $smarty.session['xredaktor_feUser_wsf']['wz_TYPE'] == 'biete'%> class="active" <%/if%>>-->
                             <span class="suche-cat btn-icons-reg text-uppercase"><%xr_translate tag="Roomie"%></span>
                         </label>
                         

@@ -9,8 +9,8 @@
 </div>
 <%/if%>
 
-<form <%*role="form"*%> action="<%xr_genlink p_id=$P_ID%>" id="form-login" method="post">
-    <div <%* class="form-group" *%> >
+<form role="form" action="<%xr_genlink p_id=$P_ID%>" id="form-login" method="post">
+    <div class="form-group">
         <input type='hidden' name='doLogin' value='1' />
         <label for="wz_EMAIL"><span class="small">e</span>Mail</label>
         <input id="wz_EMAIL" type="email" name="wz_EMAIL" class="form-control" rel="required_email" />

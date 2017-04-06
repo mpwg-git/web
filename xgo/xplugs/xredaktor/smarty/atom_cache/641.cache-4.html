@@ -3,6 +3,26 @@
     <%xr_atom a_id=647 return=1%>
     
     <body>
+        <div class="ajax-loader">
+            <div class="text">
+                <span class="icon-duck"></span>
+                <p>Loading...</p>
+            </div>
+            <div id="fountainG">
+            	<div id="fountainG_1" class="fountainG"><span class="icon-kamm"></span></div>
+            	<div id="fountainG_2" class="fountainG"><span class="icon-klopapier"></span></div>
+            	<div id="fountainG_3" class="fountainG"><span class="icon-foen"></span></div>
+            	<div id="fountainG_4" class="fountainG"><span class="icon-zahnbuerste"></span></div>
+            	<div id="fountainG_5" class="fountainG"><span class="icon-rasierer"></span></div>
+            	<div id="fountainG_6" class="fountainG"><span class="icon-badewanne"></span></div>
+            </div>
+        </div>
+        
+        <!-- Google Tag Manager (noscript) -->
+        <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52J8F5"-->
+        <!--height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+        <!-- End Google Tag Manager (noscript) -->	 
+        
         <div id="fb-root"></div>
         <script>
             window.fbAsyncInit = function() {
@@ -42,13 +62,12 @@
             
         <%xr_atom a_id=757 return=1 desc='ajax loader'%>
         
-            <%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
+        <%xr_siteCall fn="fe_user::getEmailConfirmMsg" var="EmailConfirmMsg"%>
                 
-            <%if $EmailConfirmMsg%>
-                <script>
-                    var showEmailConfirmMsg = true;
-                </script>
-            <%/if%>
-        
+        <%if $EmailConfirmMsg%>
+            <script>
+                var showEmailConfirmMsg = true;
+            </script>
+        <%/if%>
 	</body>
 </html>

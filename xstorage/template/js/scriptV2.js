@@ -46,7 +46,6 @@ var facebook = {
 			});
 		});
 		$(document).on('click', '.js-fb-login', function (e) {
-			console.log('js-fb-login');
 			e.preventDefault();
 			facebook.doLogin();
 		});
@@ -88,29 +87,118 @@ var facebook = {
 	doLoginSimpleCallback: function (state, cfg, data) {
 		if (data.status == 'OK') {
 			window.location = data.redirect;
-		} else {}
+		} else {
+			/*
+			 * #anmelden-inner .errorNotification 
+			 * */
+			$('#fb-login-error').show();
+		}
 	},
+	
 	doLogin: function () {
 		var checkboxError = false;
 		$('.checkbox-error').hide();
 		$(".hidden-fragen").each(function (i, o) {
 			var frageId = $(o).val();
+			
 //			var checkedChecker = $('input:checkbox[data-frage="' + frageId + '"]:checked').length;
+//			if (checkedChecker == 0) {
+//				$('#FRAGE_' + frageId + '_error').show();
+//				checkboxError = true;
+//			}
+			var radioChecker = $('input:radio[name=FR'+frageId+']:checked').length;
+			if (radioChecker == 0) {
+				$('#FRAGE_' + frageId + '_error').show();
+				checkboxError = true;
+			}
+		});
+		if(checkboxError == false) {
+			$('.agb-accept-cbox').show();
+			$('error-div').toggle();
+		} 
+		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
+		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
+			$('.scrollbarfix', '.middle-row').animate({
+				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+			}, 500);
+			return false;
+		}
+		if (typeof ok != "undefined" && ok == true) {
+			FB.login(function (response) {
+				if (response.authResponse) {
+					var authResponse = response.authResponse;
+					FB.api('/me', {
+						fields: 'first_name, last_name, email, picture, gender'
+					}, function (response) {
+						var formdata = $('#wg-zimmer-finden').serializeObject();
+						var object = $.extend(response, formdata);
+						object.accessToken = authResponse.accessToken;
+						
+						var adresse     = $('#register-adresse').serializeObject();
+				        var miete       = $('#MIETEMAX').val();
+				        var fragebogen = [];
+				        
+				        $('#register-fragebogen .hidden-fragen').each(function(i, o) {
+
+				            var id = $(o).val();
+
+				            var antwort = $('input:radio[name="FR' + id + '"]:checked').val();
+
+				            var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
+
+				            if ((typeof antwort != "undefined" || antwort !== false)) {
+				                fragebogen[i] = { id, antwort, superwichtig };
+				            } else {
+				                return;
+				            }
+				        });
+				        
+				        var object = $.extend(response, formdata);
+				        
+						var cfg = {
+							be_scope: 'fe_user',
+							be_fn: 'doFacebookLogin',
+							data: {
+								formdata: object,
+								fragebogen: fragebogen,
+								adresse: adresse,
+								miete: miete
+							},
+							scope: this,
+							cb: facebook.doLoginCallback
+						}
+						backend_request.post(cfg);
+					});
+				} else {
+					console.log('User cancelled login or did not fully authorize.');
+				}
+			}, {
+				scope: 'email,public_profile'
+			});
+		}
+	},
+	
+	/*
+	doLogin: function () {
+		var checkboxError = false;
+		$('.checkbox-error').hide();
+		$(".hidden-fragen").each(function (i, o) {
+			var frageId = $(o).val();
             var checkedChecker = $('input:radio[name=FR'+frageId+']:checked').length;
 			if (checkedChecker == 0) {
 				$('#FRAGE_' + frageId + '_error').show();
 				checkboxError = true;
 			}
 		});
-//		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
-//		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
-//			$('.scrollbarfix', '.middle-row').animate({
-//			$('.middle-row').animate({
-//				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
-//				scrollTop: 0
-//			}, 500);
-//			return false;
-//		}
+		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
+		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
+			$('.scrollbarfix', '.middle-row').animate({
+			$('.middle-row').animate({
+				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+				scrollTop: 0
+			}, 500);
+			return false;
+		}
 		var ok = true;
 		if (typeof ok != "undefined" && ok == true) {
 			FB.login(function (response) {
@@ -165,6 +253,8 @@ var facebook = {
 			});
 		}
 	},
+	
+	*/
 	doLoginCallback: function (state, cfg, data) {
 		console.info(state, cfg, data);
 		if (data.status == 'OK') {
@@ -183,8 +273,6 @@ var simpleLogin = {
 	init: function () {
 		$(document).on('click', '.js-show-simple-login', function (e) {
 			e.preventDefault();
-//			$(this).hide();
-//			$('.js-simple-login').prop('disabled', false);
 			$('.js-simple-login').show();
 			$('#show-simple-login-form').slideDown();
 			$('input#VORNAME').focus();
@@ -290,16 +378,15 @@ var simpleLogin = {
 		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
 		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
 			$('.middle-row').animate({
-//				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
-				scrollTop:0
+				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
 			}, 500);
 			return false;
 		}
 		ok = fe_core.jsFormValidation2('wg-zimmer-finden');
 		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
 			$('.middle-row').animate({
-//				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
-				scrollTop:0
+				scrollTop: $('#wg-zimmer-finden').find('.error-div:visible:first').offset().top - 200
+
 			}, 500);
 			return false;
 		}
@@ -333,12 +420,12 @@ var simpleLogin = {
 
             var id = $(o).val();
 
-            var delta = $('input:radio[name="FR' + id + '"]:checked').val();
+            var antwort = $('input:radio[name="FR' + id + '"]:checked').val();
 
             var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
 
-            if ((typeof delta != "undefined" || delta !== false)) {
-            	fragebogen[i] = { id, delta, superwichtig };
+            if ((typeof delta != "undefined" || antwort !== false)) {
+            	fragebogen[i] = { id, antwort, superwichtig };
             } else {
                 return;
             }

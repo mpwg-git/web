@@ -21,7 +21,7 @@ class fe_fragebogen
 			return false;
 		}
 		
-		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_DELTA, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId ORDER BY wz_id");
+		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_ANTWORT, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId ORDER BY wz_id");
 		
 		return $res;
 	}
@@ -118,7 +118,8 @@ class fe_fragebogen
 	{		
 		$collection 		= $_REQUEST['collection'];
 		$userId				= intval(xredaktor_feUser::getUserId());
-
+		
+		$ok = false;
 		if($collection !== false && is_Array($collection))
 		{
 			foreach ($collection as $k => $v) {
@@ -127,29 +128,39 @@ class fe_fragebogen
 				{
 					$wz_FRAGEID 	 = intval($v['id']);
 					$wz_USERID 		 = intval($userId);
-					$wz_DELTA 		 = intval($v['delta']);
+					$wz_ANTWORT		 = intval($v['antwort']);
 					$wz_SUPERWICHTIG = intval($v['superwichtig']);
 					
 					$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $wz_USERID");
 					
 					if($check == false)
 					{
-						dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_DELTA, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_DELTA, $wz_SUPERWICHTIG)");
+						dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 					}
 					else
 					{
 						$wz_id = intval($check['wz_id']);
 						
-						dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_DELTA` = '$wz_DELTA',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
+						dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 					}
 				}
 			}
 			
-			return true;
+			// clear previous matching results
+			// fe_matching::clearMatchingResults($userId);
+			
+			// clear previous matching results
+			$ok = fe_matching::doInstantMatching($userId);
+			
+			if($ok)
+				frontcontrollerx::json_success();
+			else 
+				frontcontrollerx::json_failure();
 		}
 		else 
 		{
-			return false;
+			frontcontrollerx::json_failure();
+// 			return $ok;
 		}
 		
 	}

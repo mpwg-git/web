@@ -3,20 +3,18 @@ var fe_redesign = (function() {
         this.init = function() {
         	var me = this;
 
+        	if(P_ID == 25) {
+            	var leftRowHeight = $('#main-content .left-row').height() + 50;
+            	$('#pw-vergessen').css('height', leftRowHeight);
+            	$('#main-content .left-row').css('padding-bottom', '100px');
+            }
+
             $('.cookie-warning-top .closing-icon').on('click', function () {
                 $.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function (response) {
                     $('.js-cookie-warning-top').removeClass('active');
                 });
             });
             
-            
-            if(P_ID == 25) {
-            	var leftRowHeight = $('#main-content .left-row').height() + 50;
-            	$('#pw-vergessen').css('height', leftRowHeight);
-            	$('#main-content .left-row').css('padding-bottom', '100px');
-            }
-
-
             /*
              *    frontpage #und-los-gehts mouseover/out button states
              */
@@ -87,7 +85,6 @@ var fe_redesign = (function() {
              */
             var $body = $('body');
             $('header').on('click', 'a.btn-login', function() {
-                console.log('btn-login');
                 $('body').toggleClass('no-scroll');
             });
             /* end */
@@ -114,11 +111,22 @@ var fe_redesign = (function() {
             /* end */
 
 
+           
+            
 
+//            icon-svg legend-nr2
+//            $('#fragebogenModal').click(function(e) {
+//            	e.preventDefault();
+//            	$('.icon-svg.legend-nr1').toggleClass('active');
+//            	$('.icon-svg.legend-nr2').toggleClass('active');
+//            	
+//            });
 
-            /*
-             * mobile subnavi btn actions
-             */
+/*************************************
+ 	
+ 	M O B I L E / subnavi btn actions
+ 	
+ *************************************/
             if($(window).width() <= 768) {
 
 	            var $filter 	=  $('#search-filter');
@@ -184,13 +192,7 @@ var fe_redesign = (function() {
 	            	}
 	            });
 	            
-//	            icon-svg legend-nr2
-	            $('#fragebogenModal').click(function(e) {
-	            	e.preventDefault();
-	            	$('.icon-svg.legend-nr1').toggleClass('active');
-	            	$('.icon-svg.legend-nr2').toggleClass('active');
-	            	
-	            });
+
 	        }
 
         }
@@ -198,6 +200,7 @@ var fe_redesign = (function() {
 })();
 
 $(document).ready(function() {
+	
     fe_redesign.init();
 });
 /* END */ 

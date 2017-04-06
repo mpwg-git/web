@@ -1,16 +1,18 @@
-<%xr_siteCall fn='fe_search::getUserId' var='id'%>
 <%xr_siteCall fn='fe_fragebogen::sc_getAllFragen' var='fragen'%>
 <%xr_siteCall fn='fe_fragebogen::sc_getAntworten' var='antworten'%>
 
+<%*xr_siteCall fn="fe_mapping_fragen::getMappingArray" userId=$data['USER']['wz_id'] var="mapFragenV2"*%>
+<%*xr_print_r val=$mapFragenV2*%>
 
-<div id="mein-fragebogen" style="display: none">
+
+<div id="mein-fragebogen" style="display:none;">
     <div class="col-xs-12 mob-no-gutter">
         <div class="profile-fragebogen text-center">
             <form class="form" id="profile-fragebogen" name="profile-fragebogen">
                 <%foreach $fragen as $k => $v%>
                 
-                <%xr_print_r val=$v['FRAGE']['wz_NR']%>
-                <%xr_print_r val=$antworten%>
+                <%*xr_print_r val=$v['FRAGE']['wz_NR']*%>
+                <%*xr_print_r val=$antworten*%>
 
                 
                     <div class="fragen-container fragenNR_<%$v['FRAGE']['wz_NR']%>">
@@ -38,24 +40,24 @@
                             	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 antwort-value">
                             		<div class="form-group">
                             	    	<div class="radio radio-inline">
-                            	    	    <label for="delta1">
-                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_DELTA'] == 1%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="1" >
+                            	    	    <label for="antwort1">
+                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_ANTWORT'] == 1%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="1" >
                             				</label>
                             
-                            				<label for="delta2">
-                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_DELTA'] == 2%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="2" >
+                            				<label for="antwort2">
+                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_ANTWORT'] == 2%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="2" >
                             		        </label>
                             
-                            				<label for="delta3">
-                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_DELTA'] == 3%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="3" >
+                            				<label for="antwort3">
+                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_ANTWORT'] == 3%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="3" >
                             		        </label>
                             
-                            				<label for="delta4">
-                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_DELTA'] == 4%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="4" >
+                            				<label for="antwort4">
+                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_ANTWORT'] == 4%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="4" >
                             		        </label>
                             
-                            				<label for="delta5">
-                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_DELTA'] == 5%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="5" >
+                            				<label for="antwort5">
+                            		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_ANTWORT'] == 5%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="5" >
                             				</label>
                             			</div>
                             		    <div class="toggle-superwichtig" style="text-align: center;">

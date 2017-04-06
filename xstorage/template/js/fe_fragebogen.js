@@ -4,12 +4,21 @@ var fe_fragebogen = (function() {
             this.registerListeners();
         }
         this.registerListeners = function() {
+        	
+        	$('.icon-svg.legend-nr2').click(function(e) {
+            	e.preventDefault();
+            	$(this).addClass('active');
+            	$('.legend-nr1, .legend-nr3').removeClass('active');            		
+            });
             	
             $(".save-profil-fragebogen").unbind("click");
             $(".save-profil-fragebogen").click(function(e) {
                 e.preventDefault();
 
                 $('.ajax-loader').show();
+                
+                $('.legend-nr1').addClass('active');
+            	$('.legend-nr2, .legend-nr3').removeClass('active'); 
                 
                 var redirectTo = $(this).data('redirect');
                 var $collection = [];
@@ -30,12 +39,12 @@ var fe_fragebogen = (function() {
 
                     var id = $(o).val();
 
-                    var delta = $('input:radio[name="FR' + id + '"]:checked').val();
+                    var antwort = $('input:radio[name="FR' + id + '"]:checked').val();
 
                     var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
 
-                    if ((typeof delta != "undefined" || delta !== false)) {
-                    	$collection[i] = { id, delta, superwichtig };
+                    if ((typeof antwort != "undefined" || antwort !== false)) {
+                    	$collection[i] = { id, antwort, superwichtig };
                     } else {
                         return false;
                     }
@@ -50,13 +59,24 @@ var fe_fragebogen = (function() {
                         data:  {
                         	collection: $collection
                         },
-                        success: function() {
-                        	console.log('wgtest saved');
-                        	var redirectTo = $('.save-profil-fragebogen').data('redirect');
-                            if (redirectTo != "") {
-                                window.location.href = redirectTo;
-                                return;
-                            }	                    
+                        success: function(data) {
+                        	console.log('collectAnswer');
+//                        	$.ajax({
+//                                type: 'POST',
+//                                url: '/xsite/call/fe_matchingNeu/doInstantMatching',
+//                                success: function() {
+//                                	console.log('matching done');
+//                                	$('.ajax-loader').hide();
+//                                }
+//                        	});
+                        	
+                        	setTimeout(function() {
+	                        	var redirectTo = $('.save-profil-fragebogen').data('redirect');
+	                            if (redirectTo != "") {
+	                                window.location.href = redirectTo;
+	                                return;
+	                            }	                    
+                        	}, 0);
                         }
                     })
                 }
@@ -65,6 +85,7 @@ var fe_fragebogen = (function() {
                 }
             });
 
+            
             $(".js-show-reg-form").unbind("click");
             $(".js-show-reg-form").click(function(e) {
                 e.preventDefault();
@@ -73,47 +94,6 @@ var fe_fragebogen = (function() {
             });
 
         }
-        
-        /*
-        this.getFragebogenValues = function() {
-            var $antwortenArray = [];
-//            var $ok = checkFragebogen();
-//            if ((typeof $ok != "undefined" && $ok == false)) {
-//                return false;
-//            }
-            $('#profile-fragebogen .hidden-fragen').each(function(i, o) {
-
-                var id = $(o).val();
-
-                var delta = $('input:radio[name="FR' + id + '"]:checked').val();
-
-                var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
-
-                if ((typeof delta != "undefined" || delta !== false)) {
-                    $antwortenArray[i] = { id, delta, superwichtig };
-                } else {
-                    return;
-                }
-            });
-                        
-            return $antwortenArray;
-        }
-
-        this.checkFragebogen = function() {
-            var checkboxError = false;
-            $('.checkbox-error').hide();
-            $(".hidden-fragen").each(function(i, o) {
-                var frageId = $(o).val();
-                var checkedChecker = $('input:radio[name=FR' + frageId + ']:checked').length;
-                if (checkedChecker == 0) {
-                    $('#FRAGE_' + frageId + '_error').show();
-                    checkboxError = true;
-                }
-            })
-
-        }
-        */
-
     }
 })();
 
