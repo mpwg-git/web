@@ -39,30 +39,6 @@
         <%foreach $data as $k => $v%>
             
             <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
-            
-            <%if $k == 0 || $k == 1%>
-                <a href="<%$detailURL%>">
-                    <div class="blog-item neueste" id="post-<%$v.wz_id%>">
-                        <div class="image-wrapper">
-                            <%xr_imgWrapper s_id=$v['wz_BILD'] w=600 h=290 rmode="cco" class="image"%>
-                        </div>
-                        <div class="content">
-                            <div class="header-wrapper">
-                                <h3 class="headline"><%$v['wz_HEADLINE']%></h3>
-                                <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
-                            </div>
-                            <p class="text"><%$v['wz_TEASERTEXT']%></p>
-                            <p>
-                                <%foreach $v.categories as $kk => $categoryId name='categoryCheck'%>
-                                    <%$categories[$categoryId]['wz_KATEGORIE']%><%if !$smarty.foreach.categoryCheck.last%>,<%/if%>
-                                <%/foreach%>
-                            </p>
-                            <div class="reporter"><%xr_translate tag="mehr"%>...</div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            <%else%>
                 <a href="<%$detailURL%>">
                     <div class="blog-item" id="post-<%$v.wz_id%>">
                         <div class="image-wrapper">
@@ -84,12 +60,10 @@
                         <div class="clearfix"></div>
                     </div>
                 </a>
-            <%/if%>
-            <%if $k == 1%>
-                <!--<hr/>-->
-            <%/if%>
         <%/foreach%>
     <%/if%>
-    <a style="display:block;text-align:right;color:white;margin: 4rem 0;" href="<%xr_genlink p_id=1%>"><%xr_translate tag="zurück zur Startseite"%></a>
+    <a href="<%xr_genlink p_id=1%>">
+        <button class="button back-fp"><%xr_translate tag="zurück zur Startseite"%></button>
+    </a>
 </div>
 

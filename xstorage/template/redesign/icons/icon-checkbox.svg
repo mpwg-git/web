@@ -1,1 +1,35 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"><defs><style>.cls-1{fill:#1d1d1b;}</style></defs><title>icons_meineperfektewg</title><path class="cls-1" d="M70,69.95H0V0H70V69.95ZM5,65H65V5H5V65Z"/></svg>
+<!--
+<svg id="icon-checkbox" data-name="icon checkbox" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" width="32px" height="32px"> 
+	<defs>
+		<style>.svg-icon-checkbox{fill:#04e0d7;}</style>
+	</defs>
+	<title>icon checkbox</title>
+	<path class="svg-icon-checkbox" d="M70,69.95H0V0H70V69.95ZM5,65H65V5H5V65Z"/>
+</svg>
+-->
+
+<svg id="icon-checkbox" data-name="icon checkbox" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" width="32px" height="32px"> 
+	<defs>
+		<style>
+		    .svg-icon-checkbox{
+		        fill:#04e0d7;
+		    }
+		    .svg-icon-checkbox-checked{
+		        fill:#fff;
+		        opacity: 0;
+		    }
+		    .svg-icon-checkbox-checked-2{
+		        fill:#04e0d7;
+		        opacity: 0;
+		    }
+		</style>
+	</defs>
+	<title>icon checkbox</title>
+	
+	<path class="svg-icon-checkbox" fill="#04e0d7" d="M70,69.95H0V0H70V69.95ZM5,65H65V5H5V65Z"/>
+	
+	<rect class="svg-cbox" fill="#04e0d7" y="0.05" width="70" height="69.95"/>
+	
+	<polygon id="svg-checkmark" fill="#fff" points="30.33 54.51 12.67 41.19 15.82 37.02 29.52 47.34 54.98 17 58.99 20.36 30.33 54.51"/>
+	
+</svg>
