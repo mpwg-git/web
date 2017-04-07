@@ -786,7 +786,9 @@ class fe_search
 // 			print_r($sql);
 // 			die(' --- ');
 // 		}
-			
+		
+// 		die($sql);
+		
 		$results 	= dbx::queryAll($sql, true);
 
 		return $results;
@@ -1177,7 +1179,7 @@ class fe_search
 
 		$sql 	.= " limit $limitOffset, $resultLimit";
 
-		// 		die($sql);
+		//die($sql);
 
 		$results 	= dbx::queryAll($sql, true);
 

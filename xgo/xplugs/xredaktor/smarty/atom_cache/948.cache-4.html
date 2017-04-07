@@ -1,6 +1,12 @@
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+
+<%if $isLoggedIn%>
+
+<%/if%>
+
 <%xr_siteCall fn="fe_user::redirectIfLoggedIn"%>
 
-<div id="main-content">
+<div id="main-content" <%if !$isLoggedIn%>class="top-content"<%/if%>>
     <%xr_atom a_id=950 return=1%>
     
 <!-- SO EINFACH GEHTS -->        

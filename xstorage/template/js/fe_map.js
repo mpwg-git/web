@@ -124,7 +124,7 @@ var fe_map = (function() {
 
                     fe_map.refreshSearch();
 
-                    if(currentFace == 3)
+                    if(currentFace == 4)
                     {
 	                    setTimeout(function(){
 	                    	window.location.reload();
@@ -293,13 +293,13 @@ var fe_map = (function() {
 //                fe_core.showLoader();
 //            }
 
-//            fe_core.showLoader();
+            fe_core.showLoader();
 
-            var loader = $('.ajax-loader').css('display');
+//            var loader = $('.ajax-loader').css('display');
 
-            if(loader == 'none') {
-            	fe_core.showLoader();
-            }
+//            if(loader == 'none') {
+//            	fe_core.showLoader();
+//            }
 
 
 
@@ -367,7 +367,7 @@ var fe_map = (function() {
                         }
 
                         // handle mobile special aftersearch stuff
-                        if (fe_core.getCurrentFace() == 1) {
+                        if (fe_core.getCurrentFace() == 4) {
                             me.refreshSearchMobileSpecials(response);
                         }
 
@@ -519,23 +519,24 @@ var fe_map = (function() {
             // Destroy EndlessScroll
             // wenn man von room auf roomie wechselt, sonst fehler
             if (this.interval) {
-                //console.log("cleared endlesss scroll");
+                console.log("cleared endlesss scroll");
                 clearInterval(this.interval);
-                $('div.middle-row .scrollbarfix').unbind('scroll');
-                $('div.middle-row .scrollbarfix').scrollTop(0);
+                $('div#search-hits').unbind('scroll');
+                $('div#search-hits').scrollTop(0);
             }
 
             // aktiviert endless scroll
             //https://github.com/fredwu/jquery-endless-scroll
 
-            //console.log("------------- " + $('.middle-row'));
+//            console.log("------------- " + $('div.shadow-box-center.infinite-scroller'));
 
-            this.interval = $('div.middle-row').endlessScroll({
+//            this.interval = $('div.middle-row').endlessScroll({
+           	this.interval = $('div#search-hits').endlessScroll({
                 //loader: '<div class="loading">loading<div>',
                 //insertBefore: ".js-replacer-search div:first",
 
                 // wo wird inserted => jquery selector
-                insertAfter: "div.middle-row .js-replacer-search .searchresult-single:last",
+                insertAfter: "#search-hits .js-replacer-search .searchresult-single:last",
                 // wie weit vom bottom weg
                 bottomPixels: 300,
                 //fireOnce: true,
@@ -547,7 +548,7 @@ var fe_map = (function() {
 //                    console.log("-------- cont", i, p, d);
 
                     // ML: nur bei downscroll (== next) sachen laden
-                    //if (d == 'next') {
+//                    if (d == 'next') {
                         $.ajax({
                             type: 'POST',
                             url: '/xsite/call/fe_search/getResults',
@@ -564,8 +565,10 @@ var fe_map = (function() {
                             success: function(response) {
                                 // php gibt endofresults zurück, dann destroy endless scroll
                                 if (response.endOfResults == 1) {
-                                    //console.log("end of results");
+                                    console.log("end of results");
                                     clearInterval(me.interval);
+                                    console.log("clearInterval / end of results");
+                                    
                                    // $('div.middle-row .scrollbarfix').unbind('scroll');
                                     //$('div.middle-row .scrollbarfix').scrollTop(0);
                                 }
@@ -575,8 +578,8 @@ var fe_map = (function() {
                                 console.log("failure endless");
                             }
                         });
-                    //}
-                    //console.log("appendWhat", appendWhat);
+//                    }
+//                    console.log("appendWhat: ", appendWhat);
                     return appendWhat;
                 }
             });

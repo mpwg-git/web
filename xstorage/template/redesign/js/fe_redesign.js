@@ -7,6 +7,20 @@ var fe_redesign = (function() {
         	var media_md = window.matchMedia("(min-width: 530px)");
 
         	
+        	/*
+        	 *	infinite scroller
+        	 
+        	var scrollHeight = $(window).height() - $('#main-header').height() - $('footer').height() - 50;
+        	var centerRow = $('div.shadow-box-center.infinite-scroller');
+        	if(P_ID == 11) {
+        		centerRow.css({'height': scrollHeight, 'overflow-y': 'scroll'});
+        	}
+        	*/
+        	
+        	
+        	
+        	
+        	
         	if(P_ID == 25) {
             	var leftRowHeight = $('#main-content .left-row').height() + 50;
             	$('#pw-vergessen').css('height', leftRowHeight);
