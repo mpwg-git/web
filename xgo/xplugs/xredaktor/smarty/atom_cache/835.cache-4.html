@@ -8,28 +8,28 @@
 <%xr_siteCall fn='fe_blog::get_categories_keyed' var='categories'%>
 <%if $smarty.request.dev==1%><%*xr_print_r val=$categories*%><%/if%>
 
-<div id="blog-page" class="blog-page default-container-paddingtop clearfix">
+<div id="blog-page" class="blog-page default-container-paddingtop clearfix middle-row">
     
     <%if $dataViaAjax%>
         <%foreach $data as $k => $v%>
             <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
             <a href="<%$detailURL%>">
-                <div class="blog-item" id="post-<%$v.wz_id%>">
+                <div class="blog-item col-md-4" id="post-<%$v.wz_id%>">
                     <div class="image-wrapper">
                         <%xr_imgWrapper s_id=$v['wz_BILD'] w=240 h=290 rmode="cco" class="image"%>
                     </div>
-                    <div class="content">
+                    <div class="content blog-content">
                         <div class="header-wrapper">
                             <h3 class="headline"><%$v['wz_HEADLINE']%></h3>
                             <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
                         </div>
                         <p class="text"><%$v['wz_TEASERTEXT']%></p>
-                        <p>
+                        <p class="blog-cat">
                             <%foreach $v.categories as $kk => $categoryId name='categoryCheck'%>
                                 <%$categories[$categoryId]['wz_KATEGORIE']%><%if !$smarty.foreach.categoryCheck.last%>,<%/if%>
                             <%/foreach%>
                         </p>
-                        <div class="reporter"><%xr_translate tag="mehr"%>...</div>
+                        <div class="reporter blog-cat"><%xr_translate tag="mehr"%>...</div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -40,22 +40,22 @@
             
             <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
                 <a href="<%$detailURL%>">
-                    <div class="blog-item" id="post-<%$v.wz_id%>">
+                    <div class="blog-item col-md-4" id="post-<%$v.wz_id%>">
                         <div class="image-wrapper">
                             <%xr_imgWrapper s_id=$v['wz_BILD'] w=240 h=290 rmode="cco" class="image"%>
                         </div>
-                        <div class="content">
+                        <div class="content blog-content">
                             <div class="header-wrapper">
                                 <h3 class="headline"><%$v['wz_HEADLINE']%></h3>
                                 <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
                             </div>
                             <p class="text"><%$v['wz_TEASERTEXT']%></p>
-                            <p>
+                            <p class="blog-cat">
                                 <%foreach $v.categories as $kk => $categoryId name='categoryCheck'%>
                                     <%$categories[$categoryId]['wz_KATEGORIE']%><%if !$smarty.foreach.categoryCheck.last%>,<%/if%>
                                 <%/foreach%>
                             </p>
-                            <div class="reporter"><%xr_translate tag="mehr"%>...</div>
+                            <div class="reporter blog-cat"><%xr_translate tag="mehr"%>...</div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
