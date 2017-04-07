@@ -57,11 +57,11 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     margin: 10px 0;
 }
 
-/*
-::-webkit-scrollbar {
-	display: none;
-}
-*/
+
+// ::-webkit-scrollbar {
+// 	display: none;
+// }
+
 
 .no-gutter, .no-gutter > [class*='col-'] {
     padding-left:0;
@@ -2904,8 +2904,9 @@ input.form-control {
   */
 
 .fancybox-slide {
+
     #mein-fragebogen {
-        width: 40%;
+        width: 50%;
         height: 80%;
         bottom: 3%;
         padding: 0;
@@ -2925,9 +2926,14 @@ input.form-control {
             bottom: 0;
         }
         @media @sm { 
-            width: 90%;
+            width: 80%;
             height: 85%;
             bottom: 0;
+            transform: scale(1.05);
+        }
+        
+        @media @md {
+            width: 60%;
         }
         
         .fancybox-close-small { 
@@ -2947,12 +2953,12 @@ input.form-control {
                 @media @xs {     
                     font-size: 26px;
                     background-color: transparent;
-                    color: @turkis;
+                    color: #fff;
                 }
                 @media @sm {     
                     font-size: 26px;
                     background-color: transparent;
-                    color: @turkis;
+                    color: #fff;
 
                 }
             }
@@ -3122,12 +3128,20 @@ input.form-control {
                         text-align: center;
                         width: auto;
                         
+                        // @media @md {
+                        //     padding: 0 14px 26px;
+                        // }
+                        // @media @lg {
+                        //     padding: 0 14px 26px;
+                        // }
+                        
                         @media @xs {
                             padding: 0 10px 25px;
                         }
                         @media @sm {
                             padding: 0 10px 25px;
                         }
+                        
                     }
                     input {
                         width: 30px;
@@ -3142,6 +3156,12 @@ input.form-control {
                             width: 22px;
                             height: 22px;
                         }
+                        // @media @md {
+                        //      width: 26px;
+                        // }
+                        // @media @lg {
+                        //      width: 28px;
+                        // }
                     }
                     .toggle.btn.btn-default.off, .toggle.btn.btn-primary {
                         width: 160px;
