@@ -1,12 +1,12 @@
 <%xr_wz_fetch id=834 wz_online='Y' r_id=$smarty.request.blogId var='v'%>
 
 <div class="blog-page default-container-paddingtop">
-    <div class="blog-item" id="post-<%$v.wz_id%>">
-    <%*xr_print_r val=$v*%>  
-        <div class="image-wrapper">
+    <div class="blog-item col-md-8 col-xs-12" id="post-<%$v.wz_id%>">
+        <%*xr_print_r val=$v*%>  
+        <div class="image-wrapper col-md-3">
             <%xr_imgWrapper s_id=$v['wz_BILD'] w=240 h=290 rmode="cco" class="image"%> 
         </div>
-        <div class="content">
+        <div class="content blog-content col-md-9">
             <div class="header-wrapper">
                 <h3 class="headline"><%$v['wz_HEADLINE']%></h3>
                 <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
@@ -18,5 +18,36 @@
             </a>        
         </div>
         <div class="clearfix"></div>
-    </div>    
+    </div>
+    <%*
+    <div class="col-md-4 blog blog-start hidden-xs">
+        <%xr_siteCall fn='fe_blog::sc_get_latest_blogentries' var='blogdata'%>
+    
+        <%foreach $blogdata as $k => $v%>
+                
+            <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
+            
+            <a href="<%$detailURL%>">
+                <div class="row" id="post-<%$v.wz_id%>">
+                    <div class="hidden-sm hidden-md hidden-lg col-xl-4 col-xxl-3">
+                        <%xr_imgWrapper s_id=$v['wz_BILD'] w=70 h=85 rmode="cco" class="image"%>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-xl-8 col-xxl-9">
+                        <div class="header-wrapper">
+                            <h3><%$v['wz_HEADLINE']%></h3>
+                            <div class="date"><%$v['wz_DATUM']|date_format:"%d.%m.%Y"%></div> 
+                        </div>
+                        <p class="text"><%$v['wz_TEASERTEXT']%></p>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            
+            <hr/>
+            
+        <%/foreach%>
+        <div class="clearfix"></div>
+    </div>
+    *%>
 </div>

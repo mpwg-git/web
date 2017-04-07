@@ -3,11 +3,20 @@ var fe_redesign = (function() {
         this.init = function() {
         	var me = this;
 
+        	var media_xs = window.matchMedia("(max-width: 529px)");
+        	var media_md = window.matchMedia("(min-width: 530px)");
+
+        	
         	if(P_ID == 25) {
             	var leftRowHeight = $('#main-content .left-row').height() + 50;
             	$('#pw-vergessen').css('height', leftRowHeight);
             	$('#main-content .left-row').css('padding-bottom', '100px');
             }
+        	
+        	if(media_md.matches && P_ID ==46) {
+        		$('.blog-page.default-container-paddingtop > .blog-item').css({'box-shadow': '0 0 5px 5px rgba(100,100,100,0.1)'});
+//        		$('.blog-page.default-container-paddingtop > .blog.blog-start').css('height', centerBoxHeight);
+        	}
 
             $('.cookie-warning-top .closing-icon').on('click', function () {
                 $.post('/xsite/call/fe_cookie/setCookieWarningSeen', '', function (response) {
