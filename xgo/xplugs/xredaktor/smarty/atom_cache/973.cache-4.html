@@ -119,22 +119,35 @@
     								<br>
     								<%xr_translate tag='Dr. Duck kann dir deswegen nicht sagen, wer am besten zu dir passt!'%>
     							</p>
+                                <%if $P_LANG == 'de'%>
+    						   	    <a href="/de/mein-profil#mein-fragebogen">
+    							        <button class="button btn-question-modal">
+    										<%xr_translate tag='Zu den Fragen'%>
+                                        </button>
+    								</a>
+                                <%elseif $P_LANG == 'en'%>
+                                    <a href="/en/mein-profil#mein-fragebogen">
+    							        <button class="button btn-question-modal">
+    										<%xr_translate tag='Zu den Fragen'%>
+                                        </button>
+    							   </a>
+                                <%/if%>
     						</div>
     						<div class="col-xs-6 col-md-4">
     							<div class="col-xs-6 col-md-3">
-    							<%if $P_LANG == 'de'%>
-    						   	<a href="/de/mein-profil/wg-test">
-    									<div class="mheader-stoerer">
-    										<span><%xr_translate tag='Zu den Fragen'%></span>
-    									</div>
-    								</a>
-                         <%elseif $P_LANG == 'en'%>
-                             <a href="/en/mein-profil/wg-test">
-    							    	<div class="mheader-stoerer">
-    										<span><%xr_translate tag='Zu den Fragen'%></span>
-    									</div>
-    							   </a>
-                         <%/if%>
+    							<!--<%if $P_LANG == 'de'%>-->
+    						 <!--  	    <a href="/de/mein-profil/wg-test">-->
+    							<!--        <button class="button">-->
+    							<!--			<%xr_translate tag='Zu den Fragen'%>-->
+           <!--                             </button>-->
+    							<!--	</a>-->
+           <!--                     <%elseif $P_LANG == 'en'%>-->
+           <!--                         <a href="/en/mein-profil/wg-test">-->
+    							<!--        <button class="button">-->
+    							<!--			<%xr_translate tag='Zu den Fragen'%>-->
+           <!--                             </button>-->
+    							<!--   </a>-->
+           <!--                     <%/if%>-->
     						</div>
     							<div class="col-xs-6 col-md-9">
     								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -159,22 +172,35 @@
     							<p>
     								<%xr_translate tag='Du hast noch nicht alle Fragen vom WG-Test beantwortet. Nimm dir kurz Zeit, damit dich Dr. Duck noch besser matchen kann!'%>
     							</p>
+    							<%if $P_LANG == 'de'%>
+    						   	    <a href="/de/mein-profil#mein-fragebogen">
+    							        <button class="button btn-question-modal">
+    										<%xr_translate tag='Zu den Fragen'%>
+                                        </button>
+    								</a>
+                                <%elseif $P_LANG == 'en'%>
+                                    <a href="/en/mein-profil#mein-fragebogen">
+    							        <button class="button btn-question-modal">
+    										<%xr_translate tag='Zu den Fragen'%>
+                                        </button>
+    							   </a>
+                                <%/if%>
     						</div>
     						<div class="col-xs-6 col-md-4">
     							<div class="col-xs-6 col-md-3">
-    							<%if $P_LANG == 'de'%>
-    						        <a href="/de/mein-profil/wg-test">
-    							        <div class="mheader-stoerer">
-    									    <span><%xr_translate tag='Zu den Fragen'%></span>
-    									</div>
-    							    </a>
-                                <%elseif $P_LANG == 'en'%>
-                                    <a href="/en/mein-profil/wg-test">
-    							    	<div class="mheader-stoerer">
-    								    	<span><%xr_translate tag='Zu den Fragen'%></span>
-    								    </div>
-    							    </a>
-                                <%/if%>
+    							<!--<%if $P_LANG == 'de'%>-->
+    						 <!--       <a href="/de/mein-profil">-->
+    							<!--        <button class="button">-->
+    							<!--		    <span><%xr_translate tag='Zu den Fragen'%></span>-->
+           <!--                             </button>-->
+    							<!--    </a>-->
+           <!--                     <%elseif $P_LANG == 'en'%>-->
+           <!--                         <a href="/en/mein-profil">-->
+    							<!--        <button class="button">-->
+    							<!--	    	<span><%xr_translate tag='Zu den Fragen'%></span>-->
+           <!--                             </button>-->
+    							<!--    </a>-->
+           <!--                     <%/if%>-->
     							</div>
     							<div class="col-xs-6 col-md-9">
     								<button type="button" class="close" data-dismiss="modal" aria-label="Close">

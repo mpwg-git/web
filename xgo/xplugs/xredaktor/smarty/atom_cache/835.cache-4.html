@@ -58,7 +58,7 @@
 }
 #main-content #blog-page-wrapper .blog-page.default-container-paddingtop .blog-item .content.blog-content .text+p {
     color: #646464;
-    font-size: .75em;
+    font-size: .875em;
     font-family: 'NunitoSans-bold';
     width: auto;
     float: left;
@@ -98,7 +98,7 @@
         <%foreach $data as $k => $v%>
             <%xr_siteCall fn='fe_vanityurls::sc_get_blog_detail_url' blogId=$v.wz_id var='detailURL'%>
             <a href="<%$detailURL%>">
-                <div class="blog-item col-md-4" id="post-<%$v.wz_id%>">
+                <div class="blog-item col-md-4 col-xs-12" id="post-<%$v.wz_id%>">
                     <div class="image-wrapper">
                         <%xr_imgWrapper s_id=$v['wz_BILD'] w=240 h=290 rmode="cco" class="image"%>
                     </div>
@@ -113,7 +113,7 @@
                                 <%$categories[$categoryId]['wz_KATEGORIE']%><%if !$smarty.foreach.categoryCheck.last%>,<%/if%>
                             <%/foreach%>
                         </p>
-                        <div class="reporter blog-cat"><%xr_translate tag="mehr"%>...</div>
+                        <div class="reporter blog-cat"><%xr_translate tag="blog-overview_readmore"%>...</div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -139,7 +139,7 @@
                                     <%$categories[$categoryId]['wz_KATEGORIE']%><%if !$smarty.foreach.categoryCheck.last%>,<%/if%>
                                 <%/foreach%>
                             </p>
-                            <div class="reporter blog-cat"><%xr_translate tag="mehr"%>...</div>
+                            <div class="reporter blog-cat"><%xr_translate tag="blog-overview_readmore"%>...</div>
                         </div>
                         <div class="clearfix"></div>
                     </div>

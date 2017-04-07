@@ -57,11 +57,11 @@ blockquote, blockquote .small, blockquote footer, blockquote small {
     margin: 10px 0;
 }
 
-
+/*
 ::-webkit-scrollbar {
 	display: none;
 }
-
+*/
 
 .no-gutter, .no-gutter > [class*='col-'] {
     padding-left:0;
@@ -156,14 +156,6 @@ span.wirklich {
     column-count: 2;
     -webkit-column-count: 2;
     -moz-column-count: 2;
-    
-    // -webkit-columns: 2;
-    // -moz-columns: 2;
-    // columns: 2;
-    
-    // -webkit-column-fill: balance;
-    // -moz-column-fill: balance;
-    // column-fill: balance;
 }
 .col-count-1 {
     column-count: 1;
@@ -184,18 +176,6 @@ span.wirklich {
     margin: 50px 0;
     padding: 20px 25px 50px 25px;
 }
-
-// .ajax-loader {
-//     z-index: 9999;
-//     display: none;
-//     background: rgba(0,0,0,0.8);
-//     width: 100%;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-// }
 
 .left-row {
     .meinprofil-erklaerung {
@@ -543,7 +523,7 @@ span.wirklich {
         font-size: 2.75em;
         color: @turkis;
         text-shadow: 0 1px 0 #fff;
-        opacity: .6;
+        opacity: .8;
 
     }
     .icon-duck {
@@ -558,6 +538,16 @@ span.wirklich {
         font-family: @nunitobold;
         line-height: 1.375em;
         margin: 10px 0;
+    }
+    .button.btn-question-modal {
+        margin: 10px 0;
+        width: 50%;
+        height: 40px;
+        &:hover {
+            background-color: #fff;
+            color: @turkis;
+            text-decoration: none;
+        }
     }
 }
 .modal.fade.in .modal-dialog .modal-content .modal-header>.col-xs-6>.modalh1, .modal.fade.in .modal-dialog .modal-content .modal-header .col-md-4>.modalh1 {
@@ -2908,17 +2898,11 @@ input.form-control {
 	font-family: @nunitoblack;
 }
 
-// .fancybox-slide > #mein-fragebogen {
-//     width: 35vw;
-//     height: 89vh;
-//     bottom: 1vh;
-//     padding: 0;
-//     margin: 0;
-// }
 /**
   *     MEIN FRAGEBOGEN
   *
   */
+
 .fancybox-slide {
     #mein-fragebogen {
         width: 40%;
@@ -2927,7 +2911,7 @@ input.form-control {
         padding: 0;
         margin: 0;
         // transform: scale(1.25);
-        border: 3px solid #04e0d7;
+        border: 3px solid @turkis;
         border-radius: 6px;
         box-shadow: 0 0 1px 4px rgba(4,224,215,0.25);
         
@@ -2947,15 +2931,18 @@ input.form-control {
         }
         
         .fancybox-close-small { 
-            position: fixed; 
+            position: absolute;
             top: 0;
             right: 0;
-            background: none;
+            background: @turkis;
             border: none;
-            
+            border-radius: 0px 0px 0px 10px;
+           
             &:after {
                 font-size: 32px;
                 font-family: @nunitobold;
+                background: transparent;
+                color: #fff;
                 
                 @media @xs {     
                     font-size: 26px;
@@ -2980,6 +2967,7 @@ input.form-control {
         .profile-fragebogen {
             
             word-wrap: break-word;
+            padding-top: 15px;
             
             .form-group {
                 @media @xs {
