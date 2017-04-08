@@ -5,7 +5,13 @@ var fe_redesign = (function() {
 
         	var media_xs = window.matchMedia("(max-width: 529px)");
         	var media_md = window.matchMedia("(min-width: 530px)");
-
+        	
+        	
+        	if(media_md.matches) {
+        		if(P_ID == 11) {
+        			$('body').css({'overflow': 'hidden'});
+        		}
+        	}
         	
         	if(P_ID == 25) {
             	var leftRowHeight = $('#main-content .left-row').height() + 50;
