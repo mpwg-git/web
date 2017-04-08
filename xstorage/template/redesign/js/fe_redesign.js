@@ -4,21 +4,30 @@ var fe_redesign = (function() {
         	var me = this;
 
         	var media_xs = window.matchMedia("(max-width: 529px)");
-        	var media_md = window.matchMedia("(min-width: 530px)");
+        	var media_md 	= window.matchMedia("(min-width: 530px)");
 
         	
-        	/*
-        	 *	infinite scroller
-        	 
-        	var scrollHeight = $(window).height() - $('#main-header').height() - $('footer').height() - 50;
-        	var centerRow = $('div.shadow-box-center.infinite-scroller');
-        	if(P_ID == 11) {
-        		centerRow.css({'height': scrollHeight, 'overflow-y': 'scroll'});
+        	/* set height #main-content */
+        	var mainContent = $('#main-content'); 
+	        	
+	        if(P_ID == 1 || P_ID == 6 || P_ID == 28) {
+	        	$('body').css({'overflow': 'auto'});
+	        }
+        	
+	        
+	        if(media_md.matches)  {
+	        	var mainHeight = $(window).height() - $('header').height() - $('footer').height();
+	        	mainContent.css({'height': mainHeight});
         	}
-        	*/
-        	
-        	
-        	
+        	if(media_xs.matches)  {
+	        	var mainHeight = $(window).height() - $('header').height() - $('footer').height() - $('.mob-sub-nav').height();
+	        	mainContent.css({'height': mainHeight});
+	        	
+	        	if(P_ID == 36) {
+	        		$('body').css({'overflow': 'auto'});
+	        	}
+        	}
+    	
         	
         	
         	if(P_ID == 25) {
@@ -27,7 +36,7 @@ var fe_redesign = (function() {
             	$('#main-content .left-row').css('padding-bottom', '100px');
             }
         	
-        	if(media_md.matches && P_ID ==46) {
+        	if(media_md.matches && P_ID == 46) {
         		$('.blog-page.default-container-paddingtop > .blog-item').css({'box-shadow': '0 0 5px 5px rgba(100,100,100,0.1)'});
 //        		$('.blog-page.default-container-paddingtop > .blog.blog-start').css('height', centerBoxHeight);
         	}
@@ -150,7 +159,7 @@ var fe_redesign = (function() {
  	M O B I L E / subnavi btn actions
  	
  *************************************/
-            if($(window).width() <= 768) {
+            if(media_xs.matches) {
 
 	            var $filter 	=  $('#search-filter');
 	            var $treffer 	=  $('#search-hits');

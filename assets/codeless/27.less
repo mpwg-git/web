@@ -40,7 +40,6 @@
     }
                     
     #main-header {
-
         z-index: 40;
         
         .header-logo {
@@ -281,7 +280,7 @@
         
         
         #frontpage-slider {
-            margin-top: 50px;
+            // margin-top: 50px;
         }
         
         .carousel { 
@@ -1836,7 +1835,7 @@
             color: #fff !important;
         }
     }
-
+    
     footer {
         //padding: 10px 0;
         #main-footer {
@@ -1871,6 +1870,41 @@
             }
         }
     }
+    
+    
+    div#main-content {
+        top: 50px;
+        
+        #search-page {
+            overflow: hidden;
+            top: 40px;
+            
+            #mein-profil {
+                height: 100%;
+                
+                .shadow-box-center {
+                    height: 99%;
+                    
+                    .meinprofil-container {
+                        overflow: hidden;
+                        overflow-y: scroll;
+                        height: 100%;
+                    }
+                }
+            }
+            
+            
+            #search-hits {
+                // top: 15px !important;
+            }
+            
+        }
+        
+    }
+    .endless_scroll_inner_wrap, .endless_scroll_content{
+        height: auto !important;
+    }
+
 }
 
 @media only screen and (max-width: 347px) {
@@ -1882,7 +1916,6 @@
         font-size: .6875em;
     }
 }
-
 
 
 
