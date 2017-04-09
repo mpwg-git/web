@@ -44,6 +44,10 @@ var fe_map = (function() {
 
         this.registerListeners = function() {
             var me = this;
+            
+            var media_xs = window.matchMedia("(max-width: 529px)");
+        	var media_sm = window.matchMedia("(max-width: 768px)");
+        	var media_md = window.matchMedia("(min-width: 769px)");
 
             $('.searchresult-single').unbind("mouseenter");
             $('.searchresult-single').mouseenter(function() {
@@ -74,12 +78,12 @@ var fe_map = (function() {
 
                     fe_map.refreshSearch();
 
-                    if(currentFace == 3)
-                    {
-	                    setTimeout(function(){
-	                    	window.location.reload();
-	                    }, 400);
-                    }
+//                    if(currentFace == 4)
+//                    {
+//	                    setTimeout(function(){
+//	                    	window.location.reload();
+//	                    }, 400);
+//                    }
                 }
             });
             $(".ui-slider-handle:first", "#umkreis-slider").html($("#umkreis-slider").slider("value"));
@@ -121,15 +125,8 @@ var fe_map = (function() {
 
                     $("#slider-range").data('valueab', ui.values[0]);
                     $("#slider-range").data('valuebis', ui.values[1]);
-
+                    
                     fe_map.refreshSearch();
-
-                    if(currentFace == 3)
-                    {
-	                    setTimeout(function(){
-	                    	window.location.reload();
-	                    }, 600);
-                    }
                 }
             });
 
@@ -201,15 +198,69 @@ var fe_map = (function() {
                 }
             });
 
-            $('input[type=radio][name=search-type]').unbind("change");
-            $('input[type=radio][name=search-type]').change(function() {
-                $('input[type=radio][name=search-type]').removeClass("active");
+//            $('input[type=radio][name=search-type]').unbind("change");
+//            $('input[type=radio][name=search-type]').change(function(e) {
+//                e.preventDefault();
+//                me.refreshSearch();
+//            });
 
-// fe_core.showLoader(location.reload(true, fe_core.hideLoader()));
-                me.refreshSearch(window.location.reload());
-
+            
+            $('.searchform-typ-suche').unbind('click tap');
+            $('.searchform-typ-suche').on('click tap', function(e) {
+            	e.preventDefault();
+            	if($('input#typ-suche').hasClass('active')) {
+            		$('input#typ-suche').removeClass('active');
+            		$('input#typ-biete').addClass('active');
+            	}
+            	else {
+            		$('input#typ-suche').addClass('active');
+            		$('input#typ-biete').removeClass('active');
+            	}
+            	if(media_md.matches) {
+            		me.refreshSearch();
+            		fe_core.showLoader();
+            		
+        			setTimeout(function(){ 
+        				fe_core.hideLoader();
+        			}, 800);
+            	}
             });
-
+            $('.searchform-typ-biete').unbind('click tap');
+            $('.searchform-typ-biete').on('click tap', function(e) {
+            	e.preventDefault();
+            	if($('input#typ-biete').hasClass('active')) {
+            		$('input#typ-biete').removeClass('active');
+            		$('input#typ-suche').addClass('active');
+            	}
+            	else {
+            		$('input#typ-biete').addClass('active');
+            		$('input#typ-suche').removeClass('active');
+            	}
+            	if(media_md.matches) {
+            		me.refreshSearch();
+            		fe_core.showLoader();
+            		
+        			setTimeout(function(){ 
+        				fe_core.hideLoader();
+        			}, 800);
+            	}
+            });
+            
+            $('button.refresh-searchlist').unbind('click tap');
+    		$('button.refresh-searchlist').on('click tap', function(e) {
+    			e.preventDefault();
+    			me.refreshSearch();
+    			$('#search-filter').hide().attr("trigger","0");
+    			$('#search-hits').show().css("top", "0");
+    			
+    			fe_core.showLoader();
+    			setTimeout(function(){ 
+    				fe_core.hideLoader();
+    			}, 600);
+    		});	
+            
+            
+           
             $('.js-close-mobile-search').unbind("click");
             $('.js-close-mobile-search').click(function(e) {
 
@@ -280,29 +331,16 @@ var fe_map = (function() {
             var showAllReq = 1;
 
             if (window.location.pathname.indexOf("/de/suche") != 0 && window.location.pathname.indexOf("/en/suche") != 0) {
-                var newLoc = "/de/suche";
+                
+            	var newLoc = "/de/suche";
 
                 if (top.P_LANG == 'en') {
                     newLoc = "/en/suche";
                 }
+                console.log('newLoc: ', newLoc);
                 window.location = newLoc;
             }
-
-            // fix for mobile
-//            if (currentFace != 1) {
-//                fe_core.showLoader();
-//            }
-
-//            fe_core.showLoader();
-
-            var loader = $('.ajax-loader').css('display');
-
-            if(loader == 'none') {
-            	fe_core.showLoader();
-            }
-
-
-
+            
             var searchData = new Object;
 
             if (typeof showAll == "undefined") {
@@ -326,9 +364,13 @@ var fe_map = (function() {
             var selected = $("input[type='radio'][name='search-type']:checked");
             if (selected.length > 0) {
                 selectedVal = selected.val();
+
             } else {
                 selected = $("input[type='radio'][name='search-type'].active");
                 selectedVal = selected.val();
+                
+//                $(this).addClass('active');
+//                console.log('selectedVal: ', selectedVal);
             }
 
             searchData.type = selectedVal;
@@ -352,11 +394,10 @@ var fe_map = (function() {
                     xxx: 'case1'
                 },
                 success: function(response) {
-
                     top.endOfResults = response.endOfResults;
 
-                    fe_core.hideLoader();
                     if (response.success) {
+
                         if ($('.js-replacer-search').length > 0) {
                             $('.js-replacer-search').html(response.html);
                         }
@@ -371,9 +412,7 @@ var fe_map = (function() {
                             me.refreshSearchMobileSpecials(response);
                         }
 
-
                         me.activateEndlessScrolling();
-
 
                         // handle results in map
                         me.updateMapWithResults(response.results);
@@ -521,8 +560,8 @@ var fe_map = (function() {
             if (this.interval) {
                 //console.log("cleared endlesss scroll");
                 clearInterval(this.interval);
-                $('div.middle-row .scrollbarfix').unbind('scroll');
-                $('div.middle-row .scrollbarfix').scrollTop(0);
+                $('div.searchlist').unbind('scroll');
+                $('div.searchlist').scrollTop(0);
             }
 
             // aktiviert endless scroll
@@ -530,12 +569,12 @@ var fe_map = (function() {
 
             //console.log("------------- " + $('.middle-row'));
 
-            this.interval = $('div.middle-row').endlessScroll({
+            this.interval = $('div.searchlist').endlessScroll({
                 //loader: '<div class="loading">loading<div>',
                 //insertBefore: ".js-replacer-search div:first",
 
                 // wo wird inserted => jquery selector
-                insertAfter: "div.middle-row .js-replacer-search .searchresult-single:last",
+                insertAfter: "div.searchlist .js-replacer-search .searchresult-single:last",
                 // wie weit vom bottom weg
                 bottomPixels: 300,
                 //fireOnce: true,
@@ -731,9 +770,9 @@ var fe_map = (function() {
             	inputLng = $('input.location-lng').val();
 
             var myLatLng = new google.maps.LatLng(inputLat, inputLng);
-
+            
             var myRadius = $("#umkreis-slider").data('value');
-
+            
             this.searchMap.map = $el.gmap3('get');
 
             this.searchMap.map.setCenter(myLatLng);

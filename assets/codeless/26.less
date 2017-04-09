@@ -1272,6 +1272,36 @@ button {
                     }
                 }
             }
+            
+            #search-criteria {
+                .button.refresh-searchlist {
+                    height: 45px;
+                    width: auto;
+                    margin: 25px auto 0 auto;
+                    padding: 0 15px;
+                    
+                    .fa.fa-refresh {    
+                        float: left;
+                    
+                        &:before {
+                            content: "\f021";
+                            margin-right: 7px;
+                            font-size: 16px;
+                            
+                            @media @xs {
+                                font-size: 14px;
+                            }
+                        }
+                        
+                        + span {
+                            font-size: 14px;
+                            line-height: 1.1;
+                            font-family: @nunitoextrabold;
+                            float: left;
+                        }
+                    }
+                }
+            }
         }
 
         .shadow-box-center {
@@ -1512,7 +1542,8 @@ button {
                         background-repeat: no-repeat;
                         text-decoration: none;
                         padding: 0;
-                        width: 65%;
+                        width: auto;
+                        max-width: 90%;
 
                         &.svg-chatnachricht {
                             background-image: url(/xstorage/template/redesign/icons/icon-chat.svg);
@@ -2946,13 +2977,13 @@ input.form-control {
                 
                 @media @xs {     
                     font-size: 26px;
-                    background-color: transparent;
-                    color: @turkis;
+                    // background-color: transparent;
+                    // color: @turkis;
                 }
                 @media @sm {     
                     font-size: 26px;
-                    background-color: transparent;
-                    color: @turkis;
+                    // background-color: transparent;
+                    // color: @turkis;
 
                 }
             }

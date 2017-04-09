@@ -753,7 +753,9 @@
         }
 		
 		#search-page {
-		    margin-top: 100px;
+		  //  margin-top: 100px;
+            position: relative;
+            top: 80px;
             
             #search-filter, #search-map-chat .mapcontacts, #search-map-chat .chatcontacts  {
 		        position: relative;
@@ -761,10 +763,11 @@
 		        width: 100%;
 		        margin-bottom: 20px;
 		    }
-            
+           
             #search-hits {
                 // position: absolute;
-                position: relative;
+                // position: relative;
+                // top: 70px;
                 
                 .shadow-box-center {
             
@@ -794,7 +797,7 @@
                                     .btn-wrapper {
                                         padding-top: 0;
                                         padding-left: 0;
-                                        width: 95%;
+                                        width: 100%;
                                     }
                                     .svg-btn-icons {
                                         width: 100%;
@@ -841,7 +844,7 @@
                                     
                                     .matchinginfos {
                                         .prozent, .match {
-                                            font-size: .75em !important;
+                                            font-size: .875em !important;
                                             line-height: 1.2;
                                         }
                                         .prozent:after {
@@ -936,11 +939,20 @@
             }
             .shadow-box-left {
                 
-                #aside-left-search {
-                }
                 .aside-left-search {
                     min-height: 85px;
                     padding: 25px 15px 20px 15px;
+                    
+                        .icon-Close:before {
+                            content: "\e61c";
+                            color: #04e0d7;
+                            top: 10px;
+                            display: inline-block;
+                            position: absolute;
+                            right: 25px;
+                            font-size: 0.75em;
+                            font-weight: bold;
+                        }
                     
                     h1 {
                         font-size: 2.75em;
@@ -1695,6 +1707,14 @@
                         right: 2px;
                         color: @turkis;
                         font-size: .75em;
+                        
+                        .icon-Close {
+                            &:before {
+                                display: inline-block;
+                                font-size: 1.625em;
+                                padding: 2px 2px 0 0;
+                            }
+                        }
                     }
                     .roominfos {
                         padding: 0 20px 0 10px;
@@ -1706,9 +1726,10 @@
                         }
                         .roominfos-left {
                             top: 15px;
+                            left: 5px;
                             
                             .wg-img-wrapper {
-                                width: 100%;
+                                width: 95%;
                                 height: auto;
                                 padding: 10px;
                                 border: 2px solid @turkis;
@@ -1871,6 +1892,20 @@
             }
         }
     }
+    #main-content #search-page .shadow-box-left #search-criteria .button.refresh-searchlist .fa.fa-refresh+span {
+        font-size: 12px;
+    }
+    .fa-refresh:before {
+        font-size: 14px;
+    }
+    #main-content #search-page .shadow-box-left #search-criteria .button.refresh-searchlist,
+    #main-content #search-page .left-row #search-criteria .button.refresh-searchlist {
+        height: 45px;
+        width: auto;
+        margin: 25px auto 0 auto;
+        padding: 0 10px;
+    }
+    
 }
 
 @media only screen and (max-width: 347px) {
