@@ -5,13 +5,13 @@
     <div class="js-chatheader header clearfix">
         
         <a href="<%$data.USER.PROFILE_URL%>" title="<%$data['USER']['wz_VORNAME']%> <%$data['USER']['wz_NACHNAME']%>">
-            
+    
             <h1><%$data['USER']['wz_VORNAME']%>
                 <h3 class="subinfo"><%$data['USER']['wz_NACHNAME']%></h3>
             </h1>
         </a>
         <div class="pull-right" style="padding-top:20px;color:#04e0d7;">
-            <%if $isLoggedIn === true%><a href="<%xr_genlink p_id=7%>"><%else%><a href="<%xr_genlink p_id=1%>"><%/if%>
+            <%if $isLoggedIn === true%><a href="javascript:history.back();"><%else%><a href="<%xr_genlink p_id=1%>"><%/if%>
               <span class="icon-Close"></span>
             </a>
         </div>
