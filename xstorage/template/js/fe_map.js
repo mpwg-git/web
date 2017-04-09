@@ -209,8 +209,7 @@ var fe_map = (function() {
             $('.searchform-typ-suche').on('click tap', function(e) {
             	e.preventDefault();
             	if($('input#typ-suche').hasClass('active')) {
-            		$('input#typ-suche').removeClass('active');
-            		$('input#typ-biete').addClass('active');
+            		$('input#typ-biete').removeClass('active');
             	}
             	else {
             		$('input#typ-suche').addClass('active');
@@ -229,8 +228,7 @@ var fe_map = (function() {
             $('.searchform-typ-biete').on('click tap', function(e) {
             	e.preventDefault();
             	if($('input#typ-biete').hasClass('active')) {
-            		$('input#typ-biete').removeClass('active');
-            		$('input#typ-suche').addClass('active');
+            		$('input#typ-suche').removeClass('active');
             	}
             	else {
             		$('input#typ-biete').addClass('active');

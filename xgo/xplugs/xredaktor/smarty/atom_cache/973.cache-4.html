@@ -1,6 +1,4 @@
 <%$p_id_favsblocked = 11%>
-
-
 <header class="clearfix">
     <div id="main-header" class="no-gutter">
         <div class="col-sm-3 col-xs-7 text-center">
@@ -30,7 +28,14 @@
         			</a>
         			<a href="<%xr_genlink p_id=$p_id_favsblocked filter='FAVS' m_suffix="favourites"%>" class="main-item-wrapper <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>active<%/if%>">
                         <%xr_atom a_id=1021 return=1%>
-                        <span class="text text-uppercase"><%xr_translate tag='nav-loggedin_bewerberliste'%></span>
+                        <%xr_siteCall fn="fe_user::sc_getMyUserType" var="userType"%>
+                        <span class="text text-uppercase">
+                            <%if $userType == 'biete'%>
+                                <%xr_translate tag='nav-loggedin_bewerberliste'%>
+                            <%else%>
+                                <%xr_translate tag='nav-loggedin_merkliste'%>
+                            <%/if%>
+                        </span>                            
                     </a>
         			<a href="<%xr_genlink p_id=$p_id_favsblocked filter='BLOCKED' m_suffix="blocked"%>" class="main-item-wrapper <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'BLOCKED'%>active<%/if%>">
                         <%xr_atom a_id=1022 return=1%>
@@ -69,7 +74,7 @@
         <div class="clearfix"></div>
     </div>
     
-
+<%**********
     <%if $P_ID==11%>
     	<%xr_siteCall fn='fe_matching::sc_checkIfUserHasAnyQuestionAnswered' var='hasQuestionsAnswered'%>
     	<%xr_siteCall fn='fe_matching::sc_checkIfCurrentUserIsInMatchingToDoTable' var='stillToDo'%>
@@ -214,4 +219,8 @@
     		</div>
     	<%/if%>
     <%/if%>
+******%>
+    
 </header>
+
+

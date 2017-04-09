@@ -236,7 +236,7 @@ var fe_redesign = (function() {
 	            	$('.mob-sub-nav').hide();
 	            	$('#mein-profil').css("top", "-50px");
 	            }
-	            if(P_ID == 14) {
+	            if(P_ID == 14 || P_ID == 13) {
 	            	$('.mob-sub-nav').hide();
 	            	$('#search-hits').css("top", "-40px");
 	            }

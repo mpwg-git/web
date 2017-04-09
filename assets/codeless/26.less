@@ -1279,6 +1279,7 @@ button {
                     width: auto;
                     margin: 25px auto 0 auto;
                     padding: 0 15px;
+                    display: inherit;
                     
                     .fa.fa-refresh {    
                         float: left;
@@ -1302,6 +1303,9 @@ button {
                     }
                 }
             }
+        }
+        .shadow-box-left {
+            margin: 0 0 0 14%;
         }
 
         .shadow-box-center {
@@ -1509,7 +1513,7 @@ button {
                     padding-top: 5px;
 
                     .prozent, .match  {
-                        font-size: 1.25em !important;
+                        font-size: 1.5em !important;
                         font-family: @nunitoregular;
                         line-height: 1.5;
                         color: @turkis;
@@ -1651,12 +1655,36 @@ button {
                     padding: 0 10px;
                     margin: 10px 0 0 0;
                 }
+                .drducksays {
+                    color: @turkis;
+                    font-family: @paytoneone;
+                    font-size: 1.125em;
+                    padding-left: 15px;
+                    margin: 10px 0 0 0;
+                    display: block;
+                    text-decoration: underline;
+                }
                 .matching-text {
                     display: block;
                     font-size: .875em;
-                    font-family: 'NunitoSans-regular';
+                    font-family: @nunitoregular;
                     line-height: 1.57142857em;
-                    padding: 5px 0 0 15px;
+                    padding-left: 15px;
+                    
+                    br:nth-child(2n + 2) {
+                        display: none;
+                        
+                        &:after { 
+                            // content: " ";
+                        }
+                    }
+                    &.text-gesamt {
+                        padding-top: 7px; 
+                        > p {
+                            font-family: @nunitoregular;
+                            font-size: 1em;
+                        }
+                    }
                 }
 
                 .fakt {
@@ -1717,6 +1745,7 @@ button {
             .kurzbeschreibung {
                 .profil-container {
                     .fakt {
+                        height: auto;
                         margin-left: 1%;
                         line-height: 1.2;
                         
@@ -1729,7 +1758,7 @@ button {
                     }
                     .map2 {
                         width: 96%;
-                        height: 300px;
+                        height: 400px;
                         display: block;
                         margin: 10px auto;
                         border: 3px solid @turkis;
@@ -1889,9 +1918,30 @@ button {
                             padding: 10px;
                             border: 2px solid @turkis;
                             border-radius: 6px;
+                            text-align: center;
                             
                             .profileimage  {                                
                                 border: none;
+                            }
+                            .room-img-dummy, .room-img-dummy-en {
+                                width: 485px;
+                                height: 316px;
+                                background-color: @lightgray;
+                                
+                                &:after {
+                                    content: " ";
+                                    font-size: 1em;
+                                    font-family: @paytoneone;
+                                    color: @darkgray;
+                                    position: relative;
+                                    top: 50%;
+                                }
+                            }
+                            .room-img-dummy:after {
+                                content: "Kein Bild vorhanden!";
+                            }
+                            .room-img-dummy-en:after{
+                                content: "No picture exists!";
                             }
                         }
                     }
@@ -3233,6 +3283,27 @@ input.form-control {
         }
     }
 }  
+p.no-results.center-block {
+    width: 100%;
+    padding-top: 50px;
+    text-align: left;
+    font-size: 1em;
+    font-family: @nunitobold;
+    position: relative;
+    left: 35%;
+}
+span.no-results-ente {
+    display: block;
+    height: 100%;
+    width: 15%;
+    padding: 10px;
+    float: left;
+    position: relative;
+    top: -40px;
+    left: 15px;
+    margin-right: 15px;
+}
+
 
 
 // CHAT | ui-slider preis | ui-autocomplete (search chatcontacts)

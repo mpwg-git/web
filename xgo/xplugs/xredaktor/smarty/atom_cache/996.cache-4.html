@@ -6,10 +6,12 @@
         <h4 class="headline text-uppercase">Matching Details</h4>
         <hr class="full-width">
         <%if $matching['TEXT']['KATEGORIENBLOCK'] != ''%>
+            <span class="drducksays"><span class="icon-duck"></span> <%xr_translate tag="Dr. Duck Says:"%></span>
+            <span class="matching-text text-gesamt">
+                <%$matching['TEXT']['GESAMT']%>
+            </span>
             <span class="matching-text">
-                <!--<div class="matching-infos-detail">-->
-                        <%$matching['TEXT']['KATEGORIENBLOCK']%>
-                <!--</div>-->
+                <%$matching['TEXT']['KATEGORIENBLOCK']%>
             </span>
         <%/if%>
     </div>

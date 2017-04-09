@@ -39,7 +39,16 @@
                     </div>
                 <%/if%>
     
-            
+                <%if $data.USER.wz_ADRESSE != ''%>
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="Gesuchte Adresse"%></span><span class="info"><%$data.USER.wz_ADRESSE%></span>
+                    </div>
+                
+                    <div class="fakt clearfix">
+                        <span class="aufzaehlung"><%xr_translate tag="Umkreis"%></span><span class="info"><%$data.USER.wz_UMKREIS%>km</span>
+                    </div>
+                <%/if%>
+                
                 <%if $data.USER.wz_ZIMMERGROESSE_VON > 0 && $data.USER.wz_ZIMMERGROESSE_BIS > 0%>
                     <div class="fakt clearfix">
                         <span class="aufzaehlung"><%xr_translate tag="profil-user_zimmgergroesse_von-bis"%></span><span class="info"><%$data.USER.wz_ZIMMERGROESSE_VON%>m² - <%$data.USER.wz_ZIMMERGROESSE_BIS%>m²</span>
@@ -103,6 +112,9 @@
                         <span class="aufzaehlung"><%xr_translate tag="Sprachen"%></span><span class="info"><%$data['PROFILE']['SPRACHEN']%></span>
                     </div>
                 <%/if%>
+                
+                <%*xr_print_r val=$data['USER']*%>
+                
             <!--</div>-->
         </div>
     </div>
