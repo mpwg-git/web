@@ -3,21 +3,7 @@
     <%xr_atom a_id=647 return=1%>
     
     <body>
-        <div class="ajax-loader">
-            <div class="text">
-                <span class="icon-duck"></span>
-                <p>Loading...</p>
-            </div>
-            <div id="fountainG">
-            	<div id="fountainG_1" class="fountainG"><span class="icon-kamm"></span></div>
-            	<div id="fountainG_2" class="fountainG"><span class="icon-klopapier"></span></div>
-            	<div id="fountainG_3" class="fountainG"><span class="icon-foen"></span></div>
-            	<div id="fountainG_4" class="fountainG"><span class="icon-zahnbuerste"></span></div>
-            	<div id="fountainG_5" class="fountainG"><span class="icon-rasierer"></span></div>
-            	<div id="fountainG_6" class="fountainG"><span class="icon-badewanne"></span></div>
-            </div>
-        </div>
-        
+
         <!-- Google Tag Manager (noscript) -->
         <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52J8F5"-->
         <!--height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
@@ -69,5 +55,15 @@
                 var showEmailConfirmMsg = true;
             </script>
         <%/if%>
+        <%if $P_ID == 2%>
+            <style>
+                .middle404container {
+                    position: absolute;
+                    top: 65px;
+                    left: 50px;
+                }
+            </style>
+        <%/if%>
+        
 	</body>
 </html>

@@ -1,16 +1,32 @@
+<%if $theType == 'room'%>
+    <%xr_siteCall fn='fe_user::sc_getUser2RoomState' fUserId=$user['wz_id'] var='roomState'%>
+    <%$stateFav=$roomState['FAV']%>
+    <%$stateBlk=$roomState['BLOCK']%>
+    
+    <%xr_print_r val=$stateFav%>
+    
+<%else%>
+    <%$stateFav=$user['STATE_FAV']%>
+    <%$stateBlk=$user['STATE_BLOCK']%>
+<%/if%>
+
 
 <div class="js-toggle-favourite js-toggle-fade" <%if $data['USER']['wz_TYPE']=='biete'%>data-type="room"<%else%>data-type="<%$theType%>"<%/if%> data-id="<%$userId%>" <%if $addSpecialStyle==1%>style="position: relative;
     z-index: 9; display: inline-block;
     font-size: 2.31vw;"<%/if%>>
     <div class="inactive svg-merkliste" <%if $state == true%>style="display: none;"<%/if%>>
-        <%if $description != ''%>
-            <span class="icon-description"><%xr_translate tag=$description%></span>
-        <%/if%>    
+        <%if $mydata['USER']['wz_TYPE'] == 'suche'%>
+            <span class="icon-description"><%xr_translate tag='Favourite'%></span>
+        <%else%>
+            <span class="icon-description"><%xr_translate tag='profil_aufBewerberliste'%></span>
+        <%/if%>
     </div>
     
     <div class="active svg-merkliste" <%if $state == false%>style="display: none;"<%/if%>>
-		<%if $description != ''%>
-            <span class="icon-description"><%xr_translate tag=$description%></span>
+        <%if $mydata['USER']['wz_TYPE'] == 'suche'%>
+            <span class="icon-description"><%xr_translate tag='Favourite'%></span>
+        <%else%>
+            <span class="icon-description"><%xr_translate tag='profil_aufBewerberliste'%></span>
         <%/if%>
     </div>
     

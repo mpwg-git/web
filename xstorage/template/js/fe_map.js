@@ -77,13 +77,7 @@ var fe_map = (function() {
                     $("#umkreis-slider").data('value', ui.value);
 
                     fe_map.refreshSearch();
-
-//                    if(currentFace == 4)
-//                    {
-//	                    setTimeout(function(){
-//	                    	window.location.reload();
-//	                    }, 400);
-//                    }
+                  
                 }
             });
             $(".ui-slider-handle:first", "#umkreis-slider").html($("#umkreis-slider").slider("value"));
@@ -96,10 +90,7 @@ var fe_map = (function() {
             if ($("#slider-range").data('valuebis') != '') {
                 valueBis = parseInt($("#slider-range").data('valuebis'), 10);
             }
-            // console.log("valueab", valueAb);
-            // console.log("valuebis", valueBis);
-
-
+        
             $('#slider-range').unbind('click');
             $("#slider-range").slider({
             	range: true,
@@ -126,7 +117,16 @@ var fe_map = (function() {
                     $("#slider-range").data('valueab', ui.values[0]);
                     $("#slider-range").data('valuebis', ui.values[1]);
                     
-                    fe_map.refreshSearch();
+                    if(media_sm.matches) {
+                    	fe_map.refreshSearch();
+                    }
+                    if(media_md.matches) {
+                    	fe_map.refreshSearch(fe_core.showLoader());
+                    	
+                    	setTimeout(function(){
+                    		fe_core.hideLoader();
+                    	}, 500);                    	
+                    }
                 }
             });
 
@@ -172,7 +172,6 @@ var fe_map = (function() {
                         // LAST SLIDE:
 
                         if (sliderInstance.numSlides == sliderInstance.currSlideId + 1) {
-                            //console.log('last slide! activating endless scrolling mobile');
                             me.activateEndlessScrollingMobile();
                         }
 
@@ -197,13 +196,6 @@ var fe_map = (function() {
                     me.refreshMapAfterShow();
                 }
             });
-
-//            $('input[type=radio][name=search-type]').unbind("change");
-//            $('input[type=radio][name=search-type]').change(function(e) {
-//                e.preventDefault();
-//                me.refreshSearch();
-//            });
-
             
             $('.searchform-typ-suche').unbind('click tap');
             $('.searchform-typ-suche').on('click tap', function(e) {
@@ -215,15 +207,9 @@ var fe_map = (function() {
             		$('input#typ-suche').addClass('active');
             		$('input#typ-biete').removeClass('active');
             	}
-            	if(media_md.matches) {
-            		me.refreshSearch();
-            		fe_core.showLoader();
-            		
-        			setTimeout(function(){ 
-        				fe_core.hideLoader();
-        			}, 800);
-            	}
+            	me.refreshSearch();
             });
+
             $('.searchform-typ-biete').unbind('click tap');
             $('.searchform-typ-biete').on('click tap', function(e) {
             	e.preventDefault();
@@ -234,27 +220,20 @@ var fe_map = (function() {
             		$('input#typ-biete').addClass('active');
             		$('input#typ-suche').removeClass('active');
             	}
-            	if(media_md.matches) {
-            		me.refreshSearch();
-            		fe_core.showLoader();
-            		
-        			setTimeout(function(){ 
-        				fe_core.hideLoader();
-        			}, 800);
-            	}
+            	me.refreshSearch();
             });
             
             $('button.refresh-searchlist').unbind('click tap');
     		$('button.refresh-searchlist').on('click tap', function(e) {
-    			e.preventDefault();
-    			me.refreshSearch();
-    			$('#search-filter').hide().attr("trigger","0");
-    			$('#search-hits').show().css("top", "0");
+    			e.preventDefault(); 
     			
-    			fe_core.showLoader();
-    			setTimeout(function(){ 
-    				fe_core.hideLoader();
-    			}, 600);
+    			if(media_sm.matches) {
+       				$('#search-filter').hide().attr("trigger","0");
+	    			$('#search-hits').show().css("top", "0");
+    			}
+    			else {    				
+    				window.location.reload(true);
+    			}
     		});	
             
             
@@ -671,7 +650,6 @@ var fe_map = (function() {
             }
 
             console.log("init map");
-//            console.log($("#umkreis-slider").data('value'));
 
             $el.gmap3({
                 map: {

@@ -1010,7 +1010,8 @@ class fe_user
 		
 		//if ($profile === false) return array();
 		
-		$fieldsNull 	= array('wz_MIETE_VON', 'wz_MIETE_BIS', 'wz_WGGROESSE_VON', 'wz_WGGROESSE_BIS', 'wz_ZIMMERGROESSE_VON', 'wz_ZIMMERGROESSE_BIS', 'NEUE_MITBEWOHNER_VON', 'NEUE_MITBEWOHNER_BIS');
+// 		$fieldsNull 	= array('wz_MIETE_VON', 'wz_MIETE_BIS', 'wz_WGGROESSE_VON', 'wz_WGGROESSE_BIS', 'wz_ZIMMERGROESSE_VON', 'wz_ZIMMERGROESSE_BIS', 'NEUE_MITBEWOHNER_VON', 'NEUE_MITBEWOHNER_BIS');
+		$fieldsNull 	= array('wz_MIETE_BIS', 'wz_WGGROESSE_VON', 'wz_WGGROESSE_BIS', 'wz_ZIMMERGROESSE_VON', 'wz_ZIMMERGROESSE_BIS', 'NEUE_MITBEWOHNER_VON', 'NEUE_MITBEWOHNER_BIS');
 		$fieldsDate		= array('wz_ZEITRAUM_VON', 'wz_ZEITRAUM_BIS');
 		
 		// if 0 or not set => unset value

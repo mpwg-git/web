@@ -1,4 +1,4 @@
-
+<%*xr_print_r val=$state*%>
 <div class="js-toggle-blocked js-toggle-fade" <%if $data['USER']['wz_TYPE']=='biete'%>data-type="room"<%else%>data-type="<%$theType%>"<%/if%> data-id="<%$userId%>">
     
     <div class="inactive svg-blockliste" <%if $state == true%>style="display: none;"<%/if%>>

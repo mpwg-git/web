@@ -61,6 +61,8 @@ $(document)
 			registerListeners();
 			$('.datepicker').datepicker({
 				autoclose: true,
+				todayHighlight: true,
+				todayBtn: true,
 				format: 'dd.mm.yyyy',
 				language: 'de-DE',
 				startDate: '-0d',

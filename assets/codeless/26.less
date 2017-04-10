@@ -677,9 +677,11 @@ button {
     }
     
     #pw-vergessen {
+        height: auto;
         
         .register {
-            width: 25%;
+            width: auto;
+            max-width: 80%;
             position: relative;
             left: 5%;
         }
@@ -2417,6 +2419,52 @@ button {
     }
 }
 
+
+
+
+
+
+/* LIGHTBOX */
+.thumbnail {
+    border: none;
+}
+a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
+    border: none;
+    text-decoration: underline;
+}
+
+.input-icon [class*=icon] {
+    position: relative;
+    left: 90%;
+    display: table;
+    cursor: pointer;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: rgba(105,121,135,0.1);
+    background-image: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+
+
+/*
+ * MEIN IDEALES ZIMMER
+ */
 .meinprofil-uebermich-inner, .meinprofil-meinkonto-collapse {
     width: 80%;
     // margin: 0 auto;
@@ -2552,47 +2600,64 @@ button {
     } 
 }
 
-
-
-
-
-
-
-/* LIGHTBOX */
-.thumbnail {
-    border: none;
+.profil-container {
+    .meinprofil-options {
+        input#ZEITRAUM_VON, input#MIETE_VON, input#MIETE_BIS,
+        input#WGGROESSE_VON,input#WGGROESSE_BIS, input#ZIMMERGROESSE_VON,
+        input#ZIMMERGROESSE_BIS {
+            width: 45%;
+            margin: 0 10px 0 0;
+            float: left;
+        }
+        .devider.v-center {
+            display: none;
+            width: 5%;
+            float: left;
+            position: relative;
+            top: 10px;
+        }
+        #form-mein-profil .form-group {
+            margin: 0 0 15px 0;
+            height: 52px;
+        }
+        label {
+            width: 100%;
+            margin: 0;
+        }
+        .label-mitbew, .label-barrierefrei {
+            width: 8.5%;
+        }
+        label.radio.special-label.mitbew-egal.label-mitbew {
+            margin-top: 5px;
+        }   
+        label.radio.special-label.label-barrierefrei {
+            padding-top: 5px;
+            margin: 0 5px 0;
+        }
+    
+        #main-content input.form-control.svg-map-duck.autocomplete-location {
+            width: 93%;
+            margin: 0;
+        }
+        #form-mein-profil-save  {
+            height: 36px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        #form-mein-profil-save-user {
+            margin-top: 16px;
+        }
+        
+        
+        .geschlecht-chooser.geschlecht  .form-group label {
+            width: 28px;
+            margin: 0 5px 0;
+        }
+    }
 }
-a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
-    border: none;
-    text-decoration: underline;
-}
 
-.input-icon [class*=icon] {
-    position: relative;
-    left: 90%;
-    display: table;
-    cursor: pointer;
-}
 
-.form-control {
-    display: block;
-    width: 100%;
-    height: 40px;
-    font-size: 15px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: rgba(105,121,135,0.1);
-    background-image: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
+
 
 
 
@@ -2626,7 +2691,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 #chat-application {
     right: -4px !important;
 }
-/* END CHAT APPLICATIOn */
+/* END CHAT APPLICATION */
 
 
 /**

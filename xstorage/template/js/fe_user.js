@@ -301,8 +301,8 @@ var fe_user = (function() {
                     url: '/xsite/call/fe_user/profileSave',
                     data: data,
                     success: function(data) {
-//                        window.location.href = $('#form-mein-profil-save').data('redirect');
-                    	location.reload();
+                        window.location.href = $('#form-mein-profil-save').data('redirect');
+//                    	location.reload();
 
                     }
                 });
