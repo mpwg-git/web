@@ -1,0 +1,32 @@
+<%xr_feUser action='isLoggedIn' var='isLoggedIn'%>
+<%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
+
+<%if $isLoggedIn%>
+<div id="chatcontacts-page" class="col-xs-12 hidden-md hidden-lg">
+    <div class="chatcontacts js-chatcontacts default-container-paddingtop" trigger="0">
+        <div class="middle-row">
+            <div class="aside-right-chat">
+                    <h1 class="text-uppercase chat"><%xr_translate tag="Chat"%></h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="chat-icon-arrow-down" viewBox="0 0 70 70" data-name="Arrow down" class="hidden-xs">
+                        <defs>
+                            <style>.cls-1{fill:#04e0d7;}</style>
+                        </defs>
+                        <title>icon-arrow-down</title>
+                        <polygon points="34.82 53.1 0.05 21.16 3.48 17.42 34.81 46.2 66.51 16.9 69.95 20.63" class="cls-1"/>
+                    </svg>
+                <form>
+                    <div class="form-group">
+                        <div id="chat-input-search" class="input-icon collapse in">
+                            <input class="form-control js-search-personen" name="date" placeholder="<%xr_translate tag='Personen suchen'%>?"/>
+                            <!--<span class="icon-Lupe"></span>-->
+                            <div class="contacts-wrapper js-chatcontacts-replace">
+                                <%$html%>
+                            </div>
+                		</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>    
+<%/if%>

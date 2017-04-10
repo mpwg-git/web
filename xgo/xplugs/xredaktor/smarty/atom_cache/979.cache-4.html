@@ -1,11 +1,30 @@
+<%$p_id_favsblocked = 11%>
+<%xr_siteCall fn="fe_user::sc_getMyUserType" var="userType"%>
+
 <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out">
-        <li class="<%if $P_ID == 7%>active<%/if%> text-uppercase">
-            <a href="<%xr_genlink p_id=7%>">
+        <a href="<%xr_genlink p_id=7%>">
+            <li class="<%if $P_ID == 7%>active<%/if%> text-uppercase">
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-profil-mann.svg" /></i>
                 <%xr_translate tag="Mein Profil"%>
-            </a>
-        </li>
+            </li>
+        </a>
+        <a href="<%xr_genlink p_id=$p_id_favsblocked filter='FAVS' m_suffix='favourites'%>">
+            <li class="<%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>active<%/if%> text-uppercase">
+                <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-sidenav-fav.svg" /></i>
+                <%if $userType == 'biete'%>
+                                <%xr_translate tag='nav-loggedin_bewerberliste'%>
+                            <%else%>
+                                <%xr_translate tag='nav-loggedin_merkliste'%>
+                            <%/if%>
+            </li>
+        </a>
+        <a href="<%xr_genlink p_id=$p_id_favsblocked filter='BLOCKED' m_suffix='blocked'%>">
+            <li class=" <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'BLOCKED'%>active<%/if%> text-uppercase">
+                <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-sidenav-block.svg" /></i>
+                <%xr_translate tag='nav-loggedin_blockliste'%>
+            </li>
+        </a>
         <!--
         <li class="<%if $P_ID == 11%>active<%/if%>">
             <a href="<%xr_genlink p_id=11%>">
@@ -14,41 +33,41 @@
             </a>
         </li>
         -->
-        <li class="<%if $P_ID == 36%>active<%/if%>">
             <a href="<%xr_genlink p_id=36%>">
+        <li class="<%if $P_ID == 36%>active<%/if%>">
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-blog.svg" /></i>
                 <%xr_translate tag="BLOG"%>
-            </a>
         </li>
-        <li class="<%if $P_ID == 29%>active<%/if%>">
+            </a>
             <a href="<%xr_genlink p_id=29%>">
+        <li class="<%if $P_ID == 29%>active<%/if%>">
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-faq.svg" /></i>
                 <%xr_translate tag="FAQ"%>
-            </a>
         </li>
-        <li class="<%if $P_ID == 37%>active<%/if%>">
+            </a>
             <a href="<%xr_genlink p_id=37%>">
+        <li class="<%if $P_ID == 37%>active<%/if%>">
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-impressum.svg" /></i>
                 <%xr_translate tag="IMPRESSUM"%>
-            </a>
         </li>
-        <li class="<%if $P_ID == 38%>active<%/if%>">
+            </a>
             <a href="<%xr_genlink p_id=38%>">
+        <li class="<%if $P_ID == 38%>active<%/if%>">
                 <i class="icon-sidenav"><span class="icon-agb mpwg-color">§</span></i>
                 <%xr_translate tag="AGB"%>
-            </a>
         </li>
-        <li>
+            </a>
             <a href="mailto:feedback@meineperfektewg.com" class="text-uppercase">
+        <li>
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-feedback.svg" /></i>
                 <%xr_translate tag='Feedback'%>
-            </a>
         </li>
-        <li>
+            </a>
             <a href="<%xr_genlink p_id=28%>" class="text-uppercase">
+        <li>
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-logout.svg" /></i>
                 <%xr_translate tag="Abmelden"%>
-            </a>
         </li>
+            </a>
     </ul>
 </div>

@@ -375,48 +375,22 @@ var fe_user = (function() {
                 var nname = $('input#nachname').val().length;
                 
                 if(vname == 0) {
-                	fe_core.hideLoader();
-                	if(fe_core.getCurrentFace() == 3)
-                	{
-                		$('#VORNAME_error').show();
-                		$('input#vorname').keydown(function(){
-                    		$('#VORNAME_error').hide();
-                		});
-                    	return;
-                	}
-                	else
-                	{
-                		$('#VORNAME_error').show();
-                		$('.profilerstellen').animate({
-                			top: 500
-                        }, 600);
-                		$('input#vorname').keydown(function(){
-                    		$('#VORNAME_error').hide();
-                		});
-                    	return;
-                	}
+                	$('#form-mein-profil-save-user').removeAttr('data-toggle');
+                	$('#VORNAME_error').show();
+                	$('input#vorname').keydown(function(){
+                    	$('#VORNAME_error').hide();
+                    	$('#form-mein-profil-save-user').attr('data-toggle','collapse');
+                	});
+                    return;
                 }
                 else if(nname == 0) {
-                	fe_core.hideLoader();
-                	if(fe_core.getCurrentFace() == 3)
-                	{
-                    	$('#NACHNAME_error').show();
-                    	$('input#nachname').keydown(function(){
-                    		$('#NACHNAME_error').hide();
-                		});
-                    	return;
-                	}
-                	else
-                	{
-                    	$('#NACHNAME_error').show();
-                    	$('.profilerstellen').animate({
-                    		top: 500
-                    	}, 600);
-                		$('input#nachname').keydown(function(){
-                    		$('#NACHNAME_error').hide();
-                		});
-                    	return;
-                	}
+                	$('#form-mein-profil-save-user').removeAttr('data-toggle');
+                    $('#NACHNAME_error').show();
+                    $('input#nachname').keydown(function(){
+                    	$('#NACHNAME_error').hide();
+                    	$('#form-mein-profil-save-user').attr('data-toggle','collapse');
+                	});
+                    return;
                 }
                 
                 

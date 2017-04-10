@@ -4,8 +4,8 @@
 <%xr_siteCall fn="fe_chat::sc_getConversations" var="html"%>
 
 <%* FIX FOR ROOM SHARING *%>
-
-<div class="mapcontacts <%if $P_ID == 10  || $P_ID == 12 || $P_ID == 13 || $P_ID == 7 || $P_ID == 14%>hidden<%/if%>" trigger="0" >
+<%if $isLoggedIn%>
+<div class="mapcontacts <%if $P_ID == 10  || $P_ID == 12 || $P_ID == 13 || $P_ID == 7 || $P_ID == 14 || $P_ID == 16%>hidden<%/if%>" trigger="0" >
     <div class="shadow-box-right">
         <div class="aside-right-map">
             <a href="#map" id="collapse-map" class="icon-arrow-up-down-map" data-toggle="collapse">
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<%if $isLoggedIn%>
+
 <div class="chatcontacts js-chatcontacts default-container-paddingtop" trigger="0">
     <div class="shadow-box-right">
         <div class="aside-right-chat">

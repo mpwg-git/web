@@ -555,15 +555,15 @@ input[type="file"].fileupload {
   border-left: 3px solid @turkis;
   background-color: @darkgray;
 }
-ul#menu-content li:first-child {
+ul#menu-content a:first-child {
   border-top: 1px solid #23282e;
 }
 .nav-side-menu ul .sub-menu li.active,
 .nav-side-menu li .sub-menu li.active {
   color: @turkis;
 }
-.nav-side-menu ul .sub-menu li.active a,
-.nav-side-menu li .sub-menu li.active a {
+.nav-side-menu ul .sub-menu a li.active ,
+.nav-side-menu li .sub-menu a li.active {
   color: @turkis;
 }
 .nav-side-menu ul .sub-menu li,
@@ -597,12 +597,12 @@ ul#menu-content li:first-child {
   text-decoration: none;
   color: #e1ffff;
 }
-.nav-side-menu li.active > a {
+.nav-side-menu a > li.active {
     color: @turkis;
 }
 
 
-.nav-side-menu li a i {
+.nav-side-menu a li i {
   padding-left: 10px;
   width: 20px;
   padding-right: 10px;
@@ -675,7 +675,7 @@ ul#menu-content li:first-child {
     padding: 11px 5px 14px 5px;
 }
 .icon-sidenav > img {
-    margin-top: 3px;
+    margin-top: -3px;
     vertical-align: middle;
 }
 .icon-agb {

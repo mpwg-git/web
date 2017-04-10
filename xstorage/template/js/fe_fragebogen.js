@@ -21,7 +21,7 @@ var fe_fragebogen = (function() {
             	$('.legend-nr2, .legend-nr3').removeClass('active'); 
                 
                 var redirectTo = $(this).data('redirect');
-                var $collection = [];
+                var collection = [];
                 
                 var $checkboxError = false;
                 $('.checkbox-error').hide();
@@ -44,39 +44,33 @@ var fe_fragebogen = (function() {
                     var superwichtig = $('input:checkbox[data-frage="' + id + '"]:checked').length;
 
                     if ((typeof antwort != "undefined" || antwort !== false)) {
-                    	$collection[i] = { id, antwort, superwichtig };
+                    	collection[i] = {id, antwort, superwichtig};
                     } else {
                         return false;
                     }
                 });                
                     
 
-                if ((typeof $collection != "undefined" && $collection != false)) {
+                if ((typeof collection != "undefined" && collection != false)) {
                 	console.log('ajax call collectAnswer')
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_fragebogen/collectAnswer',
                         data:  {
-                        	collection: $collection
+                        	collection: collection
                         },
                         success: function(data) {
-                        	console.log('collectAnswer');
-//                        	$.ajax({
-//                                type: 'POST',
-//                                url: '/xsite/call/fe_matchingNeu/doInstantMatching',
-//                                success: function() {
-//                                	console.log('matching done');
-//                                	$('.ajax-loader').hide();
-//                                }
-//                        	});
-                        	
-                        	setTimeout(function() {
-	                        	var redirectTo = $('.save-profil-fragebogen').data('redirect');
-	                            if (redirectTo != "") {
-	                                window.location.href = redirectTo;
-	                                return;
-	                            }	                    
-                        	}, 0);
+                        	console.log('collectAnswer: ', collection);
+
+                        	var redirectTo = $('.save-profil-fragebogen').data('redirect');
+                        	window.location.href = redirectTo;
+//                        	setTimeout(function() {
+//	                        	var redirectTo = $('.save-profil-fragebogen').data('redirect');
+//	                            if (redirectTo != "") {
+//	                                window.location.href = redirectTo;
+//	                                return;
+//	                            }	                    
+//                        	}, 0);
                         }
                     })
                 }

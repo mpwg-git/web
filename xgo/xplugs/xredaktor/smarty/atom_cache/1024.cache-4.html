@@ -5,15 +5,13 @@
 <%*xr_print_r val=$mapFragenV2*%>
 
 
+
+
 <div id="mein-fragebogen" style="display:none;">
     <div class="col-xs-12 mob-no-gutter">
         <div class="profile-fragebogen text-center">
             <form class="form" id="profile-fragebogen" name="profile-fragebogen">
                 <%foreach $fragen as $k => $v%>
-                
-                <%*xr_print_r val=$v['FRAGE']['wz_NR']*%>
-                <%*xr_print_r val=$antworten*%>
-
                 
                     <div class="fragen-container fragenNR_<%$v['FRAGE']['wz_NR']%>">
                         <input type="hidden" value="<%$v['FRAGE']['wz_id']%>" class="hidden-fragen" />
@@ -40,6 +38,9 @@
                             	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 antwort-value">
                             		<div class="form-group">
                             	    	<div class="radio radio-inline">
+                            	    	    <!--<%xr_print_r val=$antworten[$k]['wz_FRAGEID']%>-->
+                            	    	    <!--<%xr_print_r val=$v['FRAGE']['wz_id']%>-->
+                            	    	    <!--<%xr_print_r val=$antworten[$k]['wz_ANTWORT']%>-->
                             	    	    <label for="antwort1">
                             		        	<input type="radio" <%if $antworten[$k]['wz_FRAGEID'] == $v['FRAGE']['wz_id'] && $antworten[$k]['wz_ANTWORT'] == 1%>checked<%/if%> id="FR<%$v['FRAGE']['wz_id']%>" name="FR<%$v['FRAGE']['wz_id']%>" class="FR<%$v['FRAGE']['wz_id']%> show" value="1" >
                             				</label>

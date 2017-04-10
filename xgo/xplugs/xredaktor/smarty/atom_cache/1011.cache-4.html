@@ -52,7 +52,7 @@
     }
     
     #form-mein-raum .form-group {
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
     #form-mein-raum .form-group .radio.special-label {
         margin: 0 10px 0 0;
@@ -87,13 +87,13 @@
         width: 31%;
         padding: 0 0 0 10px;
     }
-    @media only screen and (min-width: 992px) {
-        textarea#BESCHREIBUNG {
-            height: 40px !important;
-            width: 80%;
-        }
-    }
-    textarea#LAGE, textarea#AUSSTATTUNG {
+    /*@media only screen and (min-width: 992px) {*/
+    /*    textarea#BESCHREIBUNG {*/
+    /*        height: 40px !important;*/
+    /*        width: 80%;*/
+    /*    }*/
+    /*}*/
+    textarea#LAGE, textarea#AUSSTATTUNG, textarea#BESCHREIBUNG {
         width: 100%;
         height: 100px;
     } 
@@ -134,8 +134,6 @@
             
             <%xr_atom a_id=848 return=1 desc='interne beschriftung'%>
             
-            <%xr_atom a_id=854 return=1 desc='beschreibung'%>
-            
             <div class="form-group geschlecht-container">
                 <label style="display:block;"><%xr_translate tag="Gesucht?"%></label>
                 
@@ -156,6 +154,8 @@
                 </label>
             </div>
             
+            <%*xr_print_r val=$data.ROOM*%>
+            
             <div class="form-group unreg-mitbew">
                 <div class="col-count-2">
                     <%xr_atom a_id=856 return=1 desc='unreg mitbewohner F'%>
@@ -170,14 +170,16 @@
             <%xr_atom a_id=872 return=1 desc='zusatzkosten'%>
             <%xr_atom a_id=739 return=1 noEgal=1 desc='abloese'%>
             
-            <div class="dummy hidden-xs hidden-sm"></div>
             <%xr_atom a_id=817 return=1 desc='zimmergroesse'%>
+            <div class="dummy hidden-xs hidden-sm"></div>
             
             
             <%xr_atom a_id=740 return=1 desc='raucher' noEgal=1%>
             <%xr_atom a_id=828 return=1 desc='haustiere' noEgal=1%>
             <%xr_atom a_id=829 return=1 desc='veggie' noEgal=1%>
             <%xr_atom a_id=869 return=1 noEgal=1 desc='barrierefrei'%>
+            <%xr_atom a_id=854 return=1 desc='beschreibung'%>
+            
             <%xr_atom a_id=874 return=1 desc='lage'%>
             <%xr_atom a_id=873 return=1 desc='ausstattung'%>
             <%xr_atom a_id=819 return=1 desc='adresse'%>

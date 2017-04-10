@@ -1,14 +1,6 @@
 <div class="form-group">
     <label><%xr_translate tag="Unregistrierte Frauen in WG?"%>*</label>
     <div class="column-input v-center">
-        <%if $profile.ROOM.wz_lastChanged == $profile.ROOM.wz_created%>
-            <input class="form-control" name="UNREG_F" value="<%$profile['wz_UNREG_F']%>" id="UNREG_F" placeholder="0"   />
-        <%else%>
-            <input class="form-control" name="UNREG_F" value="<%$profile['wz_UNREG_F']%>" id="UNREG_F" placeholder="0" />
-        <%/if%>
-    </div>
-    <div class="error-div" id="UNREG_MB_error">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="error-message"><%xr_translate tag='unreg_mb_error'%></span>
+            <input class="form-control" name="UNREG_F" value="<%$profile['wz_UNREG_F']%>" id="UNREG_F" placeholder="0" required />
     </div>
 </div>

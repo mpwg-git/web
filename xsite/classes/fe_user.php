@@ -663,12 +663,12 @@ class fe_user
 				
 				if($sex == 'M')
 				{
-					$insert['wz_COUNT_MITBEWOHNER_M'] = 1;
+					$insert['wz_UNREG_M'] = 1;
 					$insert['wz_COUNT_MITBEWOHNER'] = 1;
 				}
 				else
 				{
-					$insert['wz_COUNT_MITBEWOHNER_F'] = 1;
+					$insert['wz_UNREG_F'] = 1;
 					$insert['wz_COUNT_MITBEWOHNER'] = 1;
 				}
 				

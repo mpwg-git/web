@@ -21,7 +21,7 @@ class fe_fragebogen
 			return false;
 		}
 		
-		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_ANTWORT, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId ORDER BY wz_id");
+		$res = dbx::queryAll("SELECT wz_FRAGEID, wz_ANTWORT, wz_SUPERWICHTIG FROM wizard_auto_1002 WHERE wz_USERID = $userId  ORDER BY wz_FRAGEID ASC");
 		
 		return $res;
 	}
@@ -43,7 +43,7 @@ class fe_fragebogen
 	{
 		$fragen = array();
 		
-		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' ORDER BY wz_sort ASC");
+		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' ORDER BY wz_id ASC");
 		
 		if($fragen === false || $type === false)
 		{
@@ -55,7 +55,7 @@ class fe_fragebogen
 		foreach ($fragen as $k => $v) {
 			$fid = intval($v['wz_id']);
 			
-			$options = dbx::queryAll("SELECT * FROM wizard_auto_962 WHERE wz_FRAGE_ID = $fid AND wz_del = 'N' AND wz_online = 'Y' ORDER BY wz_sort ASC");
+			$options = dbx::queryAll("SELECT * FROM wizard_auto_962 WHERE wz_FRAGE_ID = $fid AND wz_del = 'N' AND wz_online = 'Y' ORDER BY wz_id ASC");
 			
 			$options = xredaktor_wizards::mapLanguageFieldsToNormFieldsMulti(962, $options);
 			
@@ -89,7 +89,7 @@ class fe_fragebogen
 	{
 		$fragen = array();
 
-		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' AND wz_INIT_FRAGE = 'Y' ORDER BY wz_sort ASC");
+		$fragen = dbx::queryAll("SELECT * FROM wizard_auto_961 WHERE wz_del = 'N' AND wz_online = 'Y' AND wz_INIT_FRAGE = 'Y' ORDER BY wz_id ASC");
 
 		if($fragen === false || $type === false)
 		{
@@ -101,7 +101,7 @@ class fe_fragebogen
 		foreach ($fragen as $k => $v) {
 		    $fid = intval($v['wz_id']);
 
-		    $options = dbx::queryAll("SELECT * FROM wizard_auto_962 WHERE wz_FRAGE_ID = $fid AND wz_del = 'N' AND wz_online = 'Y' ORDER BY wz_sort ASC");
+		    $options = dbx::queryAll("SELECT * FROM wizard_auto_962 WHERE wz_FRAGE_ID = $fid AND wz_del = 'N' AND wz_online = 'Y' ORDER BY wz_id ASC");
 
 		    $options = xredaktor_wizards::mapLanguageFieldsToNormFieldsMulti(962, $options);
 
@@ -120,6 +120,7 @@ class fe_fragebogen
 		$userId				= intval(xredaktor_feUser::getUserId());
 		
 		$ok = false;
+
 		if($collection !== false && is_Array($collection))
 		{
 			foreach ($collection as $k => $v) {
@@ -131,23 +132,21 @@ class fe_fragebogen
 					$wz_ANTWORT		 = intval($v['antwort']);
 					$wz_SUPERWICHTIG = intval($v['superwichtig']);
 					
-					$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $wz_USERID");
+					$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $wz_USERID ORDER BY wz_FRAGEID");
 					
 					if($check == false)
 					{
-						dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
+						$query = dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 					}
 					else
 					{
 						$wz_id = intval($check['wz_id']);
 						
-						dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
+						$query = dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 					}
 				}
 			}
-			
-			// clear previous matching results
-			// fe_matching::clearMatchingResults($userId);
+
 			
 			// clear previous matching results
 			$ok = fe_matching::doInstantMatching($userId);
@@ -160,7 +159,6 @@ class fe_fragebogen
 		else 
 		{
 			frontcontrollerx::json_failure();
-// 			return $ok;
 		}
 		
 	}
