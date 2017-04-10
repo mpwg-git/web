@@ -22,19 +22,20 @@
                         <%xr_translate tag="Profil & Suchkriterien definieren."%>
                     </a>
                 </li>
-               
+
                 <!--<li <%if ($P_ID == 10 && $wgteststate != 1) || $wgteststate == 1 || $wgteststate == 2 || $wgteststate == 0%>class="active"<%/if%>>-->
-                <a data-fancybox data-src="#mein-fragebogen" href="javascript:;" id="fancy-fragebogen">
-                <li class="icon-svg legend-nr2 ">
-                    <%if $wgteststate == 1%>
-                        <a data-fancybox data-src="#mein-fragebogen" href="javascript:;" id="fancy-fragebogen"><%xr_translate tag="Du hast bereits alle WG-Test Fragen beantwortet."%> <%xr_translate tag="Klicke hier, um deine Antworten zu ändern"%></a>
-                    <%else if $wgteststate == 2%>
-                        <!--<a href="<%xr_genlink p_id=10 restart=0%>"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> <%xr_translate tag="WG-Test fortsetzen"%></a>-->
-                        <a data-fancybox data-src="#mein-fragebogen" href="javascript:;" id="fancy-fragebogen"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> </a>
-                    <%else%>
-                         <a data-fancybox data-src="#mein-fragebogen" href="javascript:;" id="fancy-fragebogen"><%xr_translate tag="Beantworte die Fragen, lorem ipsum dolor sit sed. Etiam in nonullum."%></a>
-                    <%/if%>
-                </li>
+               
+                    <a data-fancybox data-src="#mein-fragebogen" href="<%if $P_ID == 30%><%xr_genlink p_id=7%><%else%>javascript:;<%/if%>" id="fancy-fragebogen">
+                    <li class="icon-svg legend-nr2 ">
+                        <%if $wgteststate == 1%>
+                            <a data-fancybox data-src="#mein-fragebogen" href="<%if $P_ID == 30%><%xr_genlink p_id=7%><%else%>javascript:;<%/if%>" id="fancy-fragebogen"><%xr_translate tag="Du hast bereits alle WG-Test Fragen beantwortet."%> <%xr_translate tag="Klicke hier, um deine Antworten zu ändern"%></a>
+                        <%else if $wgteststate == 2%>
+                            <!--<a href="<%xr_genlink p_id=10 restart=0%>"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> <%xr_translate tag="WG-Test fortsetzen"%></a>-->
+                           <a data-fancybox data-src="#mein-fragebogen" href="<%if $P_ID == 30%><%xr_genlink p_id=7%><%else%>javascript:;<%/if%>" id="fancy-fragebogen"><%xr_translate tag="Du hast bereits einige Fragen beantwortet."%> </a>
+                        <%else%>
+                             <a data-fancybox data-src="#mein-fragebogen" href="<%if $P_ID == 30%><%xr_genlink p_id=7%><%else%>javascript:;<%/if%>" id="fancy-fragebogen"><%xr_translate tag="Beantworte die Fragen, lorem ipsum dolor sit sed. Etiam in nonullum."%></a>
+                        <%/if%>
+                    </li>
                 </a>
                 
                 <!--<li <%if $P_ID == 15 || $wgteststate == 1%>class="active"<%/if%>>-->

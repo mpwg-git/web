@@ -532,8 +532,8 @@ var fe_user = (function() {
                 	else
                 	{
                 		picture.guillotine({
-                			width: 500,
-                			height: 326                    		              		
+                			width: 451,
+                			height: 294                    		              		
                 		});	
                 		$('.modal-dialog').css('height', '60%');
                 		

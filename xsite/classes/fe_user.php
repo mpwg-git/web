@@ -23,7 +23,7 @@ class fe_user
 	
 	// defaults bei reg
 	public static $regDefaults = array(
-			'wz_LAND'			=> 1,	// österreich
+// 			'wz_LAND'			=> 1,	// österreich
 			
 			'wz_HAUSTIERE' 	=> 'X',
 			'wz_VEGGIE' 		=> 'X',
