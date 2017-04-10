@@ -1374,6 +1374,9 @@ class fe_room
 			$update['wz_ZEITRAUM_BIS'] = date("Y-m-d", strtotime($update['wz_ZEITRAUM_BIS']));
 		}
 		
+		$update['wz_UNREG_M'] = $userReq['UNREG_M'];
+		$update['wz_UNREG_F'] = $userReq['UNREG_F'];
+		$update['wz_GROESSE'] = $userReq['GROESSE'];
 		
 //		update user	
 		$updateUeberMich = array();

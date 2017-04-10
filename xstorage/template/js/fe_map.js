@@ -75,7 +75,7 @@ var fe_map = (function() {
                 },
                 stop: function(event, ui) {
                     $("#umkreis-slider").data('value', ui.value);
-
+                    fe_map.refreshMapAfterShow();
                     fe_map.refreshSearch();
                   
                 }
@@ -227,12 +227,25 @@ var fe_map = (function() {
     		$('button.refresh-searchlist').on('click tap', function(e) {
     			e.preventDefault(); 
     			
+    			fe_core.showLoader();
+    			
     			if(media_sm.matches) {
+    				fe_core.showLoader();
        				$('#search-filter').hide().attr("trigger","0");
 	    			$('#search-hits').show().css("top", "0");
+	    			window.location.reload(true);
     			}
     			else {    				
-    				window.location.reload(true);
+    	            if (window.location.pathname.indexOf("/de/suche") != 0 && window.location.pathname.indexOf("/en/suche") != 0) {
+    	                
+    	            	var newLoc = "/de/suche";
+
+    	                if (top.P_LANG == 'en') {
+    	                    newLoc = "/en/suche";
+    	                }
+    	                console.log('newLoc: ', newLoc);
+    	                window.location = newLoc;
+    	            }
     			}
     		});	
             

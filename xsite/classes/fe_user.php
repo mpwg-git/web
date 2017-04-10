@@ -32,9 +32,9 @@ class fe_user
 			'wz_RAUCHER'		=> 'X',
 			'wz_BARRIEREFREI' => 'X',
 			
-			'wz_ADRESSE'		=> 'Wien, Österreich',
-			'wz_ADRESSE_LAT' 	=> 48.2081743,
-			'wz_ADRESSE_LNG'	=> 16.3738189,
+// 			'wz_ADRESSE'		=> 'Wien, Österreich',
+// 			'wz_ADRESSE_LAT' 	=> 48.2081743,
+// 			'wz_ADRESSE_LNG'	=> 16.3738189,
 			
 			'wz_MIETE_VON' 	=> 0,
 			'wz_MIETE_BIS' 	=> 1000,
@@ -493,7 +493,7 @@ class fe_user
 		$tmpSearchData['type'] = $user['wz_TYPE'];
 		
 		$searchData = json_encode($tmpSearchData);
-
+		
 		++$counter;
 		dbx::update('wizard_auto_707',array('wz_LOGINCOUNTER'=>$counter, 'wz_SEARCHDATA' => $searchData),array('wz_id'=>$userId));
 		
@@ -527,9 +527,9 @@ class fe_user
 		
 		
 		// 		if($user['wz_ACTIVE'] == 'N')
-			// 		{
-			// 			self::setEmailConfirmMsg();
-			// 		}
+		// 		{
+		// 			self::setEmailConfirmMsg();
+		// 		}
 		
 		dbx::update('wizard_auto_707',array('wz_LASTLOGIN'=>'NOW()'),array('wz_id'=>$userId));
 		
@@ -645,6 +645,9 @@ class fe_user
 		//$myRoomId		= fe_room::getRoomIdByUserId($userId);
 		$myRoomId = intval($params['roomId']);
 		
+		$sex = 'F';
+		$sex = dbx::query("SELECT wz_GESCHLECHT FROM wizard_auto_707 WHERE wz_id = $userId");
+		
 		if (isset($_REQUEST['createNew']) && $_REQUEST['createNew'] == 1)
 		{
 			if ($myRoomId == false)
@@ -657,6 +660,17 @@ class fe_user
 				);
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
+				
+				if($sex == 'M')
+				{
+					$insert['wz_COUNT_MITBEWOHNER_M'] = 1;
+					$insert['wz_COUNT_MITBEWOHNER'] = 1;
+				}
+				else
+				{
+					$insert['wz_COUNT_MITBEWOHNER_F'] = 1;
+					$insert['wz_COUNT_MITBEWOHNER'] = 1;
+				}
 				
 				dbx::insert("wizard_auto_809", $insert);
 				
@@ -1010,7 +1024,7 @@ class fe_user
 		
 		//if ($profile === false) return array();
 		
-// 		$fieldsNull 	= array('wz_MIETE_VON', 'wz_MIETE_BIS', 'wz_WGGROESSE_VON', 'wz_WGGROESSE_BIS', 'wz_ZIMMERGROESSE_VON', 'wz_ZIMMERGROESSE_BIS', 'NEUE_MITBEWOHNER_VON', 'NEUE_MITBEWOHNER_BIS');
+		// 		$fieldsNull 	= array('wz_MIETE_VON', 'wz_MIETE_BIS', 'wz_WGGROESSE_VON', 'wz_WGGROESSE_BIS', 'wz_ZIMMERGROESSE_VON', 'wz_ZIMMERGROESSE_BIS', 'NEUE_MITBEWOHNER_VON', 'NEUE_MITBEWOHNER_BIS');
 		$fieldsNull 	= array('wz_MIETE_BIS', 'wz_WGGROESSE_VON', 'wz_WGGROESSE_BIS', 'wz_ZIMMERGROESSE_VON', 'wz_ZIMMERGROESSE_BIS', 'NEUE_MITBEWOHNER_VON', 'NEUE_MITBEWOHNER_BIS');
 		$fieldsDate		= array('wz_ZEITRAUM_VON', 'wz_ZEITRAUM_BIS');
 		
@@ -1266,7 +1280,7 @@ class fe_user
 		if(isset($_SESSION['DEACTIVATE_ACCOUNT'])) unset($_SESSION['DEACTIVATE_ACCOUNT']);
 		if(isset($_SESSION['ROOM_LISTVIEW'])) unset($_SESSION['ROOM_LISTVIEW']);
 		if(isset($_SESSION['SEARCHLIST'])) unset($_SESSION['SEARCHLIST']);
-
+		
 		fe_cookie::deleteLoginCookie();
 		xredaktor_feUser::doLogout();
 		return self::redirectToLogin(true);
@@ -2780,9 +2794,15 @@ class fe_user
 	
 	public static function ajax_doFacebookLogin()
 	{
-		$fbAuth = self::checkFacebookAuth($_REQUEST['accessToken']);
 		
-		$FACEBOOK_ID 	= trim($_REQUEST['id']);
+		$formdata 	= $_REQUEST['formdata'];
+		$fragebogen = $_REQUEST['fragebogen'];
+		$adresse 	= $_REQUEST['adresse'];
+		$miete 		= intval($_REQUEST['miete']);
+		
+		$fbAuth = self::checkFacebookAuth($formdata['accessToken']);
+		
+		$FACEBOOK_ID 	= trim($formdata['id']);
 		
 		if($FACEBOOK_ID != $fbAuth['id'])
 		{
@@ -2790,20 +2810,20 @@ class fe_user
 			die();
 		}
 		
-		$FACEBOOK_ID 	= dbx::escape($FACEBOOK_ID);
-		$EMAIL			= trim($_REQUEST['email']);
+		$FACEBOOK_ID 		= dbx::escape($FACEBOOK_ID);
+		$EMAIL				= trim($formdata['email']);
 		
-		$VORNAME		= trim($_REQUEST['first_name']);
-		$NACHNAME		= trim($_REQUEST['last_name']);
+		$VORNAME			= trim($formdata['first_name']);
+		$NACHNAME			= trim($formdata['last_name']);
 		
-		$ADRESSE			= trim($_REQUEST['ADRESSE']);
-		$ADRESSE_STRASSE	= trim($_REQUEST['ADRESSE_STRASSE']);
-		$ADRESSE_STRASSE_NR	= trim($_REQUEST['ADRESSE_STRASSE_NR']);
-		$ADRESSE_PLZ		= trim($_REQUEST['ADRESSE_PLZ']);
-		$ADRESSE_STADT		= trim($_REQUEST['ADRESSE_STADT']);
-		$ADRESSE_LAT		= trim($_REQUEST['ADRESSE_LAT']);
-		$ADRESSE_LNG		= trim($_REQUEST['ADRESSE_LNG']);
-		$AGB				= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
+		$ADRESSE			= trim($adresse['ADRESSE']);
+		$ADRESSE_STRASSE	= trim($adresse['ADRESSE_STRASSE']);
+		$ADRESSE_STRASSE_NR	= trim($adresse['ADRESSE_STRASSE_NR']);
+		$ADRESSE_PLZ		= trim($adresse['ADRESSE_PLZ']);
+		$ADRESSE_STADT		= trim($adresse['ADRESSE_STADT']);
+		$ADRESSE_LAT		= trim($adresse['ADRESSE_LAT']);
+		$ADRESSE_LNG		= trim($adresse['ADRESSE_LNG']);
+		$AGB				= trim($formdata['AGB'] == 'on') ? 'on' : 'off';
 		
 		if($AGB == 'off')
 		{
@@ -2811,26 +2831,28 @@ class fe_user
 			die();
 		}
 		
-		$landShort	= dbx::escape(trim($_REQUEST['ADRESSE_LAND']));
+		$landShort	= dbx::escape(trim($adresse['ADRESSE_LAND']));
 		
-		$MIETE_BIS 	= intval($_REQUEST['MIETEMAX']);
+		$MIETE_BIS 	= $miete;
 		
-		$GESCHLECHT = trim($_REQUEST['gender']);
+		$GESCHLECHT = trim($formdata['gender']);
+		
+		$SEX		= (trim($formdata['GENDER']) == 'male') ? 'M' : 'F';
 		
 		$searchData = array(
 				'date'						=> '',
 				'location'	=> array(
-						'ADRESSE_STRASSE' 		=> $_REQUEST['ADRESSE_STRASSE'],
-						'ADRESSE_STRASSE_NR' 	=> $_REQUEST['ADRESSE_STRASSE_NR'],
-						'ADRESSE_PLZ' 			=> $_REQUEST['ADRESSE_PLZ'],
-						'ADRESSE_STADT' 		=> $_REQUEST['ADRESSE_STADT'],
-						'ADRESSE_LAT' 			=> $_REQUEST['ADRESSE_LAT'],
-						'ADRESSE_LNG' 			=> $_REQUEST['ADRESSE_LNG'],
+						'ADRESSE_STRASSE' 		=> $adresse['ADRESSE_STRASSE'],
+						'ADRESSE_STRASSE_NR' 	=> $adresse['ADRESSE_STRASSE_NR'],
+						'ADRESSE_PLZ' 			=> $adresse['ADRESSE_PLZ'],
+						'ADRESSE_STADT' 		=> $adresse['ADRESSE_STADT'],
+						'ADRESSE_LAT' 			=> $adresse['ADRESSE_LAT'],
+						'ADRESSE_LNG' 			=> $adresse['ADRESSE_LNG'],
 				),
-				'adresse'					=> $_REQUEST['ADRESSE'],
-				'price_from'				=> 1,
+				'adresse'					=> $adresse['ADRESSE'],
+				'price_from'				=> 0,
 				'price_to'					=> $MIETE_BIS,
-				'range'						=> 5,
+				'range'						=> 25,
 				'type'						=> 'suche',
 				'filter'					=> ''
 		);
@@ -2863,7 +2885,7 @@ class fe_user
 		
 		if(intval($_REQUEST['p_id']) == 48)
 		{
-			$db_user['wz_TYPE'] 			= 'biete';
+			$db_user['wz_TYPE'] 		= 'biete';
 			$db_user['wz_MIETE_VON'] 	= $MIETE_BIS;
 			$db_user['wz_MIETE_BIS']	= 1000;
 			
@@ -2952,34 +2974,31 @@ class fe_user
 			
 			if($db_user['wz_TYPE'] == 'biete' && $presentEmail === false)
 			{
-				
-				foreach ($_REQUEST['frage'] as $key => $value) {
-					$key 	= intval($key);
-					$value 	= intval($value);
+				foreach ($fragebogen as $value) {
 					
 					if($feu_id > 0)
 					{
-						$wgTest = dbx::query("SELECT * FROM wizard_auto_765 WHERE wz_FRAGE_ID = $key AND wz_USERID = $feu_id");
+						$wz_FRAGEID 	 = intval($value['id']);
+						$wz_USERID 		 = $feu_id;
+						$wz_ANTWORT		 = intval($value['antwort']);
+						$wz_SUPERWICHTIG = intval($value['superwichtig']);
 						
-						$db_frage = array(
-								'wz_FRAGE_ID' 			=> $key,
-								'wz_USERID' 			=> $feu_id,
-								'wz_ANTWORT_BIN' 		=> $value,
-								'wz_ANTWORT_SUCHE' 		=> $value,
-								'wz_ANTWORT_WICHTIG' 	=> 3
-						);
+						$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $feu_id");
 						
-						if($wgTest === false)
+						if($check == false)
 						{
-							dbx::insert('wizard_auto_765',$db_frage);
+							dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 						}
 						else
 						{
-							dbx::update('wizard_auto_765',$db_frage,array('wz_id'=>intval($wgTest['wz_id'])));
+							$wz_id = intval($check['wz_id']);
+							
+							dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 						}
-						
 					}
 				}
+				
+				dbx::query("UPDATE `wizard_auto_707` SET `wz_FRAGEN_V2` = 'Y' WHERE `wz_id` = $feu_id");
 				
 				if($feu_id > 0)
 				{
@@ -2995,12 +3014,12 @@ class fe_user
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
 				
-				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_MIETE'] 				= $MIETE_BIS;
 				$insert['wz_ADRESSE']				= $ADRESSE;
 				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
 				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
 				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
-				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+				$insert['wz_ADRESSE_STADT']			= $ADRESSE_STADT;
 				$insert['wz_ADRESSE_LAND']			= intval($land);
 				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
 				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;
@@ -3058,32 +3077,32 @@ class fe_user
 			xredaktor_feUser::refreshUserdata($feu_id);
 		}
 		
-		foreach ($_REQUEST['frage'] as $key => $value) {
-			$key 	= intval($key);
-			$value 	= intval($value);
+		foreach ($fragebogen as $value) {
 			
 			if($feu_id > 0)
 			{
-				$wgTest = dbx::query("SELECT * FROM wizard_auto_765 WHERE wz_FRAGE_ID = $key AND wz_USERID = $feu_id");
+				$wz_FRAGEID 	 = intval($value['id']);
+				$wz_USERID 		 = $feu_id;
+				$wz_ANTWORT		 = intval($value['antwort']);
+				$wz_SUPERWICHTIG = intval($value['superwichtig']);
 				
-				$db_frage = array(
-						'wz_FRAGE_ID' 			=> $key,
-						'wz_USERID' 			=> $feu_id,
-						'wz_ANTWORT_BIN' 		=> $value,
-						'wz_ANTWORT_SUCHE' 		=> $value,
-						'wz_ANTWORT_WICHTIG' 	=> 3
-				);
+				$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $feu_id");
 				
-				if($wgTest === false)
+				if($check == false)
 				{
-					dbx::insert('wizard_auto_765',$db_frage);
+					dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 				}
 				else
 				{
-					dbx::update('wizard_auto_765',$db_frage,array('wz_id'=>intval($wgTest['wz_id'])));
+					$wz_id = intval($check['wz_id']);
+					
+					dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 				}
 			}
 		}
+		
+		dbx::query("UPDATE `wizard_auto_707` SET `wz_FRAGEN_V2` = 'Y' WHERE `wz_id` = $feu_id");
+		
 		
 		if($feu_id > 0)
 		{
@@ -3100,7 +3119,6 @@ class fe_user
 				
 				$redirectUrl = fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 				
-				// return fe_vanityurls::genUrl_room($LAST_PUBLIC_ROMM_ID);
 			}
 		}
 		
@@ -3110,8 +3128,14 @@ class fe_user
 	
 	public static function ajax_doSimpleLogin()
 	{
-		$EMAIL		= dbx::escape(trim($_REQUEST['v2_EMAIL']));
-		$PASSWORT	= dbx::escape($_REQUEST['v2_PASSWORT']);
+		
+		$fragebogen = $_REQUEST['fragebogen'];
+		$formdata = $_REQUEST['formdata'];
+		$adresse = $_REQUEST['adresse'];
+		$miete = intval($_REQUEST['miete']);
+		
+		$EMAIL		= dbx::escape(trim($formdata['v2_EMAIL']));
+		$PASSWORT	= dbx::escape($formdata['v2_PASSWORT']);
 		
 		/////// USER LOGIN AUS KALT
 		$user		= dbx::query("select * from wizard_auto_707 where wz_EMAIL = '$EMAIL' AND wz_del = 'N' ");
@@ -3135,17 +3159,17 @@ class fe_user
 		}
 		////////
 		
-		$VORNAME					= trim($_REQUEST['VORNAME']);
-		$NACHNAME				= trim($_REQUEST['NACHNAME']);
+		$VORNAME			= trim($formdata['VORNAME']);
+		$NACHNAME			= trim($formdata['NACHNAME']);
 		
-		$ADRESSE					= trim($_REQUEST['ADRESSE']);
-		$ADRESSE_STRASSE		= trim($_REQUEST['ADRESSE_STRASSE']);
-		$ADRESSE_STRASSE_NR	= trim($_REQUEST['ADRESSE_STRASSE_NR']);
-		$ADRESSE_PLZ			= trim($_REQUEST['ADRESSE_PLZ']);
-		$ADRESSE_STADT			= trim($_REQUEST['ADRESSE_STADT']);
-		$ADRESSE_LAT			= trim($_REQUEST['ADRESSE_LAT']);
-		$ADRESSE_LNG			= trim($_REQUEST['ADRESSE_LNG']);
-		$AGB						= (trim($_REQUEST['AGB']) == 'on') ? 'on' : 'off';
+		$ADRESSE			= trim($adresse['ADRESSE']);
+		$ADRESSE_STRASSE	= trim($adresse['ADRESSE_STRASSE']);
+		$ADRESSE_STRASSE_NR	= trim($adresse['ADRESSE_STRASSE_NR']);
+		$ADRESSE_PLZ		= trim($adresse['ADRESSE_PLZ']);
+		$ADRESSE_STADT		= trim($adresse['ADRESSE_STADT']);
+		$ADRESSE_LAT		= trim($adresse['ADRESSE_LAT']);
+		$ADRESSE_LNG		= trim($adresse['ADRESSE_LNG']);
+		$AGB				= trim($formdata['AGB'] == 'on') ? 'on' : 'off';
 		
 		
 		if($AGB == 'off')
@@ -3154,13 +3178,13 @@ class fe_user
 			die();
 		}
 		
+		$landShort	= dbx::escape(trim($adresse['ADRESSE_LAND']));
 		
-		$landShort	= dbx::escape(trim($_REQUEST['ADRESSE_LAND']));
+		$MIETE_BIS 	= $miete;
 		
-		$MIETE_BIS 	= intval($_REQUEST['MIETEMAX']);
+		$GESCHLECHT = trim($formdata['GENDER']);
 		
-		$GESCHLECHT = trim($_REQUEST['GESCHLECHT']);
-		$SEX		= (trim($_REQUEST['GESCHLECHT']) == 'male') ? 'M' : 'F';
+		$SEX		= (trim($formdata['GENDER']) == 'male') ? 'M' : 'F';
 		
 		$checkUser = dbx::query("SELECT * FROM wizard_auto_707 WHERE wz_EMAIL = '$EMAIL' AND wz_online = 'Y' AND wz_del = 'N'");
 		
@@ -3169,19 +3193,19 @@ class fe_user
 			$searchData = array(
 					'date'						=> '',
 					'location'	=> array(
-							'ADRESSE_STRASSE' 		=> $_REQUEST['ADRESSE_STRASSE'],
-							'ADRESSE_STRASSE_NR' 	=> $_REQUEST['ADRESSE_STRASSE_NR'],
-							'ADRESSE_PLZ' 			=> $_REQUEST['ADRESSE_PLZ'],
-							'ADRESSE_STADT' 		=> $_REQUEST['ADRESSE_STADT'],
-							'ADRESSE_LAT' 			=> $_REQUEST['ADRESSE_LAT'],
-							'ADRESSE_LNG' 			=> $_REQUEST['ADRESSE_LNG'],
+							'ADRESSE_STRASSE' 		=> $adresse['ADRESSE_STRASSE'],
+							'ADRESSE_STRASSE_NR' 	=> $adresse['ADRESSE_STRASSE_NR'],
+							'ADRESSE_PLZ' 			=> $adresse['ADRESSE_PLZ'],
+							'ADRESSE_STADT' 		=> $adresse['ADRESSE_STADT'],
+							'ADRESSE_LAT' 			=> $adresse['ADRESSE_LAT'],
+							'ADRESSE_LNG' 			=> $adresse['ADRESSE_LNG'],
 					),
-					'adresse'					=> $_REQUEST['ADRESSE'],
-					'price_from'				=> 1,
+					'adresse'					=> $adresse['ADRESSE'],
+					'price_from'				=> 0,
 					'price_to'					=> $MIETE_BIS,
-					'range'						=> 5,
+					'range'						=> 25,
 					'type'						=> 'suche',
-					'filter'						=> ''
+					'filter'					=> ''
 			);
 			
 			$land		= dbx::queryAttribute("select * from wizard_auto_716 where wz_ISO2 = '$landShort'", "wz_id");
@@ -3246,17 +3270,17 @@ class fe_user
 		$searchData = array(
 				'date'						=> '',
 				'location'	=> array(
-						'ADRESSE_STRASSE' 		=> $_REQUEST['ADRESSE_STRASSE'],
-						'ADRESSE_STRASSE_NR'	=> $_REQUEST['ADRESSE_STRASSE_NR'],
-						'ADRESSE_PLZ' 			=> $_REQUEST['ADRESSE_PLZ'],
-						'ADRESSE_STADT' 		=> $_REQUEST['ADRESSE_STADT'],
-						'ADRESSE_LAT' 			=> $_REQUEST['ADRESSE_LAT'],
-						'ADRESSE_LNG' 			=> $_REQUEST['ADRESSE_LNG'],
+						'ADRESSE_STRASSE' 		=> $adresse['ADRESSE_STRASSE'],
+						'ADRESSE_STRASSE_NR' 	=> $adresse['ADRESSE_STRASSE_NR'],
+						'ADRESSE_PLZ' 			=> $adresse['ADRESSE_PLZ'],
+						'ADRESSE_STADT' 		=> $adresse['ADRESSE_STADT'],
+						'ADRESSE_LAT' 			=> $adresse['ADRESSE_LAT'],
+						'ADRESSE_LNG' 			=> $adresse['ADRESSE_LNG'],
 				),
-				'adresse'					=> $_REQUEST['ADRESSE'],
+				'adresse'					=> $adresse['ADRESSE'],
 				'price_from'				=> 1,
 				'price_to'					=> $MIETE_BIS,
-				'range'						=> 5,
+				'range'						=> 25,
 				'type'						=> $present_SEARCHDATA['type'],
 				'filter'					=> ''
 		);
@@ -3283,6 +3307,7 @@ class fe_user
 		
 		$searchData = json_encode($searchData);
 		
+		
 		dbx::update('wizard_auto_707',array('wz_SEARCHDATA'=>$searchData,'wz_LASTLOGIN'=>'NOW()','wz_VORNAME'=>$VORNAME,'wz_NACHNAME'=>$NACHNAME,'wz_GESCHLECHT'=>$SEX,'wz_AGB_1'=>$AGB),array('wz_id'=>$feu_id));
 		
 		// insert into matching cron
@@ -3290,33 +3315,32 @@ class fe_user
 		
 		xredaktor_feUser::refreshUserdata($feu_id);
 		
-		foreach ($_REQUEST['frage'] as $key => $value) {
-			$key 	= intval($key);
-			$value 	= intval($value);
+		foreach ($fragebogen as $value) {
 			
 			if($feu_id > 0)
 			{
-				$wgTest = dbx::query("SELECT * FROM wizard_auto_765 WHERE wz_FRAGE_ID = $key AND wz_USERID = $feu_id");
+				$wz_FRAGEID 	 = intval($value['id']);
+				$wz_USERID 		 = intval($feu_id);
+				$wz_ANTWORT		 = intval($value['antwort']);
+				$wz_SUPERWICHTIG = intval($value['superwichtig']);
 				
-				$db_frage = array(
-						'wz_FRAGE_ID' 			=> $key,
-						'wz_USERID' 			=> $feu_id,
-						'wz_ANTWORT_BIN' 		=> $value,
-						'wz_ANTWORT_SUCHE' 		=> $value,
-						'wz_ANTWORT_WICHTIG' 	=> 3
-				);
+				$check = dbx::query("SELECT * FROM wizard_auto_1002 WHERE wz_FRAGEID = $wz_FRAGEID AND wz_USERID = $feu_id");
 				
-				if($wgTest === false)
+				if($check == false)
 				{
-					dbx::insert('wizard_auto_765',$db_frage);
+					dbx::query("INSERT INTO wizard_auto_1002 (wz_FRAGEID, wz_USERID, wz_ANTWORT, wz_SUPERWICHTIG) VALUES ($wz_FRAGEID, $wz_USERID, $wz_ANTWORT, $wz_SUPERWICHTIG)");
 				}
 				else
 				{
-					dbx::update('wizard_auto_765',$db_frage,array('wz_id'=>intval($wgTest['wz_id'])));
+					$wz_id = intval($check['wz_id']);
+					
+					dbx::query("UPDATE `wizard_auto_1002` SET `wz_FRAGEID` = '$wz_FRAGEID',`wz_USERID` = '$wz_USERID',`wz_ANTWORT` = '$wz_ANTWORT',`wz_SUPERWICHTIG` = '$wz_SUPERWICHTIG' WHERE `wz_id` = '$wz_id'");
 				}
-				
 			}
 		}
+		
+		dbx::query("UPDATE `wizard_auto_707` SET `wz_FRAGEN_V2` = 'Y' WHERE `wz_id` = $feu_id");
+		
 		
 		$redirectUrl = fe_vanityurls::genUrl_suche();
 		
@@ -3335,12 +3359,12 @@ class fe_user
 				// defaultwerte hinzufügen
 				$insert = array_merge($insert, fe_room::$regDefaults);
 				
-				$insert['wz_MIETE'] 					= $MIETE_BIS;
+				$insert['wz_MIETE'] 				= $MIETE_BIS;
 				$insert['wz_ADRESSE']				= $ADRESSE;
 				$insert['wz_ADRESSE_STRASSE']		= $ADRESSE_STRASSE;
 				$insert['wz_ADRESSE_STRASSE_NR']	= $ADRESSE_STRASSE_NR;
 				$insert['wz_ADRESSE_PLZ']			= $ADRESSE_PLZ;
-				$insert['wz_ADRESSE_STADT']		= $ADRESSE_STADT;
+				$insert['wz_ADRESSE_STADT']			= $ADRESSE_STADT;
 				$insert['wz_ADRESSE_LAND']			= intval($land);
 				$insert['wz_ADRESSE_LAT']			= $ADRESSE_LAT;
 				$insert['wz_ADRESSE_LNG']			= $ADRESSE_LNG;

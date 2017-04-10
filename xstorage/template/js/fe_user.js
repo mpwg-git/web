@@ -318,31 +318,18 @@ var fe_user = (function() {
                 e.preventDefault();
                 $('.ajax-loader').show();
                 var ok = fe_core.jsFormValidation('form-mein-raum');
-                
-//                console.log('submit MEIN RAUM');
-//                console.log('ok?: ', ok)
-                
-                if (typeof ok != "undefined" && ok == true) {
 
-//                	console.log('FORM OK');
+                if (typeof ok != "undefined" && ok == true) {
 
                 	var data = {};
                     data.room = $('#form-mein-raum').serialize();
-                	console.log(data.room);
 
-//                    if(fe_core.getCurrentFace() == 3) {
-//                    	data.ueberMich = $('#form-mein-user').serialize();
-//                	}
-
-//                    data.ueberMich = $('#form-mein-user').serialize();
-                    
                     $.ajax({
                         type: 'POST',
                         url: '/xsite/call/fe_room/profileSave',
                         data: data,
                         success: function(data) {
                         	$('.ajax-loader').hide();
-//                            window.location.href = $('#form-mein-raum-save').data('redirect');
                         	var redirectTo = $('#form-mein-raum-save').data('redirect');
                             if (redirectTo != "") {
                                 window.location.href = redirectTo;
@@ -1260,11 +1247,11 @@ var fe_user = (function() {
                 	
                     var fotoid = parseInt($('.upload-image.hasImage').attr('data-fotoid'), 10) + 1;
                     
-                	if(fe_core.getCurrentFace() == 3)
+                	if(fe_core.getCurrentFace() == 4)
                 	{
                 		if($('.gui-image-final-form > input#type').val() == 'profile')
                 		{
-                			$('.profileimage.mCS_img_loaded').attr('src', newSrc);
+                			$('.profileimage').attr('src', newSrc);
                 		}
                 		else
                 		{

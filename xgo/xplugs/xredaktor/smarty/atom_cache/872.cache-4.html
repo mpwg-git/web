@@ -1,8 +1,8 @@
 <div class="form-group">
-    <label for="zusatzkosten-val"><%xr_translate tag="Zusatzkosten?"%>*</label>
+    <label for="zusatzkosten-val"><%xr_translate tag="Zusatzkosten?"%></label>
     <div class="column-input v-center">
         <%if $data.ROOM.wz_lastChanged == $data.ROOM.wz_created%>
-            <input class="form-control" name="ZUSATZKOSTEN" value="" id="zusatzkosten-val" placeholder="0" />
+            <input class="form-control" name="ZUSATZKOSTEN" value="<%$profile['wz_ZUSATZKOSTEN']%>" id="zusatzkosten-val" placeholder="0" />
         <%else%>
             <input class="form-control" name="ZUSATZKOSTEN" value="<%$profile['wz_ZUSATZKOSTEN']%>" id="zusatzkosten-val" placeholder="0"  />
         <%/if%>        
