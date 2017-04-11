@@ -319,7 +319,7 @@ var fe_user = (function() {
                 $('.ajax-loader').show();
                 var ok = fe_core.jsFormValidation('form-mein-raum');
 
-                if (typeof ok != "undefined" && ok == true) {
+                if(typeof ok != "undefined" && ok == true) {
 
                 	var data = {};
                     data.room = $('#form-mein-raum').serialize();
@@ -337,13 +337,11 @@ var fe_user = (function() {
                             }
                         }
                     });
-                } else if (!ok) {
+                } else if(!ok) {
                 	
                 	$('.ajax-loader').hide();
                 	
-                	$('.profilerstellen').animate({
-            			top: 1150
-            		}, 600);
+        			$('html,body').animate({scrollTop:0},600);
 
                 	return false;
                 }

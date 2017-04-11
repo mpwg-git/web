@@ -118,6 +118,7 @@ var fe_map = (function() {
                     $("#slider-range").data('valuebis', ui.values[1]);
                     
                     fe_map.refreshSearch();
+                    fe_map.refreshMapAfterShow();
                     
 //                    if(media_sm.matches) {
 //                    	fe_map.refreshSearch();
@@ -322,6 +323,7 @@ var fe_map = (function() {
         this.refreshSearch = function(showAll) {
             var me = this;
             var showAllReq = 1;
+        	fe_map.refreshMapAfterShow();
 
             if (window.location.pathname.indexOf("/de/suche") != 0 && window.location.pathname.indexOf("/en/suche") != 0) {
                 

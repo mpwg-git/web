@@ -14,10 +14,19 @@
                     <%xr_translate tag="AGB"%>
                 </a>
             </label>
-            <div class="error-div" id="agb-accept_error">
+            <div class="error-div fb" id="agb-accept_error">
                 <%xr_translate tag='Bitte akzeptieren Sie die AGB'%>
             </div>
         </div>
+        <%if $P_ID == 47%>
+            <button class="button start-button text-uppercase js-fb-login">
+                <span class="fb-f">f </span><%xr_translate tag='Mit Facebook registrieren'%>
+            </button>
+        <%elseif $P_ID == 48%>
+            <button class="button start-button text-uppercase <%if $smarty.request.h%>fb-login-submit<%else%>js-fb-login<%/if%>">
+                <span class="fb-f">f </span><%xr_translate tag='Mit Facebook registrieren'%>
+            </button>
+        <%/if%>
         <div id="show-simple-login-form" class="accordion-body collapse">
             <div class="accordion-inner">
                 <div class="form-group">
@@ -74,6 +83,7 @@
             </div>
         </div>
     </form>
+<%**
 <%if $P_ID == 47%>
     <button class="button start-button text-uppercase js-fb-login">
         <span class="fb-f">f </span><%xr_translate tag='Mit Facebook registrieren'%>
@@ -83,6 +93,18 @@
         <span class="fb-f">f </span><%xr_translate tag='Mit Facebook registrieren'%>
     </button>
 <%/if%>
+**%>
+    <div class="form-group agb-accept-cbox" style="display: none;">
+        <input type="checkbox" name="AGB" id="agb-accept" rel="required_check">
+        <label for="agb-accept"><%xr_translate tag='ich akzeptiere die'%>
+            <a href="<%xr_genlink p_id=38%>" target="_blank">
+                <%xr_translate tag="AGB"%>
+            </a>
+        </label>
+        <div class="error-div fb" id="agb-accept_error">
+            <%xr_translate tag='Bitte akzeptieren Sie die AGB'%>
+        </div>
+    </div>
     <a data-toggle="collapse" href="#show-simple-login-form">
         <button class="button start-button text-uppercase js-show-reg-form"><%xr_translate tag='Mit eMail adresse registrieren'%></button>
     </a>

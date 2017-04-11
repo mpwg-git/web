@@ -38,7 +38,7 @@ class fe_user
 			
 			'wz_MIETE_VON' 	=> 0,
 			'wz_MIETE_BIS' 	=> 1000,
-			'wz_UMKREIS'		=> 5,
+			'wz_UMKREIS'		=> 50,
 			
 			//'wz_WGGROESSE_VON' => 1,
 			//'wz_WGGROESSE_BIS' => 10,

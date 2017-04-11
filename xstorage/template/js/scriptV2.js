@@ -279,6 +279,18 @@ var simpleLogin = {
 	doSimpleLogin: function () {
 
 		$('.js-simple-login').prop('disabled', false);
+			
+		var ok = fe_core.jsFormValidation('register-adresse');
+		
+//		if (ok) {
+//			ok = simpleLogin.checkVal('MIETEMAX', $('input#MIETEMAX').val()) ? false : true;
+//		}
+		
+		if ((typeof ok != "undefined" && ok == false)) {
+			$('html,body').animate({scrollTop:0},600);
+			return false;
+		}
+		
 		var checkboxError = false;
 		$('.checkbox-error').hide();
 		$(".hidden-fragen").each(function (i, o) {
@@ -290,26 +302,17 @@ var simpleLogin = {
 				checkboxError = true;
 			}
 		});
+		
+		
 		var ok = fe_core.jsFormValidation('wg-zimmer-finden');
 		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
-			$('.sticky-register-konto').animate({
-				scrollTop: $('#wg-zimmer-finden').offset().top
-			}, 500);
+			$('html,body').animate({scrollTop:0},600);
 			return false;
 		}
 		ok = fe_core.jsFormValidation2('wg-zimmer-finden');
 		if ((typeof ok != "undefined" && ok == false) || checkboxError) {
-			$('.sticky-register-konto').animate({
-				scrollTop: $('#wg-zimmer-finden').offset().top
-
-			}, 500);
+			$('html,body').animate({scrollTop:0},400);
 			return false;
-		}
-		if (ok) {
-			ok = simpleLogin.checkVal('ADRESSE', $('input#ADRESSE').val()) ? false : true;
-		}
-		if (ok) {
-			ok = simpleLogin.checkVal('MIETEMAX', $('input#MIETEMAX').val()) ? false : true;
 		}
 		if (ok) {
 			ok = simpleLogin.checkEMail('v2_EMAIL', $('#v2_EMAIL').val()) ? false : true;
@@ -330,6 +333,8 @@ var simpleLogin = {
 		var formdata 	= $('#wg-zimmer-finden').serializeObject();
 		
 		var fragebogen = [];
+		
+		console.log('miete: ', miete);
 		
 		$('#register-fragebogen .hidden-fragen').each(function(i, o) {
 

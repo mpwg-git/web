@@ -940,7 +940,7 @@ button {
                 line-height: 1.1785714285714286em;
             }
             h5 {
-                margin: 0px 0 10px 0px;
+                margin: 20px 0 10px 0;
                 text-transform: uppercase;
                 line-height: 1.1428571428571428em;
             }
@@ -991,6 +991,7 @@ button {
             .radio-inline h5 {
                 margin: 5px 0 0 0;
             }
+            
         }
 
         .register-fragebogen {
@@ -2830,6 +2831,18 @@ footer {
     font-size: 14px;
 }
 
+button.button.start-button.text-uppercase.js-fb-login {
+    // margin-bottom: 40px;    
+}
+div#show-simple-login-form {
+    margin-top: 40px;
+}
+
+
+
+
+
+
 .label-use-cookie {
     font-family: @nunitolight;
 }
@@ -2955,7 +2968,7 @@ input.form-control {
     font-size: 0.9375em;
     color: @turkis;
     background-color: rgba(239, 239, 239, 0.59);
-    margin-bottom: .5em;
+    // margin-bottom: .5em;
     padding: 0 5px;
     border: none;
 }
@@ -3006,6 +3019,7 @@ input.form-control {
 .agb-accept-cbox {
     font-size: 16px;
     margin-top: 20px;
+    margin-bottom: 5px !important;
     
     a {
         text-decoration:underline !important;
@@ -3380,7 +3394,31 @@ span.no-results-ente {
     left: 15px;
     margin-right: 15px;
 }
-
+#EmailConfirmModal {
+    .modal-backdrop.in {
+        z-index:0;
+        
+        .modal-dialog {
+            .modal-content{
+        
+                .modal-header { 
+                    padding-top: 0;
+                }
+                .modal-title {
+                    font-size: 21px;
+                }
+                .modal-body {
+                    > p {
+                        font-size:14px;
+                    }
+                }
+                button, #sendEmailConfirmationAgain {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
 
 
 // CHAT | ui-slider preis | ui-autocomplete (search chatcontacts)

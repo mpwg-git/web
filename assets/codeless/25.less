@@ -137,11 +137,10 @@ input[type="file"].fileupload {
     guillotine crop image css
 */
     #controls {
-        width: 80%;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center; 
+    width: 100%;
+    display: block;
+    text-align: center;
+
         
         button.guillotine {
             width: 10%;
@@ -677,6 +676,9 @@ ul#menu-content a:first-child {
 .icon-sidenav > img {
     margin-top: -3px;
     vertical-align: middle;
+    @media @xs {
+        margin-top: 2px;
+    }
 }
 .icon-agb {
     font-size: 1.75em;

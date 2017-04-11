@@ -6,12 +6,10 @@
         <h5>Ort</h5>
         <form method="post" id="register-adresse">
             <%xr_atom a_id=898 addClass="location-start" return=1%>
+            <h5>Miete maximal</h5>
+            <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" rel="required">
+            <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='reg_error-miete'%></div>
         </form>
-    
-    
-        <h5>Miete maximal</h5>
-        <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" required>
-        <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='reg_error-miete'%></div>
     </div>
 <%elseif $P_ID == 48%>
     <div class="register-wunsch-wg">
@@ -20,12 +18,12 @@
         <h5>Genaue Adresse</h5>
         <form method="post" id="register-adresse">
             <%xr_atom a_id=898 addClass="location-start" return=1%>
-        </form>
         
-        <h5>Miete</h5>
-        <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" required>
-        <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='reg_error-miete'%></div>
-        </div>
+            <h5>Miete</h5>
+            <input type="text" name="MIETEMAX" id="MIETEMAX" value="" placeholder="€?" class="form-control" rel="required">
+            <div class="error-div" id="MIETEMAX_error"><%xr_translate tag='reg_error-miete'%></div>
+            </div>
+        </form>
 <%/if%>
 
 
