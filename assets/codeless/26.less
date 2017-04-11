@@ -508,7 +508,7 @@ span.wirklich {
     filter: alpha(opacity=50);
     opacity: .5;
     height: 10000px !important;
-    z-index: inherit;
+    z-index: 0;
 }
 #noQuestionModal .modal-dialog.noQuestionModal {
     width: 100%;
@@ -3074,7 +3074,12 @@ input.form-control {
   *     MEIN FRAGEBOGEN
   *
   */
-
+    #mein-fragebogen {
+        display: none;
+        @media @xs {
+            display: block !important;
+        }
+    }
 .fancybox-slide {
     #mein-fragebogen {
         width: 40%;
@@ -3086,20 +3091,27 @@ input.form-control {
         border: 3px solid @turkis;
         border-radius: 6px;
         box-shadow: 0 0 1px 4px rgba(4,224,215,0.25);
+        display:none;
         
         input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
             outline: none;
         }
         
         @media @xs { 
-            width: 90%;
+            width: 95%;
             height: 85%;
             bottom: 0;
+            overflow-x: hidden;
+            padding: 0 5px;
+            display: block !important;
         }
         @media @sm { 
-            width: 90%;
+            width: 95%;
             height: 85%;
             bottom: 0;
+            overflow-x: hidden;
+            padding: 0 5px;
+            display: block;
         }
         
         .fancybox-close-small { 

@@ -1,3 +1,6 @@
+<%$p_id_favsblocked = 11%>
+<%xr_siteCall fn="fe_user::sc_getMyUserType" var="userType"%>
+
 <div id="main-content">
     <div id="search-page">
         <div id="search-filter" class="col-lg-3 col-md-3 col-sm-4 col-xs-12 no-gutter mob-no-gutter" trigger="0">
@@ -7,6 +10,33 @@
             </div>
         </div>
         <div id="search-hits" class="col-lg-6 col-md-6 col-sm-5 col-xs-12 no-gutter mob-no-gutter">
+
+            <style>
+                .breadcrumb-block-fav.visible-xs-block {
+                    padding-bottom: 10px;
+                    margin-top: -5px;
+                    font-size: 14px;
+                    font-family: 'NunitoSans-extrabold';
+                    color: #646464;
+                }
+            </style>
+            <%if $P_ID == $p_id_favsblocked && ($smarty.request.filter == 'FAVS' || $smarty.request.filter == 'BLOCKED')%>
+                <div class="breadcrumb-block-fav visible-xs-block text-uppercase">
+                    <%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>
+                        <%if $userType == 'biete'%>
+                            <%xr_translate tag='nav-loggedin_bewerberliste'%>
+                        <%else%>
+                            <%xr_translate tag='nav-loggedin_merkliste'%>
+                        <%/if%>
+                    <%else%>
+                        <%xr_translate tag='nav-loggedin_blockliste'%>
+                    <%/if%>
+                    <a href="<%xr_genlink p_id=11%>" class="visible-xs-block mpwg-color pull-right" style="text-transform: none;">
+                    <span><u><%xr_translate tag='Zurück zur Trefferliste'%></u></span>
+                    </a>
+                </div>
+            <%/if%>
+            
             <div class="shadow-box-center">
                 <!--searchlist-->
                 <%xr_atom a_id=656 return=1%>
@@ -18,55 +48,3 @@
         </div>
     </div>
 </div>
-
-<%***********
-
-<div id="main-content" class="hidden-xs hidden-sm">
-    <div id="search-page">
-        <div id="search-filter" class="col-lg-3 col-md-3 col-sm-4 col-xs-12 no-gutter mob-no-gutter" trigger="0">
-            <div class="shadow-box-left">
-                <!--searchform-->
-                <%xr_atom a_id=655 return=1%>
-            </div>
-        </div>
-        <div id="search-hits" class="col-lg-6 col-md-6 col-sm-5 col-xs-12 no-gutter mob-no-gutter">
-            <div class="shadow-box-center">
-                <!--searchlist-->
-                <%xr_atom a_id=656 return=1%>
-            </div>
-        </div>
-        <div id="search-map-chat" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 no-gutter mob-no-gutter">
-            <!--map rechts (gmap&chat)-->
-            <%xr_atom a_id=832 return=1%>
-        </div>
-    </div>
-</div>
-
-
-<div id="main-content" class="hidden-lg hidden-md">
-    <div id="search-page">
-        <div id="search-hits" class="col-lg-6 col-md-6 col-sm-5 col-xs-12 no-gutter mob-no-gutter">
-            <div class="shadow-box-center">
-                <!--searchlist-->
-                <%xr_atom a_id=656 return=1%>
-            </div>
-        </div>
-        <div id="search-filter" class="col-lg-3 col-md-3 col-sm-4 col-xs-12 no-gutter mob-no-gutter" trigger="0">
-            <div class="shadow-box-left">
-                <!--searchform-->
-                <%xr_atom a_id=655 return=1%>
-            </div>
-        </div>
-        <div id="search-map-chat" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 no-gutter mob-no-gutter">
-            <!--map rechts (gmap&chat)-->
-            <%xr_atom a_id=832 return=1%>
-        </div>
-    </div>
-</div>
-
-**********%>
-
-
-
-
-

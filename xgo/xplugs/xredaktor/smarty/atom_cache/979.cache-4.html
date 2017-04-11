@@ -9,6 +9,12 @@
                 <%xr_translate tag="Mein Profil"%>
             </li>
         </a>
+        <a href="<%xr_genlink p_id=11%>">
+            <li class="text-uppercase">
+                <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-lupe.svg" /></i>
+                <%xr_translate tag="SUCHE"%>
+            </li>
+        </a>
         <a href="<%xr_genlink p_id=$p_id_favsblocked filter='FAVS' m_suffix='favourites'%>">
             <li class="<%if $P_ID == $p_id_favsblocked && $smarty.request.filter == 'FAVS'%>active<%/if%> text-uppercase">
                 <i class="icon-sidenav"><img width="20" src="/xstorage/template/redesign/icons/icon-sidenav-fav.svg" /></i>

@@ -5,6 +5,8 @@
         
 @media only screen and (max-width: 480px) {
     
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
     // h3 { font-size: 1.3125em;  }
     h5, #main-content .register-fragen .register-fragebogen .antwort-headline {
         font-size: .875em;
@@ -163,7 +165,7 @@
             
             button {
                 padding-top: 5px;
-                padding-bottom: 8.5px;
+                padding-bottom: 1px;
                 padding-right: 10px;
             }
             
@@ -768,6 +770,7 @@
                 // position: absolute;
                 // position: relative;
                 // top: 70px;
+   
                 
                 .shadow-box-center {
             
@@ -1354,7 +1357,7 @@
                             }
                             
                             .button {
-                                height: 40px;
+                                height: 36px;
                                 font-size: 0.8125em;
                             }
                             .meinprofil-submenu {
@@ -1947,10 +1950,177 @@
             margin: 0;
             padding: 0 0 15px 0;
         }
-        
     }
     
+    
+    #main-content {
+       
+        #mein-fragebogen {
+            .profile-fragebogen {
+                #profile-fragebogen {
+                    margin: 5px 0 25px 0;
+                    p {
+                        font-size: .75em;
+                    }
+                    h3 {
+                        text-align: center;
+                        &:first-of-type {
+                            padding: 20px 0;
+                        }
+                    }
+                    .fragen-container {
+                        margin: 0;
+                        padding: 0;
+                        &:first-of-type {
+                            margin-top: 0;
+                        }
+                        .frage-headline {
+                            font-size: 1em;
+                            padding: 0 40px;
+                            line-height: 1.2em;
+                        }
+                        .radio.radio-inline {
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                            padding-left: 0;
+                            label {
+                                padding: 0 22px 28px 0 !important;
+                                text-align: center;
+                            }
+                            input {
+                                height: 24px !important;
+                                margin-left: 0;
+                                width: 24px !important;
+                            }
+                        }
+                        .toggle.btn.btn-default.off,
+                        .toggle.btn.btn-primary {
+                            width: 140px !important;
+                            height: 30px !important;
+                            margin-top: 0;
+                        }
+                        label.btn.btn-primary.toggle-on {
+                            margin: 0;
+                            padding-right: 15px;
+                        }
+                        label.btn.btn-default.active.toggle-off {
+                            margin: 0;
+                            padding-left: 15px;
+                        }
+                        .toggle-handle.btn.btn-default {
+                            height: 25px;
+                            width: 25px;
+                            top: 0;
+                            left: 0;
+                        }
+                        .toggle-btn {
+                            color: #fff;
+                            background-color: #fff;
+                            border-color: @turkis;
+                            min-width: 59px;
+                            min-height: 20px;
+                        }
+                        .btn-primary {
+                            color: #fff;
+                            background-color: @turkis;
+                            border-color: @turkis;
+                        }
+                        .btn {
+                            display: inline-block;
+                            padding: 5px;
+                            font-size: .875em;
+                        }
+                        .col-xs-4 {
+                            &.text-right.antwort-left {
+                                width: 29%;
+                            }
+                            &.antwort-value {
+                                width: 42%;
+                            }
+                            &.text-left.antwort-right {
+                                width: 29%;
+                            }
+                        }
+                        .antwort-headline {
+                            font-size: .8125em;
+                            line-height: 1.1em;
+                            margin-bottom: 3px;
+                            margin-top: 6px;
+                        }
+                        .text-right.antwort-left {
+                            padding-left: .5% !important;
+                            padding-right: .5% !important;
+                            p {
+                                font-size: .8125em;
+                            }
+                        }
+                        .text-left.antwort-right {
+                            padding-right: .5% !important;
+                            padding-left: .5% !important;
+                            p {
+                                font-size: .8125em;
+                            }
+                        }
+                        .btn {
+                            display: inline-block;
+                            font-size: 10px;
+                            padding: 5px 13px;
+                        }
+                        .btn-default {
+                            border-color: @turkis;
+                            padding: 7px 0px 0px 13px;
+                        }
+                        .btn-primary {
+                            color: #fff;
+                            background-color: @turkis;
+                            border-color: @turkis;
+                        }
+                        .toggle.btn {
+                            min-width: 59px;
+                            min-height: 20px;
+                        }
+                        .toggle.btn.btn-default.off,
+                        .toggle.btn.btn-primary {
+                            max-width: 110px !important;
+                            max-height: 25px !important;
+                            height: 25px !important;
+                            width: 110px !important;
+                        }
+                        label.btn.btn-default.active.toggle-off {
+                            font-size: 9px;
+                            margin: 0px 0 0 10px;
+                            padding: 6px 0 0 5px;
+                        }
+                        label.btn.btn-primary.toggle-on {
+                            font-size: 9px;
+                            margin: -3px 0 0 -10px;
+                            padding: 9px 15px 0 13px;
+                        }
+                        .btn-primary:hover,
+                        .btn-primary.active.focus,
+                        .btn-primary.active:focus,
+                        .btn-primary.active:hover,
+                        .btn-primary:active.focus,
+                        .btn-primary:active:focus,
+                        .btn-primary:active:hover,
+                        .open > .dropdown-toggle.btn-primary.focus,
+                        .open > .dropdown-toggle.btn-primary:focus,
+                        .open > .dropdown-toggle.btn-primary:hover {
+                            color: #fff;
+                            background-color: @turkis;
+                            border-color: @turkis;
+                        }
+                    }
+                    
+                    button.button.save-profil-fragebogen {
+                        height: 35px;
+                    }
+                }
+            }
+        }
+    }
 }
+
 
 @media only screen and (max-width: 347px) {
     .btn-subnav-chatsearch, .btn-subnav-map, .btn-subnav-filter { 

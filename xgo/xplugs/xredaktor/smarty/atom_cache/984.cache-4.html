@@ -1,14 +1,23 @@
-<%*
+<%xr_siteCall fn="fe_user::getMyData" var="data"%>
+
+<%if !$user%>
+    <%$user = $data['USER']%>
+<%/if%>
+
 <div id="main-content">
     <div class="col-md-3 col-sm-4 hidden-xs hidden-sm">
-        <!--<%xr_atom a_id=982 return=1%>-->
+        <%xr_atom a_id=982 return=1%>
     </div>
     <div class="col-md-6 col-sm-5 col-xs-12 text-center">
+        <div class="icon-close-profile pull-right visible-xs-block">
+            <a href="javascript:history.back();">
+                <span class="icon-Close mpwg-color" style="font-weight: bolder;"></span>
+            </a>
+        </div>
         <h3><%xr_translate tag='reg_suche-h3-fragebogen'%></h3>
         <%xr_atom a_id=1024 type=$data['USER']['wz_TYPE'] return=1%>
     </div>
     <div class="col-md-3 col-sm-3 hidden-xs hidden-sm">
-        <!--<%xr_atom a_id=832 return=1%>-->
+        <%xr_atom a_id=832 return=1%>
     </div>
 </div>
-*%>
